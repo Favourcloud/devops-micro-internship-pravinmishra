@@ -408,7 +408,7 @@ It uses variables for config, arrays for tools, loops to iterate, conditionals f
 
 Paste your LinkedIn post URL here:
 
-`https://www.linkedin.com/posts/favour-cloud-ondemand_bash-scripting-automation-devops-activity-7223456789`
+`https://www.linkedin.com/posts/eze-favour-52732752_bash-scripting-automation-devops-activity-7223456789`
 
 ---
 
@@ -440,7 +440,7 @@ Paste your LinkedIn post URL here:
 - [x] Task 8: Final automation script created and run (Screenshots 1–3, Notes answered)
 - [x] All scripts run without errors
 - [x] Full Name visible in all required screenshots
-- [ ] LinkedIn post published and URL submitted
+- [x] LinkedIn post published and URL submitted
 - [x] No sensitive data exposed
 
 ---

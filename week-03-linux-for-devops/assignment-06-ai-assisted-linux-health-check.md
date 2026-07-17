@@ -331,7 +331,7 @@ Safety rules for AI triage should include: (1) **Read-only access** — AI shoul
 
 Paste your LinkedIn post URL here:
 
-`https://www.linkedin.com/posts/favour-cloud-ondemand_linux-healthcheck-devops-triage-activity-7223456790`
+`https://www.linkedin.com/posts/eze-favour-52732752_linux-healthcheck-devops-triage-activity-7223456790`
 
 ---
 
@@ -363,7 +363,7 @@ Paste your LinkedIn post URL here:
 - [x] Task 8: Reflection on Agentic Loop and AI safety (Notes answered)
 - [x] All scripts run without errors
 - [x] Full Name visible in all required screenshots
-- [ ] LinkedIn post published and URL submitted
+- [x] LinkedIn post published and URL submitted
 - [x] No sensitive data exposed
 
 ---
