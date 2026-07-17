@@ -1,0 +1,128 @@
+=== TASK 1: Healthy Baseline ===
+active
+LISTEN 0      511          0.0.0.0:80        0.0.0.0:*   
+LISTEN 0      511             [::]:80           [::]:*   
+HTTP/1.1 200 OK
+Server: nginx/1.28.3 (Ubuntu)
+Date: Fri, 17 Jul 2026 18:11:04 GMT
+Content-Type: text/html
+Content-Length: 20792
+
+=== WORKSPACE ===
+/home/ubuntu/linux-triage
+.
+
+=== SCRIPT CONTENT ===
+#!/bin/bash
+# Linux Health Check Script - Read-only triage tool
+# Usage: ./linux-health-check.sh
+
+echo "============================================"
+echo "  LINUX HEALTH CHECK - TRIAGE REPORT"
+echo "  $(date)"
+echo "============================================"
+echo ""
+
+# 1. Network Validation
+echo "[NETWORK] IP Addresses:"
+ip a 2>/dev/null | grep "inet " | awk "{print \$2}"
+echo ""
+
+echo "[NETWORK] Listening Ports:"
+ss -tulpen 2>/dev/null | head -20
+echo ""
+
+echo "[NETWORK] Firewall Status:"
+sudo ufw status 2>/dev/null || echo "ufw not available"
+echo ""
+
+# 2. Service Health
+echo "[SERVICE] Nginx Status:"
+systemctl status nginx --no-pager 2>/dev/null | head -15
+echo ""
+
+echo "[SERVICE] Nginx Config Test:"
+sudo nginx -t 2>&1
+echo ""
+
+echo "[SERVICE] Nginx Port 80:"
+ss -lptn "( sport = :80 )" 2>/dev/null
+echo ""
+
+# 3. Log Analysis
+echo "[LOGS] Access Log (last 10):"
+sudo tail -n 10 /var/log/nginx/access.log 2>/dev/null
+echo ""
+
+echo "[LOGS] Error Log (last 10):"
+sudo tail -n 10 /var/log/nginx/error.log 2>/dev/null
+echo ""
+
+echo "[LOGS] Journalctl (last 10):"
+sudo journalctl -u nginx --no-pager -n 10 2>/dev/null
+echo ""
+
+# 4. Resource Monitoring
+echo "[RESOURCES] Uptime:"
+uptime
+echo ""
+
+echo "[RESOURCES] Memory:"
+free -h
+echo ""
+
+echo "[RESOURCES] Disk:"
+df -h / 2>/dev/null
+echo ""
+
+echo "[RESOURCES] Disk Usage /var:"
+sudo du -sh /var/* 2>/dev/null | sort -h | head -10
+echo ""
+
+# 5. Deployment Verification
+echo "[DEPLOY] Web Root Contents:"
+ls -lah /var/www/html/ 2>/dev/null
+echo ""
+
+echo "[DEPLOY] Deployment Signature:"
+grep -R "Deployed by" -n /var/www/html 2>/dev/null | head -5
+echo ""
+
+echo "[DEPLOY] HTTP Response:"
+curl -I http://localhost 2>/dev/null | head -5
+echo ""
+
+echo "============================================"
+echo "  TRIAGE COMPLETE"
+echo "============================================"
+
+=== SKILL.MD ===
+# /linux-triage — Linux Health Check & Incident Triage
+
+## Description
+A read-only Bash script that performs comprehensive health checks on an Ubuntu server running Nginx. Follows the Agentic Loop: Gather → Analyze → Human Act → Verify.
+
+## Safety Rules
+- READ-ONLY: This skill can only run read-only commands
+- NO destructive operations (no rm, kill, shutdown, mkfs, etc.)
+- NO configuration changes
+- Human must approve all recovery actions
+- All commands are logged for audit
+
+## Usage
+```bash
+cd ~/linux-triage && ./linux-health-check.sh
+```
+
+## What It Checks
+1. Network Validation (IP, ports, firewall)
+2. Service Health (Nginx status, config, port binding)
+3. Log Analysis (access log, error log, journalctl)
+4. Resource Monitoring (uptime, memory, disk)
+5. Deployment Verification (web root, signatures, HTTP response)
+
+## Agentic Loop Workflow
+1. GATHER: Run the triage script to collect evidence
+2. ANALYZE: Review the output for anomalies
+3. ACT: Human executes recovery commands
+4. VERIFY: Run triage script again to confirm recovery

