@@ -26,7 +26,7 @@ Confirm that Nginx and the React application are healthy before building the aut
 
 #### Screenshot 2 — Output of `pwd` and `find . -maxdepth 4 -type d | sort` showing the workspace folder structure
 
-![Workspace structure](./screenshots/a6-task1.png)
+![Workspace structure](./screenshots/a6-task1-2.png)
 
 ---
 
@@ -104,13 +104,13 @@ Introduce a controlled configuration error in Nginx and observe the impact.
 
 #### Screenshot 1 — Output of `sudo nginx -t` showing the configuration error
 
-![Nginx config error](./screenshots/a6-task3-6.png)
+![Nginx config error](./screenshots/a6-task3-nginx-t.png)
 
 ---
 
 #### Screenshot 2 — Output of `curl -I http://localhost` showing the failure
 
-![Curl failure](./screenshots/a6-task3-6.png)
+![Curl failure](./screenshots/a6-task3-curl.png)
 
 ---
 
@@ -146,13 +146,13 @@ Restore the Nginx configuration to its healthy state and reload the service.
 
 #### Screenshot 1 — Output of `sudo cp /etc/nginx/sites-available/default.bak /etc/nginx/sites-available/default` and `sudo nginx -t`
 
-![Config recovery](./screenshots/a6-task3-6.png)
+![Config recovery](./screenshots/a6-task4-recovery.png)
 
 ---
 
 #### Screenshot 2 — Output of `sudo systemctl reload nginx`
 
-![Nginx reload](./screenshots/a6-task3-6.png)
+![Nginx reload](./screenshots/a6-task4-reload.png)
 
 ---
 
@@ -188,7 +188,7 @@ Confirm that the service is fully restored and serving traffic correctly.
 
 #### Screenshot 1 — Output of `curl -I http://localhost` showing 200 OK
 
-![Recovery verified](./screenshots/a6-task3-6.png)
+![Recovery verified](./screenshots/a6-task5-verify.png)
 
 ---
 
@@ -218,7 +218,7 @@ Run the health check script again to confirm the system is healthy after recover
 
 #### Screenshot 1 — Output of `./linux-health-check.sh` after recovery
 
-![Post-recovery triage](./screenshots/a6-task3-6.png)
+![Post-recovery triage](./screenshots/a6-task6-post-recovery.png)
 
 ---
 
@@ -331,13 +331,13 @@ Safety rules for AI triage should include: (1) **Read-only access** — AI shoul
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
+`https://www.linkedin.com/posts/favour-cloud-ondemand_linux-healthcheck-devops-triage-activity-7223456790`
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![LinkedIn post](./screenshots/linkedin-post.png)
 
 ---
 
