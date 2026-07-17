@@ -379,7 +379,7 @@ Running unused cloud resources incurs ongoing costs that accumulate over time. F
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
+`https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-aws-ugcPost-7483904325937770497-NIQd/`
 
 ---
 
@@ -407,7 +407,7 @@ Paste your LinkedIn post URL here:
 - [ ] Task 6: Screenshots (nginx -t fail, nginx -t pass, curl recovery) + Notes answered
 - [ ] Task 7: Screenshots (curl failure, curl recovery) + Notes answered
 - [ ] Task 8: Security & Reliability Notes answered
-- [ ] LinkedIn post published and URL submitted
+- [x] LinkedIn post published and URL submitted
 - [ ] Full Name visible in all required screenshots
 - [ ] No sensitive data exposed
 

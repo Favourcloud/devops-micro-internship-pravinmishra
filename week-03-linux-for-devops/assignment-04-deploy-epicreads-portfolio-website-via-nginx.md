@@ -126,7 +126,7 @@ Verify the deployed website and Nginx service are healthy.
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
+`https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-ugcPost-7483907365629620224-zVDP/`
 
 ---
 
@@ -157,7 +157,7 @@ Paste your LinkedIn post URL here:
 - [x] Screenshot 7: Live portfolio website accessible in browser with footer details
 - [x] Screenshot 8: Nginx enabled on boot
 - [x] Screenshot 9: Local HTTP response returns 200 OK
-- [ ] LinkedIn post published and URL submitted
+- [x] LinkedIn post published and URL submitted
 - [x] Full Name visible in all required screenshots
 - [x] No sensitive data exposed
 

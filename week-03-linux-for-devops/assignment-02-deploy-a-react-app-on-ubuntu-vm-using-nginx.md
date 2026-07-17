@@ -142,7 +142,7 @@ Verify the React application is publicly accessible via the server's public IP.
 
 Paste your LinkedIn post URL here:
 
-`__________________________`
+`https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-linux-share-7483645407353544704-8S9_/`
 
 ---
 
@@ -171,7 +171,7 @@ Paste your LinkedIn post URL here:
 - [x] Nginx configured and active (Screenshots 7 & 8)
 - [x] Public IP retrieved (Screenshot 9)
 - [x] React app accessible in browser with personal details visible (Screenshot 10)
-- [ ] LinkedIn post published and URL submitted
+- [x] LinkedIn post published and URL submitted
 - [x] No sensitive data exposed
 
 ---
