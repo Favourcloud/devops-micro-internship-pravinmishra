@@ -20,13 +20,13 @@ Confirm that Nginx and the React application are healthy before building the aut
 
 #### Screenshot 1 — Output of `systemctl is-active nginx`, `ss -ltn | grep ':80'`, and `curl -I http://localhost`
 
-![Healthy baseline](./screenshots/a6-task1-2.png)
+![Healthy baseline](./screenshots/a6-task1.png)
 
 ---
 
 #### Screenshot 2 — Output of `pwd` and `find . -maxdepth 4 -type d | sort` showing the workspace folder structure
 
-![Workspace structure](./screenshots/a6-task1-2.png)
+![Workspace structure](./screenshots/a6-task1.png)
 
 ---
 
@@ -62,13 +62,13 @@ Create a read-only Bash script that performs comprehensive health checks on the 
 
 #### Screenshot 1 — Content of `linux-health-check.sh`
 
-![Triage script content](./screenshots/a6-task1-2.png)
+![Triage script content](./screenshots/a6-task1.png)
 
 ---
 
 #### Screenshot 2 — Output of `./linux-health-check.sh` showing the full triage report
 
-![Triage script output](./screenshots/a6-triage-output.png)
+![Triage script output](./screenshots/a6-task2.png)
 
 ---
 
@@ -104,13 +104,13 @@ Introduce a controlled configuration error in Nginx and observe the impact.
 
 #### Screenshot 1 — Output of `sudo nginx -t` showing the configuration error
 
-![Nginx config error](./screenshots/a6-incident-recovery.png)
+![Nginx config error](./screenshots/a6-task3-6.png)
 
 ---
 
 #### Screenshot 2 — Output of `curl -I http://localhost` showing the failure
 
-![Curl failure](./screenshots/a6-incident-recovery.png)
+![Curl failure](./screenshots/a6-task3-6.png)
 
 ---
 
@@ -146,13 +146,13 @@ Restore the Nginx configuration to its healthy state and reload the service.
 
 #### Screenshot 1 — Output of `sudo cp /etc/nginx/sites-available/default.bak /etc/nginx/sites-available/default` and `sudo nginx -t`
 
-![Config recovery](./screenshots/a6-incident-recovery.png)
+![Config recovery](./screenshots/a6-task3-6.png)
 
 ---
 
 #### Screenshot 2 — Output of `sudo systemctl reload nginx`
 
-![Nginx reload](./screenshots/a6-incident-recovery.png)
+![Nginx reload](./screenshots/a6-task3-6.png)
 
 ---
 
@@ -188,7 +188,7 @@ Confirm that the service is fully restored and serving traffic correctly.
 
 #### Screenshot 1 — Output of `curl -I http://localhost` showing 200 OK
 
-![Recovery verified](./screenshots/a6-incident-recovery.png)
+![Recovery verified](./screenshots/a6-task3-6.png)
 
 ---
 
@@ -218,7 +218,7 @@ Run the health check script again to confirm the system is healthy after recover
 
 #### Screenshot 1 — Output of `./linux-health-check.sh` after recovery
 
-![Post-recovery triage](./screenshots/a6-incident-recovery.png)
+![Post-recovery triage](./screenshots/a6-task3-6.png)
 
 ---
 
