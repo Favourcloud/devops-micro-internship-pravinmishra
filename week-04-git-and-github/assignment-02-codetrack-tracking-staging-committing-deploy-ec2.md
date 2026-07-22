@@ -108,7 +108,7 @@ Follow the instruction comment inside `index.html` to update the Student Name an
 
 #### Screenshot 9 — Browser showing the updated page with your Student Name and Group Name visible
 
-Student Name: **Favour Ojo**, Group: **Group 3** visible in the HTML.
+Student Name: **Favour Eze**, Group: **Group 3** visible in the HTML.
 
 ---
 
