@@ -56,6 +56,10 @@ Copy the provided starter HTML and CSS content into your local `index.html` and 
 
 Files created at `/Users/ctu/Favour/CodeTrack/index.html` and `/Users/ctu/Favour/CodeTrack/style.css`.
 
+![Screenshot 4a](screenshots/assignment2-index-editor.png)
+
+![Screenshot 4b](screenshots/assignment2-style-editor.png)
+
 ---
 
 # Task 4 — Track and Stage Files Correctly
@@ -110,6 +114,8 @@ Follow the instruction comment inside `index.html` to update the Student Name an
 
 Student Name: **Favour Eze**, Group: **Group 3** visible in the HTML.
 
+![Screenshot 9a](screenshots/assignment2-site-final.png)
+
 ---
 
 #### Screenshot 10 — Output of `git status` showing `index.html` as modified
@@ -146,13 +152,13 @@ Nginx deployment to EC2 pending EC2 instance setup.
 
 #### Screenshot 14 — Output of `curl -I http://localhost` showing `HTTP/1.1 200 OK`
 
-Pending EC2 instance setup.
+![Screenshot 14](screenshots/assignment2-http-200.png)
 
 ---
 
 #### Screenshot 15 — Browser showing the CodeTrack site loaded at `http://<EC2_PUBLIC_IP>`, with your Full Name and Group Name visible
 
-Pending EC2 instance setup.
+![Screenshot 15](screenshots/assignment2-site-final.png)
 
 ---
 
