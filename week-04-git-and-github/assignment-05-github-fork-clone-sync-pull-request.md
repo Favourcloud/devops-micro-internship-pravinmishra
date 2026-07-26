@@ -147,7 +147,7 @@ https://github.com/Favourcloud/devops-micro-internship-interviews/pull/new/featu
 
 #### LinkedIn Post URL
 
-`Add your URL here`
+https://www.linkedin.com/in/eze-favour-52732752/
 
 ---
 

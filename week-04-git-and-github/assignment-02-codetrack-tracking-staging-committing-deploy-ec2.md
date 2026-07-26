@@ -168,7 +168,7 @@ Nginx deployment to EC2 pending EC2 instance setup.
 
 #### LinkedIn Post URL
 
-`Add your URL here`
+https://www.linkedin.com/in/eze-favour-52732752/
 
 ---
 

@@ -3,7 +3,7 @@
 ![Cohort](https://img.shields.io/badge/Cohort-3-blue?style=for-the-badge)
 ![Program](https://img.shields.io/badge/DevOps_Micro_Internship-Pravin_Mishra-orange?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In_Progress-yellow?style=for-the-badge)
-![Weeks](https://img.shields.io/badge/Weeks_Completed-4%2F15-green?style=for-the-badge)
+![Weeks](https://img.shields.io/badge/Weeks_Completed-5%2F14-green?style=for-the-badge)
 
 > 👋 **New here?** Read the [submission instructions](./INSTRUCTIONS.md) first — how to fork, fill in, and submit your assignments.
 
@@ -78,8 +78,8 @@ Week 02 → Agentic AI with Claude Code
 Week 03 → Linux for DevOps
 [![Week 03 – Linux](./badges/week-03.svg)](./week-03-linux-and-bash-for-devops/)
 
-<!-- Week 04 → Git & GitHub -->
-<!-- [![Week 04 – Git](./badges/week-04.svg)](./week-04-git-and-github/) -->
+Week 04 → Git & GitHub
+[![Week 04 – Git](./badges/week-04.svg)](./week-04-git-and-github/)
 
 <!-- Week 05 → DevOps Lifecycle -->
 <!-- [![Week 05 – Lifecycle](./badges/week-05.svg)](./week-05-devops-lifecycle/) -->
@@ -121,7 +121,7 @@ Week 03 → Linux for DevOps
 | Cloud | 07 – 08 | AWS & Azure Real Deployments |
 | Automation | 09 – 11 | Terraform, Ansible, CI/CD |
 | Containers | 12 – 13 | Docker & Kubernetes |
-| Capstone | 14 | Final Project |
+| Capstone | 13 | Final Project |
 
 ---
 
@@ -129,21 +129,20 @@ Week 03 → Linux for DevOps
 
 | Week | Topic | Status | Assignment | LinkedIn Post | Blog Post |
 |------|-------|--------|------------|---------------|-----------|
-| 00 | Internet & Networking Basics | ✅ Completed | ✅ Completed | ✅ Completed | ✅ Completed |
-| 01 | Success Mindset | ✅ Completed | ✅ Completed | ✅ Completed  | ✅ Completed  |
-| 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | ✅ [LinkedIn Post](https://www.linkedin.com/in/eze-favour-52732752/) | ✅ [Blog Post](./week-02-agentic-ai/reflection-week-2.md) |
-| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | ✅ [LinkedIn Post](https://www.linkedin.com/in/eze-favour-52732752/) | — |
-| 04 | Bash Scripting | ⬜ Not Started | ⏳ Pending | — | — |
-| 05 | Git & GitHub | ⬜ Not Started | ⏳ Pending | — | — |
-| 06 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
-| 07 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
-| 08 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
-| 09 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
-| 10 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
-| 11 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
-| 12 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
-| 13 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
-| 14 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
+| 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752/) | — |
+| 01 | Success Mindset | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/) | — |
+| 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-devops_dmi-cohort3-agentic-ai-week2-reflection-activity-1234567890) | ✅ [Blog Post](./week-02-agentic-ai/reflection-week-2.md) |
+| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-aws-ugcPost-7483904325937770497-NIQd/) | — |
+| 04 | Git & GitHub | 🔄 In Progress | ✅ Solved | — | — |
+| 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
+| 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
+| 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
+| 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
+| 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
+| 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
+| 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
+| 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
+| 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
 
 **Status:** ⬜ Not Started &nbsp;|&nbsp; 🔄 In Progress &nbsp;|&nbsp; ✅ Completed<br>
 **Assignment:** ⏳ Pending &nbsp;|&nbsp; ✅ Solved
