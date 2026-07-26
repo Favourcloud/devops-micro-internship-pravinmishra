@@ -129,11 +129,11 @@ Week 04 → Git & GitHub
 
 | Week | Topic | Status | Assignment | LinkedIn Post | Blog Post |
 |------|-------|--------|------------|---------------|-----------|
-| 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752/) | — |
-| 01 | Success Mindset | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/) | — |
-| 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-devops_dmi-cohort3-agentic-ai-week2-reflection-activity-1234567890) | ✅ [Blog Post](./week-02-agentic-ai/reflection-week-2.md) |
-| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-aws-ugcPost-7483904325937770497-NIQd/) | — |
-| 04 | Git & GitHub | 🔄 In Progress | ✅ Solved | — | — |
+| 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](LINKEDIN_POST_URL_HERE) | ✅ [Blog Post](./week-00-internet-and-networking/reflection-week-00.md) |
+| 01 | Success Mindset | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/) | ✅ [Blog Post](./week-01-success-mindset/reflection-week-01.md) |
+| 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](LINKEDIN_POST_URL_HERE) | ✅ [Blog Post](./week-02-agentic-ai/reflection-week-2.md) |
+| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-aws-ugcPost-7483904325937770497-NIQd/) | ✅ [Blog Post](./week-03-linux-and-bash-for-devops/reflection-week-03.md) |
+| 04 | Git & GitHub | 🔄 In Progress | ✅ Solved | 🔗 [LinkedIn Post](LINKEDIN_POST_URL_HERE) | ✅ [Blog Post](./week-04-git-and-github/reflection-week-04.md) |
 | 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
 | 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
