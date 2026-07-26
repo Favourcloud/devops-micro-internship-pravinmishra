@@ -22,6 +22,8 @@ Fork `pravinmishraaws/devops-micro-internship-interviews` into your own GitHub a
 
 Fork URL: https://github.com/Favourcloud/devops-micro-internship-interviews
 
+![Screenshot 1](screenshots/assignment5-fork-page.png)
+
 ---
 
 # Task 1 — Authenticate GitHub from the Terminal

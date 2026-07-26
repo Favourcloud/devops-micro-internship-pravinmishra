@@ -85,6 +85,8 @@ The pre-commit hook is located at `hooks/pre-commit` and contains:
 - File size check (>1MB)
 - Color-coded output showing which file was blocked
 
+![Screenshot 2](screenshots/assignment6-hook-test.png)
+
 ---
 
 #### Screenshot 3 — Output of `git config core.hooksPath` confirming it points to `hooks`
