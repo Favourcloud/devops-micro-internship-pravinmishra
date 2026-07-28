@@ -129,11 +129,11 @@ Week 04 → Git & GitHub
 
 | Week | Topic | Status | Assignment | LinkedIn Post | Blog Post |
 |------|-------|--------|------------|---------------|-----------|
-| 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](LINKEDIN_POST_URL_HERE) | ✅ [Blog Post](./week-00-internet-and-networking/reflection-week-00.md) |
-| 01 | Success Mindset | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/) | ✅ [Blog Post](./week-01-success-mindset/reflection-week-01.md) |
-| 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](LINKEDIN_POST_URL_HERE) | ✅ [Blog Post](./week-02-agentic-ai/reflection-week-2.md) |
-| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-aws-ugcPost-7483904325937770497-NIQd/) | ✅ [Blog Post](./week-03-linux-and-bash-for-devops/reflection-week-03.md) |
-| 04 | Git & GitHub | 🔄 In Progress | ✅ Solved | 🔗 [LinkedIn Post](LINKEDIN_POST_URL_HERE) | ✅ [Blog Post](./week-04-git-and-github/reflection-week-04.md) |
+| 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devopsjourney-internshipreload-newweeknewgoals-activity-7396137630893146112-25uv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/reflection-week-00-every-journey-begins-with-understanding-the-basics-da503059977c) |
+| 01 | Success Mindset | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/what-my-version-2-0-looks-like-1726f2ab0d22?sharedUserId=rosenaefavour) |
+| 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-agenticai-claudecode-activity-7481376006981840896-8BIQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/reflection-week-2-the-week-i-stopped-seeing-ai-as-a-tool-and-started-seeing-it-as-a-teammate-by-811d04bc60b0) |
+| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-activity-7483907367227666433-PqVA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | ✅ [Blog Post](./week-03-linux-and-bash-for-devops/reflection-week-03.md) |
+| 04 | Git & GitHub | 🔄 In Progress | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | ✅ [Blog Post](./week-04-git-and-github/reflection-week-04.md) |
 | 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
 | 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |

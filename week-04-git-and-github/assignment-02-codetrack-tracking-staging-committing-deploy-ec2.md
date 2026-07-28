@@ -168,7 +168,7 @@ Nginx deployment to EC2 pending EC2 instance setup.
 
 #### LinkedIn Post URL
 
-https://www.linkedin.com/in/eze-favour-52732752/
+https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
 
 ---
 

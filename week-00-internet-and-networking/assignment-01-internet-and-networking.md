@@ -203,7 +203,7 @@ Add the following credit note at the end of your post:
 Paste your LinkedIn post URL here:
 
 ```text
-https://www.linkedin.com/in/eze-favour-52732752/
+https://www.linkedin.com/posts/eze-favour-52732752_devopsjourney-internshipreload-newweeknewgoals-activity-7396137630893146112-25uv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
 ```
 
 ---

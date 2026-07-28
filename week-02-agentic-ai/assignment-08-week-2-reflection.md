@@ -54,7 +54,7 @@ You can publish your blog on:
 
 Blog Link:
 
-`https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/main/week-02-agentic-ai/reflection-week-2.md`
+`https://medium.com/@rosenaefavour/reflection-week-2-the-week-i-stopped-seeing-ai-as-a-tool-and-started-seeing-it-as-a-teammate-by-811d04bc60b0`
 
 ---
 
@@ -122,7 +122,7 @@ P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by 
 
 ### LinkedIn Post Link:
 
-`https://www.linkedin.com/posts/eze-favour-devops_dmi-cohort3-agentic-ai-week2-reflection-activity-1234567890`
+`https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-agenticai-claudecode-activity-7481376006981840896-8BIQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk`
 
 ---
 

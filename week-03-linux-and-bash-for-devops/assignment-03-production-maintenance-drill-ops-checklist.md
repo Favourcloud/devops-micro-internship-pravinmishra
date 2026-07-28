@@ -379,7 +379,7 @@ Running unused cloud resources incurs ongoing costs that accumulate over time. F
 
 Paste your LinkedIn post URL here:
 
-`https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-aws-ugcPost-7483904325937770497-NIQd/`
+`https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-activity-7483907367227666433-PqVA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk`
 
 ---
 
