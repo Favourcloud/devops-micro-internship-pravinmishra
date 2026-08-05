@@ -22,7 +22,7 @@ Create or access your Jira Cloud account and reach the Jira Software workspace s
 
 Add your screenshot here.
 
----
+---c:\Users\FAVOUR\OneDrive\Pictures\Screenshots\Screenshot Week5 Tak 1 SC1.png
 
 # Task 2 — Verify Your Atlassian Account
 
