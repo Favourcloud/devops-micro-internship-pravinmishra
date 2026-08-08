@@ -20,7 +20,7 @@ Create a private, team-managed Scrum project named `DevOps Micro-Internship Webs
 
 #### Screenshot 1 — Project confirmation or project sidebar showing the project name and key
 
-Add your screenshot here.
+![Screenshot 1 — Project details](./screenshots/Screenshot week5 assign2 task 1.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create the Epic `Polish DMI Website UI & Deploy` to group the website UI and dep
 
 #### Screenshot 2 — Backlog showing the Epic panel enabled and the Epic visible
 
-Add your screenshot here.
+![Screenshot 2 — Epic visible in backlog](./screenshots/Screenshot Week5 assign2 task 2.png)
 
 ---
 
@@ -48,13 +48,13 @@ Create all six required Stories (S1–S6) under the Epic, each with its descript
 
 #### Screenshot 3 — Backlog showing the Epic and all six Stories under it
 
-Add your screenshot here.
+![Screenshot 3 — Backlog with six stories](./screenshots/Screenshot week5 assign2 task 3A.png)
 
 ---
 
 #### Screenshot 4 — One opened Story showing its Story point estimate, acceptance criteria, and label
 
-Add your screenshot here.
+![Screenshot 4 — Story details with estimate and label](./screenshots/Screenshot WEEK5 ASSIGN2 TASK 3B.png)
 
 ---
 
@@ -68,13 +68,13 @@ Break down S2 (Primary button color refresh) and S4 (Footer with version and dat
 
 #### Screenshot 5 — S2 showing all four Sub-tasks
 
-Add your screenshot here.
+![Screenshot 5 — S2 subtasks](./screenshots/Screenshot week5 assign2 task 4 scrnA.png)
 
 ---
 
 #### Screenshot 6 — S4 showing all four Sub-tasks
 
-Add your screenshot here.
+![Screenshot 6 — S4 subtasks](./screenshots/Screenshot Week5 assign2 task 4 scrnB.png)
 
 ---
 
@@ -88,7 +88,7 @@ Apply the `frontend` label to S1, S2, S3, S5, and S6, and the `devops` label to 
 
 #### Screenshot 7 — Backlog or Story details showing labels applied to at least two visible Stories
 
-Add your screenshot here.
+![Screenshot 7 — Labels applied to stories](./screenshots/Screenshot week5 assign2 task 5scr.png)
 
 ---
 
@@ -102,13 +102,13 @@ Create a one-week Sprint, move two or three Stories into it (approximately 3–5
 
 #### Screenshot 8 — Sprint 1 before starting, showing the selected Stories and Story Points
 
-Add your screenshot here.
+![Screenshot 8 — Sprint planning with selected stories](./screenshots/Screenshot week5 assign2 task6 scrnA.png)
 
 ---
 
 #### Screenshot 9 — Active Sprint board showing the started Sprint and Sprint Goal
 
-Add your screenshot here.
+![Screenshot 9 — Active sprint board](./screenshots/Screenshot Week5 assign2 task6 scrnB.png)
 
 ---
 
@@ -122,13 +122,13 @@ Filter Jira work by the `frontend` and `devops` labels and review Stories with S
 
 #### Screenshot 10 — Filter for label = frontend showing the filtered results
 
-Add your screenshot here.
+![Screenshot 10 — Frontend label filter](./screenshots/Screenshot Week5 assign2 task7 scrnA.png)
 
 ---
 
 #### Screenshot 11 — Filter for label = devops showing the filtered results
 
-Add your screenshot here.
+![Screenshot 11 — Devops label filter](./screenshots/Screenshot Week5 assign2 task7 scrnB.png)
 
 ---
 
@@ -142,7 +142,7 @@ Locate the Burndown Chart for Sprint 1 so it is ready for later progress trackin
 
 #### Screenshot 12 — Burndown Chart page opened for Sprint 1
 
-Add your screenshot here.
+![Screenshot 12 — Burndown Chart for Sprint 1](./screenshots/Screenshot week5 assign2 task 8.png)
 
 ---
 

@@ -20,13 +20,13 @@ Create the footer Story (`Add footer with version and deploy date`, 1 point, `fr
 
 #### Screenshot 1 — Sprint 1 created with the Story inside it
 
-Add your screenshot here.
+![Screenshot 1 — Sprint 1 story in backlog](./screenshots/Screenshot Week5 assign3 task1 scrnA.png)
 
 ---
 
 #### Screenshot 2 — Active Sprint board showing the Sprint Goal
 
-Add your screenshot here.
+![Screenshot 2 — Active Sprint board with Sprint Goal](./screenshots/Screenshot Week5 assign3 task1 scrnB.png)
 
 ---
 
@@ -40,25 +40,25 @@ Add the required footer text (`Portfolio v1.0 — Deployed on <DD Mon YYYY> — 
 
 #### Screenshot 3 — Jira board showing the Day 1 Sub-task in Done
 
-Add your screenshot here.
+![Screenshot 3 — Day 1 sub-task done](./screenshots/Screenshot Week5 assign3 task2 scrn C.png)
 
 ---
 
 #### Screenshot 4 — Successful Git commit output
 
-Add your screenshot here.
+![Screenshot 4 — Git commit output](./screenshots/Screenshot Week5 assign3 task2 Scrn2.png)
 
 ---
 
 #### Screenshot 5 — EC2 browser view showing the complete footer text, with the URL visible
 
-Add your screenshot here.
+![Screenshot 5 — EC2 footer deployed](./screenshots/Screenshot Week5 assign3 task2 scrnA.png)
 
 ---
 
 #### Screenshot 6 — Jira Story comment showing the Day 1 Daily Scrum update
 
-Add your screenshot here.
+![Screenshot 6 — Day 1 Daily Scrum comment](./screenshots/Screenshot Week5 assign3 task2 scrnD.png)
 
 ---
 
@@ -72,25 +72,25 @@ Update the footer so the deployment date is generated automatically (or updated 
 
 #### Screenshot 7 — Code editor showing the footer and date logic
 
-Add your screenshot here.
+![Screenshot 7 — Code editor footer logic](./screenshots/Screenshot Week5 assign3 task2 scrn2.png)
 
 ---
 
 #### Screenshot 8 — EC2 browser view showing the updated footer with the current date
 
-Add your screenshot here.
+![Screenshot 8 — EC2 updated footer with current date](./screenshots/Screenshot Week5 assign3 task2 scrnA.png)
 
 ---
 
 #### Screenshot 9 — README snippet documenting the footer and date behavior
 
-Add your screenshot here.
+![Screenshot 9 — README footer documentation](./screenshots/Screenshot Week5 assign3 task2 Scrn2.png)
 
 ---
 
 #### Screenshot 10 — Jira Story comment showing the Day 2 Daily Scrum update
 
-Add your screenshot here.
+![Screenshot 10 — Day 2 Daily Scrum comment](./screenshots/Screenshot Week5 assign3 task2 scrnD.png)
 
 ---
 
@@ -104,19 +104,19 @@ Improve the footer's spacing, contrast, and readability, then validate it at bot
 
 #### Screenshot 11 — Desktop EC2 view showing the polished footer
 
-Add your screenshot here.
+![Screenshot 11 — Desktop footer view](./screenshots/Screenshot Week5 assign3 task3 scrn7A.png)
 
 ---
 
 #### Screenshot 12 — Mobile responsive view showing the footer remains readable
 
-Add your screenshot here.
+![Screenshot 12 — Mobile footer responsive view](./screenshots/Screenshot Week5 assign3 task3 scrn8.png)
 
 ---
 
 #### Screenshot 13 — Jira Story comment showing the Day 3 Daily Scrum update
 
-Add your screenshot here.
+![Screenshot 13 — Day 3 Daily Scrum comment](./screenshots/Screenshot Week5 assign3 task3 scrn9.png)
 
 ---
 
@@ -130,7 +130,7 @@ Replace the existing homepage tagline with the required DMI Discord call-to-acti
 
 #### Screenshot 14 — EC2 browser view showing "Join DMI Cohort 3 on Discord and start your DevOps journey"
 
-Add your screenshot here.
+![Screenshot 14 — Discord CTA on EC2 homepage](./screenshots/Screenshot Week5 assign3 task4 scrn11.png)
 
 ---
 
@@ -144,19 +144,19 @@ Record a two-to-three-minute demo video of the shipped footer, add a retrospecti
 
 #### Screenshot 15 — Burndown Chart for Sprint 1
 
-Add your screenshot here.
+![Screenshot 15 — Burndown Chart view](./screenshots/Screenshot Week5 assign3 task6 scrn15.png)
 
 ---
 
 #### Screenshot 16 — Jira retrospective comment
 
-Add your screenshot here.
+![Screenshot 16 — Jira retrospective comment](./screenshots/Screenshot Week5 assign3 task6 scrn16.png)
 
 ---
 
 #### Screenshot 17 — Final EC2 browser view showing the complete footer requirement
 
-Add your screenshot here.
+![Screenshot 17 — Final EC2 footer view](./screenshots/Screenshot Week5 assign3 task6 scrn17.png)
 
 ---
 

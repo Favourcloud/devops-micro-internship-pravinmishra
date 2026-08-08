@@ -20,10 +20,9 @@ Create or access your Jira Cloud account and reach the Jira Software workspace s
 
 #### Screenshot 1 — Jira welcome page, dashboard, or main workspace after successful login, with your name or avatar visible
 
-Add your screenshot here.
+![Screenshot 1 — Jira workspace](<./Screenshot Week5 Tak 1 SC1-1.png>)
 
 ---
-![alt text](<Screenshot Week5 Tak 1 SC1-1.png>)
 # Task 2 — Verify Your Atlassian Account
 
 ## Goal
@@ -34,9 +33,7 @@ Confirm your email address if Atlassian requests verification.
 
 #### Screenshot 2 (if applicable) — Confirmation screen after email verification, or the inbox showing the Atlassian verification email subject
 
-Add your screenshot here.
-
----![alt text](![alt text](<Screenshot week5 tak 1 SC2.png>)
+![Screenshot 2 — Atlassian verification](<./Screenshot week5 tak 1 SC2.png>)
 
 ### Notes
 
@@ -56,9 +53,7 @@ Update your Jira profile with your full name, a job title or role (e.g. "Aspirin
 
 #### Screenshot 3 — Updated profile page showing your full name, role/title, and bio
 
-Add your screenshot here.
-
----[alt text]![alt text](<Screenshot week5 tak 1 Sc3.png>)
+![Screenshot 3 — Jira profile updated](<./Screenshot week5 tak 1 Sc3.png>)
 
 # Task 4 — Explore the Jira Dashboard and Projects
 
@@ -70,15 +65,11 @@ Locate the project list and open a project's Board or Backlog, and view Project 
 
 #### Screenshot 4 — "View all projects" page showing at least one project
 
-Add your screenshot here.
-
----[alt text]![alt text](<Screenshot week5 tak 1 sc4  & 5.png>)
+![Screenshot 4 — Jira project list](<./Screenshot week5 tak 1 sc4  & 5.png>)
 
 #### Screenshot 5 — Opened project showing either the Board or Backlog screen
 
-Add your screenshot here.
-
----(alt text)![alt text](<Screenshot week5 tak 1 sc4  & 5-1.png>)
+![Screenshot 5 — Open project board or backlog](<./Screenshot week5 tak 1 sc4  & 5-1.png>)
 
 # Submission Instructions
 
