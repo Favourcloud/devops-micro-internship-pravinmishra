@@ -22,8 +22,8 @@ Create or access your Jira Cloud account and reach the Jira Software workspace s
 
 Add your screenshot here.
 
----c:\Users\FAVOUR\OneDrive\Pictures\Screenshots\Screenshot Week5 Tak 1 SC1.png
-
+---
+![alt text](<Screenshot Week5 Tak 1 SC1-1.png>)
 # Task 2 — Verify Your Atlassian Account
 
 ## Goal
@@ -36,7 +36,7 @@ Confirm your email address if Atlassian requests verification.
 
 Add your screenshot here.
 
----
+---![alt text](![alt text](<Screenshot week5 tak 1 SC2.png>)
 
 ### Notes
 
@@ -44,7 +44,7 @@ If you signed up with Google and no separate email verification was required, st
 
 Write your answer here.
 
----
+---Nill
 
 # Task 3 — Set Up Your Professional Jira Profile
 
@@ -58,7 +58,7 @@ Update your Jira profile with your full name, a job title or role (e.g. "Aspirin
 
 Add your screenshot here.
 
----
+---[alt text]![alt text](<Screenshot week5 tak 1 Sc3.png>)
 
 # Task 4 — Explore the Jira Dashboard and Projects
 
@@ -72,13 +72,13 @@ Locate the project list and open a project's Board or Backlog, and view Project 
 
 Add your screenshot here.
 
----
+---[alt text]![alt text](<Screenshot week5 tak 1 sc4  & 5.png>)
 
 #### Screenshot 5 — Opened project showing either the Board or Backlog screen
 
 Add your screenshot here.
 
----
+---(alt text)![alt text](<Screenshot week5 tak 1 sc4  & 5-1.png>)
 
 # Submission Instructions
 
