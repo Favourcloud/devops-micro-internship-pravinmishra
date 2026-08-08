@@ -1,0 +1,47 @@
+﻿R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 Tak 1 SC1.png" -> week-05-devops-lifecycle/screenshots/assignment01_sc1_alt.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 tak 1 SC2.png" -> week-05-devops-lifecycle/screenshots/assignment01_sc2.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 tak 1 Sc3.png" -> week-05-devops-lifecycle/screenshots/assignment01_sc3.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 tak 1 sc4  & 5.png" -> week-05-devops-lifecycle/screenshots/assignment01_sc5.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign2 task 1.png" -> week-05-devops-lifecycle/screenshots/assignment02_task1.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign2 task 2.png" -> week-05-devops-lifecycle/screenshots/assignment02_task2.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign2 task 3A.png" -> week-05-devops-lifecycle/screenshots/assignment02_task3A.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot WEEK5 ASSIGN2 TASK 3B.png" -> week-05-devops-lifecycle/screenshots/assignment02_task3B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign2 task 4 scrnA.png" -> week-05-devops-lifecycle/screenshots/assignment02_task4A.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign2 task 4 scrnB.png" -> week-05-devops-lifecycle/screenshots/assignment02_task4B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign2 task 5scr.png" -> week-05-devops-lifecycle/screenshots/assignment02_task5.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign2 task6 scrnA.png" -> week-05-devops-lifecycle/screenshots/assignment02_task6A.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign2 task6 scrnB.png" -> week-05-devops-lifecycle/screenshots/assignment02_task6B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign2 task7 scrnA.png" -> week-05-devops-lifecycle/screenshots/assignment02_task7A.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign2 task7 scrnB.png" -> week-05-devops-lifecycle/screenshots/assignment02_task7B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign2 task 8.png" -> week-05-devops-lifecycle/screenshots/assignment02_task8.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task1 scrnA.png" -> week-05-devops-lifecycle/screenshots/assignment03_task1A.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign3 task1 scrnB.png" -> week-05-devops-lifecycle/screenshots/assignment03_task1B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot Week5 assign3 task2 scrnA.png" -> week-05-devops-lifecycle/screenshots/assignment03_task2A.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task2 scrnD.png" -> week-05-devops-lifecycle/screenshots/assignment03_task2D.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task3 scrn7A.png" -> week-05-devops-lifecycle/screenshots/assignment03_task3_7A.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task3 scrn8 (2).png" -> week-05-devops-lifecycle/screenshots/assignment03_task3_8.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task3 scrn8.png" -> week-05-devops-lifecycle/screenshots/assignment03_task3_8B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task3 scrn9.png" -> week-05-devops-lifecycle/screenshots/assignment03_task3_9.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task4 scrn11.png" -> week-05-devops-lifecycle/screenshots/assignment03_task4_11.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task4 scrn12.png" -> week-05-devops-lifecycle/screenshots/assignment03_task4_12.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task4 scrn13.png" -> week-05-devops-lifecycle/screenshots/assignment03_task4_13.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task4 scrn14.png" -> week-05-devops-lifecycle/screenshots/assignment03_task4_14.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task6 scrn15.png" -> week-05-devops-lifecycle/screenshots/assignment03_task6_15.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task6 scrn16.png" -> week-05-devops-lifecycle/screenshots/assignment03_task6_16.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign3 task6 scrn17.png" -> week-05-devops-lifecycle/screenshots/assignment03_task6_17.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task 1 scrn1.png" -> week-05-devops-lifecycle/screenshots/assignment04_task1_1.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task2 scrn2.png" -> week-05-devops-lifecycle/screenshots/assignment04_task2_2.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task2 scrn2 (2).png" -> week-05-devops-lifecycle/screenshots/assignment04_task2_2B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task2 scrn2main.png" -> week-05-devops-lifecycle/screenshots/assignment04_task2_2main.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task3 scrn3.png" -> week-05-devops-lifecycle/screenshots/assignment04_task3_3.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task3 scrn3 (2).png" -> week-05-devops-lifecycle/screenshots/assignment04_task3_3B.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task4 scrn4.png" -> week-05-devops-lifecycle/screenshots/assignment04_task4_4.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task4 scrn5.png" -> week-05-devops-lifecycle/screenshots/assignment04_task4_5.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task5 scrn6.png" -> week-05-devops-lifecycle/screenshots/assignment04_task5_6.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task6 scrn7.png" -> week-05-devops-lifecycle/screenshots/assignment04_task6_7.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task6 scrn8.png" -> week-05-devops-lifecycle/screenshots/assignment04_task6_8.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task7 scrn9.png" -> week-05-devops-lifecycle/screenshots/assignment04_task7_9.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task8 scrn10.png" -> week-05-devops-lifecycle/screenshots/assignment04_task8_10.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task8 scrn11.png" -> week-05-devops-lifecycle/screenshots/assignment04_task8_11.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task8 scrn12.png" -> week-05-devops-lifecycle/screenshots/assignment04_task8_12.png
+R  "week-05-devops-lifecycle/screenshots/Screenshot week5 assign4 task9 scrn13.png" -> week-05-devops-lifecycle/screenshots/assignment04_task9_13.png
