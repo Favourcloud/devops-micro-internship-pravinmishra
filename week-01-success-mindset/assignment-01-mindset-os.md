@@ -373,9 +373,11 @@ Paste your LinkedIn post link here:
 ## 10. Proof of Work
 
 - LinkedIn Post URL: ****  https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7
-- Blog / Medium : **https://medium.com/@rosenaefavour/what-my-version-2-0-looks-like-1726f2ab0d22?sharedUserId=rosenaefavour**  
 
----
+- Blog / Medium : **
+
+---https://medium.com/@rosenaefavour/what-my-version-2-0-looks-like-1726f2ab0d22?sharedUserId=rosenaefavour**  
+
 
 ## 📌 About DMI & CloudAdvisory
 

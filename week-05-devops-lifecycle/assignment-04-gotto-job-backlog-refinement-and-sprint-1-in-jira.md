@@ -190,13 +190,19 @@ Paste your LinkedIn post URL here:
 
 `Add your URL here`
 
----
+------https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-ugcPost-7491178059396616192-EcPY/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
 
 #### Screenshot 14 — Published LinkedIn post
 
 Add your screenshot here.
 
----
+---![alt text](image-2.png)
+
+Blog post 
+
+`Add your URL here`
+
+https://medium.com/@rosenaefavour/i-thought-i-was-learning-jira-i-didnt-know-i-was-learning-how-to-ship-f9a371a9543a
 
 # Submission Instructions
 

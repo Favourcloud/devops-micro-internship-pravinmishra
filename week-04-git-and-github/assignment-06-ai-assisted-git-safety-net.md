@@ -305,7 +305,14 @@ Publish a LinkedIn post summarizing what you built and what you learned about co
 
 `Add your LinkedIn post URL here...`
 
----
+
+#### Blog Post URL
+
+`Add your blog post URL here...`
+
+---https://medium.com/@rosenaefavour/this-one-git-habit-could-save-you-hours-of-frustration-213eb4d360ec
+
+
 
 ## Key Learnings
 

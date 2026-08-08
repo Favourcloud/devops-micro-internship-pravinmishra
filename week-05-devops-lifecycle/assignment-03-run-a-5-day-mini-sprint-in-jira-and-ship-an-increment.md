@@ -166,7 +166,9 @@ Paste your unlisted YouTube or accessible Google Drive demo-video link here:
 
 `Add your URL here`
 
----
+---https://screenrec.com/share/2yG3ZKBQlE
+
+
 
 # LinkedIn Post (Required)
 
@@ -180,15 +182,14 @@ Publish a LinkedIn post about your five-day mini-Sprint, including your GitHub r
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
 
----
+https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-ugcPost-7491178059396616192-EcPY/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
 
 #### Screenshot — Published LinkedIn post showing the required links and proof image
 
 Add your screenshot here.
+![alt text](image-3.png)
 
----
 
 # Submission Instructions
 
