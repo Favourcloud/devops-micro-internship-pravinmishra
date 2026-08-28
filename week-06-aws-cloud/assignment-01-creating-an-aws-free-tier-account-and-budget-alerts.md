@@ -32,7 +32,7 @@ In the Billing Dashboard, create a monthly Cost Budget with a name, amount, and 
 
 Add your screenshot here.
 
----
+---alt![alt text](<Screenshot Week6 Assign1 Task7  scrn1 - Copy.png>)
 
 ### Notes
 
@@ -42,7 +42,8 @@ Answer the following in your own words:
 
 Write your answer here.
 
----
+---AWS budget alerts helps to monitor ones spending and avoid unexpected charges by notifying you when your costs reach a set limit.
+
 
 # Submission Instructions
 

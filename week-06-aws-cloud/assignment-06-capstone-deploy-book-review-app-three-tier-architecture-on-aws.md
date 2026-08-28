@@ -8,6 +8,8 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 This is the most important assignment of the course. You will deploy the Book Review App in a fully production-style three-tier architecture on AWS: a Next.js Web Tier behind Nginx and a public ALB, a private Node.js/Express App Tier behind an internal ALB, and a private Multi-AZ MySQL RDS database with a read replica. You are expected to design, deploy, isolate, debug, and document the result independently.
 
+> Note: No matching screenshot files for Assignment 6 were found in the current Week 6 screenshots archive. The sections below are left as placeholders until those image files are added.
+
 ---
 
 # Task 1 — Architecture Diagram

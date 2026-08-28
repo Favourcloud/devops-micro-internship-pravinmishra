@@ -20,31 +20,31 @@ Build a VPC (10.0.0.0/16) with two public and two private subnets across two Ava
 
 #### Screenshot 1 — VPC details showing CIDR 10.0.0.0/16
 
-Add your screenshot here.
+![Screenshot 1: HA VPC](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn1.png)
 
 ---
 
 #### Screenshot 2 — Subnets list showing four subnets and their Availability Zones
 
-Add your screenshot here.
+![Screenshot 2: Four subnets across AZs](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn2.png)
 
 ---
 
 #### Screenshot 3 — Public route table showing the Internet Gateway route and both public-subnet associations
 
-Add your screenshot here.
+![Screenshot 3: Public route table](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn4.png)
 
 ---
 
 #### Screenshot 4 — Private route table showing the NAT Gateway route and both private-subnet associations
 
-Add your screenshot here.
+![Screenshot 4: Private route table](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn5.png)
 
 ---
 
 #### Screenshot 5 — NAT Gateway status showing Available and the Elastic IP
 
-Add your screenshot here.
+![Screenshot 5: NAT Gateway status](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn5.png)
 
 ---
 
@@ -58,19 +58,19 @@ Create `ha-alb-sg` (HTTP public), `ha-web-sg` (HTTP only from `ha-alb-sg`, SSH f
 
 #### Screenshot 6 — ALB Security Group inbound rules
 
-Add your screenshot here.
+![Screenshot 6: ALB security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task2%20scrn6.png)
 
 ---
 
 #### Screenshot 7 — EC2 Security Group inbound rules showing the ALB Security Group reference and SSH from your IP
 
-Add your screenshot here.
+![Screenshot 7: EC2 security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task2%20scrn7.png)
 
 ---
 
 #### Screenshot 8 — RDS Security Group inbound rule showing the database port allowed only from the EC2 Security Group
 
-Add your screenshot here.
+![Screenshot 8: RDS security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task2%20scrn8.png)
 
 ---
 
@@ -84,13 +84,13 @@ Launch a private, Multi-AZ RDS database (MySQL or PostgreSQL) using the private 
 
 #### Screenshot 9 — RDS summary showing Multi-AZ = Yes and Publicly accessible = No
 
-Add your screenshot here.
+![Screenshot 9: Multi-AZ RDS summary](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task3%20scrn%209.png)
 
 ---
 
 #### Screenshot 10 — RDS connectivity section showing the DB Subnet Group and Security Group
 
-Add your screenshot here.
+![Screenshot 10: RDS connectivity and security](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task3%20scrn10.png)
 
 ---
 
@@ -104,14 +104,14 @@ Create a Launch Template whose user data installs the web-server runtime, deploy
 
 #### Screenshot 11 — Launch Template details showing that user data exists, including a visible snippet
 
-Add your screenshot here.
+![Screenshot 11: Launch template user data](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task4%20scrn%2011.png)
 
 ---
 
 
 #### Screenshot 12 — A running instance created from the template showing that the application responds on port 80 through a local test or browser using its public IP
 
-Add your screenshot here.
+![Screenshot 12: instance responding on port 80](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20Week6%20assign5%20task4%20scrn12.png)
 
 ---
 
@@ -125,13 +125,13 @@ Create an internet-facing ALB across both public subnets with an HTTP listener a
 
 #### Screenshot 13 — ALB details showing two public subnets in two Availability Zones
 
-Add your screenshot here.
+![Screenshot 13: ALB in two public subnets](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task5%20scrn13.png)
 
 ---
 
 #### Screenshot 14 — Target group showing at least one healthy target
 
-Add your screenshot here.
+![Screenshot 14: healthy target group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task5%20scrn14.png)
 
 ---
 
@@ -145,13 +145,13 @@ Create an Auto Scaling Group from the Launch Template across both public subnets
 
 #### Screenshot 15 — Auto Scaling Group showing desired, minimum, and maximum capacity and the selected subnet Availability Zones
 
-Add your screenshot here.
+![Screenshot 15: ASG configuration](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task6%20scrn15.png)
 
 ---
 
 #### Screenshot 16 — EC2 instances list showing two running instances in different Availability Zones
 
-Add your screenshot here.
+![Screenshot 16: two EC2 instances across AZs](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task6%20scrn16.png)
 
 ---
 
@@ -165,13 +165,13 @@ Confirm the application communicates with the RDS database through the ALB DNS n
 
 #### Screenshot 17 — Browser showing the application loaded through the ALB DNS name with the URL visible
 
-Add your screenshot here.
+![Screenshot 17: app through ALB DNS](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task7%20scrn17.png)
 
 ---
 
 #### Screenshot 18 — Proof of a database write through a UI message or database query output
 
-Add your screenshot here.
+![Screenshot 18: DB read/write validation](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task7%20scrn17.png)
 
 ---
 

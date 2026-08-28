@@ -54,7 +54,7 @@ Take one screenshot showing the Mini Finance website running in the browser.
 
 Add your screenshot here.
 
----
+---alt![alt text](image.png)
 
 #### Public IP URL
 
@@ -62,7 +62,7 @@ Paste the public IP address of your EC2 instance here (e.g. `http://3.91.105.10`
 
 `Add your URL here`
 
----
+---http://13.53.198.243/
 
 # Submission Instructions
 
