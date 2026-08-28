@@ -1,0 +1,15 @@
+# Week 06 — Missing screenshots\n\nThis issue requests attachments for the listed placeholder screenshots. Please attach images matching the filenames below (or update the repo with the images at these paths).\n\n
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-1.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-10.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-11.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-12.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-13.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-14.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-2.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-3.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-4.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-5.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-6.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-7.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-8.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-9.png
