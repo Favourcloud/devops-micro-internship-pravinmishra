@@ -873,7 +873,7 @@ Your stack (uncomment each badge as you earn it):
 You will see badges that are commented out like this:
 
 ```md
-<!-- [![Week 01 – Mindset](./badges/week-01.svg)](./week-01-success-mindset/) -->
+<!-- [![Week 01 – Mindset](../badges/week-01.svg)](../week-01-success-mindset/) -->
 ```
 
 ---
@@ -897,7 +897,7 @@ from the end of the line.
 For example, change:
 
 ```md
-<!-- [![Week 01 – Mindset](./badges/week-01.svg)](./week-01-success-mindset/) -->
+<!-- [![Week 01 – Mindset](../badges/week-01.svg)](../week-01-success-mindset/) -->
 ```
 
 ![uncomment](images/ss123.png)
@@ -905,7 +905,7 @@ For example, change:
 to:
 
 ```md
-[![Week 01 – Mindset](./badges/week-01.svg)](./week-01-success-mindset/)
+[![Week 01 – Mindset](../badges/week-01.svg)](../week-01-success-mindset/)
 ```
 
 ![uncomment](images/ss123.png)
