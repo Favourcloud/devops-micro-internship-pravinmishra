@@ -30,13 +30,13 @@ Confirm successful Azure Portal access and Locate the required services and subs
 
 #### Screenshot 1 — Azure Portal homepage after successful login
 
-![Screenshot 1](screenshots/-screencap-1.png)
+![Screenshot 1](screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-1.png)
 
 ---
 
 #### Screenshot 2 — "Subscriptions" section showing the "Free Trial" subscription
 
-![Screenshot 2](screenshots/-screencap-2.png)
+![Screenshot 2](screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-2.png)
 
 ---
 
@@ -87,3 +87,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+

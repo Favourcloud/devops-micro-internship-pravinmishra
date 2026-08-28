@@ -20,7 +20,7 @@ Create `eb-demo-vnet` (10.0.0.0/16) with `web-subnet` (10.0.1.0/24), `app-subnet
 
 #### Screenshot 1 — Subnet configuration screen showing the three subnets and Bastion subnet (if enabled)
 
-![Screenshot 1](screenshots/-screencap-1.png)
+![Screenshot 1](screenshots/assignment-03-design-a-three-tier-network-with-load-balancer-on-azure-screencap-1.png)
 
 ---
 
@@ -44,7 +44,7 @@ Create Standard Public Load Balancer `web-public-elb` with frontend IP `web-elb-
 
 #### Screenshot 2 — Load Balancer frontend IP configuration
 
-![Screenshot 2](screenshots/-screencap-2.png)
+![Screenshot 2](screenshots/assignment-03-design-a-three-tier-network-with-load-balancer-on-azure-screencap-2.png)
 
 ---
 
@@ -58,7 +58,7 @@ Confirm the NGINX default page is reachable through the Load Balancer's public I
 
 #### Screenshot 3 — Browser showing the NGINX welcome page through the Load Balancer Public IP
 
-![Screenshot 3](screenshots/-screencap-3.png)
+![Screenshot 3](screenshots/assignment-03-design-a-three-tier-network-with-load-balancer-on-azure-screencap-3.png)
 
 ---
 
@@ -112,3 +112,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+

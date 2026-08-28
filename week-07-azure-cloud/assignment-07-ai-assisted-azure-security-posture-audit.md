@@ -20,7 +20,7 @@ Confirm your Azure CLI is authenticated and can see the VM, network, storage acc
 
 #### Screenshot 1 — `az account show` and `az vm list -d -o table` confirming your subscription and running VM (subscription ID partially blurred)
 
-![Screenshot 1](screenshots/-screencap-1.png)
+![Screenshot 1](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-1.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create a `CLAUDE.md` for this workspace that tells Claude what the audit covers 
 
 #### Screenshot 2 — `CLAUDE.md` open in your editor showing the project overview, audit workflow, and safety rules
 
-![Screenshot 2](screenshots/-screencap-2.png)
+![Screenshot 2](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-2.png)
 
 ---
 
@@ -48,7 +48,7 @@ Ask Claude Code to read `CLAUDE.md` and propose a read-only, four-check audit pl
 
 #### Screenshot 3 — Claude Code showing the four-check plan, with no files created or modified
 
-![Screenshot 3](screenshots/-screencap-3.png)
+![Screenshot 3](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-3.png)
 
 ---
 
@@ -62,13 +62,13 @@ Write a Bash script that runs the four checks from Task 3 using read-only `az` c
 
 #### Screenshot 4 — Your script open in your editor, showing the check functions and the `az` commands they call
 
-![Screenshot 4](screenshots/-screencap-4.png)
+![Screenshot 4](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-4.png)
 
 ---
 
 #### Screenshot 5 — Output of `bash -n` (no syntax errors) and `ls -l` showing the script is executable
 
-![Screenshot 5](screenshots/-screencap-5.png)
+![Screenshot 5](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-5.png)
 
 ---
 
@@ -82,7 +82,7 @@ Run the script against your live resources and read the report honestly, even if
 
 #### Screenshot 6 — Script output showing your Full Name and all four checks with a PASS, WARN, or FAIL result
 
-![Screenshot 6](screenshots/-screencap-6.png)
+![Screenshot 6](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-6.png)
 
 ---
 
@@ -96,13 +96,13 @@ Create a Claude Code skill restricted to read-only tools (no `Write`) that runs 
 
 #### Screenshot 7 — Your skill file's frontmatter showing `allowed-tools` without `Write`
 
-![Screenshot 7](screenshots/-screencap-7.png)
+![Screenshot 7](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-7.png)
 
 ---
 
 #### Screenshot 8 — `/azure-audit` output showing the baseline findings and Claude's explanation
 
-![Screenshot 8](screenshots/-screencap-8.png)
+![Screenshot 8](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-8.png)
 
 ---
 
@@ -116,19 +116,19 @@ Pick one WARN or FAIL finding (or deliberately open an NSG rule to port 22 from 
 
 #### Screenshot 9 — Saved report showing the original finding before the fix
 
-![Screenshot 9](screenshots/-screencap-9.png)
+![Screenshot 9](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-9.png)
 
 ---
 
 #### Screenshot 10 — Terminal output of the remediation command you ran yourself
 
-![Screenshot 10](screenshots/-screencap-10.png)
+![Screenshot 10](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-10.png)
 
 ---
 
 #### Screenshot 11 — Second `/azure-audit` run (or report) showing the finding resolved
 
-![Screenshot 11](screenshots/-screencap-11.png)
+![Screenshot 11](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-11.png)
 
 ---
 
@@ -185,3 +185,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
