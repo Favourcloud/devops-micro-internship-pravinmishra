@@ -588,3 +588,18 @@ C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-13-final-project\assig
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-13-final-project\assignment-01-final-project.md:75: Add your screenshot here.
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-13-final-project\assignment-01-final-project.md:83: Add your screenshot here.
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-13-final-project\assignment-01-final-project.md:91: Add your screenshot here.
+\n## Week 06 - Missing screenshots checklist\n\n
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-1.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-10.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-11.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-12.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-13.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-14.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-2.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-3.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-4.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-5.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-6.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-7.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-8.png
+- [ ] week-06-aws-cloud/screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-9.png
