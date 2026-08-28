@@ -6,21 +6,21 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 ## Purpose
 
-In this assignment, you will configure a private, team-managed Scrum project in Jira Cloud for a DevOps Micro-Internship Website improvement and deployment initiative. You will build the complete work hierarchy and delivery workflow: Project → Epic → Stories → Sub-tasks → Labels → Sprint → Filters → Reports.
+In this assignment, you will configure a private, team-managed Scrum Space in Jira Cloud for a DevOps Micro-Internship Website improvement and deployment initiative. You will build the complete work hierarchy and delivery workflow: Space → Epic → Stories → Sub-tasks → Labels → Sprint → Filters → Reports.
 
 ---
 
-# Task 1 — Create the Jira Project (Team-Managed Scrum)
+# Task 1 — Create the Jira Space (Team-Managed Scrum)
 
 ## Goal
 
-Create a private, team-managed Scrum project named `DevOps Micro-Internship Website – <YourName>`.
+Create a private, team-managed Scrum Space named `DevOps Micro-Internship Website – <YourName>`.
 
 ### Evidence
 
-#### Screenshot 1 — Project confirmation or project sidebar showing the project name and key
+#### Screenshot 1 — Space confirmation or Space sidebar showing the Space name and key
 
-![Screenshot 1 — Project details](./screenshots/assignment02_task1.png)
+Add your screenshot here.
 
 ---
 
@@ -34,7 +34,7 @@ Create the Epic `Polish DMI Website UI & Deploy` to group the website UI and dep
 
 #### Screenshot 2 — Backlog showing the Epic panel enabled and the Epic visible
 
-![Screenshot 2 — Epic visible in backlog](./screenshots/assignment02_task2.png)
+Add your screenshot here.
 
 ---
 
@@ -42,19 +42,19 @@ Create the Epic `Polish DMI Website UI & Deploy` to group the website UI and dep
 
 ## Goal
 
-Create all six required Stories (S1–S6) under the Epic, each with its description, Gherkin acceptance criteria, Fibonacci story point estimate (1, 2, or 3), and label, and assign every Story to yourself.
+Create all six required Stories (S1–S6) under the Epic, assign every Story to yourself, and add the required description, Fibonacci story point estimate, and label. Enter the Gherkin acceptance criteria directly below the Story description in the same description box.
 
 ### Evidence
 
 #### Screenshot 3 — Backlog showing the Epic and all six Stories under it
 
-![Screenshot 3 — Backlog with six stories](./screenshots/assignment02_task3A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 4 — One opened Story showing its Story point estimate, acceptance criteria, and label
 
-![Screenshot 4 — Story details with estimate and label](./screenshots/assignment02_task3B.png)
+Add your screenshot here.
 
 ---
 
@@ -68,13 +68,13 @@ Break down S2 (Primary button color refresh) and S4 (Footer with version and dat
 
 #### Screenshot 5 — S2 showing all four Sub-tasks
 
-![Screenshot 5 — S2 subtasks](./screenshots/assignment02_task4A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 6 — S4 showing all four Sub-tasks
 
-![Screenshot 6 — S4 subtasks](./screenshots/assignment02_task4B.png)
+Add your screenshot here.
 
 ---
 
@@ -88,7 +88,7 @@ Apply the `frontend` label to S1, S2, S3, S5, and S6, and the `devops` label to 
 
 #### Screenshot 7 — Backlog or Story details showing labels applied to at least two visible Stories
 
-![Screenshot 7 — Labels applied to stories](./screenshots/assignment02_task5.png)
+Add your screenshot here.
 
 ---
 
@@ -102,13 +102,13 @@ Create a one-week Sprint, move two or three Stories into it (approximately 3–5
 
 #### Screenshot 8 — Sprint 1 before starting, showing the selected Stories and Story Points
 
-![Screenshot 8 — Sprint planning with selected stories](./screenshots/assignment02_task6A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 9 — Active Sprint board showing the started Sprint and Sprint Goal
 
-![Screenshot 9 — Active sprint board](./screenshots/assignment02_task6B.png)
+Add your screenshot here.
 
 ---
 
@@ -122,13 +122,13 @@ Filter Jira work by the `frontend` and `devops` labels and review Stories with S
 
 #### Screenshot 10 — Filter for label = frontend showing the filtered results
 
-![Screenshot 10 — Frontend label filter](./screenshots/assignment02_task7A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 11 — Filter for label = devops showing the filtered results
 
-![Screenshot 11 — Devops label filter](./screenshots/assignment02_task7B.png)
+Add your screenshot here.
 
 ---
 
@@ -142,21 +142,20 @@ Locate the Burndown Chart for Sprint 1 so it is ready for later progress trackin
 
 #### Screenshot 12 — Burndown Chart page opened for Sprint 1
 
-![Screenshot 12 — Burndown Chart for Sprint 1](./screenshots/assignment02_task8.png)
+Add your screenshot here.
 
 ---
 
 # Submission Instructions
 
-- Add all required screenshots in your submission
+- Add all 12 required screenshots in the specified order
 - Full name must be visible in required screenshots
-- Do not expose sensitive information (passwords, verification codes, account recovery details)
-
+- Do not expose passwords, verification codes, private email content, account recovery details, or other sensitive information
 ---
 
 # Completion Checklist
 
-- [ ] Task 1: Private team-managed Scrum project created with your name (Screenshot 1)
+- [ ] Task 1: Private team-managed Scrum Space created with your name (Screenshot 1)
 - [ ] Task 2: Epic "Polish DMI Website UI & Deploy" created (Screenshot 2)
 - [ ] Task 3: All six Stories connected to the Epic, assigned to you, with descriptions/acceptance criteria/points/labels (Screenshots 3 & 4)
 - [ ] Task 4: Four Sub-tasks created under both S2 and S4 (Screenshots 5 & 6)

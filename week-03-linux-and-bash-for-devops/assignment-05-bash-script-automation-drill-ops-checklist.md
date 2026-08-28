@@ -1,3 +1,12 @@
+## 📌 Resources
+- 🌐 DMI Official Website: https://dmi.pravinmishra.com?utm_source=github&utm_medium=readme  
+- 🎓 University: https://university.pravinmishra.com?utm_source=github&utm_medium=readme  
+- 💬 Discord Community: https://discord.pravinmishra.com?utm_source=github&utm_medium=readme  
+- 📝 Blog: https://dmi.pravinmishra.com/blog?utm_source=github&utm_medium=readme  
+- ▶️ YouTube Playlist: https://www.youtube.com/playlist?list=PLFeSNDtI4Cho  
+- 🔗 Pravin Mishra (LinkedIn): https://www.linkedin.com/in/pravin-mishra-aws-trainer/  
+- 🏢 CloudAdvisory (LinkedIn): https://www.linkedin.com/company/thecloudadvisory/
+*This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
 # Assignment 5 — Bash Script Automation Drill (OPS Checklist)
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
@@ -451,4 +460,20 @@ DevOps Micro Internship (DMI) is a project-based DevOps program run by Pravin Mi
 
 ---
 
+<<<<<<< HEAD
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+=======
+## 📌 Resources
+
+- 🌐 DMI Official Website: https://dmi.pravinmishra.com?utm_source=github&utm_medium=readme  
+- 🎓 University: https://university.pravinmishra.com?utm_source=github&utm_medium=readme  
+- 💬 Discord Community: https://discord.pravinmishra.com?utm_source=github&utm_medium=readme  
+- 📝 Blog: https://dmi.pravinmishra.com/blog?utm_source=github&utm_medium=readme  
+- ▶️ YouTube Playlist: https://www.youtube.com/playlist?list=PLFeSNDtI4Cho  
+- 🔗 Pravin Mishra (LinkedIn): https://www.linkedin.com/in/pravin-mishra-aws-trainer/  
+- 🏢 CloudAdvisory (LinkedIn): https://www.linkedin.com/company/thecloudadvisory/
+
+---
+
+*This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+>>>>>>> upstream/HEAD

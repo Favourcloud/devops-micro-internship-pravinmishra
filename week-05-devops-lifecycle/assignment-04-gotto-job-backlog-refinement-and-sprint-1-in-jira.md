@@ -20,7 +20,7 @@ Choose Team Mode or Solo Mode, and document how each Scrum role (Product Owner, 
 
 #### Screenshot 1 — Jira "Create project" screen, or the project sidebar after creation
 
-![Screenshot 1 — Create project screen](./screenshots/assignment04_task1_1.png)
+Add your screenshot here.
 
 ---
 
@@ -42,7 +42,7 @@ Create a Team-managed Scrum project named `Gotto Job – Team <#>` (Team Mode) o
 
 #### Screenshot 2 — Project created page showing the project name and key
 
-![Screenshot 2 — Project created page](./screenshots/assignment04_task2_2.png)
+Add your screenshot here.
 
 ---
 
@@ -56,7 +56,7 @@ Create the Epic `Improve Gotto Job UI discoverability & trust` to group the UI i
 
 #### Screenshot 3 — Backlog showing the Epic panel with the Epic visible
 
-![Screenshot 3 — Epic visible in backlog](./screenshots/assignment04_task3_3.png)
+Add your screenshot here.
 
 ---
 
@@ -70,13 +70,13 @@ Create at least six Stories under the Epic, estimate each with 1, 2, or 3 story 
 
 #### Screenshot 4 — Backlog showing the Epic and at least six Stories under it
 
-![Screenshot 4 — Backlog with at least six stories](./screenshots/assignment04_task4_4.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 5 — One Story opened showing its Story Points and acceptance criteria filled in
 
-![Screenshot 5 — Story details with points and criteria](./screenshots/assignment04_task4_5.png)
+Add your screenshot here.
 
 ---
 
@@ -90,7 +90,7 @@ Confirm the Story Points (1, 2, or 3) for each Story and record brief reasoning 
 
 #### Screenshot 6 — Backlog showing Story Points visible, or two or three Stories opened showing their points
 
-![Screenshot 6 — Story points visible](./screenshots/assignment04_task5_6.png)
+Add your screenshot here.
 
 ---
 
@@ -112,13 +112,13 @@ Create Sprint 1, move three or four Stories into it (approximately 3–6 points)
 
 #### Screenshot 7 — Sprint 1 with the selected Stories inside it
 
-![Screenshot 7 — Sprint 1 with selected stories](./screenshots/assignment04_task6_7.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 8 — One Story showing the Sub-tasks created
 
-![Screenshot 8 — Story with sub-tasks created](./screenshots/assignment04_task6_8.png)
+Add your screenshot here.
 
 ---
 
@@ -132,7 +132,7 @@ Open the Burndown Chart and confirm it exists for Sprint 1. It is acceptable if 
 
 #### Screenshot 9 — Burndown Chart page opened, even if empty
 
-![Screenshot 9 — Burndown Chart page](./screenshots/assignment04_task7_9.png)
+Add your screenshot here.
 
 ---
 
@@ -146,19 +146,19 @@ Implement one small UI-only Story from Sprint 1, commit it, deploy it live, and 
 
 #### Screenshot 10 — Jira board showing the Story moved to Done
 
-![Screenshot 10 — Story moved to Done](./screenshots/assignment04_task8_10.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 11 — Git commit output
 
-![Screenshot 11 — Git commit output](./screenshots/assignment04_task8_11.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 12 — Live URL in the browser showing the UI change, with the URL visible
 
-![Screenshot 12 — Live UI change with URL visible](./screenshots/assignment04_task8_11.png)
+Add your screenshot here.
 
 ---
 
@@ -172,11 +172,11 @@ Add a retro comment covering what went well, what to improve, one Scrum pillar o
 
 #### Screenshot 13 — Jira retro comment visible
 
-![Screenshot 13 — Retro comment visible](./screenshots/assignment04_task9_13.png)
+Add your screenshot here.
 
 ---
 
-# LinkedIn Post (Required)
+# Task 10 — LinkedIn Post (Mandatory)
 
 ## Goal
 
@@ -190,23 +190,17 @@ Paste your LinkedIn post URL here:
 
 `Add your URL here`
 
-------https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-ugcPost-7491178059396616192-EcPY/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
+---
 
 #### Screenshot 14 — Published LinkedIn post
 
 Add your screenshot here.
 
----![alt text](image-2.png)
-
-Blog post 
-
-`Add your URL here`
-
-https://medium.com/@rosenaefavour/i-thought-i-was-learning-jira-i-didnt-know-i-was-learning-how-to-ship-f9a371a9543a
+---
 
 # Submission Instructions
 
-- Add all required screenshots in your submission
+- Add all 14 required screenshots
 - Full name must be visible in required screenshots
 - Do not expose sensitive information (keys, passwords, account IDs)
 
@@ -223,7 +217,7 @@ https://medium.com/@rosenaefavour/i-thought-i-was-learning-jira-i-didnt-know-i-w
 - [ ] Task 7: Burndown Chart opened (Screenshot 9)
 - [ ] Task 8: One UI-only increment implemented, committed, deployed, and verified (Screenshots 10–12)
 - [ ] Task 9: Retro comment with one Scrum pillar and one Scrum value (Screenshot 13)
-- [ ] LinkedIn post published and URL submitted (Screenshot 14)
+- [ ] Task 10: Mandatory LinkedIn post published with the live URL, backlog refinement, Sprint planning, one shipped increment, proof, and Screenshot 14
 - [ ] Full Name visible in required screenshots
 - [ ] No sensitive data exposed
 

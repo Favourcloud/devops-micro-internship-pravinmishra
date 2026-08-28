@@ -20,13 +20,13 @@ Create the footer Story (`Add footer with version and deploy date`, 1 point, `fr
 
 #### Screenshot 1 — Sprint 1 created with the Story inside it
 
-![Screenshot 1 — Sprint 1 story in backlog](./screenshots/assignment03_task1A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 2 — Active Sprint board showing the Sprint Goal
 
-![Screenshot 2 — Active Sprint board with Sprint Goal](./screenshots/assignment03_task1B.png)
+Add your screenshot here.
 
 ---
 
@@ -34,31 +34,31 @@ Create the footer Story (`Add footer with version and deploy date`, 1 point, `fr
 
 ## Goal
 
-Add the required footer text (`Portfolio v1.0 — Deployed on <DD Mon YYYY> — By <Student Name>`) to the site on a `feature/footer-v1` branch, commit it, and deploy it to the public EC2 URL.
+Add the required footer text (`Pravin Mishra Portfolio v1.0 — Deployed on <DD Mon YYYY> — By <Student Name>`) to the site on a `feature/footer-v1` branch, commit it, and deploy it to the public EC2 URL.
 
 ### Evidence
 
 #### Screenshot 3 — Jira board showing the Day 1 Sub-task in Done
 
-![Screenshot 3 — Day 1 sub-task done](./screenshots/assignment03_task2C.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 4 — Successful Git commit output
 
-![Screenshot 4 — Git commit output](./screenshots/assignment03_task2Scrn2.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 5 — EC2 browser view showing the complete footer text, with the URL visible
 
-![Screenshot 5 — EC2 footer deployed](./screenshots/assignment03_task2A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 6 — Jira Story comment showing the Day 1 Daily Scrum update
 
-![Screenshot 6 — Day 1 Daily Scrum comment](./screenshots/assignment03_task2D.png)
+Add your screenshot here.
 
 ---
 
@@ -70,27 +70,27 @@ Update the footer so the deployment date is generated automatically (or updated 
 
 ### Evidence
 
-#### Screenshot 7 — Code editor showing the footer and date logic
+#### Screenshot 7 — Code editor showing the footer and date logic or deployment-time template snippet
 
-![Screenshot 7 — Code editor footer logic](./screenshots/assignment03_task2Scrn2.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 8 — EC2 browser view showing the updated footer with the current date
 
-![Screenshot 8 — EC2 updated footer with current date](./screenshots/assignment03_task2A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 9 — README snippet documenting the footer and date behavior
 
-![Screenshot 9 — README footer documentation](./screenshots/assignment03_task2Scrn2.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 10 — Jira Story comment showing the Day 2 Daily Scrum update
 
-![Screenshot 10 — Day 2 Daily Scrum comment](./screenshots/assignment03_task2D.png)
+Add your screenshot here.
 
 ---
 
@@ -104,19 +104,19 @@ Improve the footer's spacing, contrast, and readability, then validate it at bot
 
 #### Screenshot 11 — Desktop EC2 view showing the polished footer
 
-![Screenshot 11 — Desktop footer view](./screenshots/assignment03_task3_7A.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 12 — Mobile responsive view showing the footer remains readable
 
-![Screenshot 12 — Mobile footer responsive view](./screenshots/assignment03_task3_8.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 13 — Jira Story comment showing the Day 3 Daily Scrum update
 
-![Screenshot 13 — Day 3 Daily Scrum comment](./screenshots/assignment03_task3_9.png)
+Add your screenshot here.
 
 ---
 
@@ -124,13 +124,13 @@ Improve the footer's spacing, contrast, and readability, then validate it at bot
 
 ## Goal
 
-Replace the existing homepage tagline with the required DMI Discord call-to-action link and deploy it to EC2.
+Replace the existing homepage tagline with the required DMI Website call-to-action link and deploy it to EC2.
 
 ### Evidence
 
-#### Screenshot 14 — EC2 browser view showing "Join DMI Cohort 3 on Discord and start your DevOps journey"
+#### Screenshot 14 — EC2 browser view showing "Start your DevOps Journey here" and the clickable "Visit the DMI Website" link
 
-![Screenshot 14 — Discord CTA on EC2 homepage](./screenshots/assignment03_task4_11.png)
+Add your screenshot here.
 
 ---
 
@@ -144,19 +144,19 @@ Record a two-to-three-minute demo video of the shipped footer, add a retrospecti
 
 #### Screenshot 15 — Burndown Chart for Sprint 1
 
-![Screenshot 15 — Burndown Chart view](./screenshots/assignment03_task6_15.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 16 — Jira retrospective comment
 
-![Screenshot 16 — Jira retrospective comment](./screenshots/assignment03_task6_16.png)
+Add your screenshot here.
 
 ---
 
 #### Screenshot 17 — Final EC2 browser view showing the complete footer requirement
 
-![Screenshot 17 — Final EC2 footer view](./screenshots/assignment03_task6_17.png)
+Add your screenshot here.
 
 ---
 
@@ -166,9 +166,7 @@ Paste your unlisted YouTube or accessible Google Drive demo-video link here:
 
 `Add your URL here`
 
----https://screenrec.com/share/2yG3ZKBQlE
-
-
+---
 
 # LinkedIn Post (Required)
 
@@ -182,19 +180,23 @@ Publish a LinkedIn post about your five-day mini-Sprint, including your GitHub r
 
 Paste your LinkedIn post URL here:
 
+`Add your URL here`
 
-https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-ugcPost-7491178059396616192-EcPY/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
+---
 
-#### Screenshot — Published LinkedIn post showing the required links and proof image
+#### LinkedIn Screenshot 1 — Published LinkedIn post showing the post content and at least one required link or proof image
 
 Add your screenshot here.
-![alt text](image-3.png)
 
+---
 
 # Submission Instructions
 
-- Add all required screenshots in your submission
+- Add all 17 assignment screenshots in the specified order
+- Add LinkedIn Screenshot 1
 - Full name must be visible in required screenshots
+- Include your two-to-three-minute demo-video URL
+- Include Daily Scrum comments for Days 1–5 and the retrospective comment
 - Include your GitHub repository URL and public EC2 live URL
 - Do not expose sensitive information (private keys, passwords, tokens, account IDs)
 
@@ -206,10 +208,11 @@ Add your screenshot here.
 - [ ] Task 2: Day 1 footer implemented, committed, and deployed (Screenshots 3–6)
 - [ ] Task 3: Day 2 deploy date made dynamic and documented (Screenshots 7–10)
 - [ ] Task 4: Day 3 footer polished and validated on desktop and mobile (Screenshots 11–13)
-- [ ] Task 5: Day 4 DMI Discord call-to-action deployed and clickable (Screenshot 14)
+- [ ] Task 5: Day 4 DMI Website call-to-action deployed and clickable (Screenshot 14)
 - [ ] Task 6: Day 5 demo, retrospective, and Burndown evidence completed (Screenshots 15–17, video URL)
 - [ ] Daily Scrum comments posted for Days 1–5
-- [ ] LinkedIn post published and URL submitted
+- [ ] LinkedIn post published with the GitHub URL, EC2 URL, required delivery details, and proof image
+- [ ] LinkedIn Post URL and LinkedIn Screenshot 1 included
 - [ ] Full Name visible in required screenshots
 - [ ] No sensitive data exposed
 
