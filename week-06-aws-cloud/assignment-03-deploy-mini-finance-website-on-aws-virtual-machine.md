@@ -54,7 +54,7 @@ Take one screenshot showing the Mini Finance website running in the browser.
 
 Add your screenshot here.
 
----alt![alt text](image.png)
+---`n![Screenshot 1: Mini Finance site](image.png)
 
 #### Public IP URL
 
