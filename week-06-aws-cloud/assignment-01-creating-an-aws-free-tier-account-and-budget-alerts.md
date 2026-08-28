@@ -32,7 +32,7 @@ In the Billing Dashboard, create a monthly Cost Budget with a name, amount, and 
 
 Add your screenshot here.
 
----alt![alt text](<Screenshot Week6 Assign1 Task7  scrn1 - Copy.png>)
+---`n![Screenshot 1: AWS Budget setup](screenshots/WEEK 6 SCREENSHOTS/Screenshot Week6 Assign1 Task7  scrn1 - Copy.png)
 
 ### Notes
 
