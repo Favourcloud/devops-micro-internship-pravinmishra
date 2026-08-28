@@ -72,37 +72,37 @@ Capture visual proof of every tier and load balancer.
 
 #### Web EC2
 
-![Screenshot 1](screenshots/-screencap-1.png)
+![Screenshot 1](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-1.png)
 
 ---
 
 #### App EC2
 
-![Screenshot 2](screenshots/-screencap-2.png)
+![Screenshot 2](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-2.png)
 
 ---
 
 #### Public ALB
 
-![Screenshot 3](screenshots/-screencap-3.png)
+![Screenshot 3](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-3.png)
 
 ---
 
 #### Internal ALB
 
-![Screenshot 4](screenshots/-screencap-4.png)
+![Screenshot 4](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-4.png)
 
 ---
 
 #### RDS + Replica
 
-![Screenshot 5](screenshots/-screencap-5.png)
+![Screenshot 5](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-5.png)
 
 ---
 
 #### App UI proof
 
-![Screenshot 6](screenshots/-screencap-6.png)
+![Screenshot 6](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-6.png)
 
 ---
 
@@ -150,7 +150,7 @@ Paste your LinkedIn post URL here:
 
 #### Screenshot of LinkedIn post
 
-![Screenshot 7](screenshots/-screencap-7.png)
+![Screenshot 7](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-7.png)
 
 ---
 
@@ -195,3 +195,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+

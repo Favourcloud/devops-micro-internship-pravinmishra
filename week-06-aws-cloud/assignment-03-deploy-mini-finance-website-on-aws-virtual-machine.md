@@ -52,7 +52,7 @@ Start the web server and confirm the Mini Finance website is accessible through 
 
 Take one screenshot showing the Mini Finance website running in the browser.
 
-![Screenshot 1](screenshots/-screencap-1.png)
+![Screenshot 1](screenshots/assignment-03-deploy-mini-finance-website-on-aws-virtual-machine-screencap-1.png)
 
 ---`n![Screenshot 1: Mini Finance site](image.png)
 
@@ -105,3 +105,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+

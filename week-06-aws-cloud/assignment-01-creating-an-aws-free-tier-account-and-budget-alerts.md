@@ -30,7 +30,7 @@ In the Billing Dashboard, create a monthly Cost Budget with a name, amount, and 
 
 #### Screenshot 1 — AWS Budget setup page showing the budget name, budget amount, and alert thresholds
 
-![Screenshot 1](screenshots/-screencap-1.png)
+![Screenshot 1](screenshots/assignment-01-creating-an-aws-free-tier-account-and-budget-alerts-screencap-1.png)
 
 ---`n![Screenshot 1: AWS Budget setup](screenshots/WEEK 6 SCREENSHOTS/Screenshot Week6 Assign1 Task7  scrn1 - Copy.png)
 
@@ -85,3 +85,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
