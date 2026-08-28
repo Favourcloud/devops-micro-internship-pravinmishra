@@ -637,7 +637,7 @@ Verify the image added correctly using preview
 This is Markdown image syntax:
 
 ```md
-![alt text](image path)
+![alt text](screenshots/week-01-screenshot-01.png)
 ```
 
 * `[]` → This is the **alt text (image description)**
@@ -1232,3 +1232,4 @@ git merge upstream/main
 After this:
 
 * Your local files will be updated with the latest changes of the original repository.
+
