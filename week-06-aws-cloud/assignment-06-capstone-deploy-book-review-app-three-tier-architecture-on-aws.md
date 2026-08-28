@@ -72,37 +72,37 @@ Capture visual proof of every tier and load balancer.
 
 #### Web EC2
 
-Add your screenshot here.
+![Screenshot 1](screenshots/-screencap-1.png)
 
 ---
 
 #### App EC2
 
-Add your screenshot here.
+![Screenshot 2](screenshots/-screencap-2.png)
 
 ---
 
 #### Public ALB
 
-Add your screenshot here.
+![Screenshot 3](screenshots/-screencap-3.png)
 
 ---
 
 #### Internal ALB
 
-Add your screenshot here.
+![Screenshot 4](screenshots/-screencap-4.png)
 
 ---
 
 #### RDS + Replica
 
-Add your screenshot here.
+![Screenshot 5](screenshots/-screencap-5.png)
 
 ---
 
 #### App UI proof
 
-Add your screenshot here.
+![Screenshot 6](screenshots/-screencap-6.png)
 
 ---
 
@@ -150,7 +150,7 @@ Paste your LinkedIn post URL here:
 
 #### Screenshot of LinkedIn post
 
-Add your screenshot here.
+![Screenshot 7](screenshots/-screencap-7.png)
 
 ---
 

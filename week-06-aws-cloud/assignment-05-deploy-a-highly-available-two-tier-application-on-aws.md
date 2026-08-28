@@ -188,25 +188,25 @@ Test B: simulate an Availability Zone impact (stop, detach, or reduce desired ca
 
 #### Screenshot 19 — EC2 showing the terminated instance and the newly launched instance; timestamps are helpful
 
-Add your screenshot here.
+![Screenshot 1](screenshots/-screencap-1.png)
 
 ---
 
 #### Screenshot 20 — Target group showing healthy targets after replacement
 
-Add your screenshot here.
+![Screenshot 2](screenshots/-screencap-2.png)
 
 ---
 
 #### Screenshot 21 — Evidence that an instance was removed, detached, placed in Standby, or stopped in one Availability Zone
 
-Add your screenshot here.
+![Screenshot 3](screenshots/-screencap-3.png)
 
 ---
 
 #### Screenshot 22 — Browser showing that the ALB DNS endpoint still works during the change
 
-Add your screenshot here.
+![Screenshot 4](screenshots/-screencap-4.png)
 
 ---
 
@@ -221,7 +221,7 @@ Summarize the VPC/subnet layout, the ALB and Auto Scaling Group setup, the priva
 
 #### Screenshot 23 — A simple architecture diagram, which may be hand-drawn, or an AWS console overview showing the components
 
-Add your screenshot here.
+![Screenshot 5](screenshots/-screencap-5.png)
 
 ---
 
@@ -265,7 +265,7 @@ Paste your LinkedIn post URL here:
 
 #### Screenshot of LinkedIn post
 
-Add your screenshot here.
+![Screenshot 6](screenshots/-screencap-6.png)
 
 ---
 
