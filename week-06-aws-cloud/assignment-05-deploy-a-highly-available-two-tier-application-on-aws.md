@@ -8,6 +8,8 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will design and deploy a highly available two-tier web application on AWS: highly available networking across two Availability Zones, an Application Load Balancer, an Auto Scaling Group for the web tier, and a private Multi-AZ RDS database. You must prove high availability with real failure tests.
 
+> Note: The original Week 6 screenshot archive for this assignment is not present in the current workspace, so the image links below are intentionally converted to placeholder notes until the original files are restored or re-uploaded.
+
 ---
 
 # Task 1 — Create HA Networking (VPC + 4 Subnets + IGW + NAT + Route Tables)
@@ -20,31 +22,31 @@ Build a VPC (10.0.0.0/16) with two public and two private subnets across two Ava
 
 #### Screenshot 1 — VPC details showing CIDR 10.0.0.0/16
 
-![Screenshot 1: HA VPC](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn1.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 2 — Subnets list showing four subnets and their Availability Zones
 
-![Screenshot 2: Four subnets across AZs](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn2.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 3 — Public route table showing the Internet Gateway route and both public-subnet associations
 
-![Screenshot 3: Public route table](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn4.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 4 — Private route table showing the NAT Gateway route and both private-subnet associations
 
-![Screenshot 4: Private route table](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn5.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 5 — NAT Gateway status showing Available and the Elastic IP
 
-![Screenshot 5: NAT Gateway status](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task1%20scrn5.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -58,19 +60,19 @@ Create `ha-alb-sg` (HTTP public), `ha-web-sg` (HTTP only from `ha-alb-sg`, SSH f
 
 #### Screenshot 6 — ALB Security Group inbound rules
 
-![Screenshot 6: ALB security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task2%20scrn6.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 7 — EC2 Security Group inbound rules showing the ALB Security Group reference and SSH from your IP
 
-![Screenshot 7: EC2 security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task2%20scrn7.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 8 — RDS Security Group inbound rule showing the database port allowed only from the EC2 Security Group
 
-![Screenshot 8: RDS security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task2%20scrn8.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -84,13 +86,13 @@ Launch a private, Multi-AZ RDS database (MySQL or PostgreSQL) using the private 
 
 #### Screenshot 9 — RDS summary showing Multi-AZ = Yes and Publicly accessible = No
 
-![Screenshot 9: Multi-AZ RDS summary](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task3%20scrn%209.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 10 — RDS connectivity section showing the DB Subnet Group and Security Group
 
-![Screenshot 10: RDS connectivity and security](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task3%20scrn10.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -104,14 +106,13 @@ Create a Launch Template whose user data installs the web-server runtime, deploy
 
 #### Screenshot 11 — Launch Template details showing that user data exists, including a visible snippet
 
-![Screenshot 11: Launch template user data](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task4%20scrn%2011.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
-
 #### Screenshot 12 — A running instance created from the template showing that the application responds on port 80 through a local test or browser using its public IP
 
-![Screenshot 12: instance responding on port 80](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20Week6%20assign5%20task4%20scrn12.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -125,13 +126,13 @@ Create an internet-facing ALB across both public subnets with an HTTP listener a
 
 #### Screenshot 13 — ALB details showing two public subnets in two Availability Zones
 
-![Screenshot 13: ALB in two public subnets](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task5%20scrn13.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 14 — Target group showing at least one healthy target
 
-![Screenshot 14: healthy target group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task5%20scrn14.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -145,13 +146,13 @@ Create an Auto Scaling Group from the Launch Template across both public subnets
 
 #### Screenshot 15 — Auto Scaling Group showing desired, minimum, and maximum capacity and the selected subnet Availability Zones
 
-![Screenshot 15: ASG configuration](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task6%20scrn15.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 16 — EC2 instances list showing two running instances in different Availability Zones
 
-![Screenshot 16: two EC2 instances across AZs](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task6%20scrn16.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -165,20 +166,19 @@ Confirm the application communicates with the RDS database through the ALB DNS n
 
 #### Screenshot 17 — Browser showing the application loaded through the ALB DNS name with the URL visible
 
-![Screenshot 17: app through ALB DNS](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task7%20scrn17.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 18 — Proof of a database write through a UI message or database query output
 
-![Screenshot 18: DB read/write validation](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign5%20task7%20scrn17.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 # Task 8 — High Availability Tests (Must Do Both)
 
 ## Goal
-
 
 Test A: terminate one web instance and confirm the Auto Scaling Group replaces it automatically without interrupting the ALB.
 
@@ -188,25 +188,25 @@ Test B: simulate an Availability Zone impact (stop, detach, or reduce desired ca
 
 #### Screenshot 19 — EC2 showing the terminated instance and the newly launched instance; timestamps are helpful
 
-![Screenshot 1](screenshots/assignment-05-deploy-a-highly-available-two-tier-application-on-aws-screencap-1.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 20 — Target group showing healthy targets after replacement
 
-![Screenshot 2](screenshots/assignment-05-deploy-a-highly-available-two-tier-application-on-aws-screencap-2.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 21 — Evidence that an instance was removed, detached, placed in Standby, or stopped in one Availability Zone
 
-![Screenshot 3](screenshots/assignment-05-deploy-a-highly-available-two-tier-application-on-aws-screencap-3.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 22 — Browser showing that the ALB DNS endpoint still works during the change
 
-![Screenshot 4](screenshots/assignment-05-deploy-a-highly-available-two-tier-application-on-aws-screencap-4.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -218,15 +218,13 @@ Summarize the VPC/subnet layout, the ALB and Auto Scaling Group setup, the priva
 
 ### Evidence
 
-
 #### Screenshot 23 — A simple architecture diagram, which may be hand-drawn, or an AWS console overview showing the components
 
-![Screenshot 5](screenshots/assignment-05-deploy-a-highly-available-two-tier-application-on-aws-screencap-5.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 ### Notes
-
 
 Summarize the VPC and subnets across the two Availability Zones.
 
