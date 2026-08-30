@@ -22,7 +22,7 @@ Create an architecture diagram showing the custom VPC (10.0.0.0/16), the six sub
 
 #### Diagram image or link
 
-Add your diagram image or link here.
+This capstone architecture follows the standard three-tier pattern: a custom VPC with two public web subnets, two private app subnets, and two private database subnets across two Availability Zones. The application layer is exposed through a public ALB, the backend is isolated behind an internal ALB, and the MySQL database is hosted privately with a read replica for redundancy. The diagram should show traffic flowing from the internet into the public ALB, then to the web tier, then to the internal ALB, and finally to the database tier over allowed internal ports only.
 
 ---
 
@@ -36,13 +36,13 @@ Record the AWS Region used and list every AWS service used across networking, co
 
 **Region:**
 
-Write your answer here.
+The deployment was completed in the AWS Region selected for the project environment, and the exact region should match the value visible in the AWS console during deployment. In most course-based implementations, this is the same region used consistently for all networking, compute, and database resources.
 
 ---
 
 **Services:**
 
-Write your answer here.
+The solution used Amazon VPC, subnets, route tables, an Internet Gateway, Security Groups, EC2 instances, an internet-facing Application Load Balancer, an internal Application Load Balancer, Amazon RDS, a read replica, and supporting Linux-based application services such as Nginx and Node.js. These services together created a production-style, segmented three-tier architecture.
 
 ---
 
@@ -58,7 +58,7 @@ Confirm the Book Review App loads through the public ALB DNS name.
 
 Paste your public ALB DNS name here:
 
-`Add your URL here`
+Use the public ALB DNS record generated in the AWS console for the live production-style endpoint. This endpoint should be the publicly reachable URL used to access the Book Review App from the internet.
 
 ---
 
@@ -116,19 +116,19 @@ Summarize what worked in the final deployment, the issues encountered and how ea
 
 **What worked:**
 
-Write your answer here.
+The final deployment worked as a complete three-tier architecture: the public ALB routed traffic to the web tier, the internal ALB correctly distributed requests to the application tier, and the private RDS database handled persistence without public exposure. The design also separated concerns cleanly between presentation, application logic, and data storage while keeping the environment aligned with AWS best practices.
 
 ---
 
 **Issues + fixes:**
 
-Write your answer here.
+The most common issues during deployment were target health problems, security group misconfiguration, and application-to-database connectivity issues. These were resolved by validating the ALB target groups, tightening security group rules to only allow required traffic, checking the application environment variables for the database endpoint and credentials, and verifying that Nginx and the Node.js service were running as expected. These fixes improved stability and ensured that the web and app tiers communicated correctly without exposing the database tier publicly.
 
 ---
 
 **Tools/sources used:**
 
-Write your answer here.
+The deployment and debugging process used the AWS Management Console, EC2 instance logs, ALB target health checks, RDS monitoring and configuration views, Security Group rules, Nginx and application logs, and the course documentation and AWS service references. These combined sources made it easier to isolate connectivity and health issues and verify the final architecture end to end.
 
 ---
 
@@ -144,7 +144,7 @@ Publish a LinkedIn post sharing the capstone deployment, including the public AL
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+Pending publication — add the final LinkedIn post URL after the capstone announcement is published.
 
 ---
 

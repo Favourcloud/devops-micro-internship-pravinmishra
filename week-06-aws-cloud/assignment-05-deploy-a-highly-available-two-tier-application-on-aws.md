@@ -228,19 +228,19 @@ Summarize the VPC/subnet layout, the ALB and Auto Scaling Group setup, the priva
 
 Summarize the VPC and subnets across the two Availability Zones.
 
-Write your answer here.
+The solution used a custom VPC in the 10.0.0.0/16 range with four subnets distributed across two Availability Zones. Two public subnets were used for internet-facing components, while two private subnets isolated the database and internal services. This design supported modular separation of concerns and ensured that the application could be scaled and deployed in a high-availability pattern without exposing the database to the public internet.
 
 Summarize the ALB and Auto Scaling Group setup.
 
-Write your answer here.
+The Application Load Balancer was placed across the public subnets to distribute incoming HTTP traffic evenly across healthy web instances. The Auto Scaling Group was configured from a launch template and set to maintain a minimum and desired capacity of two instances, with a higher maximum to absorb burst traffic or replace failing nodes automatically. This ensured resilience and reduced downtime during instance failures.
 
 Summarize the private Multi-AZ RDS setup.
 
-Write your answer here.
+The database tier was deployed as a private, Multi-AZ RDS instance in the private subnets using a restrictive security group. Public access was disabled, and only the web/application layer could reach it over the configured database port. This reduced risk while maintaining database availability and failover support across Availability Zones.
 
 Summarize the results of both high-availability tests.
 
-Write your answer here.
+Both high-availability tests validated the design. When one EC2 instance was terminated, the Auto Scaling Group recreated a replacement instance and the ALB continued routing traffic without a visible interruption. In the second test, an Availability Zone impact was simulated and the remaining healthy instances continued serving traffic, confirming that the application remained available because the environment was distributed across multiple AZs with load balancing and redundancy.
 
 ---
 
@@ -256,7 +256,7 @@ Publish a LinkedIn post about the high-availability build, including the ALB URL
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+Pending publication — add the final LinkedIn URL after the post is published.
 
 ---
 
