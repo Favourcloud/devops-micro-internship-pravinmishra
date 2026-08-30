@@ -263,7 +263,7 @@ Paste your LinkedIn post URL here:
 
 #### Screenshot of LinkedIn post
 
-![Screenshot 6](screenshots/assignment-05-deploy-a-highly-available-two-tier-application-on-aws-screencap-6.png)
+> Screenshot unavailable in the current archive. Restore the original LinkedIn proof image to add this evidence.
 
 ---
 
