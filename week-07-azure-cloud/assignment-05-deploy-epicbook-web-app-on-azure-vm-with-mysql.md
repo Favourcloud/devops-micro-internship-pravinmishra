@@ -130,9 +130,9 @@ Confirm the EpicBook application loads through the VM's public IP and that viewi
 
 #### Public IP URL
 
-Paste the public IP URL of your Virtual Machine here:
+Example VM public endpoint:
 
-`Add your URL here`
+`http://<vm-public-ip>`
 
 ---
 

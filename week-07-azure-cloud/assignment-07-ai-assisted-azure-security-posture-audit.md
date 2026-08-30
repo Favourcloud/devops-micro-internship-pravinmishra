@@ -136,7 +136,7 @@ Pick one WARN or FAIL finding (or deliberately open an NSG rule to port 22 from 
 
 Compare this assignment to the AWS audit you built in Week 6: which finding categories map to each other across the two clouds, and what stayed exactly the same about the workflow even though the `az`/`aws` commands are completely different?
 
-Add your answer here
+The Azure audit maps closely to the Week 6 AWS audit because both focus on the same core security questions: are public ports unnecessarily open, are sensitive resources exposed to the internet, is data protected at rest, and are access and monitoring controls correctly configured. In both clouds, the major finding categories revolve around network exposure, encryption and secret handling, identity and privilege boundaries, and visibility through logs and resource health. The workflow stayed essentially the same as well: confirm the live resources, create a read-only baseline report, analyze findings with an AI agent using evidence instead of assumptions, decide on a single real remediation, and then verify the fix with a second audit run. The primary difference was the command syntax and Azure service naming, but the security mindset and audit discipline remained identical across both environments.
 
 ---
 

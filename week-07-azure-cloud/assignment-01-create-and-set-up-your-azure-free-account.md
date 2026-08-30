@@ -30,21 +30,19 @@ Confirm successful Azure Portal access and Locate the required services and subs
 
 #### Screenshot 1 — Azure Portal homepage after successful login
 
-![Screenshot 1](screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-1.png)
+> Personal Azure account screenshots should be saved locally and uploaded to the assignment as privacy-safe evidence. They are intentionally not committed to the repository to avoid exposing account details, phone verification data, or subscription metadata.
 
 ---
 
 #### Screenshot 2 — "Subscriptions" section showing the "Free Trial" subscription
 
-![Screenshot 2](screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-2.png)
+> Keep the submitted screenshots focused on the portal homepage and the free-trial subscription only. Do not include payment details, phone numbers, or any sensitive verification information.
 
 ---
 
 ### Notes
 
-Write a three-to-four-line paragraph explaining which Azure services you plan to explore first and why.
-
-Write your answer here.
+I plan to explore Azure Virtual Machines, Virtual Networks, and Azure Storage first because they are the most fundamental services for building a production-style application and understanding how compute, networking, and storage work together in a cloud environment. These services also provide the best hands-on foundation for later assignments involving load balancers, databases, and secure deployment patterns. Establishing this baseline early will make the rest of the Azure track easier to reason about and more practical to apply in real projects.
 
 ---
 

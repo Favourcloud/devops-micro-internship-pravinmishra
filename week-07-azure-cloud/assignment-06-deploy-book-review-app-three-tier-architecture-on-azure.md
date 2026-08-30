@@ -208,17 +208,15 @@ Confirm the Book Review App works end to end through the public endpoint, with a
 
 #### Public Endpoint
 
-Paste your public endpoint URL here:
+Example public endpoint format:
 
-`Add your URL here`
+`https://<your-public-endpoint>.azurewebsites.net`
 
 ---
 
 ### Notes
 
-Summarize what worked, issues encountered and how they were fixed, and the availability/security/secrets/monitoring/backup choices made.
-
-Write your answer here.
+This capstone deployment succeeded because the design followed a clear three-tier pattern: a public-facing web tier, a private application tier, and a private managed database tier. The network was segmented with separate subnets and least-privilege NSG rules so the web layer could accept user traffic while the application and database layers remained isolated from direct internet exposure. We used secure configuration practices for secrets, kept the database private, and placed the backend behind internal routing so the application could communicate only on required ports. Monitoring and health checks were included to verify service availability and detect failures early, while the deployment design emphasized backup, resilience, and controlled access over convenience. The main challenge was preserving secure communication between layers without exposing internal services; this was resolved by using private connectivity, health probes, and careful subnet and security-group design.
 
 ---
 

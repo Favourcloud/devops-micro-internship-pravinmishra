@@ -22,7 +22,7 @@ Download or clone the portfolio website template from GitHub and confirm `index.
 
 #### Screenshot 1 — File Explorer or terminal showing the template folder contents with `index.html` visible
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
+> ![alt text](<Screenshot week6 assign2 scrn1-1.png>)
 
 ---
 
@@ -36,7 +36,7 @@ Create a globally unique S3 bucket in your chosen AWS region.
 
 #### Screenshot 2 — S3 bucket created screen showing the bucket name and region
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
+> ![alt text](<Screenshot Week6 assign2 task2 scrn22-1.png>)
 
 ---
 
@@ -50,8 +50,8 @@ Upload the contents of the template folder (not the folder itself) so `index.htm
 
 #### Screenshot 3 — S3 bucket Objects view showing `index.html` at the top or root level
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
-
+> 
+![alt text](<Screenshot week6 assign2 task3 scrn3-1.png>)
 ---
 
 # Task 4 — Enable Static Website Hosting
@@ -64,7 +64,7 @@ Enable S3 Static Website Hosting with `index.html` as the index document and `er
 
 #### Screenshot 4 — Static website hosting enabled screen showing the Website endpoint
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
+> ![alt text](<Screenshot week6 assign2 task4 scrn4-1.png>)
 
 ---
 
@@ -78,7 +78,7 @@ Adjust Block Public Access settings and save a bucket policy that grants public 
 
 #### Screenshot 5 — Bucket policy page showing the policy saved successfully, with the bucket name visible
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
+> ![alt text](<Screenshot week6 assign2 task5 scrn5-1.png>)
 
 ---
 
@@ -92,7 +92,7 @@ Load the site through the S3 website endpoint and confirm the homepage, images, 
 
 #### Screenshot 6 — Browser showing the live website with the S3 website endpoint visible in the address bar
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
+> ![alt text](<Screenshot week6 assign2 task6 scrn6 live-1.png>)
 
 ---
 
@@ -106,7 +106,7 @@ Edit a small visible detail, re-upload it to S3, and confirm the change appears 
 
 #### Screenshot 7 (optional) — Before and after views, or a browser view showing the updated text
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
+> ![alt text](<Screenshot week6 assign2 task7 scrn7-1.png>)
 
 ---
 

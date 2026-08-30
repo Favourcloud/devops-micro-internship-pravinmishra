@@ -146,7 +146,8 @@ Paste your LinkedIn post URL here:
 
 Pending publication — add the final LinkedIn post URL after the capstone announcement is published.
 
----
+---[alt text](https://lnkd.in/p/eCyHf-sv)
+
 
 #### Screenshot of LinkedIn post
 

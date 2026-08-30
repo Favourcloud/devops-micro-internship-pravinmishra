@@ -30,7 +30,7 @@ In the Billing Dashboard, create a monthly Cost Budget with a name, amount, and 
 
 #### Screenshot 1 — AWS Budget setup page showing the budget name, budget amount, and alert thresholds
 
-> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
+> ![alt text](<Screenshot Week6 Assign1 Task7  scrn1.png>)
 
 ### Notes
 
