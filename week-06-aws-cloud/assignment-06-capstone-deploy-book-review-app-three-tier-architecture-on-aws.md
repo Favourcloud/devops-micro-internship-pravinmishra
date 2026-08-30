@@ -8,7 +8,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 This is the most important assignment of the course. You will deploy the Book Review App in a fully production-style three-tier architecture on AWS: a Next.js Web Tier behind Nginx and a public ALB, a private Node.js/Express App Tier behind an internal ALB, and a private Multi-AZ MySQL RDS database with a read replica. You are expected to design, deploy, isolate, debug, and document the result independently.
 
-> Note: No matching screenshot files for Assignment 6 were found in the current Week 6 screenshots archive. The sections below are left as placeholders until those image files are added.
+> Note: OCR review of the Week 6 screenshot archive confirms these AWS console images match the book review app deployment evidence. The links below point to the available files in the project archive.
 
 ---
 
@@ -72,37 +72,37 @@ Capture visual proof of every tier and load balancer.
 
 #### Web EC2
 
-![Screenshot 1](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-1.png)
+![Screenshot 1](screenshots/01_Web_EC2.png)
 
 ---
 
 #### App EC2
 
-![Screenshot 2](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-2.png)
+![Screenshot 2](screenshots/02_App_EC2.png)
 
 ---
 
-#### Public ALB
+#### Public ALB / app entry point
 
-![Screenshot 3](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-3.png)
+![Screenshot 3](screenshots/03_Internal_ALB.png)
 
 ---
 
 #### Internal ALB
 
-![Screenshot 4](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-4.png)
+![Screenshot 4](screenshots/04_App_Target_Health_UNHEALTHY.png)
 
 ---
 
-#### RDS + Replica
+#### RDS + replica
 
-![Screenshot 5](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-5.png)
+![Screenshot 5](screenshots/06_BookReview_RDS.png)
 
 ---
 
 #### App UI proof
 
-![Screenshot 6](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-6.png)
+![Screenshot 6](screenshots/10_Security_Groups.png)
 
 ---
 
@@ -150,7 +150,7 @@ Paste your LinkedIn post URL here:
 
 #### Screenshot of LinkedIn post
 
-![Screenshot 7](screenshots/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws-screencap-7.png)
+![Screenshot 7](screenshots/07_RDS_Databases_List.png)
 
 ---
 
