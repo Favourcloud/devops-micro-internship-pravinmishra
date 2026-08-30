@@ -351,13 +351,13 @@ Week-6 is **7 assignment files**, each graded pass/fail — your LinkedIn post a
 
 | S. No. | Item | Comments | Link |
 |--------|------|----------|------|
-| 1 | Week-7 Class Recording | Watch the recording of the Week-7 live class on YouTube | - |
+| 1 | Week-7 Class Recording | Watch the recording of the Week-7 live class on YouTube | [YouTube](https://youtube.com/live/jbTUpiM3zBQ?feature=share) |
 
 ---
 
 ### Week 7: Assignments Submission Guidelines – DevOps Micro Internship (DMI) Cohort-3
 
-* **Deadline - __**
+* **Deadline - 21 August 2026**
 
 Week-7 is **7 assignment files**, each graded pass/fail — your LinkedIn post and blog post for the week are scored separately below:
 
@@ -380,13 +380,13 @@ Week-7 is **7 assignment files**, each graded pass/fail — your LinkedIn post a
 
 | S. No. | Item | Comments | Link |
 |--------|------|----------|------|
-| 1 | Week-8 Class Recording | Watch the recording of the Week-8 live class on YouTube | - |
+| 1 | Week-8 Class Recording | Watch the recording of the Week-8 live class on YouTube | [YouTube](https://youtube.com/live/QOqrfVFacpc?feature=share) |
 
 ---
 
 ### Week 8: Assignments Submission Guidelines – DevOps Micro Internship (DMI) Cohort-3
 
-* **Deadline - __**
+* **Deadline - 04 September 2026**
 
 Week-8 is **6 assignment files**, each graded pass/fail — your LinkedIn post and blog post for the week are scored separately below:
 
