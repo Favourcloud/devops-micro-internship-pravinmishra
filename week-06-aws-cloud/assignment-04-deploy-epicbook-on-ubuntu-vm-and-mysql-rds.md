@@ -8,6 +8,8 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will deploy the EpicBook web application in AWS using a secure two-tier architecture: an Ubuntu EC2 instance with Nginx in a public subnet, and a private MySQL RDS database with restricted security-group access. The completed deployment must prove that the frontend, backend, and private database communicate successfully end to end.
 
+> Note: The original Week 6 screenshot archive for this assignment is not present in the current workspace, so the image links below are intentionally converted to placeholder notes until the original files are restored or re-uploaded.
+
 ---
 
 # Task 1 — Create VPC + Public/Private Subnets + Routing
@@ -20,19 +22,19 @@ Create `epicbook-vpc` (10.0.0.0/16) with a public subnet (10.0.1.0/24) and a pri
 
 #### Screenshot 1 — VPC details showing CIDR 10.0.0.0/16
 
-![Screenshot 1: VPC details](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task1%20scrn1.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 2 — Subnets list showing both subnets and their CIDRs
 
-![Screenshot 2: Subnets list](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task1%20scrn2.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 3 — Route table showing 0.0.0.0/0 → IGW and association with the public subnet
 
-![Screenshot 3: Public route table](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task1%20scrn3.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -46,13 +48,13 @@ Create `epicbook-ec2-sg` (SSH from your IP, HTTP/HTTPS public) and `epicbook-rds
 
 #### Screenshot 4 — EC2 security-group inbound rules showing ports and sources
 
-![Screenshot 4: EC2 security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task2%20scrn4.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 5 — RDS security-group inbound rule showing MySQL 3306 allowed from the EC2 security group
 
-![Screenshot 5: RDS security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task2%20scrn5.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -66,13 +68,13 @@ Launch an Ubuntu 20.04 instance in the public subnet with `epicbook-ec2-sg` atta
 
 #### Screenshot 6 — EC2 instance summary showing the public IPv4 address, subnet, and security group
 
-![Screenshot 6: EC2 instance summary](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task3%20scrn6.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 7 — Terminal showing a successful SSH login with the `ubuntu@...` prompt
 
-![Screenshot 7: SSH login](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task3%20scrn7.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -86,19 +88,19 @@ Install Node.js, npm, Nginx, and the MySQL client on the instance, and confirm N
 
 #### Screenshot 8 — Output of `node -v` and `npm -v`
 
-![Screenshot 8: node and npm versions](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task4%20scrn8.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 9 — Output of `systemctl status nginx`
 
-![Screenshot 9: Nginx status](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task4%20scrn9.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 10 — Output of `mysql --version`
 
-![Screenshot 10: MySQL version](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task4%20scrn10.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -112,13 +114,13 @@ Create a private MySQL RDS instance in `epicbook-vpc` using a DB Subnet Group ov
 
 #### Screenshot 11 — RDS instance summary showing Publicly accessible: No
 
-![Screenshot 11: RDS no public access](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task5%20scrn11%20main.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 12 — Connectivity & security section showing the VPC and attached security group
 
-![Screenshot 12: RDS VPC and security group](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task5%20scrn12.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -132,7 +134,7 @@ Connect to RDS from EC2, create the `epicbook` database, and import the provided
 
 #### Screenshot 13 — Terminal showing successful `SHOW TABLES;` output with tables listed
 
-![Screenshot 13: SQL tables output](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task6%20scrn13.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -146,19 +148,19 @@ Clone the EpicBook repository, install backend dependencies, configure `.env` wi
 
 #### Screenshot 14 — Terminal showing the repository cloned and the `ls` output
 
-![Screenshot 14: repo clone and ls](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task7%20scrn14.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 15 — Terminal showing the backend running, or `ss -tulpn` showing the port open
 
-![Screenshot 15: backend running](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task7%20scrn15%20main.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 16 — `curl` output proving the backend responds; a 200, 301, or 404 response is acceptable if the service responds
 
-![Screenshot 16: backend curl response](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task7%20scrn16.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -172,13 +174,13 @@ Copy the frontend files to the Nginx web root and configure Nginx to reverse-pro
 
 #### Screenshot 17 — `nginx -t` success output
 
-![Screenshot 17: nginx test pass](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task8%20scrn17.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 18 — Nginx configuration snippet showing the `/api/` reverse proxy
 
-![Screenshot 18: reverse proxy config](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task8%20scrn18.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -192,19 +194,19 @@ Verify the frontend loads publicly, the backend responds through Nginx, and EC2 
 
 #### Screenshot 19 — Browser showing the EpicBook application loaded with the public IP visible
 
-![Screenshot 19: app loaded in browser](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task9%20scrn19.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 20 — Terminal showing a successful API call through the public endpoint, such as `curl http://<EC2_PUBLIC_IP>/api/...`
 
-![Screenshot 20: API call through endpoint](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task9%20scrn20.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
 #### Screenshot 21 — Terminal showing the successful database connectivity test using `SELECT 1;` or similar
 
-![Screenshot 21: database connectivity test](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign4%20task9%20scrn21%20main.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 

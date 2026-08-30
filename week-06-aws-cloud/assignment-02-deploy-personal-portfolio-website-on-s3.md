@@ -8,6 +8,8 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will deploy a static personal portfolio website quickly and reliably using Amazon S3 Static Website Hosting. You will download the portfolio template, create an S3 bucket, upload the static files, enable static website hosting, configure public read access, and validate the deployment through the S3 website endpoint.
 
+> Note: The original Week 6 screenshot archive for this assignment is not present in the current workspace, so the image links below are intentionally converted to placeholder notes until the original files are restored or re-uploaded.
+
 ---
 
 # Task 1 — Download the Website Template Locally
@@ -20,7 +22,7 @@ Download or clone the portfolio website template from GitHub and confirm `index.
 
 #### Screenshot 1 — File Explorer or terminal showing the template folder contents with `index.html` visible
 
-![Screenshot 1: Template folder with index.html](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20Assign2%20task1%20Scrn1.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -34,7 +36,7 @@ Create a globally unique S3 bucket in your chosen AWS region.
 
 #### Screenshot 2 — S3 bucket created screen showing the bucket name and region
 
-![Screenshot 2: S3 bucket created](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20Week6%20assign2%20task2%20scrn22.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -48,7 +50,7 @@ Upload the contents of the template folder (not the folder itself) so `index.htm
 
 #### Screenshot 3 — S3 bucket Objects view showing `index.html` at the top or root level
 
-![Screenshot 3: Uploaded website files in S3](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign2%20task3%20scrn3.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -62,7 +64,7 @@ Enable S3 Static Website Hosting with `index.html` as the index document and `er
 
 #### Screenshot 4 — Static website hosting enabled screen showing the Website endpoint
 
-![Screenshot 4: Static website hosting enabled](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign2%20task4%20scrn4.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -76,7 +78,7 @@ Adjust Block Public Access settings and save a bucket policy that grants public 
 
 #### Screenshot 5 — Bucket policy page showing the policy saved successfully, with the bucket name visible
 
-![Screenshot 5: Public bucket policy](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign2%20task5%20scrn5.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -90,7 +92,7 @@ Load the site through the S3 website endpoint and confirm the homepage, images, 
 
 #### Screenshot 6 — Browser showing the live website with the S3 website endpoint visible in the address bar
 
-![Screenshot 6: Live website on S3 endpoint](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign2%20task6%20scrn6%20live.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 
@@ -104,7 +106,7 @@ Edit a small visible detail, re-upload it to S3, and confirm the change appears 
 
 #### Screenshot 7 (optional) — Before and after views, or a browser view showing the updated text
 
-![Screenshot 7: Optional update verification](screenshots/WEEK%206%20SCREENSHOTS/Screenshot%20week6%20assign2%20task7%20scrn7.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ---
 

@@ -30,9 +30,7 @@ In the Billing Dashboard, create a monthly Cost Budget with a name, amount, and 
 
 #### Screenshot 1 — AWS Budget setup page showing the budget name, budget amount, and alert thresholds
 
-![Screenshot 1](screenshots/assignment-01-creating-an-aws-free-tier-account-and-budget-alerts-screencap-1.png)
-
----`n![Screenshot 1: AWS Budget setup](screenshots/WEEK 6 SCREENSHOTS/Screenshot Week6 Assign1 Task7  scrn1 - Copy.png)
+> Screenshot unavailable in the current archive. Restore the original AWS console image to add this evidence.
 
 ### Notes
 
@@ -42,7 +40,9 @@ Answer the following in your own words:
 
 Write your answer here.
 
----AWS budget alerts helps to monitor ones spending and avoid unexpected charges by notifying you when your costs reach a set limit.
+---
+
+AWS budget alerts help monitor spending and avoid unexpected charges by notifying you when costs reach a set limit.
 
 
 # Submission Instructions
