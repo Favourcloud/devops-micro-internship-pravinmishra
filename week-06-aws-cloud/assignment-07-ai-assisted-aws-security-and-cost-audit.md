@@ -24,13 +24,13 @@ Confirm your AWS CLI is authenticated and can see the S3 bucket, EC2 instance(s)
 
 #### Screenshot 1 — Output of `aws s3 ls`, the EC2 instance table, and the RDS instance table (blur the Account ID if visible)
 
-![Screenshot 1](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-1.png)
+![Screenshot 1]![alt text](<Screenshot week6 assign7 scrn 1.png>)
 
 ---
 
 #### Screenshot 2 — Output of `pwd` and `find . -maxdepth 4 -type d | sort`
 
-![Screenshot 2](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-2.png)
+![Screenshot 2]![alt text](<Screenshot week6 assign7 scrn 2.png>)
 
 ---
 
@@ -56,8 +56,7 @@ Create a `CLAUDE.md` in your workspace that tells Claude the audit script is rea
 
 #### Screenshot 3 — `CLAUDE.md` open in VS Code showing all four sections
 
-![Screenshot 3](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-3.png)
-
+![Screenshot 3]![alt text](<Screenshot week6 assign7 scrn3.png>)
 ---
 
 ### Notes You Must Write (Very Important)
@@ -82,13 +81,13 @@ Ask Claude Code to propose a read-only audit plan covering five checks — S3 pu
 
 #### Screenshot 4 — Claude Code showing the five-check plan
 
-![Screenshot 4](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-4.png)
+![Screenshot 4]![alt text](<Screenshot week6 assign7 task3 scrn4.png>)
 
 ---
 
 ### Notes You Must Write (Very Important)
 
-**1. Which part of this task represents the Gather phase?**
+1. Which part of this task represents the Gather phase?**
 
 The Gather phase is the planning step where Claude inspects the live AWS environment and proposes the read-only checks needed for the audit. It is the evidence-collection stage before any script is written or any remediation is discussed.
 
@@ -110,7 +109,7 @@ Make it executable and confirm it has no syntax errors.
 
 #### Screenshot 5 — Top section of `aws-audit.sh` showing the variables and the checks array
 
-![Screenshot 5](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-5.png)
+![Screenshot 5]![alt text](<Screenshot week6 assign7 task4 scrn5.png>)
 
 ---
 
@@ -122,7 +121,7 @@ Make it executable and confirm it has no syntax errors.
 
 #### Screenshot 7 — Output of `bash -n scripts/aws-audit.sh` and `ls -l scripts/aws-audit.sh`
 
-![Screenshot 7](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-7.png)
+![Screenshot 7]![alt text](<Screenshot week6 assign7 task4 scrn5b.png>)
 
 ---
 
@@ -152,13 +151,13 @@ Run the script against your live AWS account and capture the current state befor
 
 #### Screenshot 8 — Output of `./scripts/aws-audit.sh` showing your Full Name and all five checks
 
-![Screenshot 8](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-8.png)
+![Screenshot 8]![alt text](<Screenshot Week6 assign7 task5 scrn8.png>)
 
 ---
 
 #### Screenshot 9 — Output showing the captured exit code and final summary
 
-![Screenshot 9](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-9.png)
+![Screenshot 9]![alt text](<Screenshot week6 assign7 task5 scrn9.png>)
 
 ---
 
@@ -188,13 +187,13 @@ Turn the script into a Claude Code skill named `/aws-audit` that runs the script
 
 #### Screenshot 10 — `SKILL.md` showing the frontmatter, tool restrictions, and safety rules
 
-![Screenshot 10](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-10.png)
+![Screenshot 10]![alt text](<Screenshot week6 assign7 task6 scrn10.png>)
 
 ---
 
 #### Screenshot 11 — `/aws-audit` output showing findings, cost/risk impact, and a recommended remediation command (or a clean report if your baseline passed everything)
 
-![Screenshot 11](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-11.png)
+![Screenshot 11]![alt text](<Screenshot week6 assign7 task6 scrn11.png>)
 
 ---
 
@@ -224,13 +223,13 @@ Pick one real finding from your baseline report (or deliberately open a security
 
 #### Screenshot 12 — Output of the `revoke-security-group-ingress` and `authorize-security-group-ingress` commands you ran yourself
 
-![Screenshot 12](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-12.png)
+![Screenshot 12]![alt text](<Screenshot week6 assign7 task7 scrn12.png>)
 
 ---
 
 #### Screenshot 13 — Rerun of `./scripts/aws-audit.sh` showing the finding is now PASS
 
-![Screenshot 13](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-13.png)
+![Screenshot 13]![alt text](<Screenshot week6 assign7 task7 scrn13.png>)
 
 ---
 
@@ -275,7 +274,7 @@ Suggested tags:
 
 #### LinkedIn Post URL
 
-Paste your LinkedIn post URL here:
+Paste your LinkedIn post URL here:https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-devsecops-activity-7500322844539551744-hmmz?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
 
 Pending publication — add the final LinkedIn post URL after the article is published.
 
@@ -283,7 +282,7 @@ Pending publication — add the final LinkedIn post URL after the article is pub
 
 #### Screenshot of Published LinkedIn Post
 
-![Screenshot 14](screenshots/assignment-07-ai-assisted-aws-security-and-cost-audit-screencap-14.png)
+![Screenshot 14]![alt text](image-2.png)
 
 ---
 
