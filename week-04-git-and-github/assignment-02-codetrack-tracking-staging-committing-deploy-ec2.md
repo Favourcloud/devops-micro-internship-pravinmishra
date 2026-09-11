@@ -112,7 +112,7 @@ Follow the instruction comment inside `index.html` to update the Student Name an
 
 #### Screenshot 9 — Browser showing the updated page with your Student Name and Group Name visible
 
-Student Name: **Favour Eze**, Group: **Group 3** visible in the HTML.
+Student Name: **Favour Eze**, Group: **DMI Cohort 3 Group 1** visible in the deployed page.
 
 ![Screenshot 9a](screenshots/assignment2-site-final.png)
 
@@ -146,7 +146,7 @@ Install and start Nginx on your EC2 instance, then copy `index.html` and `style.
 
 #### Screenshot 13 — Output of `systemctl status nginx --no-pager` showing Nginx `active (running)`
 
-Nginx deployment to EC2 pending EC2 instance setup.
+![Screenshot 13](screenshots/Screenshot%20assign9%20task7%20ngix%20running%20and%20active.png)
 
 ---
 
@@ -160,6 +160,8 @@ Nginx deployment to EC2 pending EC2 instance setup.
 
 ![Screenshot 15](screenshots/assignment2-site-final.png)
 
+The site is shown publicly at `http://3.90.210.124` with Favour Eze's name and group visible.
+
 ---
 
 # LinkedIn Post (Required)
@@ -168,11 +170,7 @@ Nginx deployment to EC2 pending EC2 instance setup.
 
 #### LinkedIn Post URL
 
-<<<<<<< Updated upstream
 https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk
-=======
-`https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-ugcPost-7485997897453576192-lqjT/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk`
->>>>>>> Stashed changes
 
 ---
 
@@ -198,8 +196,8 @@ Pending.
 - [x] Starter files staged and committed in the first commit (Screenshots 5–8)
 - [x] Student Name and Group Name updated in `index.html` (Screenshot 9)
 - [x] Second controlled commit created (Screenshots 10–12)
-- [ ] Nginx active on the EC2 instance and CodeTrack reachable via its public IP (Screenshots 13–15)
-- [ ] LinkedIn post published and URL submitted
+- [x] Nginx active on the EC2 instance and CodeTrack reachable via its public IP (Screenshots 13–15)
+- [x] LinkedIn post published and URL submitted
 - [x] No sensitive data exposed
 
 ---
