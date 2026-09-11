@@ -10,6 +10,21 @@
       "env": {
         "GITHUB_TOKEN": "${GITHUB_TOKEN}"
       }
+    },
+    "jira": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "${JIRA_URL}",
+        "JIRA_USERNAME": "${JIRA_USERNAME}",
+        "JIRA_API_TOKEN": "${JIRA_API_TOKEN}",
+        "JIRA_PROJECTS_FILTER": "GJFE,DMIWEB,PMPWENF",
+        "ENABLED_TOOLS": "jira_search,jira_get_issue,jira_get_agile_boards,jira_get_board_issues,jira_get_sprints_from_board,jira_get_sprint_issues",
+        "READ_ONLY_MODE": "true"
+      }
     }
   }
 }
