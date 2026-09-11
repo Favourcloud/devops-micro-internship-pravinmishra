@@ -8,6 +8,11 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will create or confirm your GitHub account, explore repositories the way a professional would, practice starring and forking, and update your profile with professional information. This establishes a credible GitHub identity before you use GitHub for collaboration, portfolio work, and future DevOps projects.
 
+## Submitted Evidence
+
+- [LinkedIn post and GitHub-profile proof](Screenshot%20linkedln%20proof%20image.png)
+- [Additional LinkedIn/profile proof](Screenshot%20linkedln%20proof%20image%20-%20Copy.png)
+
 ---
 
 # Task 1 — Create a GitHub Account (or Confirm an Existing Account)

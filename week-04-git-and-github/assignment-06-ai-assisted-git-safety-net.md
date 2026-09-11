@@ -15,6 +15,10 @@ You will build both halves of a real "PR Ready" workflow:
 
 This mirrors the Agentic Loop from Week 3's Linux triage assignment: **Gather → Analyze → Human Act → Verify**. The hook and the skill both gather and analyze; only you act.
 
+## Submitted Evidence
+
+- [Pre-commit hook test](screenshots/assignment6-hook-test.png)
+
 ---
 
 # Task 0 — Confirm Your Fork and Create a Feature Branch

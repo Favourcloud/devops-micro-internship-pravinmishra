@@ -8,6 +8,10 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will contribute one small documentation change to a shared repository using a standard open-source collaboration workflow: fork, clone, configure remotes, branch, commit, sync with upstream, push, and open a Pull Request. This is a different, separate practice repository from the one you submit your DMI work in.
 
+## Submitted Evidence
+
+- [Forked repository page](screenshots/assignment5-fork-page.png)
+
 ---
 
 # Task 0 — Fork the Upstream Repository

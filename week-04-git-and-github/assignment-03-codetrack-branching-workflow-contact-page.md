@@ -8,6 +8,11 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will add a new Contact page to CodeTrack using a clean feature-branch workflow. You will keep each change in a separate commit, prove that your default branch remains unchanged before the merge, and validate the result after merging.
 
+## Submitted Evidence
+
+- [CodeTrack homepage with student name visible](screenshots/Screenshot%20assign9%20codetrack%20name%20visible%20screen%209.png)
+- [Contact page tested locally](screenshots/Screenshot%20assign9%20task%207%20local%20host%20comn%2011.png)
+
 ---
 
 # Task 1 — Confirm Repository State and Default Branch
