@@ -26,7 +26,7 @@ Add your screenshot here.
 
 Why does the MCP server need your site URL and account email in addition to the token?
 
-Add your answer here
+The MCP server needs the Jira site URL to identify the Cloud tenant and the account email to identify the Atlassian user associated with the token. The token authenticates the request but does not identify the destination by itself.
 
 ---
 
@@ -46,7 +46,7 @@ Add your screenshot here.
 
 Compare this jira block to the github block from Week 2 Assignment 5. The GitHub server ran via npx (a Node.js package); this one runs via uvx (a Python package) — what stays exactly the same shape despite that difference, and why doesn't Claude Code care which language a given MCP server is written in?
 
-Add your answer here
+The Jira and GitHub blocks keep the same MCP shape: server name, transport command, arguments, and environment-variable references. Claude Code speaks the MCP protocol over that transport, so it does not depend on whether the implementation is Node.js or Python.
 
 ---
 
@@ -66,7 +66,7 @@ Add your screenshot here.
 
 Why must JIRA_API_TOKEN live in settings.local.json and never in .mcp.json?
 
-Add your answer here
+JIRA_API_TOKEN belongs in settings.local.json because .mcp.json is repository configuration that may be committed. Keeping the token local prevents credential leakage through Git history.
 
 ---
 
@@ -100,7 +100,7 @@ Add your screenshot here.
 
 How did you confirm this was real board data and not something Claude guessed?
 
-Add your answer here
+Live connection evidence is pending because the Jira API token has not been created yet.
 
 ---
 
@@ -124,11 +124,11 @@ Add your screenshot here.
 
 1. Which Jira MCP tools does this skill's allowed-tools list include, and which mutating tools (create issue, update issue, transition issue, add comment) does it deliberately exclude?
 
-Add your answer here
+The skill uses only jira_search, jira_get_issue, jira_get_agile_boards, jira_get_board_issues, jira_get_sprints_from_board, jira_get_sprint_issues, plus Read. It deliberately excludes issue creation, update, transition, assignment, deletion, comments, and sprint-management writes. This matters to a Scrum Master because the report must inspect the team source of truth without accidentally changing scope, status, estimates, or accountability.
 
 2. Why does a Scrum Master need this restriction more than almost any other role in this course?
 
-Add your answer here
+Gather and Analyze are performed by the skill; Human Act remains a manual Jira action; Verify re-reads live state afterward. The human step must stay accountable because status, scope, estimates, and comments are team decisions.
 
 ---
 
@@ -165,7 +165,7 @@ Your submission must include:
 # Completion Checklist
 
 - [ ] Task 1: Jira API token created, value never screenshotted (Screenshot 1)
-- [ ] Task 2: `.mcp.json` has the Jira server block (Screenshot 2)
+- [x] Task 2: `.mcp.json` has the Jira server block (Screenshot 2)
 - [ ] Task 3: Credentials stored in `settings.local.json`, token blurred, file gitignored (Screenshot 3)
 - [ ] Task 4: `/mcp` shows the Jira server connected (Screenshot 4)
 - [ ] Task 5: Live query returned real sprint data, verified against the browser (Screenshot 5)
