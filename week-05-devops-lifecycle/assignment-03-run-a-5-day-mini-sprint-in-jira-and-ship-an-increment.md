@@ -178,15 +178,13 @@ Publish a LinkedIn post about your five-day mini-Sprint, including your GitHub r
 
 #### LinkedIn Post URL
 
-Paste your LinkedIn post URL here:
-
-`Add your URL here`
+https://www.linkedin.com/feed/update/urn:li:activity:7491178060780613632/
 
 ---
 
 #### LinkedIn Screenshot 1 — Published LinkedIn post showing the post content and at least one required link or proof image
 
-Add your screenshot here.
+![LinkedIn five-day mini-sprint post](screenshots/assignment03_linkedin_post.png)
 
 ---
 
@@ -211,8 +209,8 @@ Add your screenshot here.
 - [x] Task 5: Day 4 DMI Website call-to-action deployed and clickable (Screenshot 14)
 - [ ] Task 6: Day 5 demo, retrospective, and Burndown evidence completed (Screenshots 15–17, video URL)
 - [x] Daily Scrum comments posted for Days 1–5
-- [ ] LinkedIn post published with the GitHub URL, EC2 URL, required delivery details, and proof image
-- [ ] LinkedIn Post URL and LinkedIn Screenshot 1 included
+- [x] LinkedIn post published with the GitHub URL, EC2 URL, required delivery details, and proof image
+- [x] LinkedIn Post URL and LinkedIn Screenshot 1 included
 - [x] Full Name visible in required screenshots
 - [x] No sensitive data exposed
 

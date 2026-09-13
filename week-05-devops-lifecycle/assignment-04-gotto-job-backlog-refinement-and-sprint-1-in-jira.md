@@ -202,15 +202,13 @@ Publish a LinkedIn post about what you delivered, including your live URL, three
 
 #### LinkedIn Post URL
 
-Paste your LinkedIn post URL here:
-
-`Add your URL here`
+https://www.linkedin.com/feed/update/urn:li:activity:7491572920389939201/
 
 ---
 
 #### Screenshot 14 — Published LinkedIn post
 
-Add your screenshot here.
+![LinkedIn backlog refinement and sprint delivery post](screenshots/assignment04_linkedin_post.png)
 
 ---
 
@@ -233,7 +231,7 @@ Add your screenshot here.
 - [x] Task 7: Burndown Chart opened (Screenshot 9)
 - [x] Task 8: One UI-only increment implemented, committed, deployed, and verified (Screenshots 10–12)
 - [x] Task 9: Retro comment with one Scrum pillar and one Scrum value (Screenshot 13)
-- [ ] Task 10: Mandatory LinkedIn post published with the live URL, backlog refinement, Sprint planning, one shipped increment, proof, and Screenshot 14
+- [x] Task 10: Mandatory LinkedIn post published with the live URL, backlog refinement, Sprint planning, one shipped increment, proof, and Screenshot 14
 - [x] Full Name visible in required screenshots
 - [x] No sensitive data exposed
 
