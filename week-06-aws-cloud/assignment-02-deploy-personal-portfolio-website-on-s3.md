@@ -8,7 +8,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will deploy a static personal portfolio website quickly and reliably using Amazon S3 Static Website Hosting. You will download the portfolio template, create an S3 bucket, upload the static files, enable static website hosting, configure public read access, and validate the deployment through the S3 website endpoint.
 
-> Note: The original Week 6 screenshot archive for this assignment is not present in the current workspace, so the image links below are intentionally converted to placeholder notes until the original files are restored or re-uploaded.
+The original Week 6 evidence images are present in this repository and show the deployment workflow from the local template through the public S3 website endpoint.
 
 ---
 
@@ -108,26 +108,28 @@ Edit a small visible detail, re-upload it to S3, and confirm the change appears 
 
 > ![alt text](<Screenshot week6 assign2 task7 scrn7-1.png>)
 
+The updated heading is also visible at the public S3 endpoint listed above, confirming that the change was uploaded successfully.
+
 ---
 
 # Submission Instructions
 
 - Add all required screenshots in your submission
-- Include the live S3 Website Endpoint URL
+- Include the live S3 Website Endpoint URL: http://pravin-portfolio-favour-af-south-1.s3-website.eu-north-1.amazonaws.com/
 - Do not expose sensitive AWS account information
 
 ---
 
 # Completion Checklist
 
-- [ ] Task 1: Template downloaded/cloned with `index.html` confirmed (Screenshot 1)
-- [ ] Task 2: Globally unique S3 bucket created (Screenshot 2)
-- [ ] Task 3: Website files uploaded with `index.html` at bucket root (Screenshot 3)
-- [ ] Task 4: Static website hosting enabled (Screenshot 4)
-- [ ] Task 5: Public-read bucket policy saved (Screenshot 5)
-- [ ] Task 6: Live website verified through the S3 website endpoint (Screenshot 6)
-- [ ] Task 7: Optional small update re-uploaded and verified (Screenshot 7)
-- [ ] S3 Website Endpoint URL included
+- [x] Task 1: Template downloaded/cloned with `index.html` confirmed (Screenshot 1)
+- [x] Task 2: Globally unique S3 bucket created (Screenshot 2)
+- [x] Task 3: Website files uploaded with `index.html` at bucket root (Screenshot 3)
+- [x] Task 4: Static website hosting enabled (Screenshot 4)
+- [x] Task 5: Public-read bucket policy saved (Screenshot 5)
+- [x] Task 6: Live website verified through the S3 website endpoint (Screenshot 6)
+- [x] Task 7: Optional small update re-uploaded and verified (Screenshot 7)
+- [x] S3 Website Endpoint URL included
 - [ ] No sensitive account information exposed
 
 ---
