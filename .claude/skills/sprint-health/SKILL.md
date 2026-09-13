@@ -1,6 +1,15 @@
 ---
 name: sprint-health
 description: Produce a read-only Jira sprint health report covering velocity, at-risk work, and missing estimates. Use only when the user explicitly invokes sprint-health or requests a Jira sprint health report.
+allowed-tools:
+  - Read
+  - jira_search
+  - jira_get_issue
+  - jira_get_agile_boards
+  - jira_get_board_issues
+  - jira_get_sprints_from_board
+  - jira_get_sprint_issues
+disable-model-invocation: true
 ---
 
 # Sprint Health
