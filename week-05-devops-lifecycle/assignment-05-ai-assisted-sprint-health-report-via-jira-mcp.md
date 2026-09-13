@@ -148,7 +148,7 @@ Manually update one ticket on your board in the browser (for example, move a sto
 
 Map this assignment to Gather → Analyze → Human Act → Verify from Week 3 Assignment 6. Which step did you perform manually in the browser, and why must that step stay human?
 
-The manual browser step is **Human Act**: I moved GJFE-10 to **Done** in Jira myself. That step must stay human because it is a scope, status, or estimate decision owned by the team; the skill can only gather and analyze live data, then verify the result after a person makes the change.
+The manual browser step is **Human Act**: I moved GJFE-13 to **Done** in Jira myself in the browser. That step must stay human because it is a scope, status, or estimate decision owned by the team; the skill can only gather and analyze live data, then verify the result after a person makes the change.
 
 ---
 
