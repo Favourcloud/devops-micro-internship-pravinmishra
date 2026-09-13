@@ -27,6 +27,8 @@ Create `epicbook-vpc` (10.0.0.0/16) with a public subnet (10.0.1.0/24) and a pri
 
 > ![alt text](<Screenshot week6 assign4 task1 scrn2.png>)
 
+The captured list shows the `epicbook-public-subnet`, but it does not show a private subnet in `epicbook-vpc`; Task 1 remains open until that evidence is captured.
+
 ---
 
 #### Screenshot 3 — Route table showing 0.0.0.0/0 → IGW and association with the public subnet
@@ -119,6 +121,8 @@ Create a private MySQL RDS instance in `epicbook-vpc` using a DB Subnet Group ov
 
 > ![alt text](<Screenshot week6 assign4 task5 scrn12.png>)
 
+These captures show the RDS instance and disabled internet gateway access, but do not explicitly display the required `Publicly accessible: No` field; Task 5 remains open pending that confirmation.
+
 ---
 
 # Task 6 — Initialize Database (SQL Dump Import)
@@ -151,13 +155,13 @@ Clone the EpicBook repository, install backend dependencies, configure `.env` wi
 
 #### Screenshot 15 — Terminal showing the backend running, or `ss -tulpn` showing the port open
 
-> ![alt text](<Screenshot week6 assign4 task7 scrn15 main.png>)
+> ![alt text](<Screenshot week6 assign4 task7 scrn15.png>)
 
 ---
 
 #### Screenshot 16 — `curl` output proving the backend responds; a 200, 301, or 404 response is acceptable if the service responds
 
-> ![alt text](<Screenshot week6 assign4 task7 scrn15.png>)
+> ![alt text](<Screenshot week6 assign4 task7 scrn16.png>)
 
 ---
 
@@ -171,13 +175,13 @@ Copy the frontend files to the Nginx web root and configure Nginx to reverse-pro
 
 #### Screenshot 17 — `nginx -t` success output
 
-> ![alt text](<Screenshot week6 assign4 task7 scrn16.png>)
+> ![alt text](<Screenshot week6 assign4 task8 scrn17.png>)
 
 ---
 
 #### Screenshot 18 — Nginx configuration snippet showing the `/api/` reverse proxy
 
-> ![alt text](<Screenshot week6 assign4 task8 scrn17.png>)
+> ![alt text](<Screenshot week6 assign4 task8 scrn18.png>)
 
 ---
 
@@ -191,7 +195,7 @@ Verify the frontend loads publicly, the backend responds through Nginx, and EC2 
 
 #### Screenshot 19 — Browser showing the EpicBook application loaded with the public IP visible
 
-> ![alt text](<Screenshot week6 assign4 task8 scrn18.png>)
+> Evidence is missing from the current workspace; the available `task8 scrn18` image is a terminal configuration capture, not a browser view of the frontend.
 
 ---
 
@@ -205,6 +209,8 @@ Verify the frontend loads publicly, the backend responds through Nginx, and EC2 
 
 > ![alt text](<Screenshot week6 assign4 task9 scrn21 main.png>)
 
+The API and database terminal checks are present, but the required browser capture for Screenshot 19 is missing, so Task 9 remains open.
+
 ---
 
 # Submission Instructions
@@ -217,13 +223,13 @@ Verify the frontend loads publicly, the backend responds through Nginx, and EC2 
 # Completion Checklist
 
 - [ ] Task 1: VPC, public/private subnets, IGW, and public routing created (Screenshots 1–3)
-- [ ] Task 2: Least-privilege EC2 and RDS security groups created (Screenshots 4–5)
-- [ ] Task 3: Ubuntu EC2 launched in the public subnet with SSH verified (Screenshots 6–7)
-- [ ] Task 4: Node.js, npm, Nginx, and MySQL client installed (Screenshots 8–10)
+- [x] Task 2: Least-privilege EC2 and RDS security groups created (Screenshots 4–5)
+- [x] Task 3: Ubuntu EC2 launched in the public subnet with SSH verified (Screenshots 6–7)
+- [x] Task 4: Node.js, npm, Nginx, and MySQL client installed (Screenshots 8–10)
 - [ ] Task 5: Private MySQL RDS created with no public access (Screenshots 11–12)
-- [ ] Task 6: Database initialized from the SQL dump (Screenshot 13)
-- [ ] Task 7: Backend deployed and responding on port 3000 (Screenshots 14–16)
-- [ ] Task 8: Nginx serving the frontend and reverse-proxying to the backend (Screenshots 17–18)
+- [x] Task 6: Database initialized from the SQL dump (Screenshot 13)
+- [x] Task 7: Backend deployed and responding on port 3000 (Screenshots 14–16)
+- [x] Task 8: Nginx serving the frontend and reverse-proxying to the backend (Screenshots 17–18)
 - [ ] Task 9: Frontend, backend, and RDS verified end to end (Screenshots 19–21)
 - [ ] No sensitive data exposed
 
