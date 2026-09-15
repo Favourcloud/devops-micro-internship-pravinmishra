@@ -1,0 +1,641 @@
+{
+  "evidence_type": "Timestamped read-only AWS API preflight; not deployment, browser, database-operation or console screenshot proof",
+  "started_at": "2026-09-15T03:19:15.740028+00:00",
+  "finished_at": "2026-09-15T03:19:36.174673+00:00",
+  "identity_type": "root",
+  "identity_account_displayed": false,
+  "regions": [
+    {
+      "region": "eu-north-1",
+      "vpc": {
+        "id": "vpc-0f7b4a0baa38141ca",
+        "cidr": "10.0.0.0/16",
+        "state": "available",
+        "name": "bookreview-vpc"
+      },
+      "instances": [
+        {
+          "id": "i-09a4ad0db643b5f0a",
+          "name": "bookreview-web-1",
+          "state": "running",
+          "type": "t3.micro",
+          "subnet": "subnet-085c9fb75f5d16407",
+          "az": "eu-north-1a",
+          "has_public_ipv4": true,
+          "ipv6": [],
+          "security_groups": [
+            "sg-0a9531b6f952ed1b5"
+          ],
+          "instance_profile": null
+        },
+        {
+          "id": "i-05e7693e9275bad6f",
+          "name": "bookreview-app-server-a",
+          "state": "running",
+          "type": "t3.micro",
+          "subnet": "subnet-0f0ed8620811c87d3",
+          "az": "eu-north-1a",
+          "has_public_ipv4": false,
+          "ipv6": [],
+          "security_groups": [
+            "sg-00a856d1cdeceb8d3",
+            "sg-0a9a60173ae231c71"
+          ],
+          "instance_profile": null
+        }
+      ],
+      "load_balancers": [
+        {
+          "name": "bookreview-internal-alb",
+          "state": "active",
+          "scheme": "internal",
+          "dns": "internal-bookreview-internal-alb-493224563.eu-north-1.elb.amazonaws.com",
+          "arn": "arn:aws:elasticloadbalancing:eu-north-1:[ACCOUNT_REDACTED]:loadbalancer/app/bookreview-internal-alb/e188025cc28b64f6",
+          "security_groups": [
+            "sg-07971ce0c43573c50"
+          ],
+          "zones": [
+            "eu-north-1b",
+            "eu-north-1a"
+          ],
+          "listeners": [
+            {
+              "port": 3001,
+              "protocol": "HTTP",
+              "actions": [
+                {
+                  "type": "forward",
+                  "target_group": "arn:aws:elasticloadbalancing:eu-north-1:[ACCOUNT_REDACTED]:targetgroup/bookreview-app-tg/d8d19d56d8f28a0a"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "databases": [
+        {
+          "id": "bookreview-db",
+          "status": "available",
+          "class": "db.t4g.micro",
+          "engine": "mysql",
+          "version": "8.4.9",
+          "multi_az": true,
+          "public": false,
+          "encrypted": true,
+          "storage_gb": 20,
+          "storage_type": "gp2",
+          "backup_retention_days": 1,
+          "replicas": [],
+          "replica_source": null,
+          "security_groups": [
+            "sg-07c71b323797c692f"
+          ]
+        },
+        {
+          "id": "ha-mysql-db",
+          "status": "available",
+          "class": "db.t4g.micro",
+          "engine": "mysql",
+          "version": "8.4.9",
+          "multi_az": true,
+          "public": false,
+          "encrypted": true,
+          "storage_gb": 20,
+          "storage_type": "gp2",
+          "backup_retention_days": 1,
+          "replicas": [],
+          "replica_source": null,
+          "security_groups": [
+            "sg-051889fa952aa71ee"
+          ]
+        }
+      ],
+      "target_groups": [
+        {
+          "name": "bookreview-app-tg",
+          "port": 3001,
+          "health_path": "/health",
+          "health_port": "traffic-port",
+          "arn": "arn:aws:elasticloadbalancing:eu-north-1:[ACCOUNT_REDACTED]:targetgroup/bookreview-app-tg/d8d19d56d8f28a0a",
+          "targets": [
+            {
+              "id": "i-05e7693e9275bad6f",
+              "port": 3001,
+              "state": "healthy",
+              "reason": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "nat_gateways": [
+        {
+          "id": "nat-0f2c4726095b554ed",
+          "state": "available",
+          "subnet": "subnet-085c9fb75f5d16407"
+        }
+      ],
+      "subnets": [
+        {
+          "id": "subnet-0b89716b6b5981b85",
+          "name": "bookreview-db-private-b",
+          "cidr": "10.0.6.0/24",
+          "az": "eu-north-1b",
+          "map_public_ip": false
+        },
+        {
+          "id": "subnet-00af54f1fe19dbc07",
+          "name": "bookreview-db-private-a",
+          "cidr": "10.0.5.0/24",
+          "az": "eu-north-1a",
+          "map_public_ip": false
+        },
+        {
+          "id": "subnet-0f0ed8620811c87d3",
+          "name": "epicbook-private-subnet-2",
+          "cidr": "10.0.3.0/24",
+          "az": "eu-north-1a",
+          "map_public_ip": false
+        },
+        {
+          "id": "subnet-085c9fb75f5d16407",
+          "name": "epicbook-public-subnet",
+          "cidr": "10.0.1.0/24",
+          "az": "eu-north-1a",
+          "map_public_ip": true
+        },
+        {
+          "id": "subnet-09388949c50ea01b6",
+          "name": "epicbook - private - subnet ",
+          "cidr": "10.0.2.0/24",
+          "az": "eu-north-1b",
+          "map_public_ip": false
+        },
+        {
+          "id": "subnet-094b1c5c548c54e68",
+          "name": "epicbook-public-subnet-2",
+          "cidr": "10.0.4.0/24",
+          "az": "eu-north-1b",
+          "map_public_ip": false
+        }
+      ],
+      "route_tables": [
+        {
+          "id": "rtb-0e6573c7382dca35d",
+          "associations": [
+            {
+              "subnet": "subnet-00af54f1fe19dbc07",
+              "main": false
+            },
+            {
+              "subnet": "subnet-0b89716b6b5981b85",
+              "main": false
+            }
+          ],
+          "routes": [
+            {
+              "cidr": "10.0.0.0/16",
+              "gateway": "local",
+              "nat": null,
+              "state": "active"
+            }
+          ]
+        },
+        {
+          "id": "rtb-04ec4502cd89716c9",
+          "associations": [
+            {
+              "subnet": null,
+              "main": true
+            }
+          ],
+          "routes": [
+            {
+              "cidr": "10.0.0.0/16",
+              "gateway": "local",
+              "nat": null,
+              "state": "active"
+            }
+          ]
+        },
+        {
+          "id": "rtb-07d7eda29a667b466",
+          "associations": [
+            {
+              "subnet": "subnet-085c9fb75f5d16407",
+              "main": false
+            },
+            {
+              "subnet": "subnet-094b1c5c548c54e68",
+              "main": false
+            }
+          ],
+          "routes": [
+            {
+              "cidr": "10.0.0.0/16",
+              "gateway": "local",
+              "nat": null,
+              "state": "active"
+            },
+            {
+              "cidr": "0.0.0.0/0",
+              "gateway": "igw-04c709cf7f9c0b095",
+              "nat": null,
+              "state": "active"
+            }
+          ]
+        },
+        {
+          "id": "rtb-0fb6cf1d56ab961a2",
+          "associations": [
+            {
+              "subnet": "subnet-0f0ed8620811c87d3",
+              "main": false
+            },
+            {
+              "subnet": "subnet-09388949c50ea01b6",
+              "main": false
+            }
+          ],
+          "routes": [
+            {
+              "cidr": "10.0.0.0/16",
+              "gateway": "local",
+              "nat": null,
+              "state": "active"
+            },
+            {
+              "cidr": "0.0.0.0/0",
+              "gateway": null,
+              "nat": "nat-0f2c4726095b554ed",
+              "state": "active"
+            }
+          ]
+        }
+      ],
+      "capstone_security_groups": [
+        {
+          "id": "sg-07c71b323797c692f",
+          "name": "SG-DB",
+          "ingress": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 3306,
+              "ToPort": 3306,
+              "UserIdGroupPairs": [
+                {
+                  "UserId": "[ACCOUNT_REDACTED]",
+                  "GroupId": "sg-0a9a60173ae231c71"
+                }
+              ],
+              "IpRanges": [],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ],
+          "egress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ]
+        },
+        {
+          "id": "sg-00a856d1cdeceb8d3",
+          "name": "bookreview-app-sg",
+          "ingress": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 22,
+              "ToPort": 22,
+              "UserIdGroupPairs": [
+                {
+                  "UserId": "[ACCOUNT_REDACTED]",
+                  "GroupId": "sg-0a9531b6f952ed1b5"
+                }
+              ],
+              "IpRanges": [],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 3001,
+              "ToPort": 3001,
+              "UserIdGroupPairs": [
+                {
+                  "UserId": "[ACCOUNT_REDACTED]",
+                  "GroupId": "sg-037295cb94f52b452"
+                }
+              ],
+              "IpRanges": [],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ],
+          "egress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ]
+        },
+        {
+          "id": "sg-0a9a60173ae231c71",
+          "name": "SG-App",
+          "ingress": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 3001,
+              "ToPort": 3001,
+              "UserIdGroupPairs": [
+                {
+                  "Description": "Allow backend traffic only from internal ALB",
+                  "UserId": "[ACCOUNT_REDACTED]",
+                  "GroupId": "sg-07971ce0c43573c50"
+                }
+              ],
+              "IpRanges": [],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ],
+          "egress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ]
+        },
+        {
+          "id": "sg-04ec165a8f60d0229",
+          "name": "SG-Public-ALB",
+          "ingress": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 80,
+              "ToPort": 80,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "Description": "Allow public HTTP access to the load balancer",
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ],
+          "egress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ]
+        },
+        {
+          "id": "sg-07971ce0c43573c50",
+          "name": "SG-Internal-ALB",
+          "ingress": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 3001,
+              "ToPort": 3001,
+              "UserIdGroupPairs": [
+                {
+                  "Description": "Allow backend traffic from Web Tier",
+                  "UserId": "[ACCOUNT_REDACTED]",
+                  "GroupId": "sg-0a9531b6f952ed1b5"
+                }
+              ],
+              "IpRanges": [],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ],
+          "egress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ]
+        },
+        {
+          "id": "sg-0a9531b6f952ed1b5",
+          "name": "SG-Web",
+          "ingress": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 80,
+              "ToPort": 80,
+              "UserIdGroupPairs": [
+                {
+                  "Description": "Allow HTTP only from public ALB",
+                  "UserId": "[ACCOUNT_REDACTED]",
+                  "GroupId": "sg-04ec165a8f60d0229"
+                }
+              ],
+              "IpRanges": [],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 22,
+              "ToPort": 22,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "[OPERATOR_IP_REDACTED]/32"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ],
+          "egress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ]
+        }
+      ],
+      "ssm_managed_instances": []
+    },
+    {
+      "region": "us-east-1",
+      "vpc": {
+        "id": "vpc-021448b25859b6970",
+        "cidr": "10.0.0.0/16",
+        "state": "available",
+        "name": "bookreview-vpc"
+      },
+      "instances": [],
+      "load_balancers": [],
+      "databases": [],
+      "target_groups": [],
+      "nat_gateways": []
+    }
+  ],
+  "queries": [
+    {
+      "region": "eu-north-1",
+      "service": "ec2",
+      "operation": "describe-instances",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "ec2",
+      "operation": "describe-nat-gateways",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "ec2",
+      "operation": "describe-route-tables",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "ec2",
+      "operation": "describe-security-groups",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "ec2",
+      "operation": "describe-subnets",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "ec2",
+      "operation": "describe-vpcs",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "elbv2",
+      "operation": "describe-listeners",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "elbv2",
+      "operation": "describe-load-balancers",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "elbv2",
+      "operation": "describe-target-groups",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "elbv2",
+      "operation": "describe-target-health",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "rds",
+      "operation": "describe-db-instances",
+      "success": true
+    },
+    {
+      "region": "eu-north-1",
+      "service": "ssm",
+      "operation": "describe-instance-information",
+      "success": true
+    },
+    {
+      "region": "us-east-1",
+      "service": "ec2",
+      "operation": "describe-instances",
+      "success": true
+    },
+    {
+      "region": "us-east-1",
+      "service": "ec2",
+      "operation": "describe-nat-gateways",
+      "success": true
+    },
+    {
+      "region": "us-east-1",
+      "service": "ec2",
+      "operation": "describe-vpcs",
+      "success": true
+    },
+    {
+      "region": "us-east-1",
+      "service": "elbv2",
+      "operation": "describe-load-balancers",
+      "success": true
+    },
+    {
+      "region": "us-east-1",
+      "service": "elbv2",
+      "operation": "describe-target-groups",
+      "success": true
+    },
+    {
+      "region": "us-east-1",
+      "service": "rds",
+      "operation": "describe-db-instances",
+      "success": true
+    }
+  ],
+  "mutating_aws_calls_performed": false,
+  "limits": [
+    "Only the two named Book Review VPCs in the listed regions were inventoried; this is not an account-wide inventory.",
+    "Target healthy is an AWS observation of the configured health check, not proof of authenticated UI, database CRUD or a recorded remediation.",
+    "No SSH/SSM commands, secret-value retrieval, package installation, deployment, stopping or deletion were performed.",
+    "Account IDs and operator IPv4 /32 CIDRs were redacted before persistence. Existing historical screenshots and Git history were not changed.",
+    "The additional ha-mysql-db shares the Stockholm VPC and is outside the capstone change scope. Existing resources may continue to incur charges."
+  ]
+}

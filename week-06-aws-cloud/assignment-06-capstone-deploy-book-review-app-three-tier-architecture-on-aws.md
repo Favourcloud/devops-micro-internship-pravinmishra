@@ -8,7 +8,59 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 This is the most important assignment of the course. You will deploy the Book Review App in a fully production-style three-tier architecture on AWS: a Next.js Web Tier behind Nginx and a public ALB, a private Node.js/Express App Tier behind an internal ALB, and a private Multi-AZ MySQL RDS database with a read replica. You are expected to design, deploy, isolate, debug, and document the result independently.
 
-## Evidence audit — 13 September 2026
+## Current verification — 15 September 2026
+
+**Status: existing deployment partially verified; no new deployment or remediation performed.** Before rebuilding anything, 18 read-only AWS API queries checked the two named Book Review VPCs. The [timestamped, redacted preflight record](assignment-06-capstone/evidence/preflight-2026-09-15.json) is current API evidence, not a browser test or replacement for the required console screenshots.
+
+| Requirement | Observed now | Remaining work |
+| --- | --- | --- |
+| Existing capstone location | `bookreview-vpc` in **`eu-north-1`**, `vpc-0f7b4a0baa38141ca` | Reuse this deployment rather than build a duplicate in another region. |
+| Six subnets across two AZs | Two Web subnets route to an Internet Gateway; two App subnets route to NAT; two DB subnets have only the VPC-local route. | Capture the route/subnet console views. Names inherited from older work are not reliable tier labels; use IDs and routes. |
+| Web and App instances | One running `t3.micro` per tier, both in `eu-north-1a`; the App instance has no public IPv4 or IPv6 address. | Inspect Nginx/Next.js/runtime configuration through approved administrative access. One instance per tier is **not AZ-redundant compute**. |
+| Internal ALB and app target | Internal scheme, active, two AZs; `bookreview-app-tg` reports **healthy** on port `3001`, health path `/health`. | Capture the actual response and current application revision. The earlier timeout is no longer observed, but its cause and remediation were not established by this check. |
+| Primary database | `bookreview-db` is available, MySQL `8.4.9`, `db.t4g.micro`, **Multi-AZ**, encrypted and **not publicly accessible**, with 20 GB gp2 storage and one-day backup retention. Its attached SG permits MySQL from `SG-App`. | Verify application write/read and persistence; a healthy ALB target alone does not establish database functionality. |
+| Public ALB | **Absent from the capstone VPC.** An existing `SG-Public-ALB` is allowed into `SG-Web` on port 80. | Provision the public ALB/listener/web target group through reviewed Terraform, then prove the UI works at its DNS name. |
+| Read replica | The primary lists **no read replicas**. | Provision and verify a separate private encrypted read replica; the Multi-AZ standby is not a read replica. |
+| Administrative access | The only configured CLI profile is `default`, resolving to **root**. Neither capstone instance appears in the scoped SSM managed-instance query, and neither has an instance profile. | Establish approved non-root deployment access and a safe runtime-inspection path before infrastructure or application changes. Do not open SSH to the world. |
+
+The other `bookreview-vpc` in **`us-east-1`** has no instances, load balancers, target groups, databases or NAT gateways in the scoped queries. That is not an account-wide cleanup claim. The Stockholm VPC also contains an available **`ha-mysql-db`**, which is outside this capstone's change scope. Existing instances, NAT, ALB and databases can continue to incur charges. **No resource was created, changed, stopped or deleted**, and Assignment 4 and the isolated Assignment 5 lab were not altered.
+
+### Application prerequisites checked, not deployed
+
+The course links to [the instructor's Book Review repository](https://github.com/pravinmishraaws/book-review-app), inspected at revision `84280063bea7ccd5144dafa2b969ec4e2e69ffbb`. This is a reference revision, **not a verified revision of the running servers**. No upstream JavaScript, committed `.env`, or vendored `node_modules` was copied into this repository; no application dependencies were installed.
+
+- The [reference backend](https://github.com/pravinmishraaws/book-review-app/blob/84280063bea7ccd5144dafa2b969ec4e2e69ffbb/backend/src/server.js) defaults to port **5000**, while this ALB targets **3001**. Confirm the live `PORT` and listening address rather than replacing the currently healthy process blindly. That source file does not declare `/health`; inspect the deployed implementation before changing its health check.
+- The [frontend API client](https://github.com/pravinmishraaws/book-review-app/blob/84280063bea7ccd5144dafa2b969ec4e2e69ffbb/frontend/src/services/api.js) uses `NEXT_PUBLIC_API_URL` and appends `/users`, `/books` and `/reviews`; the backend mounts them below `/api`. A candidate same-origin setup is a **build-time `/api` base** with Nginx forwarding `/api/...` unchanged to the internal ALB. Validate this end to end; do not put a private ALB hostname in browser-facing configuration or silently trust the conflicting upstream comment about `/api`.
+- The [database configuration](https://github.com/pravinmishraaws/book-review-app/blob/84280063bea7ccd5144dafa2b969ec4e2e69ffbb/backend/src/config/db.js) uses `DB_HOST`, `DB_NAME`, `DB_PASS`, `DB_PORT` and `DB_USER`. Do not publish their live values. It does not configure a Sequelize replication pool: creating a replica alone does not route application reads to it.
+- The reference backend invokes schema synchronization with `alter: true` during startup. Review schema/data impact before restarting with a different revision. Review dependency support/security and configuration before public exposure; no production-readiness or security certification is claimed.
+
+### Proposed additions and approval gates
+
+The [Stockholm pricing record](assignment-06-capstone/evidence/incremental-cost-estimate.json) models **only** one new public ALB, a one-LCU allowance, two new public IPv4 addresses, and a private `db.t4g.micro` read replica with 20 GB gp2 storage:
+
+| Proposed addition | Normalized monthly USD (730 hours) |
+| --- | ---: |
+| Public ALB | 17.48 |
+| One used-LCU allowance | 5.55 |
+| Two public IPv4 addresses | 7.30 |
+| Single-AZ read-replica compute | 11.68 |
+| Read-replica storage | 2.40 |
+| **Incremental subtotal, calculated before rounding** | **44.40** |
+
+The normalized four-hour equivalent is about **$0.24**, **not** a guaranteed bill or the cost of the whole lab. Existing resources, variable usage, billing minimums, taxes, additional compute and cleanup delays are excluded. Rounded rows can differ from the subtotal by one cent. A **$5 allowance for new additions is proposed, not approved or enforced**. The earlier Assignment 5 retest proposal does not authorize this spend; no timer or budget alarm was installed.
+
+**Next execution steps, still pending:**
+
+1. Establish approved non-root AWS access, an authorized way to inspect the existing web/app hosts, and explicit approval of spend, exact scope and cleanup/retention intent.
+2. Capture the installed source revision, Nginx routing, process ports, health response and redacted configuration evidence. Confirm browser API routing and database access before overwriting any healthy service.
+3. Author and validate a dedicated **new-additions-only Terraform state** for the missing public entry and replica. Reference the existing VPC/subnets/instances/internal ALB/primary read-only; do not import shared resources into a state that will later be destroyed wholesale. No new Terraform configuration or cloud plan has been executed in this preflight.
+4. Review the proposed plan, then apply only after approval. Prove public web-target health, UI login/CRUD using synthetic data, primary persistence, and the available replica's source relationship/private settings/replication. Do not claim application read splitting unless separately configured and tested.
+5. Capture genuine, redacted console and browser proof under the learner's identity, update the historical sections below, and verify the existing LinkedIn post rather than publishing a duplicate.
+6. For an approved short run, abort testing without a stable baseline by 60 minutes and start removing only new additions by 120 minutes, with a four-hour cleanup target. Continue supervised cleanup if needed; preserve the primary, shared VPC, `ha-mysql-db`, Assignment 4 and all pre-existing resources. Retain state and report residual resources honestly.
+
+## Evidence audit — 13 September 2026 (historical screenshots)
+
+The assessment below records what the original screenshots proved at that time. The current API verification above supersedes their app-target and primary-database uncertainty, but does not manufacture missing UI/replica screenshots or a remediation history.
 
 **Status: partial deployment with an unresolved application target-health failure in the submitted captures.** This audit describes historical evidence, not the current AWS environment. The web and app instances are running, and the Book Review RDS instance explicitly shows **Publicly accessible: No**. However, the app target on port `3001` is **Unhealthy — Request timed out**. No submitted capture establishes a working public ALB endpoint, the Book Review UI, Multi-AZ RDS configuration, or an available read replica.
 
@@ -102,11 +154,13 @@ Confirm the Book Review App loads through the public ALB DNS name.
 
 #### Public ALB DNS
 
-**Not established from the submitted evidence.** Supply the Book Review public ALB's DNS name and a browser capture showing the application at that URL. Also capture its **Internet-facing** scheme, **Active** status, listener forwarding, and healthy web targets. An EC2 public IP or the ALB from the separate two-tier assignment is not this capstone's public ALB endpoint.
+**Still incomplete.** The 15 September API preflight found no public ALB in the capstone VPC. After an approved Terraform deployment, supply the Book Review public ALB's DNS name and a browser capture showing the application at that URL. Also capture its **Internet-facing** scheme, **Active** status, listener forwarding, and healthy web targets. An EC2 public IP or the ALB from the separate two-tier assignment is not this capstone's public ALB endpoint.
 
 ---
 
 # Task 4 — Evidence Screenshots
+
+These are the **historical captures** audited on 13 September. The current API record above establishes additional facts, but these images have not been replaced with new console or browser proof.
 
 ## Goal
 
@@ -198,7 +252,7 @@ The historical captures establish running Web and App EC2 instances, passing EC2
 
 | Observed issue | Verified fix/status | Next verification |
 | --- | --- | --- |
-| `bookreview-app-tg` target on port 3001 reports **Request timed out** | Unresolved in the available captures; the cause is not established. | Check the app process/listening address, local health endpoint, target health-check path/port, ALB-to-App security-group rules, and relevant subnet ACLs. Record the cause and the exact fix, then capture healthy target status. |
+| Historical `bookreview-app-tg` target on port 3001 reports **Request timed out** | The 15 September API check reports **healthy**. No remediation was performed during that check; the earlier cause/fix is still unknown. | Capture current healthy target status and inspect the deployed health implementation. Do not claim a particular timeout fix without logs or a recorded change. |
 | Public ALB and app UI evidence were mapped to unrelated panels | Screenshot labels corrected in this documentation audit. | Capture the actual public ALB and UI, then verify application read/write. |
 | RDS/replica claims exceeded the screenshots | Public-access evidence is now distinguished from unverified Multi-AZ and replica claims. | Capture primary Multi-AZ configuration and an available replica linked to that primary. |
 
@@ -250,10 +304,13 @@ Existing source captures contain account IDs in console fields/ARNs. They were n
 - [x] Task 2: AWS Region and services documented, with evidence limits stated
 - [ ] Task 3: Public ALB DNS confirmed working
 - [ ] Task 4: All six evidence screenshots captured (Web Tier, App Tier, both ALBs, RDS + replica, app UI)
-- [x] Task 5: Evidence-based deployment summary completed; timeout remediation remains unverified
+- [x] Task 5: Evidence-based deployment summary completed; timeout remediation history remains unverified
+- [x] Current deployment rechecked read-only; internal app target healthy and primary Multi-AZ verified ([record](assignment-06-capstone/evidence/preflight-2026-09-15.json))
+- [ ] Missing public ALB and private read replica provisioned and verified
+- [ ] Non-root deployment access, runtime access and incremental spending approved
 - [ ] LinkedIn post published and URL submitted
-- [ ] App Tier and Database Tier confirmed not publicly accessible
-- [ ] No sensitive data exposed
+- [x] Existing App Tier and primary Database Tier confirmed not publicly accessible by current API configuration (not a security certification; replica still absent)
+- [ ] No sensitive data exposed (historical screenshots and Git history still require review/redaction)
 
 ---
 

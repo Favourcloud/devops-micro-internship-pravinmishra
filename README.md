@@ -135,7 +135,7 @@ Week 04 → Git & GitHub
 | 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-activity-7483907367227666433-PqVA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | ✅ [Blog Post](./week-03-linux-and-bash-for-devops/reflection-week-03.md) |
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | ✅ [Blog Post](./week-04-git-and-github/reflection-week-04.md) |
 | 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
-| 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
+| 06 | AWS Cloud | 🔄 In Progress | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
 | 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
