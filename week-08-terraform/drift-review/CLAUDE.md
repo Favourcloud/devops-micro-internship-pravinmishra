@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-This is Week 08 Assignment 06's local review harness, not a completed Terraform deployment. Separate Terraform preparation defines an isolated VPC and an unattached security group; neither has been deployed here. Fixture plans and drift reports are synthetic. The preflight record proves non-root AWS access and tagged creation authorization only. Cleanup permissions, a working Claude connection, a real clean baseline, live-workflow screenshots, human resolution and publication remain pending.
+This is Week 08 Assignment 06's isolated review harness. Under explicit user approval, GitHub Copilot deployed and subsequently removed a dedicated VPC and closed, unattached security group in ap-south-1. Real plans/checks recorded a clean baseline, an UNAPPLIED public-SSH proposal, and a clean technical reset. Cleanup is verified; human resolution approval remains pending. General continuation permission is not resolution approval. Historic fixture reports remain synthetic. An earlier tool-free Bedrock connection succeeded, but subsequent reviews failed Marketplace authorization: no successful Claude review or runtime hook loading is proved. Consult dated reports; these are historical evidence, not a currently deployed lab. Publication remains pending.
 
 ## Review Workflow
 
-Gather evidence → Analyze → Human reviews and acts independently → Verify with fresh evidence.
+Gather evidence → Analyze → Human reviews the proposal → Authorized agent acts outside Claude → Verify with fresh evidence.
 
-The completed local loop is fixture input → Bash/jq findings → documented proposed human decision → separate clean fixture check. That loop is **not** a live deployment or a claimed Claude interaction.
+Keep the original fixture loop separate from the live workflow. Review only sanitized live reports through the Skill. Public SSH is a controlled, UNAPPLIED configuration proposal, never out-of-band drift and never a permitted deployment. Obtain genuine human resolution approval separately from provisioning and model-budget approval.
 
 ## Safety Rules
 
@@ -22,4 +22,4 @@ The completed local loop is fixture input → Bash/jq findings → documented pr
 
 ## Output Rules
 
-Cite mode, timestamp, source SHA256, exit codes and check counts. Separate demonstrated behavior, hypotheses and pending evidence. Explain WARN/ERROR/unsupported cases rather than granting unconditional safety approval. Never declare safety without complete, fresh evidence within the stated limited policy scope. Label fixture reports **SYNTHETIC FIXTURE DEMONSTRATION — NOT DEPLOYED INFRASTRUCTURE EVIDENCE**. No secrets, account IDs, resource identifiers, private paths, provider logs, fabricated screenshots, or invented LinkedIn URLs. AI assistance for this local implementation was GitHub Copilot, not a performed `/tf-drift-review` invocation.
+Cite mode, timestamp, source SHA256, exit codes and check counts. Separate demonstrated behavior, hypotheses and pending evidence. Explain WARN/ERROR/unsupported cases rather than granting unconditional safety approval. Never declare safety without complete, fresh evidence within the stated limited policy scope. Label fixture reports **SYNTHETIC FIXTURE DEMONSTRATION — NOT DEPLOYED INFRASTRUCTURE EVIDENCE**. No secrets, account IDs, resource identifiers, private paths, provider logs, fabricated screenshots, or invented LinkedIn URLs. Attribute infrastructure operations to the authorized GitHub Copilot agent, recommendations to actual Claude responses, and approvals only to genuine user decisions. A configuration file or successful model connection is not proof of `/tf-drift-review` execution.

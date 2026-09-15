@@ -8,27 +8,33 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 **Full Name:** Eze Favour
 
-**GitHub Repository/Folder URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/main/week-08-terraform/drift-review
+**GitHub Repository/Folder URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/favourcloud-week-06-assignment-4-ec2-rds/week-08-terraform/drift-review
 
-The URL is the intended source folder on `main`; these deliverables are currently **local branch-only, not merged or published**, so that new folder may not yet be available through the main-branch URL. Local source: [drift-review/](drift-review/README.md).
+The URL targets the existing review branch for [PR #2](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/2), not `main`. These deliverables are **not merged, and no LinkedIn/Medium publication is claimed**. Relative source: [drift-review/](drift-review/README.md).
 
-## Current Submission Status — Local Work Only
+## Current Submission Status — Verified Operations, Partial Rubric
 
 | Requirement | Current evidence | Status |
 | --- | --- | --- |
-| Project context, script, isolated Skill/hook | [README/runbook](drift-review/README.md), [CLAUDE.md](drift-review/CLAUDE.md), [checker](drift-review/AI%20Assignment/tf-drift-check.sh), [Skill](drift-review/.claude/skills/tf-drift-review/SKILL.md), [hook settings](drift-review/.claude/settings.json) | Implemented locally; Claude runtime not exercised |
-| Deterministic policy/hook tests | [Tests](drift-review/tests/test_review.py), [generated validation record](drift-review/reports/local-validation.json) | Local subprocess validation only; fake Terraform for exit-code tests |
-| Required report filenames | [Detected report](drift-review/reports/drift-detected-report.txt), [resolved report](drift-review/reports/resolved-report.txt) | Generated from explicit synthetic fixtures; **not live infrastructure evidence** |
-| Seven-section summary | [drift-review-summary.md](drift-review/drift-review-summary.md) | Completed for actual local work and explicit limitations |
-| Terraform preparation and AWS access | [Two isolated Terraform roots](drift-review/README.md#terraform-preparation-and-current-access-blockers), [sanitized preflight](drift-review/reports/live-preflight.json) | Local validation passed; non-root authentication and tagged creation dry-run verified; cleanup permissions unverified |
-| Clean/final baseline, controlled live change, human resolution | No real plan or new deployment; cleanup and Claude connectivity blockers remain | **Pending — Tasks 1, 4, 6 and 8 operational outcomes not completed** |
-| Claude invocation and actual hook integration | JSON-input hook simulation only; model-access tests could not reach the configured local proxy | **Pending — Tasks 5 and 7 runtime evidence** |
-| Local screenshots 2, 3, 4, 5, 6, 9 and 14 | Seven genuine VS Code/terminal captures embedded below; [capture provenance](drift-review/screenshots/manifest.json) | **Captured — workspace/source/configuration and actual syntax/permissions checks only** |
-| Remaining screenshots and LinkedIn publication | 12 numbered placeholders and publication evidence retained below | **Pending; nothing posted and no live evidence fabricated** |
+| Project context, script, isolated Skill/hook | [README/runbook](drift-review/README.md), [CLAUDE.md](drift-review/CLAUDE.md), [checker](drift-review/AI%20Assignment/tf-drift-check.sh), [Skill](drift-review/.claude/skills/tf-drift-review/SKILL.md), [hook settings](drift-review/.claude/settings.json) | Implemented locally; no successful Claude review or runtime hook event |
+| Deterministic policy/hook tests | [Tests](drift-review/tests/test_review.py), [generated local validation record](drift-review/reports/local-validation.json) | Offline regression evidence; live checker outcomes are recorded separately below |
+| Historical evidence | [Synthetic detected report](drift-review/reports/drift-detected-report.txt), [synthetic resolved report](drift-review/reports/resolved-report.txt), [earlier preflight](drift-review/reports/live-preflight.json) | Preserved unchanged; **not evidence of the later live operations** |
+| Live baseline | [Actual baseline execution export](drift-review/reports/live/baseline-execution.txt), [LIVE baseline report](drift-review/reports/live/baseline-report.txt), [operations](drift-review/reports/live/operations.json) | Both Terraform roots returned plan exit 0; real checker returned HEALTHY/0 |
+| Controlled configuration proposal | [Public input example](drift-review/terraform/public-ssh-proposal.tfvars.example), [LIVE detected report](drift-review/reports/live/drift-detected-report.txt) | Real plan exit 2, one update, one unsafe ingress finding, checker FAIL/2, refresh drift 0; **never applied** |
+| Technical reset and cleanup | [LIVE reset report](drift-review/reports/live/resolved-report.txt), [operation/cleanup record](drift-review/reports/live/operations.json) | Override removed under prior cleanup authorization; plan/checker 0; SG and VPC deletion applies 0; cleanup verified at 18:25:59Z |
+| Human resolution sequence | [Authoritative user clarification](drift-review/reports/live/human-resolution.json) | **PENDING** — general continuation permission is not resolution approval; no personal human review or manual human Terraform actions claimed |
+| Claude invocation and actual hook integration | [Sanitized runtime record](drift-review/reports/live/claude-runtime.json) | Skill discovery repaired; inference blocked by AWS Marketplace enrollment authorization (403); no successful Claude review, Read call, hook event or blocked apply demonstration |
+| Seven-section summary | [drift-review-summary.md](drift-review/drift-review-summary.md), seven answers below | Records operational progress and pending human resolution/Claude review, not a full rubric pass |
+| Screenshot evidence | [Capture provenance](drift-review/screenshots/manifest.json); [all 19 slot statuses](drift-review/README.md#genuine-local-screenshots) | **14 genuine images integrated**, including new 1/7/8/11/13/18/19 and genuine changed-source 3/9 recaptures; **10/12/15/16/17 remain pending** |
+| Publication | Original URL and publication screenshot placeholders below | **Pending; no new publication authorized and no URL fabricated** |
 
-**Evidence boundary:** Every report marked `FIXTURE` is an offline demonstration. A synthetic `HEALTHY` is not my actual infrastructure baseline. The existence of both report filenames does not complete Task 8. Read-only AWS identity/permission checks and local Terraform validation were performed, but no real Terraform plan/apply/destroy or AWS resource mutation occurred. GitHub Copilot assisted the implementation, tests, draft answers, preparation and local capture setup; the implemented Claude Skill has not run successfully. Screenshots 2, 3, 4, 5, 6, 9 and 14 are genuine local captures with Eze Favour visible. The other 12 numbered screenshots and LinkedIn publication screenshot remain pending. Static Skill/hook screenshots and failed model-connectivity tests do not prove runtime review.
+**Evidence boundary:** The public `reports/live/` files are sanitized records of actual Terraform/AWS operations, not Claude transcripts or synthetic fixtures. With explicit user authorization for one dedicated VPC and one closed, unattached security group, **GitHub Copilot**, not Claude or a manually operating human, applied the exact reviewed saved creation and deletion-only plans. No earlier coursework resources were targeted. The public SSH configuration proposal was never deployed; AWS still showed zero ingress after planning. `HEALTHY` covers only the checker's supported ingress/destructive-action scope at the recorded time. The lab is now deleted, so neither baseline nor reset report claims a currently deployed environment.
 
-**Source parity:** Compared the complete original template with pinned upstream commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes). The original local template only added `Cohort 3` to its opening subtitle. All required headings, questions, 19 numbered screenshot sections, publication placeholders, and checklist items are preserved. Seven numbered placeholders now contain genuine local captures; 12 remain pending. [Metadata and regression checks](drift-review/tests/assignment-source.json) record the original requirements.
+**Human resolution remains PENDING:** The resolution approval request initially returned user-unavailable. Copilot removed the temporary override for cleanup safety under the earlier cleanup authorization, obtained a no-change plan/limited-scope HEALTHY result, and completed verified cleanup. The earlier broad message, “you have my approval do it professionally to pass the rubics,” is **general continuation permission, not resolution approval**; the previous interpretation is withdrawn. The [authoritative user clarification](drift-review/reports/live/human-resolution.json) states: “Human resolution approval and successful Claude review remain pending. Autonomous cleanup must not be presented as your personal review or as completion of those assignment requirements.” No later resolution approval, personal human review, manual human execution or approved complete loop is claimed. Screenshot 16 remains a pending placeholder.
+
+**Claude and budget boundary:** The historical tool-free Bedrock test succeeded with 120 input/10 output tokens and reported $0.00017, but proved no Skill/hook execution. The first Skill attempt returned `Unknown command: /tf-drift-review` with zero tokens/$0. A byte-identical isolated Skill registration fixed discovery; subsequent inference failed with 403 enrollment authorization errors. [AWS documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) explains that initial invocations can temporarily work during automatic setup and later fail if prerequisites are missing; it does not prove which account prerequisite failed. Authorized administrator completion of enrollment/payment/Anthropic use-case prerequisites remains pending; the runtime role was not broadened and no fix is claimed. Of the separately approved **$0.50 additional model budget**, reported additional cost is $0; **$0.18 is an unknown-usage reservation, not a confirmed charge**, leaving $0.32 unreserved. The historical $0.00017 is separate. These are not account-billing totals or an account-wide spending cap; further inference is paused pending restored access. The VPC/SG resource types were expected to cost $0; account billing was not queried.
+
+**Source parity:** Compared the complete original template with pinned upstream commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes). The original local template only added `Cohort 3` to its opening subtitle. All required headings, questions, 19 numbered screenshot sections, publication placeholders, and checklist item text are preserved. Fourteen accepted captures are labeled by scope; changed-source 3/9 were genuinely recaptured, and five unfulfilled slots remain explicit placeholders. [Metadata and regression checks](drift-review/tests/assignment-source.json) record the original requirements.
 
 ---
 
@@ -61,7 +67,9 @@ Confirm that your Terraform configuration and deployed infrastructure are curren
 
 Add a screenshot of `terraform plan` showing no pending changes.
 
-Add your screenshot here.
+![Screenshot 1 — Eze Favour's real VS Code editor showing the sanitized historical clean-plan output](drift-review/screenshots/screenshot-01-clean-plan.png)
+
+Genuine editor view of the clearly labeled [sanitized historical baseline execution export](drift-review/reports/live/baseline-execution.txt), **not a terminal screenshot or rerun**. Both real roots returned `No changes`/exit 0 at the recorded times; the lab has since been deleted. Raw refresh identifiers were omitted and the private saved-plan path was replaced with `[PRIVATE PLAN PATH]` before opening the export. Screenshot pixels are unmodified.
 
 ---
 
@@ -71,17 +79,17 @@ Add a screenshot of the folder structure showing `AI Assignment/`, `reports/`, a
 
 ![Screenshot 2 — Eze Favour's real VS Code workspace with AI Assignment, reports and prepared Terraform projects](drift-review/screenshots/screenshot-02-workspace.png)
 
-Captured locally on 15 September 2026. The prepared Terraform source is real and locally validated; this workspace screenshot does not establish a deployed baseline. Cleanup permissions and Claude connectivity remain unresolved.
+Captured locally on 15 September 2026. This earlier workspace view establishes the local layout, not a deployed baseline. Later provisioning, baseline and verified cleanup are documented separately in [operations.json](drift-review/reports/live/operations.json); successful Claude runtime review remains blocked.
 
 ## Questions
 
 ### 1. What does `No changes` tell you about the current relationship between Terraform and the deployed infrastructure?
 
-For the selected configuration, workspace, state and refreshed provider evidence, Terraform proposes no managed changes. It does not certify untracked resources, every security control, or future state. I have not established a real `No changes` baseline here; the clean result is synthetic only.
+For the selected configuration, workspace, state and refreshed provider evidence, Terraform proposes no managed changes. It does not certify untracked resources, every security control, or future state. The [actual baseline export](drift-review/reports/live/baseline-execution.txt) records `No changes` and detailed exit 0 for the dedicated network root at 18:07:05Z and security-group root at 18:07:25Z on 15 September 2026. Those are real historical baseline results, not a claim that the subsequently deleted lab remains deployed.
 
 ### 2. Why is a clean baseline important before introducing a test change?
 
-I need it to distinguish my intentional change from pre-existing differences and to make the before/after comparison meaningful. An authorized live clean baseline remains pending, so my fixture comparison cannot prove anything changed in deployed infrastructure.
+I need it to distinguish my intentional change from pre-existing differences and to make the before/after comparison meaningful. Here, both real roots were clean and the live checker returned HEALTHY/0 before the public-SSH configuration-input proposal. The later report showed one planned update and zero refresh-drift entries, separating changed configuration intent from out-of-band drift.
 
 ---
 
@@ -99,7 +107,7 @@ Add a screenshot of `CLAUDE.md` open in VS Code showing the Project Overview, Re
 
 ![Screenshot 3 — Eze Favour's project context and four safety/workflow sections in VS Code](drift-review/screenshots/screenshot-03-context.png)
 
-Recaptured locally on 15 September 2026 after updating the context for Terraform preparation and access blockers. This shows the actual context file, not a Claude invocation; the prior image remains in Git history.
+Genuinely recaptured on 15 September 2026 after the operational/context edits. The current source and image hashes match the manifest; all four required sections and pending human approval are visible. This is configuration evidence, not proof of Claude invocation.
 
 ## Questions
 
@@ -109,7 +117,7 @@ I want the reviewer to distinguish a real current plan from an old report, inven
 
 ### 2. Why must the human remain responsible for running `terraform apply`?
 
-Applying a plan can delete or replace resources, interrupt service, expose data, or incur costs. An authorized human must review the exact fresh plan, workspace and consequences through the normal change process. This review workflow never applies anything; no human apply was performed for this submission.
+Applying a plan can delete or replace resources, interrupt service, expose data, or incur costs. An authorized human must own the decision, scope and consequences through the normal change process; the read-only checker and Claude Skill must not apply anything. In this run the user separately approved the narrowly scoped lab creation/cleanup, and **GitHub Copilot applied the exact reviewed saved plans**, not Claude or a manually operating human. That is not the rubric's requested manual human execution or evidence of a completed Claude-review-before-human-action sequence.
 
 ### 3. Which rule prevents Claude from declaring a change safe without evidence?
 
@@ -151,13 +159,13 @@ Add a screenshot showing successful `bash -n` and `ls -l` output.
 
 ![Screenshot 6 — Genuine terminal syntax exit 0, executable permissions and script SHA256](drift-review/screenshots/screenshot-06-validation-permissions.png)
 
-Actual local commands ran on 15 September 2026: `bash -n` returned 0, `ls -l -g -o` showed `-rwxr-xr-x`, and `test -x` returned 0. The `-g -o` options omit local owner/group names; no screenshot pixels were changed. No Terraform or cloud command ran.
+Actual local commands ran on 15 September 2026: `bash -n` returned 0, `ls -l -g -o` showed `-rwxr-xr-x`, and `test -x` returned 0. The `-g -o` options omit local owner/group names; no screenshot pixels were changed. No Terraform or cloud command ran **in this capture**; later live operations are documented separately.
 
 ## Questions
 
 ### 1. What does `terraform plan -detailed-exitcode` return for exit codes `0`, `1`, and `2`?
 
-Terraform returns 0 for a successful plan with no changes, 1 for an error, and 2 for a successful plan with changes. I tested these branches using fake Terraform executables only. My checker separately uses 0/HEALTHY, 1/WARN, 2/FAIL and 3/ERROR; those are not Terraform's exit-code meanings.
+Terraform returns 0 for a successful plan with no changes, 1 for an error, and 2 for a successful plan with changes. Offline tests exercise these branches with fake Terraform executables; [actual operations](drift-review/reports/live/operations.json) also record real baseline/reset plan exit 0 and configuration-proposal plan exit 2. My checker separately uses 0/HEALTHY, 1/WARN, 2/FAIL and 3/ERROR; those are not Terraform's exit-code meanings. The live baseline/reset checker returned 0 and the unsafe proposal returned 2.
 
 ### 2. Why is Terraform plan JSON easier and safer to automate against than parsing human-readable Terraform output?
 
@@ -173,7 +181,7 @@ Replacement contains both create and delete, in either order depending on lifecy
 
 ### 5. Why must this script never run `terraform apply`?
 
-Its job is evidence collection and policy checks, not change authorization. Automatically applying findings would merge analysis with a potentially destructive action and remove human oversight. Even the guarded future live mode permits only plan and show; trusted-project authorization is still required because providers/data sources execute code.
+Its job is evidence collection and policy checks, not change authorization. Automatically applying findings would merge analysis with a potentially destructive action and remove human oversight. The exercised live mode permits only plan and show; trusted-project authorization is required because providers/data sources execute code. Copilot's separately authorized creation/cleanup applies were outside this read-only checker and Claude Skill.
 
 ---
 
@@ -189,7 +197,9 @@ Verify that the review workflow reports a healthy result against your clean Terr
 
 Add a screenshot of the drift script output showing your full name and a `HEALTHY` result.
 
-Add your screenshot here.
+![Screenshot 7 — Eze Favour and the actual historical LIVE HEALTHY baseline report in VS Code](drift-review/screenshots/screenshot-07-healthy-baseline.png)
+
+Genuine editor view of [the actual LIVE baseline report](drift-review/reports/live/baseline-report.txt), with Eze Favour, HEALTHY, timestamp and plan hash visible. The sanitized report describes the recorded baseline, not the now-deleted lab's current state; it is not a terminal rerun or Claude review.
 
 ---
 
@@ -197,21 +207,23 @@ Add your screenshot here.
 
 Add a screenshot showing the captured script exit code `0`.
 
-Add your screenshot here.
+![Screenshot 8 — Eze Favour and the actual recorded checker exit 0 in a historical VS Code editor export](drift-review/screenshots/screenshot-08-baseline-exit.png)
+
+Genuine editor view of [baseline-execution.txt](drift-review/reports/live/baseline-execution.txt), clearly labeled as a sanitized historical output export. It records the actual checker subprocess exit 0; it is **not a terminal screenshot, reconstructed shell session or newly executed `echo $?`**. The export redaction is documented under screenshot 1; pixels are unmodified.
 
 ## Questions
 
 ### 1. What is the Overall Status of your baseline?
 
-My **real baseline is pending/not established**. The explicit offline clean fixture produces `Overall Status: HEALTHY` and checker exit 0, but that is only a labelled synthetic demonstration, not the Task 4 live baseline.
+The **real live baseline was HEALTHY, checker exit 0**, at 18:08:14Z on 15 September 2026. The [baseline report](drift-review/reports/live/baseline-report.txt) records Terraform detailed exit 0, no non-no-op changes, no refresh drift and no supported policy findings. This is separate from the unchanged synthetic clean fixture and is not a successful Claude review.
 
 ### 2. Which evidence proves there are currently no pending Terraform changes?
 
-There is no live evidence proving that in this submission. A fresh, authorized plan with detailed exit 0 and validated JSON for the intended workspace would be required. The fixture report's hash proves which synthetic input was evaluated, not deployed alignment.
+The [baseline execution export](drift-review/reports/live/baseline-execution.txt) and [operations record](drift-review/reports/live/operations.json) establish no pending managed changes in both roots **at their recorded baseline times**, with real detailed exit 0. The fresh live checker plan also returned 0. They do not prove a current deployed baseline after cleanup: the lab was subsequently deleted, and the final evidence is empty states and absent resources, not a new no-change plan for a running lab.
 
 ### 3. Was `reports/tfplan.json` created? Explain why or why not.
 
-No persistent `reports/tfplan.json` was created. Offline runs copy the fixture into a new private scratch directory, then remove it after analysis. A later authorized live run would create temporary plan binary/JSON in ignored private scratch space, never commit raw plans or provider logs. No real plan JSON was collected here.
+No persistent public `reports/tfplan.json` was created. The actual authorized live checker produced a fresh private plan binary and Terraform show JSON, evaluated them, and removed its temporary raw plan data after analysis, as recorded in [operations.json](drift-review/reports/live/operations.json). Only sanitized counts, timestamps, exit codes and hashes were exported. Raw plans, state, credentials and provider logs are not publication evidence.
 
 ---
 
@@ -229,7 +241,7 @@ Add a screenshot of `SKILL.md` showing the frontmatter, allowed tools, and safet
 
 ![Screenshot 9 — Skill frontmatter, allowed tools and noWrite safety rules in VS Code](drift-review/screenshots/screenshot-09-skill-configuration.png)
 
-Captured locally on 15 September 2026. This demonstrates the configuration only; actual `/tf-drift-review` execution is pending.
+Genuinely recaptured after the Skill edits, with current source/image hashes in the manifest. This shows configuration only, including the narrow sanitized-live-report inputs; it does not prove runtime success. Repaired discovery and subsequent blocked inference are documented separately in [claude-runtime.json](drift-review/reports/live/claude-runtime.json).
 
 ---
 
@@ -239,6 +251,8 @@ Add a screenshot of `/tf-drift-review` showing the clean `HEALTHY` result.
 
 Add your screenshot here.
 
+**Pending — actual Claude blocker:** Skill discovery was repaired, but Bedrock inference returned HTTP 403 because AWS Marketplace model enrollment authorization could not complete. No clean Claude review exists. The tool-free historical connection success and deterministic LIVE HEALTHY report cannot substitute for this screenshot.
+
 ## Questions
 
 ### 1. Why does this Skill have `Bash`, `Read`, and `Grep`, but not `Write`?
@@ -247,7 +261,7 @@ I only want inspection and the audited evidence checker, not source/configuratio
 
 ### 2. Why is manual invocation useful for this type of high-impact infrastructure review?
 
-`disable-model-invocation: true` leaves the decision to start a review with the human. It reduces unintended runs and makes scope and evidence deliberate. The Skill is configured locally but has not actually been invoked in Claude Code.
+`disable-model-invocation: true` leaves the decision to start a review with the human. It reduces unintended runs and makes scope and evidence deliberate. Actual authorized invocation attempts are recorded in [claude-runtime.json](drift-review/reports/live/claude-runtime.json): the first returned `Unknown command` because empty setting sources disabled filesystem discovery. Registering a byte-identical Skill in a fresh task-local Claude configuration and enabling only that controlled user setting source fixed discovery. Inference then failed with HTTP 403 enrollment authorization errors, so no Skill review completed.
 
 ### 3. Which part of the workflow is deterministic Bash automation?
 
@@ -275,7 +289,9 @@ Create a safe, intentional difference and confirm that Terraform and Claude dete
 
 Add a screenshot of the controlled change you introduced, with sensitive details hidden.
 
-Add your screenshot here.
+![Screenshot 11 — Eze Favour's unapplied public-SSH configuration input with NEVER APPLY visible in VS Code](drift-review/screenshots/screenshot-11-unapplied-proposal.png)
+
+Genuine editor view of [public-ssh-proposal.tfvars.example](drift-review/terraform/public-ssh-proposal.tfvars.example), explicitly labeled **UNAPPLIED CONFIGURATION PROPOSAL**. The public example was copied byte-identically to the task-local `proposal.auto.tfvars` for real read-only planning, then the temporary override was removed. The public `.example` does not auto-load; no private binding or risky apply is shown or claimed.
 
 ---
 
@@ -285,39 +301,43 @@ Add a screenshot of `/tf-drift-review` showing the detected difference and risk 
 
 Add your screenshot here.
 
+**Pending — actual Claude blocker:** no Claude risk assessment completed because inference was denied with HTTP 403 after discovery was repaired. The actual deterministic FAIL report is not Claude output and cannot fill this slot.
+
 ---
 
 ### Screenshot 13 — Detected Drift Report
 
 Add a screenshot of `drift-detected-report.txt` showing your full name and the `WARN` or `FAIL` result.
 
-Add your screenshot here.
+![Screenshot 13 — Eze Favour and the actual historical LIVE FAIL report with one unsafe ingress finding](drift-review/screenshots/screenshot-13-live-detected-report.png)
+
+Genuine editor view of [reports/live/drift-detected-report.txt](drift-review/reports/live/drift-detected-report.txt), showing the actual LIVE FAIL result, timestamp, plan hash and Eze Favour. Despite the required filename, this records an unapplied configuration proposal with **zero refresh drift**, not out-of-band drift or a Claude interpretation.
 
 ## Questions
 
 ### 1. What change did you introduce?
 
-I added a controlled **synthetic fixture** modelling an AWS security-group ingress update that exposes TCP/22 to `0.0.0.0/0`. I did not change a deployed resource or a real Terraform configuration.
+The live exercise set `test_public_ssh = true` through a task-local `proposal.auto.tfvars`, copied byte-identically from the [public example](drift-review/terraform/public-ssh-proposal.tfvars.example). This changed the real Terraform input to propose TCP/22 ingress from `0.0.0.0/0` on the dedicated, unattached security group. **The unsafe proposal was never applied**; [AWS verification](drift-review/reports/live/operations.json) still showed zero deployed ingress rules after planning.
 
 ### 2. Was it true infrastructure drift or a Terraform configuration change?
 
-Neither occurred operationally. The fixture models a configuration change for local testing. True drift would mean remote managed state diverged outside Terraform; a configuration change would mean changed desired code. An authorized real exercise and its classification remain pending.
+It was a **real Terraform configuration-input change**, not true infrastructure drift. Desired input changed while the deployed security group remained closed. The [actual detected report](drift-review/reports/live/drift-detected-report.txt) records one non-no-op resource change and **zero refresh-drift entries**. The earlier synthetic fixture remains separate historical test evidence.
 
 ### 3. What Terraform plan evidence proves that a change is pending?
 
-Within the synthetic input only, the resource's `change.actions` is `["update"]` and its `after.ingress` includes the public SSH rule. The generated FAIL report records that fixture's hash. No real Terraform plan exists here to prove an actual pending change.
+At the proposal's recorded time, a real Terraform plan returned detailed exit **2** and proposed **one resource update**. The [LIVE report](drift-review/reports/live/drift-detected-report.txt) contains its plan SHA256, one unsafe ingress finding and no destructive actions; [operations.json](drift-review/reports/live/operations.json) records checker exit 2/FAIL and confirms that the loaded override matched the public example. This proves a pending configuration change at that time, not a deployed rule or a change still pending after reset/cleanup.
 
 ### 4. Was the action an update, deletion, replacement, or security-rule change?
 
-The demonstration is an update containing a security-rule change, not deletion or replacement. Separate synthetic subprocess cases validate deletion and both replacement orders.
+It was one **planned update containing a security-rule change**, with zero destructive actions: no deletion or replacement in the proposal. The subsequent cleanup used separate reviewed deletion-only Terraform plans for the created SG and VPC; those were not the unsafe proposal. Offline tests separately cover deletion and both replacement orders.
 
 ### 5. What did Claude recommend?
 
-No Claude recommendation was produced because I have not run `/tf-drift-review`. The local policy finding suggests an authorized human should investigate whether SSH exposure is intended and remove or restrict an unintended rule through the normal change process; that is a proposed next step, not an executed repair.
+**No Claude recommendation was produced.** Actual invocation attempts failed as recorded in [claude-runtime.json](drift-review/reports/live/claude-runtime.json). The deterministic checker identified unsafe public SSH and required human review. Copilot's proposed safe resolution was not to deploy public SSH and to remove the temporary override. **Human resolution approval remains pending**: the broad continuation permission is not approval of that resolution. The technical reset and autonomous cleanup are not the user's personal review or completion of the assignment's human-action requirement.
 
 ### 6. Why should you review the recommendation before taking action?
 
-I need to verify real intent, access requirements, unknown values, workspace and operational impact. Neither an AI suggestion nor a fixture report establishes those facts or grants permission to mutate infrastructure.
+I need to verify real intent, access requirements, unknown values, workspace and operational impact. Neither an AI suggestion nor a real plan's FAIL/HEALTHY status grants mutation authority. In this exercise the unsafe plan stayed unapplied, and only the separately authorized lab creation/cleanup was executed; the intended Claude-review-before-human-resolution sequence remains incomplete.
 
 ---
 
@@ -339,7 +359,7 @@ Add a screenshot of `.claude/settings.json` showing the `PreToolUse` safety hook
 
 ![Screenshot 14 — Actual PreToolUse command and args configuration in VS Code](drift-review/screenshots/screenshot-14-hook-configuration.png)
 
-Captured locally on 15 September 2026. The configuration is visible, but effective settings loading and actual Claude hook invocation remain unverified.
+Captured locally on 15 September 2026. This shows the actual hook configuration, not a runtime denial. The [actual Claude runtime record](drift-review/reports/live/claude-runtime.json) records **zero Read calls and zero PreToolUse hook events**; effective runtime enforcement has not been demonstrated.
 
 ---
 
@@ -349,15 +369,17 @@ Add a screenshot of Claude Code showing the blocked `terraform apply` attempt.
 
 Add your screenshot here.
 
+**Pending — actual Claude blocker:** no runtime apply denial occurred. HTTP 403 inference failures prevented the Skill review/tool sequence; static settings and local hook simulations cannot substitute for a genuine blocked Claude tool attempt.
+
 ## Questions
 
 ### 1. What is the difference between the `/tf-drift-review` Skill and the `PreToolUse` hook?
 
-The manually invoked Skill describes the evidence review and explanation procedure. The hook is a deterministic pre-execution gate for tool requests. I tested hook input/exit behavior using JSON simulation only, not an actual Claude apply attempt.
+The manually invoked Skill describes the evidence review and explanation procedure. The hook is a deterministic pre-execution gate for tool requests. Hook input/exit behavior was tested with local JSON simulations, but the actual Claude attempts produced no Read calls or PreToolUse events and no demonstrated blocked apply. A failed model request is not a hook denial.
 
 ### 2. Which component performs analysis?
 
-Bash/jq performs deterministic checks; the Skill would guide Claude's contextual interpretation. Only the local deterministic checks and GitHub Copilot-assisted implementation/explanation have been exercised here.
+Bash/jq performed the actual live deterministic checks, producing baseline HEALTHY, proposal FAIL and technical-reset HEALTHY reports. The Skill would guide Claude's contextual interpretation, but inference was blocked. GitHub Copilot's implementation, operational work and explanations must not be labeled as Claude analysis.
 
 ### 3. Which component enforces the safety gate?
 
@@ -387,6 +409,8 @@ Add a screenshot of the human-reviewed resolution or `terraform apply` output wh
 
 Add your screenshot here.
 
+**PENDING — human resolution approval remains outstanding.** The [authoritative user clarification](drift-review/reports/live/human-resolution.json) expressly distinguishes general continuation permission and Copilot cleanup from the user's personal review. No #16 capture is planned or attached. This placeholder must remain: the clarification record, technical-reset report and cleanup output cannot substitute for human-reviewed resolution or fulfill this requirement.
+
 ---
 
 ### Screenshot 17 — Final Healthy Review
@@ -394,6 +418,8 @@ Add your screenshot here.
 Add a screenshot of the final `/tf-drift-review` showing `HEALTHY`.
 
 Add your screenshot here.
+
+**Pending — actual Claude blocker:** no final Claude review completed because inference was denied with HTTP 403. The real technical-reset checker HEALTHY result is available, but it predates cleanup and is not an approved human resolution or final Claude review. Both human resolution approval and successful Claude review remain pending; this report cannot replace a final `/tf-drift-review` screenshot.
 
 ---
 
@@ -404,7 +430,9 @@ Add a screenshot of `ls -lah reports` showing both:
 - `drift-detected-report.txt`
 - `resolved-report.txt`
 
-Add your screenshot here.
+![Screenshot 18 — Eze Favour's actual VS Code terminal listing of synthetic reports and separate historical live records](drift-review/screenshots/screenshot-18-saved-reports.png)
+
+Actual Bash terminal output from `ls -lah -g -o reports` and `ls -lah -g -o reports/live`; owner/group columns were omitted for privacy. The top-level required filenames remain immutable synthetic demonstrations; `reports/live/` contains actual historical operational evidence. The manifest source-hashes the four required detected/reset reports. Other entry metadata is a capture-time snapshot (the local validation record is regenerated later); a listing proves neither report contents nor a completed Claude/human review loop.
 
 ---
 
@@ -412,7 +440,9 @@ Add your screenshot here.
 
 Add a screenshot of `drift-review-summary.md` showing all required sections and your full name.
 
-Add your screenshot here.
+![Screenshot 19 — Eze Favour's seven-section summary with genuine evidence and explicit pending requirements in VS Code](drift-review/screenshots/screenshot-19-summary.png)
+
+Genuine editor capture of the current [seven-section summary](drift-review/drift-review-summary.md), with matching source/image hashes. It explicitly leaves human resolution approval, Claude review and the complete loop pending; this documents the partial outcome rather than certifying Task 8 or the full rubric.
 
 ## Terraform Drift Review Summary
 
@@ -425,37 +455,37 @@ State whether it was:
 - True infrastructure drift, or
 - A Terraform configuration change
 
-My completed change is a synthetic fixture modelling public SSH ingress on `aws_security_group.synthetic`. It is neither observed infrastructure drift nor an executed Terraform configuration change. The real controlled-change exercise remains pending. [Full summary](drift-review/drift-review-summary.md).
+A real **Terraform configuration-input change** proposed public SSH on the dedicated, unattached security group: `test_public_ssh = true` in a task-local `proposal.auto.tfvars`, copied byte-identically from the [public example](drift-review/terraform/public-ssh-proposal.tfvars.example). It was not out-of-band drift: the live report has zero refresh-drift entries. The proposal was **never applied** and deployed ingress remained zero. [Full summary](drift-review/drift-review-summary.md).
 
 ### 2. Evidence Collected
 
 Describe the Terraform plan evidence and affected resource.
 
-The fixture contains an `update` action and an `after.ingress` rule for TCP/22 from `0.0.0.0/0`. Bash/jq genuinely processed it and generated a sanitized report with my name, time, mode, source SHA256 and finding counts. A second run processed the clean fixture. These are not provider-produced plans or Claude transcripts.
+After explicitly authorized creation by Copilot using exact reviewed saved plans, both roots returned `No changes`/plan exit 0; the actual baseline checker returned HEALTHY/0. The [LIVE proposal report](drift-review/reports/live/drift-detected-report.txt) records a real plan exit 2, one non-no-op resource change, one unsafe public ingress finding and no destructive actions or refresh drift. [operations.json](drift-review/reports/live/operations.json) identifies that change as one update and records the matching public-input hash and zero deployed ingress after planning. Public evidence includes timestamps, hashes and counts, not raw plans/state. Historical fixture reports and preflight are preserved unchanged and separate; none of these exports is a Claude review.
 
 ### 3. Risk Assessment
 
 Explain the risk identified by the Bash check and Claude Code.
 
-The Bash policy reports fixture FAIL for unsafe public SSH. Tests also cover destructive actions, IPv4/IPv6 and unknown/malformed evidence. Intentional public HTTP/HTTPS receives WARN for human exception review. Claude Code analysis is pending; GitHub Copilot assisted the local implementation and explanation only.
+The actual live Bash/jq checker returned **FAIL/2** for the proposal to allow TCP/22 from `0.0.0.0/0`. It identified unsafe ingress intent, not an already deployed exposure; the group remained unattached and closed. The checks cover supported ingress/destructive-action evidence, not global infrastructure safety. **Claude supplied no analysis or recommendation**: discovery was fixed but inference failed with HTTP 403 enrollment authorization errors. The earlier tool-free Bedrock success proves connectivity at that time only; [claude-runtime.json](drift-review/reports/live/claude-runtime.json) records zero successful Skill reviews, Read calls and hook events.
 
 ### 4. Human-Approved Action
 
 Explain the action you reviewed and executed manually.
 
-No infrastructure action was approved or executed. The proposed future human decision is to review a fresh trusted-project plan and remove or restrict an unintended exposure, or justify an intended exception through the normal change process. Running a separate clean fixture is not a human-applied resolution.
+**Human resolution approval remains PENDING**, and no Terraform action was executed manually by the human. The user separately authorized the narrowly scoped VPC/closed-SG creation and cleanup in advance; **Copilot** executed the exact reviewed saved plans. When the resolution question initially returned user-unavailable, Copilot removed the temporary override for cleanup safety under that prior cleanup authorization, obtained a clean technical recheck, and applied reviewed deletion-only plans for the SG and then VPC. Both deletion applies returned 0. The [authoritative user clarification](drift-review/reports/live/human-resolution.json) confirms that the earlier broad message was general continuation permission, **not resolution approval**. Autonomous cleanup must not be presented as the user's personal review or completion of this assignment requirement. Public SSH was never deployed; no later resolution approval is claimed.
 
 ### 5. Verification
 
 Explain the evidence proving the environment returned to the intended state.
 
-Local evidence verifies checker behavior: detected fixture exit 2/FAIL, clean fixture exit 0/HEALTHY, and the subprocess tests recorded in [local-validation.json](drift-review/reports/local-validation.json). Nothing here proves the deployed environment returned to its intended state; a real final plan and actual Claude review remain pending.
+The [LIVE resolved report](drift-review/reports/live/resolved-report.txt) records technical-reset HEALTHY at 18:22:54Z; [operations.json](drift-review/reports/live/operations.json) records plan/checker exit 0 at 18:22:55Z after override removal. This was a real no-change plan and **limited-scope HEALTHY recheck before cleanup**, not an approved human resolution or final Claude review; both remain pending. Cleanup verification at **18:25:59Z** found both Terraform states empty, zero lab-tagged VPCs/security groups, and exact-created-resource lookups returning `InvalidVpcID.NotFound` and `InvalidGroup.NotFound`. The intended final operational state is therefore **lab deleted**, not a still-running aligned environment. Earlier coursework and the Bedrock role were not targeted. An extra `DescribeSubnets` guard was denied; no permissions were widened, and the authorized remaining checks, exact deletion-only plan and successful deletion/NotFound results established cleanup. These operational facts do not establish the user's personal review or completion of the human-resolution requirement.
 
 ### 6. Safety Decision
 
 Explain why Claude was allowed to gather and analyze evidence but not automatically perform infrastructure-changing actions.
 
-The implemented boundary separates review from authorization: noWrite instructions, a fixed read-only tool/command surface, and an unconditional mutation-denying hook. A future human-authorized live plan must use a trusted project because providers/data sources execute code. No actual Claude session was granted or exercised in this work.
+The configured boundary separates read-only evidence gathering from mutation authorization: noWrite rules, a finite review-command allowlist and an unconditional mutation-denying hook. The live checker used an explicitly authorized trusted project because providers/data sources execute code. Creation and cleanup were separate user-authorized Copilot operations, never Claude/checker actions; the unsafe plan was not applied. Actual Claude attempts reached no Read or hook events, so runtime enforcement is **not demonstrated**. Model access remains blocked pending authorized administrator enrollment/payment/use-case prerequisites; the role was not broadened. The additional approved model budget is $0.50, with $0 reported additional cost, a **$0.18 reservation for unknown usage, not a charge**, and $0.32 unreserved; no further inference is claimed.
 
 ### 7. Agentic Loop Mapping
 
@@ -465,21 +495,21 @@ Explain how your workflow followed:
 Gather --> Analyze --> Human Act --> Verify
 ```
 
-Locally: explicit fixture input → deterministic Bash/jq findings and assisted explanation → documented proposed human decision, with no infrastructure action → separate clean fixture and regression tests. Operationally, live evidence, actual Claude reasoning, human resolution and post-action verification are all pending; this is a local harness, not a completed live loop.
+**Gather:** real clean plans, real proposal plan/JSON and sanitized LIVE reports. **Analyze:** deterministic Bash/jq identified unsafe ingress; successful Claude review remains pending. **Human Act:** human resolution approval and personal review remain **PENDING**. Initial user provisioning/cleanup authorization existed, but Copilot, not a manual human operator, performed those Terraform actions. The resolution question initially returned user-unavailable; the later broad continuation permission is not resolution approval. **Verify:** a real technical-reset plan/checker returned 0, then empty states and exact-resource absence verified autonomous cleanup, not completion of the human-resolution requirement. This is operational progress, **not an approved complete Claude-led `Gather --> Analyze --> Human Act --> Verify` loop**. Screenshots 10/12/15/16/17 and final publication remain pending.
 
 ## Questions
 
 ### 1. What action did you execute to resolve the difference?
 
-No actual infrastructure difference was resolved. I ran the checker against a separate clean synthetic fixture to demonstrate its resolved-report path. Human-reviewed operational resolution is pending.
+Copilot removed the task-local `proposal.auto.tfvars` override, restoring the default closed configuration; no public-SSH rule had been applied or needed revoking in AWS. This technical reset was cleanup preparation under prior cleanup authorization after the user-unavailable response, **not an approved human resolution**. Copilot then deleted only the created SG and VPC through reviewed Terraform deletion-only plans. Human resolution approval and personal human review remain **pending**, as the [user clarification](drift-review/reports/live/human-resolution.json) confirms; general continuation permission is not resolution approval.
 
 ### 2. Did you review `terraform plan` before taking action?
 
-I inspected synthetic plan JSON for local policy testing, not a real Terraform plan, and performed no infrastructure action. Review of an authorized fresh live plan remains pending.
+Copilot reviewed real saved creation and deletion-only plans and applied those exact plans; their SHA256 values and apply exit 0 results are recorded in [operations.json](drift-review/reports/live/operations.json). The unsafe one-update plan was inspected and **never applied**. This is not my personal review or manual human Terraform operation. No Claude recommendation existed, and human resolution approval remains **pending**; autonomous cleanup does not complete the assignment's human-review requirement.
 
 ### 3. What evidence proves the environment is now aligned?
 
-None in this submission. The resolved report proves only that the clean fixture passes the limited checks. Real alignment requires fresh trusted-provider plan evidence and the intended workspace/configuration, not the presence of a report filename.
+The live baseline and [technical-reset report](drift-review/reports/live/resolved-report.txt) establish no pending changes within their recorded scope/times. They are not proof of a currently deployed baseline because the lab was subsequently removed. The final [cleanup record](drift-review/reports/live/operations.json), verified at 18:25:59Z, establishes the intended **deleted** state through empty Terraform states, zero tagged inventory and NotFound responses for the exact created resources. No final Claude HEALTHY review has completed.
 
 ### 4. Why is a second drift review required after the fix?
 
@@ -524,15 +554,17 @@ Suggested tags:
 
 Add your LinkedIn post URL here.
 
-**Pending — not published; no URL is claimed.** The required detected-change and final live HEALTHY screenshots are also pending.
+**Pending — not published; no new publication authorized and no URL claimed.** The actual detected-report capture is integrated as screenshot 13; the required final Claude HEALTHY review and its screenshot remain blocked.
 
-### Draft Only — Local Validation Progress, Not an Assignment-Completion Post
+### Draft Only — Verified Operational Progress, Not an Assignment-Completion Post
 
-> I built a local, read-only Terraform drift/policy review harness for my DMI assignment with GitHub Copilot assistance. Bash and jq classify explicit synthetic plan JSON, including destructive actions, public IPv4/IPv6 ingress, unknown values and malformed input. A fixture modelling public SSH produces FAIL; a separate clean fixture produces a clearly labelled synthetic HEALTHY result.
+> I built a read-only Terraform drift/policy checker for my DMI assignment with GitHub Copilot assistance. After I explicitly authorized a dedicated VPC and closed, unattached security group, Copilot applied the reviewed saved creation plans. Both real baselines had no pending changes, and the checker returned HEALTHY/0.
 >
-> I also prepared a manually invoked Claude Code Skill and an isolated PreToolUse hook with a small review-command allowlist. Local JSON-input simulations verify that apply/destroy/auto-approve requests are denied, regardless of report status. I have not run the Skill in Claude, collected a live baseline, deployed the fixture change, or applied a fix.
+> A temporary configuration input proposed public SSH. The real plan showed one update; Bash/jq returned FAIL/2 with one unsafe ingress finding and zero refresh drift. This was a configuration proposal, not out-of-band drift. It was never applied, and AWS still showed zero ingress.
 >
-> My lesson: a report filename or a green synthetic result is not infrastructure evidence. Provenance, scope, unknowns, independent human review and fresh post-action verification matter. Live validation, actual Claude screenshots and the final assignment post remain next steps when authorized.
+> The Claude Skill's discovery problem was repaired, but inference then failed on model enrollment authorization. Successful Claude review and human resolution approval remain pending; no actual hook denial occurred. The resolution approval request initially returned user-unavailable. Copilot removed the temporary override for safety under the earlier cleanup authorization, obtained a no-change plan and limited-scope HEALTHY result, and deleted the lab through reviewed Terraform plans. Empty states and exact-resource NotFound checks verified cleanup. My general continuation permission is not resolution approval, and autonomous cleanup is not my personal review or completion of those assignment requirements.
+>
+> My lesson: genuine plans, scope, timestamps and authorization order matter as much as a green status. The deterministic workflow made operational progress, but the full Claude/human loop, remaining screenshot evidence and publication are still unfinished.
 >
 > #DMIByPravinMishra #Terraform #AgenticAI #ClaudeCode #DevOps
 
@@ -548,7 +580,7 @@ Add a screenshot of the published LinkedIn post here.
 
 Confirm that the following files are included in your GitHub repository:
 
-All paths below exist under [the isolated local drift-review project](drift-review/README.md), not at the repository root. They are branch-only artifacts awaiting integration; both report files are synthetic demonstrations, and their existence does not complete Task 8.
+All paths below exist under [the isolated drift-review project](drift-review/README.md), not at the repository root. They are review-branch artifacts, not merged deliverables. The listed top-level `reports/*.txt` files remain unchanged synthetic demonstrations. Actual operational evidence is separately saved as [reports/live/baseline-report.txt](drift-review/reports/live/baseline-report.txt), [reports/live/drift-detected-report.txt](drift-review/reports/live/drift-detected-report.txt) and [reports/live/resolved-report.txt](drift-review/reports/live/resolved-report.txt), with [operations](drift-review/reports/live/operations.json), [Claude failure](drift-review/reports/live/claude-runtime.json) and [pending human resolution/user clarification](drift-review/reports/live/human-resolution.json) records. The resolved filename denotes a technical reset before cleanup, not completed human-approved/Claude verification; human resolution approval and successful Claude review remain pending. File existence alone does not complete Task 8.
 
 - `CLAUDE.md`
 - `AI Assignment/tf-drift-check.sh`
@@ -576,28 +608,28 @@ All paths below exist under [the isolated local drift-review project](drift-revi
 
 # Completion Checklist
 
-Checked items mean **local implementation/fixture validation only**, not live infrastructure or Claude-runtime completion. The full Terraform workspace, real plan JSON, operational loop, Claude execution, screenshot-combined requirements and publication remain unchecked. Source hashes and test counts are in the generated local validation record. Synthetic report filenames are fulfilled locally but do not fulfill Tasks 4/8's live evidence.
+Checked implementation items reflect local source/test evidence; checked baseline, plan/JSON, controlled-difference and report items now also have **actual public LIVE evidence** linked above. They do not certify successful Claude execution or a full rubric pass. The real reset returned a no-change plan/limited-scope HEALTHY result before Copilot cleanup. **Human resolution approval, personal human review and successful Claude review remain PENDING**; general continuation permission and autonomous cleanup do not complete those requirements. Human-action, final-review and complete-loop items therefore remain unchecked. The seven-section partial-outcome summary and 14 accepted images are integrated; the completed-loop summary requirement, five remaining numbered captures and publication remain unfulfilled.
 
-- [ ] Confirmed a clean Terraform baseline
-- [ ] Created the required assignment workspace
+- [x] Confirmed a clean Terraform baseline
+- [x] Created the required assignment workspace
 - [x] Created or updated `CLAUDE.md`
 - [x] Added project context and safety rules
 - [x] Created `tf-drift-check.sh`
 - [x] Added my full name to the report
 - [x] Validated the Bash script
 - [x] Made the script executable
-- [ ] Used `terraform plan -detailed-exitcode`
-- [ ] Used Terraform plan JSON
+- [x] Used `terraform plan -detailed-exitcode`
+- [x] Used Terraform plan JSON
 - [x] Used `jq` to inspect destructive actions
 - [x] Used `jq` to inspect unsafe ingress
-- [ ] Confirmed the baseline returns `HEALTHY`
+- [x] Confirmed the baseline returns `HEALTHY`
 - [x] Created `/tf-drift-review`
 - [x] Restricted the Skill to appropriate tools
 - [ ] Confirmed the Skill remains read-only
 - [ ] Confirmed the Skill never runs `terraform apply`
 - [ ] Confirmed the Skill never runs `terraform destroy`
-- [ ] Introduced a controlled detectable difference
-- [ ] Correctly identified whether it was true drift or a configuration change
+- [x] Introduced a controlled detectable difference
+- [x] Correctly identified whether it was true drift or a configuration change
 - [x] Saved `drift-detected-report.txt`
 - [x] Added the `PreToolUse` safety hook
 - [ ] Verified the hook blocks `terraform apply` when the report is `FAIL`
@@ -606,8 +638,8 @@ Checked items mean **local implementation/fixture validation only**, not live in
 - [ ] Ran the drift review again after resolution
 - [ ] Confirmed the final status is `HEALTHY`
 - [x] Saved `resolved-report.txt`
-- [x] Completed `drift-review-summary.md`
-- [x] Mapped the workflow to `Gather --> Analyze --> Human Act --> Verify`
+- [ ] Completed `drift-review-summary.md`
+- [ ] Mapped the workflow to `Gather --> Analyze --> Human Act --> Verify`
 - [ ] Included all 19 numbered screenshots
 - [x] Answered all required questions
 - [ ] Published the required LinkedIn post
@@ -615,7 +647,7 @@ Checked items mean **local implementation/fixture validation only**, not live in
 - [x] Included the GitHub repository/folder URL
 - [ ] Confirmed that no sensitive information is exposed
 
-The checked Skill restrictions are configuration/static checks, not a claimed runtime invocation. The mapping documents which loop stages remain pending. Local generated reports are sanitized and secret-canary tests pass. The seven attached local screenshots were reviewed before committing; all 19 screenshot and final publication/redaction checklist items remain open because 12 numbered captures and publication evidence are still missing.
+The checked Skill restrictions are configuration/static evidence, not successful runtime enforcement. Local simulations are separate from the actual record of zero Read/hook events. The inlined account, separate seven-section summary and screenshot 19 map the **partial** loop honestly, not the completed Task 8 sequence. Fourteen real VS Code images are embedded; changed-source 3/9 were recaptured and 2/4/5/6/14 were retained with matching hashes. **Screenshots 10/12/15/16/17 remain pending**, as do the all-19 requirement and publication. Current accepted images underwent local OCR/privacy review and contain no edited pixels; the final all-deliverable privacy checklist remains open until the missing evidence exists and is reviewed. Screenshot 16 must remain a placeholder because human resolution approval and personal review are outstanding; no capture of continuation permission or autonomous cleanup can fulfill it. There is no approved complete agentic loop.
 
 ---
 

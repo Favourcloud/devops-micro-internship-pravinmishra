@@ -1,15 +1,17 @@
 {
-  "evidence_class": "GENUINE LOCAL EDITOR AND TERMINAL SCREENSHOTS — NOT LIVE INFRASTRUCTURE OR CLAUDE EXECUTION",
+  "evidence_class": "GENUINE VS CODE SOURCE, TERMINAL AND SANITIZED HISTORICAL LIVE-EVIDENCE CAPTURES — NOT CLAUDE RUNTIME EVIDENCE",
   "student": "Eze Favour",
   "application": "Visual Studio Code 1.137.0 (isolated profile; extensions disabled)",
   "capture_method": "macOS screencapture -x -o -l: assignment window only, no shadow, unmodified PNG",
   "review_method": "Local native Vision OCR, image inspection and source SHA256 comparison; no remote OCR service",
-  "timestamp_note": "Each timestamp records completion of capture/OCR processing in UTC.",
+  "timestamp_note": "Image capture/processing timestamps are separate from the dated Terraform/AWS operations displayed in historical exports.",
   "limitations": [
-    "Code/configuration views do not prove Claude loaded or invoked the Skill or hook.",
-    "The terminal records actual local Bash syntax and permissions checks, not Terraform or cloud activity.",
-    "Hashes identify captured bytes and source snapshots; they are not signed attestations.",
-    "Screenshots 1, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18 and 19 plus the LinkedIn publication screenshot remain pending."
+    "Source/configuration views do not prove Claude loaded or invoked a Skill or hook.",
+    "Screenshots 1, 7, 8 and 13 are clearly labeled editor views of sanitized actual historical outputs, not reconstructed terminals or current deployment claims.",
+    "Screenshots 6 and 18 show actual local terminal commands; no Terraform/cloud command ran in those capture terminals.",
+    "The baseline export omits raw refresh identifiers and replaces the private saved-plan path with [PRIVATE PLAN PATH]; no image pixels were edited.",
+    "Screenshots 10, 12, 15, 16 and 17 and LinkedIn publication remain pending. Human resolution approval is not established by autonomous cleanup or general continuation permission.",
+    "Hashes identify bytes and source snapshots, not a signed attestation or human approval."
   ],
   "terminal_commands": [
     "bash -n \"AI Assignment/tf-drift-check.sh\"",
@@ -27,6 +29,47 @@
   },
   "screenshots": [
     {
+      "number": 1,
+      "file": "screenshot-01-clean-plan.png",
+      "captured_at_utc": "2026-09-15T18:45:18+00:00",
+      "sha256": "4c06e6c1350a04362e99f2a0600a3d9df6f00998c6dc3e82465efcc4cd38993a",
+      "source_sha256": {
+        "reports/live/baseline-execution.txt": "21130bd03bc9099b99257d01159675a3f8e1462ebc93bd6fe7cbc49d8cd84052"
+      },
+      "image_modified": false,
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "SANITIZED HISTORICAL OUTPUT EXPORT": true,
+        "not a reconstructed terminal": true,
+        "No changes. Your infrastructure matches the configuration": true,
+        "Actual Terraform detailed exit: 0": true,
+        "Eze Favour": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:46:25+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "sanitized-historical-export",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — HISTORICAL Terraform output - EDITOR EXPORT — baseline-execution.txt — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      }
+    },
+    {
       "number": 2,
       "file": "screenshot-02-workspace.png",
       "captured_at_utc": "2026-09-15T16:51:49+00:00",
@@ -41,14 +84,45 @@
     {
       "number": 3,
       "file": "screenshot-03-context.png",
-      "captured_at_utc": "2026-09-15T16:52:12+00:00",
-      "sha256": "9cae8561bee9ff95d3e0e620e237545c8cea87129207e7f106f9b3b533799d16",
+      "captured_at_utc": "2026-09-15T18:45:44+00:00",
+      "sha256": "2146bf5257db97ed0f8b3197b4784721146c56e5319dd0b327761bf1859d6904",
       "source_sha256": {
-        "CLAUDE.md": "17877e59953532fdcbce643e2f453b0daea9a383b13eced8163021fda37b765a"
+        "CLAUDE.md": "9fdb3d8fa3ae38570eb8499b36120898404eed4c50fe2a6aa5ce6226f6330550"
       },
       "image_modified": false,
-      "width_pixels": 3584,
-      "height_pixels": 2022
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "Project Overview": true,
+        "Review Workflow": true,
+        "Safety Rules": true,
+        "Output Rules": true,
+        "human resolution approval remains pending": true,
+        "Eze Favour": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:46:55+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "source-view",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — Project context - source configuration — CLAUDE.md — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      },
+      "replaced_previous_sha256": "9cae8561bee9ff95d3e0e620e237545c8cea87129207e7f106f9b3b533799d16"
     },
     {
       "number": 4,
@@ -88,16 +162,220 @@
       "height_pixels": 2010
     },
     {
-      "number": 9,
-      "file": "screenshot-09-skill-configuration.png",
-      "captured_at_utc": "2026-09-15T15:15:39+00:00",
-      "sha256": "6c75341f1d8142ef06b19dbb83ada5ac33640b743000209865564fe800a5082e",
+      "number": 7,
+      "file": "screenshot-07-healthy-baseline.png",
+      "captured_at_utc": "2026-09-15T18:45:55+00:00",
+      "sha256": "2159b25c26a4f25e38c54188d0368ea109bbd8ba5237b6e1bec11e8adbb854b9",
       "source_sha256": {
-        ".claude/skills/tf-drift-review/SKILL.md": "bbace039b0801926aaacf693af689bd1643b9669ce2b66190924e14983a78b82"
+        "reports/live/baseline-report.txt": "21651a09c5bd244061daa43c622ce7807058dcaa91b6aaedd8e71574bdc785ef"
       },
       "image_modified": false,
-      "width_pixels": 3500,
-      "height_pixels": 2010
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "Reviewer: Eze Favour": true,
+        "Mode: LIVE": true,
+        "Overall Status: HEALTHY": true,
+        "2026-09-15": true,
+        "Plan SHA256": true,
+        "Destructive resource actions: 0": true,
+        "Unsafe public ingress findings: 0": true,
+        "Refresh drift entries: 0": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:46:56+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "sanitized-historical-export",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — LIVE historical baseline report - EDITOR EXPORT — baseline-report.txt — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      }
+    },
+    {
+      "number": 8,
+      "file": "screenshot-08-baseline-exit.png",
+      "captured_at_utc": "2026-09-15T18:47:30+00:00",
+      "sha256": "f315093ee3681ac5192d1ce541c3e18b4ace81edcd7980bf8824c985979df7b5",
+      "source_sha256": {
+        "reports/live/baseline-execution.txt": "21130bd03bc9099b99257d01159675a3f8e1462ebc93bd6fe7cbc49d8cd84052"
+      },
+      "image_modified": false,
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "SANITIZED HISTORICAL OUTPUT EXPORT": true,
+        "not a reconstructed terminal": true,
+        "Actual captured subprocess exit: 0": true,
+        "Actual status: HEALTHY": true,
+        "Eze Favour": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:49:01+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "sanitized-historical-export",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — HISTORICAL subprocess exit - EDITOR EXPORT — baseline-execution.txt — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      }
+    },
+    {
+      "number": 9,
+      "file": "screenshot-09-skill-configuration.png",
+      "captured_at_utc": "2026-09-15T18:47:41+00:00",
+      "sha256": "c792855de2704767cba312219a876ac6b796f824fae828f68cc7059169357634",
+      "source_sha256": {
+        ".claude/skills/tf-drift-review/SKILL.md": "dcf561bfcb4d7b4771fa982714d13652c8224c48ded5c4177871b4e7708c6589"
+      },
+      "image_modified": false,
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "name: tf-drift-review": true,
+        "disable-model-invocation: true": true,
+        "allowed-tools: Bash Read Grep": true,
+        "noWrite": true,
+        "only the requested sanitized report": true,
+        "reports/live/baseline-report.txt": true,
+        "Mode: LIVE": true,
+        "Eze Favour": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:49:02+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "source-view",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — Skill CONFIGURATION ONLY - no runtime success — SKILL.md — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      },
+      "replaced_previous_sha256": "6c75341f1d8142ef06b19dbb83ada5ac33640b743000209865564fe800a5082e"
+    },
+    {
+      "number": 11,
+      "file": "screenshot-11-unapplied-proposal.png",
+      "captured_at_utc": "2026-09-15T18:47:52+00:00",
+      "sha256": "dad40dae32353a191283cd57e9f4a14d2c4caf1b796ffe613aec11aaa9ea2187",
+      "source_sha256": {
+        "terraform/public-ssh-proposal.tfvars.example": "ff8156e4e292a4fdf31e55de85097688821e0848d8191930c3333d69f545ca2d"
+      },
+      "image_modified": false,
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "Eze Favour": true,
+        "NEVER APPLY": true,
+        "does not auto-load": true,
+        "read-only planning": true,
+        "test_public_ssh = true": true,
+        "UNAPPLIED": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:49:02+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "source-view",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — UNAPPLIED proposal input - source view, NOT applied — public-ssh-proposal.tfvars.example — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      }
+    },
+    {
+      "number": 13,
+      "file": "screenshot-13-live-detected-report.png",
+      "captured_at_utc": "2026-09-15T18:48:23+00:00",
+      "sha256": "de96f62c697e3fc11e3017ff0d07f164b46be2d0cf3902fd4e425c0d68b609ee",
+      "source_sha256": {
+        "reports/live/drift-detected-report.txt": "e48fe440def35ce750df38284152767fb7e65aabcfd7005c5299a3b9034a280a"
+      },
+      "image_modified": false,
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "Reviewer: Eze Favour": true,
+        "Mode: LIVE": true,
+        "Overall Status: FAIL": true,
+        "2026-09-15": true,
+        "Plan SHA256": true,
+        "Unsafe public ingress findings: 1": true,
+        "Terraform detailed exit code: 2": true,
+        "Refresh drift entries: 0": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:51:21+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "sanitized-historical-export",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — LIVE historical proposal FAIL - EDITOR EXPORT — drift-detected-report.txt — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      }
     },
     {
       "number": 14,
@@ -110,7 +388,126 @@
       "image_modified": false,
       "width_pixels": 3500,
       "height_pixels": 2010
+    },
+    {
+      "number": 18,
+      "file": "screenshot-18-saved-reports.png",
+      "captured_at_utc": "2026-09-15T18:51:36+00:00",
+      "sha256": "a0df1bcc1787d8e85ac41687b1f2b98f621d06dacc7c98d57acd5e204a833671",
+      "source_sha256": {
+        "reports/drift-detected-report.txt": "5d0b5d492cdea07e4bfb22a21cde81c9f54cd0857a24e4f43f2b95d099c0d571",
+        "reports/resolved-report.txt": "3f3ab64f0cced60759eb9e2494e1e3614ea1c532f418198da808d3a419975141",
+        "reports/live/drift-detected-report.txt": "e48fe440def35ce750df38284152767fb7e65aabcfd7005c5299a3b9034a280a",
+        "reports/live/resolved-report.txt": "c5a290189d89df763eeb93d2cfb0c1a2884ae687ac0633f033c2a5416382df77"
+      },
+      "image_modified": false,
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "Eze Favour": true,
+        "ACTUAL LOCAL TERMINAL LISTING": true,
+        "listing does not prove contents": true,
+        "SYNTHETIC FIXTURES": true,
+        "ACTUAL HISTORICAL RECORDS": true,
+        "ls -lah -g -o reports": true,
+        "ls -lah -g -o reports/live": true,
+        "drift-detected-report.txt": true,
+        "resolved-report.txt": true,
+        "PENDING": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:52:35+00:00",
+      "limitations": [
+        "Directory listing proves listed names/metadata, not file contents.",
+        "Source hashes cover only the four required listed report files, not every directory entry.",
+        "No Terraform/cloud commands executed in this terminal capture."
+      ],
+      "evidence_kind": "terminal",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — ACTUAL LOCAL TERMINAL LISTING - fixtures vs historical live records — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      },
+      "terminal_commands": [
+        "ls -lah -g -o reports",
+        "ls -lah -g -o reports/live"
+      ],
+      "terminal_cwd": "week-08-terraform/drift-review",
+      "terminal_labels": "reports/*.txt: SYNTHETIC FIXTURES; reports/live/*: ACTUAL HISTORICAL RECORDS; Claude/human resolution PENDING",
+      "terminal_process_verified": {
+        "executable": "/bin/bash",
+        "arguments": [
+          "--noprofile",
+          "--norc"
+        ],
+        "belongs_to_owned_vscode_tree": true
+      },
+      "source_hash_scope_note": "Only the four required listed reports are source-hashed. Other directory-entry metadata describes the capture time; later validation regeneration can change its own entry. A listing does not prove file contents."
+    },
+    {
+      "number": 19,
+      "file": "screenshot-19-summary.png",
+      "captured_at_utc": "2026-09-15T18:48:35+00:00",
+      "sha256": "8e8da2d2abe3de52141d246f158b80eaa946078ba6c8c94da995bb8ab0ebdc18",
+      "source_sha256": {
+        "drift-review-summary.md": "55a9e937154be04b8b65d87333e3fa61e950686c3011602e2e3096a47565642e"
+      },
+      "image_modified": false,
+      "width_pixels": 3504,
+      "height_pixels": 1956,
+      "application": "Visual Studio Code",
+      "application_version": "1.137.0",
+      "ocr_engine": "Apple Vision VNRecognizeTextRequest (local)",
+      "ocr_name_verified": true,
+      "ocr_source_coverage": {
+        "Eze Favour": true,
+        "1. Change Introduced": true,
+        "2. Evidence Collected": true,
+        "3. Risk Assessment": true,
+        "4. Human-Approved Action": true,
+        "5. Verification": true,
+        "6. Safety Decision": true,
+        "7. Agentic Loop Mapping": true,
+        "human resolution approval remains PENDING": true,
+        "not a claim that the full rubric passed": true
+      },
+      "privacy_preflight_passed": true,
+      "accepted_at_utc": "2026-09-15T18:51:21+00:00",
+      "limitations": [
+        "Genuine editor view of the actual public source; not a reconstructed terminal and not runtime Claude execution.",
+        "Historical exports do not assert a currently deployed lab or grant human resolution approval."
+      ],
+      "evidence_kind": "source-view",
+      "window_verification": {
+        "bundle_id": "com.microsoft.VSCode",
+        "native_owner_verified": true,
+        "isolated_profile_verified": true,
+        "title": "Eze Favour — Week 8 Assignment 6 — Summary - genuine evidence and explicit pending requirements — drift-review-summary.md — Visual Studio Code",
+        "verification_sources": [
+          "CGWindowListCopyWindowInfo",
+          "NSRunningApplication",
+          "owned profile process arguments"
+        ]
+      }
     }
   ],
-  "followup_note": "Screenshot 2 records the prepared local workspace, not a deployment. Screenshot 3 was genuinely recaptured after its source changed. The original six captures remain in Git commit 5999ae0."
+  "followup_note": "Seven new slots captured and changed-source 3/9 genuinely recaptured. Earlier versions remain in Git history; no source hashes were merely substituted without capture. No human resolution or Claude success image was fabricated.",
+  "pending_numbers": [
+    10,
+    12,
+    15,
+    16,
+    17
+  ],
+  "private_capture_index_sha256": "23b8cf769bd49ebd7e137639b64f287363a6a5e54ef691c5cbe619e5a99932e6"
 }

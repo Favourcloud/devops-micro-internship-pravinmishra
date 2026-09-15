@@ -1,0 +1,6 @@
+# Eze Favour — controlled configuration proposal, NEVER APPLY.
+# This example does not auto-load. An identical task-local copy was used for
+# read-only planning against the isolated, unattached security group.
+# The deployed baseline remains closed; this is NOT out-of-band drift.
+# Resolution is to remove the temporary override, restoring the default false.
+test_public_ssh = true

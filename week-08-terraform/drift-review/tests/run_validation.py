@@ -61,8 +61,11 @@ def main():
                         and f"Plan SHA256: {expected_hash}\n" in text)
             reports[filename] = {"fixture_only": True, "status": expected_status, "source_hash_matches": verified}
         passed = result.wasSuccessful() and syntax.returncode == 0 and all(item["source_hash_matches"] for item in reports.values())
+        manifest = json.loads((ROOT / "screenshots/manifest.json").read_text())
+        captured = sorted(item["number"] for item in manifest["screenshots"])
+        pending = sorted(set(range(1, 20)) - set(captured))
         evidence = {
-            "evidence_class": "LOCAL SYNTHETIC VALIDATION ONLY — NOT DEPLOYED INFRASTRUCTURE OR CLAUDE EXECUTION",
+            "evidence_class": "OFFLINE REGRESSION AND EVIDENCE-INTEGRITY VALIDATION — DOES NOT RE-RUN CLOUD OR CLAUDE",
             "student": "Eze Favour",
             "timestamp_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "status": "PASS" if passed else "FAIL",
@@ -76,15 +79,17 @@ def main():
             "fixture_reports": reports,
             "source_file_count": len(hashes), "source_sha256": hashes,
             "source_parity": json.loads((ROOT / "tests/assignment-source.json").read_text()),
+            "screenshot_numbers": {"captured": captured, "pending": pending},
             "limitations": [
-                "No real Terraform binary invoked; plan/show exit handling uses fake executables in discarded project-local test directories.",
-                "No cloud API calls, live baseline, deployed change, human apply, or final infrastructure verification.",
-                "Hook tested using JSON stdin and exit codes only, never an actual apply attempt.",
-                "Claude Skill and effective settings integration not run; no Claude screenshots or transcripts.",
-                "Seven genuine local screenshots (2, 3, 4, 5, 6, 9, 14) are attached; the other 12 numbered screenshots and LinkedIn publication/URL/screenshot remain pending.",
-                "Separate live-preflight.json records real read-only AWS checks and local Terraform validation; this test run does not repeat those calls or establish deployment readiness.",
-                "HEALTHY fixture output is not actual infrastructure health or authorization to mutate.",
-                "Hashes identify the tested local source snapshot, not an upstream deployment or a signed attestation."
+                "This test run invokes no real Terraform binary; plan/show exit handling uses fake executables in discarded project-local directories.",
+                "This test run makes no cloud or Claude API calls. Separate reports/live records contain actual historical operations and failures; integrity checks do not reperform them.",
+                "Hook tests use JSON stdin and exit codes only, not a runtime Claude apply attempt.",
+                "Actual Claude attempts failed before any review/tool/hook events. Skill discovery is not proof of successful review or hook loading.",
+                f"{len(captured)} genuine screenshots are recorded; pending numbered slots: {', '.join(map(str, pending))}. LinkedIn publication/URL/screenshot remains pending.",
+                "Historical live-preflight.json remains unchanged. Actual scoped creation, unapplied proposal, technical reset and verified cleanup are recorded separately in reports/live/operations.json.",
+                "Human resolution approval remains pending; general continuation permission and autonomous cleanup do not complete that requirement.",
+                "HEALTHY means no findings in the stated limited evidence, never global safety or mutation authorization. The lab has been deleted; historical reports are not current state.",
+                "Hashes identify bytes, not a signed attestation. Raw plans, state, private bindings and logs are excluded."
             ],
         }
         json.dump(evidence, destination, indent=2, ensure_ascii=False)

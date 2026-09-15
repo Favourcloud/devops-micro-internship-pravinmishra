@@ -1,6 +1,6 @@
 # This assignment explicitly requires context even if the parent ignores it.
 !CLAUDE.md
-# Only reviewed, sanitized fixture demonstrations are versioned.
+# Only explicitly allowlisted, reviewed, sanitized evidence is versioned.
 .review-data/
 .review-run-*/
 **/.review-run-*/
@@ -20,3 +20,12 @@ reports/*
 !reports/resolved-report.txt
 !reports/local-validation.json
 !reports/live-preflight.json
+!reports/live/
+reports/live/*
+!reports/live/baseline-report.txt
+!reports/live/drift-detected-report.txt
+!reports/live/resolved-report.txt
+!reports/live/operations.json
+!reports/live/claude-runtime.json
+!reports/live/baseline-execution.txt
+!reports/live/human-resolution.json

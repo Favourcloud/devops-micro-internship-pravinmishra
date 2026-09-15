@@ -1,42 +1,40 @@
 # Terraform Drift Review Summary
 
-**Full name: Eze Favour**
+**Full name: Eze Favour — 15 September 2026**
 
-**Status: branch-only local implementation; synthetic demonstrations, not deployed-infrastructure evidence.**
+**Status: genuine Terraform evidence and verified cleanup; Claude runtime/complete rubric sequence still pending.**
 
 ## 1. Change Introduced
 
-I used an explicit synthetic plan fixture that adds a security-group ingress update allowing TCP/22 from `0.0.0.0/0`. The clean fixture has no inbound rules. This is **neither observed true infrastructure drift nor an executed Terraform configuration change**: it models a possible configuration change without deploying it. No real baseline has been established. Subsequent read-only AWS preflight verifies access, not deployment readiness. [Fixtures and policy](README.md#fixtures-scope-and-policy) explain the assumptions.
+A temporary configuration input proposed public TCP/22 on one isolated, unattached security group. The [example](terraform/public-ssh-proposal.tfvars.example) matched the task-local input used for real planning. This was an **UNAPPLIED configuration change, not out-of-band drift**. The risky rule was never deployed. Earlier synthetic fixtures remain unchanged.
 
 ## 2. Evidence Collected
 
-The Bash checker genuinely processed [detected.json](fixtures/detected.json) and [clean.json](fixtures/clean.json) offline using jq and the standard-library evidence helper. The fictional affected resource is `aws_security_group.synthetic`, with an `update` action and a public ingress rule in the detected fixture. The resulting [detected report](reports/drift-detected-report.txt) and [resolved report](reports/resolved-report.txt) record my name, UTC time, mode, input hash and counts. [Local validation](reports/local-validation.json) records the executed test suite/source hashes. These are not a real `terraform plan` or Claude transcript.
+Actual refreshed plans established both roots' clean baseline. Live checker reports show [baseline HEALTHY](reports/live/baseline-report.txt), [proposal FAIL](reports/live/drift-detected-report.txt), and [technical reset HEALTHY](reports/live/resolved-report.txt), with UTC times, plan hashes and Terraform exits 0/2/0. The proposal had one SG update, one unsafe ingress finding and zero refresh drift. [Operational record](reports/live/operations.json) links real execution, inventory, validation and cleanup; raw plans/identifiers stay private.
 
 ## 3. Risk Assessment
 
-The deterministic check reports fixture **FAIL** because unrestricted public SSH is outside the policy. Deletes and both replacement orders also fail in tests. Intentional public TCP/80 or TCP/443 remains **WARN**, requiring a human exception decision, never blanket approval. Unknown or unsupported evidence cannot return unconditional HEALTHY. GitHub Copilot assisted implementation and this explanation; **no successful Claude Skill review has run**, so there is no observed Claude recommendation to quote. Later tool-free model-access tests failed because the configured local proxy was unavailable.
+Public SSH fails the deterministic ingress policy. AWS read-back confirmed the deployed group still had zero ingress after planning. Claude produced **no successful review**: Skill discovery was fixed, but inference failed AWS Marketplace authorization. The earlier $0.00017 tool-free connection is not review evidence. [Actual runtime status](reports/live/claude-runtime.json) separates facts from pending work; these explanations are Copilot-assisted, not Claude recommendations.
 
 ## 4. Human-Approved Action
 
-No infrastructure action was performed or approved here. The proposed future action is for an authorized human to inspect a fresh trusted-project plan and determine whether to remove/restrict an unintended rule or explicitly approve an intended exception through the normal change process. I separately evaluated the clean fixture as a synthetic resolution demonstration; I did not apply a fix, edit a live Terraform configuration, or claim provider verification.
+The user authorized isolated provisioning and cleanup beforehand; **Copilot executed Terraform**, not the human or Claude. Copilot removed the temporary override for cleanup safety and deleted only the new SG/VPC under that existing authorization. The user confirmed the technical findings but explicitly stated that [human resolution approval remains PENDING](reports/live/human-resolution.json). General continuation permission is not resolution approval; autonomous cleanup does not complete this requirement.
 
 ## 5. Verification
 
-The checker returns **2 / FAIL** for the public-SSH fixture and **0 / HEALTHY** for the clean fixture, with unmistakable synthetic banners. The latter means only that the fixture has no pending changes/findings in the supported scope. Subprocess tests cover policy decisions, malformed/unknown data, missing tools, no-overwrite behavior, filename quoting, secret redaction, fake Terraform detailed exits and command constraints, and JSON-only hook simulations. A real post-action plan, final Claude review and screenshots are **pending**; there is no evidence proving the deployed environment is aligned.
+Before deletion, a fresh real plan/checker returned 0/HEALTHY after override removal. At **18:25:59Z**, cleanup verification found both Terraform states empty, zero lab-tagged VPCs/SGs, and both exact created-resource lookups `NotFound`. Both reviewed deletion applies exited 0; both Terraform roots pass fmt/validate. These dated results do not describe a currently deployed lab. [Offline tests](reports/local-validation.json) are separate from live evidence; final Claude review remains pending.
 
 ## 6. Safety Decision
 
-AI may explain evidence but must not mutate infrastructure. The manual Skill declares noWrite with Bash/Read/Grep only, and the isolated hook permits only fixed review commands. It blocks all apply/destroy/auto-approve requests regardless of report status. Tests simulate these requests as JSON and never run them. Human-authorized live planning is a separate trusted-project boundary because Terraform providers/data sources execute code; the hook is not a sandbox or control over human actions. Raw plan/log data remains private and ignored; sanitized reports never authorize mutation.
+The manual noWrite Skill may inspect only named sanitized live reports; its hook always denies apply, destroy and auto-approve. Local JSON-input tests cover enforcement, but **runtime hook loading/denial is not verified**. No risky apply, IAM expansion, earlier-coursework mutation, proxy restart or publication occurred. Raw evidence is excluded; screenshot editor views of sanitized exports are labeled, never passed off as live terminal sessions.
 
 ## 7. Agentic Loop Mapping
 
-| Stage | Actually completed locally | Still pending operationally |
+| Stage | Verified work | Remaining rubric gap |
 | --- | --- | --- |
-| Gather | Explicit synthetic fixture JSON copied into a fresh private workspace | Authorized clean baseline and live plan/show evidence |
-| Analyze | Deterministic Bash/jq checks; GitHub Copilot-assisted explanation and tests | Actual manual `/tf-drift-review` reasoning and screenshots |
-| Human Act | Proposed decision documented; no infrastructure action | Independent human review and authorized resolution |
-| Verify | Separate clean fixture check and passing local validation | Fresh real final plan and Claude review showing intended alignment |
+| Gather | Real clean baseline and unapplied proposal plans | Fresh baseline needed if the lab is recreated |
+| Analyze | Actual Bash/jq HEALTHY → FAIL → HEALTHY | Actual Claude clean/risk/final reviews |
+| Human Act | Prior provisioning/cleanup approval; Copilot-executed operations | Genuine human resolution approval; no manual-human apply claimed |
+| Verify | No-change technical reset, real deletion, empty state/inventory | Actual Claude hook denial and final review |
 
-This is a tested local harness for **Gather → Analyze → Human Act → Verify**, not a completed live agentic loop. Seven genuine local editor/terminal screenshots (2, 3, 4, 5, 6, 9 and 14) are attached with [capture provenance](screenshots/manifest.json). They show the actual workspace/source/configuration and Bash validation, not a live baseline or Claude review. The other 12 numbered screenshots and publication evidence remain pending; no LinkedIn post or URL has been created.
-
-The [sanitized preflight record](reports/live-preflight.json) separately records non-root AWS authentication, successful tagged creation authorization in dry-run mode, and local validation of the two prepared Terraform roots. No AWS resources were created. Cleanup permissions remain unverified because IAM policy inspection is denied; Claude's configured loopback proxy refuses connections. [Preparation and recovery instructions](README.md#terraform-preparation-and-current-access-blockers) describe the blockers without requesting secrets or treating local preparation as operational completion.
+[Screenshot provenance](screenshots/manifest.json) distinguishes source views, actual terminal listings and sanitized historical exports. Claude-dependent slots **10, 12, 15 and 17**, human-resolution slot **16**, and LinkedIn publication remain pending. This is substantial verified progress, **not a claim that the full rubric passed**.

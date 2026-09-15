@@ -5,6 +5,7 @@ Pravin-Mishra-Portfolio-Template/.git.bak
 .stash1.patch
 .claude/settings.local.json
 .tools/
+.review-data/
 **/.terraform/
 **/terraform.tfstate*
 **/*.tfplan

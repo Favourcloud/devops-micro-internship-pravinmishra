@@ -24,6 +24,8 @@ READ_FILES = {
     ".claude/skills/tf-drift-review/SKILL.md", ".claude/hooks/review_gate.py",
     "reports/drift-detected-report.txt", "reports/resolved-report.txt",
     "reports/local-validation.json", ".review-data/current-report.txt",
+    "reports/live/baseline-report.txt", "reports/live/drift-detected-report.txt",
+    "reports/live/resolved-report.txt",
     "fixtures/clean.json", "fixtures/detected.json", "fixtures/empty.json",
     "lib/evidence.py", "lib/schema.jq", "lib/ingress.jq",
 }
@@ -49,6 +51,14 @@ def report_state():
         return "untrusted report (never authorization)"
     except (OSError, ValueError, TypeError):
         return "missing or malformed"
+
+
+def inspection_context():
+    print(json.dumps({"hookSpecificOutput": {
+        "hookEventName": "PreToolUse",
+        "additionalContext": "Week 8 exact read-only review gate ran for this inspection. This is not mutation authorization."
+    }}))
+    return 0
 
 
 def deny(reason):
@@ -90,7 +100,7 @@ def main():
                 return deny("read-only exact allowlist; apply/destroy/auto-approve are always forbidden; report=" + report_state())
             if any(key in os.environ for key in ("BASH_ENV", "ENV")):
                 return deny("shell startup override present")
-            return 0
+            return inspection_context()
         if tool in ("Read", "Grep"):
             value = payload.get("file_path" if tool == "Read" else "path")
             if not isinstance(value, str):
@@ -100,7 +110,7 @@ def main():
                 path = ROOT / path
             relative = path.resolve().relative_to(ROOT).as_posix()
             if relative in READ_FILES or (tool == "Grep" and relative in {"fixtures", "lib"}):
-                return 0
+                return inspection_context()
         return deny("noWrite boundary: only allowlisted Bash, Read and Grep inspection")
     except (OSError, ValueError, TypeError, RecursionError):
         return deny("malformed input; no authorization")

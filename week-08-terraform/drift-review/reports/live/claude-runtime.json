@@ -1,0 +1,61 @@
+{
+  "evidence_class": "SANITIZED ACTUAL CLAUDE CONNECTION/FAILURE RECORD — NOT A SUCCESSFUL REVIEW",
+  "student": "Eze Favour",
+  "model": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "origin_region": "ap-south-1",
+  "global_routing": true,
+  "historical_tool_free_connection": {
+    "actual_response": "BEDROCK_CONNECTION_OK",
+    "input_tokens": 120,
+    "output_tokens": 10,
+    "reported_cost_usd": 0.00017,
+    "proves_skill_or_hook_execution": false
+  },
+  "attempts": [
+    {
+      "label": "clean-review",
+      "actual_result": "Unknown command: /tf-drift-review",
+      "tokens": 0,
+      "reported_cost_usd": 0,
+      "reason": "Empty setting sources disabled filesystem Skill discovery"
+    },
+    {
+      "label": "clean-review-v2",
+      "skill_discovered": true,
+      "registration": "Byte-identical Skill copied into a fresh task-local Claude config; only that controlled user setting source enabled",
+      "api_retry_events": 10,
+      "http_status": 403,
+      "complete_usage_record": false,
+      "successful_review": false
+    },
+    {
+      "label": "bounded-diagnostic",
+      "http_status": 403,
+      "provider_error": "Model access denied: required AWS Marketplace ViewSubscriptions/Subscribe enrollment could not complete",
+      "stopped_after_first_observed_retry": true,
+      "complete_usage_record": false
+    }
+  ],
+  "successful_skill_reviews": 0,
+  "actual_read_calls": 0,
+  "actual_pretooluse_hook_events": 0,
+  "actual_blocked_apply_demonstrated": false,
+  "non_billable_role_and_chosen_profile_metadata_checks_succeeded": true,
+  "additional_budget_usd": 0.5,
+  "additional_reported_cost_usd": 0,
+  "unknown_usage_reservation_usd": 0.18,
+  "remaining_unreserved_budget_usd": 0.32,
+  "account_spending_cap": false,
+  "billing_note": "$0.18 is a conservative budget reservation for incomplete usage records, not a confirmed charge. Historical $0.00017 test is separate. No further inference until access is restored.",
+  "blocked_on": "Authorized administrator completes one-time model enrollment/valid payment/Anthropic use-case prerequisites. Do not broaden the runtime role.",
+  "aws_documentation": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html",
+  "aws_documented_behavior": "Initial invocations can temporarily succeed during automatic setup (up to 15 minutes), then fail if enrollment prerequisites are missing. After enrollment, inference users do not need Marketplace permissions. This explains a possible sequence, not proof of which account prerequisite failed.",
+  "private_transcript_sha256": {
+    "clean-review.jsonl": "966de7b47fd982ef41543cf107ec9bd229db0289ecafa95b30a5dae79265e53a",
+    "clean-review-v2.jsonl": "990a2def7d84b13165913dff39533e231b040a54bf01ce92eef72471a7cabda4",
+    "diagnostic-private.jsonl": "97af79e8941172af1b3457360bcac47ca67e283d97b9f7b4dc482f63c8390c1e",
+    "diagnostic-private-debug.log": "f16dfe98a506fabf2f178b3d70171e47d420f0ff9f3a8abe32e3353be4e29acb"
+  },
+  "personal_proxy_settings_changed": false,
+  "iam_permissions_expanded": false
+}
