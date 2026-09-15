@@ -1,0 +1,78 @@
+{
+  "evidence_type": "Offline preparation and validation only; not AWS deployment/runtime evidence",
+  "validated_at_utc": "2026-09-15T11:10:40.704593+00:00",
+  "terraform_version": "1.13.5",
+  "aws_provider_version": "6.64.0",
+  "results": [
+    {
+      "command": ".tools/terraform -chdir=week-06-aws-cloud/assignment-06-capstone/terraform fmt -check -recursive",
+      "exit_code": 0
+    },
+    {
+      "command": ".tools/terraform -chdir=week-06-aws-cloud/assignment-06-capstone/terraform validate -no-color",
+      "exit_code": 0
+    },
+    {
+      "command": ".tools/terraform -chdir=week-06-aws-cloud/assignment-06-capstone/terraform test -no-color",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B -m unittest discover -s week-06-aws-cloud/assignment-06-capstone/scripts -p test_*.py -v",
+      "exit_code": 0
+    }
+  ],
+  "automated_tests": {
+    "terraform_mock_provider": 26,
+    "python_unittest_methods": 13,
+    "total": 39,
+    "failures": 0
+  },
+  "native_mock_plan_boundary": {
+    "passed": true,
+    "aws_creates": 5,
+    "terraform_local_gates": 1,
+    "shared_managed_resources": 0,
+    "mode": "create",
+    "source": "Terraform test -json -verbose resource_changes; no live AWS plan"
+  },
+  "screenshot_integrity": {
+    "images_inspected": 11,
+    "images_changed": 5,
+    "opaque_masks": 24,
+    "sha256_verified_against_git": true,
+    "dimensions_preserved": true,
+    "changed_pixels_outside_masks": 0,
+    "changed_images_metadata_free": true,
+    "header_mask_reviewed": true,
+    "git_history_scrubbed": false
+  },
+  "deployment_status": {
+    "aws_api_calls_performed": false,
+    "aws_plan_or_apply_performed": false,
+    "new_aws_resources_created": false,
+    "spending_approved": false,
+    "runtime_readiness_approved": false,
+    "non_root_access_established": false,
+    "application_or_database_tests_performed": false,
+    "linkedin_changed": false
+  },
+  "limitations": [
+    "Mock tests cannot establish live permissions, availability, routing, runtime behavior, successful RDS replication or costs.",
+    "Plan-time identity and approval guards are not IAM authorization or an enforced budget; always use the approved non-root identity for plan/apply/cleanup.",
+    "Existing AWS observations and the unapproved price estimate were preserved without refresh.",
+    "Screenshot redaction is scoped and OCR-assisted; older Git history, remote copies and other assignments were not scrubbed."
+  ],
+  "tested_source_sha256": {
+    "week-06-aws-cloud/assignment-06-capstone/scripts/check_plan.py": "d4b5f21997e6eb52893234f3246c399652a791c403e78f2cc12dafbc515ad148",
+    "week-06-aws-cloud/assignment-06-capstone/scripts/test_check_plan.py": "2453155e583939aa597b4ffe6eb7967bf11968a1566829377ae52c3d6e31694e",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/.terraform.lock.hcl": "c90b0c192926e5f3ac9b3d5ecb988be686de52a1554225529779c33b77295af6",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/architecture.tftest.hcl": "1e7d23eb3bd2041ecb7599b9d25ab7f3801e029d44f34e1623f69430f6d05d3e",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/existing.tf": "00d4dd14f526fed632472fa6d493fb5df69f44204b320c527392585d2e8a7612",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/guards.tf": "3a996a07de5322dd2c15b61cc33a15f0f67a6bbe399a32a1c4bae6440d71e725",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/main.tf": "8560934c81f819b6e57d019ac5efcb9085c6e7623affef6644bf9fb72f804418",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/outputs.tf": "c1f14a1e133c974d1ec19311cf2b6cd5d4f5375a6b4984bce7b3468e0cc18924",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/provider.tf": "4c48cee1f66262e3eb081875d73daa55f4eab0ffc1159d441140d3ddfc623e8e",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/terraform.tfvars.example": "7b99c25605f94d15836cc0d9da5c9435a0e241870fba7a500d68f546810f41b7",
+    "week-06-aws-cloud/assignment-06-capstone/terraform/variables.tf": "e89f45e16196a7ea0e427da3720dba39d6fd5ec4d9582d071f946c4636d0888f"
+  }
+}

@@ -49,14 +49,104 @@ The [Stockholm pricing record](assignment-06-capstone/evidence/incremental-cost-
 
 The normalized four-hour equivalent is about **$0.24**, **not** a guaranteed bill or the cost of the whole lab. Existing resources, variable usage, billing minimums, taxes, additional compute and cleanup delays are excluded. Rounded rows can differ from the subtotal by one cent. A **$5 allowance for new additions is proposed, not approved or enforced**. The earlier Assignment 5 retest proposal does not authorize this spend; no timer or budget alarm was installed.
 
-**Next execution steps, still pending:**
+**Execution sequence — local preparation complete; cloud steps still pending:**
 
 1. Establish approved non-root AWS access, an authorized way to inspect the existing web/app hosts, and explicit approval of spend, exact scope and cleanup/retention intent.
 2. Capture the installed source revision, Nginx routing, process ports, health response and redacted configuration evidence. Confirm browser API routing and database access before overwriting any healthy service.
-3. Author and validate a dedicated **new-additions-only Terraform state** for the missing public entry and replica. Reference the existing VPC/subnets/instances/internal ALB/primary read-only; do not import shared resources into a state that will later be destroyed wholesale. No new Terraform configuration or cloud plan has been executed in this preflight.
+3. Review the locally validated **new-additions-only Terraform configuration** below. It references existing infrastructure read-only; do not import shared resources into its state. Local mock tests are complete, but no real AWS plan/apply or new cloud deployment has been performed.
 4. Review the proposed plan, then apply only after approval. Prove public web-target health, UI login/CRUD using synthetic data, primary persistence, and the available replica's source relationship/private settings/replication. Do not claim application read splitting unless separately configured and tested.
 5. Capture genuine, redacted console and browser proof under the learner's identity, update the historical sections below, and verify the existing LinkedIn post rather than publishing a duplicate.
 6. For an approved short run, abort testing without a stable baseline by 60 minutes and start removing only new additions by 120 minutes, with a four-hour cleanup target. Continue supervised cleanup if needed; preserve the primary, shared VPC, `ha-mysql-db`, Assignment 4 and all pre-existing resources. Retain state and report residual resources honestly.
+
+## Local preparation — 15 September 2026 (not deployed)
+
+**Completed offline:** [Terraform configuration](assignment-06-capstone/terraform/main.tf), pinned provider lock, [26 mock-provider tests](assignment-06-capstone/terraform/architecture.tftest.hcl), and [13 plan-boundary tests](assignment-06-capstone/scripts/test_check_plan.py). Formatting, validation and all **39 automated tests passed**. The native Terraform mock plan also passed the boundary checker. The [local validation record](assignment-06-capstone/evidence/local-validation.json) identifies the tested files. None of this is a live AWS plan, application test, renewed AWS inventory or permission to spend.
+
+### Exact ownership and guardrails
+
+| State-owned resource | Purpose |
+| --- | --- |
+| `aws_lb.public` | New internet-facing `dmi-a6-public-alb` in the two existing Web subnets |
+| `aws_lb_target_group.web` | New `dmi-a6-web` HTTP target group with `/` health check |
+| `aws_lb_target_group_attachment.web` | Register only the existing Web instance on port 80 |
+| `aws_lb_listener.http` | New HTTP port-80 listener forwarding to that target group |
+| `aws_db_instance.replica` | New private, encrypted `dmi-a6-read-replica` of **`bookreview-db`**, using the existing DB subnet group and SG |
+| `terraform_data.deployment_gate` | Local Terraform metadata and plan-time preconditions; **not an AWS resource** |
+
+A clean creation plan must therefore have **six managed creates: five AWS resources and one local gate**. The VPC, all subnets/routes/security groups, Web instance, internal ALB, App instance and source databases are not managed resources in this state. No import, IAM change, SG-rule change, instance restart, source deployment or database migration is included. The replica is Single-AZ, inherits the primary's encrypted source data/key and 20 GiB allocation, and is not an application read-routing configuration. The source primary and `ha-mysql-db` must never be adopted into this state.
+
+[Plan-time guards](assignment-06-capstone/terraform/guards.tf) require the expected account and a non-root user/assumed role; explicit scope/spending/cleanup approval; verified runtime readiness; the pinned Stockholm VPC; two-AZ subnet placement; ALB address capacity/IGW routes; isolated DB routes; expected running Web target/SG; and the private, encrypted, backed-up Multi-AZ Book Review source. They also check the existing Internet→ALB→Web HTTP rules and App-only DB ingress. Missing rules cause a stop, not automatic changes to shared groups.
+
+The [example inputs](assignment-06-capstone/terraform/terraform.tfvars.example) leave **both approval flags false**. No resource uses approval-dependent `count` or `for_each`: revoking an acknowledgement does not produce an automatic teardown plan. The [$5 proposal](assignment-06-capstone/evidence/incremental-cost-estimate.json) remains **unapproved**, and no timer/budget alarm exists.
+
+**Limits:** these checks are accident-prevention controls, not IAM authorization, a hard spending cap, a full network/security audit, or proof of the identity used later to apply a saved plan. Destroy can skip resource preconditions. Use an approved least-privilege non-root identity for **every** real command. This module provides **HTTP only**, one existing Web target and no new App capacity; it does not establish TLS, AZ-redundant compute or production readiness. Use disposable synthetic data only, never personal/reused credentials.
+
+### Repeat the offline checks
+
+From the repository root, with Terraform 1.13+ and Python 3 installed (`.tools/terraform` was used in this worktree):
+
+```bash
+A6=week-06-aws-cloud/assignment-06-capstone
+terraform -chdir="$A6/terraform" init -backend=false
+terraform -chdir="$A6/terraform" fmt -check -recursive
+terraform -chdir="$A6/terraform" validate
+AWS_EC2_METADATA_DISABLED=true terraform -chdir="$A6/terraform" test
+python3 -B -m unittest discover -s "$A6/scripts" -p 'test_*.py' -v
+```
+
+Provider initialization may download the locked AWS provider from HashiCorp; the test suite uses **`mock_provider "aws"`** and synthetic account/role data, not AWS credentials. Test-only `true` flags do not approve a deployment.
+
+### Authorized execution runbook — do not run yet
+
+1. Resolve the pending approvals and administrative access above. Privately select the approved profile and `TF_VAR_expected_account_id`; verify its identity without publishing the account ID. Inspect the actual installed revision, dependencies, Nginx configuration, service ports and `/health` response. Confirm `/api` prefix preservation and schema-migration safety. Do not restart/replace a healthy backend from an unverified reference revision.
+2. Recheck the scoped AWS inventory, source DB availability, target health and cost basis. Review all shared-resource owners. Confirm these new resource names are unused and the **dedicated A6 working directory/state** has no imported/shared resources. Use `umask 077` for plans/state and keep a protected recovery copy. Never reuse Assignment 4/5 state, blindly copy state between machines, or delete state before cleanup.
+3. Only after explicit approval, copy the example to ignored `terraform.tfvars` and set the two acknowledgements locally. Initialize the dedicated local backend with `terraform init`, then save and inspect a **non-targeted** plan:
+
+```bash
+# Future authorized use only, from the repository root with the approved profile.
+A6=week-06-aws-cloud/assignment-06-capstone
+terraform -chdir="$A6/terraform" plan -out=additions.tfplan
+terraform -chdir="$A6/terraform" show -json additions.tfplan > "$A6/terraform/additions.tfplan.json"
+python3 "$A6/scripts/check_plan.py" "$A6/terraform/additions.tfplan.json" --mode create
+terraform -chdir="$A6/terraform" show -no-color additions.tfplan
+# STOP for human review of the exact plan, account, costs and lifecycle.
+# Apply only that reviewed, unchanged saved plan after approval.
+```
+
+The [boundary checker](assignment-06-capstone/scripts/check_plan.py) rejects incomplete/errored/deferred plans, unpassed creation gates, unexpected managed addresses, imports/moves, updates, replacements, source substitutions and deletes during creation. It checks known ownership/settings, not the entire application or every possible Terraform value. Its success is **not** permission to apply. Raw plans/JSON/state contain identifiers and may contain secrets; they are ignored and must not be committed or attached publicly.
+
+4. Capture the following **new, timestamped evidence** after an approved apply. Do not substitute mock output or the old replica-creation form:
+
+| Verification | Required proof and pass condition |
+| --- | --- |
+| Public entry | Internet-facing/active ALB, both Web subnets, port-80 forwarding and healthy registered Web target; browser actually loads the UI at the ALB DNS |
+| Same-origin API | Browser requests remain at the public origin under `/api/...`, reach the intended backend without prefix stripping, and contain no private ALB hostname; redact cookies/tokens |
+| Synthetic user and CRUD | Register/login with disposable credentials; create a uniquely named test book/review, read it back, exercise the supported update/delete paths and confirm responses; never record passwords or bearer tokens |
+| Primary persistence | Confirm the record through a separate authorized primary DB session and a fresh browser session; reload alone is not restart durability. Do not restart production/shared services or invoke startup schema alterations without separate approval |
+| Replica | RDS available, correct source relationship and separate endpoint, private/encrypted settings; observe replication status/lag and read the same synthetic row through an authorized read-only replica connection. Replica existence alone is not replication proof |
+| Isolation | Capture current SG attachments/rules, tier routes and App/DB non-public settings; retain the distinction between permitted traffic and a complete security audit |
+
+An unavailable runtime/admin path is a blocker, not a reason to expose SSH/MySQL publicly. Remove only synthetic test records through the primary/application after evidence collection; allow deletion to replicate. Do not claim application read splitting, compute failover, an RDS failover test or a zero-downtime result unless separately demonstrated.
+
+5. Follow the approved 60/120-minute stop rules and four-hour cleanup target. For teardown, keep the state and approved non-root profile, create a full **saved destroy plan in this A6 directory**, and run the checker in cleanup mode:
+
+```bash
+# Future authorized teardown only. Never run from an unrelated Terraform directory.
+terraform -chdir="$A6/terraform" plan -destroy -out=cleanup.tfplan
+terraform -chdir="$A6/terraform" show -json cleanup.tfplan > "$A6/terraform/cleanup.tfplan.json"
+python3 "$A6/scripts/check_plan.py" "$A6/terraform/cleanup.tfplan.json" --mode cleanup
+terraform -chdir="$A6/terraform" show -no-color cleanup.tfplan
+# STOP for review: only the new AWS resources and local gate may be removed.
+# Apply only that reviewed, unchanged saved cleanup plan after approval.
+```
+
+Cleanup accepts a subset for partial deployment failures and validates the new resources' names/ARNs and replica source. It must refuse shared resources even if present as no-ops. Deleting the disposable replica skips a final snapshot; **the source database/data remain**. If the replica was promoted or ownership/settings changed, stop and review rather than bypassing the checker. Confirm via AWS inventory that the additions are gone **and** the existing primary, `ha-mysql-db`, VPC and prior assignments remain; empty Terraform state alone is insufficient proof. Preserve state and report residual resources if cleanup is delayed.
+
+### Historical screenshot privacy work
+
+The [scoped redaction manifest](assignment-06-capstone/evidence/historical-redactions.json) records **11 inspections, five changed images and 24 opaque masks**. Account fields/ARN account components and an operator `/32` were masked; one conservative header mask is explicitly labeled. Dimensions and every pixel outside the declared masks were independently checked against the Git originals. Six images, including the unhealthy-target and LinkedIn captures, remain byte-identical. Changed PNGs have no metadata; post-redaction local OCR reported no remaining targeted matches.
+
+This is **privacy editing of historical evidence**, not new console proof or an application fix. OCR is heuristic; older Git history, previously published copies and other assignments were not scrubbed. The broad no-sensitive-data checklist item therefore remains open.
 
 ## Evidence audit — 13 September 2026 (historical screenshots)
 
@@ -294,7 +384,7 @@ A matching-topic post screenshot is available below. The short link resolves to 
 - Add all required screenshots and links in your submission
 - Do not expose passwords, RDS credentials, connection strings, private keys, or account IDs
 
-Existing source captures contain account IDs in console fields/ARNs. They were not altered in this documentation audit. Prepare redacted copies before checking the no-sensitive-data item.
+The scoped historical-image redaction above removes identified account fields and the operator `/32` from the current copies. It does not remove originals from Git history or certify unrecognized content/other submissions; keep the broad no-sensitive-data item open until that wider review is complete.
 
 ---
 
@@ -306,11 +396,13 @@ Existing source captures contain account IDs in console fields/ARNs. They were n
 - [ ] Task 4: All six evidence screenshots captured (Web Tier, App Tier, both ALBs, RDS + replica, app UI)
 - [x] Task 5: Evidence-based deployment summary completed; timeout remediation history remains unverified
 - [x] Current deployment rechecked read-only; internal app target healthy and primary Multi-AZ verified ([record](assignment-06-capstone/evidence/preflight-2026-09-15.json))
+- [x] New-additions-only Terraform and plan-boundary checker validated locally (39 tests; no AWS deployment)
+- [x] Scoped historical screenshot redaction completed and pixel/hash-verified (Git history excluded)
 - [ ] Missing public ALB and private read replica provisioned and verified
 - [ ] Non-root deployment access, runtime access and incremental spending approved
 - [ ] LinkedIn post published and URL submitted
 - [x] Existing App Tier and primary Database Tier confirmed not publicly accessible by current API configuration (not a security certification; replica still absent)
-- [ ] No sensitive data exposed (historical screenshots and Git history still require review/redaction)
+- [ ] No sensitive data exposed across the submission/history (scoped current images redacted; broader review and Git-history/remote-copy assessment remain)
 
 ---
 
