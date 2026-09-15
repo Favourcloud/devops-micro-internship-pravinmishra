@@ -1,0 +1,211 @@
+{
+  "evidence_type": "Planning estimate from read-only AWS Price List API queries; not deployment or billing evidence",
+  "observed_at": "2026-09-15T02:44:33.844200+00:00",
+  "region": "us-east-1",
+  "currency": "USD",
+  "hours_per_month": 730,
+  "infrastructure_configuration": "../terraform/main.tf",
+  "resource_prices": [
+    {
+      "resource": "Web EC2 t3.micro",
+      "baseline_quantity": 2,
+      "surge_quantity": 4,
+      "billing_basis": "hour",
+      "quote": {
+        "sku": "CRAJUW7BTXFMT2UJ",
+        "rate_code": "CRAJUW7BTXFMT2UJ.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.0104 per On Demand Linux t3.micro Instance Hour",
+        "unit": "Hrs",
+        "usd": "0.0104000000",
+        "effective_date": "2026-09-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "15.18",
+      "surge_monthly_usd": "30.37"
+    },
+    {
+      "resource": "RDS MySQL db.t3.micro Multi-AZ pair",
+      "baseline_quantity": 1,
+      "surge_quantity": 1,
+      "billing_basis": "hour",
+      "quote": {
+        "sku": "Z6DQFCENPE4N3ZN7",
+        "rate_code": "Z6DQFCENPE4N3ZN7.JRTCKXETXF.6YS6EN2CT7",
+        "description": "USD 0.034 per db.t3.micro Multi-AZ instance hour (or partial hour) running MySQL",
+        "unit": "Hrs",
+        "usd": "0.0340000000",
+        "effective_date": "2026-09-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "24.82",
+      "surge_monthly_usd": "24.82"
+    },
+    {
+      "resource": "Web gp3 EBS storage",
+      "baseline_quantity": 20,
+      "surge_quantity": 40,
+      "billing_basis": "month",
+      "quote": {
+        "sku": "JG3KUJMBRGHV3N8G",
+        "rate_code": "JG3KUJMBRGHV3N8G.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.08 per GB-month of General Purpose (gp3) provisioned storage - US East (N. Virginia)",
+        "unit": "GB-Mo",
+        "usd": "0.0800000000",
+        "effective_date": "2026-09-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "1.60",
+      "surge_monthly_usd": "3.20"
+    },
+    {
+      "resource": "RDS Multi-AZ gp3 storage",
+      "baseline_quantity": 20,
+      "surge_quantity": 20,
+      "billing_basis": "month",
+      "quote": {
+        "sku": "BVC2XPZ4DHBCJX5Q",
+        "rate_code": "BVC2XPZ4DHBCJX5Q.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.23 per GB-month of provisioned GP3 storage for Multi-AZ deployments running MySQL",
+        "unit": "GB-Mo",
+        "usd": "0.2300000000",
+        "effective_date": "2026-09-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "4.60",
+      "surge_monthly_usd": "4.60"
+    },
+    {
+      "resource": "Zonal NAT gateway",
+      "baseline_quantity": 1,
+      "surge_quantity": 1,
+      "billing_basis": "hour",
+      "quote": {
+        "sku": "M2YSHUBETB3JX4M4",
+        "rate_code": "M2YSHUBETB3JX4M4.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.045 per NAT Gateway Hour",
+        "unit": "Hrs",
+        "usd": "0.0450000000",
+        "effective_date": "2026-09-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "32.85",
+      "surge_monthly_usd": "32.85"
+    },
+    {
+      "resource": "Application Load Balancer",
+      "baseline_quantity": 1,
+      "surge_quantity": 1,
+      "billing_basis": "hour",
+      "quote": {
+        "sku": "37CUWUT8GSNQEPUV",
+        "rate_code": "37CUWUT8GSNQEPUV.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.0225 per Application LoadBalancer-hour (or partial hour)",
+        "unit": "Hrs",
+        "usd": "0.0225000000",
+        "effective_date": "2026-08-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "16.43",
+      "surge_monthly_usd": "16.43"
+    },
+    {
+      "resource": "ALB capacity allowance",
+      "baseline_quantity": 1,
+      "surge_quantity": 1,
+      "billing_basis": "hour",
+      "quote": {
+        "sku": "P2XGEJ8N3KU52WA8",
+        "rate_code": "P2XGEJ8N3KU52WA8.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.008 per used Application load balancer capacity unit-hour (or partial hour)",
+        "unit": "LCU-Hrs",
+        "usd": "0.0080000000",
+        "effective_date": "2026-08-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "5.84",
+      "surge_monthly_usd": "5.84"
+    },
+    {
+      "resource": "Public IPv4 addresses",
+      "baseline_quantity": 5,
+      "surge_quantity": 7,
+      "billing_basis": "hour",
+      "quote": {
+        "sku": "4GQUNXTFWVSGPUZK",
+        "rate_code": "4GQUNXTFWVSGPUZK.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.005 per In-use public IPv4 address per hour",
+        "unit": "Hrs",
+        "usd": "0.0050000000",
+        "effective_date": "2026-07-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "18.25",
+      "surge_monthly_usd": "25.55"
+    },
+    {
+      "resource": "Managed database secret",
+      "baseline_quantity": 1,
+      "surge_quantity": 1,
+      "billing_basis": "month",
+      "quote": {
+        "sku": "BJ3PQ9BYGU6P632F",
+        "rate_code": "BJ3PQ9BYGU6P632F.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.40 per Secret",
+        "unit": "Secrets",
+        "usd": "0.4000000000",
+        "effective_date": "2025-07-01T00:00:00Z"
+      },
+      "baseline_monthly_usd": "0.40",
+      "surge_monthly_usd": "0.40"
+    }
+  ],
+  "baseline_monthly_usd": "119.97",
+  "four_web_instances_monthly_usd": "144.05",
+  "baseline_hourly_equivalent_usd": "0.1643",
+  "four_web_instances_hourly_equivalent_usd": "0.1973",
+  "four_hour_baseline_equivalent_usd": "0.66",
+  "four_hour_surge_equivalent_usd": "0.79",
+  "variable_rates": [
+    {
+      "sku": "59S5R83GFPUAGVR5",
+      "rate_code": "59S5R83GFPUAGVR5.JRTCKXETXF.6YS6EN2CT7",
+      "description": "$0.045 per GB Data Processed by NAT Gateways",
+      "unit": "GB",
+      "usd": "0.0450000000",
+      "effective_date": "2026-09-01T00:00:00Z"
+    },
+    {
+      "sku": "4MDZ5VNEJPMUTG9B",
+      "rate_code": "4MDZ5VNEJPMUTG9B.JRTCKXETXF.6YS6EN2CT7",
+      "description": "$0.05 per 10000 API Requests",
+      "unit": "API Requests",
+      "usd": "0.0000050000",
+      "effective_date": "2025-07-01T00:00:00Z"
+    }
+  ],
+  "proposed_retest_allowance_usd": "5.00",
+  "allowance_approved": false,
+  "aws_deployment_performed": false,
+  "assumptions": [
+    "Two web instances normally; four continuously for the surge scenario.",
+    "One RDS Multi-AZ compute quote already covers primary and standby; the Multi-AZ storage rate already covers the replicated storage.",
+    "One LCU is a planning allowance, not a minimum or a cap.",
+    "Five baseline public IPv4 addresses: two EC2, two ALB minimum, one NAT; seven with four web instances.",
+    "The four-hour estimate is a normalized equivalent, not an AWS invoice; hourly minimums and service proration differ."
+  ],
+  "excluded_or_variable": [
+    "NAT data processing, inter-AZ and internet transfer",
+    "CPU surplus credits",
+    "CloudWatch logs, backup overage, Secrets Manager API requests",
+    "More ALB LCUs/IPs, unexpected traffic, resource-deletion delays or failed cleanup",
+    "Tax, currency conversion and existing Assignment 4 charges; no free-tier credits assumed"
+  ],
+  "stop_plan": [
+    "No redeployment without explicit approval of the allowance and test scope.",
+    "Abort testing if a stable healthy baseline is unavailable after 60 minutes.",
+    "Begin Terraform teardown no later than 120 minutes after starting deployment; reserve the remaining time for deletion and verification.",
+    "Continue supervised cleanup until state is empty and lab-scoped residual checks pass; never delete state or stop cleanup at the four-hour target.",
+    "AWS billing alerts are delayed and do not enforce a hard spending cap."
+  ],
+  "sources": [
+    "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetProducts.html",
+    "https://aws.amazon.com/ec2/pricing/on-demand/",
+    "https://aws.amazon.com/rds/mysql/pricing/",
+    "https://aws.amazon.com/ebs/pricing/",
+    "https://aws.amazon.com/vpc/pricing/",
+    "https://aws.amazon.com/elasticloadbalancing/pricing/",
+    "https://aws.amazon.com/secrets-manager/pricing/"
+  ]
+}

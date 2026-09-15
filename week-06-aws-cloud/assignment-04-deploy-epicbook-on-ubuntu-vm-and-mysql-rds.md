@@ -8,6 +8,11 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will deploy the EpicBook web application in AWS using a secure two-tier architecture: an Ubuntu EC2 instance with Nginx in a public subnet, and a private MySQL RDS database with restricted security-group access. The completed deployment must prove that the frontend, backend, and private database communicate successfully end to end.
 
+## Deployment verification and evidence status
+
+Later deployment work was recorded in [commit `11a2438`](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/commit/11a2438) on 15 September 2026. Its session verification record reports a frontend HTTP 200 response, a successful backend health response through Nginx, five books returned through the API, and successful EC2-to-private-RDS database access. This is a summary of the earlier verification, not a new live test or a replacement for the required screenshots.
+
+The earlier captures below have not been replaced. Submission evidence remains incomplete for **Task 1** (both subnets visible), **Task 5** (the explicit `Publicly accessible: No` field), and **Task 9** (the browser view in Screenshot 19). The checklist includes those screenshot requirements, so these three entries remain open despite the later deployment verification. No screenshot completion or instructor-awarded grade is claimed, and this review performed no new AWS operations.
 
 # Task 1 — Create VPC + Public/Private Subnets + Routing
 
@@ -222,16 +227,16 @@ The API and database terminal checks are present, but the required browser captu
 
 # Completion Checklist
 
-- [ ] Task 1: VPC, public/private subnets, IGW, and public routing created (Screenshots 1–3)
+- [ ] Task 1: VPC, public/private subnets, IGW, and public routing created (Screenshots 1–3; private-subnet capture still required)
 - [x] Task 2: Least-privilege EC2 and RDS security groups created (Screenshots 4–5)
 - [x] Task 3: Ubuntu EC2 launched in the public subnet with SSH verified (Screenshots 6–7)
 - [x] Task 4: Node.js, npm, Nginx, and MySQL client installed (Screenshots 8–10)
-- [ ] Task 5: Private MySQL RDS created with no public access (Screenshots 11–12)
+- [ ] Task 5: Private MySQL RDS created with no public access (Screenshots 11–12; explicit public-access field still required)
 - [x] Task 6: Database initialized from the SQL dump (Screenshot 13)
 - [x] Task 7: Backend deployed and responding on port 3000 (Screenshots 14–16)
 - [x] Task 8: Nginx serving the frontend and reverse-proxying to the backend (Screenshots 17–18)
-- [ ] Task 9: Frontend, backend, and RDS verified end to end (Screenshots 19–21)
-- [ ] No sensitive data exposed
+- [ ] Task 9: Frontend, backend, and RDS verified end to end (Screenshots 19–21; browser Screenshot 19 still required)
+- [x] No sensitive data exposed
 
 ---
 

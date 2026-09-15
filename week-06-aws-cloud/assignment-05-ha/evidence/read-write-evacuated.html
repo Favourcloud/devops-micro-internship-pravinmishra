@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EpicBook · Shared book list</title>
+<style>
+body {font-family:system-ui,sans-serif;max-width:48rem;margin:auto;padding:1.5rem;background:#f5f7fa;color:#152536}
+main {background:white;padding:1.5rem;border-radius:.5rem}
+label {display:block;margin-top:1rem} input {box-sizing:border-box;width:100%;padding:.7rem;font:inherit}
+button {margin-top:1rem;padding:.7rem 1rem;background:#184b85;color:white;border:0;font:inherit;cursor:pointer}
+li {margin:.8rem 0;overflow-wrap:anywhere} footer {margin-top:2rem;overflow-wrap:anywhere}
+</style></head>
+<body><main><h1>EpicBook</h1><p>A shared reading list backed by Amazon RDS.</p>
+<form method="post" action="/books" accept-charset="UTF-8">
+<label for="title">Title</label><input id="title" name="title" maxlength="200" required>
+<label for="author">Author</label><input id="author" name="author" maxlength="200" required>
+<button type="submit">Add book</button></form>
+<h2>Latest 100 books</h2><ul><li><strong>HA verification 2026-09-15T01:26:55.088848+00:00</strong> by Synthetic lab record</li><li><strong>HA verification 2026-09-15T01:15:04.121054+00:00</strong> by Synthetic lab record</li></ul>
+<footer>Served by instance: i-0c9ff12b01e5fe629</footer>
+</main></body></html>

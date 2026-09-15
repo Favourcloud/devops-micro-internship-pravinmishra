@@ -1,0 +1,657 @@
+{
+  "observed_at": "2026-09-15T02:40:24.697894+00:00",
+  "scope": "All 20 historical Assignment 5 PNGs in week-06-aws-cloud, including duplicate/unlinked captures",
+  "method": "Local Apple Vision OCR plus account-header region masking; opaque pixel replacement using Pillow, not blur. Technical states and probe evidence were not altered.",
+  "limits": "Redacts current working-tree images only. Earlier Git commits, remote history, caches and other assignments may retain the original identifiers. OCR is heuristic; this is not a repository-wide secret-free certification.",
+  "files": [
+    {
+      "file": "week-06-aws-cloud/Screenshot Week6 assign5 task4 scrn12.png",
+      "dimensions": [
+        1894,
+        976
+      ],
+      "source_sha256": "e1952651c7266d31ebb6c59c616974f2c9ebfffadffe4c0f9fc27f765c2eb31d",
+      "redacted_sha256": "e1952651c7266d31ebb6c59c616974f2c9ebfffadffe4c0f9fc27f765c2eb31d",
+      "masks": [],
+      "pixels_outside_masks_unchanged": true,
+      "status": "inspected-no-targeted-fields-detected"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task1 scrn1.png",
+      "dimensions": [
+        1917,
+        1072
+      ],
+      "source_sha256": "f04c3b02dcd872a536f3f8b00baac4e75b70c5d5400fa07c9623fdf569f02a97",
+      "redacted_sha256": "72d2efc17e1839d9e421f1081966f55081c449cf7351d5d68fc0abf3fce36b83",
+      "masks": [
+        {
+          "bounds": [
+            1460,
+            459,
+            1568,
+            488
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1726,
+            80,
+            1914,
+            126
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task1 scrn2.png",
+      "dimensions": [
+        1894,
+        1065
+      ],
+      "source_sha256": "d53e86eee488da3df42c66752b7159ad3271b2346b3bd3eaef551dbdf0203dea",
+      "redacted_sha256": "c24d178b9a814c6533ee1fcda343fb807a7e808a7ac5dc08bc363e829f2783a1",
+      "masks": [
+        {
+          "bounds": [
+            689,
+            933,
+            1054,
+            963
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1669,
+            77,
+            1891,
+            128
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task1 scrn4-1.png",
+      "dimensions": [
+        1907,
+        1011
+      ],
+      "source_sha256": "dee3d15169dad7e23a6001b18e99f5452ae3df420c3897e3035233ffacd04ad1",
+      "redacted_sha256": "91218651666c68902a8d9d831f56b4daab0441ed9b74dc47430f8180a28608ba",
+      "masks": [
+        {
+          "bounds": [
+            720,
+            789,
+            1052,
+            817
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1681,
+            53,
+            1904,
+            103
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task1 scrn4.png",
+      "dimensions": [
+        1907,
+        1011
+      ],
+      "source_sha256": "dee3d15169dad7e23a6001b18e99f5452ae3df420c3897e3035233ffacd04ad1",
+      "redacted_sha256": "91218651666c68902a8d9d831f56b4daab0441ed9b74dc47430f8180a28608ba",
+      "masks": [
+        {
+          "bounds": [
+            720,
+            789,
+            1052,
+            817
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1681,
+            53,
+            1904,
+            103
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task1 scrn5-1.png",
+      "dimensions": [
+        1903,
+        937
+      ],
+      "source_sha256": "7047ae2736f9e6b47e632ccb4ea3faa40e67392cf339e9f3316b566ddfc3b0be",
+      "redacted_sha256": "273b64e2de63a2ae048da96cbb8efb75e158532b3fdc35188656305e2747070d",
+      "masks": [
+        {
+          "bounds": [
+            331,
+            650,
+            677,
+            680
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1799,
+            0,
+            1900,
+            33
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task1 scrn5.png",
+      "dimensions": [
+        1903,
+        937
+      ],
+      "source_sha256": "7047ae2736f9e6b47e632ccb4ea3faa40e67392cf339e9f3316b566ddfc3b0be",
+      "redacted_sha256": "273b64e2de63a2ae048da96cbb8efb75e158532b3fdc35188656305e2747070d",
+      "masks": [
+        {
+          "bounds": [
+            331,
+            650,
+            677,
+            680
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1799,
+            0,
+            1900,
+            33
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task2 scrn6.png",
+      "dimensions": [
+        1880,
+        1050
+      ],
+      "source_sha256": "fd543ad1d60f810ea49e5c4ecded34e16bd921b1aaaa5b0b94ba91e17a8972ec",
+      "redacted_sha256": "610b0e5038c715b1ad2738e215fe80d080fb7c863bb09882fb5d38800f2291c9",
+      "masks": [
+        {
+          "bounds": [
+            314,
+            447,
+            442,
+            477
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1748,
+            63,
+            1880,
+            91
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1673,
+            62,
+            1877,
+            112
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task2 scrn7.png",
+      "dimensions": [
+        1889,
+        998
+      ],
+      "source_sha256": "08b5b655e206c52b1fdfe67c49a7c724a6fbbdead3b6d64a8f6983274f41e66b",
+      "redacted_sha256": "e5f6793df5e597c7e969da30fa28b217fb8d935c8bdbb3a27d0d1ac1dc53a87f",
+      "masks": [
+        {
+          "bounds": [
+            300,
+            433,
+            428,
+            467
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1632,
+            702,
+            1776,
+            729
+          ],
+          "reason": "operator-ipv4",
+          "label": "[REDACTED]/32"
+        },
+        {
+          "bounds": [
+            1659,
+            52,
+            1886,
+            102
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task2 scrn8.png",
+      "dimensions": [
+        1913,
+        1001
+      ],
+      "source_sha256": "2ab0e552bd18a3d15b147d7453dca72b0f0c77cba0cb4a299b25fc3cf78253ee",
+      "redacted_sha256": "3079d3850b8470bf5fd97e83c4b42f8e681422e80af71a30c3ebb40ea773b202",
+      "masks": [
+        {
+          "bounds": [
+            323,
+            423,
+            450,
+            450
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1686,
+            36,
+            1910,
+            86
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task3 scrn 9.png",
+      "dimensions": [
+        1890,
+        744
+      ],
+      "source_sha256": "313f1c4cc7f948af06363cc8ee92dd14db64fb37e4ed59747f2486501e456a08",
+      "redacted_sha256": "459c4ac9f86fbf40254a8d644360105be3e324bc7b3552a04d77ec4664a56bcc",
+      "masks": [
+        {
+          "bounds": [
+            1723,
+            0,
+            1887,
+            47
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task3 scrn10.png",
+      "dimensions": [
+        1912,
+        1042
+      ],
+      "source_sha256": "5cc470c888e5fe16865ab83455b97f679e36d384365fe1e76cb840977553e110",
+      "redacted_sha256": "7b7cd2fbecf9148f05fe00b358d6fcb322bab37d6dff8bce9deb4a2e7bcb1677",
+      "masks": [
+        {
+          "bounds": [
+            254,
+            644,
+            1144,
+            672
+          ],
+          "reason": "database-connection-command",
+          "label": "CONNECTION COMMAND REDACTED"
+        },
+        {
+          "bounds": [
+            1724,
+            58,
+            1909,
+            100
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task4 scrn 11.png",
+      "dimensions": [
+        1876,
+        1033
+      ],
+      "source_sha256": "04e75d43cfb5923e45996bc5fc667ed615792d91472ed5e3f420e5d3cc3e93f6",
+      "redacted_sha256": "5210b1223b9ab5e24142f783a76d95ca47cd46444d3aa7e3b956380ab3c241d4",
+      "masks": [
+        {
+          "bounds": [
+            1781,
+            40,
+            1876,
+            68
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1080,
+            229,
+            1270,
+            254
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1484,
+            480,
+            1674,
+            507
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1483,
+            624,
+            1674,
+            654
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1716,
+            40,
+            1873,
+            85
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task5 scrn13.png",
+      "dimensions": [
+        1915,
+        972
+      ],
+      "source_sha256": "fb570ae4daf08fe56e5e23045d20e651b849ca4f8faf174d10baf89e5c86f6a7",
+      "redacted_sha256": "e4e0f111c47a4fcbda03c53c4f229cebf8421992d4b19af38dacabdf7fe98c8d",
+      "masks": [
+        {
+          "bounds": [
+            0,
+            17,
+            1486,
+            44
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            301,
+            705,
+            971,
+            732
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1704,
+            56,
+            1912,
+            103
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task5 scrn14.png",
+      "dimensions": [
+        1917,
+        980
+      ],
+      "source_sha256": "2eedd27a1ab3c4a8aaf696bec47481f6ab3bb41ae46e2f753251df08f10ad891",
+      "redacted_sha256": "b7724ec20f916e4ea42fdc30c92c439d21bdc77d5a0365ba1d14bedb417b4b1b",
+      "masks": [
+        {
+          "bounds": [
+            307,
+            240,
+            997,
+            267
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1703,
+            0,
+            1914,
+            37
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task6 scrn15.png",
+      "dimensions": [
+        1876,
+        991
+      ],
+      "source_sha256": "43f7d034d9a4d71a7b7745223378aa3ffeeb6cd82ca72f531221b4ba99100104",
+      "redacted_sha256": "e5dc53df65cab7c0a44e34668a74f62322eb494648089849066b3620cd1a4943",
+      "masks": [
+        {
+          "bounds": [
+            257,
+            555,
+            1235,
+            588
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1440,
+            822,
+            1674,
+            847
+          ],
+          "reason": "account-id-or-account-bearing-arn",
+          "label": "REDACTED"
+        },
+        {
+          "bounds": [
+            1680,
+            35,
+            1873,
+            82
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task6 scrn16-1.png",
+      "dimensions": [
+        1897,
+        999
+      ],
+      "source_sha256": "73e7df068d303bc8423fe9983a8222ef601cc54aeca42825daf8cfc8d2c4c299",
+      "redacted_sha256": "11255735b819511940df546b4296f307cb2822544ff763eec4d8f7718659ddd8",
+      "masks": [
+        {
+          "bounds": [
+            1688,
+            44,
+            1894,
+            91
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task6 scrn16.png",
+      "dimensions": [
+        1897,
+        999
+      ],
+      "source_sha256": "73e7df068d303bc8423fe9983a8222ef601cc54aeca42825daf8cfc8d2c4c299",
+      "redacted_sha256": "11255735b819511940df546b4296f307cb2822544ff763eec4d8f7718659ddd8",
+      "masks": [
+        {
+          "bounds": [
+            1688,
+            44,
+            1894,
+            91
+          ],
+          "reason": "console-account-header-including-ocr-partial-digits",
+          "label": "ACCOUNT REDACTED"
+        }
+      ],
+      "pixels_outside_masks_unchanged": true,
+      "status": "redacted"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task7 scrn17-1.png",
+      "dimensions": [
+        1835,
+        841
+      ],
+      "source_sha256": "6527f0d4c90c544f84b870b28019e46d583dd5aa11c90e664025b1120daa0c91",
+      "redacted_sha256": "6527f0d4c90c544f84b870b28019e46d583dd5aa11c90e664025b1120daa0c91",
+      "masks": [],
+      "pixels_outside_masks_unchanged": true,
+      "status": "inspected-no-targeted-fields-detected"
+    },
+    {
+      "file": "week-06-aws-cloud/Screenshot week6 assign5 task7 scrn17.png",
+      "dimensions": [
+        1835,
+        841
+      ],
+      "source_sha256": "6527f0d4c90c544f84b870b28019e46d583dd5aa11c90e664025b1120daa0c91",
+      "redacted_sha256": "6527f0d4c90c544f84b870b28019e46d583dd5aa11c90e664025b1120daa0c91",
+      "masks": [],
+      "pixels_outside_masks_unchanged": true,
+      "status": "inspected-no-targeted-fields-detected"
+    }
+  ],
+  "verification": {
+    "historical_images_checked": 20,
+    "historical_images_redacted": 17,
+    "opaque_masks": 38,
+    "post_redaction_ocr_account_patterns_found": 0,
+    "additional_current_evidence_images_checked": 6,
+    "known_original_account_ids_found_in_current_evidence_or_assignment_implementation": 0,
+    "changed_images_metadata_removed": true,
+    "pixel_differences_restricted_to_declared_masks": true,
+    "git_history_rewritten": false,
+    "other_assignments_audited": false
+  }
+}

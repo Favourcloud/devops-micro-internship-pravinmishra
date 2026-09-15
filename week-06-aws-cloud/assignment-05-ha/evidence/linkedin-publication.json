@@ -1,0 +1,48 @@
+{
+  "evidence_type": "Selected browser-observed publication evidence; not a raw AWS response",
+  "status": "published_and_verified",
+  "author": "EZE FAVOUR",
+  "audience": "Anyone",
+  "url": "https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/",
+  "share_urn": "urn:li:share:7505450519486767104",
+  "activity_urn": "urn:li:activity:7505450522540408832",
+  "verified_at": "2026-09-15T02:21:49.316Z",
+  "verification": {
+    "method": "User-authorized publication in the authenticated embedded browser, followed by inspection of the actual published post",
+    "confirmation_text": "Post successful.",
+    "post_text_confirmed": true,
+    "attachment_loaded": true,
+    "attachment_natural_width": 800,
+    "attachment_natural_height": 666,
+    "independent_public_check": "A separate unauthenticated Chromium browser returned HTTP 200 for the permalink and displayed the author's post, both probe totals, four transient failures, and the loaded attachment."
+  },
+  "post_text": "Week 06, Assignment 5 — Highly Available Two-Tier Application on AWS\n\nBuilt and tested a Terraform-managed lab across two Availability Zones: an Application Load Balancer, a 2/2/4 Auto Scaling Group, private encrypted Multi-AZ MySQL, and a server-rendered application with no JavaScript.\n\nWhat I verified:\n• Real database writes and reads through the ALB from two web instances.\n• Abrupt instance termination triggered automatic replacement: 283/287 readiness probes succeeded, with four transient failures.\n• Controlled web-tier AZ evacuation and restoration: 260/260 probes succeeded. This was not a full AWS AZ outage or an RDS failover test.\n• Previously written records remained readable after recovery.\n• 47 automated tests passed.\n\nThe key lesson: redundancy supports recovery, but it does not guarantee zero downtime. The strict uninterrupted-availability requirement remains a follow-up—not a result I am claiming.\n\nCaptured the evidence and destroyed all 37 temporary lab resources to limit ongoing costs. The attached image presents the recorded CLI and probe evidence, not AWS Console screenshots.\n\n#AWS #DevOps #Terraform #HighAvailability #CloudComputing #LearningInPublic",
+  "attachment": {
+    "uploaded_filename": "assignment-05-ha-verified-results.png",
+    "alt_text": "Assignment 5 AWS HA lab results, 15 September 2026. Rendered CLI and readiness-probe evidence, not AWS Console screenshots. Test A: abrupt instance termination; 283 successful probes and four failures (two HTTP 502s, two timeouts). ASG replacement succeeded; zero downtime was not demonstrated. Test B: controlled web-tier AZ evacuation and restoration; 260 successful probes, zero observed failures. This was not a full AZ outage or RDS failover test. Database records survived recovery. All 47 automated tests passed. Terraform destroyed 37 temporary lab resources; cleanup was verified at 01:40 UTC and Assignment 4 was preserved.",
+    "source": "linkedin-proof.svg",
+    "local_render": "linkedin-proof.png",
+    "note": "The uploaded PNG and local PNG were rendered from the same self-contained SVG. Their rendering and encoded bytes may differ. This graphic summarizes the recorded CLI/probe evidence; it is not an AWS Console or LinkedIn screenshot."
+  },
+  "post_screenshot": {
+    "file": "linkedin-post.png",
+    "width": 616,
+    "height": 1229,
+    "method": "Actual public LinkedIn article captured with Playwright in an unauthenticated Chromium browser after confirming the post text and loaded attachment. The article was cropped with a locator screenshot; the LinkedIn interface was not reconstructed."
+  },
+  "source_evidence": [
+    "test-a-probes.summary.json",
+    "test-a-probes.jsonl",
+    "test-b-probes.summary.json",
+    "test-b-probes.jsonl",
+    "recovered.json",
+    "persistence-after-recovery.json",
+    "cleanup.json"
+  ],
+  "limitations": [
+    "Test A had four failed probes; strict uninterrupted availability was not demonstrated.",
+    "Test B was controlled web-tier AZ evacuation and restoration, not a full AWS AZ outage or RDS failover test.",
+    "The temporary lab was destroyed; the historical ALB endpoint is not advertised as live.",
+    "Publication does not certify historical submission-image redaction, instructor acceptance of rubric substitutions, or a grade."
+  ]
+}

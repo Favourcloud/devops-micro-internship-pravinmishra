@@ -1,0 +1,24 @@
+{
+  "started_at": "2026-09-15T01:19:42.293010+00:00",
+  "action": "Terraform-triggered EC2 termination of one exact ASG member after identity and health checks",
+  "instance_id": "i-0c61b083e64f74019",
+  "availability_zone": "us-east-1a",
+  "vpc": "vpc-0313c75eef3ccd5ca",
+  "asg": "dmi-a5-ha",
+  "desired_capacity_decremented": false,
+  "fis_note": "FIS template creation was denied with SubscriptionRequiredException; no FIS experiment ran.",
+  "termination_response": [
+    {
+      "InstanceId": "i-0c61b083e64f74019",
+      "CurrentState": {
+        "Code": 32,
+        "Name": "shutting-down"
+      },
+      "PreviousState": {
+        "Code": 16,
+        "Name": "running"
+      }
+    }
+  ],
+  "accepted_at": "2026-09-15T01:19:44.672584+00:00"
+}

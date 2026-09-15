@@ -1,0 +1,67 @@
+{
+  "evidence_class": "READ-ONLY AWS PREFLIGHT AND LOCAL TERRAFORM VALIDATION \u2014 NOT DEPLOYMENT OR CLAUDE REVIEW",
+  "student": "Eze Favour",
+  "timestamp_utc": "2026-09-15T16:47:06+00:00",
+  "status": "BLOCKED",
+  "aws_profile": "dmi-week8",
+  "region": "ap-south-1",
+  "identity": {
+    "authenticated": true,
+    "expected_iam_user_matches": true,
+    "root": false
+  },
+  "aws_checks": {
+    "describe-vpcs": "DryRunOperation",
+    "describe-security-groups": "DryRunOperation",
+    "create-vpc-tagged": "DryRunOperation",
+    "create-vpc-untagged": "UnauthorizedOperation",
+    "list-user-policies": "AccessDenied",
+    "list-attached-user-policies": "AccessDenied"
+  },
+  "existing_lab_tag_filter": "DmiLab=dmi-week8*",
+  "existing_lab_tag_counts": {
+    "Vpcs": 0,
+    "SecurityGroups": 0
+  },
+  "cleanup_permissions": "UNVERIFIED \u2014 no successful IAM policy read; creation dry-run is not deletion authorization",
+  "claude_endpoint_check": {
+    "method": "unauthenticated HEAD",
+    "result": "ConnectionRefusedError",
+    "location": "configured loopback proxy; address omitted",
+    "successful_model_response": false
+  },
+  "terraform_version": "1.13.5",
+  "terraform_validation": {
+    "network": {
+      "fmt_exit": 0,
+      "validate_exit": 0,
+      "valid": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    "security-group": {
+      "fmt_exit": 0,
+      "validate_exit": 0,
+      "valid": true,
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "source_sha256": {
+    "terraform/network/main.tf": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+    "terraform/network/.terraform.lock.hcl": "04b911aa8dae73862c589b28104863830f7ab01d1d469e89642c03d3712225a9",
+    "terraform/security-group/main.tf": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1",
+    "terraform/security-group/.terraform.lock.hcl": "04b911aa8dae73862c589b28104863830f7ab01d1d469e89642c03d3712225a9"
+  },
+  "validation_method": "fmt -check and validate -json in existing initialized private prototype directories; source and lock bytes match the four tracked files",
+  "aws_mutations_performed": false,
+  "real_terraform_plan_performed": false,
+  "claude_skill_or_hook_exercised": false,
+  "limitations": [
+    "DryRunOperation means that request is authorized; the request was not executed.",
+    "Resource counts cover only the stated tag filter in the selected account/region, not a global inventory.",
+    "IAM read denial does not prove deletion is denied; an administrator must confirm scoped cleanup permissions.",
+    "No actual clean baseline, controlled live change, human resolution or final verification exists yet.",
+    "No raw credentials, account identifiers, resource IDs, provider logs or private paths are included."
+  ]
+}

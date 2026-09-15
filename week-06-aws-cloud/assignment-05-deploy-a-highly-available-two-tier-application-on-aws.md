@@ -8,6 +8,19 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will design and deploy a highly available two-tier web application on AWS: highly available networking across two Availability Zones, an Application Load Balancer, an Auto Scaling Group for the web tier, and a private Multi-AZ RDS database. You must prove high availability with real failure tests.
 
+## Reproducible deployment and real tests — 15 September 2026
+
+A new, isolated Terraform lab was deployed in `us-east-1` without modifying Assignment 4. See the [implementation and runbook](assignment-05-ha/README.md) and [actual results with evidence](assignment-05-ha/RESULTS.md).
+
+- Four subnets across two AZs, correct routes, least-privilege traffic paths, private encrypted Multi-AZ MySQL, an ALB and two healthy ASG instances were verified from AWS APIs. SSM replaced SSH administration; that rubric substitution is explicit.
+- Real application writes and reads succeeded through the ALB from two instances. [Live application capture](assignment-05-ha/evidence/application-live.png).
+- Abrupt termination triggered replacement, but **4 of 287 readiness probes failed**. Recovery is demonstrated; the strict zero-interruption criterion is **not**.
+- Controlled web-tier AZ evacuation and restoration recorded **260 successful probes and no failures**. This was not a full AWS AZ outage or database failover test.
+- [Architecture evidence](assignment-05-ha/evidence/architecture-evidence.png) and [test-results evidence](assignment-05-ha/evidence/availability-evidence.png) are clearly labeled renderings of actual redacted CLI data, not AWS Console screenshots.
+- Terraform destroyed all 37 temporary lab resources after evidence capture. [Cleanup verification](assignment-05-ha/evidence/cleanup.json) confirms empty state, no residual resources in the checked categories and preservation of Assignment 4. The [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) is published and verified with its proof image. All 20 historical Assignment 5 PNGs were inspected and 17 redacted ([manifest](assignment-05-ha/evidence/historical-redactions.json)); earlier Git history and other assignments are not certified. No grade is claimed.
+
+The following 13 September audit and screenshots are retained as **historical evidence**, not as captures of this new deployment.
+
 ## Evidence audit — 13 September 2026
 
 **Status: partial build; high availability is not yet demonstrated by the submitted evidence.** This review describes historical screenshots, not the current state of AWS resources. The task goals below are requirements, not completion claims.
@@ -102,9 +115,9 @@ Launch a private, Multi-AZ RDS database (MySQL or PostgreSQL) using the private 
 
 ---
 
-#### Screenshot 10 — Available ha-mysql-db instance and connection instructions
+#### Screenshot 10 — Available ha-mysql-db instance with connection command redacted
 
-![ha-mysql-db summary and MySQL connection instructions](<Screenshot week6 assign5 task3 scrn10.png>)
+![ha-mysql-db summary with the database connection command redacted](<Screenshot week6 assign5 task3 scrn10.png>)
 
 Neither capture explicitly shows **Multi-AZ = Yes**, **Publicly accessible = No**, the DB subnet-group membership, or the attached DB security group. The disabled Internet access gateway shown in Screenshot 10 is not a substitute for the RDS public-access setting. Supply those settings and verify the database belongs to the intended HA VPC.
 
@@ -293,7 +306,7 @@ Intended routing: both public subnets use an Internet Gateway default route; bot
 | Test A: instance failure | No valid failure/replacement evidence submitted | Termination and replacement activity, healthy targets, timestamped ALB application responses |
 | Test B: AZ impact | No valid AZ-impact evidence submitted | AZ-specific action, surviving healthy targets in the other AZ, timestamped ALB application responses |
 
-Neither HA test can be reported as passed from the current evidence. Restore and verify the baseline deployment before running either test; record the action, timestamps, observed application responses, and recovery result separately for each test.
+Neither HA test can be reported as passed from these historical screenshots alone; the newer 15 September results are linked at the top. For any approved future test, restore and verify its baseline first, then record the action, timestamps, observed application responses and recovery separately.
 
 ---
 
@@ -307,16 +320,22 @@ Publish a LinkedIn post about the high-availability build, including the ALB URL
 
 #### LinkedIn Post URL
 
-Previously submitted link: [LinkedIn short link](https://lnkd.in/p/eCyHf-sv).
+**Published and verified on 15 September 2026:** [Assignment 5 — EZE FAVOUR's LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/).
 
-**Unverified for Assignment 5.** The link's destination and matching post content were not established in this audit. Keep the publication checklist item unchecked until the post demonstrably covers this two-tier build, actual HA test results, and the required proof screenshot.
+The public post covers the two-tier Terraform build, actual database operations, both resilience exercises, four failed Test A probes, 260 successful Test B probes, and verified teardown. It includes a clearly labeled CLI/probe-derived proof image with alternative text. It does not claim zero downtime or a live ALB after teardown. Publication was confirmed in the signed-in browser and independently checked in a guest browser; see [verification metadata and published text](assignment-05-ha/evidence/linkedin-publication.json).
+
+Historical, unverified link: [previously submitted short link](https://lnkd.in/p/eCyHf-sv). It is not used as evidence for this publication.
 
 ---
 
 
 #### Screenshot of LinkedIn post
 
-The previously linked `image-1.png` describes the **three-tier Book Review capstone (Assignment 6)**. It is not evidence of an Assignment 5 two-tier HA post. Supply the matching post screenshot; do not describe either HA test as passed before obtaining valid results.
+![Actual public LinkedIn post, including the Assignment 5 results and attached proof image](assignment-05-ha/evidence/linkedin-post.png)
+
+This is an actual screenshot of the published post from an unauthenticated browser, after its attachment loaded—not a reconstructed LinkedIn interface. The attached [proof image](assignment-05-ha/evidence/linkedin-proof.png) is rendered from the recorded CLI/probe results and explicitly labeled accordingly.
+
+The previously linked `image-1.png` describes the **three-tier Book Review capstone (Assignment 6)** and remains excluded from Assignment 5 evidence.
 
 ---
 
@@ -325,25 +344,30 @@ The previously linked `image-1.png` describes the **three-tier Book Review capst
 - Add all required screenshots in your submission
 - Do not expose passwords, connection strings, private keys, or account IDs
 
-The existing console captures display AWS account IDs, including inside ARNs. These source images have not been changed by this documentation audit. Prepare redacted copies before declaring the submission free of sensitive data; the corresponding checklist item remains unchecked.
+On 15 September, all 20 historical Assignment 5 PNGs (including duplicate/unlinked captures) were checked locally; **17 images received 38 opaque redaction masks** covering account headers/IDs, account-bearing ARN fields, the database connection command and the operator IP where present. The [redaction manifest](assignment-05-ha/evidence/historical-redactions.json) records hashes, coordinates and verification. Technical results outside those masks were not changed. OCR is heuristic, not a complete confidentiality guarantee.
+
+The current image versions are redacted, but **earlier Git commits/caches may retain the originals** and other assignments were not audited. No history rewrite was performed. The broad “No sensitive data exposed” checkbox therefore remains unchecked.
+
+The [local follow-up and instructor questions](assignment-05-ha/RESULTS.md#local-follow-up--not-a-new-aws-test) document 55 passing local tests, the unresolved availability/rubric gaps and a proposed, unapproved retest allowance. No new AWS test has been run.
 
 ---
 
 # Completion Checklist
 
-Unchecked items indicate incomplete or contradictory evidence, not a claim that the work was never attempted. The architecture diagram and evidence audit are now documented; Task 9 still requires actual test results.
+Checked technical items below refer to the **15 September Terraform lab and its new API-derived evidence**, not to the historical screenshots. Resources were temporary; consult the results report for cleanup state. Exact console-screenshot formatting and the SSM-for-SSH substitution still need instructor acceptance if the rubric is literal.
 
-- [ ] Task 1: VPC, four subnets, IGW, NAT Gateway, and route tables created (Screenshots 1–5)
-- [ ] Task 2: Least-privilege ALB, EC2, and RDS security groups created (Screenshots 6–8)
-- [ ] Task 3: Private Multi-AZ RDS created (Screenshots 9–10)
-- [ ] Task 4: Self-configuring Launch Template created and tested (Screenshots 11–12)
-- [ ] Task 5: ALB created across both public subnets (Screenshots 13–14)
-- [ ] Task 6: Auto Scaling Group running two instances across two AZs (Screenshots 15–16)
-- [ ] Task 7: Application verified through the ALB with a database read and write (Screenshots 17–18)
-- [ ] Task 8: Both high-availability tests completed (Screenshots 19–22)
-- [ ] Task 9: Architecture and test-results summary completed (Screenshot 23 & Notes)
-- [ ] LinkedIn post published and URL submitted
-- [ ] No sensitive data exposed
+- [x] Task 1: VPC, four subnets, IGW, NAT Gateway, and route tables created and verified ([baseline](assignment-05-ha/evidence/baseline.json))
+- [x] Task 2: Least-privilege ALB, EC2, and RDS security groups verified; SSM used instead of opening SSH ([architecture](assignment-05-ha/evidence/architecture-evidence.png))
+- [x] Task 3: Private, encrypted Multi-AZ RDS verified ([DB and standby evidence](assignment-05-ha/evidence/test-a-after.json))
+- [x] Task 4: Self-configuring Launch Template tested by initial ASG instances and automatic replacements ([Terraform bootstrap](assignment-05-ha/terraform/bootstrap.sh.tftpl))
+- [x] Task 5: Active ALB verified across both public subnets ([baseline](assignment-05-ha/evidence/baseline.json))
+- [x] Task 6: ASG 2/2/4 with two healthy instances across two AZs verified ([recovery](assignment-05-ha/evidence/recovered.json))
+- [x] Task 7: Real application write/read through ALB verified from both instances ([result](assignment-05-ha/evidence/read-write-baseline.json))
+- [ ] Task 8: Both exercises ran, but Test A's strict zero-interruption requirement was not met (4 failed probes); see [actual results](assignment-05-ha/RESULTS.md)
+- [x] Task 9: Architecture, actual test results, limitations and remaining requirements documented ([report](assignment-05-ha/RESULTS.md))
+- [x] LinkedIn post published with proof image and URL recorded ([post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/), [screenshot](assignment-05-ha/evidence/linkedin-post.png))
+- [ ] Instructor acceptance of alternate evidence, SSM administration and LinkedIn format ([questions](assignment-05-ha/RESULTS.md#rubric-questions-awaiting-instructor-confirmation))
+- [ ] No sensitive data exposed (current Assignment 5 images redacted; repository history and other assignments not certified)
 
 ---
 

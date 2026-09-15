@@ -1,0 +1,21 @@
+LIVE READ-ONLY PLAN — LIMITED POLICY REVIEW, NOT MUTATION AUTHORIZATION
+Reviewer: Eze Favour
+Timestamp UTC: 2026-09-15T18:08:14+00:00
+Mode: LIVE
+Overall Status: HEALTHY
+Plan provenance: new plan/show in a human-authorized trusted Terraform directory
+Plan SHA256: 292870cdfa52503248b02d4b85146140fd4a633332a9d245fedd54902542f746
+Terraform detailed exit code: 0
+Destructive resource actions: 0
+Unsafe public ingress findings: 0
+Public TCP HTTP/HTTPS exceptions requiring review: 0
+Unknown or unsupported evidence findings: 0
+Non-no-op resource changes: 0
+Non-no-op output changes: 0
+Refresh drift entries: 0
+Result: No pending changes or policy findings in the supported evidence scope.
+Scope: deletes/replacements and supported AWS security-group ingress only.
+HEALTHY means no findings or pending changes in this limited evidence, never global safety.
+This report never authorizes apply, destroy, or auto-approve.
+Raw values, resource identifiers, credentials, paths, and provider logs are intentionally omitted.
+LIVE READ-ONLY PLAN — LIMITED POLICY REVIEW, NOT MUTATION AUTHORIZATION

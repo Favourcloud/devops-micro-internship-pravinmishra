@@ -1,0 +1,16 @@
+{
+  "observed_at": "2026-09-15T01:15:04.121054+00:00",
+  "url": "http://dmi-a5-ha-894061664.us-east-1.elb.amazonaws.com",
+  "title": "HA verification 2026-09-15T01:15:04.121054+00:00",
+  "author": "Synthetic lab record",
+  "read_write": "passed",
+  "instance_ids": [
+    "i-0c61b083e64f74019",
+    "i-0c9ff12b01e5fe629"
+  ],
+  "ready_response": {
+    "status": "ready",
+    "instance_id": "i-0c9ff12b01e5fe629"
+  },
+  "note": "Synthetic form write and database read observed from two distinct web instances."
+}

@@ -4,3 +4,15 @@ Pravin-Mishra-Portfolio-Template/.git.bak
 .stash0.patch
 .stash1.patch
 .claude/settings.local.json
+.tools/
+.review-data/
+**/.terraform/
+**/terraform.tfstate*
+**/*.tfplan
+**/*.tfplan.json
+**/terraform.tfvars
+**/terraform.tfvars.json
+**/crash.log
+**/__pycache__/
+week-06-aws-cloud/assignment-05-ha/evidence/raw/
+week-06-aws-cloud/assignment-05-ha/evidence/*.log
