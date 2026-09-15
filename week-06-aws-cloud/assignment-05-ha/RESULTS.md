@@ -16,6 +16,7 @@
 | Data persistence | Records written before termination and during evacuation remained readable after restoration | [Persistence result](evidence/persistence-after-recovery.json) |
 | Terraform drift | No changes required after restoring defaults, before teardown | Verified with `terraform plan -detailed-exitcode` (exit 0) |
 | Local validation | 30 app tests, 12 monitoring/termination-guard tests, 5 mocked Terraform tests passed | Reproducible commands in README |
+| LinkedIn publication | Published as EZE FAVOUR with actual results, limitations and proof image | [Live post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/), [actual screenshot](evidence/linkedin-post.png), [verification record](evidence/linkedin-publication.json) |
 
 **Task 8's strict “without interruption” criterion is not met by Test A.** Recovery and redundancy worked, but four failed probes must not be relabeled as zero downtime. Task 9 is a results summary, not a declaration that every requirement passed.
 
@@ -58,14 +59,30 @@ The captured ALB URL is historical evidence and must not be advertised as live a
 1. Address or explicitly discuss the strict zero-interruption gap in Test A; do not mark that criterion passed from these logs.
 2. Confirm the instructor accepts consolidated CLI-derived evidence and SSM instead of an SSH `/32` rule; provide exact console screenshots if the rubric requires them.
 3. Redact historical submission images before checking the parent assignment's “No sensitive data exposed” item.
-4. Publish the user's own LinkedIn post with the actual results and proof image, then add its real URL. No post has been published by this work.
 
-### LinkedIn draft — not published
+## LinkedIn publication — verified
 
-> Built and tested a Terraform-managed two-tier AWS lab across two Availability Zones: ALB, a 2/2/4 Auto Scaling Group, private encrypted Multi-AZ MySQL, and a server-rendered application.
+Published as **EZE FAVOUR**, audience **Anyone**, with the user's authorization: [view the actual post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/).
+
+LinkedIn displayed “Post successful.” The signed-in browser verified the published text and loaded evidence image at **2026-09-15T02:21:49.316Z**. A separate guest browser also displayed the public post and loaded attachment. See the [publication record](evidence/linkedin-publication.json) and [actual post screenshot](evidence/linkedin-post.png).
+
+The attached [proof image](evidence/linkedin-proof.png) was rendered from the recorded CLI/probe results using this [self-contained SVG source](evidence/linkedin-proof.svg). It includes all four failed Test A samples, both probe totals, limitations and verified cleanup. It is not an AWS Console screenshot. The local PNG and uploaded PNG share the same SVG content; their encoded bytes may differ. The post screenshot is a separate, real browser capture, not a reconstructed interface.
+
+### Published text
+
+> Week 06, Assignment 5 — Highly Available Two-Tier Application on AWS
 >
-> Verified real database writes/reads through the ALB. An abrupt instance termination triggered automatic replacement, with four transient failed probes—an important reminder that redundancy does not guarantee zero downtime. Controlled web-tier AZ evacuation and restoration recorded 260 successful probes with no observed failures.
+> Built and tested a Terraform-managed lab across two Availability Zones: an Application Load Balancer, a 2/2/4 Auto Scaling Group, private encrypted Multi-AZ MySQL, and a server-rendered application with no JavaScript.
 >
-> Captured the evidence and tore down the temporary lab to limit costs. Next focus: improve failure handling and validate the strict availability requirement.
-
-Attach `evidence/availability-evidence.png`. Publish this draft only after cleanup is confirmed; do not substitute the old Assignment 6 post or claim a live URL after teardown.
+> What I verified:
+> • Real database writes and reads through the ALB from two web instances.
+> • Abrupt instance termination triggered automatic replacement: 283/287 readiness probes succeeded, with four transient failures.
+> • Controlled web-tier AZ evacuation and restoration: 260/260 probes succeeded. This was not a full AWS AZ outage or an RDS failover test.
+> • Previously written records remained readable after recovery.
+> • 47 automated tests passed.
+>
+> The key lesson: redundancy supports recovery, but it does not guarantee zero downtime. The strict uninterrupted-availability requirement remains a follow-up—not a result I am claiming.
+>
+> Captured the evidence and destroyed all 37 temporary lab resources to limit ongoing costs. The attached image presents the recorded CLI and probe evidence, not AWS Console screenshots.
+>
+> #AWS #DevOps #Terraform #HighAvailability #CloudComputing #LearningInPublic

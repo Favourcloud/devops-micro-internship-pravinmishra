@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000">
+<rect width="1200" height="1000" fill="#ffffff"/>
+<g font-family="Arial, sans-serif">
+<text x="42" y="62" font-size="30" fill="#102238">AWS high-availability lab — measured results</text>
+<text x="42" y="100" font-size="20" fill="#425466">Week 06 · Assignment 5 · 15 September 2026</text>
+<text x="42" y="135" font-size="18" fill="#425466">Rendered AWS CLI + readiness-probe evidence — not AWS Console screenshots</text>
+<text x="42" y="205" font-size="24" fill="#102238">TEST A · Abrupt instance termination</text>
+<text x="42" y="250" font-size="32" fill="#a32323">283 successful probes / 4 failed probes</text>
+<text x="42" y="289" font-size="21" fill="#102238">ASG replaced the instance automatically. Zero downtime was NOT demonstrated.</text>
+<text x="42" y="350" font-size="24" fill="#102238">TEST B · Controlled web-tier AZ evacuation and restoration</text>
+<text x="42" y="395" font-size="32" fill="#176348">260 successful probes / 0 failed probes</text>
+<text x="42" y="434" font-size="21" fill="#102238">Two healthy targets in one AZ; two-AZ distribution restored.</text>
+<text x="42" y="468" font-size="19" fill="#425466">Not a full AWS AZ outage or RDS failover test. Sampling is not a guarantee.</text>
+<text x="42" y="534" font-size="24" fill="#102238">All four failed Test A samples are retained</text>
+<text x="42" y="573" font-size="20" fill="#102238">01:19:46 UTC  |  HTTP 502  |  568.8 ms</text>
+<text x="42" y="605" font-size="20" fill="#102238">01:19:47 UTC  |  HTTP 502  |  560.6 ms</text>
+<text x="42" y="637" font-size="20" fill="#102238">01:19:52 UTC  |  timeout  |  5303.5 ms</text>
+<text x="42" y="669" font-size="20" fill="#102238">01:20:01 UTC  |  timeout  |  5275.0 ms</text>
+<text x="42" y="720" font-size="19" fill="#425466">GET /ready queries the database. No retries; 5-second timeout; 1-second spacing.</text>
+<text x="42" y="786" font-size="24" fill="#102238">Recovery, persistence and cleanup verified</text>
+<text x="42" y="824" font-size="21" fill="#102238">Real writes/reads passed; records survived both exercises. 47 automated tests passed.</text>
+<text x="42" y="861" font-size="21" fill="#102238">Terraform destroyed all 37 temporary resources; Assignment 4 was preserved.</text>
+<text x="42" y="896" font-size="19" fill="#425466">Cleanup checked: 2026-09-15 at 01:40 UTC. Existing resources may still incur costs.</text>
+<text x="42" y="952" font-size="17" fill="#425466">Sources: test-a/test-b probe logs, recovered.json, persistence-after-recovery.json, cleanup.json</text>
+</g></svg>

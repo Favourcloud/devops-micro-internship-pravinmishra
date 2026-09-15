@@ -134,4 +134,6 @@ For another experiment, use a fresh evidence directory rather than overwriting t
 
 ## Submission
 
-Keep checks incomplete until backed by actual evidence. The JSON snapshots deliberately redact account IDs (including ARN account segments), exclude secret values, and retain resource IDs/AZs for traceability. Add matching redacted screenshots where the assignment explicitly requests screenshots. A LinkedIn post requires the user's publication and its real URL; no publication or grade is implied by the code or tests here.
+Keep checks incomplete until backed by actual evidence. The JSON snapshots deliberately redact account IDs (including ARN account segments), exclude secret values, and retain resource IDs/AZs for traceability. Add matching redacted screenshots where the assignment explicitly requests screenshots.
+
+The user-authorized [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) was published and verified on 15 September 2026 with an evidence image and alternative text. See the [actual post screenshot](evidence/linkedin-post.png), [publication record](evidence/linkedin-publication.json), and [proof graphic source](evidence/linkedin-proof.svg). The proof graphic is a labeled rendering of actual CLI/probe results, not an AWS Console screenshot. Publication does not imply a grade or completion of the outstanding availability and historical-image redaction requirements.

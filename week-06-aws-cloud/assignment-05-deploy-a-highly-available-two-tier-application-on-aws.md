@@ -17,7 +17,7 @@ A new, isolated Terraform lab was deployed in `us-east-1` without modifying Assi
 - Abrupt termination triggered replacement, but **4 of 287 readiness probes failed**. Recovery is demonstrated; the strict zero-interruption criterion is **not**.
 - Controlled web-tier AZ evacuation and restoration recorded **260 successful probes and no failures**. This was not a full AWS AZ outage or database failover test.
 - [Architecture evidence](assignment-05-ha/evidence/architecture-evidence.png) and [test-results evidence](assignment-05-ha/evidence/availability-evidence.png) are clearly labeled renderings of actual redacted CLI data, not AWS Console screenshots.
-- Terraform destroyed all 37 temporary lab resources after evidence capture. [Cleanup verification](assignment-05-ha/evidence/cleanup.json) confirms empty state, no residual resources in the checked categories and preservation of Assignment 4. The LinkedIn post and historical-image redaction remain pending. No grade is claimed.
+- Terraform destroyed all 37 temporary lab resources after evidence capture. [Cleanup verification](assignment-05-ha/evidence/cleanup.json) confirms empty state, no residual resources in the checked categories and preservation of Assignment 4. The [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) is published and verified with its proof image; historical-image redaction remains pending. No grade is claimed.
 
 The following 13 September audit and screenshots are retained as **historical evidence**, not as captures of this new deployment.
 
@@ -320,16 +320,22 @@ Publish a LinkedIn post about the high-availability build, including the ALB URL
 
 #### LinkedIn Post URL
 
-Previously submitted link: [LinkedIn short link](https://lnkd.in/p/eCyHf-sv).
+**Published and verified on 15 September 2026:** [Assignment 5 — EZE FAVOUR's LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/).
 
-**Unverified for Assignment 5.** The link's destination and matching post content were not established in this audit. Keep the publication checklist item unchecked until the post demonstrably covers this two-tier build, actual HA test results, and the required proof screenshot.
+The public post covers the two-tier Terraform build, actual database operations, both resilience exercises, four failed Test A probes, 260 successful Test B probes, and verified teardown. It includes a clearly labeled CLI/probe-derived proof image with alternative text. It does not claim zero downtime or a live ALB after teardown. Publication was confirmed in the signed-in browser and independently checked in a guest browser; see [verification metadata and published text](assignment-05-ha/evidence/linkedin-publication.json).
+
+Historical, unverified link: [previously submitted short link](https://lnkd.in/p/eCyHf-sv). It is not used as evidence for this publication.
 
 ---
 
 
 #### Screenshot of LinkedIn post
 
-The previously linked `image-1.png` describes the **three-tier Book Review capstone (Assignment 6)**. It is not evidence of an Assignment 5 two-tier HA post. Supply the matching post screenshot; do not describe either HA test as passed before obtaining valid results.
+![Actual public LinkedIn post, including the Assignment 5 results and attached proof image](assignment-05-ha/evidence/linkedin-post.png)
+
+This is an actual screenshot of the published post from an unauthenticated browser, after its attachment loaded—not a reconstructed LinkedIn interface. The attached [proof image](assignment-05-ha/evidence/linkedin-proof.png) is rendered from the recorded CLI/probe results and explicitly labeled accordingly.
+
+The previously linked `image-1.png` describes the **three-tier Book Review capstone (Assignment 6)** and remains excluded from Assignment 5 evidence.
 
 ---
 
@@ -355,7 +361,7 @@ Checked technical items below refer to the **15 September Terraform lab and its 
 - [x] Task 7: Real application write/read through ALB verified from both instances ([result](assignment-05-ha/evidence/read-write-baseline.json))
 - [ ] Task 8: Both exercises ran, but Test A's strict zero-interruption requirement was not met (4 failed probes); see [actual results](assignment-05-ha/RESULTS.md)
 - [x] Task 9: Architecture, actual test results, limitations and remaining requirements documented ([report](assignment-05-ha/RESULTS.md))
-- [ ] LinkedIn post published and URL submitted
+- [x] LinkedIn post published with proof image and URL recorded ([post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/), [screenshot](assignment-05-ha/evidence/linkedin-post.png))
 - [ ] No sensitive data exposed
 
 ---
