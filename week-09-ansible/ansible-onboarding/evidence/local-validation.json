@@ -1,0 +1,215 @@
+{
+  "recorded_at_utc": "2026-09-15T11:56:36.677059+00:00",
+  "learner": "Eze Favour",
+  "scope": "Week 09 Assignment 1: local workstation validation only",
+  "machine": {
+    "system": "Darwin",
+    "architecture": "x86_64"
+  },
+  "status": "Local checks passed; complete assignment evidence remains pending",
+  "no_cloud_operations": true,
+  "no_remote_ssh_test": true,
+  "no_global_git_or_ssh_changes": true,
+  "hook_installation_scope": "Disposable isolated Git fixture only; removed after validation",
+  "screenshots_created": 0,
+  "remaining": [
+    "Ten genuine assignment screenshots",
+    "VS Code extension installation and interactive workspace verification",
+    "Approved SSH key/agent/host configuration and evidence",
+    "Personal Git default-branch/signing policy and actual clone hook setup"
+  ],
+  "checks": [
+    {
+      "name": "dependency consistency",
+      "command": "{PROJECT}/.venv/bin/python -m pip check",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "No broken requirements found.\n"
+    },
+    {
+      "name": "dependency lock match",
+      "command": "{PROJECT}/.venv/bin/python -m pip freeze",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "ansible==14.4.0\nansible-compat==26.8.0\nansible-core==2.21.4\nansible-lint==26.8.0\nattrs==26.1.0\nblack==26.5.1\nbracex==3.0.1\ncffi==2.1.1\ncfgv==3.5.0\nclick==8.5.0\ncryptography==50.0.1\ndistlib==0.4.3\ndistro==1.9.0\nfilelock==3.32.6\nidentify==2.6.19\nJinja2==3.1.6\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\nMarkupSafe==3.0.3\nmypy_extensions==1.1.0\nnodeenv==1.10.0\npackaging==26.3\npathspec==1.1.1\nplatformdirs==4.11.8\npre_commit==4.6.2\npycparser==3.0\npython-discovery==1.6.0\npytokens==0.4.1\nPyYAML==6.0.3\nreferencing==0.37.0\nresolvelib==1.2.1\nrpds-py==2026.6.3\nruamel.yaml==0.19.1\nruamel.yaml.clib==0.2.15\nsubprocess-tee==0.4.2\nvirtualenv==21.7.9\nwcmatch==11.0.1\nyamllint==1.38.0\n"
+    },
+    {
+      "name": "python version",
+      "command": "{PROJECT}/.venv/bin/python --version",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "Python 3.13.3\n"
+    },
+    {
+      "name": "ansible version",
+      "command": "{PROJECT}/.venv/bin/ansible --version",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "ansible [core 2.21.4]\n  config file = {PROJECT}/ansible.cfg\n  configured module search path = ['{HOME}/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']\n  ansible python module location = {PROJECT}/.venv/lib/python3.13/site-packages/ansible\n  ansible collection location = {HOME}/.ansible/collections:/usr/share/ansible/collections\n  executable location = {PROJECT}/.venv/bin/ansible\n  python version = 3.13.3 (main, Apr  8 2025, 13:54:08) [Clang 16.0.0 (clang-1600.0.26.6)] ({PROJECT}/.venv/bin/python)\n  jinja version = 3.1.6\n  pyyaml version = 6.0.3 (with libyaml v0.2.5)\n"
+    },
+    {
+      "name": "ansible-lint version",
+      "command": "{PROJECT}/.venv/bin/ansible-lint --version",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "ansible-lint 26.8.0 using ansible-core:2.21.4 ansible-compat:26.8.0 ruamel-yaml:0.19.1 ruamel-yaml-clib:0.2.15\n"
+    },
+    {
+      "name": "yamllint version",
+      "command": "{PROJECT}/.venv/bin/yamllint --version",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "yamllint 1.38.0\n"
+    },
+    {
+      "name": "pre-commit version",
+      "command": "{PROJECT}/.venv/bin/pre-commit --version",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "pre-commit 4.6.2\n"
+    },
+    {
+      "name": "project configuration",
+      "command": "ansible-config dump --only-changed",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "ANSIBLE_NOCOLOR(env: ANSIBLE_NOCOLOR) = True\nCONFIG_FILE() = {PROJECT}/ansible.cfg\nDEFAULT_BECOME({PROJECT}/ansible.cfg) = False\nDEFAULT_FORKS({PROJECT}/ansible.cfg) = 5\nDEFAULT_HOST_LIST({PROJECT}/ansible.cfg) = ['{PROJECT}/inventory.ini']\nDEFAULT_LOCAL_TMP({PROJECT}/ansible.cfg) = {PROJECT}/.ansible/tmp/ansible-local-395670qidydkh\nDEFAULT_TIMEOUT({PROJECT}/ansible.cfg) = 10\nHOST_KEY_CHECKING({PROJECT}/ansible.cfg) = True\nINTERPRETER_PYTHON({PROJECT}/ansible.cfg) = auto_silent\nRETRY_FILES_ENABLED({PROJECT}/ansible.cfg) = False\n\nGALAXY_SERVERS:\n"
+    },
+    {
+      "name": "local inventory",
+      "command": "ansible-inventory --list",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "{\n    \"_meta\": {\n        \"hostvars\": {\n            \"localhost\": {\n                \"ansible_connection\": \"local\"\n            }\n        },\n        \"profile\": \"inventory_legacy\"\n    },\n    \"all\": {\n        \"children\": [\n            \"ungrouped\",\n            \"local\"\n        ]\n    },\n    \"local\": {\n        \"hosts\": [\n            \"localhost\"\n        ]\n    }\n}\n"
+    },
+    {
+      "name": "shell syntax",
+      "command": "bash -n scripts/lint.sh",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": ""
+    },
+    {
+      "name": "unknown lint option rejected",
+      "command": "bash scripts/lint.sh unknown",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "Usage: bash scripts/lint.sh {yamllint|ansible-lint}\n"
+    },
+    {
+      "name": "yamllint",
+      "command": "bash scripts/lint.sh yamllint",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": ""
+    },
+    {
+      "name": "ansible-lint",
+      "command": "bash scripts/lint.sh ansible-lint",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "\nPassed: 0 failure(s), 0 warning(s) in 1 files processed of 2 encountered. Profile 'production' was required, and it passed.\n"
+    },
+    {
+      "name": "playbook syntax",
+      "command": "ansible-playbook playbooks/smoke.yml --syntax-check",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "\nplaybook: playbooks/smoke.yml\n"
+    },
+    {
+      "name": "playbook target list",
+      "command": "ansible-playbook playbooks/smoke.yml --list-hosts",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "\nplaybook: playbooks/smoke.yml\n\n  play #1 (localhost): Verify the isolated Ansible workstation without changing services\tTAGS: []\n    pattern: ['localhost']\n    hosts (1):\n      localhost\n"
+    },
+    {
+      "name": "playbook check mode",
+      "command": "ansible-playbook playbooks/smoke.yml --check",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "\nPLAY [Verify the isolated Ansible workstation without changing services] *******\n\nTASK [Confirm the smoke test has only a local target] **************************\nok: [localhost]\n\nTASK [Verify local Python module execution] ************************************\nok: [localhost]\n\nTASK [Confirm the local module succeeded] **************************************\nok: [localhost]\n\nTASK [Report the verified scope] ***********************************************\nok: [localhost] => {\n    \"msg\": \"Eze Favour | Week 09 onboarding | localhost only; no cloud or remote SSH test.\"\n}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n"
+    },
+    {
+      "name": "playbook normal mode",
+      "command": "ansible-playbook playbooks/smoke.yml",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "\nPLAY [Verify the isolated Ansible workstation without changing services] *******\n\nTASK [Confirm the smoke test has only a local target] **************************\nok: [localhost]\n\nTASK [Verify local Python module execution] ************************************\nok: [localhost]\n\nTASK [Confirm the local module succeeded] **************************************\nok: [localhost]\n\nTASK [Report the verified scope] ***********************************************\nok: [localhost] => {\n    \"msg\": \"Eze Favour | Week 09 onboarding | localhost only; no cloud or remote SSH test.\"\n}\n\nPLAY RECAP *********************************************************************\nlocalhost                  : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n"
+    },
+    {
+      "name": "isolated git init",
+      "command": "git init --quiet --initial-branch=main --template=",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": ""
+    },
+    {
+      "name": "isolated git add",
+      "command": "git add .",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": ""
+    },
+    {
+      "name": "isolated hook install",
+      "command": "{PROJECT}/.venv/bin/pre-commit install --config week-09-ansible/ansible-onboarding/.pre-commit-config.yaml",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "pre-commit installed at .git/hooks/pre-commit\n"
+    },
+    {
+      "name": "isolated hooks pass",
+      "command": "{PROJECT}/.venv/bin/pre-commit run --config week-09-ansible/ansible-onboarding/.pre-commit-config.yaml --all-files",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "Week 09 yamllint.........................................................Passed\nWeek 09 ansible-lint.....................................................Passed\n"
+    },
+    {
+      "name": "installed hook execution",
+      "command": "{REPOSITORY}/.tools/w9-validation-5nwi45hj/repository/.git/hooks/pre-commit",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "Week 09 yamllint.........................................................Passed\nWeek 09 ansible-lint.....................................................Passed\n"
+    },
+    {
+      "name": "isolated malformed YAML rejected",
+      "command": "{PROJECT}/.venv/bin/pre-commit run --config week-09-ansible/ansible-onboarding/.pre-commit-config.yaml --all-files",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "output": "Week 09 yamllint.........................................................Failed\n- hook id: onboarding-yamllint\n- exit code: 1\n\n./playbooks/invalid.yml\n  3:1       error    syntax error: expected the node content, but found '<stream end>' (syntax)\n\nWeek 09 ansible-lint.....................................................Failed\n- hook id: onboarding-ansible-lint\n- exit code: 2\n\nWARNING  Listing 1 violation(s) that are fatal\n\n# Rule Violation Summary\n\n  1 load-failure profile:min tags:core,unskippable\n\nFailed: 1 failure(s), 0 warning(s) in 2 files processed of 3 encountered. Profile 'production' was required.\nload-failure[yaml]: Failed to load YAML file (warning)\nplaybooks/invalid.yml:3:1 did not find expected node content\n\n"
+    },
+    {
+      "name": "isolated non-FQCN module rejected",
+      "command": "{PROJECT}/.venv/bin/pre-commit run onboarding-ansible-lint --config week-09-ansible/ansible-onboarding/.pre-commit-config.yaml --all-files",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "output": "Week 09 ansible-lint.....................................................Failed\n- hook id: onboarding-ansible-lint\n- exit code: 2\n\nWARNING  Listing 1 violation(s) that are fatal\nRead documentation for instructions on how to ignore specific rule violations.\n\n# Rule Violation Summary\n\n  1 fqcn profile:production tags:formatting\n\nFailed: 1 failure(s), 0 warning(s) in 1 files processed of 2 encountered. Profile 'production' was required, but 'shared' profile passed. Rating: 4/5 star\nfqcn[action-core]: Use FQCN for builtin module actions (ping).\nplaybooks/smoke.yml:18:7 Use `ansible.builtin.ping` or `ansible.legacy.ping` instead.\n\n"
+    },
+    {
+      "name": "isolated hooks restored",
+      "command": "{PROJECT}/.venv/bin/pre-commit run --config week-09-ansible/ansible-onboarding/.pre-commit-config.yaml --all-files",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "Week 09 yamllint.........................................................Passed\nWeek 09 ansible-lint.....................................................Passed\n"
+    }
+  ],
+  "source_sha256": {
+    ".ansible-lint": "8822bbe64b789979b4bdb58c3e1de34b3c3ad9f733c5b1e2a54dea9ece36e120",
+    ".editorconfig": "71589501b7a5dd84d122c08a34d94001034ec89843a90e2e790a65087c8a4fcc",
+    ".gitignore": "93e40593d503655ca8ff740c5f27633a942b805ba20a9113bea92e369693047f",
+    ".pre-commit-config.yaml": "9188e2f50ed8b6d1617d9f51576e66835b585f83ae2a50079875201eaae6660a",
+    ".vscode/extensions.json": "b9a086cee2ab9d2538f9a777fe0e63bcd233ff4b4118b5c5f6ac032f79086885",
+    ".vscode/settings.json": "5d2b178ca973307c6870e8563c8634a0580232ef427a584f9cf1bac2584397f8",
+    ".yamllint.yaml": "ed3e2e1446edb4197955bb53813a1eb2df21e28eb0f3cd2dde7d29cae4a6c702",
+    "README.md": "cd26ee71b82b50a1980c0e6651214bb0fe1b085a2db412ee447870cb9ba5e880",
+    "ansible.cfg": "422873130a885b469ffe7db3a87f61944ce72aaeb9c91008bb2801faf347060c",
+    "inventory.ini": "a345c4803319cfeaf0d8e717e7a95620a34c5a9a2b8a1b1f81ae8a134a0ed362",
+    "playbooks/smoke.yml": "a8e04d1b4f7ff6519bf37303ce50dacf30d208fccb0f9f298a83e47b9e3a3cb0",
+    "requirements.in": "b82530306033965d07a445fa9982ac83fe2a75df387bc429b6ad0e11ed72af04",
+    "requirements.txt": "1bf73345ffe990ebf33d94163b3e64062c4ac301124689d4893727ff2ee708e8",
+    "scripts/lint.sh": "675d5b710cf61900e7fcd8a9f44098f9d8f933452ed3573e42c4985acd315113",
+    "scripts/verify.py": "27ef363978ad7392a50009a9532f023ae56b5b36541e4819a16affb82520ea40"
+  }
+}

@@ -1,0 +1,17 @@
+---
+minimum_pre_commit_version: '4.0.0'
+repos:
+  - repo: local
+    hooks:
+      - id: onboarding-yamllint
+        name: Week 09 yamllint
+        language: system
+        entry: bash week-09-ansible/ansible-onboarding/scripts/lint.sh yamllint
+        pass_filenames: false
+        files: ^week-09-ansible/ansible-onboarding/
+      - id: onboarding-ansible-lint
+        name: Week 09 ansible-lint
+        language: system
+        entry: bash week-09-ansible/ansible-onboarding/scripts/lint.sh ansible-lint
+        pass_filenames: false
+        files: ^week-09-ansible/ansible-onboarding/

@@ -1,0 +1,29 @@
+---
+- name: Verify the isolated Ansible workstation without changing services
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  tasks:
+    - name: Confirm the smoke test has only a local target
+      ansible.builtin.assert:
+        that:
+          - inventory_hostname == 'localhost'
+          - ansible_connection == 'local'
+        quiet: true
+
+    - name: Verify local Python module execution
+      ansible.builtin.ping:
+      register: onboarding_ping
+
+    - name: Confirm the local module succeeded
+      ansible.builtin.assert:
+        that:
+          - onboarding_ping.ping == 'pong'
+        quiet: true
+
+    - name: Report the verified scope
+      ansible.builtin.debug:
+        msg: "Eze Favour | Week 09 onboarding | localhost only; no cloud or remote SSH test."

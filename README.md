@@ -138,7 +138,7 @@ Week 04 → Git & GitHub
 | 06 | AWS Cloud | 🔄 In Progress | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
-| 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
+| 09 | Ansible | 🔄 In Progress | [Assignment 1 — local onboarding; screenshots and access checks pending](./week-09-ansible/assignment-01-onboarding-workstation-setup-standards-and-ai.md#current-status) | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |

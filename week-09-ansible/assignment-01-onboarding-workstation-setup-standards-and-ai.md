@@ -10,6 +10,31 @@ In this assignment, you will set up a production-ready Ansible development works
 
 ---
 
+## Current status
+
+**Learner:** Eze Favour
+
+**Status:** In progress — local onboarding implementation prepared; final screenshots and workstation access checks remain pending.
+
+Existing work was checked before starting: this week contained assignment templates and an empty screenshots directory, but no onboarding project. The [onboarding README](ansible-onboarding/README.md) now contains machine details, a 12-step new-machine checklist, safe setup commands and the exact validation procedure. The [local validation record](ansible-onboarding/evidence/local-validation.json) records actual results and source hashes; it is not a substitute for the required screenshots.
+
+| Requirement | Local work and remaining evidence |
+|---|---|
+| Python/Ansible environment | Project-local Python 3.13 environment; [pinned requirements](ansible-onboarding/requirements.txt). Screenshots 1–2 pending. |
+| VS Code standards | [Workspace settings](ansible-onboarding/.vscode/settings.json), [recommendations](ansible-onboarding/.vscode/extensions.json) and [EditorConfig](ansible-onboarding/.editorconfig) prepared. Required extensions were not listed by the current `code` CLI; installation/interactive verification and screenshots 3–4 remain pending. |
+| Ansible defaults | [Configuration](ansible-onboarding/ansible.cfg), localhost inventory and harmless [smoke playbook](ansible-onboarding/playbooks/smoke.yml) prepared. Screenshot 5 pending. The brief does not supply literal default values; chosen settings are documented rather than represented as an instructor-provided block. |
+| SSH readiness | Existing keys, agent identities and `~/.ssh/config` were not changed. Key/agent/config verification and screenshot 6 remain pending; a local `pong` does not prove SSH readiness. |
+| Git and hooks | Existing identity was detected without recording its values. [Hook configuration](ansible-onboarding/.pre-commit-config.yaml) and an isolated installation/smoke test are provided. Global identity/default-branch/signing and shared worktree hooks were not changed. Actual workstation hook/signing policy and screenshots 7–8 remain pending. |
+| Documentation | Machine details, a 12-step checklist, scope and reproducibility notes are in the README. Screenshots 9–10 pending. |
+
+**Verified locally on 15 September 2026:** all **25 command checks** met their expected result, including three intentional rejection tests (unknown lint option, malformed YAML and an unqualified Ansible module). Both the installed isolated hook and direct hook runner passed. Check mode and normal mode each reported `ok=4 changed=0 unreachable=0 failed=0`. Ansible loaded the project configuration, and both linters passed with compatible settings.
+
+Validated versions: Python **3.13.3**, Ansible **14.4.0** / core **2.21.4**, ansible-lint **26.8.0**, yamllint **1.38.0**, pre-commit **4.6.2**. Installed dependencies match the 38-package lock. The record includes sanitized outputs and SHA-256 hashes; rerun `python scripts/verify.py` from the activated project environment to reproduce it.
+
+No cloud resources or charges were introduced. No SSH keys, private host inventory, global Git settings, installed editor extensions or shared Git hooks were modified. None of the incomplete tasks below is claimed as submission-complete.
+
+---
+
 # Task 1 — Environment & Ansible Install
 
 ## Goal
@@ -122,7 +147,13 @@ Add your screenshot here.
 
 State one thing that makes this setup team-friendly, and one pitfall you avoided (e.g. global pip, missing SSH agent). Note any corporate proxy or CA certificate steps, if applicable.
 
-Write your answer here.
+**Team-friendly choice:** the tools and their dependencies are pinned in a project-local environment, with consistent editor settings and lint hooks. Another learner can reproduce the same checks without relying on a global Ansible installation.
+
+**Pitfall avoided:** a Git worktree can share hooks with its parent repository. Installation was therefore tested in a disposable isolated repository rather than overwriting shared hooks. The smoke playbook is restricted to localhost and does not use privilege escalation or contact a cloud host.
+
+**Proxy/CA:** no custom corporate proxy or CA configuration was added. If a managed network requires one, use the administrator-approved trust configuration; do not disable certificate or SSH host-key verification.
+
+**AI assistance:** Copilot helped inspect prior work, prepare configuration and run local checks. Claims are tied to the recorded command results. Screenshots, remote access and personal workstation configuration have not been invented or marked complete.
 
 ---
 
@@ -141,7 +172,7 @@ Write your answer here.
 - [ ] Task 4: SSH key generated and loaded into agent (Screenshot 6)
 - [ ] Task 5: Git identity configured and pre-commit hooks passing (Screenshots 7–8)
 - [ ] Task 6: README and checklist completed (Screenshots 9–10)
-- [ ] Team-friendly choice / pitfall notes written (Notes)
+- [x] Team-friendly choice / pitfall notes written (Notes)
 - [ ] No private keys or secrets exposed
 
 ---
