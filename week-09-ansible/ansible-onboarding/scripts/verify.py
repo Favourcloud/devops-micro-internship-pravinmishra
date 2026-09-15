@@ -169,10 +169,10 @@ def main():
         "hook_installation_scope": "Disposable isolated Git fixture only; removed after validation",
         "screenshots_created": 0,
         "remaining": [
-            "Ten genuine assignment screenshots",
+            "Twelve genuine assignment screenshots with the learner's full name",
             "VS Code extension installation and interactive workspace verification",
             "Approved SSH key/agent/host configuration and evidence",
-            "Personal Git default-branch/signing policy and actual clone hook setup",
+            "Personal Git identity/default-branch and actual clone hook setup; isolated fixture is not workstation evidence",
         ],
         "checks": RESULTS,
         "source_sha256": sources,

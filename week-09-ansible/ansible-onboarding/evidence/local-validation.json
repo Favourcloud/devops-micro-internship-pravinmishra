@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-09-15T11:56:36.677059+00:00",
+  "recorded_at_utc": "2026-09-15T13:40:01.317039+00:00",
   "learner": "Eze Favour",
   "scope": "Week 09 Assignment 1: local workstation validation only",
   "machine": {
@@ -13,10 +13,10 @@
   "hook_installation_scope": "Disposable isolated Git fixture only; removed after validation",
   "screenshots_created": 0,
   "remaining": [
-    "Ten genuine assignment screenshots",
+    "Twelve genuine assignment screenshots with the learner's full name",
     "VS Code extension installation and interactive workspace verification",
     "Approved SSH key/agent/host configuration and evidence",
-    "Personal Git default-branch/signing policy and actual clone hook setup"
+    "Personal Git identity/default-branch and actual clone hook setup; isolated fixture is not workstation evidence"
   ],
   "checks": [
     {
@@ -73,7 +73,7 @@
       "command": "ansible-config dump --only-changed",
       "exit_code": 0,
       "expected_exit_code": 0,
-      "output": "ANSIBLE_NOCOLOR(env: ANSIBLE_NOCOLOR) = True\nCONFIG_FILE() = {PROJECT}/ansible.cfg\nDEFAULT_BECOME({PROJECT}/ansible.cfg) = False\nDEFAULT_FORKS({PROJECT}/ansible.cfg) = 5\nDEFAULT_HOST_LIST({PROJECT}/ansible.cfg) = ['{PROJECT}/inventory.ini']\nDEFAULT_LOCAL_TMP({PROJECT}/ansible.cfg) = {PROJECT}/.ansible/tmp/ansible-local-395670qidydkh\nDEFAULT_TIMEOUT({PROJECT}/ansible.cfg) = 10\nHOST_KEY_CHECKING({PROJECT}/ansible.cfg) = True\nINTERPRETER_PYTHON({PROJECT}/ansible.cfg) = auto_silent\nRETRY_FILES_ENABLED({PROJECT}/ansible.cfg) = False\n\nGALAXY_SERVERS:\n"
+      "output": "ANSIBLE_NOCOLOR(env: ANSIBLE_NOCOLOR) = True\nCONFIG_FILE() = {PROJECT}/ansible.cfg\nDEFAULT_BECOME({PROJECT}/ansible.cfg) = False\nDEFAULT_FORKS({PROJECT}/ansible.cfg) = 5\nDEFAULT_HOST_LIST({PROJECT}/ansible.cfg) = ['{PROJECT}/inventory.ini']\nDEFAULT_LOCAL_TMP({PROJECT}/ansible.cfg) = {PROJECT}/.ansible/tmp/ansible-local-98379vdjg3shz\nDEFAULT_TIMEOUT({PROJECT}/ansible.cfg) = 10\nHOST_KEY_CHECKING({PROJECT}/ansible.cfg) = True\nINTERPRETER_PYTHON({PROJECT}/ansible.cfg) = auto_silent\nRETRY_FILES_ENABLED({PROJECT}/ansible.cfg) = False\n\nGALAXY_SERVERS:\n"
     },
     {
       "name": "local inventory",
@@ -168,7 +168,7 @@
     },
     {
       "name": "installed hook execution",
-      "command": "{REPOSITORY}/.tools/w9-validation-5nwi45hj/repository/.git/hooks/pre-commit",
+      "command": "{REPOSITORY}/.tools/w9-validation-vg34a6mp/repository/.git/hooks/pre-commit",
       "exit_code": 0,
       "expected_exit_code": 0,
       "output": "Week 09 yamllint.........................................................Passed\nWeek 09 ansible-lint.....................................................Passed\n"
@@ -203,13 +203,15 @@
     ".vscode/extensions.json": "b9a086cee2ab9d2538f9a777fe0e63bcd233ff4b4118b5c5f6ac032f79086885",
     ".vscode/settings.json": "5d2b178ca973307c6870e8563c8634a0580232ef427a584f9cf1bac2584397f8",
     ".yamllint.yaml": "ed3e2e1446edb4197955bb53813a1eb2df21e28eb0f3cd2dde7d29cae4a6c702",
-    "README.md": "cd26ee71b82b50a1980c0e6651214bb0fe1b085a2db412ee447870cb9ba5e880",
+    "README.md": "7d245eeb871bfa9e8e9a6231095e7014fc74b94c5c297c694748fb4de9678e3b",
     "ansible.cfg": "422873130a885b469ffe7db3a87f61944ce72aaeb9c91008bb2801faf347060c",
+    "inventories/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "inventory.ini": "a345c4803319cfeaf0d8e717e7a95620a34c5a9a2b8a1b1f81ae8a134a0ed362",
     "playbooks/smoke.yml": "a8e04d1b4f7ff6519bf37303ce50dacf30d208fccb0f9f298a83e47b9e3a3cb0",
     "requirements.in": "b82530306033965d07a445fa9982ac83fe2a75df387bc429b6ad0e11ed72af04",
     "requirements.txt": "1bf73345ffe990ebf33d94163b3e64062c4ac301124689d4893727ff2ee708e8",
+    "roles/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "scripts/lint.sh": "675d5b710cf61900e7fcd8a9f44098f9d8f933452ed3573e42c4985acd315113",
-    "scripts/verify.py": "27ef363978ad7392a50009a9532f023ae56b5b36541e4819a16affb82520ea40"
+    "scripts/verify.py": "3e3b1b11c606150559d8d9bba97c12420a3cd2676299f7893a42715277669e6c"
   }
 }

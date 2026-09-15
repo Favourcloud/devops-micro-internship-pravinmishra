@@ -2,7 +2,9 @@
 
 **Learner:** Eze Favour
 
-**Scope:** Local workstation setup for [Assignment 1](../assignment-01-onboarding-workstation-setup-standards-and-ai.md). No cloud infrastructure, remote SSH, service installation or system configuration is managed by this project.
+**Scope:** Local workstation setup for [Assignment 1](../assignment-01-set-up-a-team-ready-ansible-development-workstation.md). No cloud infrastructure, remote SSH, service installation or system configuration is managed by this project.
+
+**Current brief:** aligned on 15 September 2026 with the official assignment's eight tasks, twelve screenshots and four written questions. `inventories/` and `roles/` are prepared as empty tracked directories for future labs; the smoke test still uses the existing root `inventory.ini`. This project is inside a shared feature-branch worktree, not a standalone clone on `main`. The disposable validation fixture tests Git initialization and hooks on `main`, but it does not satisfy the actual-workstation screenshot or hook-installation requirement. Do not rename this session branch or overwrite shared hooks to create that evidence.
 
 ## Machine and evidence
 
@@ -13,7 +15,7 @@ The [validation record](evidence/local-validation.json) contains actual sanitize
 ## New Machine? Do This
 
 - [ ] Clone the repository and use your own worktree. Confirm macOS/Linux and Python **3.13** with `python3.13 --version`; record differences instead of claiming this environment was tested everywhere.
-- [ ] Enter `week-09-ansible/ansible-onboarding` and create `.venv` with `python3.13 -m venv .venv`.
+- [ ] Enter `week-09-ansible/ansible-onboarding`, confirm the `inventories/` and `roles/` directories are present, and create `.venv` with `python3.13 -m venv .venv`.
 - [ ] Activate it with `source .venv/bin/activate`; install the lock using `python -m pip install -r requirements.txt`, then run `python -m pip check`. Never use `sudo pip` or disable TLS certificate verification.
 - [ ] Confirm `ansible --version`, `ansible-lint --version`, `yamllint --version` and `pre-commit --version`; capture genuine terminal screenshots with your learner name visible and private paths/identifiers redacted.
 - [ ] Open **this folder**, not the repository root, in VS Code (`code .`). Install/enable the recommended `redhat.ansible`, `redhat.vscode-yaml` and `ms-python.python` extensions; confirm the `.venv` interpreter and capture the Extensions panel. Recommendations alone do not install extensions.
@@ -67,6 +69,8 @@ ansible-onboarding/
 ├── .yamllint.yaml
 ├── ansible.cfg
 ├── inventory.ini
+├── inventories/.gitkeep
+├── roles/.gitkeep
 ├── playbooks/smoke.yml
 ├── requirements.in
 ├── requirements.txt

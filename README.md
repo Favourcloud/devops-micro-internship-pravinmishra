@@ -138,7 +138,7 @@ Week 04 → Git & GitHub
 | 06 | AWS Cloud | 🔄 In Progress | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-terraform-activity-7505450522540408832-q-je) | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
-| 09 | Ansible | 🔄 In Progress | [Assignment 1 — local onboarding; screenshots and access checks pending](./week-09-ansible/assignment-01-onboarding-workstation-setup-standards-and-ai.md#current-status) | — | — |
+| 09 | Ansible | 🔄 In Progress | [Assignment 1 — local onboarding; screenshots and access checks pending](./week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md#current-status) | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
@@ -149,13 +149,14 @@ Week 04 → Git & GitHub
 
 ### Rubric follow-up — 15 September 2026
 
-The [personal grading page](https://dmi.pravinmishra.com/s/Favourcloud.html) was last checked on 14 September. The links above were reconciled against the published articles and posts; this is not a new grading result. Follow the [submission checks](./INSTRUCTIONS.md#rubric-checks-before-submission) before requesting another review.
+The [personal grading page](https://dmi.pravinmishra.com/s/Favourcloud.html) was rechecked on 15 September and displayed a review dated 15 September 2026. It still reports missing links and files addressed on this branch; no score improvement from these corrections has been verified. Follow the [submission checks](./INSTRUCTIONS.md#rubric-checks-before-submission) before requesting another review.
 
 - **Week 03:** the published reflection already contains the required personal badge link; its URL now appears in the progress table.
 - **Weeks 01, 04 and 05:** the externally published badge-link corrections were independently verified in the [public Medium feed](https://medium.com/feed/@rosenaefavour) on 15 September 2026. Each article contains exactly one clickable link to this personal badge page and exceeds 200 words. Comparing with the pre-edit snapshots confirmed unchanged original content, formatting and article URLs. These articles do not need another [credit footer](./INSTRUCTIONS.md#personal-blog-credit-footer); a new grading result has not been verified.
 - **Week 05:** the demo URL is present in the linked submission on this branch, while the dashboard still reports the older placeholder. The linked posts are existing publications, not new posts.
 - **Week 06:** the Assignment 5 LinkedIn link uses the verified canonical `/posts/` URL. A weekly blog is still outstanding, and the technical limitations in the assignment evidence remain unchanged.
 - **Weeks 07–08:** no verified weekly publication links were found in the inspected repository or Medium feed. Week 08's six assignment templates still need genuine implementation and evidence; placeholders have not been removed to imply completion.
+- **Weeks 09–10:** seven outdated assignment paths were aligned with the [official template revision `9b394ef`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/tree/9b394ef8efecd7db1f582995a03665f6f8afc2a4) and their current briefs, not merely renamed. Week 09 Assignment 1 retains its local implementation and now tracks eight tasks, twelve screenshots and four written questions; actual workstation SSH/editor/Git evidence remains pending. Other synchronized files remain unfinished templates, not passed assignments. The earlier [missing-assets report](./MISSING_ASSETS.md) is an unchanged historical snapshot with old paths, not a current checklist.
 - **Evidence and attendance:** the Week 01 screenshot warning needs review against the existing image; that image has not been verified as meeting the name/username rule. Attendance corrections belong to the instructor's record.
 
 Branch-only corrections must reach the fork's graded default branch (`main`) and be included in a subsequent review run before dashboard scores can change. An automated “Complete” label does not certify technical correctness or an A grade.
