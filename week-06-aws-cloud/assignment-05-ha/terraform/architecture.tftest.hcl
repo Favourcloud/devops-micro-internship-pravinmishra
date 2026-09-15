@@ -1,3 +1,4 @@
+# Every run must stay plan-only: mocked AWS does not disable terraform_data local-exec.
 mock_provider "aws" {
   mock_data "aws_availability_zones" {
     defaults = {
@@ -75,9 +76,72 @@ run "reject_empty_web_tier" {
 run "reject_unspecified_termination_target" {
   command = plan
   variables {
-    replacement_test = true
+    replacement_test          = true
+    replacement_evidence_path = "../evidence/new-run/experiment.json"
   }
   expect_failures = [terraform_data.replacement_run[0]]
+}
+
+run "reject_missing_action_evidence" {
+  command = plan
+  variables {
+    replacement_test        = true
+    replacement_instance_id = "i-0123456789abcdef0"
+  }
+  expect_failures = [terraform_data.replacement_run[0]]
+}
+
+run "reject_empty_action_evidence" {
+  command = plan
+  variables {
+    replacement_test          = true
+    replacement_instance_id   = "i-0123456789abcdef0"
+    replacement_evidence_path = ""
+  }
+  expect_failures = [terraform_data.replacement_run[0]]
+}
+
+run "reject_blank_action_evidence" {
+  command = plan
+  variables {
+    replacement_test          = true
+    replacement_instance_id   = "i-0123456789abcdef0"
+    replacement_evidence_path = " \t\n"
+  }
+  expect_failures = [terraform_data.replacement_run[0]]
+}
+
+run "reject_directory_action_evidence" {
+  command = plan
+  variables {
+    replacement_test          = true
+    replacement_instance_id   = "i-0123456789abcdef0"
+    replacement_evidence_path = "../evidence/"
+  }
+  expect_failures = [terraform_data.replacement_run[0]]
+}
+
+run "reject_dot_action_evidence" {
+  command = plan
+  variables {
+    replacement_test          = true
+    replacement_instance_id   = "i-0123456789abcdef0"
+    replacement_evidence_path = "."
+  }
+  expect_failures = [terraform_data.replacement_run[0]]
+}
+
+run "explicit_action_evidence_destination" {
+  command = plan
+  variables {
+    replacement_test          = true
+    replacement_instance_id   = "i-0123456789abcdef0"
+    replacement_evidence_path = "../evidence/run with spaces and $literal;quote'/experiment.json"
+  }
+  assert {
+    condition     = length(terraform_data.replacement_run) == 1 && terraform_data.replacement_run[0].triggers_replace == var.replacement_instance_id
+    error_message = "An explicit evidence destination must permit planning the guarded exact-instance action."
+  }
 }
 
 run "single_az_evacuation" {

@@ -42,6 +42,12 @@ variable "replacement_instance_id" {
   }
 }
 
+variable "replacement_evidence_path" {
+  description = "Fresh action evidence filename; required for replacement_test. Prefer an absolute path; relative paths start in the Terraform directory. Existing files are never overwritten."
+  type        = string
+  default     = null
+}
+
 variable "replacement_test" {
   description = "Temporarily enable a guarded one-instance termination test through Terraform."
   type        = bool

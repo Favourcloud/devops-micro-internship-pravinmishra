@@ -74,11 +74,23 @@ python3 -m unittest discover -s scripts -p 'test_*.py' -v
 terraform -chdir=terraform init
 terraform -chdir=terraform fmt -check
 terraform -chdir=terraform validate
-terraform -chdir=terraform test
+env -u TF_CLI_ARGS -u TF_CLI_ARGS_test AWS_EC2_METADATA_DISABLED=true CHECKPOINT_DISABLE=1 \
+  terraform -chdir=terraform test -filter=architecture.tftest.hcl -no-color
+```
+
+Every run in `architecture.tftest.hcl` must remain explicitly `command = plan`, with the default AWS provider mocked. Mocking AWS **does not** prevent the built-in `terraform_data` resource from executing `local-exec` during an apply test.
+
+Only after separate deployment/test approval, create a fresh timestamped directory for this run's snapshots, probes and action record. Run from this assignment directory. `mkdir` deliberately has no `-p`: if the timestamp already exists, stop and choose a new timestamp; do not reuse the directory. Keep the absolute `RUN_DIR` value for later commands and copy it to the monitor terminal.
+
+```sh
+RUN_DIR="$(pwd)/evidence/$(date -u +%Y%m%dT%H%M%SZ)"
+mkdir "$RUN_DIR" || exit 1
+export RUN_DIR
+printf 'Evidence directory: %s\n' "$RUN_DIR"
 terraform -chdir=terraform plan -out=baseline.tfplan
 terraform -chdir=terraform apply baseline.tfplan
 terraform -chdir=terraform output url
-python3 scripts/snapshot.py evidence/baseline.json
+python3 scripts/snapshot.py "$RUN_DIR/baseline.json"
 ```
 
 Wait for two healthy ALB targets in different AZs. `/health` checks the web process (ALB/ASG health); `/ready` performs a database query (end-to-end readiness). Keeping these separate avoids replacing every web instance during a transient database outage. No scaling policy is configured; the assignment's 2/2/4 capacity and automatic replacement are the focus.
@@ -91,36 +103,71 @@ All infrastructure mutations, including fault injection, go through Terraform. A
 
 An initial FIS template attempt was rejected because this account was not subscribed (`SubscriptionRequiredException`). No FIS experiment ran or subscription was enabled. The final implementation does not require FIS.
 
-1. Save `evidence/test-a-before.json` with `snapshot.py`.
-2. Start `monitor.py` in a separate terminal before injecting the fault:
+1. Save the current snapshot in the fresh directory:
 
    ```sh
-   python3 scripts/monitor.py "$(terraform -chdir=terraform output -raw url)" evidence/test-a-probes.jsonl --duration 1800 --stop-file evidence/test-a.stop
+   : "${RUN_DIR:?Set RUN_DIR to the fresh directory created above}"
+   python3 scripts/snapshot.py "$RUN_DIR/test-a-before.json"
    ```
 
-3. Review and apply the opt-in test:
+2. Start `monitor.py` in a separate terminal before injecting the fault. Work from this assignment directory and set `RUN_DIR` to the **same absolute path** printed above (a new terminal does not inherit it automatically):
+
+   ```sh
+   : "${RUN_DIR:?Copy the absolute RUN_DIR from the first terminal}"
+   python3 scripts/monitor.py "$(terraform -chdir=terraform output -raw url)" "$RUN_DIR/test-a-probes.jsonl" --duration 1800 --stop-file "$RUN_DIR/test-a.stop"
+   ```
+
+3. Review and apply the opt-in test. The evidence destination is required when termination is enabled; there is no historical-path default. The environment variable below supplies the string to Terraform safely, including spaces or shell metacharacters, and the saved plan retains it:
 
    ```sh
    # Replace INSTANCE_ID with one exact member from the current ASG snapshot.
-   terraform -chdir=terraform plan -var='replacement_test=true' -var='replacement_instance_id=INSTANCE_ID' -out=test-a.tfplan
+   TF_VAR_replacement_evidence_path="$RUN_DIR/experiment.json" \
+     terraform -chdir=terraform plan -var='replacement_test=true' -var='replacement_instance_id=INSTANCE_ID' -out=test-a.tfplan
+   ```
+
+   Stop if planning fails; never apply a stale plan. Review the newly saved plan, then separately apply it:
+
+   ```sh
    terraform -chdir=terraform apply test-a.tfplan
    ```
 
-4. Confirm the old instance is terminated, a new instance ID becomes InService, and both ALB targets are healthy across two AZs. Save `evidence/test-a-after.json` and EC2 termination evidence. Create `evidence/test-a.stop` to finish the monitor cleanly.
-5. Restore defaults with a reviewed Terraform plan/apply. This removes the one-shot run marker. A later opt-in would run another termination test; never enable it unintentionally.
+4. Confirm the old instance is terminated, a new instance ID becomes InService, and both ALB targets are healthy across two AZs. Save the after snapshot; the action record is already at `$RUN_DIR/experiment.json`. Stop the monitor cleanly:
 
-`run-experiment.py` is invoked by Terraform only; do not run it manually. It validates the target, records the action timestamp, then calls EC2 termination for that exact ID without decrementing ASG desired capacity. It refuses mismatched resources and unstable baselines. An abrupt loss can cause failed requests before ALB health detection. **Record failures; never call eventual recovery “zero downtime.”** Monitoring uses one-second spacing with a five-second request timeout and no retry; sampling cannot prove every request succeeded.
+   ```sh
+   python3 scripts/snapshot.py "$RUN_DIR/test-a-after.json"
+   touch "$RUN_DIR/test-a.stop"
+   ```
+
+5. Restore defaults with a reviewed Terraform plan/apply. This removes the one-shot run marker, not the evidence file. A later opt-in would run another termination test; never enable it unintentionally. Changing only the evidence path does not trigger a new action while a successfully completed marker remains.
+
+`run-experiment.py` is invoked by Terraform only; do not run it manually. Terraform passes `replacement_evidence_path` as `ACTION_EVIDENCE_PATH`, never as shell command text. Relative destinations are relative to the **Terraform working directory**; the commands above use an absolute path to avoid ambiguity. After validating the target, the runner exclusively creates a new action record and flushes/syncs its `prepared` state **before** calling EC2 termination for the exact ID without decrementing ASG desired capacity. Existing files (including historical `evidence/experiment.json`), directories and symlinks are refused without termination; concurrent invocations using the same path cannot both reserve it. Updates use only the file descriptor reserved by that invocation.
+
+The record becomes `accepted` only after an EC2 response, or `unconfirmed` if the call/response fails. Reservations remain after failures, and there is no automatic retry. A crash or failed evidence update can leave a `prepared`, empty or incomplete record even if AWS received the request: inspect the actual instance state using read-only checks before considering another separately approved action with a fresh path and plan. **Never delete or overwrite the old record to force a retry.** Independent paths do not prevent two separately configured actions from targeting the same instance; serialize approved drills.
+
+The runner also refuses mismatched resources and unstable baselines. An abrupt loss can cause failed requests before ALB health detection. **Record failures; never call eventual recovery “zero downtime.”** Monitoring uses one-second spacing with a five-second request timeout and no retry; sampling cannot prove every request succeeded.
 
 ## Test B — controlled web-tier AZ evacuation
 
-Save a before snapshot, start another readiness monitor, then apply:
+Keep the same fresh `RUN_DIR` for this deployment. Save a before snapshot:
+
+```sh
+python3 scripts/snapshot.py "$RUN_DIR/test-b-before.json"
+```
+
+Start another readiness monitor in the separate terminal with that same `RUN_DIR`:
+
+```sh
+python3 scripts/monitor.py "$(terraform -chdir=terraform output -raw url)" "$RUN_DIR/test-b-probes.jsonl" --duration 1800 --stop-file "$RUN_DIR/test-b.stop"
+```
+
+Then review and apply:
 
 ```sh
 terraform -chdir=terraform plan -var='web_az_indexes=[1]' -out=test-b.tfplan
 terraform -chdir=terraform apply test-b.tfplan
 ```
 
-Wait until no ASG instance remains in AZ A and two healthy instances serve from AZ B. Save the during snapshot and probe evidence. Restore the default `[0,1]` subnet selection with a reviewed plan/apply, wait for a healthy instance in each AZ, save the recovery snapshot, then stop monitoring.
+Wait until no ASG instance remains in AZ A and two healthy instances serve from AZ B. Save the during snapshot with `python3 scripts/snapshot.py "$RUN_DIR/test-b-evacuated.json"`. Restore the default `[0,1]` subnet selection with a reviewed plan/apply, wait for a healthy instance in each AZ, save recovery with `python3 scripts/snapshot.py "$RUN_DIR/recovered.json"`, then stop monitoring with `touch "$RUN_DIR/test-b.stop"`.
 
 This is a **controlled evacuation of one web-tier AZ**, not a real AWS AZ failure, network partition, abrupt simultaneous loss, or RDS failover test. ASG may launch replacement capacity before removing the old instance. Preserve that distinction in the report and LinkedIn post.
 
@@ -145,7 +192,7 @@ python3 scripts/verify-snapshot.py evidence/test-b-evacuated.json --web-az-count
 python3 scripts/verify-snapshot.py evidence/recovered.json
 ```
 
-For another experiment, use a fresh evidence directory rather than overwriting this run's records, and remove stale monitor stop markers before starting.
+For another experiment, create a new timestamped directory as above rather than overwriting this run's records. Do not reuse old action records, probe files or monitor stop markers; preserve them with their original run.
 
 ## Local resilience follow-up and proposed retest
 

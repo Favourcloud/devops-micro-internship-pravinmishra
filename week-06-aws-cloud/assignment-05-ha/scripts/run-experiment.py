@@ -31,7 +31,19 @@ def validate_target(group, instance, targets, instance_id, vpc, name):
         raise RuntimeError('Target identity/VPC/tag/state mismatch; refusing fault injection')
 
 
+def write_report(record, report):
+    record.seek(0)
+    record.write(json.dumps(report, indent=2) + '\n')
+    record.truncate()
+    record.flush()
+    os.fsync(record.fileno())
+
+
 def main():
+    destination = os.environ.get('ACTION_EVIDENCE_PATH', '')
+    evidence = Path(destination)
+    if not destination.strip() or evidence.name in ('', '.', '..') or destination.endswith('/'):
+        raise RuntimeError('ACTION_EVIDENCE_PATH must name a fresh action evidence file')
     instance_id = os.environ['INSTANCE_ID']
     group, = aws('autoscaling', 'describe-auto-scaling-groups', '--auto-scaling-group-names', os.environ['LAB_ASG'])['AutoScalingGroups']
     target_group, = group['TargetGroupARNs']
@@ -47,13 +59,24 @@ def main():
         'desired_capacity_decremented': False,
         'fis_note': 'FIS template creation was denied with SubscriptionRequiredException; no FIS experiment ran.',
     }
-    evidence = Path(__file__).resolve().parents[1] / 'evidence' / 'experiment.json'
     evidence.parent.mkdir(parents=True, exist_ok=True)
-    evidence.write_text(json.dumps(report, indent=2) + '\n')
-    response = aws('ec2', 'terminate-instances', '--instance-ids', instance_id)
-    report['termination_response'] = response['TerminatingInstances']
-    report['accepted_at'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
-    evidence.write_text(json.dumps(report, indent=2) + '\n')
+    # Exclusive creation arbitrates concurrent runs; keep this descriptor for every update.
+    with evidence.open('x', encoding='utf-8') as record:
+        report['termination_status'] = 'prepared'
+        write_report(record, report)
+        try:
+            response = aws('ec2', 'terminate-instances', '--instance-ids', instance_id)
+            report['termination_response'] = response['TerminatingInstances']
+        except Exception as error:
+            # A CLI/transport error does not prove that AWS rejected the action.
+            report['termination_status'] = 'unconfirmed'
+            report['error'] = type(error).__name__
+            report['failed_at'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+            write_report(record, report)
+            raise
+        report['termination_status'] = 'accepted'
+        report['accepted_at'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        write_report(record, report)
     print('Termination accepted for exact verified lab instance:', instance_id)
 
 
