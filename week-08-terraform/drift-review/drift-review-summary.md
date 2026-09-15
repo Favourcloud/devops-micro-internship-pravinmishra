@@ -6,7 +6,7 @@
 
 ## 1. Change Introduced
 
-I used an explicit synthetic plan fixture that adds a security-group ingress update allowing TCP/22 from `0.0.0.0/0`. The clean fixture has no inbound rules. This is **neither observed true infrastructure drift nor an executed Terraform configuration change**: it models a possible configuration change without deploying it. No real baseline or provider authorization was available. [Fixtures and policy](README.md#fixtures-scope-and-policy) explain the assumptions.
+I used an explicit synthetic plan fixture that adds a security-group ingress update allowing TCP/22 from `0.0.0.0/0`. The clean fixture has no inbound rules. This is **neither observed true infrastructure drift nor an executed Terraform configuration change**: it models a possible configuration change without deploying it. No real baseline has been established. Subsequent read-only AWS preflight verifies access, not deployment readiness. [Fixtures and policy](README.md#fixtures-scope-and-policy) explain the assumptions.
 
 ## 2. Evidence Collected
 
@@ -14,7 +14,7 @@ The Bash checker genuinely processed [detected.json](fixtures/detected.json) and
 
 ## 3. Risk Assessment
 
-The deterministic check reports fixture **FAIL** because unrestricted public SSH is outside the policy. Deletes and both replacement orders also fail in tests. Intentional public TCP/80 or TCP/443 remains **WARN**, requiring a human exception decision, never blanket approval. Unknown or unsupported evidence cannot return unconditional HEALTHY. GitHub Copilot assisted implementation and this explanation; **Claude Code has not run**, so there is no observed Claude recommendation to quote.
+The deterministic check reports fixture **FAIL** because unrestricted public SSH is outside the policy. Deletes and both replacement orders also fail in tests. Intentional public TCP/80 or TCP/443 remains **WARN**, requiring a human exception decision, never blanket approval. Unknown or unsupported evidence cannot return unconditional HEALTHY. GitHub Copilot assisted implementation and this explanation; **no successful Claude Skill review has run**, so there is no observed Claude recommendation to quote. Later tool-free model-access tests failed because the configured local proxy was unavailable.
 
 ## 4. Human-Approved Action
 
@@ -37,4 +37,6 @@ AI may explain evidence but must not mutate infrastructure. The manual Skill dec
 | Human Act | Proposed decision documented; no infrastructure action | Independent human review and authorized resolution |
 | Verify | Separate clean fixture check and passing local validation | Fresh real final plan and Claude review showing intended alignment |
 
-This is a tested local harness for **Gather → Analyze → Human Act → Verify**, not a completed live agentic loop. Six genuine local editor/terminal screenshots (3, 4, 5, 6, 9 and 14) are attached to the submission with [capture provenance](screenshots/manifest.json). They show actual source/configuration and Bash validation, not live infrastructure or Claude execution. The other 13 numbered screenshots and publication evidence remain pending; no LinkedIn post or URL has been created.
+This is a tested local harness for **Gather → Analyze → Human Act → Verify**, not a completed live agentic loop. Seven genuine local editor/terminal screenshots (2, 3, 4, 5, 6, 9 and 14) are attached with [capture provenance](screenshots/manifest.json). They show the actual workspace/source/configuration and Bash validation, not a live baseline or Claude review. The other 12 numbered screenshots and publication evidence remain pending; no LinkedIn post or URL has been created.
+
+The [sanitized preflight record](reports/live-preflight.json) separately records non-root AWS authentication, successful tagged creation authorization in dry-run mode, and local validation of the two prepared Terraform roots. No AWS resources were created. Cleanup permissions remain unverified because IAM policy inspection is denied; Claude's configured loopback proxy refuses connections. [Preparation and recovery instructions](README.md#terraform-preparation-and-current-access-blockers) describe the blockers without requesting secrets or treating local preparation as operational completion.

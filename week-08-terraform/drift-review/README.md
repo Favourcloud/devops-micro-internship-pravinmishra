@@ -2,7 +2,7 @@
 
 **Student: Eze Favour. Status: local branch-only implementation; not merged or published.**
 
-This isolated project implements the assignment's local artifacts, not its operational completion. Six genuine local editor/terminal screenshots are attached; no real Terraform plan, cloud request, apply, destroy, Claude Skill invocation, or LinkedIn publication was performed. There is no Terraform scaffold or paid resource here. The existing worktree's other labs and active root Claude settings are unchanged by this project.
+This isolated project implements the assignment's local artifacts, not its operational completion. Seven genuine local editor/terminal screenshots are attached. Read-only AWS preflight and local Terraform preparation are now recorded, but no real Terraform plan/apply/destroy, successful Claude Skill review, or LinkedIn publication was performed. No new AWS resources were created. The existing worktree's other labs and active root/personal Claude settings are unchanged by this project.
 
 - [Assignment submission](../assignment-06-ai-assisted-terraform-drift-and-policy-review.md)
 - [Seven-section summary](drift-review-summary.md)
@@ -17,14 +17,32 @@ Captured on 15 September 2026 in an isolated **Visual Studio Code 1.137.0** prof
 
 | Screenshot | Evidence |
 | --- | --- |
-| [3](screenshots/screenshot-03-context.png) | `CLAUDE.md` and all four context/safety sections |
+| [2](screenshots/screenshot-02-workspace.png) | Actual workspace with `AI Assignment/`, `reports/` and the prepared Terraform projects; not a deployed baseline |
+| [3](screenshots/screenshot-03-context.png) | `CLAUDE.md` and all four context/safety sections; recaptured after the preparation update |
 | [4](screenshots/screenshot-04-variables-checks.png) | Bash variables and `checks` array |
 | [5](screenshots/screenshot-05-policy-checks.png) | Both check functions and relevant jq ingress logic in split view |
 | [6](screenshots/screenshot-06-validation-permissions.png) | Actual `bash -n` exit 0, executable permissions and source hash |
 | [9](screenshots/screenshot-09-skill-configuration.png) | Skill frontmatter, allowed tools and safety rules |
 | [14](screenshots/screenshot-14-hook-configuration.png) | `PreToolUse` configuration, not a runtime invocation |
 
-For screenshot 6, `ls -l -g -o` omits local owner/group names while preserving the real permissions output. These six images do not establish a live baseline, a Claude session, a successful hook load or a human-applied resolution. Screenshots **1, 2, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18 and 19**, plus the LinkedIn publication screenshot, remain pending. No placeholder was replaced with synthetic live evidence.
+For screenshot 6, `ls -l -g -o` omits local owner/group names while preserving the real permissions output. These seven images do not establish a live baseline, a successful Claude review, a hook load or a human-applied resolution. Screenshots **1, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18 and 19**, plus the LinkedIn publication screenshot, remain pending. No placeholder was replaced with synthetic live evidence.
+
+## Terraform preparation and current access blockers
+
+The [sanitized preflight record](reports/live-preflight.json) is **read-only access evidence, not a deployment report**. Both prepared projects passed `terraform fmt -check` and `terraform validate -json` with Terraform 1.13.5 and the pinned AWS provider 6.64.0. Validation ran against byte-identical source/lock files in the existing private initialized prototypes; no provider binaries, state, account bindings or credentials are committed.
+
+- [Network project](terraform/network/main.tf): one isolated VPC, with no subnet, gateway, public IP, compute instance, endpoint or workload.
+- [Review project](terraform/security-group/main.tf): one unattached security group with empty ingress and egress by default. The `test_public_ssh` switch is **for an unapplied plan only**. Never apply with it enabled.
+- These are deliberately separate Terraform roots/states. The existing checker supports security-group ingress, not VPC policy; review the entire security-group plan without filtering resources to force HEALTHY. A healthy result cannot certify the support VPC, AWS-created default network objects or the account's overall security posture.
+- Both providers require the explicit `dmi-week8` profile, `ap-south-1`, a private verified `expected_account_id`, and the fixed `DmiLab` ownership tag. The security-group project additionally requires the private ID of the dedicated lab VPC. Never substitute an earlier assignment's VPC or state.
+
+**Verified:** the profile authenticates as the intended non-root IAM user. Read-only VPC/security-group checks succeed. `CreateVpc --dry-run` returns `DryRunOperation` with the exact proposed tags; the untagged request is denied. No resources matched `DmiLab=dmi-week8*` in the selected account/region at the recorded time; this is not an account-wide inventory.
+
+**Still blocked:** IAM policy listing/simulation is denied, so scoped deletion permissions are **unverified**, not proven absent. Before any creation, an administrator must confirm that the tagged lab permits VPC/security-group cleanup and Terraform's required tag/attribute/default-egress operations. Do not grant broad AdministratorAccess or fall back to root. Any permission changes must follow the Terraform-managed infrastructure process.
+
+Claude's configured local API proxy refused an unauthenticated connection check; isolated tool-free model tests produced no successful response. Restore the existing proxy, or deliberately configure normal Claude authentication locally. Do not paste secrets into chat or disable the hook to bypass setup. Personal settings were read only to isolate authentication; they were not changed. No project source, raw plans or AWS credentials were sent in the model-access tests.
+
+After these blockers are resolved, review scope/costs and the fresh create plan, establish the actual clean baseline, run the guarded live checker, and collect genuine Claude/human evidence before cleanup. Keep all runtime copies, initialization data, state, private variables and raw evidence inside ignored `.review-data/`. Never run the proposed public-SSH plan through apply. No compute, NAT, public IP or other billable workload component is defined; this does not assert that the whole AWS account or model usage has zero cost.
 
 ## Reproduce without cloud access
 
@@ -79,7 +97,7 @@ The report exposes only fixed descriptions, counts, mode, UTC time and source SH
 
 ## Later human-authorized live evidence gathering — NOT performed
 
-A real clean baseline and remote provider access are not available/authorized for this submission. Do not run this section just to complete local validation. The manual Skill/hook intentionally does **not** allow live mode.
+A real clean baseline has not been established. Non-root AWS preflight now works, but cleanup and Claude connectivity blockers must be resolved before deployment. Do not run this section just to complete local validation. The manual Skill/hook intentionally does **not** allow live mode.
 
 Only a human who has independently authorized a specific trusted, already initialized Terraform project may run the following command in their own terminal. Verify code, provider/data-source binaries (including external programs), backend, selected workspace, variable sources and credentials first. Use read-only credentials where possible; planning may refresh remote state, obtain locks, read remote APIs and execute provider/data-source code. This is not general sandboxing, nor an assurance that every provider has zero side effects.
 
@@ -118,8 +136,8 @@ This guard assumes trusted source files/interpreters/PATH and a correctly loaded
 
 ## Validation, source parity and pending completion
 
-Run `python3.13 tests/run_validation.py --report NEW_PATH` to regenerate sanitized counts, source hashes, fixture results and explicit limitations. The tracked [validation record](reports/local-validation.json) is generated, not hand-written test evidence. It hashes project source/fixtures/docs/reports, all six screenshots and their provenance manifest, and the assignment submission (excluding itself and ignored runtime data); timestamps and runtime durations will differ on rerun. Screenshot regressions check PNG/image hashes, captured source hashes, the six correct attachments and the thirteen remaining numbered placeholders. Hashes are integrity checks, not signed attestations. The original pre-screenshot validation snapshot remains available in Git commit `0fb5b4b`.
+Run `python3.13 tests/run_validation.py --report NEW_PATH` to regenerate sanitized counts, source hashes, fixture results and explicit limitations. The tracked [validation record](reports/local-validation.json) is generated, not hand-written test evidence. It hashes project source/fixtures/docs/sanitized reports, all seven screenshots and their provenance manifest, and the assignment submission (excluding itself and private runtime data, including Terraform state, variables and provider directories); timestamps and runtime durations will differ on rerun. Screenshot regressions check PNG/image hashes, captured source hashes, the seven correct attachments and the twelve remaining numbered placeholders. Hashes are integrity checks, not signed attestations. The original pre-screenshot validation snapshot remains available in Git commit `0fb5b4b`; the original six captures are preserved in `5999ae0`.
 
-[Source metadata](tests/assignment-source.json) records the pinned assignment commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, upstream blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes), and original local blob `921e3a543890792187fd0e502b84759e09426dd0` (14,120 bytes). The only original text difference was the subtitle's `Cohort 3`. Tests retain all required headings/questions, all checklist items, all 19 numbered screenshot sections (six actual attachments and thirteen pending placeholders), and the LinkedIn screenshot placeholder.
+[Source metadata](tests/assignment-source.json) records the pinned assignment commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, upstream blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes), and original local blob `921e3a543890792187fd0e502b84759e09426dd0` (14,120 bytes). The only original text difference was the subtitle's `Cohort 3`. Tests retain all required headings/questions, all checklist items, all 19 numbered screenshot sections (seven actual attachments and twelve pending placeholders), and the LinkedIn screenshot placeholder.
 
-Pending: authorized real clean baseline and final plan, actual Claude Skill/hook sessions, actual controlled infrastructure/configuration difference and classification, independent human resolution, the remaining 13 numbered screenshots, and LinkedIn post/URL/screenshot. Required report filenames alone do not complete Task 8. GitHub Copilot assisted code, tests and draft answers; that assistance is not evidence of Claude reasoning or a live operational outcome.
+Pending: confirmed cleanup permissions and restored Claude connectivity, authorized real clean baseline and final plan, actual Claude Skill/hook sessions, actual controlled infrastructure/configuration difference and classification, independent human resolution, the remaining 12 numbered screenshots, and LinkedIn post/URL/screenshot. Required report filenames alone do not complete Task 8. GitHub Copilot assisted code, tests and draft answers; that assistance is not evidence of Claude reasoning or a live operational outcome.

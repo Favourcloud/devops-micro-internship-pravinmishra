@@ -19,3 +19,4 @@ reports/*
 !reports/drift-detected-report.txt
 !reports/resolved-report.txt
 !reports/local-validation.json
+!reports/live-preflight.json

@@ -368,6 +368,7 @@ class HookTests(unittest.TestCase):
 
 class SubmissionTests(unittest.TestCase):
     captures = {
+        2: ("screenshot-02-workspace.png", {"terraform/network/main.tf"}),
         3: ("screenshot-03-context.png", {"CLAUDE.md"}),
         4: ("screenshot-04-variables-checks.png", {"AI Assignment/tf-drift-check.sh"}),
         5: ("screenshot-05-policy-checks.png", {"AI Assignment/tf-drift-check.sh", "lib/ingress.jq"}),
@@ -385,7 +386,7 @@ class SubmissionTests(unittest.TestCase):
         for item in metadata["required_checklist"]:
             self.assertTrue(any(line in ("- [ ] " + item, "- [x] " + item) for line in lines), item)
         self.assertEqual(len(re.findall(r"^### Screenshot \d+ —", submission, re.M)), 19)
-        self.assertEqual(submission.count("Add your screenshot here."), 13)
+        self.assertEqual(submission.count("Add your screenshot here."), 19 - len(self.captures))
         sections = {int(number): body for number, body in re.findall(
             r"^### Screenshot (\d+) — [^\n]+\n(.*?)(?=^### Screenshot \d+ —|\Z)", submission, re.M | re.S)}
         self.assertEqual(set(sections), set(range(1, 20)))
@@ -423,6 +424,44 @@ class SubmissionTests(unittest.TestCase):
                 self.assertEqual(set(item["source_sha256"]), sources)
                 for path, expected_hash in item["source_sha256"].items():
                     self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), expected_hash, path)
+
+    def test_prepared_terraform_and_preflight_boundaries(self):
+        text = (ROOT / "reports/live-preflight.json").read_text()
+        record = json.loads(text)
+        self.assertEqual(record["status"], "BLOCKED")
+        self.assertIs(record["identity"]["root"], False)
+        self.assertIs(record["aws_mutations_performed"], False)
+        self.assertIs(record["real_terraform_plan_performed"], False)
+        self.assertIs(record["claude_skill_or_hook_exercised"], False)
+        self.assertEqual(record["aws_checks"]["create-vpc-tagged"], "DryRunOperation")
+        self.assertIn("UNVERIFIED", record["cleanup_permissions"])
+        self.assertNotRegex(text, r"(?:AKIA|ASIA)[A-Z0-9]{16}|arn:aws:|/Users/|\b[0-9]{12}\b")
+        self.assertEqual(len(record["source_sha256"]), 4)
+        for source, expected in record["source_sha256"].items():
+            with self.subTest(source=source):
+                self.assertEqual(hashlib.sha256((ROOT / source).read_bytes()).hexdigest(), expected)
+        resources = []
+        for project in ("network", "security-group"):
+            source = (ROOT / "terraform" / project / "main.tf").read_text()
+            resources.extend(re.findall(r'resource "([^"]+)"', source))
+            self.assertIn('profile             = "dmi-week8"', source)
+            self.assertIn('allowed_account_ids = [var.expected_account_id]', source)
+            self.assertIn('DmiLab = "dmi-week8-a6-favour-20260915"', source)
+            self.assertTrue(record["terraform_validation"][project]["valid"])
+        self.assertEqual(resources, ["aws_vpc", "aws_security_group"])
+        self.assertIn('default     = false', (ROOT / "terraform/security-group/main.tf").read_text())
+
+    def test_private_terraform_artifacts_are_not_hashed(self):
+        from run_validation import is_private_artifact
+        for path in ("terraform/network/.terraform/providers/provider", "terraform/network/terraform.tfstate",
+                     "terraform/network/terraform.tfstate.backup", "terraform/network/private.tfvars",
+                     "terraform/security-group/private.tfvars.json", "terraform/network/create.tfplan.json",
+                     "terraform/network/tfplan.json", "terraform/network/plan.binary", ".review-data/private.json"):
+            with self.subTest(private=path):
+                self.assertTrue(is_private_artifact(Path(path)))
+        for path in ("terraform/network/main.tf", "terraform/network/.terraform.lock.hcl", "reports/live-preflight.json"):
+            with self.subTest(source=path):
+                self.assertFalse(is_private_artifact(Path(path)))
 
     def test_local_markdown_links(self):
         docs = list(ROOT.rglob("*.md")) + [ROOT.parent / "assignment-06-ai-assisted-terraform-drift-and-policy-review.md"]

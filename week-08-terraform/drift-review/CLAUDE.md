@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is Week 08 Assignment 06's local review harness, not a Terraform deployment. It contains no infrastructure scaffold and provisions nothing. All committed plans and reports are synthetic demonstration data. A real clean baseline, provider access, Claude runtime invocation, live-workflow screenshots, human infrastructure resolution, and publication remain pending.
+This is Week 08 Assignment 06's local review harness, not a completed Terraform deployment. Separate Terraform preparation defines an isolated VPC and an unattached security group; neither has been deployed here. Fixture plans and drift reports are synthetic. The preflight record proves non-root AWS access and tagged creation authorization only. Cleanup permissions, a working Claude connection, a real clean baseline, live-workflow screenshots, human resolution and publication remain pending.
 
 ## Review Workflow
 

@@ -2,6 +2,7 @@
 """Generate sanitized local-only validation evidence; no real Terraform calls."""
 import argparse
 from datetime import datetime, timezone
+from fnmatch import fnmatch
 import hashlib
 import io
 import json
@@ -12,6 +13,13 @@ import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def is_private_artifact(relative):
+    return (any(part in {".review-data", "__pycache__", ".terraform"} or part.startswith(".review-run-")
+                for part in relative.parts)
+            or any(fnmatch(relative.name, pattern) for pattern in
+                   ("*.pyc", "*.tfstate*", "*.tfplan*", "*.binary", "*.log", "*.tfvars", "*.tfvars.json", "crash.*", "tfplan*.json")))
 
 
 class CountedResult(unittest.TextTestResult):
@@ -39,7 +47,7 @@ def main():
         stream = io.StringIO()
         result = unittest.TextTestRunner(stream=stream, verbosity=2, resultclass=CountedResult).run(suite)
         sources = [path for path in ROOT.rglob("*") if path.is_file()
-                   and not any(part in {".review-data", "__pycache__"} or part.startswith(".review-run-") for part in path.relative_to(ROOT).parts)
+                   and not is_private_artifact(path.relative_to(ROOT))
                    and path != output and path.relative_to(ROOT).as_posix() != "reports/local-validation.json"]
         sources.append(ROOT.parent / "assignment-06-ai-assisted-terraform-drift-and-policy-review.md")
         hashes = {os.path.relpath(path, ROOT): hashlib.sha256(path.read_bytes()).hexdigest() for path in sorted(sources)}
@@ -73,7 +81,8 @@ def main():
                 "No cloud API calls, live baseline, deployed change, human apply, or final infrastructure verification.",
                 "Hook tested using JSON stdin and exit codes only, never an actual apply attempt.",
                 "Claude Skill and effective settings integration not run; no Claude screenshots or transcripts.",
-                "Six genuine local screenshots (3, 4, 5, 6, 9, 14) are attached; the other 13 numbered screenshots and LinkedIn publication/URL/screenshot remain pending.",
+                "Seven genuine local screenshots (2, 3, 4, 5, 6, 9, 14) are attached; the other 12 numbered screenshots and LinkedIn publication/URL/screenshot remain pending.",
+                "Separate live-preflight.json records real read-only AWS checks and local Terraform validation; this test run does not repeat those calls or establish deployment readiness.",
                 "HEALTHY fixture output is not actual infrastructure health or authorization to mutate.",
                 "Hashes identify the tested local source snapshot, not an upstream deployment or a signed attestation."
             ],

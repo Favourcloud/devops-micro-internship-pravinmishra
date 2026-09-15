@@ -9,7 +9,7 @@
     "Code/configuration views do not prove Claude loaded or invoked the Skill or hook.",
     "The terminal records actual local Bash syntax and permissions checks, not Terraform or cloud activity.",
     "Hashes identify captured bytes and source snapshots; they are not signed attestations.",
-    "Screenshots 1, 2, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18 and 19 plus the LinkedIn publication screenshot remain pending."
+    "Screenshots 1, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18 and 19 plus the LinkedIn publication screenshot remain pending."
   ],
   "terminal_commands": [
     "bash -n \"AI Assignment/tf-drift-check.sh\"",
@@ -27,16 +27,28 @@
   },
   "screenshots": [
     {
-      "number": 3,
-      "file": "screenshot-03-context.png",
-      "captured_at_utc": "2026-09-15T15:15:18+00:00",
-      "sha256": "4912b75d675c35916655974caa77b2ae62527c5a48b1ba3b6aeaee4b5383a3c9",
+      "number": 2,
+      "file": "screenshot-02-workspace.png",
+      "captured_at_utc": "2026-09-15T16:51:49+00:00",
+      "sha256": "5b6b488f03d684ec67c0dbb53d77be39565a38d27781f9ca99a364af749097a9",
       "source_sha256": {
-        "CLAUDE.md": "3b3baa2195a353fee59047fb82e018fc9102daeb897e24fe5cd07f8b0d6b7479"
+        "terraform/network/main.tf": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93"
       },
       "image_modified": false,
-      "width_pixels": 3500,
-      "height_pixels": 2010
+      "width_pixels": 3584,
+      "height_pixels": 2022
+    },
+    {
+      "number": 3,
+      "file": "screenshot-03-context.png",
+      "captured_at_utc": "2026-09-15T16:52:12+00:00",
+      "sha256": "9cae8561bee9ff95d3e0e620e237545c8cea87129207e7f106f9b3b533799d16",
+      "source_sha256": {
+        "CLAUDE.md": "17877e59953532fdcbce643e2f453b0daea9a383b13eced8163021fda37b765a"
+      },
+      "image_modified": false,
+      "width_pixels": 3584,
+      "height_pixels": 2022
     },
     {
       "number": 4,
@@ -99,5 +111,6 @@
       "width_pixels": 3500,
       "height_pixels": 2010
     }
-  ]
+  ],
+  "followup_note": "Screenshot 2 records the prepared local workspace, not a deployment. Screenshot 3 was genuinely recaptured after its source changed. The original six captures remain in Git commit 5999ae0."
 }

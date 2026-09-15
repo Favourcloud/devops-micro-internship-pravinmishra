@@ -20,14 +20,15 @@ The URL is the intended source folder on `main`; these deliverables are currentl
 | Deterministic policy/hook tests | [Tests](drift-review/tests/test_review.py), [generated validation record](drift-review/reports/local-validation.json) | Local subprocess validation only; fake Terraform for exit-code tests |
 | Required report filenames | [Detected report](drift-review/reports/drift-detected-report.txt), [resolved report](drift-review/reports/resolved-report.txt) | Generated from explicit synthetic fixtures; **not live infrastructure evidence** |
 | Seven-section summary | [drift-review-summary.md](drift-review/drift-review-summary.md) | Completed for actual local work and explicit limitations |
-| Clean/final baseline, controlled live change, human resolution | No authorized real plan/provider access | **Pending — Tasks 1, 4, 6 and 8 operational outcomes not completed** |
-| Claude invocation and actual hook integration | Only JSON-input hook simulation, no Claude execution | **Pending — Tasks 5 and 7 runtime evidence** |
-| Local screenshots 3, 4, 5, 6, 9 and 14 | Six genuine VS Code/terminal captures embedded below; [capture provenance](drift-review/screenshots/manifest.json) | **Captured — local source/configuration and actual syntax/permissions checks only** |
-| Remaining screenshots and LinkedIn publication | 13 numbered placeholders and publication evidence retained below | **Pending; nothing posted and no live evidence fabricated** |
+| Terraform preparation and AWS access | [Two isolated Terraform roots](drift-review/README.md#terraform-preparation-and-current-access-blockers), [sanitized preflight](drift-review/reports/live-preflight.json) | Local validation passed; non-root authentication and tagged creation dry-run verified; cleanup permissions unverified |
+| Clean/final baseline, controlled live change, human resolution | No real plan or new deployment; cleanup and Claude connectivity blockers remain | **Pending — Tasks 1, 4, 6 and 8 operational outcomes not completed** |
+| Claude invocation and actual hook integration | JSON-input hook simulation only; model-access tests could not reach the configured local proxy | **Pending — Tasks 5 and 7 runtime evidence** |
+| Local screenshots 2, 3, 4, 5, 6, 9 and 14 | Seven genuine VS Code/terminal captures embedded below; [capture provenance](drift-review/screenshots/manifest.json) | **Captured — workspace/source/configuration and actual syntax/permissions checks only** |
+| Remaining screenshots and LinkedIn publication | 12 numbered placeholders and publication evidence retained below | **Pending; nothing posted and no live evidence fabricated** |
 
-**Evidence boundary:** Every report marked `FIXTURE` is an offline demonstration. A synthetic `HEALTHY` is not my actual infrastructure baseline. The existence of both report filenames does not complete Task 8. No live Terraform plan/apply/destroy or cloud API request was made. GitHub Copilot assisted the implementation, tests, draft answers and local capture setup; I have not invoked the implemented Claude Skill. Screenshots 3, 4, 5, 6, 9 and 14 are genuine local captures with Eze Favour visible. The other 13 numbered screenshots and LinkedIn publication screenshot remain pending. Static Skill/hook screenshots do not prove runtime invocation.
+**Evidence boundary:** Every report marked `FIXTURE` is an offline demonstration. A synthetic `HEALTHY` is not my actual infrastructure baseline. The existence of both report filenames does not complete Task 8. Read-only AWS identity/permission checks and local Terraform validation were performed, but no real Terraform plan/apply/destroy or AWS resource mutation occurred. GitHub Copilot assisted the implementation, tests, draft answers, preparation and local capture setup; the implemented Claude Skill has not run successfully. Screenshots 2, 3, 4, 5, 6, 9 and 14 are genuine local captures with Eze Favour visible. The other 12 numbered screenshots and LinkedIn publication screenshot remain pending. Static Skill/hook screenshots and failed model-connectivity tests do not prove runtime review.
 
-**Source parity:** Compared the complete original template with pinned upstream commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes). The original local template only added `Cohort 3` to its opening subtitle. All required headings, questions, 19 numbered screenshot sections, publication placeholders, and checklist items are preserved. Six numbered placeholders now contain genuine local captures; 13 remain pending. [Metadata and regression checks](drift-review/tests/assignment-source.json) record the original requirements.
+**Source parity:** Compared the complete original template with pinned upstream commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes). The original local template only added `Cohort 3` to its opening subtitle. All required headings, questions, 19 numbered screenshot sections, publication placeholders, and checklist items are preserved. Seven numbered placeholders now contain genuine local captures; 12 remain pending. [Metadata and regression checks](drift-review/tests/assignment-source.json) record the original requirements.
 
 ---
 
@@ -68,7 +69,9 @@ Add your screenshot here.
 
 Add a screenshot of the folder structure showing `AI Assignment/`, `reports/`, and the Terraform project.
 
-Add your screenshot here.
+![Screenshot 2 — Eze Favour's real VS Code workspace with AI Assignment, reports and prepared Terraform projects](drift-review/screenshots/screenshot-02-workspace.png)
+
+Captured locally on 15 September 2026. The prepared Terraform source is real and locally validated; this workspace screenshot does not establish a deployed baseline. Cleanup permissions and Claude connectivity remain unresolved.
 
 ## Questions
 
@@ -96,7 +99,7 @@ Add a screenshot of `CLAUDE.md` open in VS Code showing the Project Overview, Re
 
 ![Screenshot 3 — Eze Favour's project context and four safety/workflow sections in VS Code](drift-review/screenshots/screenshot-03-context.png)
 
-Captured locally on 15 September 2026. This shows the actual context file, not a Claude invocation.
+Recaptured locally on 15 September 2026 after updating the context for Terraform preparation and access blockers. This shows the actual context file, not a Claude invocation; the prior image remains in Git history.
 
 ## Questions
 
@@ -612,7 +615,7 @@ Checked items mean **local implementation/fixture validation only**, not live in
 - [x] Included the GitHub repository/folder URL
 - [ ] Confirmed that no sensitive information is exposed
 
-The checked Skill restrictions are configuration/static checks, not a claimed runtime invocation. The mapping documents which loop stages remain pending. Local generated reports are sanitized and secret-canary tests pass. The six attached local screenshots were reviewed before committing; all 19 screenshot and final publication/redaction checklist items remain open because 13 numbered captures and publication evidence are still missing.
+The checked Skill restrictions are configuration/static checks, not a claimed runtime invocation. The mapping documents which loop stages remain pending. Local generated reports are sanitized and secret-canary tests pass. The seven attached local screenshots were reviewed before committing; all 19 screenshot and final publication/redaction checklist items remain open because 12 numbered captures and publication evidence are still missing.
 
 ---
 
