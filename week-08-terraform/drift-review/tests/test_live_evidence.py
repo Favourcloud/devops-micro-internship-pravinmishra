@@ -115,15 +115,27 @@ class LiveEvidenceTests(unittest.TestCase):
         self.assertIn("[PRIVATE PLAN PATH]", execution)
 
     def test_git_excludes_raw_data_but_includes_named_exports(self):
+        def assert_ignored(path, expected):
+            # Older Git versions return 0 even for a matching !include rule.
+            # Inspect the NUL-delimited final rule, not that ambiguous status.
+            process = subprocess.run(
+                ["git", "check-ignore", "--no-index", "--verbose", "-z", "--stdin"],
+                input=str(path).encode() + b"\0", capture_output=True, cwd=ROOT)
+            self.assertEqual(process.returncode, 0)
+            fields = process.stdout.split(b"\0")
+            self.assertEqual(len(fields), 5)
+            self.assertEqual(fields[-1], b"")
+            self.assertEqual(fields[3], str(path).encode())
+            self.assertTrue(fields[2], "Every evidence path needs an explicit rule")
+            self.assertEqual(not fields[2].startswith(b"!"), expected)
+
         for path in (ROOT / ".review-data/private.json", ROOT / "reports/live/raw.log",
                      ROOT / "reports/live/unreviewed.json", ROOT.parents[1] / ".review-data/private.json"):
             with self.subTest(private=str(path.relative_to(ROOT.parents[1]))):
-                process = subprocess.run(["git", "check-ignore", "--no-index", "-q", str(path)], cwd=ROOT)
-                self.assertEqual(process.returncode, 0)
+                assert_ignored(path, True)
         for path in LIVE.iterdir():
             with self.subTest(public=path.name):
-                process = subprocess.run(["git", "check-ignore", "--no-index", "-q", str(path)], cwd=ROOT)
-                self.assertEqual(process.returncode, 1)
+                assert_ignored(path, False)
 
 
 if __name__ == "__main__":
