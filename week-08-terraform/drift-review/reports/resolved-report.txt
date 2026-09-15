@@ -1,0 +1,21 @@
+SYNTHETIC FIXTURE DEMONSTRATION — NOT DEPLOYED INFRASTRUCTURE EVIDENCE
+Reviewer: Eze Favour
+Timestamp UTC: 2026-09-15T14:34:44+00:00
+Mode: FIXTURE
+Overall Status: HEALTHY
+Plan provenance: explicit offline synthetic JSON input
+Plan SHA256: c631b7d9a656cae8b9577f45259e801eaed60088d5ca7233aaa938a6daba233c
+Terraform detailed exit code: not run
+Destructive resource actions: 0
+Unsafe public ingress findings: 0
+Public TCP HTTP/HTTPS exceptions requiring review: 0
+Unknown or unsupported evidence findings: 0
+Non-no-op resource changes: 0
+Non-no-op output changes: 0
+Refresh drift entries: 0
+Result: No pending changes or policy findings in the supported evidence scope.
+Scope: deletes/replacements and supported AWS security-group ingress only.
+HEALTHY means no findings or pending changes in this limited evidence, never global safety.
+This report never authorizes apply, destroy, or auto-approve.
+Raw values, resource identifiers, credentials, paths, and provider logs are intentionally omitted.
+SYNTHETIC FIXTURE DEMONSTRATION — NOT DEPLOYED INFRASTRUCTURE EVIDENCE

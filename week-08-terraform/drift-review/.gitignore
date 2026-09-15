@@ -1,0 +1,21 @@
+# This assignment explicitly requires context even if the parent ignores it.
+!CLAUDE.md
+# Only reviewed, sanitized fixture demonstrations are versioned.
+.review-data/
+.review-run-*/
+**/.review-run-*/
+__pycache__/
+*.pyc
+.terraform/
+*.tfstate*
+*.tfplan
+*.binary
+*.log
+*.tfvars
+*.tfvars.json
+crash.*
+tfplan*.json
+reports/*
+!reports/drift-detected-report.txt
+!reports/resolved-report.txt
+!reports/local-validation.json
