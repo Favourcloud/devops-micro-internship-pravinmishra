@@ -11,7 +11,7 @@ This Terraform project builds an **isolated** VPC rather than modifying Assignme
 - Ubuntu 22.04, Nginx, non-root systemd Python service, server-rendered HTML forms, **no JavaScript**. The launch template embeds the app in compressed cloud-init user data.
 - Private, encrypted **MySQL 8.4 Multi-AZ RDS**, with a subnet group covering both private AZs. MySQL ingress only from the web security group; TLS and server certificate verification required.
 - RDS generates its master password in Secrets Manager. EC2 retrieves it via a narrowly scoped instance role; no password in source code, user data, outputs or Terraform variables. The local environment file is root-readable only and systemd passes it to the service.
-- SSM manages instances without SSH keys. SSH is closed by default (a deliberate safer alternative to the assignment's optional operator `/32` rule). `ssh_cidr` can add a `/32` rule, but a key pair is not provisioned.
+- SSM manages instances without SSH keys. SSH is closed by default (a deliberate safer alternative to the assignment's requested operator `/32` rule). `ssh_cidr` can add a `/32` rule, but a key pair is not provisioned.
 - Single NAT Gateway for private-subnet outbound routing as requested. **Not redundant egress**: loss of its AZ would affect outbound access. The database does not need NAT for traffic from the web tier.
 
 ```mermaid
@@ -43,9 +43,24 @@ flowchart TB
 
 Use Terraform >=1.13, AWS CLI and Python 3. Authenticate locally using a least-privilege role or SSO; never paste credentials into files or chat. The deployment region defaults to `us-east-1`.
 
-This lab creates chargeable resources. Do not assume free-tier eligibility. A rough on-demand planning range is **$140–$180/month** if left running continuously, before tax and substantial traffic. Actual account pricing/credits determine the bill. ALB hours/LCUs, NAT hours/data, Multi-AZ RDS compute/storage, two EC2 instances, EBS, public IPv4, Secrets Manager and logs all contribute. The intended run is a short lab followed by teardown, not a month-long deployment.
+This lab creates chargeable resources. Do not assume free-tier eligibility. Read-only AWS Price List queries on **15 September 2026**, matched to the Terraform configuration in `us-east-1`, give the following 730-hour monthly planning baseline. See the [SKU/rate record and assumptions](evidence/retest-cost-estimate.json).
 
-Useful pricing references: [ALB](https://aws.amazon.com/elasticloadbalancing/pricing/), [VPC/NAT/IPv4](https://aws.amazon.com/vpc/pricing/), [RDS MySQL](https://aws.amazon.com/rds/mysql/pricing/), [FIS](https://aws.amazon.com/fis/pricing/). This is a planning estimate, not a billing guarantee.
+| Component | Baseline quantity | Estimated monthly USD |
+| --- | --- | ---: |
+| Linux `t3.micro` web instances | 2 | 15.18 |
+| MySQL `db.t3.micro` Multi-AZ pair | 1 pair | 24.82 |
+| Web gp3 EBS | 20 GB total | 1.60 |
+| RDS Multi-AZ gp3 storage | 20 GB, replicated rate | 4.60 |
+| Zonal NAT Gateway | 1 | 32.85 |
+| ALB | 1 | 16.43 |
+| ALB capacity allowance | 1 LCU | 5.84 |
+| Public IPv4 | 5: two web, two ALB minimum, one NAT | 18.25 |
+| Managed database secret | 1 | 0.40 |
+| **Baseline subtotal** | | **119.97** |
+
+Four continuously running web instances, their EBS and two additional public IPs raise that subtotal to **$144.05/month**. The RDS Multi-AZ rates already cover the standby; do not double them again. An LCU is a planning allowance, not a usage cap. NAT data, inter-AZ/internet traffic, CPU surplus credits, logs, backup overage, API requests, extra ALB capacity/IPs, taxes and existing Assignment 4 charges are additional. The earlier $140–$180 range included headroom; neither range is a guaranteed maximum.
+
+Useful pricing references: [EC2](https://aws.amazon.com/ec2/pricing/on-demand/), [EBS](https://aws.amazon.com/ebs/pricing/), [ALB](https://aws.amazon.com/elasticloadbalancing/pricing/), [VPC/NAT/IPv4](https://aws.amazon.com/vpc/pricing/), [RDS MySQL](https://aws.amazon.com/rds/mysql/pricing/), [Secrets Manager](https://aws.amazon.com/secrets-manager/pricing/). This is a planning estimate, not an invoice or free-tier claim.
 
 Terraform state, saved plans and local logs are ignored by Git. They can contain sensitive metadata even though RDS manages the password. Protect them. Never delete state while resources still exist. Existing Assignment 4 resources are not imported into this state and must not be destroyed by it.
 
@@ -132,8 +147,25 @@ python3 scripts/verify-snapshot.py evidence/recovered.json
 
 For another experiment, use a fresh evidence directory rather than overwriting this run's records, and remove stale monitor stop markers before starting.
 
+## Local resilience follow-up and proposed retest
+
+The post-run application handles SIGTERM by stopping new admission and giving active handlers up to **10 seconds** to finish. Local HTTP/subprocess tests verify completed responses, bounded draining and clean exit. This helps orderly service shutdown, not abrupt host loss, and is not coordinated ALB target draining. The monitor now records malformed/truncated HTTP protocol errors as failed samples and continues sampling; it does not retry requests or discard failures.
+
+**No new AWS test has run.** These changes do not alter the recorded 283/287 or 260/260 results, and must not be presented as proof that the strict zero-interruption gap is fixed.
+
+Before another deployment:
+
+1. Obtain the user's explicit approval for the test scope and a **proposed $5 planning allowance**. It is not an enforced cap, and is not approved by this document. A four-hour normalized baseline/surge equivalent is about **$0.66–$0.79**, before the extras and billing minimums listed above. The allowance provides contingency, not a guarantee.
+2. Resolve the [instructor questions](RESULTS.md#rubric-questions-awaiting-instructor-confirmation). Do not pay for another run merely to chase a lucky zero-failure sample. Clarify the success criterion for abrupt termination versus orderly draining.
+3. Validate locally, review a fresh Terraform plan and use a new timestamped evidence directory. Adapt cleanup verification to the new run's exact resource IDs before proceeding; leave Assignment 4 excluded.
+4. Start the clock with deployment. Abort testing if two healthy targets across AZs and working database reads/writes are not established within **60 minutes**. Retain unchanged first-attempt probe settings: five-second timeout, one-second spacing, no retries.
+5. If approved, record Test A and Test B separately with timestamps and console/API evidence. Count every failure. Any orderly SIGTERM/draining exercise is an additional test, not a replacement label for abrupt EC2 termination or a full AZ outage.
+6. Begin reviewed Terraform teardown no later than **120 minutes** after deployment starts, reserving the rest of a **four-hour target window** for cleanup. Continue supervised cleanup if deletion takes longer; do not delete state or abandon resources to meet the clock. Confirm empty state and lab-scoped residual checks, preserve Assignment 4, then report final observations and later billing separately.
+
+No timer, budget alarm or automatic cost cutoff has been installed. AWS billing/alerts can lag; they cannot guarantee the proposed allowance will not be exceeded. No AWS redeployment is authorized by these instructions alone.
+
 ## Submission
 
 Keep checks incomplete until backed by actual evidence. The JSON snapshots deliberately redact account IDs (including ARN account segments), exclude secret values, and retain resource IDs/AZs for traceability. Add matching redacted screenshots where the assignment explicitly requests screenshots.
 
-The user-authorized [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) was published and verified on 15 September 2026 with an evidence image and alternative text. See the [actual post screenshot](evidence/linkedin-post.png), [publication record](evidence/linkedin-publication.json), and [proof graphic source](evidence/linkedin-proof.svg). The proof graphic is a labeled rendering of actual CLI/probe results, not an AWS Console screenshot. Publication does not imply a grade or completion of the outstanding availability and historical-image redaction requirements.
+The user-authorized [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) was published and verified on 15 September 2026 with an evidence image and alternative text. See the [actual post screenshot](evidence/linkedin-post.png), [publication record](evidence/linkedin-publication.json), and [proof graphic source](evidence/linkedin-proof.svg). The proof graphic is a labeled rendering of actual CLI/probe results, not an AWS Console screenshot. Publication does not imply a grade or satisfaction of the outstanding availability/rubric requirements. All 20 historical Assignment 5 PNGs were reviewed; 17 now have opaque redactions of account details, the database connection command and the operator IP where present. The [redaction manifest](evidence/historical-redactions.json) records masks, hashes, pixel-integrity checks and OCR limitations. Earlier Git history and other assignments were not scrubbed or certified; the broad “No sensitive data exposed” checkbox remains unchecked.

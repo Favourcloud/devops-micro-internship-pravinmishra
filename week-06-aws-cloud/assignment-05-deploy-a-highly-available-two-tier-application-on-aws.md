@@ -17,7 +17,7 @@ A new, isolated Terraform lab was deployed in `us-east-1` without modifying Assi
 - Abrupt termination triggered replacement, but **4 of 287 readiness probes failed**. Recovery is demonstrated; the strict zero-interruption criterion is **not**.
 - Controlled web-tier AZ evacuation and restoration recorded **260 successful probes and no failures**. This was not a full AWS AZ outage or database failover test.
 - [Architecture evidence](assignment-05-ha/evidence/architecture-evidence.png) and [test-results evidence](assignment-05-ha/evidence/availability-evidence.png) are clearly labeled renderings of actual redacted CLI data, not AWS Console screenshots.
-- Terraform destroyed all 37 temporary lab resources after evidence capture. [Cleanup verification](assignment-05-ha/evidence/cleanup.json) confirms empty state, no residual resources in the checked categories and preservation of Assignment 4. The [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) is published and verified with its proof image; historical-image redaction remains pending. No grade is claimed.
+- Terraform destroyed all 37 temporary lab resources after evidence capture. [Cleanup verification](assignment-05-ha/evidence/cleanup.json) confirms empty state, no residual resources in the checked categories and preservation of Assignment 4. The [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) is published and verified with its proof image. All 20 historical Assignment 5 PNGs were inspected and 17 redacted ([manifest](assignment-05-ha/evidence/historical-redactions.json)); earlier Git history and other assignments are not certified. No grade is claimed.
 
 The following 13 September audit and screenshots are retained as **historical evidence**, not as captures of this new deployment.
 
@@ -115,9 +115,9 @@ Launch a private, Multi-AZ RDS database (MySQL or PostgreSQL) using the private 
 
 ---
 
-#### Screenshot 10 — Available ha-mysql-db instance and connection instructions
+#### Screenshot 10 — Available ha-mysql-db instance with connection command redacted
 
-![ha-mysql-db summary and MySQL connection instructions](<Screenshot week6 assign5 task3 scrn10.png>)
+![ha-mysql-db summary with the database connection command redacted](<Screenshot week6 assign5 task3 scrn10.png>)
 
 Neither capture explicitly shows **Multi-AZ = Yes**, **Publicly accessible = No**, the DB subnet-group membership, or the attached DB security group. The disabled Internet access gateway shown in Screenshot 10 is not a substitute for the RDS public-access setting. Supply those settings and verify the database belongs to the intended HA VPC.
 
@@ -306,7 +306,7 @@ Intended routing: both public subnets use an Internet Gateway default route; bot
 | Test A: instance failure | No valid failure/replacement evidence submitted | Termination and replacement activity, healthy targets, timestamped ALB application responses |
 | Test B: AZ impact | No valid AZ-impact evidence submitted | AZ-specific action, surviving healthy targets in the other AZ, timestamped ALB application responses |
 
-Neither HA test can be reported as passed from the current evidence. Restore and verify the baseline deployment before running either test; record the action, timestamps, observed application responses, and recovery result separately for each test.
+Neither HA test can be reported as passed from these historical screenshots alone; the newer 15 September results are linked at the top. For any approved future test, restore and verify its baseline first, then record the action, timestamps, observed application responses and recovery separately.
 
 ---
 
@@ -344,7 +344,11 @@ The previously linked `image-1.png` describes the **three-tier Book Review capst
 - Add all required screenshots in your submission
 - Do not expose passwords, connection strings, private keys, or account IDs
 
-The existing console captures display AWS account IDs, including inside ARNs. These source images have not been changed by this documentation audit. Prepare redacted copies before declaring the submission free of sensitive data; the corresponding checklist item remains unchecked.
+On 15 September, all 20 historical Assignment 5 PNGs (including duplicate/unlinked captures) were checked locally; **17 images received 38 opaque redaction masks** covering account headers/IDs, account-bearing ARN fields, the database connection command and the operator IP where present. The [redaction manifest](assignment-05-ha/evidence/historical-redactions.json) records hashes, coordinates and verification. Technical results outside those masks were not changed. OCR is heuristic, not a complete confidentiality guarantee.
+
+The current image versions are redacted, but **earlier Git commits/caches may retain the originals** and other assignments were not audited. No history rewrite was performed. The broad “No sensitive data exposed” checkbox therefore remains unchecked.
+
+The [local follow-up and instructor questions](assignment-05-ha/RESULTS.md#local-follow-up--not-a-new-aws-test) document 55 passing local tests, the unresolved availability/rubric gaps and a proposed, unapproved retest allowance. No new AWS test has been run.
 
 ---
 
@@ -362,7 +366,8 @@ Checked technical items below refer to the **15 September Terraform lab and its 
 - [ ] Task 8: Both exercises ran, but Test A's strict zero-interruption requirement was not met (4 failed probes); see [actual results](assignment-05-ha/RESULTS.md)
 - [x] Task 9: Architecture, actual test results, limitations and remaining requirements documented ([report](assignment-05-ha/RESULTS.md))
 - [x] LinkedIn post published with proof image and URL recorded ([post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/), [screenshot](assignment-05-ha/evidence/linkedin-post.png))
-- [ ] No sensitive data exposed
+- [ ] Instructor acceptance of alternate evidence, SSM administration and LinkedIn format ([questions](assignment-05-ha/RESULTS.md#rubric-questions-awaiting-instructor-confirmation))
+- [ ] No sensitive data exposed (current Assignment 5 images redacted; repository history and other assignments not certified)
 
 ---
 

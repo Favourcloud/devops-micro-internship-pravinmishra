@@ -1,6 +1,7 @@
-"""Timestamped, no-retry HTTP probes; an HTTP error remains a failed sample."""
+"""Timestamped, no-retry HTTP probes; HTTP/protocol errors remain failed samples."""
 import argparse
 import datetime
+import http.client
 import json
 from pathlib import Path
 import time
@@ -18,7 +19,7 @@ def probe(url):
         row['ok'] = row['status'] == 200
     except urllib.error.HTTPError as error:
         row.update(status=error.code, ok=False, error='HTTPError')
-    except (OSError, ValueError) as error:
+    except (OSError, ValueError, http.client.HTTPException) as error:
         row.update(status=None, ok=False, error=type(error).__name__)
     row['duration_ms'] = round((time.monotonic() - started) * 1000, 1)
     return row

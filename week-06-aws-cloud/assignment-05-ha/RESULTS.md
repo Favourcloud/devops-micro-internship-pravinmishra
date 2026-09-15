@@ -46,7 +46,8 @@ An initial AWS FIS template request failed with `SubscriptionRequiredException`.
 - The first RDS snapshot showed `MultiAZ: true` but had not yet populated secondary-AZ metadata. It is preserved unchanged; subsequent snapshots explicitly show the standby AZ.
 - Probe logs include failures without retries or filtering. Sampling uses a one-second pause after each request, so it is not precisely one request per second; request duration and timeout extend the spacing.
 - Account IDs are redacted from new snapshots and ARN segments. Passwords, private keys and secret values are excluded. Resource IDs remain for traceability.
-- Earlier screenshot evidence in the parent assignment remains historical and contains account identifiers; this run does not certify those original images as redacted.
+- The parent assignment's historical PNGs were reviewed after publication: **20 inspected, 17 redacted, 38 opaque masks**. Account headers/IDs, account-bearing ARN fields, one database connection command and the operator IP were masked where present. Changed images have no retained metadata; pixels outside the declared masks remain identical. A second local OCR pass found no targeted account patterns in those images; six current evidence PNGs and Assignment 5 implementation text were also checked against the original account identifiers. See the [hash/coordinate manifest](evidence/historical-redactions.json). OCR is heuristic, and this is not a guarantee that every possible identifier is detected.
+- These are edits to the **current image versions**, not to the earlier Git history. Old commits/caches and other assignments may retain original identifiers. No history rewrite was performed; the repository-wide “No sensitive data exposed” claim remains unverified.
 
 ## Teardown and cost
 
@@ -56,9 +57,28 @@ The captured ALB URL is historical evidence and must not be advertised as live a
 
 ## Remaining submission items
 
-1. Address or explicitly discuss the strict zero-interruption gap in Test A; do not mark that criterion passed from these logs.
-2. Confirm the instructor accepts consolidated CLI-derived evidence and SSM instead of an SSH `/32` rule; provide exact console screenshots if the rubric requires them.
-3. Redact historical submission images before checking the parent assignment's “No sensitive data exposed” item.
+1. Resolve the strict zero-interruption gap in Test A; local graceful-shutdown improvements are not proof that abrupt target loss is interruption-free.
+2. Obtain instructor acceptance of the evidence, administration and LinkedIn-format substitutions below, or supply the exact required alternatives.
+3. Review the broader repository and agree on any history cleanup before checking “No sensitive data exposed.” Current Assignment 5 historical images are now redacted; earlier commits and other assignments have not been scrubbed or certified.
+
+## Local follow-up — not a new AWS test
+
+After the recorded run and LinkedIn publication, the application was updated to handle SIGTERM with up to **10 seconds** of active-request draining and to reject new admission while stopping. The monitor now records HTTP protocol exceptions as failures and continues sampling without retrying. These changes address orderly shutdown and monitoring completeness, **not** the ALB's detection/routing window after abrupt EC2 loss.
+
+Local verification passed **35 application tests, 15 monitoring/termination-guard tests and 5 mocked Terraform tests (55 total)**, with Python warnings treated as errors. Terraform formatting and validation also passed. The additional tests cover bounded draining, real subprocess SIGTERM, rejected new work, worker-start failures and malformed/truncated HTTP monitoring responses.
+
+The earlier **47-test** result and published post remain accurate for that earlier revision. No old probe records, test totals or published claims were rewritten. No AWS redeployment or new HA result is implied.
+
+A [source-backed cost estimate](evidence/retest-cost-estimate.json) gives a fixed planning baseline of **$119.97/month**, or **$144.05/month** with four web instances throughout, before variable charges/tax. The [bounded retest runbook](README.md#local-resilience-follow-up-and-proposed-retest) proposes a **$5 allowance**, explicit approval, a 60-minute unhealthy-baseline abort, teardown beginning by 120 minutes and a four-hour target including cleanup. This allowance is **not approved or enforced**. No timer or budget alarm was installed. Clarify the criterion before spending money on another run.
+
+### Rubric questions awaiting instructor confirmation
+
+The source assignment explicitly requests console-style screenshots, SSH from an operator IP, an uninterrupted abrupt-termination test and a short LinkedIn post with an ALB URL (or redacted screenshot) plus proof. No instructor response has been received or invented. Ask:
+
+- May the timestamped AWS API JSON and clearly labeled CLI-derived graphics replace the individual console captures? If not, which exact views must be captured in an approved future run?
+- Is SSM with no inbound SSH accepted instead of an SSH `/32` rule and key-based administration?
+- For abrupt EC2 termination, is the criterion zero failed **first-attempt** ALB requests, or recovery within a defined window? The current four failures do not meet the former. Orderly draining and client retries must be evaluated separately, not substituted silently.
+- Is the already-published, longer results post with a CLI-derived proof graphic accepted? It does not include the former ALB URL or an ALB application-page screenshot. If the three-to-five-line/endpoint-screenshot format is mandatory, revise the existing post and refresh its evidence after approval; do not publish a duplicate or advertise the destroyed endpoint as live.
 
 ## LinkedIn publication — verified
 

@@ -11,6 +11,8 @@ the browser's Host header (proxy_set_header Host $http_host) for origin checks;
 configure request/body timeouts and rate limits there. Runtime listens only on
 127.0.0.1:8000. Startup retries schema creation eight times before exiting 1;
 configure systemd restart-on-failure and allow for database startup delays.
+SIGTERM stops accepting requests and gives active handlers up to 10 seconds to
+finish. This cannot protect requests when the process or its host dies abruptly.
 
 List endpoints return the latest 100 books. /health is process-only; /ready
 checks MySQL. All database connections require a verified TLS 1.2+ session.
@@ -21,6 +23,7 @@ at the proxy/network boundary if it is not intended for public submissions.
 import html
 import json
 import os
+import signal
 import socket
 import ssl
 import sys
@@ -171,11 +174,33 @@ class BookServer(ThreadingHTTPServer):
     block_on_close = False
     request_queue_size = 32
 
-    def __init__(self, address, database, instance_id, max_workers=32):
+    def __init__(self, address, database, instance_id, max_workers=32, drain_timeout=10):
         self.database = database
         self.instance_id = instance_id
+        self.max_workers = max_workers
         self.workers = threading.BoundedSemaphore(max_workers)
+        self.stopping = threading.Event()
+        self.drain_timeout = drain_timeout
         super().__init__(address, BookHandler)
+
+    def shutdown(self):
+        self.stopping.set()
+        super().shutdown()
+
+    def server_close(self):
+        self.stopping.set()
+        super().server_close()
+        deadline = time.monotonic() + self.drain_timeout
+        acquired = 0
+        try:
+            # All permits are available only after every admitted handler finishes.
+            for _ in range(self.max_workers):
+                if not self.workers.acquire(timeout=max(0, deadline - time.monotonic())):
+                    break
+                acquired += 1
+        finally:
+            for _ in range(acquired):
+                self.workers.release()
 
     def get_request(self):
         request, address = super().get_request()
@@ -183,7 +208,7 @@ class BookServer(ThreadingHTTPServer):
         return request, address
 
     def process_request(self, request, client_address):
-        if not self.workers.acquire(blocking=False):
+        if self.stopping.is_set() or not self.workers.acquire(blocking=False):
             try:
                 request.sendall(b"HTTP/1.0 503 Service Unavailable\r\n"
                                 b"Content-Length: 0\r\nConnection: close\r\n\r\n")
@@ -340,12 +365,27 @@ def main():
         print("Startup failed; check database configuration, TLS trust and connectivity.",
               file=sys.stderr)
         return 1
+    shutdown_thread = None
+
+    def request_shutdown(signum, frame):
+        nonlocal shutdown_thread
+        if shutdown_thread is None:
+            # shutdown() must run outside the serve_forever thread to avoid deadlock.
+            shutdown_thread = threading.Thread(target=server.shutdown, daemon=True)
+            shutdown_thread.start()
+
+    previous_sigterm = signal.signal(signal.SIGTERM, request_shutdown)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         pass
     finally:
-        server.server_close()
+        try:
+            server.server_close()
+            if shutdown_thread is not None:
+                shutdown_thread.join()
+        finally:
+            signal.signal(signal.SIGTERM, previous_sigterm)
     return 0
 
 
