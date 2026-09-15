@@ -132,10 +132,10 @@ Week 04 → Git & GitHub
 | 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devopsjourney-internshipreload-newweeknewgoals-activity-7396137630893146112-25uv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/reflection-week-00-every-journey-begins-with-understanding-the-basics-da503059977c) |
 | 01 | Success Mindset | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/what-my-version-2-0-looks-like-1726f2ab0d22?sharedUserId=rosenaefavour) |
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-agenticai-claudecode-activity-7481376006981840896-8BIQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/reflection-week-2-the-week-i-stopped-seeing-ai-as-a-tool-and-started-seeing-it-as-a-teammate-by-811d04bc60b0) |
-| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-activity-7483907367227666433-PqVA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | ✅ [Blog Post](./week-03-linux-and-bash-for-devops/reflection-week-03.md) |
-| 04 | Git & GitHub | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | ✅ [Blog Post](./week-04-git-and-github/reflection-week-04.md) |
-| 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
-| 06 | AWS Cloud | 🔄 In Progress | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/feed/update/urn:li:share:7505450519486767104/) | — |
+| 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-activity-7483907367227666433-PqVA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/reflection-week-03-the-week-i-learned-that-keeping-systems-running-is-just-as-important-as-c5e5cb38661f) |
+| 04 | Git & GitHub | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/this-one-git-habit-could-save-you-hours-of-frustration-213eb4d360ec) |
+| 05 | DevOps Lifecycle & Agile | 🔄 In Progress | [Mini-sprint submission and demo; rubric recheck pending](./week-05-devops-lifecycle/assignment-03-run-a-5-day-mini-sprint-in-jira-and-ship-an-increment.md) | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-activity-7491178060780613632-hgwF) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/i-thought-i-was-learning-jira-i-didnt-know-i-was-learning-how-to-ship-f9a371a9543a) |
+| 06 | AWS Cloud | 🔄 In Progress | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-terraform-activity-7505450522540408832-q-je) | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
 | 09 | Ansible | 🔄 In Progress | [Assignment 1 — local onboarding; screenshots and access checks pending](./week-09-ansible/assignment-01-onboarding-workstation-setup-standards-and-ai.md#current-status) | — | — |
@@ -146,6 +146,19 @@ Week 04 → Git & GitHub
 
 **Status:** ⬜ Not Started &nbsp;|&nbsp; 🔄 In Progress &nbsp;|&nbsp; ✅ Completed<br>
 **Assignment:** ⏳ Pending &nbsp;|&nbsp; ✅ Solved
+
+### Rubric follow-up — 15 September 2026
+
+The [personal grading page](https://dmi.pravinmishra.com/s/Favourcloud.html) was last checked on 14 September. The links above were reconciled against the published articles and posts; this is not a new grading result. Follow the [submission checks](./INSTRUCTIONS.md#rubric-checks-before-submission) before requesting another review.
+
+- **Week 03:** the published reflection already contains the required personal badge link; its URL now appears in the progress table.
+- **Weeks 01, 04 and 05:** the existing Medium articles load and exceed 200 words, but still need a clickable link to this personal badge page. Changing this README does not edit those published articles; use the [credit footer](./INSTRUCTIONS.md#personal-blog-credit-footer).
+- **Week 05:** the demo URL is present in the linked submission on this branch, while the dashboard still reports the older placeholder. The linked posts are existing publications, not new posts.
+- **Week 06:** the Assignment 5 LinkedIn link uses the verified canonical `/posts/` URL. A weekly blog is still outstanding, and the technical limitations in the assignment evidence remain unchanged.
+- **Weeks 07–08:** no verified weekly publication links were found in the inspected repository or Medium feed. Week 08's six assignment templates still need genuine implementation and evidence; placeholders have not been removed to imply completion.
+- **Evidence and attendance:** the Week 01 screenshot warning needs review against the existing image; that image has not been verified as meeting the name/username rule. Attendance corrections belong to the instructor's record.
+
+Branch-only corrections must reach the fork's graded default branch (`main`) and be included in a subsequent review run before dashboard scores can change. An automated “Complete” label does not certify technical correctness or an A grade.
 
 ---
 

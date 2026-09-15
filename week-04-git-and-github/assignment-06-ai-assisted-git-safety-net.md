@@ -312,11 +312,11 @@ Publish a LinkedIn post summarizing what you built and what you learned about co
 
 #### Blog Post URL
 
-`Add your blog post URL here...`
+[This One Git Habit Could Save You Hours of Frustration](https://medium.com/@rosenaefavour/this-one-git-habit-could-save-you-hours-of-frustration-213eb4d360ec)
 
----https://medium.com/@rosenaefavour/this-one-git-habit-could-save-you-hours-of-frustration-213eb4d360ec
+The article is published, but its personal badge credit link is still pending. Adding this submission link does not update the Medium article.
 
-
+---
 
 ## Key Learnings
 
