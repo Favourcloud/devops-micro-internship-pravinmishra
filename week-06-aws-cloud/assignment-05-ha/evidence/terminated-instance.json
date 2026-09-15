@@ -1,0 +1,9 @@
+[
+    {
+        "Id": "i-0c61b083e64f74019",
+        "State": "terminated",
+        "Reason": "User initiated (2026-09-15 01:19:44 GMT)",
+        "AZ": "us-east-1a",
+        "Vpc": null
+    }
+]

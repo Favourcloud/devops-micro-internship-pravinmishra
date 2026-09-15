@@ -1,0 +1,87 @@
+#!/bin/bash
+set -euo pipefail
+export DEBIAN_FRONTEND=noninteractive
+apt-get -o DPkg::Lock::Timeout=180 update
+apt-get -o DPkg::Lock::Timeout=180 install -y nginx python3-pymysql python3-boto3 curl ca-certificates
+id epicbook >/dev/null 2>&1 || useradd --system --home /opt/epicbook --shell /usr/sbin/nologin epicbook
+install -d -m 755 /opt/epicbook
+install -d -m 700 /etc/epicbook
+printf '%s' '${server_b64}' | base64 --decode > /opt/epicbook/server.py
+chmod 644 /opt/epicbook/server.py
+curl --fail --silent --show-error --retry 5 https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -o /etc/ssl/certs/rds-global-bundle.pem
+
+cat > /opt/epicbook/fetch-config.py <<'PY'
+import json
+import os
+import time
+import urllib.request
+import boto3
+
+client = boto3.client('secretsmanager', region_name='${region}')
+for attempt in range(30):
+    try:
+        secret = json.loads(client.get_secret_value(SecretId='${secret_arn}')['SecretString'])
+        break
+    except Exception:
+        if attempt == 29:
+            raise RuntimeError('Database secret unavailable') from None
+        time.sleep(10)
+request = urllib.request.Request('http://169.254.169.254/latest/api/token', method='PUT', headers={'X-aws-ec2-metadata-token-ttl-seconds': '60'})
+with urllib.request.urlopen(request, timeout=5) as response:
+    token = response.read().decode()
+request = urllib.request.Request('http://169.254.169.254/latest/meta-data/instance-id', headers={'X-aws-ec2-metadata-token': token})
+with urllib.request.urlopen(request, timeout=5) as response:
+    instance = response.read().decode()
+config = {'DB_HOST': '${db_host}', 'DB_USER': secret['username'], 'DB_PASSWORD': secret['password'], 'DB_NAME': 'epicbook', 'INSTANCE_ID': instance}
+os.umask(0o077)
+with open('/etc/epicbook/environment', 'w') as output:
+    for key, value in config.items():
+        output.write(key + '=' + json.dumps(value) + '\n')
+PY
+chmod 600 /opt/epicbook/fetch-config.py
+python3 /opt/epicbook/fetch-config.py
+
+cat > /etc/systemd/system/epicbook.service <<'UNIT'
+[Unit]
+Description=EpicBook server-rendered HA lab
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=epicbook
+Group=epicbook
+WorkingDirectory=/opt/epicbook
+EnvironmentFile=/etc/epicbook/environment
+ExecStart=/usr/bin/python3 /opt/epicbook/server.py
+Restart=always
+RestartSec=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+cat > /etc/nginx/sites-available/default <<'NGINX'
+server {
+    listen 80 default_server;
+    server_name _;
+    server_tokens off;
+    client_max_body_size 4k;
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 3s;
+        proxy_read_timeout 15s;
+    }
+}
+NGINX
+systemctl daemon-reload
+systemctl enable --now epicbook
+nginx -t
+systemctl enable nginx
+systemctl restart nginx

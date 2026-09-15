@@ -8,6 +8,19 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will design and deploy a highly available two-tier web application on AWS: highly available networking across two Availability Zones, an Application Load Balancer, an Auto Scaling Group for the web tier, and a private Multi-AZ RDS database. You must prove high availability with real failure tests.
 
+## Reproducible deployment and real tests — 15 September 2026
+
+A new, isolated Terraform lab was deployed in `us-east-1` without modifying Assignment 4. See the [implementation and runbook](assignment-05-ha/README.md) and [actual results with evidence](assignment-05-ha/RESULTS.md).
+
+- Four subnets across two AZs, correct routes, least-privilege traffic paths, private encrypted Multi-AZ MySQL, an ALB and two healthy ASG instances were verified from AWS APIs. SSM replaced SSH administration; that rubric substitution is explicit.
+- Real application writes and reads succeeded through the ALB from two instances. [Live application capture](assignment-05-ha/evidence/application-live.png).
+- Abrupt termination triggered replacement, but **4 of 287 readiness probes failed**. Recovery is demonstrated; the strict zero-interruption criterion is **not**.
+- Controlled web-tier AZ evacuation and restoration recorded **260 successful probes and no failures**. This was not a full AWS AZ outage or database failover test.
+- [Architecture evidence](assignment-05-ha/evidence/architecture-evidence.png) and [test-results evidence](assignment-05-ha/evidence/availability-evidence.png) are clearly labeled renderings of actual redacted CLI data, not AWS Console screenshots.
+- Terraform destroyed all 37 temporary lab resources after evidence capture. [Cleanup verification](assignment-05-ha/evidence/cleanup.json) confirms empty state, no residual resources in the checked categories and preservation of Assignment 4. The LinkedIn post and historical-image redaction remain pending. No grade is claimed.
+
+The following 13 September audit and screenshots are retained as **historical evidence**, not as captures of this new deployment.
+
 ## Evidence audit — 13 September 2026
 
 **Status: partial build; high availability is not yet demonstrated by the submitted evidence.** This review describes historical screenshots, not the current state of AWS resources. The task goals below are requirements, not completion claims.
@@ -331,17 +344,17 @@ The existing console captures display AWS account IDs, including inside ARNs. Th
 
 # Completion Checklist
 
-Unchecked items indicate incomplete or contradictory evidence, not a claim that the work was never attempted. The architecture diagram and evidence audit are now documented; Task 9 still requires actual test results.
+Checked technical items below refer to the **15 September Terraform lab and its new API-derived evidence**, not to the historical screenshots. Resources were temporary; consult the results report for cleanup state. Exact console-screenshot formatting and the SSM-for-SSH substitution still need instructor acceptance if the rubric is literal.
 
-- [ ] Task 1: VPC, four subnets, IGW, NAT Gateway, and route tables created (Screenshots 1–5)
-- [ ] Task 2: Least-privilege ALB, EC2, and RDS security groups created (Screenshots 6–8)
-- [ ] Task 3: Private Multi-AZ RDS created (Screenshots 9–10)
-- [ ] Task 4: Self-configuring Launch Template created and tested (Screenshots 11–12)
-- [ ] Task 5: ALB created across both public subnets (Screenshots 13–14)
-- [ ] Task 6: Auto Scaling Group running two instances across two AZs (Screenshots 15–16)
-- [ ] Task 7: Application verified through the ALB with a database read and write (Screenshots 17–18)
-- [ ] Task 8: Both high-availability tests completed (Screenshots 19–22)
-- [ ] Task 9: Architecture and test-results summary completed (Screenshot 23 & Notes)
+- [x] Task 1: VPC, four subnets, IGW, NAT Gateway, and route tables created and verified ([baseline](assignment-05-ha/evidence/baseline.json))
+- [x] Task 2: Least-privilege ALB, EC2, and RDS security groups verified; SSM used instead of opening SSH ([architecture](assignment-05-ha/evidence/architecture-evidence.png))
+- [x] Task 3: Private, encrypted Multi-AZ RDS verified ([DB and standby evidence](assignment-05-ha/evidence/test-a-after.json))
+- [x] Task 4: Self-configuring Launch Template tested by initial ASG instances and automatic replacements ([Terraform bootstrap](assignment-05-ha/terraform/bootstrap.sh.tftpl))
+- [x] Task 5: Active ALB verified across both public subnets ([baseline](assignment-05-ha/evidence/baseline.json))
+- [x] Task 6: ASG 2/2/4 with two healthy instances across two AZs verified ([recovery](assignment-05-ha/evidence/recovered.json))
+- [x] Task 7: Real application write/read through ALB verified from both instances ([result](assignment-05-ha/evidence/read-write-baseline.json))
+- [ ] Task 8: Both exercises ran, but Test A's strict zero-interruption requirement was not met (4 failed probes); see [actual results](assignment-05-ha/RESULTS.md)
+- [x] Task 9: Architecture, actual test results, limitations and remaining requirements documented ([report](assignment-05-ha/RESULTS.md))
 - [ ] LinkedIn post published and URL submitted
 - [ ] No sensitive data exposed
 

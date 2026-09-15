@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-09-15T01:40:00.549506+00:00",
+  "terraform_state_empty": true,
+  "remaining_lab_resources": {
+    "vpcs": [],
+    "subnets": [],
+    "security_groups": [],
+    "elastic_ips": [],
+    "active_instances": [],
+    "asgs": [],
+    "databases": [],
+    "load_balancers": [],
+    "log_groups": [],
+    "iam_roles": [],
+    "instance_profiles": [],
+    "launch_templates": [],
+    "active_nat_gateways": [],
+    "internet_gateways": [],
+    "route_tables": [],
+    "target_groups": [],
+    "db_subnet_groups": [],
+    "db_parameter_groups": []
+  },
+  "assignment_four_preserved": {
+    "ec2": [
+      {
+        "Id": "i-056d7d7f615dc4bfd",
+        "State": "running",
+        "Vpc": "vpc-092b56242a6f75ccf"
+      }
+    ],
+    "database": [
+      {
+        "Name": "epicbook-db",
+        "Status": "available",
+        "Public": false,
+        "MultiAZ": false
+      }
+    ]
+  },
+  "note": "Temporary lab removed; Assignment 4 remains running and can incur charges. Billing can lag deletion."
+}

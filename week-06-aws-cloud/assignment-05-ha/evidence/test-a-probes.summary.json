@@ -1,0 +1,6 @@
+{
+  "samples": 287,
+  "failures": 4,
+  "successes": 283,
+  "note": "Finite sampled database-readiness observations, not a guarantee of uninterrupted availability."
+}

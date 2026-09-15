@@ -1,0 +1,567 @@
+{
+  "observed_at": "2026-09-15T01:26:33.485210+00:00",
+  "region": "us-east-1",
+  "url": "http://dmi-a5-ha-894061664.us-east-1.elb.amazonaws.com",
+  "vpc": "vpc-0313c75eef3ccd5ca",
+  "asg": [
+    {
+      "Name": "dmi-a5-ha",
+      "Min": 2,
+      "Desired": 2,
+      "Max": 4,
+      "Subnets": "subnet-04b288b11660e05c4",
+      "TargetGroups": [
+        "arn:aws:elasticloadbalancing:us-east-1:[REDACTED]:targetgroup/dmi-a5-ha/b878a4b7c1bc32db"
+      ],
+      "Instances": [
+        {
+          "InstanceId": "i-0c9ff12b01e5fe629",
+          "InstanceType": "t3.micro",
+          "AvailabilityZone": "us-east-1b",
+          "LifecycleState": "InService",
+          "HealthStatus": "Healthy",
+          "LaunchTemplate": {
+            "LaunchTemplateId": "lt-0be1118b239599971",
+            "LaunchTemplateName": "dmi-a5-ha-8daab48837ef896ca6f87eb5ce",
+            "Version": "1"
+          },
+          "ProtectedFromScaleIn": false
+        },
+        {
+          "InstanceId": "i-0d4e5495fb5b81371",
+          "InstanceType": "t3.micro",
+          "AvailabilityZone": "us-east-1b",
+          "LifecycleState": "InService",
+          "HealthStatus": "Healthy",
+          "LaunchTemplate": {
+            "LaunchTemplateId": "lt-0be1118b239599971",
+            "LaunchTemplateName": "dmi-a5-ha-8daab48837ef896ca6f87eb5ce",
+            "Version": "1"
+          },
+          "ProtectedFromScaleIn": false
+        }
+      ],
+      "HealthCheckType": "ELB",
+      "Template": {
+        "LaunchTemplateId": "lt-0be1118b239599971",
+        "LaunchTemplateName": "dmi-a5-ha-8daab48837ef896ca6f87eb5ce",
+        "Version": "1"
+      }
+    }
+  ],
+  "instances": [
+    {
+      "Id": "i-0c9ff12b01e5fe629",
+      "State": "running",
+      "AZ": "us-east-1b",
+      "Subnet": "subnet-04b288b11660e05c4",
+      "Vpc": "vpc-0313c75eef3ccd5ca",
+      "Groups": [
+        {
+          "GroupId": "sg-065a0de189a39ac11",
+          "GroupName": "dmi-a5-ha-web-e1c7a7a36f107ead3b589cc9ab"
+        }
+      ],
+      "Template": null,
+      "Image": "ami-05a3e9423ae4d7a19",
+      "IMDS": {
+        "State": "applied",
+        "HttpTokens": "required",
+        "HttpPutResponseHopLimit": 1,
+        "HttpEndpoint": "enabled",
+        "HttpProtocolIpv6": "disabled",
+        "InstanceMetadataTags": "disabled"
+      }
+    },
+    {
+      "Id": "i-0d4e5495fb5b81371",
+      "State": "running",
+      "AZ": "us-east-1b",
+      "Subnet": "subnet-04b288b11660e05c4",
+      "Vpc": "vpc-0313c75eef3ccd5ca",
+      "Groups": [
+        {
+          "GroupId": "sg-065a0de189a39ac11",
+          "GroupName": "dmi-a5-ha-web-e1c7a7a36f107ead3b589cc9ab"
+        }
+      ],
+      "Template": null,
+      "Image": "ami-05a3e9423ae4d7a19",
+      "IMDS": {
+        "State": "applied",
+        "HttpTokens": "required",
+        "HttpPutResponseHopLimit": 1,
+        "HttpEndpoint": "enabled",
+        "HttpProtocolIpv6": "disabled",
+        "InstanceMetadataTags": "disabled"
+      }
+    }
+  ],
+  "targets": [
+    {
+      "Target": {
+        "Id": "i-0c9ff12b01e5fe629",
+        "Port": 80
+      },
+      "HealthCheckPort": "80",
+      "TargetHealth": {
+        "State": "healthy"
+      },
+      "AdministrativeOverride": {
+        "State": "no_override",
+        "Reason": "AdministrativeOverride.NoOverride",
+        "Description": "No override is currently active on target"
+      }
+    },
+    {
+      "Target": {
+        "Id": "i-0d4e5495fb5b81371",
+        "Port": 80
+      },
+      "HealthCheckPort": "80",
+      "TargetHealth": {
+        "State": "healthy"
+      },
+      "AdministrativeOverride": {
+        "State": "no_override",
+        "Reason": "AdministrativeOverride.NoOverride",
+        "Description": "No override is currently active on target"
+      }
+    }
+  ],
+  "database": [
+    {
+      "Name": "dmi-a5-ha",
+      "Status": "available",
+      "Engine": "mysql",
+      "Version": "8.4.9",
+      "MultiAZ": true,
+      "Public": false,
+      "Encrypted": true,
+      "AZ": "us-east-1b",
+      "SecondaryAZ": "us-east-1a",
+      "SubnetGroup": {
+        "DBSubnetGroupName": "dmi-a5-ha-private",
+        "DBSubnetGroupDescription": "Managed by Terraform",
+        "VpcId": "vpc-0313c75eef3ccd5ca",
+        "SubnetGroupStatus": "Complete",
+        "Subnets": [
+          {
+            "SubnetIdentifier": "subnet-0c8aa19367d7bd6fe",
+            "SubnetAvailabilityZone": {
+              "Name": "us-east-1b"
+            },
+            "SubnetOutpost": {},
+            "SubnetStatus": "Active"
+          },
+          {
+            "SubnetIdentifier": "subnet-0341871bd7438e2b3",
+            "SubnetAvailabilityZone": {
+              "Name": "us-east-1a"
+            },
+            "SubnetOutpost": {},
+            "SubnetStatus": "Active"
+          }
+        ]
+      },
+      "Groups": [
+        {
+          "VpcSecurityGroupId": "sg-0736412e7552691d9",
+          "Status": "active"
+        }
+      ],
+      "Parameters": [
+        {
+          "DBParameterGroupName": "dmi-a5-ha-dcc66b08b4f1d5cbc01c0d4296",
+          "ParameterApplyStatus": "in-sync"
+        }
+      ],
+      "Backups": 1,
+      "ManagedSecretStatus": "active"
+    }
+  ],
+  "subnets": [
+    {
+      "Id": "subnet-00ccc25145a1c23bb",
+      "Cidr": "10.0.1.0/24",
+      "AZ": "us-east-1a",
+      "PublicIP": true,
+      "Name": "dmi-a5-ha-public-1"
+    },
+    {
+      "Id": "subnet-04b288b11660e05c4",
+      "Cidr": "10.0.2.0/24",
+      "AZ": "us-east-1b",
+      "PublicIP": true,
+      "Name": "dmi-a5-ha-public-2"
+    },
+    {
+      "Id": "subnet-0341871bd7438e2b3",
+      "Cidr": "10.0.11.0/24",
+      "AZ": "us-east-1a",
+      "PublicIP": false,
+      "Name": "dmi-a5-ha-private-1"
+    },
+    {
+      "Id": "subnet-0c8aa19367d7bd6fe",
+      "Cidr": "10.0.12.0/24",
+      "AZ": "us-east-1b",
+      "PublicIP": false,
+      "Name": "dmi-a5-ha-private-2"
+    }
+  ],
+  "routes": [
+    {
+      "Id": "rtb-04dfd1937083966f6",
+      "Routes": [
+        {
+          "DestinationCidrBlock": "10.0.0.0/16",
+          "GatewayId": "local",
+          "Origin": "CreateRouteTable",
+          "State": "active"
+        },
+        {
+          "DestinationCidrBlock": "0.0.0.0/0",
+          "GatewayId": "igw-0514d637b49a6cbcb",
+          "Origin": "CreateRoute",
+          "State": "active"
+        }
+      ],
+      "Associations": [
+        {
+          "Main": false,
+          "RouteTableAssociationId": "rtbassoc-0c151babe95e671c0",
+          "RouteTableId": "rtb-04dfd1937083966f6",
+          "SubnetId": "subnet-00ccc25145a1c23bb",
+          "AssociationState": {
+            "State": "associated"
+          }
+        },
+        {
+          "Main": false,
+          "RouteTableAssociationId": "rtbassoc-0e0c1ae82888181ff",
+          "RouteTableId": "rtb-04dfd1937083966f6",
+          "SubnetId": "subnet-04b288b11660e05c4",
+          "AssociationState": {
+            "State": "associated"
+          }
+        }
+      ]
+    },
+    {
+      "Id": "rtb-062f4f2a8221bbdd9",
+      "Routes": [
+        {
+          "DestinationCidrBlock": "10.0.0.0/16",
+          "GatewayId": "local",
+          "Origin": "CreateRouteTable",
+          "State": "active"
+        },
+        {
+          "DestinationCidrBlock": "0.0.0.0/0",
+          "NatGatewayId": "nat-0f2bf2b8735ffd71f",
+          "Origin": "CreateRoute",
+          "State": "active"
+        }
+      ],
+      "Associations": [
+        {
+          "Main": false,
+          "RouteTableAssociationId": "rtbassoc-0e593ef31f9365b98",
+          "RouteTableId": "rtb-062f4f2a8221bbdd9",
+          "SubnetId": "subnet-0341871bd7438e2b3",
+          "AssociationState": {
+            "State": "associated"
+          }
+        },
+        {
+          "Main": false,
+          "RouteTableAssociationId": "rtbassoc-03be531fb867fccd1",
+          "RouteTableId": "rtb-062f4f2a8221bbdd9",
+          "SubnetId": "subnet-0c8aa19367d7bd6fe",
+          "AssociationState": {
+            "State": "associated"
+          }
+        }
+      ]
+    },
+    {
+      "Id": "rtb-0fc97667664644ee3",
+      "Routes": [
+        {
+          "DestinationCidrBlock": "10.0.0.0/16",
+          "GatewayId": "local",
+          "Origin": "CreateRouteTable",
+          "State": "active"
+        }
+      ],
+      "Associations": [
+        {
+          "Main": true,
+          "RouteTableAssociationId": "rtbassoc-04d0d37b7a14a43f3",
+          "RouteTableId": "rtb-0fc97667664644ee3",
+          "AssociationState": {
+            "State": "associated"
+          }
+        }
+      ]
+    }
+  ],
+  "security_groups": [
+    {
+      "Id": "sg-0736412e7552691d9",
+      "Name": "dmi-a5-ha-db-ea4755c8cbb4753317698fea7f",
+      "Vpc": "vpc-0313c75eef3ccd5ca",
+      "Ingress": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 3306,
+          "ToPort": 3306,
+          "UserIdGroupPairs": [
+            {
+              "UserId": "[REDACTED]",
+              "GroupId": "sg-065a0de189a39ac11"
+            }
+          ],
+          "IpRanges": [],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        }
+      ],
+      "Egress": []
+    },
+    {
+      "Id": "sg-0f108461f8f515230",
+      "Name": "dmi-a5-ha-alb-b9673da9b7b0086ff3e9349ec2",
+      "Vpc": "vpc-0313c75eef3ccd5ca",
+      "Ingress": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 80,
+          "ToPort": 80,
+          "UserIdGroupPairs": [],
+          "IpRanges": [
+            {
+              "CidrIp": "0.0.0.0/0"
+            }
+          ],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        }
+      ],
+      "Egress": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 80,
+          "ToPort": 80,
+          "UserIdGroupPairs": [
+            {
+              "UserId": "[REDACTED]",
+              "GroupId": "sg-065a0de189a39ac11"
+            }
+          ],
+          "IpRanges": [],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        }
+      ]
+    },
+    {
+      "Id": "sg-048b1bb1620ee94f2",
+      "Name": "default",
+      "Vpc": "vpc-0313c75eef3ccd5ca",
+      "Ingress": [
+        {
+          "IpProtocol": "-1",
+          "UserIdGroupPairs": [
+            {
+              "UserId": "[REDACTED]",
+              "GroupId": "sg-048b1bb1620ee94f2"
+            }
+          ],
+          "IpRanges": [],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        }
+      ],
+      "Egress": [
+        {
+          "IpProtocol": "-1",
+          "UserIdGroupPairs": [],
+          "IpRanges": [
+            {
+              "CidrIp": "0.0.0.0/0"
+            }
+          ],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        }
+      ]
+    },
+    {
+      "Id": "sg-065a0de189a39ac11",
+      "Name": "dmi-a5-ha-web-e1c7a7a36f107ead3b589cc9ab",
+      "Vpc": "vpc-0313c75eef3ccd5ca",
+      "Ingress": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 80,
+          "ToPort": 80,
+          "UserIdGroupPairs": [
+            {
+              "UserId": "[REDACTED]",
+              "GroupId": "sg-0f108461f8f515230"
+            }
+          ],
+          "IpRanges": [],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        }
+      ],
+      "Egress": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 80,
+          "ToPort": 80,
+          "UserIdGroupPairs": [],
+          "IpRanges": [
+            {
+              "CidrIp": "0.0.0.0/0"
+            }
+          ],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        },
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 3306,
+          "ToPort": 3306,
+          "UserIdGroupPairs": [
+            {
+              "UserId": "[REDACTED]",
+              "GroupId": "sg-0736412e7552691d9"
+            }
+          ],
+          "IpRanges": [],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        },
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 443,
+          "ToPort": 443,
+          "UserIdGroupPairs": [],
+          "IpRanges": [
+            {
+              "CidrIp": "0.0.0.0/0"
+            }
+          ],
+          "Ipv6Ranges": [],
+          "PrefixListIds": []
+        }
+      ]
+    }
+  ],
+  "nat": [
+    {
+      "Id": "nat-0f2bf2b8735ffd71f",
+      "State": "available",
+      "Subnet": "subnet-00ccc25145a1c23bb",
+      "Connectivity": "public"
+    }
+  ],
+  "activities": [
+    {
+      "Description": "Terminating EC2 instance: i-0105f6ee8acfed1ff",
+      "Start": "2026-09-15T01:24:42.023000+00:00",
+      "End": "2026-09-15T01:25:39+00:00",
+      "Status": "Successful",
+      "Cause": "At 2026-09-15T01:24:30Z instances were launched to compensate for instances in  invalid availability zones  us-east-1a resulting in more than desired number of instances in the group.  At 2026-09-15T01:24:41Z an instance was taken out of service in response to a difference between desired and actual capacity, shrinking the capacity from 3 to 2.  At 2026-09-15T01:24:42Z instance i-0105f6ee8acfed1ff was selected for termination."
+    },
+    {
+      "Description": "Launching a new EC2 instance: i-0d4e5495fb5b81371",
+      "Start": "2026-09-15T01:24:32.878000+00:00",
+      "End": "2026-09-15T01:26:38+00:00",
+      "Status": "Successful",
+      "Cause": "At 2026-09-15T01:24:17Z a user request removed the zones us-east-1a from this AutoScalingGroup making them invalid.  At 2026-09-15T01:24:30Z invalid availability zones  us-east-1a had  1 instances respectively. An instance was launched to aid in  migrating instances from these zones to valid ones."
+    },
+    {
+      "Description": "Launching a new EC2 instance: i-0105f6ee8acfed1ff",
+      "Start": "2026-09-15T01:20:34.737000+00:00",
+      "End": "2026-09-15T01:22:41+00:00",
+      "Status": "Successful",
+      "Cause": "At 2026-09-15T01:20:32Z an instance was launched in response to an unhealthy instance needing to be replaced."
+    },
+    {
+      "Description": "Terminating EC2 instance: i-0c61b083e64f74019",
+      "Start": "2026-09-15T01:20:32.623000+00:00",
+      "End": "2026-09-15T01:20:49+00:00",
+      "Status": "Successful",
+      "Cause": "At 2026-09-15T01:20:32Z an instance was taken out of service in response to an EC2 health check indicating it has been terminated or stopped."
+    },
+    {
+      "Description": "Launching a new EC2 instance: i-0c9ff12b01e5fe629",
+      "Start": "2026-09-15T01:12:30.135000+00:00",
+      "End": "2026-09-15T01:14:35+00:00",
+      "Status": "Successful",
+      "Cause": "At 2026-09-15T01:12:24Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 2.  At 2026-09-15T01:12:27Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 2."
+    },
+    {
+      "Description": "Launching a new EC2 instance: i-0c61b083e64f74019",
+      "Start": "2026-09-15T01:12:30.064000+00:00",
+      "End": "2026-09-15T01:14:34+00:00",
+      "Status": "Successful",
+      "Cause": "At 2026-09-15T01:12:24Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 2.  At 2026-09-15T01:12:27Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 2."
+    }
+  ],
+  "load_balancers": [
+    {
+      "Arn": "arn:aws:elasticloadbalancing:us-east-1:[REDACTED]:loadbalancer/app/dmi-a5-ha/a74ce2906005cd01",
+      "DNS": "dmi-a5-ha-894061664.us-east-1.elb.amazonaws.com",
+      "Scheme": "internet-facing",
+      "State": {
+        "Code": "active"
+      },
+      "Vpc": "vpc-0313c75eef3ccd5ca",
+      "AZs": [
+        {
+          "ZoneName": "us-east-1a",
+          "SubnetId": "subnet-00ccc25145a1c23bb",
+          "LoadBalancerAddresses": []
+        },
+        {
+          "ZoneName": "us-east-1b",
+          "SubnetId": "subnet-04b288b11660e05c4",
+          "LoadBalancerAddresses": []
+        }
+      ],
+      "Groups": [
+        "sg-0f108461f8f515230"
+      ]
+    }
+  ],
+  "listeners": [
+    {
+      "Port": 80,
+      "Protocol": "HTTP",
+      "Actions": [
+        {
+          "Type": "forward",
+          "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:[REDACTED]:targetgroup/dmi-a5-ha/b878a4b7c1bc32db",
+          "Order": 1,
+          "ForwardConfig": {
+            "TargetGroups": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:[REDACTED]:targetgroup/dmi-a5-ha/b878a4b7c1bc32db",
+                "Weight": 1
+              }
+            ],
+            "TargetGroupStickinessConfig": {
+              "Enabled": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
