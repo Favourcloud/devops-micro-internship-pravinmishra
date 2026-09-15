@@ -37,4 +37,4 @@ AI may explain evidence but must not mutate infrastructure. The manual Skill dec
 | Human Act | Proposed decision documented; no infrastructure action | Independent human review and authorized resolution |
 | Verify | Separate clean fixture check and passing local validation | Fresh real final plan and Claude review showing intended alignment |
 
-This is a tested local harness for **Gather → Analyze → Human Act → Verify**, not a completed live agentic loop. All screenshot and publication requirements remain pending; no LinkedIn post or URL has been created.
+This is a tested local harness for **Gather → Analyze → Human Act → Verify**, not a completed live agentic loop. Six genuine local editor/terminal screenshots (3, 4, 5, 6, 9 and 14) are attached to the submission with [capture provenance](screenshots/manifest.json). They show actual source/configuration and Bash validation, not live infrastructure or Claude execution. The other 13 numbered screenshots and publication evidence remain pending; no LinkedIn post or URL has been created.

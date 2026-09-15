@@ -22,11 +22,12 @@ The URL is the intended source folder on `main`; these deliverables are currentl
 | Seven-section summary | [drift-review-summary.md](drift-review/drift-review-summary.md) | Completed for actual local work and explicit limitations |
 | Clean/final baseline, controlled live change, human resolution | No authorized real plan/provider access | **Pending — Tasks 1, 4, 6 and 8 operational outcomes not completed** |
 | Claude invocation and actual hook integration | Only JSON-input hook simulation, no Claude execution | **Pending — Tasks 5 and 7 runtime evidence** |
-| Screenshots 1–19 and LinkedIn publication | All original placeholders retained below | **Pending; nothing posted and no screenshots fabricated** |
+| Local screenshots 3, 4, 5, 6, 9 and 14 | Six genuine VS Code/terminal captures embedded below; [capture provenance](drift-review/screenshots/manifest.json) | **Captured — local source/configuration and actual syntax/permissions checks only** |
+| Remaining screenshots and LinkedIn publication | 13 numbered placeholders and publication evidence retained below | **Pending; nothing posted and no live evidence fabricated** |
 
-**Evidence boundary:** Every report marked `FIXTURE` is an offline demonstration. A synthetic `HEALTHY` is not my actual infrastructure baseline. The existence of both report filenames does not complete Task 8. No live Terraform plan/apply/destroy or cloud API request was made. GitHub Copilot assisted the implementation, tests, and draft answers; I have not invoked the implemented Claude Skill. All screenshot sections below remain pending.
+**Evidence boundary:** Every report marked `FIXTURE` is an offline demonstration. A synthetic `HEALTHY` is not my actual infrastructure baseline. The existence of both report filenames does not complete Task 8. No live Terraform plan/apply/destroy or cloud API request was made. GitHub Copilot assisted the implementation, tests, draft answers and local capture setup; I have not invoked the implemented Claude Skill. Screenshots 3, 4, 5, 6, 9 and 14 are genuine local captures with Eze Favour visible. The other 13 numbered screenshots and LinkedIn publication screenshot remain pending. Static Skill/hook screenshots do not prove runtime invocation.
 
-**Source parity:** Compared the complete original template with pinned upstream commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes). The original local template only added `Cohort 3` to its opening subtitle. All required headings, questions, 19 numbered screenshots, publication placeholders, and checklist items are preserved; [metadata and regression checks](drift-review/tests/assignment-source.json) record this.
+**Source parity:** Compared the complete original template with pinned upstream commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes). The original local template only added `Cohort 3` to its opening subtitle. All required headings, questions, 19 numbered screenshot sections, publication placeholders, and checklist items are preserved. Six numbered placeholders now contain genuine local captures; 13 remain pending. [Metadata and regression checks](drift-review/tests/assignment-source.json) record the original requirements.
 
 ---
 
@@ -93,7 +94,9 @@ Provide Claude Code with clear project context, evidence requirements, and safet
 
 Add a screenshot of `CLAUDE.md` open in VS Code showing the Project Overview, Review Workflow, Safety Rules, and Output Rules.
 
-Add your screenshot here.
+![Screenshot 3 — Eze Favour's project context and four safety/workflow sections in VS Code](drift-review/screenshots/screenshot-03-context.png)
+
+Captured locally on 15 September 2026. This shows the actual context file, not a Claude invocation.
 
 ## Questions
 
@@ -123,7 +126,9 @@ Create a Bash script that gathers Terraform plan evidence and checks it for dest
 
 Add a screenshot of the top section of `tf-drift-check.sh` showing the variables and `checks` array.
 
-Add your screenshot here.
+![Screenshot 4 — Actual Bash variables and checks array in VS Code](drift-review/screenshots/screenshot-04-variables-checks.png)
+
+Captured locally on 15 September 2026; source view only.
 
 ---
 
@@ -131,7 +136,9 @@ Add your screenshot here.
 
 Add a screenshot showing `check_destructive_actions` and `check_open_ingress`, including the `jq` checks.
 
-Add your screenshot here.
+![Screenshot 5 — Destructive-action and open-ingress functions with the jq ingress policy in split view](drift-review/screenshots/screenshot-05-policy-checks.png)
+
+Captured locally on 15 September 2026. The left editor shows both actual Bash functions and jq invocations; the right shows the relevant ingress-policy logic, not the entire policy file.
 
 ---
 
@@ -139,7 +146,9 @@ Add your screenshot here.
 
 Add a screenshot showing successful `bash -n` and `ls -l` output.
 
-Add your screenshot here.
+![Screenshot 6 — Genuine terminal syntax exit 0, executable permissions and script SHA256](drift-review/screenshots/screenshot-06-validation-permissions.png)
+
+Actual local commands ran on 15 September 2026: `bash -n` returned 0, `ls -l -g -o` showed `-rwxr-xr-x`, and `test -x` returned 0. The `-g -o` options omit local owner/group names; no screenshot pixels were changed. No Terraform or cloud command ran.
 
 ## Questions
 
@@ -215,7 +224,9 @@ Turn the Bash evidence-gathering workflow into a reusable Agentic AI review proc
 
 Add a screenshot of `SKILL.md` showing the frontmatter, allowed tools, and safety rules.
 
-Add your screenshot here.
+![Screenshot 9 — Skill frontmatter, allowed tools and noWrite safety rules in VS Code](drift-review/screenshots/screenshot-09-skill-configuration.png)
+
+Captured locally on 15 September 2026. This demonstrates the configuration only; actual `/tf-drift-review` execution is pending.
 
 ---
 
@@ -323,7 +334,9 @@ Overall Status: FAIL
 
 Add a screenshot of `.claude/settings.json` showing the `PreToolUse` safety hook.
 
-Add your screenshot here.
+![Screenshot 14 — Actual PreToolUse command and args configuration in VS Code](drift-review/screenshots/screenshot-14-hook-configuration.png)
+
+Captured locally on 15 September 2026. The configuration is visible, but effective settings loading and actual Claude hook invocation remain unverified.
 
 ---
 
@@ -599,7 +612,7 @@ Checked items mean **local implementation/fixture validation only**, not live in
 - [x] Included the GitHub repository/folder URL
 - [ ] Confirmed that no sensitive information is exposed
 
-The checked Skill restrictions are configuration/static checks, not a claimed runtime invocation. The mapping documents which loop stages remain pending. Local generated reports are sanitized and secret-canary tests pass; the final screenshot/publication redaction checklist remains open because those artifacts do not yet exist.
+The checked Skill restrictions are configuration/static checks, not a claimed runtime invocation. The mapping documents which loop stages remain pending. Local generated reports are sanitized and secret-canary tests pass. The six attached local screenshots were reviewed before committing; all 19 screenshot and final publication/redaction checklist items remain open because 13 numbered captures and publication evidence are still missing.
 
 ---
 

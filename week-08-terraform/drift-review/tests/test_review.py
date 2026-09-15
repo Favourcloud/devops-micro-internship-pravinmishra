@@ -1,11 +1,13 @@
 """Offline subprocess tests only. All scratch files stay inside this project."""
 import copy
 from datetime import datetime, timedelta, timezone
+import hashlib
 import json
 import os
 from pathlib import Path
 import re
 import shutil
+import struct
 import subprocess
 import sys
 import unittest
@@ -365,6 +367,15 @@ class HookTests(unittest.TestCase):
 
 
 class SubmissionTests(unittest.TestCase):
+    captures = {
+        3: ("screenshot-03-context.png", {"CLAUDE.md"}),
+        4: ("screenshot-04-variables-checks.png", {"AI Assignment/tf-drift-check.sh"}),
+        5: ("screenshot-05-policy-checks.png", {"AI Assignment/tf-drift-check.sh", "lib/ingress.jq"}),
+        6: ("screenshot-06-validation-permissions.png", {"AI Assignment/tf-drift-check.sh"}),
+        9: ("screenshot-09-skill-configuration.png", {".claude/skills/tf-drift-review/SKILL.md"}),
+        14: ("screenshot-14-hook-configuration.png", {".claude/settings.json"}),
+    }
+
     def test_assignment_requirements_preserved(self):
         metadata = json.loads((ROOT / "tests/assignment-source.json").read_text())
         submission = (ROOT.parent / "assignment-06-ai-assisted-terraform-drift-and-policy-review.md").read_text()
@@ -374,8 +385,44 @@ class SubmissionTests(unittest.TestCase):
         for item in metadata["required_checklist"]:
             self.assertTrue(any(line in ("- [ ] " + item, "- [x] " + item) for line in lines), item)
         self.assertEqual(len(re.findall(r"^### Screenshot \d+ —", submission, re.M)), 19)
-        self.assertEqual(submission.count("Add your screenshot here."), 19)
+        self.assertEqual(submission.count("Add your screenshot here."), 13)
+        sections = {int(number): body for number, body in re.findall(
+            r"^### Screenshot (\d+) — [^\n]+\n(.*?)(?=^### Screenshot \d+ —|\Z)", submission, re.M | re.S)}
+        self.assertEqual(set(sections), set(range(1, 20)))
+        for number, body in sections.items():
+            with self.subTest(screenshot=number):
+                images = re.findall(r"!\[[^\]]*\]\(([^)]+)\)", body)
+                if number in self.captures:
+                    self.assertEqual(images, ["drift-review/screenshots/" + self.captures[number][0]])
+                    self.assertNotIn("Add your screenshot here.", body)
+                else:
+                    self.assertEqual(images, [])
+                    self.assertEqual(body.count("Add your screenshot here."), 1)
         self.assertIn("Add a screenshot of the published LinkedIn post here.", submission)
+        self.assertIn("- [ ] Included all 19 numbered screenshots", submission)
+        self.assertIn("- [ ] Published the required LinkedIn post", submission)
+
+    def test_screenshot_provenance_matches_files(self):
+        manifest = json.loads((ROOT / "screenshots/manifest.json").read_text())
+        self.assertEqual(manifest["student"], "Eze Favour")
+        self.assertIn("NOT LIVE INFRASTRUCTURE OR CLAUDE EXECUTION", manifest["evidence_class"])
+        self.assertEqual(len(manifest["screenshots"]), len(self.captures))
+        self.assertEqual({item["number"] for item in manifest["screenshots"]}, set(self.captures))
+        self.assertEqual({path.name for path in (ROOT / "screenshots").glob("*.png")},
+                         {filename for filename, _ in self.captures.values()})
+        for item in manifest["screenshots"]:
+            with self.subTest(screenshot=item["number"]):
+                filename, sources = self.captures[item["number"]]
+                self.assertEqual(item["file"], filename)
+                image = (ROOT / "screenshots" / filename).read_bytes()
+                self.assertEqual(image[:8], b"\x89PNG\r\n\x1a\n")
+                self.assertEqual(struct.unpack(">II", image[16:24]), (item["width_pixels"], item["height_pixels"]))
+                self.assertEqual(hashlib.sha256(image).hexdigest(), item["sha256"])
+                self.assertIs(item["image_modified"], False)
+                self.assertEqual(datetime.fromisoformat(item["captured_at_utc"]).utcoffset(), timedelta(0))
+                self.assertEqual(set(item["source_sha256"]), sources)
+                for path, expected_hash in item["source_sha256"].items():
+                    self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), expected_hash, path)
 
     def test_local_markdown_links(self):
         docs = list(ROOT.rglob("*.md")) + [ROOT.parent / "assignment-06-ai-assisted-terraform-drift-and-policy-review.md"]

@@ -73,7 +73,7 @@ def main():
                 "No cloud API calls, live baseline, deployed change, human apply, or final infrastructure verification.",
                 "Hook tested using JSON stdin and exit codes only, never an actual apply attempt.",
                 "Claude Skill and effective settings integration not run; no Claude screenshots or transcripts.",
-                "All 19 numbered screenshots and LinkedIn publication/URL/screenshot remain pending.",
+                "Six genuine local screenshots (3, 4, 5, 6, 9, 14) are attached; the other 13 numbered screenshots and LinkedIn publication/URL/screenshot remain pending.",
                 "HEALTHY fixture output is not actual infrastructure health or authorization to mutate.",
                 "Hashes identify the tested local source snapshot, not an upstream deployment or a signed attestation."
             ],

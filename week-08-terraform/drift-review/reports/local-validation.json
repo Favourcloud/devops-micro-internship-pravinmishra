@@ -1,12 +1,12 @@
 {
   "evidence_class": "LOCAL SYNTHETIC VALIDATION ONLY — NOT DEPLOYED INFRASTRUCTURE OR CLAUDE EXECUTION",
   "student": "Eze Favour",
-  "timestamp_utc": "2026-09-15T14:39:54+00:00",
+  "timestamp_utc": "2026-09-15T15:21:31+00:00",
   "status": "PASS",
   "reproduction_command": "python3.13 tests/run_validation.py --report NEW_PATH",
   "equivalent_unittest_command": "python3.13 -m unittest discover -s tests -v",
-  "tests_run": 32,
-  "subtests_run": 130,
+  "tests_run": 33,
+  "subtests_run": 155,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
@@ -28,17 +28,17 @@
       "source_hash_matches": true
     }
   },
-  "source_file_count": 20,
+  "source_file_count": 27,
   "source_sha256": {
-    "../assignment-06-ai-assisted-terraform-drift-and-policy-review.md": "52053c61c153cda38a7c72451c6dbeed973d5fd3e002e72f2a0c189521b9d3e3",
+    "../assignment-06-ai-assisted-terraform-drift-and-policy-review.md": "6f599979e870b0c008ad2dbc0461b385b777bf7b9f64171dea5000a04a283fa9",
     ".claude/hooks/review_gate.py": "319cc44965e79d9e56797724abe385b38003a4b1276cce71ecd4d1771caabbe3",
     ".claude/settings.json": "80f27de9d31466654ad6b9f39703105246592458d3e0919b1d7fffe07756e2fe",
     ".claude/skills/tf-drift-review/SKILL.md": "bbace039b0801926aaacf693af689bd1643b9669ce2b66190924e14983a78b82",
     ".gitignore": "924e58d4416ec39569ff390ae3851e2adb499659353ece8b3108f0867146b877",
     "AI Assignment/tf-drift-check.sh": "5abf9373d62fed1ca613ea768600a48145d004c575cd947f74390e5fa88319cb",
-    "CLAUDE.md": "9d480262b940237570efa4936c52d6f428d3bb1c8b38b422169c473b896ed074",
-    "README.md": "bc65bce5709928d1e9290b7e0e8e4df81b1a6725d465321d8e38c89a99f171ba",
-    "drift-review-summary.md": "520309fc2dcd0c646ae7f5f7aca6d79eec3a0a5b672d467440c47315f2392e78",
+    "CLAUDE.md": "3b3baa2195a353fee59047fb82e018fc9102daeb897e24fe5cd07f8b0d6b7479",
+    "README.md": "8e4ace39ed2deb4f0fcc69ffeb56b74b89e32e5d79269cd401fbbf54630b9320",
+    "drift-review-summary.md": "26fc3b429bfd47567799ccc5f1eb642347cdd64e34e26dbe917193f389d42463",
     "fixtures/clean.json": "c631b7d9a656cae8b9577f45259e801eaed60088d5ca7233aaa938a6daba233c",
     "fixtures/detected.json": "4640935be0de7979bb25a7faac84ed67240881ffe0ef8c136e0f620a225ba893",
     "fixtures/empty.json": "a4526c29c59e4ece8265bd0dd26e895e7c1fb90b9e3db8ebdb6264ca20a23ea6",
@@ -47,9 +47,16 @@
     "lib/schema.jq": "cf9ee14fe723d253b0555075e1172df2410eff4cf0082f085a6b46d648898a7c",
     "reports/drift-detected-report.txt": "5d0b5d492cdea07e4bfb22a21cde81c9f54cd0857a24e4f43f2b95d099c0d571",
     "reports/resolved-report.txt": "3f3ab64f0cced60759eb9e2494e1e3614ea1c532f418198da808d3a419975141",
+    "screenshots/manifest.json": "4c92705a312659a28bfef85c8f3b8fcfe63fa4a064b5d7ad6dabd161d4e4da2c",
+    "screenshots/screenshot-03-context.png": "4912b75d675c35916655974caa77b2ae62527c5a48b1ba3b6aeaee4b5383a3c9",
+    "screenshots/screenshot-04-variables-checks.png": "fa0cbd785e45151c3e313a2e5b5b83e8c166e53ec023f92e8daca595ea12bdf8",
+    "screenshots/screenshot-05-policy-checks.png": "be478bbc3824653f20957f33aa95bbf9db20a425697815376217ef068051b076",
+    "screenshots/screenshot-06-validation-permissions.png": "1ad42d0b1ec4b2fd8c41e7b20c4c60f2fad6d66b4e6c81bd3271b4528932a576",
+    "screenshots/screenshot-09-skill-configuration.png": "6c75341f1d8142ef06b19dbb83ada5ac33640b743000209865564fe800a5082e",
+    "screenshots/screenshot-14-hook-configuration.png": "5fcbd22866dd0e30631541492d32444a0c08553c6899984429927f9d961d5fd2",
     "tests/assignment-source.json": "5a41177cf1f6e1393e1edd1fff6ab8309a417a3eb18ac0ee7bd85a49786d0584",
-    "tests/run_validation.py": "1b74d8b38c1b92603826d0c21399f42b76153ba925f9c7e0bd178baac1cb4cbc",
-    "tests/test_review.py": "4e9f4a34abae4c0bf6a014796896174b13b2aadad1cc25aadcb57d0202c9ecde"
+    "tests/run_validation.py": "56499c04e0f80b2677d924dfc6dbabb1209a028becfd1674845e02fea7ab3624",
+    "tests/test_review.py": "5af28a3a2b8c0ad5e68d1d810049f81a0efd33e077c75748eb6816d9109e7d09"
   },
   "source_parity": {
     "pinned_commit": "9b394ef8efecd7db1f582995a03665f6f8afc2a4",
@@ -209,7 +216,7 @@
     "No cloud API calls, live baseline, deployed change, human apply, or final infrastructure verification.",
     "Hook tested using JSON stdin and exit codes only, never an actual apply attempt.",
     "Claude Skill and effective settings integration not run; no Claude screenshots or transcripts.",
-    "All 19 numbered screenshots and LinkedIn publication/URL/screenshot remain pending.",
+    "Six genuine local screenshots (3, 4, 5, 6, 9, 14) are attached; the other 13 numbered screenshots and LinkedIn publication/URL/screenshot remain pending.",
     "HEALTHY fixture output is not actual infrastructure health or authorization to mutate.",
     "Hashes identify the tested local source snapshot, not an upstream deployment or a signed attestation."
   ]

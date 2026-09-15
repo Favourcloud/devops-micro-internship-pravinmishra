@@ -2,7 +2,7 @@
 
 **Student: Eze Favour. Status: local branch-only implementation; not merged or published.**
 
-This isolated project implements the assignment's local artifacts, not its operational completion. No real Terraform plan, cloud request, apply, destroy, Claude Skill invocation, screenshot, or LinkedIn publication was performed. There is no Terraform scaffold or paid resource here. The existing worktree's other labs and active root Claude settings are unchanged by this project.
+This isolated project implements the assignment's local artifacts, not its operational completion. Six genuine local editor/terminal screenshots are attached; no real Terraform plan, cloud request, apply, destroy, Claude Skill invocation, or LinkedIn publication was performed. There is no Terraform scaffold or paid resource here. The existing worktree's other labs and active root Claude settings are unchanged by this project.
 
 - [Assignment submission](../assignment-06-ai-assisted-terraform-drift-and-policy-review.md)
 - [Seven-section summary](drift-review-summary.md)
@@ -10,6 +10,21 @@ This isolated project implements the assignment's local artifacts, not its opera
 - [Checker](AI%20Assignment/tf-drift-check.sh), [schema](lib/schema.jq), [ingress policy](lib/ingress.jq), [private evidence helper](lib/evidence.py)
 - [Manual Skill](.claude/skills/tf-drift-review/SKILL.md), [isolated hook configuration](.claude/settings.json), [hook implementation](.claude/hooks/review_gate.py)
 - [Detected fixture report](reports/drift-detected-report.txt), [resolved fixture report](reports/resolved-report.txt), [local validation evidence](reports/local-validation.json)
+
+## Genuine local screenshots
+
+Captured on 15 September 2026 in an isolated **Visual Studio Code 1.137.0** profile, with Eze Favour visible in each assignment window. Only that window was captured; the PNGs are unmodified. [Provenance](screenshots/manifest.json) records capture-processing timestamps, image/source SHA256 hashes and the actual terminal commands. Native local OCR and image inspection were used; no remote OCR service or cloud access was needed.
+
+| Screenshot | Evidence |
+| --- | --- |
+| [3](screenshots/screenshot-03-context.png) | `CLAUDE.md` and all four context/safety sections |
+| [4](screenshots/screenshot-04-variables-checks.png) | Bash variables and `checks` array |
+| [5](screenshots/screenshot-05-policy-checks.png) | Both check functions and relevant jq ingress logic in split view |
+| [6](screenshots/screenshot-06-validation-permissions.png) | Actual `bash -n` exit 0, executable permissions and source hash |
+| [9](screenshots/screenshot-09-skill-configuration.png) | Skill frontmatter, allowed tools and safety rules |
+| [14](screenshots/screenshot-14-hook-configuration.png) | `PreToolUse` configuration, not a runtime invocation |
+
+For screenshot 6, `ls -l -g -o` omits local owner/group names while preserving the real permissions output. These six images do not establish a live baseline, a Claude session, a successful hook load or a human-applied resolution. Screenshots **1, 2, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18 and 19**, plus the LinkedIn publication screenshot, remain pending. No placeholder was replaced with synthetic live evidence.
 
 ## Reproduce without cloud access
 
@@ -103,8 +118,8 @@ This guard assumes trusted source files/interpreters/PATH and a correctly loaded
 
 ## Validation, source parity and pending completion
 
-Run `python3.13 tests/run_validation.py --report NEW_PATH` to regenerate sanitized counts, source hashes, fixture results and explicit limitations. The tracked [validation record](reports/local-validation.json) is generated, not hand-written test evidence. It hashes project source/fixtures/docs/reports and the assignment submission (excluding itself and ignored runtime data); timestamps and runtime durations will differ on rerun.
+Run `python3.13 tests/run_validation.py --report NEW_PATH` to regenerate sanitized counts, source hashes, fixture results and explicit limitations. The tracked [validation record](reports/local-validation.json) is generated, not hand-written test evidence. It hashes project source/fixtures/docs/reports, all six screenshots and their provenance manifest, and the assignment submission (excluding itself and ignored runtime data); timestamps and runtime durations will differ on rerun. Screenshot regressions check PNG/image hashes, captured source hashes, the six correct attachments and the thirteen remaining numbered placeholders. Hashes are integrity checks, not signed attestations. The original pre-screenshot validation snapshot remains available in Git commit `0fb5b4b`.
 
-[Source metadata](tests/assignment-source.json) records the pinned assignment commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, upstream blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes), and original local blob `921e3a543890792187fd0e502b84759e09426dd0` (14,120 bytes). The only original text difference was the subtitle's `Cohort 3`. Tests retain all required headings/questions, all checklist items, all 19 numbered screenshot placeholders, and the LinkedIn screenshot placeholder.
+[Source metadata](tests/assignment-source.json) records the pinned assignment commit `9b394ef8efecd7db1f582995a03665f6f8afc2a4`, upstream blob `2c00e004853ae2eb146928eb86d19459b538be1b` (14,111 bytes), and original local blob `921e3a543890792187fd0e502b84759e09426dd0` (14,120 bytes). The only original text difference was the subtitle's `Cohort 3`. Tests retain all required headings/questions, all checklist items, all 19 numbered screenshot sections (six actual attachments and thirteen pending placeholders), and the LinkedIn screenshot placeholder.
 
-Pending: authorized real clean baseline and final plan, actual Claude Skill/hook sessions, actual controlled infrastructure/configuration difference and classification, independent human resolution, all 19 screenshots, and LinkedIn post/URL/screenshot. Required report filenames alone do not complete Task 8. GitHub Copilot assisted code, tests and draft answers; that assistance is not evidence of Claude reasoning or a live operational outcome.
+Pending: authorized real clean baseline and final plan, actual Claude Skill/hook sessions, actual controlled infrastructure/configuration difference and classification, independent human resolution, the remaining 13 numbered screenshots, and LinkedIn post/URL/screenshot. Required report filenames alone do not complete Task 8. GitHub Copilot assisted code, tests and draft answers; that assistance is not evidence of Claude reasoning or a live operational outcome.

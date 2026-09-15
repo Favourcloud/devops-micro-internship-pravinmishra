@@ -1,0 +1,103 @@
+{
+  "evidence_class": "GENUINE LOCAL EDITOR AND TERMINAL SCREENSHOTS — NOT LIVE INFRASTRUCTURE OR CLAUDE EXECUTION",
+  "student": "Eze Favour",
+  "application": "Visual Studio Code 1.137.0 (isolated profile; extensions disabled)",
+  "capture_method": "macOS screencapture -x -o -l: assignment window only, no shadow, unmodified PNG",
+  "review_method": "Local native Vision OCR, image inspection and source SHA256 comparison; no remote OCR service",
+  "timestamp_note": "Each timestamp records completion of capture/OCR processing in UTC.",
+  "limitations": [
+    "Code/configuration views do not prove Claude loaded or invoked the Skill or hook.",
+    "The terminal records actual local Bash syntax and permissions checks, not Terraform or cloud activity.",
+    "Hashes identify captured bytes and source snapshots; they are not signed attestations.",
+    "Screenshots 1, 2, 7, 8, 10, 11, 12, 13, 15, 16, 17, 18 and 19 plus the LinkedIn publication screenshot remain pending."
+  ],
+  "terminal_commands": [
+    "bash -n \"AI Assignment/tf-drift-check.sh\"",
+    "printf 'bash -n exit code: %s\\n' \"$?\"",
+    "ls -l -g -o \"AI Assignment/tf-drift-check.sh\"",
+    "test -x \"AI Assignment/tf-drift-check.sh\"; printf 'Executable check exit code: %s\\n' \"$?\"",
+    "shasum -a 256 \"AI Assignment/tf-drift-check.sh\"",
+    "date -u '+Validation time: %Y-%m-%dT%H:%M:%SZ'"
+  ],
+  "terminal_result": {
+    "bash_syntax_exit": 0,
+    "executable_check_exit": 0,
+    "permissions": "-rwxr-xr-x",
+    "owner_group": "Omitted using ls -g -o; screenshot pixels were not redacted."
+  },
+  "screenshots": [
+    {
+      "number": 3,
+      "file": "screenshot-03-context.png",
+      "captured_at_utc": "2026-09-15T15:15:18+00:00",
+      "sha256": "4912b75d675c35916655974caa77b2ae62527c5a48b1ba3b6aeaee4b5383a3c9",
+      "source_sha256": {
+        "CLAUDE.md": "3b3baa2195a353fee59047fb82e018fc9102daeb897e24fe5cd07f8b0d6b7479"
+      },
+      "image_modified": false,
+      "width_pixels": 3500,
+      "height_pixels": 2010
+    },
+    {
+      "number": 4,
+      "file": "screenshot-04-variables-checks.png",
+      "captured_at_utc": "2026-09-15T15:15:28+00:00",
+      "sha256": "fa0cbd785e45151c3e313a2e5b5b83e8c166e53ec023f92e8daca595ea12bdf8",
+      "source_sha256": {
+        "AI Assignment/tf-drift-check.sh": "5abf9373d62fed1ca613ea768600a48145d004c575cd947f74390e5fa88319cb"
+      },
+      "image_modified": false,
+      "width_pixels": 3500,
+      "height_pixels": 2010
+    },
+    {
+      "number": 5,
+      "file": "screenshot-05-policy-checks.png",
+      "captured_at_utc": "2026-09-15T15:16:27+00:00",
+      "sha256": "be478bbc3824653f20957f33aa95bbf9db20a425697815376217ef068051b076",
+      "source_sha256": {
+        "AI Assignment/tf-drift-check.sh": "5abf9373d62fed1ca613ea768600a48145d004c575cd947f74390e5fa88319cb",
+        "lib/ingress.jq": "e9e51fce82b3efddb0311a8399cf90fcb9541daddb69ba9edd2a46704eca1f3c"
+      },
+      "image_modified": false,
+      "width_pixels": 3500,
+      "height_pixels": 2010
+    },
+    {
+      "number": 6,
+      "file": "screenshot-06-validation-permissions.png",
+      "captured_at_utc": "2026-09-15T15:17:38+00:00",
+      "sha256": "1ad42d0b1ec4b2fd8c41e7b20c4c60f2fad6d66b4e6c81bd3271b4528932a576",
+      "source_sha256": {
+        "AI Assignment/tf-drift-check.sh": "5abf9373d62fed1ca613ea768600a48145d004c575cd947f74390e5fa88319cb"
+      },
+      "image_modified": false,
+      "width_pixels": 3500,
+      "height_pixels": 2010
+    },
+    {
+      "number": 9,
+      "file": "screenshot-09-skill-configuration.png",
+      "captured_at_utc": "2026-09-15T15:15:39+00:00",
+      "sha256": "6c75341f1d8142ef06b19dbb83ada5ac33640b743000209865564fe800a5082e",
+      "source_sha256": {
+        ".claude/skills/tf-drift-review/SKILL.md": "bbace039b0801926aaacf693af689bd1643b9669ce2b66190924e14983a78b82"
+      },
+      "image_modified": false,
+      "width_pixels": 3500,
+      "height_pixels": 2010
+    },
+    {
+      "number": 14,
+      "file": "screenshot-14-hook-configuration.png",
+      "captured_at_utc": "2026-09-15T15:15:48+00:00",
+      "sha256": "5fcbd22866dd0e30631541492d32444a0c08553c6899984429927f9d961d5fd2",
+      "source_sha256": {
+        ".claude/settings.json": "80f27de9d31466654ad6b9f39703105246592458d3e0919b1d7fffe07756e2fe"
+      },
+      "image_modified": false,
+      "width_pixels": 3500,
+      "height_pixels": 2010
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is Week 08 Assignment 06's local review harness, not a Terraform deployment. It contains no infrastructure scaffold and provisions nothing. All committed plans and reports are synthetic demonstration data. A real clean baseline, provider access, Claude runtime invocation, screenshots, human infrastructure resolution, and publication remain pending.
+This is Week 08 Assignment 06's local review harness, not a Terraform deployment. It contains no infrastructure scaffold and provisions nothing. All committed plans and reports are synthetic demonstration data. A real clean baseline, provider access, Claude runtime invocation, live-workflow screenshots, human infrastructure resolution, and publication remain pending.
 
 ## Review Workflow
 
