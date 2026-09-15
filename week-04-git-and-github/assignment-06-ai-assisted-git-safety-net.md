@@ -314,7 +314,7 @@ Publish a LinkedIn post summarizing what you built and what you learned about co
 
 [This One Git Habit Could Save You Hours of Frustration](https://medium.com/@rosenaefavour/this-one-git-habit-could-save-you-hours-of-frustration-213eb4d360ec)
 
-The article is published, but its personal badge credit link is still pending. Adding this submission link does not update the Medium article.
+The published article's personal badge credit link was independently verified in the public Medium feed on 15 September 2026 after the external publication edit. It contains exactly one clickable link to https://dmi.pravinmishra.com/s/Favourcloud.html; original content and formatting are preserved against the pre-edit snapshot. The article URL is unchanged. A new grading result has not been verified.
 
 ---
 

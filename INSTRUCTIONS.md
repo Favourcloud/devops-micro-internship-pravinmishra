@@ -82,7 +82,7 @@ For this fork, add this footer to the **published article itself** where it is m
 
 In Medium, use the editor's link control to link “Follow my graded progress” to `https://dmi.pravinmishra.com/s/Favourcloud.html`. Confirm that the published text opens that exact page; pasting Markdown as literal text is not sufficient. Keep the original mentor/community credit required by the assignment. Learners using another fork must use their own username, not `Favourcloud`.
 
-As of 15 September, the published Week 01, Week 04 and Week 05 articles linked in this fork's README still need this footer. The Week 03 article already contains the correct link. A local Markdown edit does not update Medium.
+Verified on 15 September 2026: the published Week 01, Week 04 and Week 05 articles linked in this fork's README each contain exactly one clickable personal badge link after external publication edits. The public Medium feed was independently checked against pre-edit snapshots; original content and formatting are preserved. The Week 03 article already contains the correct link. Do not add duplicate footers. A local Markdown edit does not update Medium, and these checks do not establish a new grading result.
 
 ---
 
