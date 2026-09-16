@@ -25,7 +25,7 @@ ansible-adhoc-lab/
 │   ├── ansible.cfg
 │   └── inventory.ini                 # tracked UNCONFIGURED template
 ├── scripts/lab.py
-└── tests/test_lab.py
+└── tests/{test_lab.py,test_ssh_configuration.py}
 ```
 
 `for_each` defines all four roles. A dedicated resource group, VNet and subnet isolate this disposable lab in **UK South (`uksouth`)**. Four NICs each have a **Standard static public IPv4** and a dedicated NSG. SSH is allowed **only from the controller IPv4 /32**. Only `web1`/`web2` receive HTTP access, also restricted to that /32. An explicit priority-4096 deny blocks all other inbound traffic, including Azure's otherwise-default VNet allowance. App/db have no HTTP/database/application inbound ports. Default NSG outbound access remains available for packages/DNS; subnet implicit default outbound is disabled, with the explicit public IPs supplying outbound connectivity. No NAT Gateway, load balancer or additional service is created.
@@ -56,6 +56,8 @@ python -m unittest discover -s tests -v
 (cd ansible && ansible-inventory -i inventory.ini --graph)
 (cd ansible && ansible-config dump --only-changed)
 ```
+
+SSH multiplexing is explicitly disabled (`ControlMaster=no`, `ControlPath=none`) in both Ansible configurations and the direct hostname wrapper. Deep worktree paths can exceed macOS/Unix control-socket limits; removing persistent control sockets avoids this without weakening host-key verification. The real OpenSSH regressions use only `ssh -G` and local `ssh -O check` (no network), reproduce an overlong legacy socket path, and verify that both labs and the wrapper never use it.
 
 `init` downloads provider packages if absent but does not provision. Reuse an approved existing provider mirror on a space-constrained controller; never mutate the shared cache. All Terraform test runs use `command = plan` with a mocked provider. Tests check four roles, group isolation, instance safeguards, outputs and rejected invalid/unapproved inputs. Python tests exercise rendering, mode 0600, bad/missing/duplicate IP rejection, overwrite/symlink rejection, approval gates and mocked command construction. The inventory graph lists deliberately unresolvable `.invalid` hosts. None of these results proves SSH, running instances, package installation or a successful live Terraform plan.
 

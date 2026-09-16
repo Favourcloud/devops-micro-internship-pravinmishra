@@ -14,6 +14,7 @@ LAB = Path(__file__).resolve().parents[1]
 GROUPS = {"web": ("web1", "web2"), "app": ("app1",), "db": ("db1",)}
 HOSTS = {host for hosts in GROUPS.values() for host in hosts}
 SSH_OPTIONS = [
+    "-o", "ControlMaster=no", "-o", "ControlPath=none",
     "-o", "StrictHostKeyChecking=yes", "-o", "ForwardAgent=no", "-o", "BatchMode=yes",
     "-o", f"UserKnownHostsFile={LAB / '.local/known_hosts'}", "-o", "GlobalKnownHostsFile=/dev/null",
 ]
