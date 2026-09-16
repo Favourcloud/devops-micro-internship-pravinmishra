@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "assignment": "Week09 Assignment5",
+  "scope": "Only source slots1 and3; not live infrastructure, SSH or application evidence.",
+  "approval_receipt_sha256": "392dfa1b637de7c70543360eecf4c5be49f262f217d85d5cd650613fea406271",
+  "coordinator_review": "Coordinator explicitly approved original native PNGs, visible learner name/privacy/content; untouched bytes.",
+  "tree_at_capture": {
+    "source_commit": "a15fc8c7c728d699fe1a0ae43177b8809f19eba7",
+    "tracked_file_count": 43,
+    "scope": "43 tracked project files BEFORE these five PNGs and their receipt manifest were added; not a claim about the final future tree.",
+    "source_hashes": {
+      "week-09-ansible/epicbook-prod/.gitignore": "7784a647e39bb8ca7aa181495e3c932dc576176218f2579e338793ad513b4395",
+      "week-09-ansible/epicbook-prod/README.md": "67f92c8c5fd738c85a395a6b012a88d604228c213295a099f098bbad272f35e5",
+      "week-09-ansible/epicbook-prod/ansible/.ansible-lint": "6e792ca7ce19813a8877a8ae35dac4e9fc52b506f155578a4f5b8f5b5ac34894",
+      "week-09-ansible/epicbook-prod/ansible/ansible.cfg": "80950d779ab00747608089c86ca2ac463dd1ce60b7804a3e9153e3251fff385f",
+      "week-09-ansible/epicbook-prod/ansible/group_vars/web.yml": "96409c38517f46bb4481d4c2d18edb57688d0168a91fc4a38b580ebf70f6886e",
+      "week-09-ansible/epicbook-prod/ansible/inventory.ini": "93f4ff69898947551bd6854c2efc1b93435af832910e725a150c51e222216b7c",
+      "week-09-ansible/epicbook-prod/ansible/requirements.yml": "85696b1764bbd8d7d49c0d92fd1863557ec276c566a7ea061c0b61cbc21bbe45",
+      "week-09-ansible/epicbook-prod/ansible/roles/common/tasks/main.yml": "1a7d547670b1cdfcfac9e35fa72d5770dd1a5667d0d4bb3db977f3b2a7ac532a",
+      "week-09-ansible/epicbook-prod/ansible/roles/epicbook/handlers/main.yml": "defc2ca337cda2e1ff093d74df92dff0aaf63a14efe1ac5fb5876f8d5118debf",
+      "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/main.yml": "d8587984ac0fa5bf07095ac45e39722c7fa0d4071fb8eddf81f9d4637fba1310",
+      "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/runtime.yml": "fcb2eef6a96f03ec5d5cc44006232d97ad768055348e101d069ce46d3861d376",
+      "week-09-ansible/epicbook-prod/ansible/roles/epicbook/templates/epicbook.env.j2": "416ba21276487ced728195b857f784b52893d8d4c798f7506b4f61aaf723e1f4",
+      "week-09-ansible/epicbook-prod/ansible/roles/epicbook/templates/epicbook.service.j2": "0fdbf3a07d0215edd42c48ccae34ba14cd5e9c4c492b8564badab4a8f9ff2308",
+      "week-09-ansible/epicbook-prod/ansible/roles/nginx/handlers/main.yml": "72d134f252ae2b746e6bee8375a03a481249458565b74ff5288efc862636500c",
+      "week-09-ansible/epicbook-prod/ansible/roles/nginx/tasks/main.yml": "481cbcecdfe477b812ac0028ee67bd0c5355ba726839681832a624115e773a7e",
+      "week-09-ansible/epicbook-prod/ansible/roles/nginx/templates/epicbook.conf.j2": "6f8549feb0640c5a1910a4d34a80bda2138b7423edb8dbd8ddf8025ce608cc22",
+      "week-09-ansible/epicbook-prod/ansible/site.yml": "bf86dde1e896baed7769096a1e1865dd974346a105ceb5031597a8d5b044d142",
+      "week-09-ansible/epicbook-prod/evidence/assignment-05-manifest.json": "0b3ff0451423803bec68df65041543cb679ad0716e443e330a3347348c4257d5",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-06.png": "ca295f16640f0b74787b5804f52580631bdcca151151e26911b24a3891e63196",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-07.png": "64634c1252993adba63159ede15b8b1a5665e1ceccf80036f14016e0fd0f9544",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-10a.png": "23bcc0ab9360688344094b5d7cc4f51c4c617c312ba3db991f38e414fd2a715c",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-10b.png": "f04ed0ef59e25000ed8cb0d2b9a82a1a023aad65e3960ade579b45c5f19ce700",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-10c.png": "ae50e7b154f0583ca2a90250e8b3f4eacd2a55329f9e463a117c13d633f40767",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-11.png": "cbb0d83090b0bdbe59985fe03c372f843e09820412ce0cbd340a3ab8aa16eeb0",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-8a.png": "45afb1707ad70266fbe180a73efa8c03cf5d3e79e866e38cc551088731c8f807",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-8b.png": "3c0e0326b34e3e8b39abbf9a1d313e2ae9de0b256794cbfdcc28b3c2eff0ce1b",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-8c.png": "7a91ea546619c0adffb75078f8ba6c385c25de91be8d832cf36ee441378c9dfc",
+      "week-09-ansible/epicbook-prod/evidence/images/screenshot-8d.png": "f7613c8ff96b0c42461e4464f0426a77cbb217423796524d307dc54ff6714358",
+      "week-09-ansible/epicbook-prod/evidence/source-captures.json": "76d5e22fc4aeaa96d58073785b23cf0497469384a9417eef5e58cb32887f4efb",
+      "week-09-ansible/epicbook-prod/evidence/upstream-probe.json": "fa446996c6f6cecfc08b071fc5fc2543bd6b52a46b3eefb4b534d7e6b5e158e7",
+      "week-09-ansible/epicbook-prod/evidence/upstream-source.json": "5c24d801ef239fe8bf362c913eb8020d62ff997c19d416d021b4c8e2524a4471",
+      "week-09-ansible/epicbook-prod/scripts/render_inventory.py": "c64bbac68df1a50ac4b61d34a75623f74776461ec767783bdefb3ff122bc1653",
+      "week-09-ansible/epicbook-prod/scripts/verify.sh": "5573f4cc65ffcd116f7c2ba6fc6e9fc00fe77204839a6eb504a008038177c763",
+      "week-09-ansible/epicbook-prod/scripts/verify_upstream.py": "7beecafda56a3543080ebd4bac0a2583ab0bad63d48ff8c4a007b23f146c9634",
+      "week-09-ansible/epicbook-prod/terraform/azure/.terraform.lock.hcl": "1f5467f97786038441e615734d0c88f4a0fd6f41c3e4511ce64951b2c0f75c9e",
+      "week-09-ansible/epicbook-prod/terraform/azure/main.tf": "a49a80ca5a7000ebc82c8fee83bbc63a5321c78fc0226b54ded530260dc0c8b6",
+      "week-09-ansible/epicbook-prod/terraform/azure/outputs.tf": "2d04c04f8f5e60436c142def9820c01c33e1781605eb24cad14b361275a0d84c",
+      "week-09-ansible/epicbook-prod/terraform/azure/terraform.tfvars.example": "73bb55ffa41b8e97cb872784383ebef6e0327c888f5081b20d5d9b6e553167b0",
+      "week-09-ansible/epicbook-prod/terraform/azure/tests/secure_vm.tftest.hcl": "a58ef10e9cc6e4eeb92259803b6dd5f81a199314933447086ee5fdb181a93432",
+      "week-09-ansible/epicbook-prod/terraform/azure/variables.tf": "ebb462fc05013f8d286f1aea918927e2a31516fbd576979f5539e7848de3e531",
+      "week-09-ansible/epicbook-prod/terraform/azure/versions.tf": "176e4169855eebd19dee16f3bffc382772c0da72606b75870998c62deee6add7",
+      "week-09-ansible/epicbook-prod/tests/test_evidence.py": "8b3c5410400a89b29dcd62a4f055e0de879da9fd103e90933f0bee12c5591fcf",
+      "week-09-ansible/epicbook-prod/tests/test_preparation.py": "1d16764a66aa9f096d75c7383d94b25ea3f326ab7cb27708b84716038cfa033d"
+    }
+  },
+  "items": [
+    {
+      "slot": "1a",
+      "image": "images/screenshot-1a.png",
+      "image_sha256": "ce846e88f432a35101b1e39a21488b7e66c4e3bd007dbd5bec75f967db76fb51",
+      "image_bytes": 957880,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "original_receipt_sha256": "1a39b8421826785fa3c82c9cb00d6d4c47ed7843be79800aeca036e4dd4ec649",
+      "capture_method": "Native VS Code task window, actual foreground command",
+      "image_modifications": "None",
+      "source_only": true,
+      "source_kind": "tracked-tree",
+      "source_commit": "a15fc8c7c728d699fe1a0ae43177b8809f19eba7",
+      "source_observed_at_utc": "2026-09-16T19:30:44.915778+00:00",
+      "actual_command": "clear; w9live a5 tree | sed -n '1,28p'",
+      "visible_output_ranges": [
+        [
+          1,
+          28
+        ]
+      ],
+      "run_receipt_sha256": "f3bee392433c9e3e6c1e48638a8190a5396e86aadc7957766054d6f8e44d5188"
+    },
+    {
+      "slot": "1b",
+      "image": "images/screenshot-1b.png",
+      "image_sha256": "55a058897b5e1bc8ea2a1dff3b7825dace39412ab1cf7bfb03c1dcdf0b71e297",
+      "image_bytes": 997236,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "original_receipt_sha256": "7ad798902d42db83e48e2a0d3e3b087c18e76050736327d8ba06cb598139351d",
+      "capture_method": "Native VS Code task window, actual foreground command",
+      "image_modifications": "None",
+      "source_only": true,
+      "source_kind": "tracked-tree",
+      "source_commit": "a15fc8c7c728d699fe1a0ae43177b8809f19eba7",
+      "source_observed_at_utc": "2026-09-16T19:30:54.677507+00:00",
+      "actual_command": "clear; w9live a5 tree | sed -n '1,4p;29,52p'",
+      "visible_output_ranges": [
+        [
+          1,
+          4
+        ],
+        [
+          29,
+          52
+        ]
+      ],
+      "run_receipt_sha256": "cececf80ee6db0b426f024b7a0db02ae5180089cf8aef195811999f107c8216c"
+    },
+    {
+      "slot": "1c",
+      "image": "images/screenshot-1c.png",
+      "image_sha256": "56398edfdc1f845684b46b7cdb2fb0401618ab75d105bc60e3c56301d10bb729",
+      "image_bytes": 945310,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "original_receipt_sha256": "9020315500118d3c265ce4717fe1f0dd2ba19990e1dc3504f13dc375378024f7",
+      "capture_method": "Native VS Code task window, actual foreground command",
+      "image_modifications": "None",
+      "source_only": true,
+      "source_kind": "tracked-tree",
+      "source_commit": "a15fc8c7c728d699fe1a0ae43177b8809f19eba7",
+      "source_observed_at_utc": "2026-09-16T19:31:02.992850+00:00",
+      "actual_command": "clear; w9live a5 tree | sed -n '1,4p;53,68p'",
+      "visible_output_ranges": [
+        [
+          1,
+          4
+        ],
+        [
+          53,
+          68
+        ]
+      ],
+      "run_receipt_sha256": "bc3282f20b246bc17824a697fb7bfb8afe6e10b62a6fa628fe6bf816fefe0d94"
+    },
+    {
+      "slot": "3a",
+      "image": "images/screenshot-3a.png",
+      "image_sha256": "a61af6c15dde0457af7cbfa8a3aaf18080784226c208f27b9866e825aabbb2d7",
+      "image_bytes": 1116331,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "original_receipt_sha256": "b7cd1d2605298387f0f634804656e6d358d437b8e9f9909a72832cba72ee1450",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "source_only": true,
+      "source_file": "week-09-ansible/epicbook-prod/terraform/azure/main.tf",
+      "source_commit": "53766f5b5fc71f7c0a58c56fdeea976f18d48608",
+      "source_sha256": "a49a80ca5a7000ebc82c8fee83bbc63a5321c78fc0226b54ded530260dc0c8b6",
+      "source_kind": "terraform-source",
+      "intended_lines": [
+        37,
+        63
+      ],
+      "captured_at_utc": "2026-09-16T19:31:19.529007+00:00"
+    },
+    {
+      "slot": "3b",
+      "image": "images/screenshot-3b.png",
+      "image_sha256": "a2be893403267e48e1c040bfc3bd566502fa917e1a0d197324fe580e94dea2d7",
+      "image_bytes": 1103381,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "original_receipt_sha256": "82f9092c4a7474a348c68e1a506d8f67c49190ea11b0f848e28becae90e2ec38",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "source_only": true,
+      "source_file": "week-09-ansible/epicbook-prod/terraform/azure/variables.tf",
+      "source_commit": "53766f5b5fc71f7c0a58c56fdeea976f18d48608",
+      "source_sha256": "ebb462fc05013f8d286f1aea918927e2a31516fbd576979f5539e7848de3e531",
+      "source_kind": "terraform-source",
+      "intended_lines": [
+        35,
+        48
+      ],
+      "captured_at_utc": "2026-09-16T19:31:31.213819+00:00"
+    }
+  ]
+}

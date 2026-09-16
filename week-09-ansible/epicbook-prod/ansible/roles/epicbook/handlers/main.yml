@@ -1,0 +1,11 @@
+---
+- name: Restart epicbook mysql
+  ansible.builtin.systemd_service:
+    name: mysql
+    state: restarted
+
+- name: Restart epicbook
+  ansible.builtin.systemd_service:
+    name: epicbook
+    daemon_reload: true
+    state: restarted

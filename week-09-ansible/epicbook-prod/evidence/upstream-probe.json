@@ -1,0 +1,24 @@
+{
+  "expected_source_revision": "763becebb8d3f5663a76bb30facddc25be63cfd5",
+  "revision_verification": "All 19 recorded source file checksums matched the reviewed revision",
+  "node": "v22.23.2",
+  "manifest_sha256": {
+    "package.json": "eafabcb4928bdb8eb306f3cef48903a60487794a90efb2edef016884117267cb",
+    "package-lock.json": "305a0821a2ab693d25a65e796c3c72d3f526c5fcaa14ad2ac2953cbf2d411fbf"
+  },
+  "probe": {
+    "imports": [
+      "express",
+      "express-handlebars",
+      "sequelize",
+      "mysql2",
+      "accounting",
+      "lodash"
+    ],
+    "dialect": "mysql",
+    "book_title_rendered": true
+  },
+  "database_contacted": false,
+  "http_server_started": false,
+  "scope": "Local import and template compatibility only, not full runtime verification"
+}

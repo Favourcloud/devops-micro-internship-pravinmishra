@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 09 Assignment 5",
+  "snapshot_kind": "working-tree",
+  "workspace_head_at_capture": "49c70a333b0671f9e75c61363aaab4a580c712ee",
+  "head_blob_matches_captured_source": false,
+  "source_file": "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/main.yml",
+  "source_sha256": "f35f24479485f49a0f62e72d798f3a974d3ec1d68fac2cd38fad06d4608b71e3",
+  "source_version": "Exact uncommitted working-tree snapshot verified before and after each capture. The later committed role must match this hash; capture HEAD49 does not contain the correction.",
+  "scope": "Genuine native VS Code source captures only, not successful application or remote idempotence evidence.",
+  "approval": "Coordinator approved these three full-height frames after native OCR privacy checks; learner name is intentionally visible. No human-review claim.",
+  "human_review_claimed": false,
+  "private_index_sha256": "08e4d7d30a678d5a5207843038910036e180fafbf8a33933626ca42589f15955",
+  "historical_manifest": "source-captures.json",
+  "historical_images_preserved": true,
+  "items": [
+    {
+      "slot": "10a",
+      "image": "images/screenshot-10a-corrected.png",
+      "image_sha256": "1dccbf58decc335bd9e4ad4daf242eb86f3665b79da08846cdf72fa5a1f18c2b",
+      "image_bytes": 1108280,
+      "source_lines": [
+        1,
+        28
+      ],
+      "captured_at_utc": "2026-09-16T21:58:38.487626+00:00",
+      "source_verified_before_and_after_capture": true,
+      "private_capture_provenance_sha256": "4ff352926315450a402e5d753fd5595d75ab5bd670683a11e13436ca3b879f02",
+      "pixel_edits": "none",
+      "source_only": true
+    },
+    {
+      "slot": "10b",
+      "image": "images/screenshot-10b-corrected.png",
+      "image_sha256": "a22e1a94a51b26246633b14647e4829f7bea87c3c2788a96077aac63db915296",
+      "image_bytes": 1163610,
+      "source_lines": [
+        30,
+        61
+      ],
+      "captured_at_utc": "2026-09-16T21:58:48.778209+00:00",
+      "source_verified_before_and_after_capture": true,
+      "private_capture_provenance_sha256": "ef82cfdb2d8ec6bbf79ed9a54ed444fb2d769ec8bf4aa173907ecb16f9b3e22f",
+      "pixel_edits": "none",
+      "source_only": true
+    },
+    {
+      "slot": "10c",
+      "image": "images/screenshot-10c-corrected.png",
+      "image_sha256": "dcf2010720a28c0c2277a7b42b1cde66ef2ee8fd0dc1f3bd10455a8779f50cbb",
+      "image_bytes": 1125777,
+      "source_lines": [
+        63,
+        89
+      ],
+      "captured_at_utc": "2026-09-16T21:58:59.125365+00:00",
+      "source_verified_before_and_after_capture": true,
+      "private_capture_provenance_sha256": "a4da434788d87a4ee88e549bba1d457670619251f98d034399f8d3216f456e1c",
+      "pixel_edits": "none",
+      "source_only": true
+    }
+  ]
+}

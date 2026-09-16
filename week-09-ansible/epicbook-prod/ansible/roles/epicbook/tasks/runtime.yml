@@ -1,0 +1,234 @@
+---
+- name: Install the Ubuntu MySQL 8 server and Python database driver without auto-start
+  ansible.builtin.apt:
+    name:
+      - mysql-server-8.0
+      - python3-pymysql
+    state: present
+    policy_rc_d: 101
+    lock_timeout: 120
+
+- name: Bind MySQL and its X protocol to loopback only
+  ansible.builtin.copy:
+    dest: /etc/mysql/mysql.conf.d/zz-epicbook.cnf
+    content: |
+      [mysqld]
+      bind-address = 127.0.0.1
+      mysqlx-bind-address = 127.0.0.1
+      local-infile = 0
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart epicbook mysql
+
+- name: Enable and start the local MySQL server
+  ansible.builtin.systemd_service:
+    name: mysql
+    state: started
+    enabled: true
+
+- name: Apply MySQL binding changes before initializing the database
+  ansible.builtin.meta: flush_handlers
+
+- name: Create root-only bootstrap and download directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0700"
+  loop:
+    - /var/lib/epicbook-bootstrap
+    - /var/cache/epicbook
+    - /etc/epicbook
+
+- name: Create the application database through local socket authentication
+  ansible.mysql.mysql_db:
+    name: "{{ app_db_name }}"
+    state: present
+    encoding: utf8mb4
+    collation: utf8mb4_unicode_ci
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+
+- name: Inspect the source-revision seed marker
+  ansible.builtin.stat:
+    path: "/var/lib/epicbook-bootstrap/{{ app_revision }}.seeded"
+  register: epicbook_seed_marker
+
+- name: Inspect tables before attempting first initialization
+  ansible.mysql.mysql_query:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+    query: SELECT COUNT(*) AS table_count FROM information_schema.tables WHERE table_schema = %s
+    positional_args:
+      - "{{ app_db_name }}"
+  register: epicbook_existing_tables
+  changed_when: false
+
+- name: Refuse destructive or duplicate imports after a partial or foreign initialization
+  ansible.builtin.assert:
+    that:
+      - epicbook_seed_marker.stat.exists or epicbook_existing_tables.query_result[0][0].table_count | int == 0
+    fail_msg: >-
+      Database has tables but no matching seed marker. STOP and inspect/backup it;
+      do not drop tables or replay non-idempotent upstream SQL automatically.
+
+- name: Import the upstream schema and seeds once into an empty database
+  ansible.mysql.mysql_db:
+    name: "{{ app_db_name }}"
+    state: import
+    target: "{{ app_dest }}/db/{{ item }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+  loop:
+    - BuyTheBook_Schema.sql
+    - author_seed.sql
+    - books_seed.sql
+  when: not epicbook_seed_marker.stat.exists
+
+- name: Verify real seeded data rather than inferring success from a marker
+  ansible.mysql.mysql_query:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+    login_db: "{{ app_db_name }}"
+    query: SELECT (SELECT COUNT(*) FROM Author) AS authors, (SELECT COUNT(*) FROM Book) AS books
+  register: epicbook_seed_counts
+  changed_when: false
+
+- name: Require authors and books
+  ansible.builtin.assert:
+    that:
+      - epicbook_seed_counts.query_result[0][0].authors | int > 0
+      - epicbook_seed_counts.query_result[0][0].books | int > 0
+
+- name: Record successful database initialization only after verification
+  ansible.builtin.copy:
+    dest: "/var/lib/epicbook-bootstrap/{{ app_revision }}.seeded"
+    content: "{{ app_revision }}\n"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Create the application-only database account with no global privileges
+  ansible.mysql.mysql_user:
+    name: "{{ app_db_user }}"
+    host: 127.0.0.1
+    password: "{{ vault_epicbook_db_password }}"
+    priv: "{{ app_db_name }}.*:SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,INDEX,REFERENCES"
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+  no_log: true
+
+- name: Download checksum-pinned supported Node LTS without shell installers
+  ansible.builtin.get_url:
+    url: "https://nodejs.org/dist/v{{ node_version }}/node-v{{ node_version }}-linux-x64.tar.xz"
+    checksum: "sha256:{{ node_linux_x64_sha256 }}"
+    dest: "/var/cache/epicbook/node-v{{ node_version }}-linux-x64.tar.xz"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Extract the pinned Node runtime into a versioned root-owned directory
+  ansible.builtin.unarchive:
+    src: "/var/cache/epicbook/node-v{{ node_version }}-linux-x64.tar.xz"
+    dest: /opt
+    remote_src: true
+    owner: root
+    group: root
+    creates: "/opt/node-v{{ node_version }}-linux-x64/bin/node"
+
+- name: Create a private npm cache for the source owner
+  ansible.builtin.file:
+    path: /var/cache/epicbook-npm
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: "0700"
+
+- name: Inspect the revision-specific dependency marker
+  ansible.builtin.stat:
+    path: "/var/lib/epicbook-bootstrap/{{ app_revision }}-node-{{ node_version }}.npm"
+  register: epicbook_npm_marker
+
+- name: Inspect installed dependencies
+  ansible.builtin.stat:
+    path: "{{ app_dest }}/node_modules/.package-lock.json"
+  register: epicbook_npm_lock
+
+- name: Install locked runtime dependencies without lifecycle scripts or a root npm process
+  ansible.builtin.command:
+    argv:
+      - "/opt/node-v{{ node_version }}-linux-x64/bin/node"
+      - "/opt/node-v{{ node_version }}-linux-x64/lib/node_modules/npm/bin/npm-cli.js"
+      - ci
+      - --omit=dev
+      - --ignore-scripts
+      - --no-audit
+      - --no-fund
+    chdir: "{{ app_dest }}"
+  environment:
+    HOME: /var/cache/epicbook-npm
+    npm_config_cache: /var/cache/epicbook-npm
+    npm_config_umask: "0027"
+  become: true
+  become_user: "{{ app_user }}"
+  when: epicbook_checkout.changed or not epicbook_npm_marker.stat.exists or not epicbook_npm_lock.stat.exists
+  changed_when: true
+  notify: Restart epicbook
+
+- name: Record successful dependency installation
+  ansible.builtin.copy:
+    dest: "/var/lib/epicbook-bootstrap/{{ app_revision }}-node-{{ node_version }}.npm"
+    content: "{{ app_revision }} node-{{ node_version }}\n"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Render the root-readable service environment without modifying upstream config or JS
+  ansible.builtin.template:
+    src: epicbook.env.j2
+    dest: /etc/epicbook/epicbook.env
+    owner: root
+    group: root
+    mode: "0600"
+  no_log: true
+  diff: false
+  notify: Restart epicbook
+
+- name: Render the restricted systemd service
+  ansible.builtin.template:
+    src: epicbook.service.j2
+    dest: /etc/systemd/system/epicbook.service
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart epicbook
+
+- name: Enable and start EpicBook
+  ansible.builtin.systemd_service:
+    name: epicbook
+    daemon_reload: true
+    enabled: true
+    state: started
+
+- name: Apply pending validated reloads and runtime restarts before probing
+  ansible.builtin.meta: flush_handlers
+
+- name: Require the real database-backed application response through Nginx
+  ansible.builtin.uri:
+    url: http://127.0.0.1/
+    status_code: 200
+    return_content: true
+    use_proxy: false
+  register: epicbook_http
+  until: epicbook_http.status | default(0) == 200
+  retries: 12
+  delay: 5
+  changed_when: false
+
+- name: Reject a successful status from an unrelated page
+  ansible.builtin.assert:
+    that:
+      - "'EpicBook' in epicbook_http.content"

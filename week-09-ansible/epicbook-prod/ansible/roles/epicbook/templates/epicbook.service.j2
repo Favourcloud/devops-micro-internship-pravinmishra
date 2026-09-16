@@ -1,0 +1,33 @@
+[Unit]
+Description=EpicBook Node application (single-VM assignment)
+After=network.target mysql.service
+Requires=mysql.service
+
+[Service]
+Type=simple
+User={{ app_runtime_user }}
+Group={{ app_group }}
+WorkingDirectory={{ app_dest }}
+EnvironmentFile=/etc/epicbook/epicbook.env
+ExecStart=/opt/node-v{{ node_version }}-linux-x64/bin/node {{ app_dest }}/server.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+# Upstream listens on all interfaces; filter network access without changing application JS.
+IPAddressDeny=any
+IPAddressAllow=localhost
+
+[Install]
+WantedBy=multi-user.target

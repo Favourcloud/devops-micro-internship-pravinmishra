@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/pravinmishraaws/theepicbook",
+  "revision": "763becebb8d3f5663a76bb30facddc25be63cfd5",
+  "retrieved_from": "GitHub tarball API at the pinned commit",
+  "sha256": {
+    "package.json": "eafabcb4928bdb8eb306f3cef48903a60487794a90efb2edef016884117267cb",
+    "package-lock.json": "305a0821a2ab693d25a65e796c3c72d3f526c5fcaa14ad2ac2953cbf2d411fbf",
+    "server.js": "2adc1f0559d37846904178ab7e0c9d029c9602bcd0db5eef0aafb2d10220e8db",
+    "config/config.json": "5daaa3dd923111d183d387d416ed354362da4005287d98f5e9620c958d245ae1",
+    "models/author.js": "fe21faa6fe799002b2ef2672eeeca812ef50d1fa3ba3f4198e170f44f749944a",
+    "models/book.js": "3a8e88a134ed2923e7c54b221921ec53c247866cd341794ecb2103ea54ebec48",
+    "models/cart.js": "601cdab81ed51819f3cbc03c049adcf05304547b1ac3cad16e5dcf0581576acb",
+    "models/checkout.js": "31ee452d7e54b9e89e7f4e89e233838a718c5374676f8ef92477c5df6f49193f",
+    "models/index.js": "8a4b3bf5e2d3c01945701ab2513d70a51137bedd2f9d1881418684ab5f3d57c3",
+    "routes/cart-api-routes.js": "2cd08ff3d884324c740a204a1a6ba3108720a9fe9f9f63dd7f3fb12d7639e9f1",
+    "routes/html-routes.js": "bd9eabf43723d730a5a6b742fb0c844cfe3828988124c9c1aae995fdd2b477b9",
+    "views/cart.handlebars": "49990c30085def73a209e8177ca82f21d0e289bcd5572da5ea8c89b6ea81f436",
+    "views/category.handlebars": "99a40e37716111a3b5fec9d1bed2889bfa825b8f77102f9960bbf4aff0625d29",
+    "views/gallery.handlebars": "815cc807183c342d6e7b090de094c3df9f09e7d618761862107bdb277e070916",
+    "views/index.handlebars": "724437d278b86222c2f1767740a860e222b11abbe96dc27062accb2f450b94eb",
+    "views/layouts/main.handlebars": "3a20a894c0a286632743fe727b3788cfa9aad340626e62f813adf5017c277851",
+    "db/BuyTheBook_Schema.sql": "ef15a628560714b2a2d0707bbb5b3f59cbf18c5ba7a438d920a861ace5ebfa62",
+    "db/author_seed.sql": "d9dd31b291e6a19513943c3a3c5f89301cb6a51e470a1e164a2b12dbe81f0c9b",
+    "db/books_seed.sql": "bc2cbd564d431833da8ed8464ba9ded147e1e3663ae3da227964dc80fd4adbc1"
+  }
+}
