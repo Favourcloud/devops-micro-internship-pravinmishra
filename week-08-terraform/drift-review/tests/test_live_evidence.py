@@ -14,16 +14,19 @@ class LiveEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.operations = json.loads((LIVE / "operations.json").read_text())
 
-    def test_reports_match_recorded_live_outcomes(self):
-        expected = (("baseline-report.txt", "HEALTHY", 0, 0, 0),
-                    ("drift-detected-report.txt", "FAIL", 2, 1, 1),
-                    ("resolved-report.txt", "HEALTHY", 0, 0, 0))
+    def test_current_reports_match_recorded_live_outcomes(self):
+        cycle = json.loads((LIVE / "cycle-20260916.json").read_text())
+        expected = (("baseline", "baseline-report.txt", "HEALTHY", 0, 0, 0),
+                    ("proposal", "drift-detected-report.txt", "FAIL", 2, 1, 1),
+                    ("final", "resolved-report.txt", "HEALTHY", 0, 0, 0))
         times = []
-        for filename, status, exit_code, ingress, changes in expected:
+        for kind, filename, status, exit_code, ingress, changes in expected:
             with self.subTest(report=filename):
                 content = (LIVE / filename).read_bytes()
                 self.assertEqual(hashlib.sha256(content).hexdigest(),
-                                 self.operations["public_report_sha256"][filename])
+                                 cycle["checker_evidence"][kind]["report_sha256"])
+                self.assertNotEqual(hashlib.sha256(content).hexdigest(),
+                                    self.operations["public_report_sha256"][filename])
                 fields = dict(line.split(": ", 1) for line in content.decode().splitlines() if ": " in line)
                 self.assertEqual(fields["Mode"], "LIVE")
                 self.assertEqual(fields["Reviewer"], "Eze Favour")
@@ -34,11 +37,25 @@ class LiveEvidenceTests(unittest.TestCase):
                 self.assertEqual(fields["Refresh drift entries"], "0")
                 self.assertEqual(fields["Destructive resource actions"], "0")
                 self.assertRegex(fields["Plan SHA256"], r"^[a-f0-9]{64}$")
-                times.append(datetime.fromisoformat(fields["Timestamp UTC"]))
+                timestamp = datetime.fromisoformat(fields["Timestamp UTC"])
+                self.assertEqual(timestamp.date().isoformat(), "2026-09-16")
+                self.assertEqual(timestamp, datetime.fromisoformat(
+                    cycle["checker_evidence"][kind]["completed_at_utc"]).replace(microsecond=0))
+                times.append(timestamp)
         self.assertEqual(times, sorted(times))
         self.assertEqual(len(set(times)), 3)
 
-    def test_proposal_never_applied_and_cleanup_verified(self):
+    def test_historical_records_remain_byte_identical(self):
+        expected = {
+            "operations.json": "d84676cd32c26ff04b0545614739225c6588de4dfd110e6b4e7bcb39b770327f",
+            "claude-runtime.json": "a48e6b7bc3de0cc43ecb9214a8ce8621f3db616794915d6d888bdbf4851ddda4",
+            "human-resolution.json": "fc32c28f6d118b9f40b7fb7e571cb6cbc6327e40c4b2ccaad68ad86f8d22976f",
+        }
+        for filename, digest in expected.items():
+            with self.subTest(historical=filename):
+                self.assertEqual(hashlib.sha256((LIVE / filename).read_bytes()).hexdigest(), digest)
+
+    def test_historical_proposal_never_applied_and_cleanup_verified(self):
         proposal = self.operations["proposal"]
         example = ROOT / "terraform/public-ssh-proposal.tfvars.example"
         self.assertIn("NEVER APPLY", example.read_text())
@@ -71,7 +88,7 @@ class LiveEvidenceTests(unittest.TestCase):
             self.assertEqual(result["validate_exit"], 0)
             self.assertIs(result["valid"], True)
 
-    def test_human_approval_remains_pending(self):
+    def test_historical_pending_approval_is_not_rewritten(self):
         approval = json.loads((LIVE / "human-resolution.json").read_text())
         self.assertEqual(approval["status"], "PENDING")
         self.assertIn("Human resolution approval and successful Claude review remain pending.",
@@ -83,7 +100,7 @@ class LiveEvidenceTests(unittest.TestCase):
         self.assertIs(approval["claude_review_success"], False)
         self.assertIs(self.operations["technical_reset"]["human_resolution_approved"], False)
 
-    def test_runtime_failure_and_budget_remain_explicit(self):
+    def test_historical_runtime_failure_and_budget_remain_explicit(self):
         runtime = json.loads((LIVE / "claude-runtime.json").read_text())
         for key in ("successful_skill_reviews", "actual_read_calls", "actual_pretooluse_hook_events"):
             self.assertEqual(runtime[key], 0)
@@ -101,14 +118,18 @@ class LiveEvidenceTests(unittest.TestCase):
 
     def test_public_exports_exclude_private_bindings(self):
         expected = {"baseline-report.txt", "drift-detected-report.txt", "resolved-report.txt", "operations.json",
-                    "claude-runtime.json", "human-resolution.json", "baseline-execution.txt"}
+                    "claude-runtime.json", "human-resolution.json", "baseline-execution.txt", "cycle-20260916.json"}
+        expected.update(f"{kind}-20260916.{suffix}"
+                        for kind in ("native-hook-denial", "native-hook-fail", "claude-clean-review",
+                                     "claude-risk-review", "claude-final-review", "human-resolution")
+                        for suffix in ("json", "txt"))
         self.assertEqual({p.name for p in LIVE.iterdir()}, expected)
         for path in LIVE.iterdir():
             with self.subTest(file=path.name):
                 self.assertNotRegex(path.read_text(),
                                     r"(?:AKIA|ASIA)[A-Z0-9]{16}|arn:aws:|/Users/|\b[0-9]{12}\b|(?:vpc|sg)-[0-9a-f]{8,}")
         execution = (LIVE / "baseline-execution.txt").read_text()
-        self.assertIn("SANITIZED HISTORICAL OUTPUT EXPORT", execution)
+        self.assertIn("SANITIZED RECORDED OUTPUT EXPORT", execution)
         self.assertIn("not a reconstructed terminal", execution)
         self.assertEqual(execution.count("No changes. Your infrastructure matches the configuration."), 2)
         self.assertIn("Actual captured subprocess exit: 0", execution)

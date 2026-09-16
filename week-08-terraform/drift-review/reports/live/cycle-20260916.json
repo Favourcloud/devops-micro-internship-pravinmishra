@@ -1,0 +1,564 @@
+{
+  "recorded_at_utc": "2026-09-16T16:02:49.782240+00:00",
+  "student": "Eze Favour",
+  "status": "VERIFIED_REVIEW_RESOLUTION_FINAL_AND_CLEANUP",
+  "operator": "GitHub Copilot acting under separate user lab authorization",
+  "region": "ap-south-1",
+  "scope": "one dedicated VPC and one closed unattached security group; no compute, subnet, gateway, endpoint or public IP",
+  "identity": "exact expected non-root source identity verified privately by guarded stages; identifiers omitted",
+  "separate_lab_authorization_native_prerequisite_verified": true,
+  "verified_stage_observations": [
+    {
+      "started_at_utc": "2026-09-16T14:53:18.731609+00:00",
+      "completed_at_utc": "2026-09-16T14:53:53.054327+00:00",
+      "operator_sha256": "07e32d7a63237005f5fec119b368b89b9e52e347d5f042bd733e4492dc46a851",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "actions": [
+          "create"
+        ],
+        "applied": false,
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "plan_sha256": "6424ebd034ba76350eb229e494c010c0b69c343e82d8a36695cf21e3b64155cc",
+        "public_ssh_plan_only": false,
+        "root": "network",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "preflight",
+        "status": "VERIFIED",
+        "terraform_exit": 2
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T14:54:54.993576+00:00",
+      "completed_at_utc": "2026-09-16T14:58:07.031883+00:00",
+      "operator_sha256": "07e32d7a63237005f5fec119b368b89b9e52e347d5f042bd733e4492dc46a851",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "root": "network",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "apply-network",
+        "status": "VERIFIED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:04:51.779207+00:00",
+      "completed_at_utc": "2026-09-16T15:05:29.653829+00:00",
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "actions": [
+          "create"
+        ],
+        "applied": false,
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "plan_sha256": "1fa63a396797bd1321d95b27f6fa2afcf232d63dc3fdb7319391c1ecbd611710",
+        "public_ssh_plan_only": false,
+        "root": "security-group",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "plan-security-group",
+        "status": "VERIFIED",
+        "terraform_exit": 2
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:06:30.324333+00:00",
+      "completed_at_utc": "2026-09-16T15:07:51.393119+00:00",
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "root": "security-group",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "apply-security-group",
+        "status": "VERIFIED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:09:30.529172+00:00",
+      "completed_at_utc": "2026-09-16T15:10:26.934228+00:00",
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "plans": [
+          {
+            "actions": [
+              "no-op"
+            ],
+            "applied": false,
+            "cycle": "20260916",
+            "final_review_significance": false,
+            "human_resolution_obtained": false,
+            "plan_sha256": "425822757e2b9af9b74a498c214d06d4b9bcd33357101daf6a71e9d93c7b8377",
+            "public_ssh_plan_only": false,
+            "root": "network",
+            "source_sha256": {
+              "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+              "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+            },
+            "stage": "baseline-network",
+            "status": "VERIFIED",
+            "terraform_exit": 0
+          },
+          {
+            "actions": [
+              "no-op"
+            ],
+            "applied": false,
+            "cycle": "20260916",
+            "final_review_significance": false,
+            "human_resolution_obtained": false,
+            "plan_sha256": "f03853b1848bbf2e45ecdc0b88984e03db9776269310b68948a14334927ae892",
+            "public_ssh_plan_only": false,
+            "root": "security-group",
+            "source_sha256": {
+              "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+              "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+            },
+            "stage": "baseline-security-group",
+            "status": "VERIFIED",
+            "terraform_exit": 0
+          }
+        ],
+        "stage": "baseline",
+        "status": "VERIFIED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:21:22.192151+00:00",
+      "completed_at_utc": "2026-09-16T15:22:22.053459+00:00",
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "plans": [
+          {
+            "actions": [
+              "no-op"
+            ],
+            "applied": false,
+            "cycle": "20260916",
+            "final_review_significance": false,
+            "human_resolution_obtained": false,
+            "plan_sha256": "7f200af86079ba570ab701a26a330dfa0d1f25db4e5065b2138c417fe583f689",
+            "public_ssh_plan_only": false,
+            "root": "network",
+            "source_sha256": {
+              "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+              "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+            },
+            "stage": "proposal-network",
+            "status": "VERIFIED",
+            "terraform_exit": 0
+          },
+          {
+            "actions": [
+              "update"
+            ],
+            "applied": false,
+            "cycle": "20260916",
+            "final_review_significance": false,
+            "human_resolution_obtained": false,
+            "plan_sha256": "6b69fa12864b24cf25fb84a8d6bb25a6539f0bd3d297112453b01a8698261382",
+            "public_ssh_plan_only": true,
+            "root": "security-group",
+            "source_sha256": {
+              "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+              "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+            },
+            "stage": "proposal-security-group",
+            "status": "VERIFIED",
+            "terraform_exit": 2
+          }
+        ],
+        "stage": "proposal",
+        "status": "VERIFIED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:46:19.781843+00:00",
+      "completed_at_utc": "2026-09-16T15:47:10.312488+00:00",
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "plans": [
+          {
+            "actions": [
+              "no-op"
+            ],
+            "applied": false,
+            "cycle": "20260916",
+            "final_review_significance": false,
+            "human_resolution_obtained": false,
+            "plan_sha256": "38e49041ac6b01778bea3e7a0f76b285b69e287fe3dc090d5d16b59e1b1ac4be",
+            "public_ssh_plan_only": false,
+            "root": "network",
+            "source_sha256": {
+              "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+              "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+            },
+            "stage": "final-network",
+            "status": "VERIFIED",
+            "terraform_exit": 0
+          },
+          {
+            "actions": [
+              "no-op"
+            ],
+            "applied": false,
+            "cycle": "20260916",
+            "final_review_significance": false,
+            "human_resolution_obtained": false,
+            "plan_sha256": "ed54bce9b5e3ca6c625e8e6af896aa4d3dd3088aa8a1b6c73c97541f02007308",
+            "public_ssh_plan_only": false,
+            "root": "security-group",
+            "source_sha256": {
+              "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+              "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+            },
+            "stage": "final-security-group",
+            "status": "VERIFIED",
+            "terraform_exit": 0
+          }
+        ],
+        "stage": "final",
+        "status": "VERIFIED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:55:51.885619+00:00",
+      "completed_at_utc": "2026-09-16T15:56:39.726874+00:00",
+      "operator_sha256": "3580c434d4130699810b668420f05c8e2b5eab3bcf1704a2081a18047d71ccc9",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "actions": [
+          "delete"
+        ],
+        "applied": false,
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "plan_sha256": "b05d324b40088fc8715006d5e950a00bec65f08126b29829b2b3d784cf95d25e",
+        "public_ssh_plan_only": false,
+        "root": "security-group",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "plan-cleanup-security-group",
+        "status": "VERIFIED",
+        "terraform_exit": 2
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:57:16.074586+00:00",
+      "completed_at_utc": "2026-09-16T15:58:38.445561+00:00",
+      "operator_sha256": "3580c434d4130699810b668420f05c8e2b5eab3bcf1704a2081a18047d71ccc9",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "root": "security-group",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "apply-cleanup-security-group",
+        "status": "VERIFIED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:58:46.464217+00:00",
+      "completed_at_utc": "2026-09-16T15:59:23.908608+00:00",
+      "operator_sha256": "3580c434d4130699810b668420f05c8e2b5eab3bcf1704a2081a18047d71ccc9",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "actions": [
+          "delete"
+        ],
+        "applied": false,
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "plan_sha256": "e00815c13d183b0dbb801e8bb6b0fc0a6af45fe7f316c60742c89cd4539aa1a8",
+        "public_ssh_plan_only": false,
+        "root": "network",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "plan-cleanup-network",
+        "status": "VERIFIED",
+        "terraform_exit": 2
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T16:00:36.431874+00:00",
+      "completed_at_utc": "2026-09-16T16:01:30.188216+00:00",
+      "operator_sha256": "3580c434d4130699810b668420f05c8e2b5eab3bcf1704a2081a18047d71ccc9",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "root": "network",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "apply-cleanup-network",
+        "status": "VERIFIED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T16:01:48.592780+00:00",
+      "completed_at_utc": "2026-09-16T16:01:58.404049+00:00",
+      "operator_sha256": "3580c434d4130699810b668420f05c8e2b5eab3bcf1704a2081a18047d71ccc9",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 0,
+      "summary": {
+        "cycle": "20260916",
+        "final_review_significance": false,
+        "human_resolution_obtained": false,
+        "root": "both",
+        "source_sha256": {
+          "network": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+          "security-group": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1"
+        },
+        "stage": "verify-cleanup",
+        "status": "VERIFIED"
+      }
+    }
+  ],
+  "checker_evidence": {
+    "baseline": {
+      "checker_exit": 0,
+      "completed_at_utc": "2026-09-16T15:12:53.785661+00:00",
+      "local_state_unchanged": true,
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "public_ssh_input_used_only_for_planning": false,
+      "report_sha256": "b3cb3c62988f109987736ad69326c6d78ada5804085b721ac29ae0f3099dae25",
+      "stage": "baseline",
+      "started_at_utc": "2026-09-16T15:12:36.555771+00:00",
+      "status": "VERIFIED",
+      "stdout_matches_report": true
+    },
+    "proposal": {
+      "checker_exit": 2,
+      "completed_at_utc": "2026-09-16T15:25:59.631091+00:00",
+      "local_state_unchanged": true,
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "public_ssh_input_used_only_for_planning": true,
+      "report_sha256": "3b8ae4c95779aebe01135151f8fad4b9813d9246f6f4f9107a9292aeae78ce06",
+      "stage": "proposal",
+      "started_at_utc": "2026-09-16T15:25:39.813996+00:00",
+      "status": "VERIFIED",
+      "stdout_matches_report": true
+    },
+    "final": {
+      "checker_exit": 0,
+      "completed_at_utc": "2026-09-16T15:50:12.857218+00:00",
+      "local_state_unchanged": true,
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "public_ssh_input_used_only_for_planning": false,
+      "report_sha256": "a0143a05d1ef7ca32775421f7361f66c004125592860118461b56a252212d353",
+      "stage": "final",
+      "started_at_utc": "2026-09-16T15:49:59.004738+00:00",
+      "status": "VERIFIED",
+      "stdout_matches_report": true
+    }
+  },
+  "actual_rule_verification": {
+    "ingress_empty": true,
+    "egress_empty": true,
+    "no_network_interfaces": true,
+    "ownership_and_new_bindings_verified": true,
+    "verification_boundary": "guards before proposal/checker execution; local states unchanged by actual planning/checking"
+  },
+  "proposal": {
+    "input": "TF_VAR_test_public_ssh=true only for planning subprocesses",
+    "tcp_port": 22,
+    "ipv4_cidr": "0.0.0.0/0",
+    "applied": false,
+    "out_of_band_drift": false,
+    "persistent_override_file_created": false
+  },
+  "model_evidence": {
+    "clean": "claude-clean-review-20260916.json",
+    "risk": "claude-risk-review-20260916.json",
+    "fresh_fail_native_gate": "native-hook-fail-20260916.json",
+    "earlier_missing_report_native_gate": "native-hook-denial-20260916.json",
+    "final": "claude-final-review-20260916.json"
+  },
+  "first_clean_attempt": {
+    "status": "stopped without reviewing evidence; wrong Skill-home paths denied",
+    "successful_reads": 0,
+    "read_hook_denials": 3,
+    "reported_cost_usd": 0.016048,
+    "raw_transcript_sha256": "66a6981e723089137f202748d030852ae6d5df1aa9232e683769b4cc2b2c051c",
+    "correction": "explicit absolute project paths; no hook or permission relaxation; 46 private normal and optimized tests passed"
+  },
+  "human_resolution": {
+    "obtained": true,
+    "actual_prompt_presented": "Reject public SSH and retain closed rules, or pause for manual review, after actual findings and Claude recommendation",
+    "response_status": "initially unavailable; later actual response approved to the focused reject-public-SSH/retain-closed choice",
+    "no_manual_human_terraform_execution_claimed": true,
+    "decision_record": "human-resolution-20260916.json"
+  },
+  "final_review_performed": true,
+  "cleanup_completed": true,
+  "resources_left_closed_pending_human_review": false,
+  "resource_type_cost_expectation_usd": 0,
+  "account_billing_audited": false,
+  "budget": {
+    "reported_additional_cost_usd": 0.141731,
+    "unreconciled_usage_reserved_usd": 0.18,
+    "accounted_usd": 0.321731,
+    "approved_additional_usd": 0.5,
+    "remaining_after_reservation_usd": 0.178269,
+    "additional_model_calls_required": false
+  },
+  "enrollment_permission_expiry_utc": "2026-09-16T13:30:00Z",
+  "enrollment_permissions_renewed": false,
+  "published_or_merged": false,
+  "refused_stage_observations": [
+    {
+      "started_at_utc": "2026-09-16T14:46:55.158370+00:00",
+      "completed_at_utc": "2026-09-16T14:47:45.242284+00:00",
+      "operator_sha256": "91fec30ef5c4dc99515982bc7a5ec60924d1e172a3f59573dcdd664a2f33ab6b",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 2,
+      "summary": {
+        "status": "REFUSED",
+        "code": "PLAN_SHOW_FAILED"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T14:59:22.834363+00:00",
+      "completed_at_utc": "2026-09-16T14:59:56.207982+00:00",
+      "operator_sha256": "07e32d7a63237005f5fec119b368b89b9e52e347d5f042bd733e4492dc46a851",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 2,
+      "summary": {
+        "status": "REFUSED",
+        "code": "PLAN_RISK_OR_BINDING"
+      }
+    },
+    {
+      "started_at_utc": "2026-09-16T15:52:19.095133+00:00",
+      "completed_at_utc": "2026-09-16T15:52:55.936991+00:00",
+      "operator_sha256": "41c4363ee5bfcc8ccc2fa34b7e9282b88a6ba8a9183ac9b58ce95870698b1348",
+      "operator_unchanged_during_execution": true,
+      "process_exit": 2,
+      "summary": {
+        "status": "REFUSED",
+        "code": "PLAN_CHECK_FAILED"
+      }
+    }
+  ],
+  "current_lab_state": "deleted; final HEALTHY evidence predates cleanup",
+  "cleanup_verification": {
+    "completed_at_utc": "2026-09-16T16:01:58.404049+00:00",
+    "both_current_cycle_states_empty": true,
+    "tagged_vpc_count": 0,
+    "tagged_security_group_count": 0,
+    "exact_security_group_lookup": "InvalidGroup.NotFound",
+    "exact_vpc_lookup": "InvalidVpcID.NotFound",
+    "security_group_deleted_before_vpc": true,
+    "public_ssh_ever_applied": false,
+    "verification_method": "guarded real AWS lookups, current-cycle state reads, exact binding and completion checks; identifiers omitted"
+  },
+  "cleanup_check_compatibility": {
+    "recorded_at_utc": "2026-09-16T15:55:51.531297+00:00",
+    "original_refusal": "PLAN_CHECK_FAILED",
+    "actual_observation": "Terraform destroy plan reports var.vpc_id unknown with no instances; account check passed. Exact source/binding/state and delete-only checks remain required.",
+    "change": "Allow only the exact unevaluated var.vpc_id object for SG delete; all other unknown/fail/error checks still refused.",
+    "refused_artifact_hashes": {
+      "security-group.json": "9311e62654936c130201039c1a215fd3d191130b63cb08b9e543857e24cfb56f",
+      "security-group.tfplan": "a6a4ebd01f305cf732536b65c933f826aab3d15bf565dd2951d031469f5c67e2"
+    },
+    "operator_sha256": "3580c434d4130699810b668420f05c8e2b5eab3bcf1704a2081a18047d71ccc9",
+    "normal_tests_passed": 71,
+    "optimized_tests_passed": 71,
+    "no_apply_attempt_preceded_recovery": true
+  },
+  "operator_non_attestation_note": "Stage flags human_resolution_obtained:false and final_review_significance:false intentionally do not attest those separate events. Dated human and native Claude records provide the independent evidence.",
+  "source_snapshot_note": "All three exact final-review inputs preserved privately before README reconciliation; review records retain historical hashes, not claims about later documentation bytes.",
+  "superseded_snapshot_sha256": "3cea66e0dd316a9e957742b8c659c04083a9e755de123235ececa7ac49ac2852",
+  "full_assignment_complete": false,
+  "remaining_rubric_limits": [
+    "No manual human Terraform execution",
+    "Mandatory LinkedIn URL and published-post screenshot absent; no new publication or merge"
+  ],
+  "screenshot_evidence": {
+    "status": "ALL_19_INTEGRATED_AND_HASH_VERIFIED",
+    "manifest": "screenshots/manifest.json",
+    "manifest_sha256": "aacf81a4be5fb566ae0dd6baaba117ad0839844bb671838b6521d2be86def04d",
+    "integrated_at_utc": "2026-09-16T16:19:47.541771+00:00",
+    "captured_slots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "pending_slots": [],
+    "runtime_exports_are_recorded_not_fresh_replays": true,
+    "native_fail_slot": 15,
+    "human_decision_slot": 16,
+    "manual_human_execution_proven": false,
+    "publication_proven": false
+  },
+  "documentation_reconciled_at_utc": "2026-09-16T16:21:03.840574+00:00"
+}

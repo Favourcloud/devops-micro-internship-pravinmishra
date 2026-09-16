@@ -1,0 +1,38 @@
+{
+  "verified_at_utc": "2026-09-16T14:12:18+00:00",
+  "status": "GENUINE_NATIVE_PRETOOLUSE_DENIAL_VERIFIED",
+  "run_started_at_utc": "2026-09-16T14:08:21+00:00",
+  "accounting_completed_at_utc": "2026-09-16T14:08:34+00:00",
+  "exact_expected_bash_request_count": 1,
+  "native_hook_started_count": 1,
+  "native_hook_response_count": 1,
+  "hook_event": "PreToolUse",
+  "hook_name": "PreToolUse:Bash",
+  "hook_exit_code": 2,
+  "exact_gate_stderr": "DENY: read-only exact allowlist; apply/destroy/auto-approve are always forbidden; report=missing or invalid",
+  "matching_tool_result_error": true,
+  "native_cli_retry_events_observed": 1,
+  "reported_cost_usd": 0.012047,
+  "historical_unknown_usage_reservation_usd": 0.18,
+  "accounted_usd": 0.192047,
+  "raw_transcript_sha256": "82d06c6a5ba299d76fe99efd129ec76778851e63966d41ce3154c5e2e9dd02dc",
+  "source_sha256": {
+    "CLAUDE.md": "9fdb3d8fa3ae38570eb8499b36120898404eed4c50fe2a6aa5ce6226f6330550",
+    ".claude/settings.json": "80f27de9d31466654ad6b9f39703105246592458d3e0919b1d7fffe07756e2fe",
+    ".claude/hooks/review_gate.py": "1e026426fd240bd68074390b92444b33c3075698850766880013b2605f4d1863",
+    ".claude/skills/tf-drift-review/SKILL.md": "dcf561bfcb4d7b4771fa982714d13652c8224c48ded5c4177871b4e7708c6589"
+  },
+  "runtime_settings_sha256": "433c6b8ab50c72b2a06ce81ad680a559ac48b5d7a90780d3203b878ece762096",
+  "standalone_inert_negative_control": true,
+  "no_terraform_execution": true,
+  "no_provisioning_in_this_run": true,
+  "no_clean_or_risk_skill_review_claim": true,
+  "no_human_resolution_claim": true,
+  "native_cli_retry_details": {
+    "count": 1,
+    "http_status": 403,
+    "classification": "authentication_failed",
+    "operator_reruns": 0,
+    "same_invocation_subsequently_completed": true
+  }
+}

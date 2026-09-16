@@ -428,9 +428,14 @@ class SubmissionTests(unittest.TestCase):
         7: ("screenshot-07-healthy-baseline.png", {"reports/live/baseline-report.txt"}),
         8: ("screenshot-08-baseline-exit.png", {"reports/live/baseline-execution.txt"}),
         9: ("screenshot-09-skill-configuration.png", {".claude/skills/tf-drift-review/SKILL.md"}),
+        10: ("screenshot-10-clean-agentic-review.png", {"reports/live/claude-clean-review-20260916.txt"}),
         11: ("screenshot-11-unapplied-proposal.png", {"terraform/public-ssh-proposal.tfvars.example"}),
+        12: ("screenshot-12-risk-assessment.png", {"reports/live/claude-risk-review-20260916.txt"}),
         13: ("screenshot-13-live-detected-report.png", {"reports/live/drift-detected-report.txt"}),
         14: ("screenshot-14-hook-configuration.png", {".claude/settings.json"}),
+        15: ("screenshot-15-blocked-apply.png", {"reports/live/native-hook-fail-20260916.txt"}),
+        16: ("screenshot-16-human-resolution.png", {"reports/live/human-resolution-20260916.txt"}),
+        17: ("screenshot-17-final-healthy-review.png", {"reports/live/claude-final-review-20260916.txt"}),
         18: ("screenshot-18-saved-reports.png", {"reports/drift-detected-report.txt", "reports/resolved-report.txt",
                                                "reports/live/drift-detected-report.txt", "reports/live/resolved-report.txt"}),
         19: ("screenshot-19-summary.png", {"drift-review-summary.md"}),
@@ -459,7 +464,8 @@ class SubmissionTests(unittest.TestCase):
                     self.assertEqual(images, [])
                     self.assertEqual(body.count("Add your screenshot here."), 1)
         self.assertIn("Add a screenshot of the published LinkedIn post here.", submission)
-        self.assertIn("- [ ] Included all 19 numbered screenshots", submission)
+        self.assertIn("- [x] Included all 19 numbered screenshots", submission)
+        self.assertIn("- [ ] Performed any infrastructure-changing action manually", submission)
         self.assertIn("- [ ] Published the required LinkedIn post", submission)
 
     def test_enrollment_continuation_boundaries(self):
@@ -497,12 +503,51 @@ class SubmissionTests(unittest.TestCase):
                        acceptance["private_result_sha256"], ready["private_result_sha256"], plan["network_plan_sha256"]):
             self.assertRegex(digest, r"^[0-9a-f]{64}$")
 
+    def test_native_hook_continuation_evidence(self):
+        path = ROOT / "reports/live/native-hook-denial-20260916.json"
+        text = path.read_text()
+        record = json.loads(text)
+        self.assertEqual(record["status"], "GENUINE_NATIVE_PRETOOLUSE_DENIAL_VERIFIED")
+        for key in ("exact_expected_bash_request_count", "native_hook_started_count", "native_hook_response_count"):
+            self.assertEqual(record[key], 1)
+        self.assertEqual(record["hook_event"], "PreToolUse")
+        self.assertEqual(record["hook_name"], "PreToolUse:Bash")
+        self.assertEqual(record["hook_exit_code"], 2)
+        self.assertTrue(record["matching_tool_result_error"])
+        self.assertTrue(record["standalone_inert_negative_control"])
+        for key in ("no_terraform_execution", "no_provisioning_in_this_run",
+                    "no_clean_or_risk_skill_review_claim", "no_human_resolution_claim"):
+            self.assertIs(record[key], True)
+        self.assertLess(datetime.fromisoformat(record["run_started_at_utc"]),
+                        datetime.fromisoformat(record["accounting_completed_at_utc"]))
+        self.assertLessEqual(datetime.fromisoformat(record["accounting_completed_at_utc"]),
+                             datetime.fromisoformat(record["verified_at_utc"]))
+        self.assertAlmostEqual(record["reported_cost_usd"], 0.012047)
+        self.assertAlmostEqual(record["historical_unknown_usage_reservation_usd"], 0.18)
+        self.assertAlmostEqual(record["accounted_usd"], 0.192047)
+        retry = record["native_cli_retry_details"]
+        self.assertEqual([retry[key] for key in ("count", "http_status", "operator_reruns")], [1, 403, 0])
+        self.assertEqual(retry["classification"], "authentication_failed")
+        self.assertIs(retry["same_invocation_subsequently_completed"], True)
+        for digest in (record["raw_transcript_sha256"], record["runtime_settings_sha256"],
+                       *record["source_sha256"].values()):
+            self.assertRegex(digest, r"^[0-9a-f]{64}$")
+        export = (ROOT / "reports/live/native-hook-denial-20260916.txt").read_text()
+        for fragment in ("EZE FAVOUR", "SANITIZED RECORDED OUTPUT", "not a fresh terminal replay",
+                         "terraform apply -input=false", record["exact_gate_stderr"],
+                         record["raw_transcript_sha256"], "HTTP 403", "Operator reruns: zero"):
+            self.assertIn(fragment, export)
+        self.assertNotRegex(text + export, r"(?:AKIA|ASIA)[A-Z0-9]{16}|arn:aws:|/Users/|\b[0-9]{12}\b")
+        allowlist = (ROOT / ".gitignore").read_text().splitlines()
+        for suffix in ("json", "txt"):
+            self.assertIn("!reports/live/native-hook-denial-20260916." + suffix, allowlist)
+
     def test_screenshot_provenance_matches_files(self):
         manifest = json.loads((ROOT / "screenshots/manifest.json").read_text())
         self.assertEqual(manifest["student"], "Eze Favour")
         self.assertIn("SANITIZED HISTORICAL LIVE-EVIDENCE", manifest["evidence_class"])
-        self.assertIn("NOT CLAUDE RUNTIME EVIDENCE", manifest["evidence_class"])
-        self.assertEqual(manifest["pending_numbers"], [10, 12, 15, 16, 17])
+        self.assertIn("RECORDED NATIVE CLAUDE", manifest["evidence_class"])
+        self.assertEqual(manifest["pending_numbers"], [])
         self.assertEqual(len(manifest["screenshots"]), len(self.captures))
         self.assertEqual({item["number"] for item in manifest["screenshots"]}, set(self.captures))
         self.assertEqual({path.name for path in (ROOT / "screenshots").glob("*.png")},
@@ -521,12 +566,12 @@ class SubmissionTests(unittest.TestCase):
                 for path, expected_hash in item["source_sha256"].items():
                     self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), expected_hash, path)
 
-    def test_live_capture_scope_and_pending_runtime(self):
+    def test_live_capture_scope_and_recorded_runtime(self):
         text = (ROOT / "screenshots/manifest.json").read_text()
         manifest = json.loads(text)
         self.assertNotRegex(text, r"(?:AKIA|ASIA)[A-Z0-9]{16}|arn:aws:|/Users/|\b[0-9]{12}\b")
         items = {item["number"]: item for item in manifest["screenshots"]}
-        for number in (1, 3, 7, 8, 9, 11, 13, 18, 19):
+        for number in (1, 3, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19):
             with self.subTest(capture=number):
                 item = items[number]
                 proof = item["window_verification"]
@@ -537,14 +582,17 @@ class SubmissionTests(unittest.TestCase):
                 self.assertIs(item["ocr_name_verified"], True)
                 self.assertTrue(all(item["ocr_source_coverage"].values()))
                 self.assertIs(item["privacy_preflight_passed"], True)
-                expected = ("terminal" if number == 18 else "sanitized-historical-export"
-                            if number in (1, 7, 8, 13) else "source-view")
+                expected = ("actual-local-terminal" if number == 18 else "sanitized-recorded-output-export"
+                            if number in (1, 7, 8, 13) else "sanitized-recorded-native-output"
+                            if number in (10, 12, 15, 17) else "recorded-human-decision"
+                            if number == 16 else "source-view")
                 self.assertEqual(item["evidence_kind"], expected)
         self.assertEqual(items[18]["terminal_commands"], ["ls -lah -g -o reports", "ls -lah -g -o reports/live"])
         for number in (3, 9):
             self.assertNotEqual(items[number]["sha256"], items[number]["replaced_previous_sha256"])
         self.assertTrue(any("no image pixels were edited" in note for note in manifest["limitations"]))
-        self.assertTrue(any("Human resolution approval is not established" in note for note in manifest["limitations"]))
+        self.assertTrue(any("no manual human Terraform execution" in note for note in manifest["limitations"]))
+        self.assertTrue(any("LinkedIn" in note for note in manifest["limitations"]))
 
     def test_prepared_terraform_and_preflight_boundaries(self):
         text = (ROOT / "reports/live-preflight.json").read_text()

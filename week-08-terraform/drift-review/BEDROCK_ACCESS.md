@@ -1,6 +1,6 @@
 # Bedrock enrollment and review continuation
 
-**Eze Favour — enrollment availability verified on 16 September 2026; post-enrollment inference and the assignment review loop remain pending.**
+**Eze Favour — enrollment and later clean/risk/final native Claude reviews verified on 16 September 2026.** The [current-cycle record](reports/live/cycle-20260916.json) documents the subsequent human decision and verified cleanup. This access runbook preserves the earlier troubleshooting and authorization boundaries; it is not an instruction to repeat enrollment or model calls.
 
 The [sanitized continuation record](reports/continuation-20260916.json) verifies
 private MFA authentication, user-triggered local SDK acceptance at **13:26:22 UTC**,
@@ -104,11 +104,13 @@ to the authorized human administrator; they are not read-only diagnostic steps.
 
 ## Resume only after readiness and budget confirmation
 
-Preserve the existing ledger: the historical test reported **$0.00017**;
-the separate additional allowance is **$0.50**, with **$0 reported completed
-usage**, **$0.18 reserved for incomplete usage records**, and **$0.32 unreserved**.
-The reservation is not a verified charge. This continuation made no new model
-call and does not release reservations or increase the allowance.
+Preserve the existing ledger: the historical test reported **$0.00017**.
+At the review approval, the separate **$0.50** allowance had **$0 reported
+completed usage**, **$0.18 reserved for incomplete records**, and **$0.32 unreserved**.
+After the subsequent bounded reviews and native controls, reported additional
+usage is **$0.141731**; including the unchanged reservation, **$0.321731** is
+accounted and **$0.178269** remains. The reservation is not a verified charge or
+an account billing audit. No further model call is needed.
 
 The user confirmed the bounded **$0.32 remaining review allowance at
 2026-09-16T13:30:22.429Z**. Record usage atomically, reserve before invocation,
@@ -124,8 +126,12 @@ does not establish Skill discovery, a bounded budget, or hook enforcement.
 Do not rerun it as a shortcut. Verify actual tool and hook events; the original
 tool-free `--bare` connection test cannot provide that evidence.
 
-Only after access is verified, obtain fresh approval for a new isolated VPC and
-closed, unattached security group and their cleanup. The previous lab is deleted;
-old plans and reports cannot serve as a new baseline. Follow the ordered review
-loop in the assignment, including a genuine human resolution decision before
-the resolution is executed. Screenshots **10, 12, 15, 16 and 17 remain pending**.
+The separately approved new isolated VPC/closed-SG cycle subsequently completed:
+actual clean/risk reviews, fresh-FAIL native denial, the user's reject-public-SSH
+decision, fresh final evidence and a genuine final Claude review. Copilot—not a
+manually operating human—executed the authorized operations. SG-then-VPC cleanup
+was independently verified at **2026-09-16T16:01:58Z**. Both dated labs are deleted;
+old plans/reports are historical, not a current baseline. The enrollment permission
+expiry was not extended. [Screenshot provenance](screenshots/manifest.json) and the
+[assignment](../assignment-06-ai-assisted-terraform-drift-and-policy-review.md)
+track actual capture completion and remaining publication/manual-execution limits.
