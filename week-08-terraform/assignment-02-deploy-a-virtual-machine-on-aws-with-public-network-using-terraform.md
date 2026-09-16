@@ -2,6 +2,16 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Learner:** Eze Favour
+
+**Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
+
+**Status: offline preparation only — not a completed cloud deployment or submission.**
+
+The [Terraform project and gated runbook](terraform-aws-vm/README.md) implement this assignment's public EC2 topology with an isolated private subnet, controller-only SSH, public HTTP, and a real Ubuntu Nginx bootstrap. Local mock tests check the configuration without contacting AWS. These are Copilot-assisted preparation checks, not evidence that the learner manually executed the tasks. No live account access, deployment, public IP, Nginx runtime verification, or cleanup has been established for this assignment. No personal reflection or grade outcome is claimed.
+
+All ten screenshot slots below remain **pending**. See the [evidence manifest](terraform-aws-vm/evidence/manifest.json) for their exact requirements. A fresh approved account/Region, sufficient existing EC2 permissions, a budget and cleanup window, and genuine captures are required before the runtime checklist can be completed. Historical approval does not authorize this assignment.
+
 ---
 
 ## Purpose
@@ -24,7 +34,7 @@ Prepare your local environment for Terraform deployment by installing Terraform,
 
 Ensure that your full name is visible and that no AWS credentials, account IDs, or other sensitive information are exposed.
 
-Add your screenshot here.
+**Pending — Screenshot 1 has not been captured.** Add your screenshot here.
 
 ---
 
@@ -54,7 +64,7 @@ The configuration must include:
 
 #### Screenshot 2 — VS Code showing the AWS provider configuration and VPC configuration in `main.tf`
 
-Add your screenshot here.
+**Pending — Screenshot 2 has not been captured.** Add your screenshot here.
 
 ---
 
@@ -62,7 +72,7 @@ Add your screenshot here.
 
 Ensure that no AWS credentials, private keys, account IDs, or other sensitive information are visible.
 
-Add your screenshot here.
+**Pending — Screenshot 3 has not been captured.** Add your screenshot here.
 
 ---
 
@@ -76,7 +86,7 @@ Initialize the Terraform working directory and download the required provider co
 
 #### Screenshot 4 — Terminal showing the successful `terraform init` output
 
-Add your screenshot here.
+**Pending — Screenshot 4 has not been captured.** Add your screenshot here.
 
 ---
 
@@ -90,19 +100,19 @@ Review the Terraform execution plan, provision the AWS resources, and record the
 
 #### Screenshot 5 — Terraform plan summary showing the proposed resources
 
-Add your screenshot here.
+**Pending — Screenshot 5 has not been captured.** Add your screenshot here.
 
 ---
 
 #### Screenshot 6 — Terraform apply output showing successful completion
 
-Add your screenshot here.
+**Pending — Screenshot 6 has not been captured.** Add your screenshot here.
 
 ---
 
 #### Screenshot 7 — Terraform output showing the public IP address of the EC2 instance
 
-Add your screenshot here.
+**Pending — Screenshot 7 has not been captured.** Add your screenshot here.
 
 ---
 
@@ -110,7 +120,7 @@ Add your screenshot here.
 
 Record the public IP address displayed by `terraform output`.
 
-**EC2 Public IP Address:** `Add the public IP address here`
+**EC2 Public IP Address:** `Pending — no authorized live deployment`
 
 ---
 
@@ -132,13 +142,13 @@ Confirm that:
 
 #### Screenshot 8 — AWS CLI output showing the EC2 instance ID, `running` state, and public IP address
 
-Add your screenshot here.
+**Pending — Screenshot 8 has not been captured.** Add your screenshot here.
 
 ---
 
 #### Screenshot 9 — Browser showing the Nginx page successfully loaded using the EC2 instance public IP
 
-Add your screenshot here.
+**Pending — Screenshot 9 has not been captured.** Add your screenshot here.
 
 ---
 
@@ -152,7 +162,7 @@ Remove all AWS resources created by Terraform after completing the deployment an
 
 #### Screenshot 10 — Terminal showing successful `terraform destroy` completion
 
-Add your screenshot here.
+**Pending — Screenshot 10 has not been captured.** Add your screenshot here.
 
 ---
 
@@ -172,21 +182,23 @@ Add your screenshot here.
 
 # Completion Checklist
 
+Checked configuration items below refer only to repository preparation. Unchecked items require actual learner/tool confirmation or a newly authorized live run; offline mock init/test results do not complete Tasks 2–5.
+
 * [ ] Installed Terraform and verified it using `terraform version`
 * [ ] Installed AWS CLI and verified it using `aws --version`
 * [ ] Configured AWS CLI and verified account access
 * [ ] Confirmed the correct AWS Region
 * [ ] Installed and enabled the HashiCorp Terraform extension in VS Code
-* [ ] Created the `terraform-aws-vm` project directory and `main.tf`
-* [ ] Added the Terraform and AWS provider configuration
-* [ ] Defined the custom VPC, public subnet, and private subnet
-* [ ] Configured the Internet Gateway and public route table
-* [ ] Associated the public route table with the public subnet
-* [ ] Defined the security group for SSH and HTTP access
+* [x] Created the `terraform-aws-vm` project directory and `main.tf`
+* [x] Added the Terraform and AWS provider configuration
+* [x] Defined the custom VPC, public subnet, and private subnet
+* [x] Configured the Internet Gateway and public route table
+* [x] Associated the public route table with the public subnet
+* [x] Defined the security group for SSH and HTTP access
 * [ ] Restricted SSH access to my public IP whenever possible
-* [ ] Defined the EC2 instance inside the public subnet
+* [x] Defined the EC2 instance inside the public subnet
 * [ ] Configured SSH authentication without exposing the private key
-* [ ] Added the Terraform output for the EC2 public IP address
+* [x] Added the Terraform output for the EC2 public IP address
 * [ ] Completed `terraform init` successfully
 * [ ] Reviewed the Terraform execution plan using `terraform plan`
 * [ ] Completed `terraform apply` successfully

@@ -1,0 +1,80 @@
+{
+  "assignment": "Week 08 Assignment 2",
+  "learner": "Eze Favour",
+  "status": "offline-only; all screenshots pending",
+  "brief": "../assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md",
+  "capture_owner": "Coordinating parent session; no captures delegated to this offline preparation",
+  "privacy": "Show Eze Favour/name or username. Exclude credentials, account IDs, private keys and controller identity details. Genuine approved EC2 public IP evidence is required for slots 7–9.",
+  "screenshots": [
+    {
+      "number": 1,
+      "requirement": "Screenshot 1 — Terminal showing successful `aws --version` output",
+      "status": "pending",
+      "file": null,
+      "note": "Requires genuine local capture by coordinator; not yet captured."
+    },
+    {
+      "number": 2,
+      "requirement": "Screenshot 2 — VS Code showing the AWS provider configuration and VPC configuration in `main.tf`",
+      "status": "pending",
+      "file": null,
+      "note": "Requires genuine local capture by coordinator; not yet captured."
+    },
+    {
+      "number": 3,
+      "requirement": "Screenshot 3 — VS Code showing the EC2 instance configuration and public IP `output` block in `main.tf`",
+      "status": "pending",
+      "file": null,
+      "note": "Requires genuine local capture by coordinator; not yet captured."
+    },
+    {
+      "number": 4,
+      "requirement": "Screenshot 4 — Terminal showing the successful `terraform init` output",
+      "status": "pending",
+      "file": null,
+      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+    },
+    {
+      "number": 5,
+      "requirement": "Screenshot 5 — Terraform plan summary showing the proposed resources",
+      "status": "pending",
+      "file": null,
+      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+    },
+    {
+      "number": 6,
+      "requirement": "Screenshot 6 — Terraform apply output showing successful completion",
+      "status": "pending",
+      "file": null,
+      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+    },
+    {
+      "number": 7,
+      "requirement": "Screenshot 7 — Terraform output showing the public IP address of the EC2 instance",
+      "status": "pending",
+      "file": null,
+      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+    },
+    {
+      "number": 8,
+      "requirement": "Screenshot 8 — AWS CLI output showing the EC2 instance ID, `running` state, and public IP address",
+      "status": "pending",
+      "file": null,
+      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+    },
+    {
+      "number": 9,
+      "requirement": "Screenshot 9 — Browser showing the Nginx page successfully loaded using the EC2 instance public IP",
+      "status": "pending",
+      "file": null,
+      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+    },
+    {
+      "number": 10,
+      "requirement": "Screenshot 10 — Terminal showing successful `terraform destroy` completion",
+      "status": "pending",
+      "file": null,
+      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+    }
+  ]
+}
