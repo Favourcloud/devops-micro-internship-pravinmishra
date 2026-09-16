@@ -4,9 +4,9 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Learner:** Eze Favour. **Choice:** Azure only, four Ubuntu 22.04 VMs (`web1`, `web2`, `app1`, `db1`).
 
-**Submission status: CODE PREPARATION — NOT CLOUD-COMPLETE.** Terraform and local inventory tests are implemented; no real public IPs, apply, SSH, remote ad-hoc results or runtime screenshots are claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval, with at most US$2 for A2+A3. Historical B1s read-only plans proposed 23 creates and no updates/deletes but must not be executed; the approved D2lds_v6 replacement requires a new sealed plan, A5 pilot and exact-plan review before apply. The coordinator selected Azure after the allowed non-root AWS identity lacked EC2 permissions; no escalation was attempted. The historical enrollment expired at `2026-09-16T13:30Z`. Assignment 3 will reuse web1/web2, not add servers.
+**Submission status: PARTIAL RUNTIME EVIDENCE — CLEANUP VERIFIED; COURSEWORK INCOMPLETE.** The coordinator genuinely applied the separately reviewed 23-create D2lds_v6 plan, retrieved role/IP outputs, authenticated host keys using Azure boot diagnostics, checked SSH hostnames/cloud-init and rendered the inventories. Ansible ping then failed locally during callback loading, before managed tasks; later ad-hoc operations and A3 deployment were not run. Reviewed teardown deleted all 23 Terraform resources and passed 16 verification checks at **2026-09-16 21:53:43 UTC**, before the original **22:22:02 UTC** deadline. No zero-charge claim is made. The temporary A2+A3 allocation was at most US$2/two hours; it does not authorize a retry. Azure replaced unavailable non-root AWS permissions without escalation; expired AWS enrollment was not renewed. No extra A3 hosts were created.
 
-Copilot assisted implementation, source review, local validation and the technical explanations below. They are not invented learner actions or personal experience. The learner must review the answers and add genuine firsthand reflection after authorized execution. See the [runbook](ansible-adhoc-lab/README.md) and [17-slot screenshot manifest](screenshots/assignment-02-manifest.json). Genuine source-only screenshots fulfill slots **1, 3, 4 and 5**; the other 13 numbered slots and LinkedIn remain pending. Original assignment requirements are retained; template inventory is not live connectivity evidence.
+Copilot assisted implementation, diagnosis, validation and evidence preparation. Actual live operations and native captures were coordinator-operated, not invented learner actions or personal reflection. See the [runbook](ansible-adhoc-lab/README.md), [sanitized actual receipts](ansible-adhoc-lab/runtime-validation.json) and [17-slot screenshot manifest](screenshots/assignment-02-manifest.json). Genuine captures fulfill slots **1, 3, 4, 5, 6, 7, 9, 10, 11**; **2, 8, 12–17** and LinkedIn remain pending. The failed-ping image is supplemental only. Original requirements are retained. Resources are deleted, historical IPs may be reassigned, and all runtime approvals are retired.
 
 ---
 
@@ -93,7 +93,7 @@ Do not configure both providers for this assignment.
 
 ### Notes
 
-Selected Azure only at the coordinator's direction. The approved replacement is four **nonzonal Standard_D2lds_v6** Ubuntu 22.04 hosts (eight vCPUs total), explicit NVMe controllers and the pinned Canonical Gen2 image `22.04.202608060`. Managed OS disks remain 32 GiB Standard_LRS; ephemeral local disks are not used for application data. The hosts retain for_each, dedicated networking, controller-only SSH, web-only HTTP, existing public-key authentication and role-keyed outputs. AzureRM stays pinned to 4.47.0. No second cloud provider or extra A3 hosts are configured. A5's pilot and coordinator review of A2's new sealed plan must precede any apply.
+Selected Azure only at the coordinator's direction. The approved replacement is four **nonzonal Standard_D2lds_v6** Ubuntu 22.04 hosts (eight vCPUs total), explicit NVMe controllers and the pinned Canonical Gen2 image `22.04.202608060`. Managed OS disks remain 32 GiB Standard_LRS; ephemeral local disks are not used for application data. The hosts retain for_each, dedicated networking, controller-only SSH, web-only HTTP, existing public-key authentication and role-keyed outputs. AzureRM stays pinned to 4.47.0. No second cloud provider or extra A3 hosts are configured. A5's pilot and coordinator review of A2's sealed plan preceded the historical apply. All old approvals are now retired.
 
 ---
 
@@ -107,25 +107,29 @@ Initialize and validate the Terraform configuration, review the execution plan, 
 
 #### Screenshot 6 — Final `terraform apply` output showing `Apply complete`
 
-**PENDING — Screenshot 6.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Capture the genuine Apply complete summary only after separate plan/apply approval. Capture guidance: [manifest slot 6](screenshots/assignment-02-manifest.json).
+![Genuine successful exact-plan Terraform apply](screenshots/assignment-02-06-apply-complete.png)
+
+**Captured 16 September 2026, 20:26:38 UTC.** The coordinator's genuine native terminal capture shows `Apply complete` for the reviewed **23-create** plan, SHA `82d9d251902771e986f7b2ed7428e986848cd97ab5388a03217ff614442477cc`, at source `4fa07f3`. No pixel edits were made. Sensitive values were redacted from the actual live display; this image alone does not prove the IP mapping. See [manifest slot 6](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 7 — `terraform output public_ips` showing the role-to-IP mapping for all three or four VMs
 
-**PENDING — Screenshot 7.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show all four role mappings; redact actual public IPs consistently if desired. Capture guidance: [manifest slot 7](screenshots/assignment-02-manifest.json).
+![Genuine Terraform role-to-public-IP mapping](screenshots/assignment-02-07-public-ips.png)
+
+**Captured 16 September 2026, 20:57:18 UTC.** Actual output against the approved state shows all four roles and their public IPs. Only state-validated VM addresses were exempted from live-stream privacy redaction; no image pixels were changed. These are **historical addresses, not live endpoints** after cleanup. Timestamp comes from the native capture filename (UTC+01:00 workstation, second precision); the terminal's earlier time is the command start. See [manifest slot 7](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 8 — Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible
 
-**PENDING — Screenshot 8.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show all four role-based names and Running status, with subscription/account metadata hidden. Capture guidance: [manifest slot 8](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 8.** No authenticated Azure Portal image was captured. Apply/SSH evidence cannot substitute for the required Portal view, and the VMs have since been deleted. See [manifest slot 8](screenshots/assignment-02-manifest.json). Do not recreate infrastructure merely to manufacture missing historical evidence.
 
 ---
 
 ### Notes
 
-Backend-disabled init, validate and seven mocked plan tests pass for the revised D2lds_v6/NVMe/pinned-image configuration. The historical B1s read-only plans proposed 23 creates and zero updates/deletes, but are preserved **for evidence only, not execution**. A fresh identity-sealed plan bound to the revised source, a successful A5 pilot and coordinator approval are required before A2 apply. See [sanitized validation](ansible-adhoc-lab/validation.json). No apply, Running-state screenshot or real role-to-IP output is claimed. A2+A5 together would exhaust the reviewed ten-core family/regional quota. A2+A3's two-hour estimate is **US$1.60812 including US$0.50 contingency**, below the US$2 allocation; this is not a guaranteed bill cap.
+The D2lds_v6/NVMe/pinned-image source passed real backend-disabled init/validate and seven mocked plan tests. A later identity-before-plan seal, successful A5 pilot and exact-plan review preceded the coordinator's genuine A2 apply. Historical B1s plans remain preserved and were never applied. A2's eight cores and A5's two used the reviewed ten-core allocation without headroom. The two-hour estimate was **US$1.60812 including US$0.50 contingency**, below US$2, not a guaranteed invoice cap. The coordinator subsequently applied a reviewed **23-delete** teardown and verified empty state serial **48**, resource-group absence and explicit VM/disk/IP absence at **21:53:43 UTC**. [Sanitized actual receipts](ansible-adhoc-lab/runtime-validation.json) distinguish successful provisioning/cleanup from missing Portal and managed-task evidence.
 
 ---
 
@@ -139,13 +143,15 @@ Verify that each managed VM can be accessed from the Ansible controller using SS
 
 #### Screenshot 9 — Terminal showing successful SSH hostname output from all VMs
 
-**PENDING — Screenshot 9.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. After authenticated fingerprint review, show actual hostname output from every VM. Capture guidance: [manifest slot 9](screenshots/assignment-02-manifest.json).
+![Genuine four-host SSH hostname results with private socket spans masked](screenshots/assignment-02-09-ssh-hostnames-redacted.png)
+
+**Captured 16 September 2026, 21:05:19 UTC.** Actual existing-key SSH returned all four role hostnames after authenticated Azure boot-diagnostic fingerprint matching and strict task-local known-host trust. Only **four private IdentityAgent socket spans** were blackboxed in this approved publish copy; public IPs, hostnames and original soft wraps are unchanged. The private original remains intact. [Manifest slot 9](screenshots/assignment-02-manifest.json) records raw/derivative hashes, exact pixel rectangles, processing-source hash, native OCR and pixel proof: **121,900 changed pixels inside masks; zero outside**. Capture time is from the native filename, at second precision. No human review is claimed.
 
 ---
 
 ### Notes
 
-Use the existing loaded SSH identity as azureuser. Before SSH, compare host-key fingerprints from authenticated boot diagnostics against key scans, storing verified entries only in the task-local known_hosts. No global SSH changes or key generation are needed. Live SSH remains pending.
+The coordinator used the existing loaded identity as `azureuser`, authenticated fingerprints against Azure boot diagnostics, and kept only matching keys in private task-local known_hosts. No global trust changes or key generation were used. Hostname and later cloud-init readiness checks succeeded for all four hosts. This historical SSH result is not Ansible ping success and does not authorize contacting the deleted VMs' former addresses.
 
 ---
 
@@ -161,19 +167,23 @@ The inventory allows Ansible to run commands against all servers, or only specif
 
 #### Screenshot 10 — `inventory.ini` showing the `web`, `app`, and `db` groups
 
-**PENDING — Screenshot 10.** Genuine screenshot not captured; local checks do not substitute for an image. Label UNCONFIGURED template explicitly. Once authorized, separately capture the generated inventory.local.ini with real addresses redacted; never replace the tracked template. Capture guidance: [manifest slot 10](screenshots/assignment-02-manifest.json).
+![Genuine output-derived role inventory](screenshots/assignment-02-10-generated-inventory.png)
+
+**Captured 16 September 2026, 20:59:55 UTC.** This is the actual mode-0600, ignored `inventory.local.ini`, explicitly rendered from approved Terraform outputs. It shows `web`, `app`, `db` and all four historical role/IP mappings; the tracked `inventory.ini` remains a safe unconfigured template. No pixel edits were made. See [manifest slot 10](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 11 — Output of `ansible-inventory -i inventory.ini --graph`
 
-**PENDING — Screenshot 11.** Genuine screenshot not captured; local checks do not substitute for an image. Show web/app/db membership; graph of .invalid template names is not connectivity evidence. Live counterpart uses inventory.local.ini. Capture guidance: [manifest slot 11](screenshots/assignment-02-manifest.json).
+![Genuine generated-inventory group graph](screenshots/assignment-02-11-inventory-graph.png)
+
+**Captured 16 September 2026, 21:00:48 UTC.** The actual local graph uses the generated `inventory.local.ini` counterpart and shows the web/app/db memberships. A graph parses inventory; it does not connect to managed hosts. Original PNG bytes are unchanged. Both capture times above come from native filenames (UTC+01:00 workstation, second precision). See [manifest slot 11](screenshots/assignment-02-manifest.json).
 
 ---
 
 ### Notes
 
-The required inventory.ini exists with web/app/db groups and intentionally unresolvable .invalid names. Its graph was checked locally. Explicit rendering from Terraform public_ips creates ignored inventory.local.ini with mode 0600; only that generated inventory is used for approved live commands. A3 selects the same web1/web2 addresses.
+Both required `inventory.ini` templates remain deliberately unconfigured. The coordinator genuinely rendered validated, ignored mode-0600 inventories from the successful apply outputs; A3 selected the same web1/web2, with no extra hosts. Current retained private inventories are historical evidence only. After verified cleanup they must not be used for SSH or HTTP requests.
 
 ---
 
@@ -189,37 +199,41 @@ This task proves that the inventory is working and that Ansible can control mult
 
 #### Screenshot 12 — Output of `ansible all -i inventory.ini -m ping`
 
-**PENDING — Screenshot 12.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show SUCCESS/pong for all four real managed hosts. Capture guidance: [manifest slot 12](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 12 success evidence.** The genuine attempt failed locally in callback loading with `ValueError: A non-empty plugin name is required` (exit 250), **before managed ping tasks**. No four-host SUCCESS/pong result exists. See [manifest slot 12](screenshots/assignment-02-manifest.json).
+
+![Supplemental genuine callback failure, not successful ping](screenshots/assignment-02-supplemental-failed-ping.png)
+
+**Supplemental failure capture: 16 September 2026, 21:16:06 UTC** (native filename, second precision). The original image is unmodified. The private wrapper set `ANSIBLE_CALLBACKS_ENABLED=''`, which core 2.21.4 interprets as `['']`. Execution stopped; this image does **not** complete slot 12. After cleanup, a new private helper omitted the variable and five local regressions passed, including a localhost-only pong. No live retry was performed.
 
 ---
 
 #### Screenshot 13 — Output of `ansible all -i inventory.ini -m command -a "uptime"`
 
-**PENDING — Screenshot 13.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show uptime from all four real managed hosts. Capture guidance: [manifest slot 13](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 13.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show uptime from all four real managed hosts. Capture guidance: [manifest slot 13](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 14 — Output of `ansible web -i inventory.ini -m apt -a "name=nginx state=present update_cache=yes" --become`
 
-**PENDING — Screenshot 14.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show actual apt result for web1/web2 with become. Capture guidance: [manifest slot 14](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 14.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show actual apt result for web1/web2 with become. Capture guidance: [manifest slot 14](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 15 — Output of `ansible web -i inventory.ini -m service -a "name=nginx state=started enabled=yes" --become`
 
-**PENDING — Screenshot 15.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show Nginx started and enabled on both web hosts. Capture guidance: [manifest slot 15](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 15.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show Nginx started and enabled on both web hosts. Capture guidance: [manifest slot 15](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 16 — Output of `ansible all -i inventory.ini -m apt -a "name=htop state=present update_cache=yes" --become`
 
-**PENDING — Screenshot 16.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show actual htop package result for every host with become. Capture guidance: [manifest slot 16](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 16.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show actual htop package result for every host with become. Capture guidance: [manifest slot 16](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 17 — Output of `ansible web -i inventory.ini -m command -a "systemctl is-active nginx"`
 
-**PENDING — Screenshot 17.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show active from both web hosts. Capture guidance: [manifest slot 17](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 17.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show active from both web hosts. Capture guidance: [manifest slot 17](screenshots/assignment-02-manifest.json).
 
 ---
 
@@ -259,7 +273,7 @@ An inventory names the managed hosts, associates connection settings with them, 
 
 **2. What is the difference between the `web`, `app`, and `db` groups in your inventory?**
 
-`web` contains web1 and web2 and receives Nginx/HTTP tasks. `app` contains app1 and `db` contains db1; these are organizational roles only, not evidence that application or database software is installed. All four receive connectivity, uptime and htop checks.
+`web` contains web1 and web2 and receives Nginx/HTTP tasks. `app` contains app1 and `db` contains db1; these are organizational roles only, not evidence that application or database software is installed. The planned connectivity, uptime and htop commands target all four; they did not complete in this run.
 
 ---
 
@@ -283,7 +297,7 @@ Use an ad-hoc command for a small, one-off operation such as checking uptime or 
 
 **6. What is one challenge you faced while setting up SSH or inventory, and how did you fix it?**
 
-**Firsthand SSH/inventory reflection: PENDING learner input after authorized execution.** No remote SSH issue has been observed here. A real local engineering issue was preventing sample inventory from being mistaken for live hosts; the solution uses .invalid templates, explicit output validation, exclusive mode-0600 rendering and approval tests. This is an AI-assisted implementation note, not an invented learner experience.
+**Firsthand reflection: PENDING learner input.** Actual coordinator-operated SSH hostname checks succeeded. The later Ansible attempt failed in private controller callback configuration, not SSH trust: a blank callback list variable was parsed as an empty plugin name. The original failure was preserved; a new private omission fix passed local-only regressions after cleanup, without a managed-host retry. Inventory safeguards used .invalid templates, validated outputs and exclusive mode-0600 rendering. These are AI-assisted engineering notes, not invented learner experiences.
 
 ---
 
@@ -318,7 +332,7 @@ Confirm that the following files are included in your assignment workspace:
 
 # Completion Checklist
 
-Checked items below describe **source implementation/local validation only**, not deployed state. Template inventory checks are not SSH proof. Remote execution, screenshots, learner-owned answers and publication remain incomplete.
+Checked source/local items and historical apply/SSH results are distinguished below. Successful apply and strict four-host SSH are genuinely evidenced; **all VMs have since been deleted**. The Running-state Portal image is missing. Managed Ansible tasks, remaining screenshots, learner-owned reflection and publication are incomplete; a local graph or localhost pong does not replace them.
 
 - [x] Task 1: `ansible-adhoc-lab` project structure created
 - [x] Task 1: `.gitignore` updated for Terraform files
@@ -330,9 +344,9 @@ Checked items below describe **source implementation/local validation only**, no
 - [x] Task 2: Terraform output maps roles to public IPs
 - [x] Task 3: Terraform initialized successfully
 - [x] Task 3: Terraform configuration validated
-- [ ] Task 3: Terraform apply completed successfully
+- [x] Task 3: Terraform apply completed successfully
 - [ ] Task 3: All selected VMs are running
-- [ ] Task 4: SSH key-based access works for every VM
+- [x] Task 4: SSH key-based access works for every VM
 - [x] Task 5: `inventory.ini` contains `web`, `app`, and `db` groups
 - [x] Task 5: `ansible-inventory -i inventory.ini --graph` shows the correct groups
 - [ ] Task 6: `ansible all -i inventory.ini -m ping` returns `SUCCESS`

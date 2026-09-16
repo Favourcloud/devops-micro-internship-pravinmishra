@@ -1,6 +1,6 @@
 {
   "recorded_at_utc": "2026-09-16T18:35:38.785533+00:00",
-  "scope": "Code preparation and explicitly authorized read-only plan; not a deployed lab",
+  "scope": "Historical local preparation/plan checks retained below; current partial runtime and verified cleanup recorded separately in runtime-validation.json",
   "tools": {
     "terraform": "1.13.5",
     "azurerm": "4.47.0",
@@ -146,8 +146,14 @@
       "ipv4_price_response_sha256": "44d3adb16de4652abbe4bb8d82aec5c67559d287e9893468e23f6de30ac8ba5a",
       "duplicate_sku_image_price_requests": false,
       "family": "StandardDldsv6Family",
-      "family_used_limit": [0, 10],
-      "regional_used_limit": [0, 10],
+      "family_used_limit": [
+        0,
+        10
+      ],
+      "regional_used_limit": [
+        0,
+        10
+      ],
       "combined_a2_a5_cores": 10,
       "headroom_after_both": 0,
       "capacity_guaranteed": false,
@@ -155,30 +161,23 @@
       "usd_per_s4_disk_month": 1.69,
       "usd_per_ipv4_hour": 0.005,
       "disk_month_hours_conservative": 672,
-      "a2_two_hour_base_usd": 1.1081190476190476,
-      "contingency_usd": 0.50,
-      "a2_two_hour_total_usd": 1.6081190476190476,
-      "a2_a3_allocation_usd": 2.00
+      "a2_two_hour_base_usd": 1.1081190476190477,
+      "contingency_usd": 0.5,
+      "a2_two_hour_total_usd": 1.6081190476190477,
+      "a2_a3_allocation_usd": 2.0
     }
   },
-  "evidence_integration": {
-    "a2_captured_slots": [1, 3, 4, 5],
-    "a3_captured_slots": [1, 4, 5],
-    "original_png_count": 9,
-    "scope": "Genuine native source/structure/local-syntax captures only; no deployment evidence",
-    "image_modifications": "None; all original image hashes verified",
-    "implementation_changed_after_b64d6be": false,
-    "documentation_changes": "Evidence status and A3 README/source paste synchronized; no executable, Terraform, HTML/CSS or Ansible config changes"
-  },
   "live_results": {
-    "apply": "not performed",
-    "ssh": "not performed",
-    "remote_adhoc": "not performed",
+    "apply": "succeeded; exact 23-create sealed D2lds_v6 plan",
+    "ssh": "authenticated boot trust, strict existing-key hostname checks and cloud-init readiness succeeded for four hosts",
+    "inventory": "rendered from actual outputs; A2/A3 graph checks succeeded",
+    "remote_adhoc": "ping failed locally before managed tasks (callback ValueError, exit 250); remaining commands not run",
     "website_deployment": "not performed",
     "remote_idempotency": "not verified",
-    "screenshots": "A2 slots 1/3/4/5 and A3 slots 1/4/5 genuine source/local-only captures included; all remaining numbered slots and LinkedIn pending",
+    "screenshots": "A2 9/17 and A3 4/11 numbered slots captured; remaining slots and both LinkedIn slots pending",
     "linkedin": "not authorized/not published",
-    "destroy": "not applicable; no apply performed"
+    "destroy": "23 deletes, 16 verification checks; empty state serial48; verified 2026-09-16T21:53:43.327038+00:00 before original deadline",
+    "charges_claimed_zero": false
   },
   "ssh_socket_regression": {
     "scope": "Historical SSH-only fix at 4d58d0d, compared with b8a95e9; Terraform unchanged statements apply to that fix, not the later D2 revision",
@@ -192,5 +191,64 @@
     "network_connections": false,
     "terraform_source_unchanged": true,
     "sealed_plan_unchanged": true
+  },
+  "historical_evidence_integration": {
+    "a2_captured_slots": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "a3_captured_slots": [
+      1,
+      4,
+      5
+    ],
+    "original_png_count": 9,
+    "scope": "Genuine native source/structure/local-syntax captures only; no deployment evidence",
+    "image_modifications": "None; all original image hashes verified",
+    "implementation_changed_after_b64d6be": false,
+    "documentation_changes": "Evidence status and A3 README/source paste synchronized; no executable, Terraform, HTML/CSS or Ansible config changes"
+  },
+  "evidence_integration": {
+    "a2_captured_slots": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "a3_captured_slots": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "numbered_evidence_png_count": 15,
+    "supplemental_failure_png_count": 1,
+    "scope": "Historical genuine partial runtime plus source/local inspection; no A3 deployment",
+    "image_modifications": "Only A2 slot 9 masks exactly four private agent-socket spans; all other PNGs original bytes",
+    "implementation_changed_after_4fa07f3": false,
+    "current_runtime_receipt": "runtime-validation.json",
+    "current_runtime_receipt_sha256": "487839d139e2b2776ee53a336fb1c25dc4a676f83c3aad6dc07230fa5f936bdc"
+  },
+  "final_offline_checks": {
+    "recorded_at_utc": "2026-09-16T22:19:17.467344+00:00",
+    "source_baseline": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+    "scope": "Final documentation/evidence integration; unchanged executable/Terraform/Ansible/site source; existing controller reused with task-local HOME/caches",
+    "a2_tests_passed": 9,
+    "a3_tests_passed": 5,
+    "syntax_check": "passed",
+    "offline_ansible_lint": "production profile passed, zero failures/warnings",
+    "private_raw_log_sha256": "f7244b260804fa714f47a2e2dd7a5a5ed8b2ec8e72a0af262031588bbc52605c",
+    "terraform": "Not rerun for documentation-only integration; original fmt/init/validate/seven mock test results retained above",
+    "private_callback_regressions": "5 passed separately; receipt bound in runtime-validation.json",
+    "cloud_operations": false,
+    "managed_host_contacts": false,
+    "local_tests_are_runtime_evidence": false
   }
 }

@@ -2,15 +2,17 @@
   "assignment": 3,
   "learner": "Eze Favour",
   "platform": "Azure",
-  "status": "code-preparation; genuine local captures in slots 1, 4, 5; no live screenshots captured",
+  "status": "Code preparation and genuine local-only evidence; 4 of 11 numbered slots captured; 7 plus LinkedIn pending; no A3 deployment",
   "numbered_slots": 11,
   "capture_rules": [
-    "All screenshot slots remain pending until genuine captures exist.",
+    "A slot is captured only when its genuine accepted PNG exists; local inspections do not prove managed-host success.",
     "Show Eze Favour visibly in every required screenshot.",
     "Do not expose credentials, private keys, account/subscription IDs, private paths, state or plans.",
     "Label local/template checks honestly; they are not connectivity or deployed-state proof.",
     "Use generated inventory.local.ini for authorized live work; preserve tracked inventory.ini as unconfigured.",
-    "No desktop control or LinkedIn publication is authorized by code preparation."
+    "No desktop control or LinkedIn publication is authorized by code preparation.",
+    "Historical approved VM IPs may appear in required original evidence; do not contact them after deletion or publish configured inventories.",
+    "Capture timestamp source is explicit; command-start timestamps visible in a frame are not substituted for capture time."
   ],
   "screenshots": [
     {
@@ -25,7 +27,19 @@
       "image_modifications": "None; exact original PNG bytes",
       "source_commit": "4d58d0d3ce66e94f87da5ee435299425ec31afae",
       "tracked_file_count": 11,
-      "tracked_filenames": [".ansible-lint", ".gitignore", "README.md", "SOURCE.md", "ansible.cfg", "files/contact.html", "files/index.html", "files/style.css", "inventory.ini", "site.yml", "tests/test_site.py"],
+      "tracked_filenames": [
+        ".ansible-lint",
+        ".gitignore",
+        "README.md",
+        "SOURCE.md",
+        "ansible.cfg",
+        "files/contact.html",
+        "files/index.html",
+        "files/style.css",
+        "inventory.ini",
+        "site.yml",
+        "tests/test_site.py"
+      ],
       "private_run_receipt_sha256": "f5eef993e0213d0cf66f82fefc53761d958cddb5a7ff3d8a73af4e07421ca80e",
       "acceptance": "Shows the actual complete 11-file tracked structure and Eze Favour. Binds filenames, not later README content; private caches/runtime inputs excluded.",
       "blocker": null
@@ -33,12 +47,25 @@
     {
       "slot": 2,
       "requirement": "Output of `ansible-inventory -i inventory.ini --graph` showing `web1` and `web2`",
-      "status": "pending",
-      "scope": "local",
-      "file": null,
-      "capture_command_or_action": "From static-web: ansible-inventory -i inventory.ini --graph",
-      "acceptance": "Show web1/web2 and explicitly label UNCONFIGURED template. After authorization use inventory.local.ini for the real counterpart.",
-      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+      "status": "captured",
+      "scope": "POST-CLEANUP, LOCAL ONLY retained-inventory graph; not connectivity; resources deleted",
+      "file": "assignment-03-02-postcleanup-local-graph.png",
+      "acceptance": "Shows @all, @ungrouped, @web, web1 and web2 with Eze Favour and explicit post-cleanup/local-only label; actual command exit 0, stderr empty; not a replay.",
+      "blocker": null,
+      "sha256": "f72a1b8df013dfa74a7fd694ca0ad41a08807a6ba1378c0624f4248f360abe4f",
+      "captured_at_utc": "2026-09-16T22:02:16+00:00",
+      "timestamp_source": "Native capture filename, workstation UTC+01:00; precision one second",
+      "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+      "capture_method": "Coordinator-approved genuine native VS Code window; actual command stream, not replayed or reconstructed output",
+      "image_modifications": "None; exact original PNG bytes",
+      "private_capture_receipt_sha256": "a9d6822722a492c1721ce297be5ebc391b8243cbe5eecfb4ca5df698ceb64e13",
+      "private_run_receipt_sha256": "1129736a51c536a4e9134bab1ce60aeb1353c2c2136fe4b270418485638b791f",
+      "ssh_disabled": true,
+      "generated_inventory_sha256": "9c76b9161a6a1ab71638849d926e60bd5be60d86b6e975a26bb67bd9214c5feb",
+      "config_sha256": "58503daba470b4041812e68efc611c218741203c20937cc3d4e03a2c28352dac",
+      "ansible_inventory_executable_sha256": "760c16db6ccfd08f4313b2c4c01004b05cf7c0555f11ab0f72fd02161d45b36d",
+      "superseded_unaccepted_frame_sha256": "8aa8eec6cc1b4560ac0ab8bd57a33c96c7a8366e233bafbb01d5799382d955df",
+      "human_review_claimed": false
     },
     {
       "slot": 3,
@@ -48,7 +75,7 @@
       "file": null,
       "capture_command_or_action": "ansible web -i inventory.local.ini -m ansible.builtin.ping",
       "acceptance": "After approval and fingerprint review, show SUCCESS/pong for both real servers.",
-      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+      "blocker": "A3 managed-host operations never ran after A2 controller callback failure; runtime stopped and all A2 resources deleted. No deployment/HTTP/idempotency/browser evidence."
     },
     {
       "slot": 4,
@@ -63,7 +90,10 @@
       "source_file": "week-09-ansible/static-web/files/index.html",
       "source_commit": "4d58d0d3ce66e94f87da5ee435299425ec31afae",
       "source_sha256": "0e39669ceb5dc26037e6ac325100c117ebcdbde45b35da6536fdd7fa6a7ccb55",
-      "intended_source_lines": [15, 33],
+      "intended_source_lines": [
+        15,
+        33
+      ],
       "private_capture_receipt_sha256": "2943c6e993be85f41d26938b2b3801b7e6e78523059f9bbe08e497920c08f7e5",
       "acceptance": "Actual editor source shows Eze Favour in the footer; SOURCE.md separately records genuine download provenance. The Deployed by literal is not a runtime claim.",
       "blocker": null
@@ -99,7 +129,7 @@
       "file": null,
       "capture_command_or_action": "ansible-playbook -i inventory.local.ini site.yml -e '{\"live_execution_approved\": true}'",
       "acceptance": "Capture Play 3 successful HTTP 200 and personalized-content assertions for both real web hosts, not loopback tests.",
-      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+      "blocker": "A3 managed-host operations never ran after A2 controller callback failure; runtime stopped and all A2 resources deleted. No deployment/HTTP/idempotency/browser evidence."
     },
     {
       "slot": 7,
@@ -109,7 +139,7 @@
       "file": null,
       "capture_command_or_action": "Inspect .local/first-run.log from the approved full playbook run",
       "acceptance": "Show genuine recap with unreachable=0 and failed=0 for web1, web2 and localhost.",
-      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+      "blocker": "A3 managed-host operations never ran after A2 controller callback failure; runtime stopped and all A2 resources deleted. No deployment/HTTP/idempotency/browser evidence."
     },
     {
       "slot": 8,
@@ -119,7 +149,7 @@
       "file": null,
       "capture_command_or_action": "Immediately repeat the approved full playbook without edits; inspect .local/second-run.log",
       "acceptance": "Show genuine changed=0, unreachable=0, failed=0 for both web hosts; do not alter output.",
-      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+      "blocker": "A3 managed-host operations never ran after A2 controller callback failure; runtime stopped and all A2 resources deleted. No deployment/HTTP/idempotency/browser evidence."
     },
     {
       "slot": 9,
@@ -129,7 +159,7 @@
       "file": null,
       "capture_command_or_action": "curl --fail --silent --show-error --noproxy '*' --head http://<actual-web1-ip>/; repeat for web2",
       "acceptance": "Show HTTP 200 OK from both real endpoints, not fixture addresses.",
-      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+      "blocker": "A3 managed-host operations never ran after A2 controller callback failure; runtime stopped and all A2 resources deleted. No deployment/HTTP/idempotency/browser evidence."
     },
     {
       "slot": 10,
@@ -139,7 +169,7 @@
       "file": null,
       "capture_command_or_action": "Open actual web1 URL in approved controller browser",
       "acceptance": "Show public IP and Eze Favour footer; check CSS and contact/back links. No desktop operation is authorized in code preparation.",
-      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+      "blocker": "A3 managed-host operations never ran after A2 controller callback failure; runtime stopped and all A2 resources deleted. No deployment/HTTP/idempotency/browser evidence."
     },
     {
       "slot": 11,
@@ -149,7 +179,7 @@
       "file": null,
       "capture_command_or_action": "Open actual web2 URL in approved controller browser",
       "acceptance": "Show the second public IP and Eze Favour footer, without broadening controller-only HTTP access.",
-      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+      "blocker": "A3 managed-host operations never ran after A2 controller callback failure; runtime stopped and all A2 resources deleted. No deployment/HTTP/idempotency/browser evidence."
     }
   ],
   "linkedin": {
