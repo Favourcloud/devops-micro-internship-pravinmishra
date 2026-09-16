@@ -67,6 +67,7 @@
     }
   ],
   "real_plan": {
+    "status": "Historical B1s plan, preserved and superseded; not authorized for execution",
     "recorded_at_utc": "2026-09-16T18:28:40.878477+00:00",
     "scope": "Authorized real Azure read-only plan; not applied",
     "git_head_at_plan": "b8a95e99e4ef0ed88c10ea5b4d8d3ff7fdb16a4c",
@@ -113,17 +114,65 @@
     "original_plan_preserved": true,
     "original_plan_sha256": "bd0883133b02d5f9ffc34a83e5b42d60d4a1dc3c27611d5ecef62801cf05dcc8"
   },
+  "d2_revision_validation": {
+    "recorded_at_utc": "2026-09-16T19:16:18.744545+00:00",
+    "scope": "Approved scoped source revision and offline checks only; no apply",
+    "region": "uksouth",
+    "vm_size": "Standard_D2lds_v6",
+    "vm_count": 4,
+    "total_vcpus": 8,
+    "zone": null,
+    "disk_controller_type": "NVMe",
+    "image": "Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:22.04.202608060",
+    "os_disk": "32 GiB Standard_LRS managed; no ephemeral OS disk",
+    "application_storage": "Managed OS disk, never the local ephemeral NVMe temporary disk",
+    "main_tf_sha256": "2ea5288c8f0364bf6d06bd5ed00960120986a05f668dd8e723ea05e41ba5ba76",
+    "checks_rerun": {
+      "terraform_fmt_check": "passed",
+      "terraform_init_backend_false_lockfile_readonly": "passed; existing provider reused",
+      "terraform_validate": "passed",
+      "terraform_mocked_plan_tests": "7 passed; includes exact size/image/NVMe/nonzonal/managed-disk assertions",
+      "a2_python_tests": "9 passed; includes real OpenSSH no-network regressions",
+      "static_web_source": "Byte-identical to 4d58d0d3ce66e94f87da5ee435299425ec31afae; prior A3 checks above are historical, not rerun"
+    },
+    "new_real_plan_status_at_recording": "Not yet run; fresh private identity-sealed plan required after source commit. Coordinator review and A5 pilot must precede any apply.",
+    "reused_candidate_evidence": {
+      "decision_sha256": "8be426eb42789f7a0e0f733df6db6e636072a67bffaf6660010a08eb450ab5ac",
+      "review_completed_utc": "2026-09-16T19:06:58.188514Z",
+      "direct_evidence_hashes_verified": true,
+      "image_exact_response_sha256": "fab691351325a616d6d467510b247ec05dd2ea7666824d6d17e94a266708bed7",
+      "linux_vm_price_response_sha256": "1f806e83efd2c5d13549c2d0b4dc8fc0baa69a6fe7644b13bdcd16598488986a",
+      "disk_price_response_sha256": "be14426b28f795f4c5255d43ad20edfd7deebea599cc9a5857fc11ec25b227fc",
+      "ipv4_price_response_sha256": "44d3adb16de4652abbe4bb8d82aec5c67559d287e9893468e23f6de30ac8ba5a",
+      "duplicate_sku_image_price_requests": false,
+      "family": "StandardDldsv6Family",
+      "family_used_limit": [0, 10],
+      "regional_used_limit": [0, 10],
+      "combined_a2_a5_cores": 10,
+      "headroom_after_both": 0,
+      "capacity_guaranteed": false,
+      "usd_per_vm_hour": 0.131,
+      "usd_per_s4_disk_month": 1.69,
+      "usd_per_ipv4_hour": 0.005,
+      "disk_month_hours_conservative": 672,
+      "a2_two_hour_base_usd": 1.1081190476190476,
+      "contingency_usd": 0.50,
+      "a2_two_hour_total_usd": 1.6081190476190476,
+      "a2_a3_allocation_usd": 2.00
+    }
+  },
   "live_results": {
     "apply": "not performed",
     "ssh": "not performed",
     "remote_adhoc": "not performed",
     "website_deployment": "not performed",
     "remote_idempotency": "not verified",
-    "screenshots": "all pending",
+    "screenshots": "A3 slot 4 genuine source-only capture included; all remaining numbered slots and LinkedIn pending",
     "linkedin": "not authorized/not published",
     "destroy": "not applicable; no apply performed"
   },
   "ssh_socket_regression": {
+    "scope": "Historical SSH-only fix at 4d58d0d, compared with b8a95e9; Terraform unchanged statements apply to that fix, not the later D2 revision",
     "status": "passed",
     "openssh": "10.3p1",
     "reproduced_legacy_socket_bytes": [

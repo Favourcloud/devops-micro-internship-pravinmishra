@@ -121,7 +121,9 @@ resource "azurerm_linux_virtual_machine" "hosts" {
   computer_name                   = each.key
   location                        = azurerm_resource_group.lab.location
   resource_group_name             = azurerm_resource_group.lab.name
-  size                            = "Standard_B1s"
+  size                            = "Standard_D2lds_v6"
+  zone                            = null
+  disk_controller_type            = "NVMe"
   admin_username                  = "azureuser"
   disable_password_authentication = true
   network_interface_ids           = [azurerm_network_interface.hosts[each.key].id]
@@ -143,7 +145,7 @@ resource "azurerm_linux_virtual_machine" "hosts" {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-jammy"
     sku       = "22_04-lts-gen2"
-    version   = "latest"
+    version   = "22.04.202608060"
   }
 
   boot_diagnostics {}

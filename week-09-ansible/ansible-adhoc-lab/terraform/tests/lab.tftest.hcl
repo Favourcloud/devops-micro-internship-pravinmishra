@@ -41,12 +41,16 @@ run "four_role_hosts" {
     error_message = "Explicit deny must override Azure default VNet inbound access."
   }
   assert {
-    condition     = alltrue([for host in azurerm_linux_virtual_machine.hosts : host.size == "Standard_B1s" && host.admin_username == "azureuser" && host.disable_password_authentication && host.os_disk[0].disk_size_gb == 32 && host.os_disk[0].storage_account_type == "Standard_LRS"])
-    error_message = "Small B1s VMs, SSH-only authentication and 32GiB Standard HDDs are required."
+    condition     = alltrue([for host in azurerm_linux_virtual_machine.hosts : host.size == "Standard_D2lds_v6" && host.admin_username == "azureuser" && host.disable_password_authentication && host.os_disk[0].disk_size_gb == 32 && host.os_disk[0].storage_account_type == "Standard_LRS"])
+    error_message = "Reviewed D2lds_v6 VMs, SSH-only authentication and 32GiB Standard HDDs are required."
   }
   assert {
-    condition     = alltrue([for host in azurerm_linux_virtual_machine.hosts : host.source_image_reference[0].publisher == "Canonical" && host.source_image_reference[0].offer == "0001-com-ubuntu-server-jammy" && host.source_image_reference[0].sku == "22_04-lts-gen2"])
-    error_message = "Use the Canonical Ubuntu 22.04 Gen2 image."
+    condition     = alltrue([for host in azurerm_linux_virtual_machine.hosts : host.zone == null && host.disk_controller_type == "NVMe" && length(host.os_disk[0].diff_disk_settings) == 0])
+    error_message = "Use nonzonal VMs with an explicit NVMe controller and managed, not ephemeral, OS disks."
+  }
+  assert {
+    condition     = alltrue([for host in azurerm_linux_virtual_machine.hosts : host.source_image_reference[0].publisher == "Canonical" && host.source_image_reference[0].offer == "0001-com-ubuntu-server-jammy" && host.source_image_reference[0].sku == "22_04-lts-gen2" && host.source_image_reference[0].version == "22.04.202608060"])
+    error_message = "Use the exact reviewed Canonical Ubuntu 22.04 Gen2 NVMe-compatible image version."
   }
   assert {
     condition     = alltrue([for ip in azurerm_public_ip.hosts : ip.sku == "Standard" && ip.allocation_method == "Static"])

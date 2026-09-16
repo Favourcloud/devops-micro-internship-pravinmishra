@@ -2,7 +2,7 @@
   "assignment": 3,
   "learner": "Eze Favour",
   "platform": "Azure",
-  "status": "code-preparation; no live screenshots captured",
+  "status": "code-preparation; slot 4 genuine source capture included; no live screenshots captured",
   "numbered_slots": 11,
   "capture_rules": [
     "All screenshot slots remain pending until genuine captures exist.",
@@ -46,12 +46,20 @@
     {
       "slot": 4,
       "requirement": "Edited `files/index.html` showing the footer line with your full name",
-      "status": "pending",
-      "scope": "local",
-      "file": null,
-      "capture_command_or_action": "Display static-web/files/index.html and SOURCE.md",
-      "acceptance": "Show Eze Favour footer and genuine pinned download provenance; content is not proof of deployment.",
-      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+      "status": "captured",
+      "scope": "local source only; not deployment evidence",
+      "file": "assignment-03-04-personalized-footer.png",
+      "sha256": "e662357331c2a788fcb5e24dc1c9d6ad57a8e83cb983ae11b1983be78175b0d3",
+      "captured_at_utc": "2026-09-16T19:08:57.402957+00:00",
+      "capture_method": "Coordinator-approved native week09-capture of genuine Visual Studio Code task window",
+      "image_modifications": "None; exact original bytes, no cropping, redaction, resizing or reconstruction",
+      "source_file": "week-09-ansible/static-web/files/index.html",
+      "source_commit": "4d58d0d3ce66e94f87da5ee435299425ec31afae",
+      "source_sha256": "0e39669ceb5dc26037e6ac325100c117ebcdbde45b35da6536fdd7fa6a7ccb55",
+      "intended_source_lines": [15, 33],
+      "private_capture_receipt_sha256": "2943c6e993be85f41d26938b2b3801b7e6e78523059f9bbe08e497920c08f7e5",
+      "acceptance": "Actual editor source shows Eze Favour in the footer; SOURCE.md separately records genuine download provenance. The Deployed by literal is not a runtime claim.",
+      "blocker": null
     },
     {
       "slot": 5,

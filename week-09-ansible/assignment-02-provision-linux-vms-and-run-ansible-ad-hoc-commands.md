@@ -4,7 +4,7 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Learner:** Eze Favour. **Choice:** Azure only, four Ubuntu 22.04 VMs (`web1`, `web2`, `app1`, `db1`).
 
-**Submission status: CODE PREPARATION — NOT CLOUD-COMPLETE.** Terraform and local inventory tests are implemented; no real public IPs, apply, SSH, remote ad-hoc results or screenshots are claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval, with at most US$2 for A2+A3; an authorized read-only Azure plan succeeded with 23 creates and no updates/deletes, but exact saved-plan approval and the runtime window remain pending. The coordinator selected Azure after the allowed non-root AWS identity lacked EC2 permissions; no escalation was attempted. The historical enrollment expired at `2026-09-16T13:30Z`. Assignment 3 will reuse web1/web2, not add servers.
+**Submission status: CODE PREPARATION — NOT CLOUD-COMPLETE.** Terraform and local inventory tests are implemented; no real public IPs, apply, SSH, remote ad-hoc results or A2 screenshots are claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval, with at most US$2 for A2+A3. Historical B1s read-only plans proposed 23 creates and no updates/deletes but must not be executed; the approved D2lds_v6 replacement requires a new sealed plan, A5 pilot and exact-plan review before apply. The coordinator selected Azure after the allowed non-root AWS identity lacked EC2 permissions; no escalation was attempted. The historical enrollment expired at `2026-09-16T13:30Z`. Assignment 3 will reuse web1/web2, not add servers.
 
 Copilot assisted implementation, source review, local validation and the technical explanations below. They are not invented learner actions or personal experience. The learner must review the answers and add genuine firsthand reflection after authorized execution. See the [runbook](ansible-adhoc-lab/README.md) and [17-slot screenshot manifest](screenshots/assignment-02-manifest.json). Every screenshot and LinkedIn slot remains pending; original assignment requirements are retained.
 
@@ -36,7 +36,7 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 #### Screenshot 2 — Terminal showing `git status --short` with the new project files and updated `.gitignore`
 
-**PENDING — Screenshot 2.** Genuine screenshot not captured; local checks do not substitute for an image. Before commit, show the actual changed files and project-local ignore rules; after commit, use an honestly labelled git show --stat rather than inventing dirty output. Capture guidance: [manifest slot 2](screenshots/assignment-02-manifest.json).
+**PENDING — Screenshot 2 (historical evidence not captured).** The initial new files are already committed. Do not reset, untrack or manufacture a dirty status to recreate this moment. An honestly labelled `git show --stat` can provide supplemental history, but does **not** fulfill the requested initial `git status --short` screenshot. Capture guidance: [manifest slot 2](screenshots/assignment-02-manifest.json).
 
 ---
 
@@ -81,7 +81,7 @@ Do not configure both providers for this assignment.
 
 ### Notes
 
-Selected Azure only at the coordinator's direction. Four Ubuntu 22.04 Standard_B1s hosts use for_each, dedicated networking, controller-only SSH, web-only HTTP, existing public-key authentication and role-keyed outputs. AzureRM is pinned to 4.47.0; no second cloud provider is configured.
+Selected Azure only at the coordinator's direction. The approved replacement is four **nonzonal Standard_D2lds_v6** Ubuntu 22.04 hosts (eight vCPUs total), explicit NVMe controllers and the pinned Canonical Gen2 image `22.04.202608060`. Managed OS disks remain 32 GiB Standard_LRS; ephemeral local disks are not used for application data. The hosts retain for_each, dedicated networking, controller-only SSH, web-only HTTP, existing public-key authentication and role-keyed outputs. AzureRM stays pinned to 4.47.0. No second cloud provider or extra A3 hosts are configured. A5's pilot and coordinator review of A2's new sealed plan must precede any apply.
 
 ---
 
@@ -113,7 +113,7 @@ Initialize and validate the Terraform configuration, review the execution plan, 
 
 ### Notes
 
-Backend-disabled init, validate and seven mocked plan tests pass locally. An explicitly authorized read-only Azure plan also succeeded on 2026-09-16 at 18:20 UTC: 23 creates, zero updates/deletes. See [sanitized validation](ansible-adhoc-lab/validation.json). No apply, Running-state screenshot or real role-to-IP output is claimed. Exact saved-plan approval and B1s allocation remain live gates; budget is at most US$2 and two hours for A2+A3 together.
+Backend-disabled init, validate and seven mocked plan tests pass for the revised D2lds_v6/NVMe/pinned-image configuration. The historical B1s read-only plans proposed 23 creates and zero updates/deletes, but are preserved **for evidence only, not execution**. A fresh identity-sealed plan bound to the revised source, a successful A5 pilot and coordinator approval are required before A2 apply. See [sanitized validation](ansible-adhoc-lab/validation.json). No apply, Running-state screenshot or real role-to-IP output is claimed. A2+A5 together would exhaust the reviewed ten-core family/regional quota. A2+A3's two-hour estimate is **US$1.60812 including US$0.50 contingency**, below the US$2 allocation; this is not a guaranteed bill cap.
 
 ---
 

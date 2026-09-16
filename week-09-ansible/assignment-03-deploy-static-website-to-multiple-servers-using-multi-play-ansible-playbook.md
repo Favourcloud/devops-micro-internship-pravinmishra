@@ -14,9 +14,9 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Server 2 URL:** PENDING — no verified deployment/public IP.
 
-**Submission status: CODE PREPARATION — NOT DEPLOYMENT-COMPLETE.** Three plays, source provenance, syntax/lint and loopback-only verification tests are prepared. No managed-host ping, website deployment, remote idempotency, browser screenshots or publication is claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval and at most US$2 for A2+A3; A2's authorized read-only Azure plan succeeded with 23 creates and no updates/deletes, but exact saved-plan approval, capacity and execution window remain gates. The authorized non-root AWS identity lacked EC2 permissions, so the coordinator selected Azure without escalation. The historical enrollment expired at `2026-09-16T13:30Z`.
+**Submission status: CODE PREPARATION — NOT DEPLOYMENT-COMPLETE.** Three plays, source provenance, syntax/lint and loopback-only verification tests are prepared. No managed-host ping, website deployment, remote idempotency, browser screenshots or publication is claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval and at most US$2 for A2+A3. A2's historical B1s plans proposed 23 creates with no updates/deletes but are not for execution; the approved D2lds_v6 revision requires a fresh sealed plan, A5 pilot and coordinator review before apply. A3 still reuses the same two A2 web roles. The authorized non-root AWS identity lacked EC2 permissions, so the coordinator selected Azure without escalation. The historical enrollment expired at `2026-09-16T13:30Z`.
 
-Copilot assisted implementation, the genuine source download, local checks and these technical explanations. The learner must review the answers and provide firsthand reflection after actual execution. The [11-slot screenshot manifest](screenshots/assignment-03-manifest.json) retains every required screenshot plus LinkedIn; all are pending.
+Copilot assisted implementation, the genuine source download, local checks and these technical explanations. The learner must review the answers and provide firsthand reflection after actual execution. The [11-slot screenshot manifest](screenshots/assignment-03-manifest.json) retains every required screenshot plus LinkedIn. **Slot 4 has a genuine source-only editor capture**; the other ten numbered screenshots and LinkedIn remain pending. Source visibility is not evidence of deployment.
 
 ---
 
@@ -101,7 +101,9 @@ Download `index.html` to the Ansible controller and personalize the website with
 
 ### Screenshot 4 — Edited `files/index.html` showing the footer line with your full name
 
-**PENDING — Screenshot 4.** Genuine screenshot not captured; local checks do not substitute for an image. Show Eze Favour footer and genuine pinned download provenance; content is not proof of deployment. Capture guidance: [manifest slot 4](screenshots/assignment-03-manifest.json).
+![Genuine VS Code source capture showing the Eze Favour footer](screenshots/assignment-03-04-personalized-footer.png)
+
+**Captured 16 September 2026, 19:08:57 UTC — source only.** The coordinator supplied and approved this native VS Code window capture of the actual `static-web/files/index.html` from commit `4d58d0d3ce66e94f87da5ee435299425ec31afae`. Image bytes are unchanged: no cropping, redaction, resizing or reconstruction. The title and footer show Eze Favour. Image/source SHA256 and capture-receipt hash are recorded in [manifest slot 4](screenshots/assignment-03-manifest.json); downloadable source provenance remains in [SOURCE.md](static-web/SOURCE.md). The literal “Deployed by” footer is source content, **not a claim that this site has been deployed**.
 
 ---
 

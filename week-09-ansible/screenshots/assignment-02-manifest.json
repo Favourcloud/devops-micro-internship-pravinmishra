@@ -30,8 +30,8 @@
       "scope": "local",
       "file": null,
       "capture_command_or_action": "/usr/bin/git status --short -- week-09-ansible/ansible-adhoc-lab; display ansible-adhoc-lab/.gitignore",
-      "acceptance": "Before commit, show the actual changed files and project-local ignore rules; after commit, use an honestly labelled git show --stat rather than inventing dirty output.",
-      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+      "acceptance": "The required initial uncommitted status was not captured. Do not reset, untrack or manufacture dirty files. A labelled git show --stat is supplemental history only, not fulfillment of this slot.",
+      "blocker": "Historical initial-state evidence not captured; files are already committed."
     },
     {
       "slot": 3,
