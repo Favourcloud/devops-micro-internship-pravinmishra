@@ -1,5 +1,10 @@
 # Eze Favour — Bedrock enrollment proposal
 
+**Historical proposal:** its original access window has expired. See the
+[16 September setup record](SETUP-20260916.md) for the separately reviewed
+renewed policy, actual IAM setup, and remaining authentication/enrollment steps.
+The original JSON below is preserved as reviewed history.
+
 **DRAFT FOR HUMAN REVIEW — NOT ATTACHED, NOT ENROLLED, NO INFERENCE EXECUTED.**
 
 Prepared on 15 September 2026 from the AWS references below. The existing lab
