@@ -1,0 +1,9 @@
+# Copy to ignored terraform.tfvars ONLY after authorization and budget approval.
+# Deliberately invalid placeholders: fill locally, never commit real identifiers/key material.
+subscription_id = "REPLACE_WITH_APPROVED_SUBSCRIPTION_UUID"
+run_id          = "REPLACE_WITH_UNIQUE_RUN_ID"
+location        = "uksouth"
+controller_cidr = "203.0.113.10/32"
+ssh_public_key  = "REPLACE_WITH_YOUR_PUBLIC_KEY_ONLY"
+vm_size         = "Standard_B1ms"
+os_disk_gib     = 32

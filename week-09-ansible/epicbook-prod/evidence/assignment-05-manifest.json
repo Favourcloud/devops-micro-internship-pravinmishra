@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 09 Assignment 5",
+  "status": "code-ready-preparation-not-deployed",
+  "last_local_validation_utc": "2026-09-16T18:21:25Z",
+  "selected_cloud": "Azure only",
+  "cloud_choice_note": "Coordinator explicitly replaced AWS with Azure after the non-root AWS EC2 permission check failed. No AWS infrastructure remains here.",
+  "base_commit": "0983d638c1139d78bd9a4de18a719626bf89bc9c",
+  "source": {
+    "repository": "https://github.com/pravinmishraaws/theepicbook",
+    "revision": "763becebb8d3f5663a76bb30facddc25be63cfd5",
+    "kind": "Express, Handlebars, Sequelize and MySQL; not a static site",
+    "checksum_record": "upstream-source.json",
+    "compatibility_probe": "upstream-probe.json",
+    "application_javascript_changed": false
+  },
+  "prepared_infrastructure": {
+    "location": "uksouth",
+    "vm_size": "Standard_B1ms",
+    "os": "Canonical Ubuntu 22.04 Gen2",
+    "os_disk": "32 GiB Standard_LRS managed disk, platform encryption at rest",
+    "public_ip": "One Standard static IPv4; no real address committed",
+    "isolation": "Dedicated unique-run RG, VNet, subnet, NIC and NSG",
+    "ingress": "Controller IPv4 /32 TCP22, Internet TCP80, explicit deny other inbound",
+    "boot": "Secure Boot, vTPM and managed boot diagnostics",
+    "provider": "hashicorp/azurerm 4.47.0; registration disabled; lockfile retained",
+    "outputs": ["public_ip", "admin_user"],
+    "capacity_verified": false
+  },
+  "local_validation": {
+    "tools": {
+      "terraform": "1.13.5",
+      "ansible": "14.4.0",
+      "ansible_core": "2.21.4",
+      "ansible_lint": "26.8.0",
+      "ansible_mysql_collection": "5.2.0",
+      "python": "3.13.3",
+      "node": "22.23.2",
+      "npm": "10.9.8"
+    },
+    "commands": [
+      {"command": "terraform -chdir=terraform/azure fmt -check -recursive", "result": "passed"},
+      {"command": "terraform -chdir=terraform/azure init -backend=false -input=false -lockfile=readonly -plugin-dir=<read-only-mirror>", "result": "passed, no cloud authentication"},
+      {"command": "terraform -chdir=terraform/azure validate -no-color", "result": "passed"},
+      {"command": "terraform -chdir=terraform/azure test -no-color", "result": "11 passed, 0 failed; exclusively mocked apply/teardown, not real resources"},
+      {"command": "ansible-playbook -i inventory.ini site.yml --syntax-check", "result": "passed; expected empty-inventory warning"},
+      {"command": "ansible-lint --offline site.yml roles", "result": "production profile passed, 0 failures, 0 lint warnings; dependency installation skipped"},
+      {"command": "python -m unittest discover -s tests -v", "result": "14 passed; includes positive source-only/runtime preflight subtests and negative execution guards"},
+      {"command": "bash scripts/verify.sh", "result": "end-to-end passed with task-local caches and read-only existing tools/provider"},
+      {"command": "node <npm-cli.js> ci --omit=dev --ignore-scripts --no-audit --no-fund", "result": "107 packages installed in disposable pinned upstream checkout; package manifests unchanged"},
+      {"command": "python scripts/verify_upstream.py --source <disposable-pinned-source> --node <verified-node22>", "result": "19 source hashes, server syntax, six imports, Sequelize model construction and real Handlebars fixture render passed; no DB connection or HTTP server"}
+    ],
+    "connection_safety": "Positive tests replace SSH with an executable that records invocation and exits; negative tests use /usr/bin/false. No external SSH or controller package changes.",
+    "provider_binary_sha256": "0aa6e61c4e286fee033d2b6196c5f6012e7a158f5b18c0f82604f444b5e0832c"
+  },
+  "real_azure_plan": {
+    "status": "authorized-plan-only-pending",
+    "apply_authorized": false,
+    "applied": false
+  },
+  "live_evidence": {
+    "terraform_apply_and_outputs": "pending",
+    "trusted_boot_log_host_key_match": "pending",
+    "passwordless_ssh_hostname": "pending",
+    "ansible_ping": "pending",
+    "nginx_config_test_on_vm": "pending",
+    "mysql_schema_seeds_and_application_account": "pending",
+    "node_service_and_systemd_filter": "pending",
+    "public_http_200_and_real_books": "pending",
+    "gallery_cart_and_asset_behavior": "pending",
+    "sensitive_url_denials": "pending",
+    "second_run_idempotency": "pending",
+    "teardown_and_orphan_check": "pending"
+  },
+  "numbered_screenshots": [
+    {"number": 1, "subject": "Complete project tree", "status": "pending"},
+    {"number": 2, "subject": "Terraform apply and public_ip/admin_user outputs", "status": "pending"},
+    {"number": 3, "subject": "Inbound SSH and HTTP rules", "status": "pending"},
+    {"number": 4, "subject": "Passwordless SSH hostname check", "status": "pending"},
+    {"number": 5, "subject": "Inventory and Ansible ping", "status": "pending"},
+    {"number": 6, "subject": "site.yml role order", "status": "pending"},
+    {"number": 7, "subject": "Common role tasks", "status": "pending"},
+    {"number": 8, "subject": "Nginx tasks, handler and template", "status": "pending"},
+    {"number": 9, "subject": "Live Nginx site and successful configuration test", "status": "pending"},
+    {"number": 10, "subject": "EpicBook role tasks", "status": "pending"},
+    {"number": 11, "subject": "Required group variables", "status": "pending"},
+    {"number": 12, "subject": "Successful role-based run and recap", "status": "pending"},
+    {"number": 13, "subject": "Real EpicBook browser page with public IP", "status": "pending"},
+    {"number": 14, "subject": "HTTP 200 and Nginx site snippet", "status": "pending"},
+    {"number": 15, "subject": "Actual idempotent second run", "status": "pending"}
+  ],
+  "human_deliverables": {
+    "linkedin_post_url": null,
+    "linkedin_publication_screenshot": "pending",
+    "video_reflection": "pending",
+    "video_reflection_screenshot": "pending",
+    "learner_firsthand_reflection": "pending; AI-assisted preparation notes are explicitly identified"
+  },
+  "observed_local_issues": [
+    "Instructor source requires Node/MySQL, contrary to a static-site assumption; native JAWSDB_URL integration avoids application JS edits.",
+    "Shared disk exhaustion during tool extraction: only disposable task downloads were removed; verified existing provider reused read-only.",
+    "Long macOS temporary paths prevented Ansible RPC startup; short unique task-owned /tmp directories fixed the tests.",
+    "Azure mock schema validation needed syntactically valid synthetic resource IDs and a public-only SSH key fixture; corrected fixtures passed.",
+    "SSH stub stderr was not preserved when Ansible hit an early pipe closure; positive tests instead verify the marker file, successful guards and expected unreachable fact-gathering task.",
+    "npm emitted a debug@4.1.1 deprecation warning; no dependency audit/remediation or application dependency edits were performed."
+  ],
+  "remaining_gates": [
+    "Coordinator review of exact real Azure plan before any apply; no account, permission or provider-registration changes.",
+    "A5 cap US$2 within US$5 combined temporary labs; maximum two hours after apply, with a verified teardown owner.",
+    "Trusted host fingerprint via authenticated managed boot logs before any SSH trust; no TOFU-only ssh-keyscan.",
+    "Ubuntu/MySQL/Nginx/systemd integration, data, public HTTP and idempotency are not proven by local tests.",
+    "TLS, aging dependencies, schema DDL privileges, backup/restore, monitoring, egress policy and same-VM failure coupling remain production gaps."
+  ],
+  "assignment_06_handoff": {
+    "baseline": ["ansible/site.yml", "ansible/group_vars/web.yml", "ansible/roles/common", "ansible/roles/nginx", "ansible/roles/epicbook"],
+    "required_later": "Actual approved inventory and run recaps; genuine Claude Code plan BEFORE any risk script; HUMAN ONLY applies the resulting change.",
+    "implemented_here": false,
+    "retention": "No implicit time/budget extension while awaiting Assignment 6."
+  }
+}

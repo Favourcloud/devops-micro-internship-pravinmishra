@@ -1,0 +1,7 @@
+---
+profile: production
+exclude_paths:
+  - inventory.local.ini
+  - runtime.local.yml
+  - .cache/
+  - .local/

@@ -1,0 +1,72 @@
+---
+- name: Refuse unconfigured or unapproved execution before any SSH
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+    - name: Require exactly one explicitly approved SSH target
+      ansible.builtin.assert:
+        that:
+          - deployment_approved | default(false) | bool
+          - groups.get('web', []) | length == 1
+        fail_msg: >-
+          STOP: preparation only. Use the validated inventory renderer and obtain current
+          budget/access approval before setting deployment_approved=true. No remote action taken.
+
+    - name: Reject local connections and unsupported administrative users
+      ansible.builtin.assert:
+        that:
+          - hostvars[groups['web'][0]].ansible_connection | default('') == 'ssh'
+          - hostvars[groups['web'][0]].ansible_user | default('') == 'ubuntu'
+          - hostvars[groups['web'][0]].ansible_host | default('') is match('^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$')
+          - hostvars[groups['web'][0]].ansible_host | default('') is not match('^(0|127|169\.254)\.')
+
+- name: Prepare the dedicated Ubuntu EpicBook server
+  hosts: web
+  become: true
+  gather_facts: false
+  pre_tasks:
+    - name: Validate the reviewed source and filesystem boundaries before SSH
+      ansible.builtin.assert:
+        that:
+          - app_repo == 'https://github.com/pravinmishraaws/theepicbook.git'
+          - app_revision == '763becebb8d3f5663a76bb30facddc25be63cfd5'
+          - app_dest == '/opt/epicbook/source'
+          - app_user == 'epicbook-deploy'
+          - app_group == 'epicbook'
+          - app_runtime_user == 'epicbook'
+          - app_port | int == 8080
+          - app_db_name == 'bookstore'
+          - app_db_user == 'epicbook'
+          - app_runtime_enabled is boolean
+          - not app_runtime_enabled or app_runtime_compatibility_acknowledged | bool
+          - node_version == '22.23.2'
+          - node_linux_x64_sha256 == 'd60acfe00a2932254bb0ad20e01b0d74397a0875595de719654b214f4b03f307'
+      delegate_to: localhost
+      become: false
+
+    - name: Require a secret-safe database password for opt-in runtime installation
+      ansible.builtin.assert:
+        that:
+          - vault_epicbook_db_password | default('') is match('^[A-Za-z0-9_-]{32,128}$')
+        fail_msg: Supply a 32-128 character URL-safe password using a local encrypted Ansible Vault file.
+      delegate_to: localhost
+      become: false
+      no_log: true
+      when: app_runtime_enabled
+
+    - name: Gather target facts only after all controller-side guards pass
+      ansible.builtin.setup:
+
+    - name: Require the reviewed Ubuntu release and CPU architecture
+      ansible.builtin.assert:
+        that:
+          - ansible_facts['distribution'] == 'Ubuntu'
+          - ansible_facts['distribution_version'] == '22.04'
+          - ansible_facts['architecture'] == 'x86_64'
+
+  roles:
+    - common
+    - nginx
+    - epicbook

@@ -10,6 +10,24 @@ In this assignment, you will deploy the EpicBook web application on a cloud VM p
 
 ---
 
+## Preparation status — 16 September 2026
+
+Azure code and the `common` → `nginx` → `epicbook` roles are prepared in
+[`epicbook-prod`](./epicbook-prod/README.md), with local validation recorded in its
+[evidence manifest](./epicbook-prod/evidence/assignment-05-manifest.json).
+This is **preparation, not a completed cloud deployment**. The instructor's pinned
+EpicBook is a Node/Express/Sequelize/MySQL application, not a static website. The
+project includes an opt-in single-VM Node 22/MySQL 8 runtime, secret-safe service
+configuration, and guarded SQL initialization; the default deliberately returns
+503 until runtime installation is explicitly approved.
+
+Local syntax, lint, mock infrastructure tests and source compatibility checks do
+not prove provisioning, SSH, database operation, public HTTP 200 or second-run
+idempotency. All **15 numbered screenshots**, the published LinkedIn post and the
+video reflection remain pending. Existing tasks and evidence checklist below are
+preserved; no learner action or screenshot is fabricated. See the runbook for
+remaining approval, compatibility and production-hardening gates.
+
 # Task 1 — Set Up Folder Layout
 
 ## Goal
@@ -184,7 +202,26 @@ Add your screenshot here.
 
 Describe an issue you faced and how you fixed it, what you learned, any security issues you identified, and your production remediation plan.
 
-Write your answer here.
+Preparation notes (AI-assisted; not a claim of firsthand learner deployment):
+
+- Source inspection found that the referenced EpicBook uses server-rendered
+  Handlebars, Sequelize, MySQL and port 8080. Serving its checkout as a static web
+  root would neither run the application nor safely protect its configuration.
+  The prepared role keeps source outside Nginx's document root and uses a reverse
+  proxy only when runtime installation is explicitly enabled.
+- Local validation encountered shared-disk exhaustion while extracting tools.
+  Only disposable task-owned downloads were removed; the existing provider cache
+  was reused read-only and the successful checks were rerun. Ansible's local RPC
+  server also failed with a long macOS temporary path; short, uniquely allocated
+  temporary paths fixed the guard tests without changing the controller.
+- Runtime verification and the learner's own challenge/fix reflection are still
+  pending. The runbook records remaining risks: HTTP without TLS, aging upstream
+  dependencies, database privileges needed by automatic schema synchronization,
+  same-VM failure coupling, backups, and unverified live idempotency. These must
+  not be described as resolved production concerns.
+- GitHub Copilot assisted source research, code preparation and local tests.
+  This does not substitute for genuine Claude Code evidence or a human-applied
+  change in Assignment 6.
 
 ---
 

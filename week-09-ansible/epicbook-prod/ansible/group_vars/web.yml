@@ -1,0 +1,16 @@
+---
+app_repo: https://github.com/pravinmishraaws/theepicbook.git
+app_revision: 763becebb8d3f5663a76bb30facddc25be63cfd5
+app_dest: /opt/epicbook/source
+app_user: epicbook-deploy
+app_group: epicbook
+app_runtime_user: epicbook
+
+# False serves 503, NOT a replacement static EpicBook page.
+app_runtime_enabled: false
+app_runtime_compatibility_acknowledged: false
+app_port: 8080
+app_db_name: bookstore
+app_db_user: epicbook
+node_version: 22.23.2
+node_linux_x64_sha256: d60acfe00a2932254bb0ad20e01b0d74397a0875595de719654b214f4b03f307
