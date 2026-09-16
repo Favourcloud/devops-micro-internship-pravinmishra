@@ -26,6 +26,15 @@ run "azure_assignment_contract" {
 
   assert {
     condition = (
+      length(azurerm_linux_virtual_machine.site.boot_diagnostics) == 1 &&
+      azurerm_linux_virtual_machine.site.boot_diagnostics[0].storage_account_uri == null &&
+      azurerm_linux_virtual_machine.site.tags["run_id"] == var.name_prefix
+    )
+    error_message = "Use managed boot diagnostics for authenticated host fingerprints and tag the dedicated run."
+  }
+
+  assert {
+    condition = (
       azurerm_linux_virtual_machine.site.source_image_reference[0].publisher == "Canonical" &&
       azurerm_linux_virtual_machine.site.source_image_reference[0].offer == "0001-com-ubuntu-server-jammy" &&
       azurerm_linux_virtual_machine.site.source_image_reference[0].sku == "22_04-lts-gen2"

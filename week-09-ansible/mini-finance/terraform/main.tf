@@ -3,6 +3,7 @@ locals {
     project    = "dmi-mini-finance"
     assignment = "week-09-assignment-04"
     managed_by = "terraform"
+    run_id     = var.name_prefix
   }
 }
 
@@ -126,6 +127,9 @@ resource "azurerm_linux_virtual_machine" "site" {
     sku       = "22_04-lts-gen2"
     version   = "latest"
   }
+
+  # Azure-managed diagnostics allow authenticated retrieval of cloud-init host fingerprints.
+  boot_diagnostics {}
 
   depends_on = [azurerm_network_interface_security_group_association.site]
 }
