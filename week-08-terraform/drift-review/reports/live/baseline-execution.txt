@@ -1,26 +1,29 @@
-Eze Favour — genuine baseline execution evidence
-SANITIZED HISTORICAL OUTPUT EXPORT — not a reconstructed terminal
-Executor: GitHub Copilot under explicit user provisioning approval.
-Raw private paths/refresh identifiers omitted; screenshot pixels will not be edited.
-The lab has since been deleted; this output describes the timestamps below.
+Eze Favour — genuine 16 September baseline execution evidence
+SANITIZED RECORDED OUTPUT EXPORT — not a reconstructed terminal or fresh replay
+Executor: GitHub Copilot under separate user provisioning authorization.
+Private paths/refresh identifiers omitted BEFORE display; no image pixel editing.
+These are new-cycle results, separate from the deleted 15 September lab.
 
-network root — 2026-09-15T18:07:05+00:00
+Baseline operation UTC: 2026-09-16T15:09:30.529172 to 15:10:26.934228
+network root — actual Terraform detailed exit: 0
 Command: terraform plan -input=false -no-color -detailed-exitcode -out=[PRIVATE PLAN PATH]
-Actual Terraform detailed exit: 0
+Actual stdout excerpt:
 No changes. Your infrastructure matches the configuration.
+Binary plan SHA256:
+425822757e2b9af9b74a498c214d06d4b9bcd33357101daf6a71e9d93c7b8377
 
-Terraform has compared your real infrastructure against your configuration
-and found no differences, so no changes are needed.
-
-security-group root — 2026-09-15T18:07:25+00:00
+security-group root — actual Terraform detailed exit: 0
 Command: terraform plan -input=false -no-color -detailed-exitcode -out=[PRIVATE PLAN PATH]
-Actual Terraform detailed exit: 0
+Actual stdout excerpt:
 No changes. Your infrastructure matches the configuration.
+Binary plan SHA256:
+f03853b1848bbf2e45ecdc0b88984e03db9776269310b68948a14334927ae892
 
-Terraform has compared your real infrastructure against your configuration
-and found no differences, so no changes are needed.
-
-Live checker — 2026-09-15T18:08:14+00:00
-Actual captured subprocess exit: 0
-Actual status: HEALTHY
+Actual Bash checker completed UTC: 2026-09-16T15:12:53.785661+00:00
+Actual captured subprocess exit: 0. Actual status: LIVE / HEALTHY.
+All finding, change and refresh-drift counts: 0. Local state unchanged.
 Report: reports/live/baseline-report.txt
+Report SHA256: b3cb3c62988f109987736ad69326c6d78ada5804085b721ac29ae0f3099dae25
+
+Baseline evidence only: not human resolution, final review or current-cycle cleanup.
+Execution/approval boundaries: reports/live/cycle-20260916.json

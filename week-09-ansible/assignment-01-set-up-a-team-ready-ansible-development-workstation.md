@@ -18,7 +18,7 @@ This workstation will be used as the Ansible controller in upcoming assignments.
 
 **Learner:** Eze Favour
 
-**Status:** In progress — the existing local onboarding implementation is preserved; twelve screenshots and actual workstation access/Git checks remain pending.
+**Status:** In progress — the persistent controller and its own Git hooks are configured. SSH readiness passed in the learner’s real Terminal. Twelve genuine screenshots and interactive editor verification remain pending. Historical local evidence is preserved.
 
 Aligned on 15 September 2026 with the [official brief at revision `9b394ef`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md). The current brief has eight tasks, twelve screenshots, four questions, and explicit required files; it supersedes the older six-task, ten-screenshot version. The previous implementation, validation results and reflection notes were retained rather than treated as a new completed lab.
 
@@ -26,20 +26,24 @@ The [onboarding README](ansible-onboarding/README.md) contains machine details, 
 
 | Current task | Local work and remaining evidence |
 |---|---|
-| 1 — Workspace and Git | The project and [ignore rules](ansible-onboarding/.gitignore) exist; empty `inventories/` and `roles/` directories are tracked for later labs. This is a shared feature-branch worktree, not a standalone clone on `main`. A disposable fixture tests initialization on `main`, but screenshot 1 and the actual-workstation branch requirement remain pending. |
+| 1 — Workspace and Git | The project and [ignore rules](ansible-onboarding/.gitignore) exist; empty `inventories/` and `roles/` directories are tracked for later labs. Submission stays in the existing shared worktree. A separate persistent sparse controller clone inside the ignored Week 09 directory is actually on `main` and owns its `.git` directory; screenshot 1 remains pending. This local branch is separate from GitHub’s graded `main`. |
 | 2 — Python/Ansible tools | Project-local Python 3.13 environment and [pinned requirements](ansible-onboarding/requirements.txt) are retained. Screenshot 2 pending. |
-| 3 — VS Code | [Workspace settings](ansible-onboarding/.vscode/settings.json), [recommendations](ansible-onboarding/.vscode/extensions.json) and [EditorConfig](ansible-onboarding/.editorconfig) are prepared. Extension installation and interactive interpreter verification remain pending, along with screenshots 3–4. |
+| 3 — VS Code | [Workspace settings](ansible-onboarding/.vscode/settings.json), [recommendations](ansible-onboarding/.vscode/extensions.json) and [EditorConfig](ansible-onboarding/.editorconfig) are prepared. The official Visual Studio Code CLI installed Ansible 26.8.2, YAML 1.24.0 and Python 2026.4.0 into an isolated profile. Interactive interpreter verification and screenshots 3–4 remain pending. |
 | 4 — Ansible defaults | [Configuration](ansible-onboarding/ansible.cfg), localhost inventory and harmless [smoke playbook](ansible-onboarding/playbooks/smoke.yml) are validated. Screenshots 5–6 pending. The brief supplies no literal configuration block; chosen defaults are documented rather than presented as instructor-supplied values. |
-| 5 — SSH readiness | Existing keys, agent identities, SSH configuration and known-hosts records were not changed. Their verification and screenshot 7 remain pending. Local `pong` does not prove SSH readiness. |
-| 6 — Git identity and hooks | Existing identity was detected without recording its values. [Hook configuration](ansible-onboarding/.pre-commit-config.yaml) passes in an isolated fixture; actual clone hook installation, identity/default-branch policy and screenshot 8 remain pending. Shared hooks and global Git settings were not changed. |
-| 7 — Complete workstation test | Local linters, localhost smoke runs and isolated hooks pass. Combined real-workstation SSH/Git verification and screenshots 9–10 remain pending. |
+| 5 — SSH readiness | The learner created the separate Ed25519 Week 09 key privately and supplied the Terminal result “Identity added”. Its existence and `600` private-file permissions were checked without reading private-key contents. The [SSH verifier](ansible-onboarding/scripts/verify_ssh.py) subsequently ran in the learner’s loaded Terminal and [all eight readiness checks passed](ansible-onboarding/evidence/ssh-readiness-20260916.json). Screenshot 7 remains pending. Existing keys and known-host records are preserved; no remote login or fingerprint validation is claimed. |
+| 6 — Git identity and hooks | The persistent controller has repository-local identity Eze Favour / the verified GitHub noreply address, `init.defaultBranch=main`, and an actual installed `.git/hooks/pre-commit`. [Hook configuration](ansible-onboarding/.pre-commit-config.yaml) remains scoped to this project. Screenshot 8 remains pending. Shared hooks and global Git settings were preserved. |
+| 7 — Complete workstation test | Local linters, localhost smoke runs and isolated hooks pass. Real SSH readiness and Git setup are verified separately. Screenshots 9–10 and a combined application-window capture remain pending. |
 | 8 — README and checklist | Machine details and a 12-step checklist are documented. Screenshots 11–12 pending. |
 
 **Verified locally on 15 September 2026:** all **25 command checks** met their expected result, including three intentional rejection tests (unknown lint option, malformed YAML and an unqualified Ansible module). Both the installed isolated hook and direct hook runner passed. Check mode and normal mode each reported `ok=4 changed=0 unreachable=0 failed=0`. Ansible loaded the project configuration, and both linters passed with compatible settings.
 
+**Fresh validation on 16 September 2026:** the persistent controller passed all **25 command checks**, including the three intentional rejections, and both real installed controller hooks passed. Check and normal modes each reported `ok=4 changed=0 unreachable=0 failed=0`. [Fresh validation and source hashes](ansible-onboarding/evidence/controller-validation-20260916.json), [actual hook run](ansible-onboarding/evidence/controller-hooks-20260916.json), and [workstation status](ansible-onboarding/evidence/workstation-20260916.json) are recorded separately from the unchanged historical record. The wrappers now keep caches and the localhost module temporary directory inside ignored project folders.
+
 Validated versions: Python **3.13.3**, Ansible **14.4.0** / core **2.21.4**, ansible-lint **26.8.0**, yamllint **1.38.0**, pre-commit **4.6.2**. Installed dependencies match the 38-package lock. The record includes sanitized outputs and SHA-256 hashes; rerun `python scripts/verify.py` from the activated project environment to reproduce it.
 
-No cloud resources or charges were introduced. No SSH keys, private host inventory, global Git settings, installed editor extensions or shared Git hooks were modified. None of the incomplete tasks below is claimed as submission-complete.
+No cloud resources or charges were introduced. The learner created the new SSH key privately; existing private keys, private host inventory, global Git settings and shared Git hooks were preserved. Required editor extensions were installed only in an isolated Visual Studio Code profile. No incomplete task below is claimed as submission-complete.
+
+The [screenshot manifest](screenshots/assignment-01-manifest.json) tracks all twelve slots as pending until genuine original images and their provenance exist. Native desktop control is unavailable to this assistant session. Screen Recording has now been verified in the learner’s Terminal, and a user-run helper can capture only the isolated genuine VS Code window. Until original images are captured and reviewed, every slot remains pending; CLI output does not substitute for images.
 
 ---
 
@@ -191,7 +195,7 @@ The tools and their dependencies are pinned in a project-local environment, with
 
 **2. What is one pitfall you avoided while completing the setup?**
 
-A Git worktree can share hooks with its parent repository. Installation was therefore tested in a disposable isolated repository rather than overwriting shared hooks. The smoke playbook is restricted to localhost and does not use privilege escalation or contact a cloud host.
+A Git worktree can share hooks with its parent repository. The actual controller therefore uses a persistent clone with its own Git metadata. Its real hook installation is separate from the disposable fixture used for intentional failure tests. The smoke playbook is restricted to localhost and does not use privilege escalation or contact a cloud host.
 
 ---
 
@@ -211,7 +215,7 @@ An SSH private key can authenticate as its owner, so committing it would expose 
 
 **Proxy/CA:** no custom corporate proxy or CA configuration was added. If a managed network requires one, use the administrator-approved trust configuration; do not disable certificate or SSH host-key verification.
 
-**AI assistance:** Copilot helped inspect prior work, prepare configuration and run local checks. Claims are tied to the recorded command results. Screenshots, remote access and personal workstation configuration have not been invented or marked complete.
+**AI assistance:** Copilot and Codex helped inspect prior work, prepare configuration and run local checks. Codex prepared the persistent controller; the learner created and loaded the SSH key privately. Claims are tied to the recorded command results. Screenshots, remote access and personal workstation configuration have not been invented or marked complete.
 
 ---
 
@@ -244,26 +248,26 @@ Confirm that the following files are included in your assignment workspace:
 # Completion Checklist
 
 - [x] Task 1: `ansible-onboarding` workspace created
-- [ ] Task 1: Git initialized on the `main` branch
+- [x] Task 1: Actual persistent controller Git repository uses the `main` branch
 - [x] Task 1: `.gitignore` created
 - [x] Task 2: Python virtual environment created
 - [x] Task 2: Virtual environment activated
 - [x] Task 2: Ansible installed inside `.venv`
 - [x] Task 2: `ansible-lint`, `yamllint`, and `pre-commit` installed
 - [x] Task 2: `requirements.txt` created
-- [ ] Task 3: Required VS Code extensions installed
+- [x] Task 3: Required VS Code extensions installed in the isolated genuine VS Code profile
 - [ ] Task 3: VS Code uses the Python interpreter from `.venv`
 - [x] Task 3: `.vscode/settings.json` created
 - [x] Task 3: `.editorconfig` created
 - [x] Task 4: `ansible.cfg` created
 - [x] Task 4: Ansible loads `ansible.cfg` from the project directory
-- [ ] Task 5: ED25519 SSH key exists
-- [ ] Task 5: SSH private key has not been exposed
-- [ ] Task 5: SSH key loaded into the SSH agent
-- [ ] Task 5: `~/.ssh/config` contains the required settings
-- [ ] Task 5: `~/.ssh/known_hosts` exists
-- [ ] Task 6: Git identity configured correctly
-- [ ] Task 6: Pre-commit hooks installed
+- [x] Task 5: Separate ED25519 SSH key exists
+- [x] Task 5: SSH private-key contents have not been read or exposed
+- [x] Task 5: SSH key loaded in the learner’s Terminal; public-key match verified by the helper
+- [x] Task 5: `~/.ssh/config` contains the reviewed safe Week 09 alias; effective settings verified
+- [x] Task 5: `~/.ssh/known_hosts` exists (existence only; no remote fingerprint verification claimed)
+- [x] Task 6: Git identity configured in the persistent controller
+- [x] Task 6: Pre-commit hooks installed in the persistent controller’s own Git directory
 - [ ] Task 7: `pre-commit run --all-files` completes successfully
 - [x] Task 8: `README.md` contains your full name and workstation details
 - [x] Task 8: “New Machine? Do This” checklist contains 10–12 items

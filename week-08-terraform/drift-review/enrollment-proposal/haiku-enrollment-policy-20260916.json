@@ -1,0 +1,100 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadHaiku45ModelMetadata",
+      "Effect": "Allow",
+      "Action": "bedrock:GetFoundationModel",
+      "Resource": "arn:aws:bedrock:ap-south-1::foundation-model/anthropic.claude-haiku-4-5-20251001-v1:0",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-south-1"
+        },
+        "Bool": {
+          "aws:MultiFactorAuthPresent": "true"
+        },
+        "DateLessThan": {
+          "aws:CurrentTime": "2026-09-16T13:30:00Z"
+        }
+      }
+    },
+    {
+      "Sid": "ReadEnrollmentPrerequisites",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:ListFoundationModels",
+        "bedrock:ListFoundationModelAgreementOffers",
+        "bedrock:GetFoundationModelAvailability",
+        "bedrock:GetUseCaseForModelAccess"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-south-1"
+        },
+        "Bool": {
+          "aws:MultiFactorAuthPresent": "true"
+        },
+        "DateLessThan": {
+          "aws:CurrentTime": "2026-09-16T13:30:00Z"
+        }
+      }
+    },
+    {
+      "Sid": "HumanReviewedAgreementCreation",
+      "Effect": "Allow",
+      "Action": "bedrock:CreateFoundationModelAgreement",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-south-1"
+        },
+        "Bool": {
+          "aws:MultiFactorAuthPresent": "true"
+        },
+        "DateLessThan": {
+          "aws:CurrentTime": "2026-09-16T13:30:00Z"
+        }
+      }
+    },
+    {
+      "Sid": "SubscribeOnlyHaiku45ThroughBedrock",
+      "Effect": "Allow",
+      "Action": "aws-marketplace:Subscribe",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:CalledViaLast": "bedrock.amazonaws.com"
+        },
+        "ForAllValues:StringEquals": {
+          "aws-marketplace:ProductId": [
+            "prod-xdkflymybwmvi"
+          ]
+        },
+        "Null": {
+          "aws-marketplace:ProductId": "false"
+        },
+        "DateLessThan": {
+          "aws:CurrentTime": "2026-09-16T13:30:00Z"
+        }
+      }
+    },
+    {
+      "Sid": "RequiredMarketplacePrerequisitesThroughBedrock",
+      "Effect": "Allow",
+      "Action": [
+        "aws-marketplace:ViewSubscriptions",
+        "aws-marketplace:Unsubscribe"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:CalledViaLast": "bedrock.amazonaws.com"
+        },
+        "DateLessThan": {
+          "aws:CurrentTime": "2026-09-16T13:30:00Z"
+        }
+      }
+    }
+  ]
+}

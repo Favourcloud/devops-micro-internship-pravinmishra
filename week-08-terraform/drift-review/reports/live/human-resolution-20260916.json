@@ -1,0 +1,17 @@
+{
+  "recorded_at_utc": "2026-09-16T15:45:45.684444+00:00",
+  "exact_user_response": "approved",
+  "decision": "Reject the unapplied public-SSH proposal and retain empty ingress and egress.",
+  "decision_interpretation": "Approval received after the focused resolution question presented the actual public TCP/22 proposal, Claude recommendation and fresh-FAIL native denial. This records the recommended safe choice, not approval to deploy SSH.",
+  "previous_prompt_result": "User initially unavailable; no approval was inferred from that fallback.",
+  "human_resolution_obtained": true,
+  "human_manually_executed_terraform": false,
+  "public_ssh_apply_authorized": false,
+  "enrollment_expiry_extended": false,
+  "model_allowance_increased": false,
+  "risk_report_sha256": "3b8ae4c95779aebe01135151f8fad4b9813d9246f6f4f9107a9292aeae78ce06",
+  "claude_risk_review_sha256": "13501c1a62030101421774a485065ca2f4b8dac42628518e0b98658572f3d79b",
+  "native_fail_denial_sha256": "66bf6cf4263e184d07667cef5338695d5e92dcdf701f2afef119a5d1d7729f85",
+  "next_steps": "Fresh final plans and checker; one bounded final Claude review under existing allowance; separately authorized reviewed SG-then-VPC cleanup.",
+  "exact_message_sent_timestamp_asserted": false
+}

@@ -1,0 +1,29 @@
+Eze Favour | Week 08 Assignment 06 | Human-reviewed resolution
+SANITIZED RECORDED EVIDENCE — not a live chat or reconstructed terminal.
+
+Actual finding shown to user: proposed public SSH, TCP/22 from 0.0.0.0/0.
+This was an UNAPPLIED configuration proposal, not out-of-band drift.
+Claude's verified recommendation: "Do not apply this configuration."
+The actual fresh-FAIL native hook also blocked apply (process exit 2).
+
+Focused choice presented: reject public SSH and retain closed ingress/egress,
+or pause for personal manual review.
+Initial result: user unavailable; NO approval was inferred.
+Later actual user reply: "approved"
+Decision recorded UTC: 2026-09-16T15:45:45.684444+00:00
+This is the recording time, not an asserted message-sent timestamp.
+
+Approved resolution: REJECT public SSH; RETAIN empty ingress and egress.
+No persistent override existed to remove in this cycle.
+No public-SSH deployment, budget increase or enrollment extension authorized.
+Human owned the decision; Copilot executed the separately authorized checks.
+No manual human Terraform execution is claimed.
+
+Fresh final plan stage: 15:46:19 to 15:47:10 UTC — both roots exit 0 / no-op.
+Actual Bash final checker: 2026-09-16T15:50:12+00:00 — LIVE / HEALTHY / 0.
+All finding, change and drift counts: 0. Local state unchanged.
+Final report SHA256:
+a0143a05d1ef7ca32775421f7361f66c004125592860118461b56a252212d353
+
+Decision record: human-resolution-20260916.json
+Final result: resolved-report.txt. Claude review is separate evidence.

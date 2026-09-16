@@ -1,0 +1,32 @@
+Eze Favour | Week 08 Assignment 06 | Genuine Claude risk Skill review
+SANITIZED RECORDED OUTPUT: editor export, not a fresh terminal replay.
+
+Native Claude Code invocation: /tf-drift-review
+Review started UTC: 2026-09-16T15:27:57+00:00
+Actual successful Reads: CLAUDE.md, README.md, reports/live/drift-detected-report.txt
+Actual matching PreToolUse:Read starts/responses: 3 / 3
+Native hook exits: 0, 0, 0; matching tool results: successful.
+Complete Read contents independently matched the recorded source hashes.
+Actual hook additionalContext:
+"Week 8 exact read-only review gate ran for this inspection. This is not mutation authorization."
+API retries: 0. Bash/cloud tools used: none. No Terraform execution by Claude.
+
+Actual report: LIVE / FAIL; Terraform exit 2; checker exit 2.
+Unsafe public ingress: 1. Proposed resource changes: 1. Refresh drift: 0.
+Destructive actions: 0. Unknown/unsupported findings: 0.
+Report timestamp UTC: 2026-09-16T15:25:59+00:00
+Plan JSON SHA256: 41ae1e784ba395ef3898c612f9e5f4d2e66bbdfe70304cdff7b6db3680734dbf
+
+Verbatim excerpts from Claude's actual response:
+"This is an **unapplied configuration proposal**, not out-of-band infrastructure drift."
+"**Do not apply this configuration.**"
+"**No Claude automatic repair, apply, destroy, or auto-approve is authorized by this report.** All findings remain read-only evidence pending genuine human resolution decision."
+
+Claude correctly labels SSH/port 22 as inferred from context, not exposed by the report.
+The operator independently verified TCP/22 from 0.0.0.0/0 in the private proposal plan.
+That proposal was NEVER applied; the actual deployed SG remains closed/unattached.
+Reported model cost: $0.040519; not an audited AWS bill.
+Raw native transcript SHA256:
+1125ba3929e3fd9753e283440ddd0bbbb0dbd951375d0415724a1b1d46f55a3c
+Full actual response and event verification: claude-risk-review-20260916.json
+At the time of this risk review, human resolution was pending. Public SSH deployment remains forbidden.

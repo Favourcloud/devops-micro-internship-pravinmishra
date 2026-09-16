@@ -84,11 +84,12 @@ def main():
                 "This test run invokes no real Terraform binary; plan/show exit handling uses fake executables in discarded project-local directories.",
                 "This test run makes no cloud or Claude API calls. Separate reports/live records contain actual historical operations and failures; integrity checks do not reperform them.",
                 "Hook tests use JSON stdin and exit codes only, not a runtime Claude apply attempt.",
-                "Actual Claude attempts failed before any review/tool/hook events. Skill discovery is not proof of successful review or hook loading.",
-                f"{len(captured)} genuine screenshots are recorded; pending numbered slots: {', '.join(map(str, pending))}. LinkedIn publication/URL/screenshot remains pending.",
+                "Earlier Claude failures are preserved separately. Dated clean/risk/final review and native-denial records document later verified runtime events; this offline run does not repeat them.",
+                f"{len(captured)} genuine screenshots are recorded; pending numbered slots: {', '.join(map(str, pending)) or 'none'}. LinkedIn publication/URL/screenshot remains pending.",
                 "Historical live-preflight.json remains unchanged. Actual scoped creation, unapplied proposal, technical reset and verified cleanup are recorded separately in reports/live/operations.json.",
-                "Human resolution approval remains pending; general continuation permission and autonomous cleanup do not complete that requirement.",
-                "HEALTHY means no findings in the stated limited evidence, never global safety or mutation authorization. The lab has been deleted; historical reports are not current state.",
+                "The dated September 16 human record documents the later reject-public-SSH decision. Copilot executed authorized operations; manual human Terraform execution is not claimed.",
+                "The September 16 cycle record documents actual final review and verified cleanup. Operator non-attestation flags do not replace separately recorded human/Claude evidence.",
+                "HEALTHY means no findings in the stated limited evidence, never global safety or mutation authorization. Both dated labs were deleted; historical reports are not current state.",
                 "Hashes identify bytes, not a signed attestation. Raw plans, state, private bindings and logs are excluded."
             ],
         }

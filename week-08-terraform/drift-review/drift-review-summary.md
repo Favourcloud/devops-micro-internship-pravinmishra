@@ -1,40 +1,35 @@
 # Terraform Drift Review Summary
 
-**Full name: Eze Favour — 15 September 2026**
+**Full name: Eze Favour — 16 September 2026**
 
-**Status: genuine Terraform evidence and verified cleanup; Claude runtime/complete rubric sequence still pending.**
+**Verified: clean/risk/final Claude reviews, human decision, native FAIL denial and cleanup.**
 
 ## 1. Change Introduced
 
-A temporary configuration input proposed public TCP/22 on one isolated, unattached security group. The [example](terraform/public-ssh-proposal.tfvars.example) matched the task-local input used for real planning. This was an **UNAPPLIED configuration change, not out-of-band drift**. The risky rule was never deployed. Earlier synthetic fixtures remain unchanged.
+`TF_VAR_test_public_ssh=true` was supplied **only to planning processes**, proposing TCP/22 from `0.0.0.0/0` on an unattached security group. This was an **UNAPPLIED configuration proposal, not out-of-band drift**. No persistent override was created; public SSH was never deployed.
 
 ## 2. Evidence Collected
 
-Actual refreshed plans established both roots' clean baseline. Live checker reports show [baseline HEALTHY](reports/live/baseline-report.txt), [proposal FAIL](reports/live/drift-detected-report.txt), and [technical reset HEALTHY](reports/live/resolved-report.txt), with UTC times, plan hashes and Terraform exits 0/2/0. The proposal had one SG update, one unsafe ingress finding and zero refresh drift. [Operational record](reports/live/operations.json) links real execution, inventory, validation and cleanup; raw plans/identifiers stay private.
+Both baseline plans returned no-op/0. Actual Bash reports: [LIVE HEALTHY at 15:12:53Z](reports/live/baseline-report.txt), then [LIVE FAIL at 15:25:59Z](reports/live/drift-detected-report.txt): one proposed update, one unsafe ingress finding, zero refresh drift. [Cycle evidence](reports/live/cycle-20260916.json) retains real timings, hashes and unchanged-state checks.
 
 ## 3. Risk Assessment
 
-Public SSH fails the deterministic ingress policy. AWS read-back confirmed the deployed group still had zero ingress after planning. Claude produced **no successful review**: Skill discovery was fixed, but inference failed AWS Marketplace authorization. The earlier $0.00017 tool-free connection is not review evidence. [Actual runtime status](reports/live/claude-runtime.json) separates facts from pending work; these explanations are Copilot-assisted, not Claude recommendations.
+Genuine manual `/tf-drift-review` invocations completed [clean](reports/live/claude-clean-review-20260916.json) and [risk](reports/live/claude-risk-review-20260916.json) reviews. Each verified three complete Reads and three matching native hooks. Claude: **“Do not apply this configuration.”** SSH/22 was context-inferred by Claude and independently verified in the private plan. Copilot generated the reports, not a manually operating human; earlier failed attempts remain dated history.
 
 ## 4. Human-Approved Action
 
-The user authorized isolated provisioning and cleanup beforehand; **Copilot executed Terraform**, not the human or Claude. Copilot removed the temporary override for cleanup safety and deleted only the new SG/VPC under that existing authorization. The user confirmed the technical findings but explicitly stated that [human resolution approval remains PENDING](reports/live/human-resolution.json). General continuation permission is not resolution approval; autonomous cleanup does not complete this requirement.
+The initial focused resolution question returned unavailable; no approval was inferred. The later actual reply **“approved”**, [recorded at 15:45:45Z](reports/live/human-resolution-20260916.json), approved **rejecting public SSH and retaining empty ingress/egress** after findings were presented. The human owned this decision. Copilot executed separately authorized operations; **no manual human Terraform execution is claimed**.
 
 ## 5. Verification
 
-Before deletion, a fresh real plan/checker returned 0/HEALTHY after override removal. At **18:25:59Z**, cleanup verification found both Terraform states empty, zero lab-tagged VPCs/SGs, and both exact created-resource lookups `NotFound`. Both reviewed deletion applies exited 0; both Terraform roots pass fmt/validate. These dated results do not describe a currently deployed lab. [Offline tests](reports/local-validation.json) are separate from live evidence; final Claude review remains pending.
+Post-decision plans at 15:46–15:47Z returned no-op/0. The [final checker](reports/live/resolved-report.txt) returned **LIVE HEALTHY/0 at 15:50:12Z**, all counts zero. The [genuine final Claude review](reports/live/claude-final-review-20260916.json) followed at 15:51:21Z. Reviewed SG-then-VPC deletions succeeded; cleanup at **16:01:58Z** verified empty states, zero tagged inventory and both exact-resource NotFound responses. The lab is now **deleted**, not a still-running HEALTHY environment.
 
 ## 6. Safety Decision
 
-The manual noWrite Skill may inspect only named sanitized live reports; its hook always denies apply, destroy and auto-approve. Local JSON-input tests cover enforcement, but **runtime hook loading/denial is not verified**. No risky apply, IAM expansion, earlier-coursework mutation, proxy restart or publication occurred. Raw evidence is excluded; screenshot editor views of sanitized exports are labeled, never passed off as live terminal sessions.
+The [fresh-FAIL native hook](reports/live/native-hook-fail-20260916.json) blocked one actual apply request at 15:30:33Z: `PreToolUse:Bash` exit **2**, matching tool error, `report=FAIL`; Terraform never ran. Reviews used no Bash/cloud tools and zero retries. The cleanup plan-check compatibility fix passed **71 normal + 71 optimized tests** without dropping binding/action guards. Reported model usage: **$0.141731**, plus **$0.18** unknown-usage reservation, not confirmed charges. Enrollment expiry was not extended.
 
 ## 7. Agentic Loop Mapping
 
-| Stage | Verified work | Remaining rubric gap |
-| --- | --- | --- |
-| Gather | Real clean baseline and unapplied proposal plans | Fresh baseline needed if the lab is recreated |
-| Analyze | Actual Bash/jq HEALTHY → FAIL → HEALTHY | Actual Claude clean/risk/final reviews |
-| Human Act | Prior provisioning/cleanup approval; Copilot-executed operations | Genuine human resolution approval; no manual-human apply claimed |
-| Verify | No-change technical reset, real deletion, empty state/inventory | Actual Claude hook denial and final review |
+**Gather:** real plans/reports → **Analyze:** actual Claude reviews → **Human Act:** explicit reject-SSH decision → **Verify:** fresh plans/checker, final Claude review, separately authorized cleanup. This is a verified **human-decision / Copilot-operator** loop, not manual human Terraform execution.
 
-[Screenshot provenance](screenshots/manifest.json) distinguishes source views, actual terminal listings and sanitized historical exports. Claude-dependent slots **10, 12, 15 and 17**, human-resolution slot **16**, and LinkedIn publication remain pending. This is substantial verified progress, **not a claim that the full rubric passed**.
+[Capture provenance](screenshots/manifest.json) distinguishes genuine screenshots from runtime records; [offline validation](reports/local-validation.json) does not re-run cloud/model calls. Mandatory LinkedIn URL/post screenshot and the manual-execution rubric limitation remain unresolved. **No full-rubric pass or publication is claimed.**

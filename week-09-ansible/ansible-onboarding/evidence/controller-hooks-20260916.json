@@ -1,0 +1,12 @@
+[
+  {
+    "command": "git add (controller project only)",
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": "pre-commit run --all-files",
+    "exit_code": 0,
+    "output": "Week 09 yamllint.........................................................Passed\nWeek 09 ansible-lint.....................................................Passed\n"
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "recorded_at_utc": "2026-09-16T14:47:31.735804+00:00",
+  "learner": "Eze Favour",
+  "assignment": "Week 09 Assignment 1",
+  "status": "IN PROGRESS \u2014 twelve genuine screenshots and interactive VS Code verification pending",
+  "source_base_commit": "9cdb899ebdfc7b51d020ae5072d0950a0e48d0eb",
+  "controller": {
+    "kind": "Persistent sparse clone with independent .git metadata",
+    "branch": "main",
+    "purpose": "Reusable actual local workstation; not the disposable test fixture",
+    "remote_main_updated": false,
+    "hooks_installed": true,
+    "git_identity_scope": "Repository-local",
+    "global_git_settings_changed": false
+  },
+  "ssh": {
+    "evidence": "ssh-readiness-20260916.json",
+    "result": "PASS \u2014 eight checks in learner Terminal",
+    "fresh_key_created_by": "Learner, privately in Terminal",
+    "remote_connection_attempted": false,
+    "private_key_contents_read": false
+  },
+  "editor": {
+    "application": "Visual Studio Code",
+    "required_extensions_installed": {
+      "redhat.ansible": "26.8.2",
+      "ms-python.python": "2026.4.0",
+      "redhat.vscode-yaml": "1.24.0"
+    },
+    "interactive_interpreter_verification": "PENDING"
+  },
+  "screenshots": {
+    "required": 12,
+    "captured": 0,
+    "status": "PENDING",
+    "capture_blocker": "Agent has no native app control. Learner Terminal Screen Recording is now granted; window-only user-run capture helper is prepared. All images remain pending until actual capture and review."
+  },
+  "cloud_operations": false,
+  "machine_wide_packages_installed": false,
+  "notes": [
+    "CLI results and locally created reports are not screenshots.",
+    "The 15 September validation record remains unchanged and applies to its recorded source versions.",
+    "A feature-branch push does not update the graded main branch or establish a score."
+  ],
+  "validation": {
+    "checks": 25,
+    "expected_rejections": 3,
+    "result": "PASS",
+    "evidence": "controller-validation-20260916.json",
+    "actual_controller_hooks": "PASS \u2014 see controller-hooks-20260916.json"
+  }
+}

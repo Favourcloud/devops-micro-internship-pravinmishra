@@ -20,6 +20,7 @@ reports/*
 !reports/resolved-report.txt
 !reports/local-validation.json
 !reports/live-preflight.json
+!reports/continuation-20260916.json
 !reports/live/
 reports/live/*
 !reports/live/baseline-report.txt
@@ -29,3 +30,16 @@ reports/live/*
 !reports/live/claude-runtime.json
 !reports/live/baseline-execution.txt
 !reports/live/human-resolution.json
+!reports/live/native-hook-denial-20260916.json
+!reports/live/native-hook-denial-20260916.txt
+!reports/live/native-hook-fail-20260916.json
+!reports/live/native-hook-fail-20260916.txt
+!reports/live/cycle-20260916.json
+!reports/live/human-resolution-20260916.json
+!reports/live/human-resolution-20260916.txt
+!reports/live/claude-clean-review-20260916.json
+!reports/live/claude-clean-review-20260916.txt
+!reports/live/claude-risk-review-20260916.json
+!reports/live/claude-risk-review-20260916.txt
+!reports/live/claude-final-review-20260916.json
+!reports/live/claude-final-review-20260916.txt

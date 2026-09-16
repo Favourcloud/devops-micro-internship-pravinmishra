@@ -1,10 +1,10 @@
 LIVE READ-ONLY PLAN — LIMITED POLICY REVIEW, NOT MUTATION AUTHORIZATION
 Reviewer: Eze Favour
-Timestamp UTC: 2026-09-15T18:20:49+00:00
+Timestamp UTC: 2026-09-16T15:25:59+00:00
 Mode: LIVE
 Overall Status: FAIL
 Plan provenance: new plan/show in a human-authorized trusted Terraform directory
-Plan SHA256: a589738040db69ff182b35dcac7cca28e04b7b0e67da7b003733aba0e11e9eeb
+Plan SHA256: 41ae1e784ba395ef3898c612f9e5f4d2e66bbdfe70304cdff7b6db3680734dbf
 Terraform detailed exit code: 2
 Destructive resource actions: 0
 Unsafe public ingress findings: 1

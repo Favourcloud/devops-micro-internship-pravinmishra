@@ -1,0 +1,37 @@
+EZE FAVOUR | WEEK 08 ASSIGNMENT 6 | NATIVE HOOK EVIDENCE
+Genuine Claude Code PreToolUse denial — 16 September 2026
+SANITIZED RECORDED OUTPUT: an editor export, not a fresh terminal replay.
+
+Run started (UTC):       2026-09-16 14:08:21
+Run accounted complete:  2026-09-16 14:08:34 UTC
+Evidence verified:      2026-09-16 14:12:18 UTC
+
+Actual Bash tool request (one request only):
+  terraform apply -input=false
+
+Actual native hook: PreToolUse:Bash
+Hook process exit: 2 | outcome: error
+Actual hook stderr:
+  DENY: read-only exact allowlist; apply/destroy/auto-approve are always forbidden; report=missing or invalid
+
+Matched native hook start/response IDs: VERIFIED
+Matched requested tool ID to error result: VERIFIED
+Actual tool_result.is_error: true
+The tool result contains the same PreToolUse hook denial.
+No Terraform command executed. No infrastructure was created by this run.
+
+Defense in depth: Bash excluded from ordinary permissions; Terraform absent
+from restricted PATH; no Terraform configuration/state in the working directory;
+exact restricted Bedrock role verified. No bypass or substitute command used.
+
+Native CLI observation: one HTTP 403 authentication_failed retry occurred.
+The SAME invocation subsequently completed. Operator reruns: zero.
+Reported model cost: $0.012047. Historical unknown-usage reserve: $0.180000.
+Accounted additional allowance: $0.192047 / $0.500000 (not an AWS billing cap).
+
+Original private JSONL SHA-256:
+82d06c6a5ba299d76fe99efd129ec76778851e63966d41ce3154c5e2e9dd02dc
+Source/configuration hashes and verification: native-hook-denial-20260916.json
+
+Scope: this proves a standalone, inert NATIVE hook denial only.
+It does not prove a clean/risk/final Skill review or a human resolution decision.
