@@ -1,0 +1,251 @@
+{
+  "status": "Partial genuine runtime completion; verified cleanup; coursework incomplete",
+  "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+  "implementation_unchanged_during_final_evidence_integration": true,
+  "operator": "Coordinator performed separately approved live operations and native captures; not a claim of learner firsthand actions",
+  "plan": {
+    "sha256": "82d9d251902771e986f7b2ed7428e986848cd97ab5388a03217ff614442477cc",
+    "creates": 23,
+    "updates": 0,
+    "deletes": 0,
+    "before_plan_identity_seal_sha256": "ac58bd8915bba66c5137df3f3109108fc780b66400ccc9bee2a8b54884ceaa16"
+  },
+  "apply": {
+    "status": "succeeded",
+    "terraform_exit_code": 0,
+    "outcome_sha256": "1cc7484c4d8b6cdff0123c52e1254930b21b8bf3e1a4b481d46e793a6ee628b3",
+    "raw_log_sha256": "e8882c1fd836d9be1ed4430991112d9ccc30ea302baa5d0317480ce2f93e89d5",
+    "original_t0_utc": "2026-09-16T20:22:02.290624+00:00",
+    "original_cleanup_deadline_utc": "2026-09-16T22:22:02.290624+00:00",
+    "state_after_apply_sha256": "7f8cea580e83403588136ca2d18cd79ecee95331675a1854592176730df7d5dd",
+    "state_after_apply_serial": 24
+  },
+  "runtime_runner_sha256": "82082e1cc0ce63db5c71db39c8b9681416d49160718f7f015a50f6691be0f650",
+  "steps": {
+    "outputs": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T20:56:55.271905+00:00",
+      "finished_utc": "2026-09-16T20:56:59.016014+00:00",
+      "outcome_sha256": "faaff091d144c77207edb68e6084c69de55713657f229cfae3efc4dec5b7aa65",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "boot-trust": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T20:57:53.473037+00:00",
+      "finished_utc": "2026-09-16T20:58:16.361606+00:00",
+      "outcome_sha256": "d24a0ee01c870c59c4eebbb57ed84797ed7d9902dc627c34000aa26de6fe3c26",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "inventory": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T20:59:28.908159+00:00",
+      "finished_utc": "2026-09-16T20:59:30.503800+00:00",
+      "outcome_sha256": "7acea7b652b7c104e369eda27f162f2490bae7cb8c7fea675c91216b2442dead",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "a2-graph": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:00:04.783649+00:00",
+      "finished_utc": "2026-09-16T21:00:07.092027+00:00",
+      "outcome_sha256": "df72971d9f0e6a2f16c92853cc2838f02e8af3390475d0f35e31efc7088018d6",
+      "command_exit_codes": [
+        0,
+        0,
+        0
+      ]
+    },
+    "a3-graph": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:00:57.052144+00:00",
+      "finished_utc": "2026-09-16T21:00:59.761665+00:00",
+      "outcome_sha256": "fe6b80df7bd9c77d43cec55fda639e280844b184466c79d3d7839b67f0fdc14d",
+      "command_exit_codes": [
+        0,
+        0,
+        0
+      ]
+    },
+    "ssh-hostnames": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:02:06.399555+00:00",
+      "finished_utc": "2026-09-16T21:02:23.031425+00:00",
+      "outcome_sha256": "2858df15188977e5647bea346c914d9a73e4d266765519ea23b59ab17e3d211f",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cloud-init-ready": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:06:25.506598+00:00",
+      "finished_utc": "2026-09-16T21:06:36.331081+00:00",
+      "outcome_sha256": "3daf1230a237502cf07a2aaefed295f2bbe283a12968876683f09b6069bceba4",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "a2-ping": {
+      "status": "blocked_or_failed",
+      "started_utc": "2026-09-16T21:15:11.788078+00:00",
+      "finished_utc": "2026-09-16T21:15:13.924855+00:00",
+      "outcome_sha256": "ef30ab8a3171ff7676eac8ceb7e177006a16d0a1d81fc0e56bd0f1c20456b28e",
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        250
+      ]
+    }
+  },
+  "failure": {
+    "step": "a2-ping",
+    "exit_code": 250,
+    "error": "ValueError: A non-empty plugin name is required",
+    "cause": "Private environment ANSIBLE_CALLBACKS_ENABLED='' parsed as [''] by core2.21.4, failing callback loading before ping tasks",
+    "raw_log_sha256": "ef97ef1306bcbd9df2460547b19e19267a26de1516a4aaab5103f634d4175364",
+    "managed_ping_success": false,
+    "later_adhoc_operations": "not run",
+    "a3_deployment_http_idempotency": "not run",
+    "live_retry": "not performed; approvals disabled and cleanup prioritized"
+  },
+  "cleanup": {
+    "status": "verified-cleaned",
+    "verified_at_utc": "2026-09-16T21:53:43.327038+00:00",
+    "hard_deadline_utc": "2026-09-16T22:22:02.290624+00:00",
+    "original_deadline_satisfied": true,
+    "destroyed_terraform_resources": 23,
+    "vm_absence_checks": 4,
+    "os_disk_absence_checks": 4,
+    "public_ip_absence_checks": 4,
+    "resource_group_absent": true,
+    "state_and_outputs_empty": true,
+    "state_sha256": "4ad16d2a0de9ab08e4e81b411737e1be00e7e8e81a36302cf397f3fbd59345b6",
+    "state_serial": 48,
+    "verification_outcome_sha256": "53f710f711812245951f27ff143f27fb164c4b44691e097471e21f1c216cac44",
+    "charges_claimed_zero": false,
+    "all_cleanup_approvals_disabled": true,
+    "destroy_plan_sha256": "6b321176dfc2a8ec5c849e8768a52abb90b339a5aaebdf71eb5d633b46009e20",
+    "destroy_plan_json_sha256": "dfa02023ae059df4e9992885ef13c9a9c5b40725565e0aed6205350c1edb534b",
+    "verification_checks": 16,
+    "verification_check_names": [
+      "resource-group-absent",
+      "vm-app1-absent",
+      "vm-db1-absent",
+      "vm-web1-absent",
+      "vm-web2-absent",
+      "disk-app1-absent",
+      "disk-db1-absent",
+      "disk-web1-absent",
+      "disk-web2-absent",
+      "public-ip-app1-absent",
+      "public-ip-db1-absent",
+      "public-ip-web1-absent",
+      "public-ip-web2-absent",
+      "state-empty",
+      "outputs-empty",
+      "guard-verify-state"
+    ],
+    "same_lineage_preserved": true,
+    "private_summary_sha256": "455785f2eea916b94162de4f6330a5cb1bf3238f3b936d8cdf02a2e27df7c7e9"
+  },
+  "private_callback_followup": {
+    "tests_passed": 5,
+    "local_only": true,
+    "runtime_sha256": "77591022ec4b14a14df0155690e4a02e5467d1a8ed6cca27f9d949ec7cd119e7",
+    "test_source_sha256": "b7fd6e5930813a641cc652937465b41dff0839a86c4871071475529a673e2e4b",
+    "raw_test_log_sha256": "1f4b2420b69a0e271710adf60348f698b86b94616abab7b2acef7eca87816df4",
+    "actual_command_receipts_sha256": "45c6994c3b0d7e8a70cca5720c37f1cb15ec1c1a740640aabc093a502f30f346",
+    "old_blank_actual_load": "ValueError reproduced before any tasks",
+    "omitted_variable_actual_load": "default callback loaded with empty additional callback list",
+    "literal_brackets": "Actual parser returns nonempty list containing [] text; not used",
+    "actual_localhost_ping": "SUCCESS/pong; local connection only, not A2/A3 managed-host evidence",
+    "harness_diagnostics_preserved": "Initial overly strict audit hook rejected numeric-loopback address parsing; subsequent probes lacked VariableManager and referenced obsolete private attributes after successful loading. Final probe uses verified core2.21 API, actual DataLoader/VariableManager and actual default callback type; numeric-loopback lookup only, with connections/nonlocal lookups/subprocesses denied. All initial scripts/logs retained.",
+    "old_runtime_and_failure_history_preserved": true,
+    "execution_authority_copied": false,
+    "receipt_sha256": "96607f487adfa7dc533767094fd017b0792c531ab7325878e39ed4b1d33fd0b8",
+    "change": "Omit ANSIBLE_CALLBACKS_ENABLED; no other runtime source change",
+    "current_runtime_authorization": false
+  },
+  "postcleanup_a3_graph": {
+    "scope": "Actual local retained-inventory inspection only; SSH/SFTP/SCP disabled; no managed-host contact",
+    "outcome_sha256": "1129736a51c536a4e9134bab1ce60aeb1353c2c2136fe4b270418485638b791f",
+    "envelope_sha256": "b103107588b08d3325b5e258576084bcd9be6ad61c3cf2f1a68d018a6e2434d1",
+    "private_capture_receipt_sha256": "a9d6822722a492c1721ce297be5ebc391b8243cbe5eecfb4ca5df698ceb64e13"
+  },
+  "screenshots": {
+    "a2_captured_slots": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "a2_pending_slots": [
+      2,
+      8,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "a3_captured_slots": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "a3_pending_slots": [
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "linkedin": "both pending; not authorized or published",
+    "failed_ping_image": "supplemental failure only, never a completed ping slot"
+  },
+  "privacy": "Private identities, controller IP, keys, paths, configured inventories, state/plans and raw logs withheld. Only historical approved VM IPs are visible in accepted PNGs. No human screenshot review claimed.",
+  "future_execution": "No authority remains; no contact with former IPs, which may be reassigned. A future run needs new scope, identity, budget, plan and runtime approval."
+}

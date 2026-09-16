@@ -1,0 +1,363 @@
+{
+  "assignment": 2,
+  "learner": "Eze Favour",
+  "platform": "Azure",
+  "status": "Partial genuine runtime evidence and verified cleanup; 9 of 17 numbered slots captured; 8 plus LinkedIn pending",
+  "numbered_slots": 17,
+  "capture_rules": [
+    "A slot is captured only when its genuine accepted PNG exists; local inspections do not prove managed-host success.",
+    "Show Eze Favour visibly in every required screenshot.",
+    "Do not expose credentials, private keys, account/subscription IDs, private paths, state or plans.",
+    "Label local/template checks honestly; they are not connectivity or deployed-state proof.",
+    "Use generated inventory.local.ini for authorized live work; preserve tracked inventory.ini as unconfigured.",
+    "No desktop control or LinkedIn publication is authorized by code preparation.",
+    "Historical approved VM IPs may appear in required original evidence; do not contact them after deletion or publish configured inventories.",
+    "Capture timestamp source is explicit; command-start timestamps visible in a frame are not substituted for capture time."
+  ],
+  "screenshots": [
+    {
+      "slot": 1,
+      "requirement": "Terminal showing the complete `ansible-adhoc-lab` project structure",
+      "status": "captured",
+      "scope": "local tracked filenames; not deployment evidence",
+      "file": "assignment-02-01-project-structure.png",
+      "sha256": "2827744f95db2bee4b897f65a0141a909c035d4d7c3770c525a482fce703a117",
+      "captured_at_utc": "2026-09-16T19:21:03.985759+00:00",
+      "source_commit": "b64d6be7a1a0f7d4fac56761c663c78b72f0318f",
+      "tracked_file_count": 15,
+      "private_capture_receipt_sha256": "2e4d22ed7d6f4898eaf0416e60974fd6bcba82e9fbbaf7f90e29ff44b4fc05e9",
+      "private_run_receipt_sha256": "a8a2d3078f01b172d32dd31fcedf359698a4ca344e2817038889b7cd26322ff7",
+      "capture_method": "Coordinator-approved native VS Code task window; genuine foreground tracked-tree command",
+      "image_modifications": "None; exact original PNG bytes",
+      "acceptance": "Shows actual complete 15-file tracked structure and Eze Favour; private files excluded. Filename evidence does not bind later README/validation content.",
+      "blocker": null
+    },
+    {
+      "slot": 2,
+      "requirement": "Terminal showing `git status --short` with the new project files and updated `.gitignore`",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "/usr/bin/git status --short -- week-09-ansible/ansible-adhoc-lab; display ansible-adhoc-lab/.gitignore",
+      "acceptance": "The required initial uncommitted status was not captured. Do not reset, untrack or manufacture dirty files. A labelled git show --stat is supplemental history only, not fulfillment of this slot.",
+      "blocker": "Historical initial-state evidence not captured; files are already committed."
+    },
+    {
+      "slot": 3,
+      "requirement": "Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation",
+      "status": "captured",
+      "scope": "local source only; not provisioned hosts",
+      "file": "assignment-02-03a-host-roles.png",
+      "sha256": "25211381241d0fb4d5e7e7dd4f40bed636d57b2215d361b5b4eafbcb4e68949f",
+      "captured_at_utc": "2026-09-16T19:21:45.045375+00:00",
+      "source_file": "week-09-ansible/ansible-adhoc-lab/terraform/main.tf",
+      "source_commit": "b64d6be7a1a0f7d4fac56761c663c78b72f0318f",
+      "source_sha256": "2ea5288c8f0364bf6d06bd5ed00960120986a05f668dd8e723ea05e41ba5ba76",
+      "source_lines": [
+        1,
+        13
+      ],
+      "private_capture_receipt_sha256": "280a4afb721e831c064776399acfaa33746cb01d33d33d078b29c773bf50526a",
+      "additional_images": [
+        {
+          "file": "assignment-02-03b-vm-for-each.png",
+          "sha256": "2ca2a85508d3085a49c7b155bf7873ec9c1e80aaeaf339132bad6d2db0fc6fc7",
+          "captured_at_utc": "2026-09-16T19:21:56.326117+00:00",
+          "source_file": "week-09-ansible/ansible-adhoc-lab/terraform/main.tf",
+          "source_sha256": "2ea5288c8f0364bf6d06bd5ed00960120986a05f668dd8e723ea05e41ba5ba76",
+          "source_lines": [
+            118,
+            142
+          ],
+          "private_capture_receipt_sha256": "d39699bda7642157e58dcd7ad42e911911bc9e80e592290183cd6a034a26013c"
+        }
+      ],
+      "capture_method": "Coordinator-approved native VS Code source windows; name visible",
+      "image_modifications": "None; both original PNGs copied byte-for-byte",
+      "acceptance": "Two genuine views of the same committed main.tf show all four roles and VM for_each. No runtime claim.",
+      "blocker": null
+    },
+    {
+      "slot": 4,
+      "requirement": "Terraform configuration showing SSH restricted to the controller IP and HTTP allowed only for web hosts",
+      "status": "captured",
+      "scope": "local source only; not deployed network evidence",
+      "file": "assignment-02-04a-inbound-rules.png",
+      "sha256": "60f07265bdad88b6500ae7f7f91838ed51080729cced3bd66484930598f3f9bb",
+      "captured_at_utc": "2026-09-16T19:22:07.582002+00:00",
+      "source_file": "week-09-ansible/ansible-adhoc-lab/terraform/main.tf",
+      "source_commit": "b64d6be7a1a0f7d4fac56761c663c78b72f0318f",
+      "source_sha256": "2ea5288c8f0364bf6d06bd5ed00960120986a05f668dd8e723ea05e41ba5ba76",
+      "source_lines": [
+        69,
+        96
+      ],
+      "private_capture_receipt_sha256": "0f98759814b7f4d4860972d7a0ab9bb9d7df20972b59d565f3c0602fdd6a0682",
+      "additional_images": [
+        {
+          "file": "assignment-02-04b-controller-validation.png",
+          "sha256": "5e3acbc80c259dd9ecb934861ac8c44adb3e944d7ae94e376877f9719f876b85",
+          "captured_at_utc": "2026-09-16T19:22:18.919275+00:00",
+          "source_file": "week-09-ansible/ansible-adhoc-lab/terraform/variables.tf",
+          "source_sha256": "5fcad6fd5391ce5f01975720f5cb417ef48e76d8dd451d64c945c1eead956c2e",
+          "source_lines": [
+            35,
+            48
+          ],
+          "private_capture_receipt_sha256": "9c14ad3763d1ff5573d3e7eddba132d84d468ac46122dc3182d345927da1a4a0"
+        }
+      ],
+      "capture_method": "Coordinator-approved native VS Code source windows; name visible",
+      "image_modifications": "None; both original PNGs copied byte-for-byte",
+      "acceptance": "Shows controller-source SSH, conditional web-only HTTP and IPv4 /32 validation. The additional deny rule remains in source but is outside these intended image ranges.",
+      "blocker": null
+    },
+    {
+      "slot": 5,
+      "requirement": "Terraform output configuration showing how public IP addresses are associated with the server roles",
+      "status": "captured",
+      "scope": "local output definitions only; no assigned IPs",
+      "file": "assignment-02-05-role-outputs.png",
+      "sha256": "fb57f79cc482a5c39c730026790a3df8b14904a42709d91e6b899e2af115c30f",
+      "captured_at_utc": "2026-09-16T19:22:30.269830+00:00",
+      "source_file": "week-09-ansible/ansible-adhoc-lab/terraform/outputs.tf",
+      "source_commit": "b64d6be7a1a0f7d4fac56761c663c78b72f0318f",
+      "source_sha256": "a46e24e55b3ab66733af93443f66c1c33d3a66309a6ef54936a1a2e387b2be85",
+      "source_lines": [
+        1,
+        9
+      ],
+      "private_capture_receipt_sha256": "008c1f619853026f5c018b8ea90d2e88170aaf1172029fd7d7d95351c1d42346",
+      "capture_method": "Coordinator-approved native VS Code source window; name visible",
+      "image_modifications": "None; exact original PNG bytes",
+      "acceptance": "Shows role-keyed public_ips and web-only web_urls definitions; not actual Terraform output values.",
+      "blocker": null
+    },
+    {
+      "slot": 6,
+      "requirement": "Final `terraform apply` output showing `Apply complete`",
+      "status": "captured",
+      "scope": "Historical genuine 23-resource apply; resources subsequently deleted",
+      "file": "assignment-02-06-apply-complete.png",
+      "acceptance": "Historical genuine 23-resource apply; resources subsequently deleted. Eze Favour visible; exact image/hash and actual private run receipt verified.",
+      "blocker": null,
+      "sha256": "fb5d6e9acda966fbd5677e55153a1dedff981219d1860a093917c15ce87afb3d",
+      "captured_at_utc": "2026-09-16T20:26:38.938232+00:00",
+      "timestamp_source": "Coordinator native capture receipt",
+      "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+      "capture_method": "Coordinator-approved genuine native VS Code window; actual command stream, not replayed or reconstructed output",
+      "image_modifications": "None; exact original PNG bytes",
+      "private_capture_receipt_sha256": "646f92bb24952d74ba6f2d390016eb61560cfe34d61f2f27e683850c57c4ebc7",
+      "plan_sha256": "82d9d251902771e986f7b2ed7428e986848cd97ab5388a03217ff614442477cc",
+      "private_run_receipt_sha256": "1cc7484c4d8b6cdff0123c52e1254930b21b8bf3e1a4b481d46e793a6ee628b3"
+    },
+    {
+      "slot": 7,
+      "requirement": "`terraform output public_ips` showing the role-to-IP mapping for all three or four VMs",
+      "status": "captured",
+      "scope": "Historical actual Terraform outputs; not current endpoints",
+      "file": "assignment-02-07-public-ips.png",
+      "acceptance": "Historical actual Terraform outputs; not current endpoints. Eze Favour visible; exact image/hash and actual private run receipt verified.",
+      "blocker": null,
+      "sha256": "a4b313bc734a76c55798fef0e290c739ad77c0731824dbe1582d0effd766c879",
+      "captured_at_utc": "2026-09-16T20:57:18+00:00",
+      "timestamp_source": "Native capture filename, workstation UTC+01:00; precision one second",
+      "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+      "capture_method": "Coordinator-approved genuine native VS Code window; actual command stream, not replayed or reconstructed output",
+      "image_modifications": "None; exact original PNG bytes",
+      "private_capture_receipt_sha256": "11d5a45362ae7ddd95bd7ca869f0592ac43bbb10ccb380e53d983b1b3452d6f0",
+      "private_run_receipt_sha256": "faaff091d144c77207edb68e6084c69de55713657f229cfae3efc4dec5b7aa65"
+    },
+    {
+      "slot": 8,
+      "requirement": "Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "Read-only Azure Portal view of the dedicated lab VMs",
+      "acceptance": "Show all four role-based names and Running status, with subscription/account metadata hidden.",
+      "blocker": "No authenticated Portal screenshot was captured; resources are now deleted. CLI/apply evidence does not replace this slot."
+    },
+    {
+      "slot": 9,
+      "requirement": "Terminal showing successful SSH hostname output from all VMs",
+      "status": "captured",
+      "scope": "Historical strict existing-key SSH hostname results for all four VMs",
+      "file": "assignment-02-09-ssh-hostnames-redacted.png",
+      "acceptance": "Historical strict existing-key SSH hostname results for all four VMs. Eze Favour visible; exact image/hash and actual private run receipt verified.",
+      "blocker": null,
+      "sha256": "ddc71730519a6d22b85e78ce8a6e7a416b6d31216651847e29d51bbc2ef5b501",
+      "captured_at_utc": "2026-09-16T21:05:19+00:00",
+      "timestamp_source": "Native capture filename, workstation UTC+01:00; precision one second",
+      "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+      "capture_method": "Coordinator-approved genuine native VS Code window; actual command stream, not replayed or reconstructed output",
+      "image_modifications": "Exactly four opaque black IdentityAgent socket spans; no other pixel changes, no crop/resize/reflow or stdout reconstruction",
+      "private_capture_receipt_sha256": "f5912c74c1d3405eb3f9da55fe3af242ec7e169e2d3170a6c37f6cd862cb6751",
+      "private_run_receipt_sha256": "2858df15188977e5647bea346c914d9a73e4d266765519ea23b59ab17e3d211f",
+      "raw_sha256": "b9a2749326b61e4a0cbb4148672712bb6a42f9ee0d85a82b658d1221e6db9f25",
+      "raw_image_published": false,
+      "processing": {
+        "method": "Native macOS Vision substring bounds and CoreGraphics/ImageIO black rectangles; originals retained unchanged privately",
+        "coordinate_system": "top-left pixel origin; x/y inclusive, right/bottom exclusive",
+        "rectangles_top_left_pixels": [
+          {
+            "x": 1764,
+            "y": 340,
+            "width": 891,
+            "height": 32
+          },
+          {
+            "x": 1763,
+            "y": 534,
+            "width": 896,
+            "height": 36
+          },
+          {
+            "x": 1762,
+            "y": 733,
+            "width": 899,
+            "height": 31
+          },
+          {
+            "x": 1761,
+            "y": 926,
+            "width": 899,
+            "height": 37
+          }
+        ],
+        "image_dimensions_pixels": [
+          3104,
+          2024
+        ],
+        "changed_pixels": 121900,
+        "changes_outside_rectangles": 0,
+        "nonblack_pixels_inside_rectangles": 0,
+        "processing_source_sha256": "88c0b653e2366975f7c4d395a235985c8bfe0c71f152e2ed82f4abd79d742263",
+        "processing_binary_sha256": "a8af99f846ac3c1247a1460099469d5adf9c36d796ab9ab6bee6d6aad6c6347e",
+        "finishing_script_sha256": "8d1e804c00d772dbbe0ceb779cebed00e67f29e8ca27ea65028a957a64af4808",
+        "pixel_proof_sha256": "9119ed0d9da70e9a995ba0ef4e8349a1f4e5a589450b64af065998e2996e4b9a",
+        "private_audit_receipt_sha256": "6c8142611ce1af2f310a556b55d4d20701543ed38565cd097e9d73c4f64ccb80",
+        "privacy_check": "Two native OCR implementations and pixel-bound proof; no residual private socket/user path/account ID/key found; approved IPs/role hostnames preserved. Coordinator approved derivative. No human review claimed.",
+        "soft_wraps": "Original SSH argv/public-IP soft wraps preserved exactly, never reconstructed or reflowed"
+      }
+    },
+    {
+      "slot": 10,
+      "requirement": "`inventory.ini` showing the `web`, `app`, and `db` groups",
+      "status": "captured",
+      "scope": "Actual output-derived private inventory.local.ini; tracked inventory.ini stays UNCONFIGURED",
+      "file": "assignment-02-10-generated-inventory.png",
+      "acceptance": "Actual output-derived private inventory.local.ini; tracked inventory.ini stays UNCONFIGURED. Eze Favour visible; exact image/hash and actual private run receipt verified.",
+      "blocker": null,
+      "sha256": "2f690e404d335aadb30a2fd46dc296cad69853a56a10b7030830710a9c1c8e2c",
+      "captured_at_utc": "2026-09-16T20:59:55+00:00",
+      "timestamp_source": "Native capture filename, workstation UTC+01:00; precision one second",
+      "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+      "capture_method": "Coordinator-approved genuine native VS Code window; actual command stream, not replayed or reconstructed output",
+      "image_modifications": "None; exact original PNG bytes",
+      "private_capture_receipt_sha256": "f5912c74c1d3405eb3f9da55fe3af242ec7e169e2d3170a6c37f6cd862cb6751",
+      "private_run_receipt_sha256": "7acea7b652b7c104e369eda27f162f2490bae7cb8c7fea675c91216b2442dead"
+    },
+    {
+      "slot": 11,
+      "requirement": "Output of `ansible-inventory -i inventory.ini --graph`",
+      "status": "captured",
+      "scope": "Actual local graph of the generated inventory; graph is not connectivity proof",
+      "file": "assignment-02-11-inventory-graph.png",
+      "acceptance": "Actual local graph of the generated inventory; graph is not connectivity proof. Eze Favour visible; exact image/hash and actual private run receipt verified.",
+      "blocker": null,
+      "sha256": "003f79ecae04265a153eb87797b2f4e9c57b77d405d8ea4032b7adf4919ef2ae",
+      "captured_at_utc": "2026-09-16T21:00:48+00:00",
+      "timestamp_source": "Native capture filename, workstation UTC+01:00; precision one second",
+      "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+      "capture_method": "Coordinator-approved genuine native VS Code window; actual command stream, not replayed or reconstructed output",
+      "image_modifications": "None; exact original PNG bytes",
+      "private_capture_receipt_sha256": "f5912c74c1d3405eb3f9da55fe3af242ec7e169e2d3170a6c37f6cd862cb6751",
+      "private_run_receipt_sha256": "df72971d9f0e6a2f16c92853cc2838f02e8af3390475d0f35e31efc7088018d6"
+    },
+    {
+      "slot": 12,
+      "requirement": "Output of `ansible all -i inventory.ini -m ping`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc ping --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show SUCCESS/pong for all four real managed hosts.",
+      "blocker": "Actual attempt failed in controller callback loading (exit 250) before managed tasks; no SUCCESS/pong. Supplemental failure image does not fulfill this slot."
+    },
+    {
+      "slot": 13,
+      "requirement": "Output of `ansible all -i inventory.ini -m command -a \"uptime\"`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc uptime --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show uptime from all four real managed hosts.",
+      "blocker": "Not run after the controller callback failure; runtime stopped and resources deleted. Fresh approval and infrastructure would be required."
+    },
+    {
+      "slot": 14,
+      "requirement": "Output of `ansible web -i inventory.ini -m apt -a \"name=nginx state=present update_cache=yes\" --become`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc install-nginx --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show actual apt result for web1/web2 with become.",
+      "blocker": "Not run after the controller callback failure; runtime stopped and resources deleted. Fresh approval and infrastructure would be required."
+    },
+    {
+      "slot": 15,
+      "requirement": "Output of `ansible web -i inventory.ini -m service -a \"name=nginx state=started enabled=yes\" --become`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc start-nginx --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show Nginx started and enabled on both web hosts.",
+      "blocker": "Not run after the controller callback failure; runtime stopped and resources deleted. Fresh approval and infrastructure would be required."
+    },
+    {
+      "slot": 16,
+      "requirement": "Output of `ansible all -i inventory.ini -m apt -a \"name=htop state=present update_cache=yes\" --become`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc install-htop --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show actual htop package result for every host with become.",
+      "blocker": "Not run after the controller callback failure; runtime stopped and resources deleted. Fresh approval and infrastructure would be required."
+    },
+    {
+      "slot": 17,
+      "requirement": "Output of `ansible web -i inventory.ini -m command -a \"systemctl is-active nginx\"`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc nginx-status --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show active from both web hosts.",
+      "blocker": "Not run after the controller callback failure; runtime stopped and resources deleted. Fresh approval and infrastructure would be required."
+    }
+  ],
+  "linkedin": {
+    "slot": "linkedin",
+    "status": "pending",
+    "url": null,
+    "file": null,
+    "blocker": "Publication not authorized; no published post or screenshot."
+  },
+  "supplemental_evidence": [
+    {
+      "slot": "supplemental-failed-ping",
+      "status": "captured",
+      "scope": "Actual controller callback failure, not successful managed-host ping or slot 12 completion",
+      "file": "assignment-02-supplemental-failed-ping.png",
+      "sha256": "5353914520359e27b52bdb47fc88c2eb2e90c6563d74b86fcddf53906d163532",
+      "captured_at_utc": "2026-09-16T21:16:06+00:00",
+      "timestamp_source": "Native capture filename, workstation UTC+01:00; precision one second",
+      "source_commit": "4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08",
+      "capture_method": "Coordinator-approved genuine native VS Code window; actual command stream, not replayed or reconstructed output",
+      "image_modifications": "None; exact original PNG bytes",
+      "private_capture_receipt_sha256": "f5912c74c1d3405eb3f9da55fe3af242ec7e169e2d3170a6c37f6cd862cb6751",
+      "blocker": null,
+      "private_run_receipt_sha256": "ef30ab8a3171ff7676eac8ceb7e177006a16d0a1d81fc0e56bd0f1c20456b28e"
+    }
+  ]
+}

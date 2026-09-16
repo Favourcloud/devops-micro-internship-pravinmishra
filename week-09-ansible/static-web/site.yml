@@ -1,0 +1,108 @@
+---
+- name: Install and start Nginx on the two web hosts
+  hosts: web
+  gather_facts: false
+  become: true
+  any_errors_fatal: true
+  vars:
+    live_execution_approved: false
+  pre_tasks:
+    - name: Require current approval and a configured two-host inventory before SSH
+      ansible.builtin.assert:
+        that:
+          - live_execution_approved | bool
+          - lab_inventory_configured | default(false) | bool
+          - groups['web'] | sort == ['web1', 'web2']
+          - hostvars[inventory_hostname].ansible_connection == 'ssh'
+          - not (hostvars[inventory_hostname].ansible_host | default('') is search('invalid'))
+        fail_msg: >-
+          Blocked. Obtain current cloud/budget/SSH approval, render the local
+          inventory from A2 outputs, and explicitly set live_execution_approved=true.
+  tasks:
+    - name: Install Nginx with a cached package index
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+    - name: Start and enable Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+- name: Deploy the personalized static website
+  hosts: web
+  gather_facts: false
+  become: true
+  any_errors_fatal: true
+  vars:
+    live_execution_approved: false
+  pre_tasks:
+    - name: Require approval again before deployment
+      ansible.builtin.assert:
+        that:
+          - live_execution_approved | bool
+          - lab_inventory_configured | default(false) | bool
+          - groups['web'] | sort == ['web1', 'web2']
+  tasks:
+    - name: Copy the website and its local assets
+      ansible.builtin.copy:
+        src: "files/{{ item }}"
+        dest: "/var/www/html/{{ item }}"
+        owner: root
+        group: root
+        mode: "0644"
+      loop:
+        - index.html
+        - contact.html
+        - style.css
+      notify: Reload Nginx
+  handlers:
+    - name: Reload Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
+
+- name: Verify both websites from the controller
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  vars:
+    live_execution_approved: false
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+    ansible_remote_tmp: "{{ playbook_dir }}/.ansible/tmp"
+  tasks:
+    - name: Require approval and complete inventory before controller HTTP requests
+      ansible.builtin.assert:
+        that:
+          - live_execution_approved | bool
+          - groups['web'] | default([]) | sort == ['web1', 'web2']
+          - hostvars['web1'].lab_inventory_configured | default(false) | bool
+          - hostvars['web2'].lab_inventory_configured | default(false) | bool
+    - name: Request each deployed home page without proxying or following redirects
+      ansible.builtin.uri:
+        url: "http://{{ hostvars[item].ansible_host }}/"
+        status_code: 200
+        return_content: true
+        use_proxy: false
+        follow_redirects: none
+        timeout: 10
+      loop: "{{ groups['web'] | sort }}"
+      register: website_response
+      until: website_response.status | default(0) == 200
+      retries: 6
+      delay: 5
+      when: not ansible_check_mode
+    - name: Assert HTTP success and personalized content on each server
+      ansible.builtin.assert:
+        that:
+          - item.status == 200
+          - "'Eze Favour' in item.content"
+          - "'Week 09 multi-host lab' in item.content"
+        success_msg: "{{ item.item }} returned HTTP 200 with Eze Favour and the lab marker."
+      loop: "{{ website_response.results | default([]) }}"
+      loop_control:
+        label: "{{ item.item }}"
+      when: not ansible_check_mode

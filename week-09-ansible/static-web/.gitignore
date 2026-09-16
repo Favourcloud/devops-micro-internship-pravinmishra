@@ -1,0 +1,8 @@
+.local/
+.ansible/
+.cache/
+__pycache__/
+*.pyc
+inventory.local.ini
+*.pem
+*.key

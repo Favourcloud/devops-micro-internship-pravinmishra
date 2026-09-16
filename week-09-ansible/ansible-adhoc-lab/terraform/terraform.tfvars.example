@@ -1,0 +1,7 @@
+# Deliberately unusable. Copy to ignored terraform.tfvars only after approval.
+# Never enter credentials, private keys or account IDs here.
+live_execution_approved = false
+azure_location          = "uksouth"
+lab_name                = "week09-ansible"
+controller_ipv4_cidr     = "REPLACE_WITH_APPROVED_CONTROLLER_IPV4/32"
+ssh_public_key          = "REPLACE_WITH_EXISTING_PUBLIC_KEY_ONLY"

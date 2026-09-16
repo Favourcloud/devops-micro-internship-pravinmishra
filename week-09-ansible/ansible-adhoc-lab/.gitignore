@@ -1,0 +1,17 @@
+.terraform/
+.local/
+.ansible/
+.cache/
+__pycache__/
+*.pyc
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+inventory.local.ini
+*.pem
+*.key
+crash.log
+crash.*.log
