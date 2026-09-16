@@ -2,6 +2,12 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Learner:** Eze Favour
+
+**Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
+
+**Preparation status — assignment incomplete:** The [Terraform project and prospective runbook](terraform-react-azure/README.md) provide the eight-resource Azure topology, SSH-key authentication, restricted ingress and a pinned application bootstrap. Local validation is separate from cloud execution: Terraform mocks and shell stubs cannot establish a live deployment. A genuine isolated local build of the unchanged instructor application succeeded with supported Node 22; no JavaScript was authored or modified in this submission. Ubuntu/cloud-init/Nginx behavior and public access still require an authorized run. No Azure authentication, real plan/apply/destroy, SSH or browser verification was performed here. Fresh identity, permission and budget consent remain gates; previous approvals are not reused. All **15 screenshots and the VM public IP remain pending**, tracked in the [evidence manifest](terraform-react-azure/evidence/manifest.json). Source-only checklist marks below do not certify runtime completion or learner screenshots.
+
 ---
 
 ## Purpose
@@ -22,6 +28,8 @@ Prepare your local environment for Terraform deployment by installing Terraform,
 
 ### Screenshot 1 — Terraform Version
 
+**Evidence status:** Pending — genuine learner-labelled capture not supplied.
+
 Add a screenshot of the terminal showing successful `terraform version` output.
 
 Add your screenshot here.
@@ -30,6 +38,8 @@ Add your screenshot here.
 
 ### Screenshot 2 — Azure CLI Version
 
+**Evidence status:** Pending — genuine learner-labelled capture not supplied.
+
 Add a screenshot of the terminal showing successful `az version` output.
 
 Add your screenshot here.
@@ -37,6 +47,8 @@ Add your screenshot here.
 ---
 
 ### Screenshot 3 — HashiCorp Terraform Extension
+
+**Evidence status:** Pending — genuine learner-labelled capture not supplied.
 
 Add a screenshot of the VS Code Extensions panel showing the HashiCorp Terraform extension installed and enabled.
 
@@ -78,6 +90,8 @@ The `cloud-init.sh` file must contain the complete automated React application d
 
 ### Screenshot 4 — Provider, Resource Group, and Network Security Group
 
+**Evidence status:** Pending — source exists; genuine learner-labelled capture not supplied.
+
 Add a screenshot of VS Code showing the AzureRM provider, resource group, and Network Security Group configuration in `main.tf`.
 
 Add your screenshot here.
@@ -85,6 +99,8 @@ Add your screenshot here.
 ---
 
 ### Screenshot 5 — Linux Virtual Machine and `custom_data`
+
+**Evidence status:** Pending — source exists; genuine learner-labelled capture not supplied.
 
 Add a screenshot of VS Code showing the Linux virtual machine configuration, including the `custom_data` configuration, in `main.tf`.
 
@@ -96,6 +112,8 @@ Add your screenshot here.
 
 ### Screenshot 6 — Completed `cloud-init.sh`
 
+**Evidence status:** Pending — source exists; genuine learner-labelled capture not supplied.
+
 Add a screenshot of VS Code showing the completed `cloud-init.sh` deployment script.
 
 Ensure that no passwords, Azure credentials, access tokens, SSH private keys, or other sensitive information are visible.
@@ -105,6 +123,8 @@ Add your screenshot here.
 ---
 
 ### Screenshot 7 — Public IP Output Block
+
+**Evidence status:** Pending — source exists; genuine learner-labelled capture not supplied.
 
 Add a screenshot of VS Code showing the public IP `output` block in `main.tf`.
 
@@ -122,6 +142,8 @@ Initialize the Terraform working directory and download the required provider co
 
 ### Screenshot 8 — Terraform Initialization
 
+**Evidence status:** Pending — backend-disabled offline init is not an authorized live initialization capture.
+
 Add a screenshot of the terminal showing successful `terraform init` output.
 
 Add your screenshot here.
@@ -138,6 +160,8 @@ Review the Terraform execution plan and provision the Azure infrastructure.
 
 ### Screenshot 9 — Terraform Plan
 
+**Evidence status:** Pending — no real Azure plan authorized or executed.
+
 Add a screenshot showing the Terraform plan summary and the proposed resources.
 
 Add your screenshot here.
@@ -145,6 +169,8 @@ Add your screenshot here.
 ---
 
 ### Screenshot 10 — Terraform Apply
+
+**Evidence status:** Pending — no Azure deployment authorized or executed.
 
 Add a screenshot showing successful `terraform apply` completion.
 
@@ -154,6 +180,8 @@ Add your screenshot here.
 
 ### Screenshot 11 — VM Public IP Output
 
+**Evidence status:** Pending — no live public IP output exists; mock addresses are not evidence.
+
 Add a screenshot showing the VM public IP address returned by `terraform output`.
 
 Add your screenshot here.
@@ -162,7 +190,7 @@ Add your screenshot here.
 
 Record the public IP address displayed by `terraform output`.
 
-**VM Public IP Address:** Add the VM public IP address here
+**VM Public IP Address:** Pending — no authorized Azure deployment or real Terraform output exists.
 
 ---
 
@@ -176,6 +204,8 @@ Connect to the Azure Linux virtual machine and confirm that the cloud-init/user 
 
 ### Screenshot 12 — SSH Connection and Completed React Deployment
 
+**Evidence status:** Pending — no SSH/cloud-init runtime verification performed.
+
 Add a screenshot of the SSH terminal showing a successful connection to the Azure VM and evidence that the React application deployment completed.
 
 Add your screenshot here.
@@ -183,6 +213,8 @@ Add your screenshot here.
 ---
 
 ### Screenshot 13 — Nginx Service Status
+
+**Evidence status:** Pending — stubs do not verify a real Nginx service.
 
 Add a screenshot of the terminal showing that the Nginx service is running successfully.
 
@@ -199,6 +231,8 @@ Confirm that the automatically deployed React application is publicly accessible
 ## Evidence
 
 ### Screenshot 14 — React Application in the Browser
+
+**Evidence status:** Pending — no public browser verification or GUI capture performed.
 
 Add a screenshot of the browser showing the deployed React application successfully loaded using the Azure VM public IP.
 
@@ -217,6 +251,8 @@ Remove all Azure resources created by Terraform after completing the application
 ## Evidence
 
 ### Screenshot 15 — Terraform Destroy
+
+**Evidence status:** Pending — no cloud destroy or inventory cleanup verification performed.
 
 Add a screenshot of the terminal showing successful `terraform destroy` completion.
 
@@ -244,21 +280,21 @@ Add your screenshot here.
 - [ ] Installed Azure CLI and verified it using `az version`
 - [ ] Signed in to Azure and confirmed the correct subscription
 - [ ] Installed and enabled the HashiCorp Terraform extension in VS Code
-- [ ] Created the `terraform-react-azure` project
-- [ ] Created `main.tf`
-- [ ] Defined the Terraform and AzureRM provider configuration
-- [ ] Defined the resource group
-- [ ] Defined the virtual network and subnet
-- [ ] Defined the Network Security Group
-- [ ] Configured SSH and HTTP rules
-- [ ] Defined the public IP and network interface
-- [ ] Created `cloud-init.sh`
-- [ ] Reviewed the React application repository instructions
-- [ ] Created the complete deployment workflow inside `cloud-init.sh`
-- [ ] Defined the Linux virtual machine
-- [ ] Connected `cloud-init.sh` to the VM using `custom_data`
-- [ ] Used `file()` and `base64encode()` correctly
-- [ ] Added the Terraform public IP output
+- [x] Created the `terraform-react-azure` project
+- [x] Created `main.tf`
+- [x] Defined the Terraform and AzureRM provider configuration
+- [x] Defined the resource group
+- [x] Defined the virtual network and subnet
+- [x] Defined the Network Security Group
+- [x] Configured SSH and HTTP rules
+- [x] Defined the public IP and network interface
+- [x] Created `cloud-init.sh`
+- [x] Reviewed the React application repository instructions
+- [x] Created the complete deployment workflow inside `cloud-init.sh`
+- [x] Defined the Linux virtual machine
+- [x] Connected `cloud-init.sh` to the VM using `custom_data`
+- [x] Used `file()` and `base64encode()` correctly
+- [x] Added the Terraform public IP output
 - [ ] Completed `terraform init` successfully
 - [ ] Reviewed the Terraform execution plan
 - [ ] Completed `terraform apply` successfully

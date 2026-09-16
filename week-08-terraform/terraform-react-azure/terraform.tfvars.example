@@ -1,0 +1,8 @@
+# EXAMPLE ONLY: copy to .private/run.tfvars after fresh budget/identity/permission approval.
+# Replace every REPLACE value; these placeholders deliberately fail input validation.
+project_name         = "dmi-w08-a3"
+location             = "REPLACE_APPROVED_REGION"
+vm_size              = "REPLACE_APPROVED_X64_SKU"
+controller_ipv4_cidr = "REPLACE_PUBLIC_IPV4/32"
+admin_username       = "dmiuser"
+admin_ssh_public_key = "REPLACE_EXISTING_ED25519_PUBLIC_KEY"
