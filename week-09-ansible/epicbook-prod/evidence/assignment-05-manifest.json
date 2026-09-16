@@ -2,7 +2,7 @@
   "schema_version": 1,
   "assignment": "Week 09 Assignment 5",
   "status": "code-ready-preparation-not-deployed",
-  "last_local_validation_utc": "2026-09-16T18:21:25Z",
+  "last_local_validation_utc": "2026-09-16T18:37:17Z",
   "selected_cloud": "Azure only",
   "cloud_choice_note": "Coordinator explicitly replaced AWS with Azure after the non-root AWS EC2 permission check failed. No AWS infrastructure remains here.",
   "base_commit": "0983d638c1139d78bd9a4de18a719626bf89bc9c",
@@ -45,12 +45,19 @@
       {"command": "terraform -chdir=terraform/azure test -no-color", "result": "11 passed, 0 failed; exclusively mocked apply/teardown, not real resources"},
       {"command": "ansible-playbook -i inventory.ini site.yml --syntax-check", "result": "passed; expected empty-inventory warning"},
       {"command": "ansible-lint --offline site.yml roles", "result": "production profile passed, 0 failures, 0 lint warnings; dependency installation skipped"},
-      {"command": "python -m unittest discover -s tests -v", "result": "14 passed; includes positive source-only/runtime preflight subtests and negative execution guards"},
-      {"command": "bash scripts/verify.sh", "result": "end-to-end passed with task-local caches and read-only existing tools/provider"},
+      {"command": "python -m unittest discover -s tests -v", "result": "17 passed; source-only/runtime positives with and without --limit web, missing/false approval and invalid-target negatives, real non-networking OpenSSH regression"},
+      {"command": "bash scripts/verify.sh", "result": "end-to-end passed at 2026-09-16T18:21:25Z before review fixes; focused syntax/lint and all 17 local tests rerun after fixes; Terraform source unchanged"},
       {"command": "node <npm-cli.js> ci --omit=dev --ignore-scripts --no-audit --no-fund", "result": "107 packages installed in disposable pinned upstream checkout; package manifests unchanged"},
       {"command": "python scripts/verify_upstream.py --source <disposable-pinned-source> --node <verified-node22>", "result": "19 source hashes, server syntax, six imports, Sequelize model construction and real Handlebars fixture render passed; no DB connection or HTTP server"}
     ],
-    "connection_safety": "Positive tests replace SSH with an executable that records invocation and exits; negative tests use /usr/bin/false. No external SSH or controller package changes.",
+    "connection_safety": "Execution tests replace SSH with a recording executable that immediately exits or /usr/bin/false. Real /usr/bin/ssh uses -G or ProxyCommand=/usr/bin/false with configuration, keys and known-host files /dev/null and IdentityAgent=none. No external SSH, network connection, credentials or controller package changes.",
+    "review_regressions": {
+      "completed_utc": "2026-09-16T18:37:17Z",
+      "legacy_controlpath": "Actual OpenSSH reproduced the macOS >=104-byte ControlPath error; explicit ControlMaster=no and ControlPath=none pass configuration and no-network proxy tests, preserving strict host-key checking.",
+      "limited_play_approval": "Both missing and false approval invoked the recording SSH stub before the fix. Both now fail before setup without invoking SSH; approved valid normal/limited source-only/runtime cases reach only the stub.",
+      "limited_play_target_checks": "Approved local connection, root user, loopback address and two-host inventory all rejected before setup or SSH; original hostvars used despite delegation.",
+      "terraform_source": "Unchanged from real-plan source a693b8c67741bbad86c9a278101128a73807c702; no replan or apply performed."
+    },
     "provider_binary_sha256": "0aa6e61c4e286fee033d2b6196c5f6012e7a158f5b18c0f82604f444b5e0832c"
   },
   "real_azure_plan": {
@@ -110,6 +117,8 @@
     "Instructor source requires Node/MySQL, contrary to a static-site assumption; native JAWSDB_URL integration avoids application JS edits.",
     "Shared disk exhaustion during tool extraction: only disposable task downloads were removed; verified existing provider reused read-only.",
     "Long macOS temporary paths prevented Ansible RPC startup; short unique task-owned /tmp directories fixed the tests.",
+    "Separately, actual OpenSSH hit macOS's 104-byte ControlPath limit; disabled multiplexing explicitly and added a real non-networking regression rather than relying on fake SSH or short Ansible RPC paths.",
+    "Review found --limit web skipped the localhost approval play. Reproduced with missing/false approval; added web pre-task approval and original-target checks before setup, plus denied and approved regression cases.",
     "Azure mock schema validation needed syntactically valid synthetic resource IDs and a public-only SSH key fixture; corrected fixtures passed.",
     "SSH stub stderr was not preserved when Ansible hit an early pipe closure; positive tests instead verify the marker file, successful guards and expected unreachable fact-gathering task.",
     "npm emitted a debug@4.1.1 deprecation warning; no dependency audit/remediation or application dependency edits were performed."

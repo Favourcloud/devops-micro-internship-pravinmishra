@@ -1,10 +1,12 @@
 """Local contract tests. These are NOT VM, MySQL or application deployment evidence."""
 
+import configparser
 import importlib.util
 import json
 import os
 from pathlib import Path
 import re
+import shlex
 import stat
 import subprocess
 import tempfile
@@ -130,11 +132,38 @@ class RoleContractTests(unittest.TestCase):
             self.assertIn(setting, service)
 
 
+class OpenSSHConfigTests(unittest.TestCase):
+    def test_no_multiplexing_even_with_long_inherited_control_path(self):
+        config = configparser.ConfigParser(interpolation=None)
+        config.read(ANSIBLE / "ansible.cfg")
+        options = shlex.split(config.get("ssh_connection", "ssh_args"))
+        self.assertNotIn("ControlPersist", " ".join(options))
+        long_path = "/tmp/" + "nested-worktree-" * 12 + "/control"
+        # No real credentials, host files, agent or network are used by either invocation.
+        isolated = ["/usr/bin/ssh", "-F", "/dev/null", "-o", "ProxyCommand=/usr/bin/false",
+                    "-o", "IdentityAgent=none", "-o", "IdentityFile=/dev/null",
+                    "-o", "CertificateFile=/dev/null", "-o", "UserKnownHostsFile=/dev/null",
+                    "-o", "GlobalKnownHostsFile=/dev/null", "-o", "BatchMode=yes"]
+        target = ["-o", "ControlPath=" + long_path, "203.0.113.20"]
+        effective = subprocess.run(isolated + ["-G"] + options + target,
+                                   text=True, capture_output=True, timeout=10, check=True)
+        values = dict(line.split(None, 1) for line in effective.stdout.splitlines() if " " in line)
+        self.assertIn(values["controlmaster"], ["false", "no"])
+        self.assertIn(values["controlpersist"], ["false", "no"])
+        self.assertEqual(values.get("controlpath", "none"), "none")
+        self.assertIn(values["stricthostkeychecking"], ["true", "yes"])
+        result = subprocess.run(isolated + options + target, input="",
+                                text=True, capture_output=True, timeout=10)
+        self.assertEqual(result.returncode, 255)
+        self.assertIn("closed", result.stderr.lower())
+        self.assertNotIn("too long", result.stderr.lower())
+
+
 class ExecutionGuardTests(unittest.TestCase):
     def test_approved_rendered_inventory_reaches_only_offline_ssh_stub(self):
         executable = os.environ.get("ANSIBLE_PLAYBOOK", "ansible-playbook")
-        for runtime in [False, True]:
-            with self.subTest(runtime=runtime), tempfile.TemporaryDirectory() as directory:
+        for runtime, limited in [(False, False), (True, False), (False, True), (True, True)]:
+            with self.subTest(runtime=runtime, limited=limited), tempfile.TemporaryDirectory() as directory:
                 work = Path(directory)
                 marker = work / "stub-called"
                 stub = work / "ssh-stub"
@@ -151,8 +180,10 @@ class ExecutionGuardTests(unittest.TestCase):
                 }
                 env = dict(os.environ, ANSIBLE_CONFIG=str(ANSIBLE / "ansible.cfg"), ANSIBLE_LOCAL_TEMP=directory,
                            ANSIBLE_SSH_EXECUTABLE=str(stub), A5_STUB_MARKER=str(marker))
-                result = subprocess.run([executable, "-i", str(inventory), "site.yml", "-e", json.dumps(extra)],
-                                        cwd=ANSIBLE, env=env, text=True, capture_output=True, timeout=60)
+                command = [executable, "-i", str(inventory), "site.yml", "-e", json.dumps(extra)]
+                if limited:
+                    command += ["--limit", "web"]
+                result = subprocess.run(command, cwd=ANSIBLE, env=env, text=True, capture_output=True, timeout=60)
                 self.assertNotEqual(result.returncode, 0)
                 self.assertTrue(marker.exists(), result.stdout + result.stderr)
                 self.assertEqual(marker.read_text(), "called")
@@ -160,6 +191,56 @@ class ExecutionGuardTests(unittest.TestCase):
                 self.assertIn("UNREACHABLE", result.stdout)
                 self.assertNotIn("common :", result.stdout)
                 self.assertNotIn(extra["vault_epicbook_db_password"], result.stdout + result.stderr)
+
+    def test_limit_web_cannot_bypass_missing_or_false_approval(self):
+        executable = os.environ.get("ANSIBLE_PLAYBOOK", "ansible-playbook")
+        for extra in [{}, {"deployment_approved": False}]:
+            with self.subTest(extra=extra), tempfile.TemporaryDirectory() as directory:
+                work = Path(directory)
+                marker = work / "stub-called"
+                stub = work / "ssh-stub"
+                stub.write_text('#!/bin/sh\nprintf called > "$A5_STUB_MARKER"\nexit 255\n')
+                stub.chmod(0o700)
+                inventory = work / "inventory.ini"
+                outputs = {"public_ip": {"value": "8.8.8.8"}, "admin_user": {"value": "ubuntu"}}
+                RENDERER.write_new(inventory, RENDERER.render(outputs, "/not-read/key", "/not-read/known_hosts"))
+                env = dict(os.environ, ANSIBLE_CONFIG=str(ANSIBLE / "ansible.cfg"), ANSIBLE_LOCAL_TEMP=directory,
+                           ANSIBLE_SSH_EXECUTABLE=str(stub), A5_STUB_MARKER=str(marker))
+                result = subprocess.run([executable, "-i", str(inventory), "site.yml", "--limit", "web", "-e", json.dumps(extra)],
+                                        cwd=ANSIBLE, env=env, text=True, capture_output=True, timeout=60)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse(marker.exists(), result.stdout + result.stderr)
+                self.assertIn("STOP: preparation only", result.stdout)
+                self.assertNotIn("Gather target facts", result.stdout)
+                self.assertNotIn("common :", result.stdout)
+
+    def test_limited_approved_invalid_targets_are_rejected_before_setup(self):
+        executable = os.environ.get("ANSIBLE_PLAYBOOK", "ansible-playbook")
+        cases = [{"ansible_connection": "local"}, {"ansible_user": "root"},
+                 {"ansible_host": "127.0.0.1"}, {"two_hosts": True}]
+        for case in cases:
+            with self.subTest(case=case), tempfile.TemporaryDirectory() as directory:
+                work = Path(directory)
+                marker = work / "stub-called"
+                stub = work / "ssh-stub"
+                stub.write_text('#!/bin/sh\nprintf called > "$A5_STUB_MARKER"\nexit 255\n')
+                stub.chmod(0o700)
+                inventory = work / "inventory.ini"
+                outputs = {"public_ip": {"value": "8.8.8.8"}, "admin_user": {"value": "ubuntu"}}
+                text = RENDERER.render(outputs, "/not-read/key", "/not-read/known_hosts")
+                if case.get("two_hosts"):
+                    text += "second ansible_host=8.8.4.4 ansible_user=ubuntu ansible_connection=ssh\n"
+                RENDERER.write_new(inventory, text)
+                extra = {"deployment_approved": True, **{k: v for k, v in case.items() if k != "two_hosts"}}
+                env = dict(os.environ, ANSIBLE_CONFIG=str(ANSIBLE / "ansible.cfg"), ANSIBLE_LOCAL_TEMP=directory,
+                           ANSIBLE_SSH_EXECUTABLE=str(stub), A5_STUB_MARKER=str(marker))
+                result = subprocess.run([executable, "-i", str(inventory), "site.yml", "--limit", "web", "-e", json.dumps(extra)],
+                                        cwd=ANSIBLE, env=env, text=True, capture_output=True, timeout=60)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse(marker.exists(), result.stdout + result.stderr)
+                self.assertIn("STOP: preparation only", result.stdout)
+                self.assertNotIn("Gather target facts", result.stdout)
+                self.assertNotIn("common :", result.stdout)
 
     def test_unconfigured_run_is_rejected_without_ssh(self):
         executable = os.environ.get("ANSIBLE_PLAYBOOK", "ansible-playbook")

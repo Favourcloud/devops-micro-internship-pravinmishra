@@ -27,6 +27,23 @@
   become: true
   gather_facts: false
   pre_tasks:
+    - name: Require approval and a single valid target even when localhost is excluded
+      ansible.builtin.assert:
+        that:
+          - deployment_approved | default(false) | bool
+          - groups.get('web', []) | length == 1
+          - inventory_hostname == groups['web'][0]
+          - hostvars[inventory_hostname].ansible_connection | default('') == 'ssh'
+          - hostvars[inventory_hostname].ansible_user | default('') == 'ubuntu'
+          - hostvars[inventory_hostname].ansible_host | default('') is match('^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$')
+          - hostvars[inventory_hostname].ansible_host | default('') is not match('^(0|127|169\.254)\.')
+        fail_msg: >-
+          STOP: preparation only. Exactly one validated SSH target and current
+          budget/access approval are required before setting deployment_approved=true. No remote action taken.
+      delegate_to: localhost
+      become: false
+      tags: always
+
     - name: Validate the reviewed source and filesystem boundaries before SSH
       ansible.builtin.assert:
         that:

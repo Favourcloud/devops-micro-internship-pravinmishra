@@ -90,11 +90,14 @@ AWS non-root profile failed its EC2 authorization check. No AWS alternative or
 AWS resource configuration remains in this project. This is a permission-based
 scope decision, not permission to use AWS root or modify IAM.
 
-Role order is exactly **common → nginx → epicbook**, preceded by a controller-only
-approval/inventory guard. It aborts the entire playbook before SSH on missing
-approval or empty inventory. The inventory renderer additionally rejects reserved,
-private, loopback, multicast and documentation addresses and SSH argument injection.
-Do not bypass it with a hand-edited inventory or extra-variable overrides.
+Role order is exactly **common → nginx → epicbook**, preceded by controller-only
+approval/inventory guards. The localhost play rejects missing approval or empty
+inventory during normal invocation. The first web pre-task repeats approval and
+single-target checks using the original host's variables, before fact gathering
+or any SSH; `--limit web` cannot skip those checks. The inventory renderer also
+rejects reserved, private, loopback, multicast and documentation addresses and SSH
+argument injection. Do not bypass these safeguards with hand-edited inventories,
+extra-variable overrides, `--start-at-task` or `--skip-tags always`.
 
 - `common`: apt refresh/upgrade; baseline git, curl, unzip,
   software-properties-common plus CA certificates, ACL and xz support. Reboots are
@@ -137,7 +140,8 @@ here. No default `root` DB password is used; administration uses Ubuntu socket a
 
 ## Local validation (safe to run now)
 
-Use an existing controller with Python, PyYAML, Jinja2, Ansible and ansible-lint.
+Use an existing POSIX controller with Python, PyYAML, Jinja2, Ansible, ansible-lint,
+OpenSSH at `/usr/bin/ssh` and `/usr/bin/false` for the non-networking proxy test.
 Tested: Python 3.13.3, ansible-core 2.21.4 / Ansible 14.4, ansible-lint 26.8.0,
 `ansible.mysql` **5.2.0**, Terraform **1.13.5**. The collection is pinned in
 `ansible/requirements.yml`; install only if missing, into a task-local collection
@@ -153,12 +157,19 @@ bash scripts/verify.sh
 
 This performs format checking, backend-disabled init using the checked-in provider
 lock, Terraform validation and **11 mocked tests**, Ansible syntax/production lint,
-and **14 local tests**: two unapproved/unconfigured execution rejections with SSH
-replaced by `/usr/bin/false`, plus positive source-only and runtime preflight
-subtests using the documented inventory renderer and a non-networking SSH stub.
-The positive cases must pass all controller guards and reach only that stub at
-fact gathering; they intentionally stop before any role executes. Verification
-disables cloud credential discovery for these commands.
+and **17 local tests**: normal unapproved/unconfigured execution rejections, plus
+`--limit web` missing/false-approval and invalid-target rejection subtests that
+never invoke their recording SSH stub. Positive source-only/runtime preflights,
+both normal and `--limit web`, use the documented inventory renderer and must
+reach only that non-networking stub at fact gathering; they intentionally stop
+before any role executes. The missing/false-approval regressions reproduced the
+reviewed bypass before the web-play guard was added, then passed. An additional
+real `/usr/bin/ssh` test evaluates configuration with `-G` and a deliberately long
+inherited ControlPath, then uses `ProxyCommand=/usr/bin/false` to stop without any
+network or credential access. Multiplexing is explicitly disabled with
+`ControlMaster=no` and `ControlPath=none`: a short Ansible RPC temporary directory
+alone does not prevent macOS's 104-byte SSH socket-path limit. Strict host-key
+checking remains mandatory. Verification disables cloud credential discovery.
 A short unique `/tmp/w09-a5-verify.*` is cleaned on exit: long macOS paths otherwise
 caused Ansible's Unix-socket RPC startup to fail. Init may download the provider if
 no mirror is supplied; it does not query Azure. Shared provider reuse is read-only,
