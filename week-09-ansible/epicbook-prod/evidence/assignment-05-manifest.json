@@ -2,7 +2,7 @@
   "schema_version": 1,
   "assignment": "Week 09 Assignment 5",
   "status": "code-ready-preparation-not-deployed",
-  "last_local_validation_utc": "2026-09-16T19:18:52Z",
+  "last_local_validation_utc": "2026-09-16T19:37:02Z",
   "selected_cloud": "Azure only",
   "cloud_choice_note": "Coordinator explicitly replaced AWS with Azure after the non-root AWS EC2 permission check failed. No AWS infrastructure remains here.",
   "base_commit": "0983d638c1139d78bd9a4de18a719626bf89bc9c",
@@ -47,6 +47,7 @@
     "apply_authorized": false
   },
   "source_capture_manifest": "source-captures.json",
+  "infrastructure_capture_manifest": "infrastructure-source-captures.json",
   "local_validation": {
     "tools": {
       "terraform": "1.13.5",
@@ -65,8 +66,8 @@
       {"command": "terraform -chdir=terraform/azure test -no-color", "result": "12 passed, 0 failed; exclusively mocked apply/teardown, including nonzonal NVMe, pinned image, managed disk and rejection of superseded B1ms; not real resources"},
       {"command": "ansible-playbook -i inventory.ini site.yml --syntax-check", "result": "passed; expected empty-inventory warning"},
       {"command": "ansible-lint --offline site.yml roles", "result": "production profile passed, 0 failures, 0 lint warnings; dependency installation skipped"},
-      {"command": "python -m unittest discover -s tests -v", "result": "18 passed; approved PNG/source hashes, source-only/runtime positives with and without --limit web, missing/false approval and invalid-target negatives, real non-networking OpenSSH regression"},
-      {"command": "bash scripts/verify.sh", "result": "end-to-end passed at 2026-09-16T19:18:52Z after approved D2lds_v6/NVMe/image edits and source-image integration; 12 Terraform mocks, syntax/production lint, 18 local tests. Ansible sources unchanged from d3a00aa."},
+      {"command": "python -m unittest discover -s tests -v", "result": "19 passed; approved PNG/source hashes, historical 43-file tree scope, source-only/runtime positives with and without --limit web, missing/false approval and invalid-target negatives, real non-networking OpenSSH regression"},
+      {"command": "bash scripts/verify.sh", "result": "end-to-end passed at 2026-09-16T19:37:02Z after final source-image integration; 12 Terraform mocks, syntax/production lint, 19 local tests. Terraform unchanged from 53766f5; Ansible sources unchanged from d3a00aa."},
       {"command": "node <npm-cli.js> ci --omit=dev --ignore-scripts --no-audit --no-fund", "result": "107 packages installed in disposable pinned upstream checkout; package manifests unchanged"},
       {"command": "python scripts/verify_upstream.py --source <disposable-pinned-source> --node <verified-node22>", "result": "19 source hashes, server syntax, six imports, Sequelize model construction and real Handlebars fixture render passed; no DB connection or HTTP server"}
     ],
@@ -81,7 +82,14 @@
     "provider_binary_sha256": "0aa6e61c4e286fee033d2b6196c5f6012e7a158f5b18c0f82604f444b5e0832c"
   },
   "real_azure_plan": {
-    "status": "passed-not-applied",
+    "status": "pending-final-frozen-head-seal",
+    "report_policy": "One fresh unique identity-before-plan seal after final source evidence commit. All tracked files frozen thereafter; final plan report remains private/uncommitted until apply outcome.",
+    "apply_authorized": false,
+    "applied": false
+  },
+  "historical_d2lds_plan": {
+    "status": "superseded-by-final-evidence-head-do-not-apply",
+    "reason": "Intermediate plan passed, but source evidence was added afterward. Preserve original artifacts unchanged; obtain final frozen-head plan rather than rebinding this plan.",
     "completed_utc": "2026-09-16T19:22:39.568990+00:00",
     "source_commit": "53766f5b5fc71f7c0a58c56fdeea976f18d48608",
     "plan_sha256": "2cc08cd73213d2eb2e546d68b966a97907c1cc25b37558b3300a25ac679d1aa7",
@@ -135,9 +143,9 @@
     "teardown_and_orphan_check": "pending"
   },
   "numbered_screenshots": [
-    {"number": 1, "subject": "Complete project tree", "status": "pending"},
+    {"number": 1, "subject": "Complete 43-file tracked project tree at a15fc8c before additional evidence files", "status": "captured-source-only", "images": ["images/screenshot-1a.png", "images/screenshot-1b.png", "images/screenshot-1c.png"]},
     {"number": 2, "subject": "Terraform apply and public_ip/admin_user outputs", "status": "pending"},
-    {"number": 3, "subject": "Inbound SSH and HTTP rules", "status": "pending"},
+    {"number": 3, "subject": "Inbound SSH/HTTP rules and validated controller IPv4 /32", "status": "captured-source-only", "images": ["images/screenshot-3a.png", "images/screenshot-3b.png"]},
     {"number": 4, "subject": "Passwordless SSH hostname check", "status": "pending"},
     {"number": 5, "subject": "Inventory and Ansible ping", "status": "pending"},
     {"number": 6, "subject": "site.yml role order", "status": "captured-source-only", "images": ["images/screenshot-06.png"]},

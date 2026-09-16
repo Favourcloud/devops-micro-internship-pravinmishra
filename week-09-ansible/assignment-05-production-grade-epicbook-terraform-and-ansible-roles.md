@@ -23,8 +23,8 @@ configuration, and guarded SQL initialization; the default deliberately returns
 
 Local syntax, lint, mock infrastructure tests and source compatibility checks do
 not prove provisioning, SSH, database operation, public HTTP 200 or second-run
-idempotency. Source-only screenshots **6, 7, 8, 10 and 11** are now captured and
-coordinator-reviewed; the other ten numbered slots, LinkedIn and video remain
+idempotency. Source-only screenshots **1, 3, 6, 7, 8, 10 and 11** are now captured and
+coordinator-reviewed; the other eight numbered slots, LinkedIn and video remain
 pending. The native editor PNG bytes are unchanged and bind the Ansible files at
 commit `d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3`; see the
 [sanitized capture/source receipts](./epicbook-prod/evidence/source-captures.json).
@@ -45,7 +45,23 @@ Create the `epicbook-prod` project with `terraform/azure` or `terraform/aws`, `a
 
 #### Screenshot 1 — Terminal or editor showing the complete `epicbook-prod` project tree
 
-Add your screenshot here.
+Three genuine foreground terminal views cover all **43 tracked project files at
+capture commit `a15fc8c7c728d699fe1a0ae43177b8809f19eba7`**, before these additional
+image/receipt files were committed. Each command freshly listed the tree; this is
+not stored-output replay or a claim about the final future file count. Later
+pages repeat the original header. See the [tree/source receipts](./epicbook-prod/evidence/infrastructure-source-captures.json).
+
+**1a — First tree view (output lines 1–28)**
+
+![Screenshot 1a — Genuine tracked project tree, first view](./epicbook-prod/evidence/images/screenshot-1a.png)
+
+**1b — Second tree view (header and output lines 29–52)**
+
+![Screenshot 1b — Genuine tracked project tree, second view](./epicbook-prod/evidence/images/screenshot-1b.png)
+
+**1c — Final tree view (header and output lines 53–68)**
+
+![Screenshot 1c — Genuine tracked project tree, final view](./epicbook-prod/evidence/images/screenshot-1c.png)
 
 ---
 
@@ -65,7 +81,13 @@ Add your screenshot here.
 
 #### Screenshot 3 — Terraform code or cloud console showing inbound rules for ports 22 and 80
 
-Add your screenshot here.
+Two genuine source views show the controller-only SSH/public HTTP rules and the
+validated public IPv4 `/32` input. These are code evidence, not deployed NSG proof;
+Terraform bytes match commit `53766f5b5fc71f7c0a58c56fdeea976f18d48608`.
+
+![Screenshot 3a — Actual SSH and HTTP Terraform rules](./epicbook-prod/evidence/images/screenshot-3a.png)
+
+![Screenshot 3b — Actual controller IPv4 /32 validation](./epicbook-prod/evidence/images/screenshot-3b.png)
 
 ---
 
@@ -305,8 +327,8 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: `epicbook-prod` project and role structure created (Screenshot 1)
-- [ ] Task 2: Cloud VM provisioned with Terraform (Screenshots 2–3)
+- [x] Task 1: `epicbook-prod` project and role structure created (Screenshot 1)
+- [ ] Task 2: Cloud VM provisioned with Terraform (Screenshot 3 source captured; live Screenshot 2 pending)
 - [ ] Task 3: Passwordless SSH and Ansible ping verified (Screenshots 4–5)
 - [x] Task 4: `site.yml` orchestrates roles in common → nginx → epicbook order (Screenshot 6)
 - [x] Task 5: `common` role created (Screenshot 7)

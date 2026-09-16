@@ -1,11 +1,15 @@
 # Assignment 5 — EpicBook Azure preparation
 
 **Status: code-ready preparation, not a deployed or production-certified application.**
-Source screenshots **6, 7, 8, 10 and 11** are captured and coordinator-reviewed;
+Source screenshots **1, 3, 6, 7, 8, 10 and 11** are captured and coordinator-reviewed;
 all other numbered slots, passwordless SSH/ping, live MySQL/application checks,
 public HTTP 200, second-run idempotency, LinkedIn and video evidence remain pending.
-The ten untouched native editor PNGs and sanitized source/hash receipts live under
-[evidence](evidence/source-captures.json). They bind unchanged Ansible source at
+Fifteen untouched native PNGs and sanitized source/hash receipts live under
+[evidence](evidence/source-captures.json) and the supplementary
+[tree/Terraform capture manifest](evidence/infrastructure-source-captures.json).
+The three genuine tree views cover 43 tracked files at `a15fc8c`, before the five
+additional images and their receipt manifest were added, not a final file count.
+The Ansible editor views bind unchanged source at
 `d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3`, not remote execution. Screenshot 8d's
 editor-selected Python 3.9.6 is not controller/runtime evidence; CLI validation
 uses the existing Python 3.13.3 environment.
@@ -22,11 +26,15 @@ The historical B1ms plan passed with **11 creates, 0 updates, 0 deletes**, but i
 **superseded and must never be applied**: the UK South SKU catalogue reports
 `NotAvailableForSubscription` at location level. Its original private plan and
 source/hash bindings are preserved. The coordinator approved a separately planned
-nonzonal D2lds_v6 preparation. Its **new identity-bound real plan passed at
-19:22:39 UTC on 16 September 2026: 11 creates, 0 updates, 0 deletes**. Source commit
-`53766f5b5fc71f7c0a58c56fdeea976f18d48608` and plan hash are recorded in the manifest;
-account/input/environment equality and the embedded Terraform/lock were checked.
-Actual plans/inputs/logs remain private and ignored. **No apply occurred.** Neither
+nonzonal D2lds_v6 preparation. An intermediate identity-bound plan passed at
+19:22:39 UTC on 16 September 2026: **11 creates, 0 updates, 0 deletes**, on source
+`53766f5b5fc71f7c0a58c56fdeea976f18d48608`. It is retained as history and must not be
+applied, because further source evidence was subsequently integrated. Terraform
+and Ansible bytes did not change. After the final evidence commit, the coordinator
+requires one fresh unique identity-before-plan seal and a freeze of **all tracked
+files**. That final plan report stays private/uncommitted until the apply outcome,
+avoiding a plan → documentation → new HEAD loop. Exact-plan approval is still
+required. Actual plans/inputs/logs remain private and ignored. **No apply occurred.** Neither
 catalogue eligibility, quota nor a successful plan proves physical allocation
 capacity, VM creation or application operation.
 
@@ -196,7 +204,7 @@ bash scripts/verify.sh
 This performs format checking, backend-disabled init using the checked-in provider
 lock, Terraform validation and **12 mocked tests**, including rejection of the
 superseded B1ms size and assertions for nonzonal NVMe/pinned-image/managed-disk
-contracts, Ansible syntax/production lint, and **18 local tests**. These verify
+contracts, Ansible syntax/production lint, and **19 local tests**. These verify
 approved PNG/source hashes and normal unapproved/unconfigured execution rejections, plus
 `--limit web` missing/false-approval and invalid-target rejection subtests that
 never invoke their recording SSH stub. Positive source-only/runtime preflights,
