@@ -1,0 +1,8 @@
+# Copy to ignored terraform.tfvars only after Azure authorization and cost approval.
+# These deliberately invalid values prevent accidental planning with dummy inputs.
+name_prefix    = "dmi-mini-finance"
+location       = "REPLACE_WITH_APPROVED_AZURE_REGION"
+admin_username = "azureuser"
+controller_cidr = "REPLACE_WITH_CONTROLLER_PUBLIC_IPV4/32"
+ssh_public_key  = "REPLACE_WITH_EXISTING_USER_PUBLIC_KEY_ONLY"
+# No subscription ID, credential, private-key path or private key belongs here.

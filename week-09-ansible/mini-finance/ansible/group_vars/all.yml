@@ -1,0 +1,25 @@
+---
+mini_finance_repo: https://github.com/pravinmishraaws/mini_finance.git
+mini_finance_revision: 296334fc27de87bdfcafdad041e41573d8815700
+mini_finance_checkout: /opt/mini-finance/source
+mini_finance_archive: "/opt/mini-finance/site-{{ mini_finance_revision }}.tar"
+mini_finance_release: "/var/www/mini-finance/releases/{{ mini_finance_revision }}"
+mini_finance_docroot: /var/www/html
+mini_finance_content_markers:
+  - "<title>Mini Finance — Simple Personal Budget Tracker</title>"
+  - "Tooplate 2135 Mini Finance"
+# Explicit public assets only: notably exclude upstream js/.DS_Store and history/docs.
+mini_finance_public_paths:
+  - index.html
+  - help-center.html
+  - profile.html
+  - setting.html
+  - transation-detail.html
+  - wallet.html
+  - css
+  - fonts
+  - images
+  - js/apexcharts.min.js
+  - js/bootstrap.bundle.min.js
+  - js/custom.js
+  - js/jquery.min.js

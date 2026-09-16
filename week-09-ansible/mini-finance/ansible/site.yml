@@ -1,0 +1,269 @@
+---
+- name: Install Nginx and Git on the approved Azure VM
+  hosts: web
+  become: true
+  gather_facts: false
+  any_errors_fatal: true
+  pre_tasks:
+    - name: Require one explicitly configured IPv4 host before any SSH connection
+      vars:
+        # Delegation supplies localhost connection variables; validate the original VM instead.
+        mini_finance_target: "{{ hostvars[inventory_hostname] }}"
+      ansible.builtin.assert:
+        that:
+          - groups['web'] | length == 1
+          - mini_finance_target.ansible_host is defined
+          - mini_finance_target.ansible_host is match('^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$')
+          - mini_finance_target.ansible_host.split('.') | map('int') | max <= 255
+          - mini_finance_target.ansible_host.split('.') | map('int') | min >= 0
+          - mini_finance_target.ansible_host.split('.')[0] | int not in [0, 127]
+          - mini_finance_target.ansible_user is defined
+          - mini_finance_target.ansible_user is match('^[a-z][a-z0-9_]{2,31}$')
+          - mini_finance_target.ansible_user != 'root'
+          - mini_finance_target.ansible_connection | default('ssh') == 'ssh'
+          - not ansible_check_mode
+        fail_msg: >-
+          Configure one real Azure host and administrator in a private inventory after approval.
+          Check mode is not a substitute for a validated deployment; use offline syntax/tests instead.
+      delegate_to: localhost
+      become: false
+
+    - name: Gather facts only after the controller preflight succeeds
+      ansible.builtin.setup:
+
+    - name: Require the assigned Ubuntu release
+      ansible.builtin.assert:
+        that:
+          - ansible_facts['distribution'] == 'Ubuntu'
+          - ansible_facts['distribution_version'] == '22.04'
+  tasks:
+    - name: Install web server and source-control packages
+      ansible.builtin.apt:
+        name:
+          - nginx
+          - git
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Enable and start Nginx
+      ansible.builtin.service:
+        name: nginx
+        enabled: true
+        state: started
+
+- name: Clone and deploy the pinned Mini Finance public site
+  hosts: web
+  become: true
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+    - name: Create the root-owned source and release parents
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+      loop:
+        - /opt/mini-finance
+        - /var/www/mini-finance
+        - /var/www/mini-finance/releases
+        - "{{ mini_finance_release }}"
+
+    - name: Clone the public repository outside the web root at the reviewed revision
+      ansible.builtin.git:
+        repo: "{{ mini_finance_repo }}"
+        dest: "{{ mini_finance_checkout }}"
+        version: "{{ mini_finance_revision }}"
+        force: false
+      register: mini_finance_clone
+
+    - name: Confirm checkout matches the reviewed immutable revision
+      ansible.builtin.assert:
+        that:
+          - mini_finance_clone.after == mini_finance_revision
+
+    - name: Export only allowlisted public assets from the pinned Git tree
+      ansible.builtin.command:
+        argv: "{{ ['git', '-C', mini_finance_checkout, 'archive', '--format=tar', '--output=' + mini_finance_archive,
+                   mini_finance_revision, '--'] + mini_finance_public_paths }}"
+        creates: "{{ mini_finance_archive }}"
+
+    - name: Unpack the public export into the release directory
+      ansible.builtin.unarchive:
+        src: "{{ mini_finance_archive }}"
+        dest: "{{ mini_finance_release }}"
+        remote_src: true
+        owner: root
+        group: root
+        mode: 'u=rwX,go=rX'
+      notify: Reload Mini Finance
+
+    - name: Inspect required public release paths without following symlinks
+      ansible.builtin.stat:
+        path: "{{ mini_finance_release }}/{{ item }}"
+        follow: false
+      loop: "{{ mini_finance_public_paths }}"
+      register: mini_finance_public_stats
+
+    - name: Require every allowlisted path to be a regular file or directory
+      ansible.builtin.assert:
+        that:
+          - item.stat.exists
+          - not item.stat.islnk
+          - item.stat.isreg or item.stat.isdir
+      loop: "{{ mini_finance_public_stats.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    - name: Inspect release for hidden metadata and symlinks
+      ansible.builtin.find:
+        paths: "{{ mini_finance_release }}"
+        recurse: true
+        hidden: true
+        file_type: any
+      register: mini_finance_release_entries
+
+    - name: Reject hidden files or symlinks before publishing
+      ansible.builtin.assert:
+        that:
+          - item.path | basename is not match('^\\.')
+          - not item.islnk
+      loop: "{{ mini_finance_release_entries.files }}"
+      loop_control:
+        label: "{{ item.path }}"
+
+    - name: Read staged index for site-specific content validation
+      ansible.builtin.slurp:
+        src: "{{ mini_finance_release }}/index.html"
+      register: mini_finance_index
+
+    - name: Require Mini Finance content before switching the document root
+      ansible.builtin.assert:
+        that:
+          - item in (mini_finance_index.content | b64decode)
+      loop: "{{ mini_finance_content_markers }}"
+
+    - name: Inspect existing document root without following symlinks
+      ansible.builtin.stat:
+        path: "{{ mini_finance_docroot }}"
+        follow: false
+      register: mini_finance_existing_root
+
+    - name: Reject unknown file or symlink at the document root
+      ansible.builtin.assert:
+        that:
+          - >-
+            not mini_finance_existing_root.stat.exists or
+            (mini_finance_existing_root.stat.isdir | default(false)) or
+            ((mini_finance_existing_root.stat.islnk | default(false)) and
+             (mini_finance_existing_root.stat.lnk_source is match('^/var/www/mini-finance/releases/[0-9a-f]{40}$')))
+
+    - name: Inspect the initial Nginx document directory
+      ansible.builtin.find:
+        paths: "{{ mini_finance_docroot }}"
+        hidden: true
+        file_type: any
+      register: mini_finance_initial_files
+      when: mini_finance_existing_root.stat.isdir | default(false)
+
+    - name: Refuse to replace any directory except the stock Nginx welcome directory
+      ansible.builtin.assert:
+        that:
+          - item.path | basename == 'index.nginx-debian.html'
+          - item.isreg
+      loop: "{{ mini_finance_initial_files.files | default([]) }}"
+      loop_control:
+        label: "{{ item.path }}"
+
+    - name: Install the dedicated VM Nginx configuration after syntax validation
+      ansible.builtin.template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: '0644'
+        validate: /usr/sbin/nginx -t -c %s
+      notify: Reload Mini Finance
+
+    - name: Remove only the confirmed initial welcome directory
+      ansible.builtin.file:
+        path: "{{ mini_finance_docroot }}"
+        state: absent
+      when: mini_finance_existing_root.stat.isdir | default(false)
+
+    - name: Publish the validated release at the required document root
+      ansible.builtin.file:
+        src: "{{ mini_finance_release }}"
+        dest: "{{ mini_finance_docroot }}"
+        state: link
+        owner: root
+        group: root
+      notify: Reload Mini Finance
+
+    - name: Apply pending validated reloads before controller verification
+      ansible.builtin.meta: flush_handlers
+
+  handlers:
+    - name: Validate active Nginx configuration
+      ansible.builtin.command: /usr/sbin/nginx -t
+      changed_when: false
+      listen: Reload Mini Finance
+
+    - name: Reload Nginx after successful validation
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded
+      listen: Reload Mini Finance
+
+- name: Verify HTTP and Mini Finance content from the controller
+  hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+  any_errors_fatal: true
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  tasks:
+    - name: Fail closed when inventory has no real deployment target
+      ansible.builtin.assert:
+        that:
+          - groups['web'] | default([]) | length == 1
+        fail_msg: >-
+          No configured Azure VM. Inventory is deliberately empty; deployment and HTTP evidence remain pending.
+
+    - name: Fetch the public site from the controller
+      ansible.builtin.uri:
+        url: "http://{{ hostvars[groups['web'][0]].ansible_host }}/"
+        status_code: 200
+        return_content: true
+        follow_redirects: none
+        use_proxy: false
+        use_netrc: false
+        timeout: 15
+      register: mini_finance_http
+      retries: 5
+      delay: 3
+      until: mini_finance_http.status | default(0) == 200
+
+    - name: Assert HTTP 200 and the expected site rather than the welcome page
+      ansible.builtin.assert:
+        that:
+          - mini_finance_http.status == 200
+          - item in mini_finance_http.content
+      loop: "{{ mini_finance_content_markers }}"
+
+    - name: Confirm private repository metadata is not served
+      ansible.builtin.uri:
+        url: "http://{{ hostvars[groups['web'][0]].ansible_host }}/{{ item }}"
+        status_code: 404
+        follow_redirects: none
+        use_proxy: false
+        use_netrc: false
+        timeout: 15
+      loop:
+        - .git/config
+        - js/.DS_Store
+        - git_tracking_summary.txt
+        - README.md
