@@ -1,8 +1,22 @@
 {
   "schema_version": 1,
   "assignment": "Week 09 Assignment 5",
-  "status": "code-ready-preparation-not-deployed",
-  "last_local_validation_utc": "2026-09-16T19:37:02Z",
+  "status": "pilot-provisioned-deployment-failed-cleaned-checkout-fixed-offline",
+  "pilot_outcome_manifest": "pilot-outcome.json",
+  "pilot_capture_manifest": "pilot-captures.json",
+  "corrected_source_capture_manifest": "corrected-source-captures.json",
+  "source_capture_review": {
+    "historical_epicbook_slots": ["10a", "10b", "10c"],
+    "reason": "Original PNGs and source-captures.json remain immutable history. The deployed Git metadata bug was corrected after verified cleanup; these images do not show the corrected role.",
+    "corrected_source_file": "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/main.yml",
+    "corrected_source_sha256": "f35f24479485f49a0f62e72d798f3a974d3ec1d68fac2cd38fad06d4608b71e3",
+    "replacement_capture_ranges": [[1, 28], [30, 61], [63, 89]],
+    "replacement_capture_status": "captured-source-only; exact working-tree snapshot, not the unchanged HEAD at capture",
+    "replacement_capture_manifest": "corrected-source-captures.json",
+    "unchanged_source_slots": [3, 6, 7, 8, 11],
+    "tree_scope": "Original slot1 is a genuine historical 43-file tree, not the final corrected project file count."
+  },
+  "last_local_validation_utc": "2026-09-16T22:03:03Z",
   "selected_cloud": "Azure only",
   "cloud_choice_note": "Coordinator explicitly replaced AWS with Azure after the non-root AWS EC2 permission check failed. No AWS infrastructure remains here.",
   "base_commit": "0983d638c1139d78bd9a4de18a719626bf89bc9c",
@@ -24,13 +38,14 @@
     "image_capabilities": "Active, V2, x64, TrustedLaunchSupported, SCSI/NVMe, 30 GiB source OS disk",
     "temporary_disk_usage": "No application or database data on the included temporary local NVMe disk",
     "os_disk": "32 GiB Standard_LRS managed disk, platform encryption at rest",
-    "public_ip": "One Standard static IPv4; no real address committed",
+    "public_ip": "One Standard static IPv4 during the verified pilot; historical public address appears in approved screenshots only. The resource has been deleted.",
     "isolation": "Dedicated unique-run RG, VNet, subnet, NIC and NSG",
     "ingress": "Controller IPv4 /32 TCP22, Internet TCP80, explicit deny other inbound",
     "boot": "Secure Boot, vTPM and managed boot diagnostics",
     "provider": "hashicorp/azurerm 4.47.0; registration disabled; lockfile retained",
     "outputs": ["public_ip", "admin_user"],
-    "capacity_verified": false
+    "pilot_allocation_succeeded": true,
+    "future_capacity_guaranteed": false
   },
   "replacement_review": {
     "coordinator_approved_utc": "2026-09-16T19:09:55Z",
@@ -66,12 +81,21 @@
       {"command": "terraform -chdir=terraform/azure test -no-color", "result": "12 passed, 0 failed; exclusively mocked apply/teardown, including nonzonal NVMe, pinned image, managed disk and rejection of superseded B1ms; not real resources"},
       {"command": "ansible-playbook -i inventory.ini site.yml --syntax-check", "result": "passed; expected empty-inventory warning"},
       {"command": "ansible-lint --offline site.yml roles", "result": "production profile passed, 0 failures, 0 lint warnings; dependency installation skipped"},
-      {"command": "python -m unittest discover -s tests -v", "result": "19 passed; approved PNG/source hashes, historical 43-file tree scope, source-only/runtime positives with and without --limit web, missing/false approval and invalid-target negatives, real non-networking OpenSSH regression"},
-      {"command": "bash scripts/verify.sh", "result": "end-to-end passed at 2026-09-16T19:37:02Z after final source-image integration; 12 Terraform mocks, syntax/production lint, 19 local tests. Terraform unchanged from 53766f5; Ansible sources unchanged from d3a00aa."},
+      {"command": "python -m unittest discover -s tests -v", "result": "24 passed at 2026-09-16T22:03:03Z after corrected-source capture integration; historical/current source and genuine pilot PNG integrity, exact working-tree capture versus old-HEAD distinction, failure/cleanup chronology, real local Git failure and fixed pinned clone/permissions/unchanged second run, approval/target guards and non-networking OpenSSH regression"},
+      {"command": "bash scripts/verify.sh", "result": "Historical full verifier passed at 2026-09-16T21:54:13Z after checkout correction and actual pilot receipt integration, before the three corrected-source PNGs were added; 12 Terraform mocks, syntax/production lint, 23 then-current local tests. The later complete Python suite passed all24. Terraform, site/common/nginx/group vars unchanged from frozen49; only EpicBook main tasks changed. No cloud/remote commands."},
       {"command": "node <npm-cli.js> ci --omit=dev --ignore-scripts --no-audit --no-fund", "result": "107 packages installed in disposable pinned upstream checkout; package manifests unchanged"},
       {"command": "python scripts/verify_upstream.py --source <disposable-pinned-source> --node <verified-node22>", "result": "19 source hashes, server syntax, six imports, Sequelize model construction and real Handlebars fixture render passed; no DB connection or HTTP server"}
     ],
-    "connection_safety": "Execution tests replace SSH with a recording executable that immediately exits or /usr/bin/false. Real /usr/bin/ssh uses -G or ProxyCommand=/usr/bin/false with configuration, keys and known-host files /dev/null and IdentityAgent=none. No external SSH, network connection, credentials or controller package changes.",
+    "final_python_validation": {
+      "completed_utc": "2026-09-16T22:03:03Z",
+      "tests_passed": 24,
+      "exit_code": 0,
+      "raw_log_sha256": "0181585baa0bf4e7d06cde16996aa2bf41abdb01bed2840a8c8cf7d25401ae1c",
+      "corrected_source_capture_manifest_sha256": "6fb87f0cb6c4a8b596d583632614a8b0f0986568988377fbf2a8bb8bdaac08c3",
+      "scope": "Original controller/collections, owned short temp/cache, no package installation, no network SSH/cloud/service actions. Raw log retained privately."
+    },
+    "connection_safety": "Preflight execution tests replace SSH with a recording executable that immediately exits or /usr/bin/false. Real /usr/bin/ssh uses -G or ProxyCommand=/usr/bin/false with configuration, keys and known-host files /dev/null and IdentityAgent=none. The Git regression uses only local file transport and isolated Git configuration, local Ansible connection without privilege escalation, fixture paths/current UID/GID and a no-service handler. No external SSH, cloud, credentials or controller package changes.",
+    "validation_caveats": "Expected empty-inventory syntax warning, offline dependency-install skip notice and existing controller PATH adjustment notice; production lint itself reported zero failures/warnings. Historical Node/npm upstream checks below were not rerun during this post-cleanup correction.",
     "review_regressions": {
       "completed_utc": "2026-09-16T18:37:17Z",
       "legacy_controlpath": "Actual OpenSSH reproduced the macOS >=104-byte ControlPath error; explicit ControlMaster=no and ControlPath=none pass configuration and no-network proxy tests, preserving strict host-key checking.",
@@ -82,10 +106,15 @@
     "provider_binary_sha256": "0aa6e61c4e286fee033d2b6196c5f6012e7a158f5b18c0f82604f444b5e0832c"
   },
   "real_azure_plan": {
-    "status": "pending-final-frozen-head-seal",
-    "report_policy": "One fresh unique identity-before-plan seal after final source evidence commit. All tracked files frozen thereafter; final plan report remains private/uncommitted until apply outcome.",
-    "apply_authorized": false,
-    "applied": false
+    "status": "historical-applied-pilot-cleaned-do-not-reuse",
+    "source_commit": "49c70a333b0671f9e75c61363aaab4a580c712ee",
+    "plan_sha256": "65d3b78f94b21b93c77eebe8da463f8c00957ef84ee14c44e2906e03d87e1520",
+    "planned_actions": {"create": 11, "update": 0, "delete": 0},
+    "applied": true,
+    "operator": "Parent coordinator under separate explicit exact-plan approval",
+    "report_policy": "Original private plan, inputs, identity, environment and source seals remain unchanged. The post-cleanup Git correction was not re-deployed. No current apply authorization exists.",
+    "environment_exception": "Parent explicitly reviewed a private short TMPDIR relocation; full environment byte-equality is not claimed.",
+    "apply_authorized_now": false
   },
   "historical_d2lds_plan": {
     "status": "superseded-by-final-evidence-head-do-not-apply",
@@ -129,32 +158,33 @@
     "applied": false
   },
   "live_evidence": {
-    "terraform_apply_and_outputs": "pending",
-    "trusted_boot_log_host_key_match": "pending",
-    "passwordless_ssh_hostname": "pending",
-    "ansible_ping": "pending",
-    "nginx_config_test_on_vm": "pending",
+    "terraform_apply_and_outputs": "genuine parent-executed success; screenshots2a/2b and pilot-outcome.json",
+    "trusted_boot_log_host_key_match": "genuine fresh success after reviewed JSON boot-parser correction; failed original evidence preserved",
+    "passwordless_ssh_hostname": "genuine success; screenshot04",
+    "ansible_ping": "genuine pong and displayed private inventory; numbered screenshot5 still pending",
+    "role_based_deployment": "actual exit2 at Git clone; failed1, not a successful screenshot12. Parent chose cleanup without a live retry.",
+    "nginx_config_test_on_vm": "Pre-start validation returned ok and service start changed in actual deploy log before Git failure; separate live site display/config capture and reload-handler verification remain pending.",
     "mysql_schema_seeds_and_application_account": "pending",
     "node_service_and_systemd_filter": "pending",
     "public_http_200_and_real_books": "pending",
     "gallery_cart_and_asset_behavior": "pending",
     "sensitive_url_denials": "pending",
     "second_run_idempotency": "pending",
-    "teardown_and_orphan_check": "pending"
+    "teardown_and_orphan_check": "verified 2026-09-16T21:37:27.485570+00:00: reviewed saved plan11 deletes; apply0; empty state/outputs; authenticated RG and exact VM/OS-disk/IP absent. Structured receipt only, no cleanup PNG or zero-charge claim."
   },
   "numbered_screenshots": [
     {"number": 1, "subject": "Complete 43-file tracked project tree at a15fc8c before additional evidence files", "status": "captured-source-only", "images": ["images/screenshot-1a.png", "images/screenshot-1b.png", "images/screenshot-1c.png"]},
-    {"number": 2, "subject": "Terraform apply and public_ip/admin_user outputs", "status": "pending"},
+    {"number": 2, "subject": "Genuine Terraform apply and separate public_ip/admin_user outputs", "status": "captured-live-pilot", "images": ["images/screenshot-2a.png", "images/screenshot-2b.png"]},
     {"number": 3, "subject": "Inbound SSH/HTTP rules and validated controller IPv4 /32", "status": "captured-source-only", "images": ["images/screenshot-3a.png", "images/screenshot-3b.png"]},
-    {"number": 4, "subject": "Passwordless SSH hostname check", "status": "pending"},
-    {"number": 5, "subject": "Inventory and Ansible ping", "status": "pending"},
+    {"number": 4, "subject": "Genuine passwordless SSH hostname check", "status": "captured-live-pilot", "images": ["images/screenshot-04.png"]},
+    {"number": 5, "subject": "Inventory and Ansible ping", "status": "pending", "execution_verified": true, "note": "Actual inventory/pong preserved as structured evidence. Rejected proposed PNG220723 belongs to A2, not A5."},
     {"number": 6, "subject": "site.yml role order", "status": "captured-source-only", "images": ["images/screenshot-06.png"]},
     {"number": 7, "subject": "Common role tasks", "status": "captured-source-only", "images": ["images/screenshot-07.png"]},
     {"number": 8, "subject": "Nginx tasks, handler and template", "status": "captured-source-only", "images": ["images/screenshot-8a.png", "images/screenshot-8b.png", "images/screenshot-8c.png", "images/screenshot-8d.png"]},
     {"number": 9, "subject": "Live Nginx site and successful configuration test", "status": "pending"},
-    {"number": 10, "subject": "EpicBook role tasks", "status": "captured-source-only", "images": ["images/screenshot-10a.png", "images/screenshot-10b.png", "images/screenshot-10c.png"]},
+    {"number": 10, "subject": "Corrected EpicBook role tasks; exact working-tree snapshot, not a runtime success", "status": "captured-source-only", "images": ["images/screenshot-10a-corrected.png", "images/screenshot-10b-corrected.png", "images/screenshot-10c-corrected.png"], "historical_images": ["images/screenshot-10a.png", "images/screenshot-10b.png", "images/screenshot-10c.png"]},
     {"number": 11, "subject": "Required group variables", "status": "captured-source-only", "images": ["images/screenshot-11.png"]},
-    {"number": 12, "subject": "Successful role-based run and recap", "status": "pending"},
+    {"number": 12, "subject": "Successful role-based run and recap", "status": "pending", "supporting_failure_image": "images/deployment-failure.png", "note": "Actual deployment failed at checkout; supporting failure image is not successful slot12 evidence."},
     {"number": 13, "subject": "Real EpicBook browser page with public IP", "status": "pending"},
     {"number": 14, "subject": "HTTP 200 and Nginx site snippet", "status": "pending"},
     {"number": 15, "subject": "Actual idempotent second run", "status": "pending"}
@@ -176,16 +206,20 @@
     "SSH stub stderr was not preserved when Ansible hit an early pipe closure; positive tests instead verify the marker file, successful guards and expected unreachable fact-gathering task.",
     "npm emitted a debug@4.1.1 deprecation warning; no dependency audit/remediation or application dependency edits were performed."
   ],
+  "observed_pilot_issues": [
+    "Initial parent preflight stopped before Terraform because Azure CLI quota integers arrived as canonical strings. A separately reviewed numeric parser fixed the local guard; no quota shortage/change was involved.",
+    "Initial trust stopped before SSH because an undecoded JSON boot-log string caused ECDSA/ED25519 mislabeling. A separately reviewed strict parser and fresh actual keyscan verified ED25519; this was not proof of a changed host key.",
+    "Actual opt-in deployment reached the Git clone but failed because separate_git_dir already existed. After verified cleanup, only the metadata parent/uncreated-leaf layout and post-clone permissions were corrected. Real offline Git/Ansible regressions pass; no remote retry is claimed."
+  ],
   "remaining_gates": [
-    "Coordinator review of exact real Azure plan before any apply; no account, permission or provider-registration changes.",
-    "A5 cap US$2 within US$5 combined temporary labs; maximum two hours after apply, with a verified teardown owner.",
-    "Trusted host fingerprint via authenticated managed boot logs before any SSH trust; no TOFU-only ssh-keyscan.",
-    "Ubuntu/MySQL/Nginx/systemd integration, data, public HTTP and idempotency are not proven by local tests.",
+    "No current cloud/runtime authorization or live A5 VM remains. A future attempt requires fresh identity, budget/deadline, exact-state planning and parent review; historical plans/approvals must not be reused.",
+    "Genuine numbered inventory/ping PNG remains pending. Corrected EpicBook source captures are present; old source images and failed deployment are retained as history.",
+    "Complete Ubuntu/MySQL/Nginx/systemd integration, data, public HTTP/browser and remote idempotency remain unproven by local tests.",
     "TLS, aging dependencies, schema DDL privileges, backup/restore, monitoring, egress policy and same-VM failure coupling remain production gaps."
   ],
   "assignment_06_handoff": {
     "baseline": ["ansible/site.yml", "ansible/group_vars/web.yml", "ansible/roles/common", "ansible/roles/nginx", "ansible/roles/epicbook"],
-    "required_later": "Actual approved inventory and run recaps; genuine Claude Code plan BEFORE any risk script; HUMAN ONLY applies the resulting change.",
+    "required_later": "A fresh authorized lab and successful A5 runtime/recaps are still needed; the cleaned pilot inventory is historical, not reusable. Genuine Claude Code plan BEFORE any risk script; HUMAN ONLY applies the resulting change.",
     "implemented_here": false,
     "retention": "No implicit time/budget extension while awaiting Assignment 6."
   }

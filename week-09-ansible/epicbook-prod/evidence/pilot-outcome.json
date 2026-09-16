@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 09 Assignment 5",
+  "scope": "Offline sanitized derivation from preserved genuine parent-executed pilot evidence; no commands rerun to create this receipt.",
+  "frozen_pilot_source_commit": "49c70a333b0671f9e75c61363aaab4a580c712ee",
+  "create_plan_sha256": "65d3b78f94b21b93c77eebe8da463f8c00957ef84ee14c44e2906e03d87e1520",
+  "terraform_apply": {
+    "status": "succeeded",
+    "finished_utc": "2026-09-16T20:10:35.256974+00:00",
+    "outcome_sha256": "7a894bbcb3ca988fa8a4a724508e0b5229a2d9816dc5939c4152322e1c1cf687",
+    "terraform_exit_code": 0,
+    "apply_started": true,
+    "t0_utc": "2026-09-16T20:08:26.275458+00:00",
+    "cleanup_deadline_utc": "2026-09-16T22:08:26.275458+00:00",
+    "raw_log_sha256": "71401d23832d591fe9d22d50a59896d982264b1bf07ee9a587d2d797618e2338",
+    "creates": 11,
+    "updates": 0,
+    "deletes": 0
+  },
+  "outputs": {
+    "status": "succeeded",
+    "started_utc": "2026-09-16T20:40:37.998621+00:00",
+    "finished_utc": "2026-09-16T20:40:51.282379+00:00",
+    "outcome_sha256": "63e6c8f19460180467b27f24f0ec010f6b5a22fc4c21408638edb5d39192134c",
+    "verified_output_names": [
+      "admin_user",
+      "public_ip"
+    ],
+    "collection_scope": "Authenticated actual state, Terraform outputs, VM, managed OS disk and boot diagnostics; no application check.",
+    "boot_parser_correction": "Original raw collection retained. Its initial fingerprint receipt mislabeled ECDSA as ED25519 because JSON-encoded newlines were not decoded. Corrected offline derivation preceded fresh successful trust."
+  },
+  "readiness": {
+    "trust": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:05:31.761278+00:00",
+      "finished_utc": "2026-09-16T21:05:32.560187+00:00",
+      "outcome_sha256": "d3bf1900001c39f95d9c4ffdc1054e0ff91f6d7e8785b603db46619a694dd09a",
+      "trusted": true,
+      "scope": "Fresh actual keyscan matched correctly decoded authenticated boot ED25519 evidence before strict known_hosts and SSH; no TOFU bypass."
+    },
+    "ssh": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:05:34.054744+00:00",
+      "finished_utc": "2026-09-16T21:05:37.995687+00:00",
+      "outcome_sha256": "d0f3bbf87626a71f81d22ad8b0f9a52e634c727ad2028f074d27b3827f037f96",
+      "hostname_matches": true
+    },
+    "inventory": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:06:15.967742+00:00",
+      "finished_utc": "2026-09-16T21:06:15.993757+00:00",
+      "outcome_sha256": "a31641a97d4b4b79db08bb40ab72519af98a14ca0ff0bdaadfb4633645ef3e09",
+      "inventory_created": true,
+      "screenshot_5_status": "pending; real inventory display and ping are recorded, but the proposed 220723 PNG belongs to A2 and is excluded"
+    },
+    "ping": {
+      "status": "succeeded",
+      "started_utc": "2026-09-16T21:06:17.583303+00:00",
+      "finished_utc": "2026-09-16T21:06:21.892720+00:00",
+      "outcome_sha256": "1bbd4bcf379baeb7edfe79dff5fa58682015b8a25d3f8aaf201272810dc3c72d",
+      "pong": true
+    }
+  },
+  "deployment": {
+    "status": "failed_or_interrupted",
+    "started_utc": "2026-09-16T21:07:29.154987+00:00",
+    "finished_utc": "2026-09-16T21:14:28.037749+00:00",
+    "outcome_sha256": "406873ff38d610f5c328a1bf4a48ef07df10a1a64b0c0082325b22fed2cf1fde",
+    "ansible_exit_code": 2,
+    "stop_reason": null,
+    "git_exit_code": 128,
+    "failed_task": "Clone the reviewed immutable EpicBook source without overwriting local edits",
+    "cause": "The role precreated the same path passed to git clone --separate-git-dir; Git rejected the existing metadata destination.",
+    "recap": {
+      "web": {
+        "ok": 20,
+        "changed": 12,
+        "unreachable": 0,
+        "failed": 1
+      },
+      "localhost": {
+        "ok": 2,
+        "changed": 0,
+        "failed": 0
+      }
+    },
+    "result_sha256": "5251d7aaf075bd50a3b516476e5ee14282bcc78adea51c48fea776935e53221e",
+    "stdout_sha256": "b239630e3fe3b04594ff0388a13a376bc3cecc1e8ec7953ec501433956052bb4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "successful_runtime": false,
+    "remote_second_run_performed": false,
+    "pre_checkout_nginx": {
+      "configuration_validation": "Actual Validate the assembled configuration before starting Nginx task returned ok in the preserved deploy stdout.",
+      "service_start": "Actual Enable and start Nginx task returned changed before checkout failed.",
+      "separate_live_site_display_and_config_capture": "pending; no screenshot9 or completed verification-stage claim",
+      "reload_handler_verified": false
+    },
+    "warning_not_root_cause": "The deployment account temporary-directory fallback warning was not the fatal clone error."
+  },
+  "cleanup": {
+    "plan": {
+      "status": "succeeded",
+      "finished_utc": "2026-09-16T21:25:41.152046+00:00",
+      "outcome_sha256": "c41b9afc1da6f67554ed287afe7d641f5a47820bb7a92bf7409c7e48c68ac15b",
+      "plan_sha256": "a50521b0aa5d2d669f7ef8685e7f8dfa18cf6687de7362bd19073206be87ed3f",
+      "plan_json_sha256": "1834e35b2f9f330bd57d5ad93cf7d15ddd2ef4c95177c035718517e9a5771137",
+      "deletes": 11,
+      "creates": 0,
+      "updates": 0
+    },
+    "apply": {
+      "status": "succeeded",
+      "finished_utc": "2026-09-16T21:31:44.358404+00:00",
+      "outcome_sha256": "913bcd2493116a69e225f5adbea253f392224c01bbcb2f76c325460d64784ad1",
+      "plan_sha256": "a50521b0aa5d2d669f7ef8685e7f8dfa18cf6687de7362bd19073206be87ed3f",
+      "terraform_exit_code": 0,
+      "state_sha256": "c679c593e87129bb76fdeb64923353888475b522916567c8d57003af8b73eb5c"
+    },
+    "verify": {
+      "status": "succeeded",
+      "finished_utc": "2026-09-16T21:33:51.862022+00:00",
+      "outcome_sha256": "d58eba1015b53109eae90eaedac6c0d8a921cde5a2aa25188ca7d3c0d9057b9a",
+      "empty_state": true,
+      "empty_outputs": true,
+      "authenticated_resource_group_absent": true,
+      "state_sha256": "c679c593e87129bb76fdeb64923353888475b522916567c8d57003af8b73eb5c"
+    },
+    "additional_absence": {
+      "status": "verified-cleaned",
+      "verified_utc": "2026-09-16T21:37:27.485570+00:00",
+      "outcome_sha256": "a7f43855ff65e8c0196e4f56f2e60af3885ab9c086dbd73ee86a26aea8049c1f",
+      "actual_get_count": 3,
+      "results": [
+        {
+          "resource_kind": "vm",
+          "status": "absent",
+          "exit_code": 3,
+          "arm_error_code": "ResourceGroupNotFound",
+          "command_receipt_sha256": "266a12909fffe03696f681dc6c4f842179972632690feab60b680331921e84d0"
+        },
+        {
+          "resource_kind": "os-disk",
+          "status": "absent",
+          "exit_code": 3,
+          "arm_error_code": "ResourceNotFound",
+          "command_receipt_sha256": "4e99d2eec21025c77d1b5e7acaf9527e5a8d8cabd8ec2a2da7de8dd83ca0725b"
+        },
+        {
+          "resource_kind": "public-ip",
+          "status": "absent",
+          "exit_code": 3,
+          "arm_error_code": "ResourceGroupNotFound",
+          "command_receipt_sha256": "ade80ae2a136b535383f8c1ad2233051902d05f8aabb5a2157473848aa60002a"
+        }
+      ],
+      "postprocessing_note": "A local result-filename assertion after the first GET was corrected by reading the existing result; that GET was not repeated."
+    },
+    "verified_before_original_deadline": true,
+    "billing_note": "Resource absence is verified, not a zero-charge or finalized-billing claim.",
+    "screenshot_status": "No completed-cleanup PNG claimed; this is a sanitized structured receipt, not terminal output or replay."
+  },
+  "post_cleanup_fix": {
+    "source_file": "ansible/roles/epicbook/tasks/main.yml",
+    "source_sha256": "f35f24479485f49a0f62e72d798f3a974d3ec1d68fac2cd38fad06d4608b71e3",
+    "scope": "Private writable metadata parent, uncreated repository.git child at clone time, post-clone owner/group/0700 enforcement.",
+    "verification": "Real local Git failure reproduction and isolated local Ansible Git/file tasks, pinned checkout, current-UID/GID permissions and unchanged second run; not a remote runtime test.",
+    "redeployed": false
+  },
+  "still_pending": [
+    "successful full role run",
+    "live application and database verification",
+    "public HTTP/browser evidence",
+    "sensitive-route verification",
+    "remote second-run idempotence",
+    "numbered inventory/ping PNG",
+    "LinkedIn",
+    "video",
+    "learner firsthand reflection"
+  ]
+}

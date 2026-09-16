@@ -10,30 +10,42 @@ In this assignment, you will deploy the EpicBook web application on a cloud VM p
 
 ---
 
-## Preparation status — 16 September 2026
+## Pilot and preparation status — 16 September 2026
 
-Azure code and the `common` → `nginx` → `epicbook` roles are prepared in
-[`epicbook-prod`](./epicbook-prod/README.md), with local validation recorded in its
-[evidence manifest](./epicbook-prod/evidence/assignment-05-manifest.json).
-This is **preparation, not a completed cloud deployment**. The instructor's pinned
-EpicBook is a Node/Express/Sequelize/MySQL application, not a static website. The
-project includes an opt-in single-VM Node 22/MySQL 8 runtime, secret-safe service
-configuration, and guarded SQL initialization; the default deliberately returns
-503 until runtime installation is explicitly approved.
+Azure code and the exact `common` → `nginx` → `epicbook` role order are in
+[`epicbook-prod`](./epicbook-prod/README.md). The parent coordinator genuinely
+provisioned the approved nonzonal D2lds_v6 Ubuntu VM, verified authenticated
+outputs/host trust, passwordless SSH, inventory and Ansible ping. **The subsequent
+application deployment failed at Git checkout; it did not complete EpicBook.**
+The reviewed saved cleanup plan deleted all 11 resources; empty state/outputs and
+authenticated RG, exact VM, OS disk and public IP absence were verified at
+**21:37:27 UTC**, before the original **22:08:26 UTC** deadline. This is not a
+zero-charge claim. See the [sanitized actual pilot/cleanup receipt](./epicbook-prod/evidence/pilot-outcome.json).
 
-Local syntax, lint, mock infrastructure tests and source compatibility checks do
-not prove provisioning, SSH, database operation, public HTTP 200 or second-run
-idempotency. Source-only screenshots **1, 3, 6, 7, 8, 10 and 11** are now captured and
-coordinator-reviewed; the other eight numbered slots, LinkedIn and video remain
-pending. The native editor PNG bytes are unchanged and bind the Ansible files at
-commit `d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3`; see the
-[sanitized capture/source receipts](./epicbook-prod/evidence/source-captures.json).
-These images do not prove a deployment or controller tool version. The editor's
-Python 3.9.6 selection visible in Screenshot 8d is not the Python 3.13.3 CLI test
-environment. No learner action or screenshot is fabricated. The approved Azure
-preparation now uses nonzonal D2lds_v6, explicit NVMe and a pinned Ubuntu image;
-the historical B1ms plan is preserved but must not be applied. See the runbook for
-remaining exact-plan, budget, compatibility and production-hardening gates.
+After cleanup, the role was narrowly corrected to create a private Git metadata
+**parent**, leave its `repository.git` child uncreated until clone, and enforce
+ownership/0700 afterward. Real offline Git/Ansible checkout, permissions and
+unchanged-repeat regressions pass. **The corrected role was not re-deployed**;
+full application/database, HTTP/browser and remote idempotence remain pending.
+The instructor's pinned source requires Node/Express/Sequelize/MySQL, not a static
+web root. Runtime is opt-in; default source-only mode deliberately returns 503.
+
+Live screenshots **2 and 4** supplement source slots **1, 3, 6, 7, 8, 10 and 11**.
+Slot 10 uses three new corrected working-tree captures; original **10a–c remain
+historical pre-fix source**, not relabeled as current. Slot 1 is explicitly a
+historical 43-file tree. A valid numbered
+inventory/ping PNG remains pending despite real successful checks; the proposed
+220723 image was A2 and is excluded. The failure image is supporting evidence,
+not successful slot 12. LinkedIn/video and learner reflection remain pending.
+See [current status](./epicbook-prod/evidence/assignment-05-manifest.json),
+[original source receipts](./epicbook-prod/evidence/source-captures.json) and
+[approved live capture hashes](./epicbook-prod/evidence/pilot-captures.json).
+
+Original PNG bytes, private raw logs and plan/source seals are preserved. The
+Python 3.9.6 editor selection in Screenshot 8d is not the actual Python 3.13.3
+controller. Local tests are not remote proof, and these AI-assisted notes do not
+invent learner actions. Historical plans/approvals must not be reused. There is
+no current cloud/runtime authorization or live A5 VM.
 
 # Task 1 — Set Up Folder Layout
 
@@ -75,7 +87,15 @@ Provision one secure Ubuntu 22.04 VM with SSH key authentication, inbound SSH (2
 
 #### Screenshot 2 — Terminal showing successful `terraform apply` and `terraform output` with `public_ip` and `admin_user`
 
-Add your screenshot here.
+**2a — Genuine parent-executed apply: 11 added, 0 changed, 0 destroyed, with outputs.**
+The frozen pilot source was `49c70a333b0671f9e75c61363aaab4a580c712ee`.
+
+![Screenshot 2a — Actual successful Terraform apply and outputs](./epicbook-prod/evidence/images/screenshot-2a.png)
+
+**2b — Separate actual output command and authenticated VM/disk/boot collection.**
+The temporary public IP shown is historical; cleanup has been verified.
+
+![Screenshot 2b — Actual Terraform outputs and authenticated collection](./epicbook-prod/evidence/images/screenshot-2b.png)
 
 ---
 
@@ -101,13 +121,20 @@ Create the `[web]` inventory using the Terraform `public_ip` and `admin_user` ou
 
 #### Screenshot 4 — Terminal showing the successful passwordless SSH hostname check
 
-Add your screenshot here.
+Genuine passwordless SSH followed a fresh keyscan matched to correctly decoded,
+authenticated boot evidence; strict host checking was not bypassed. The earlier
+trust failure was a local JSON/fingerprint-parser bug, not proof the VM key changed.
+
+![Screenshot 4 — Actual passwordless SSH hostname verification](./epicbook-prod/evidence/images/screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Editor or terminal showing `inventory.ini` and a successful Ansible ping
 
-Add your screenshot here.
+**Numbered PNG pending.** Actual private inventory display and `pong` succeeded at
+21:06 UTC and are recorded in the [pilot receipt](./epicbook-prod/evidence/pilot-outcome.json).
+The proposed `220723` capture belongs to A2 cloud-init and is deliberately excluded.
+Neither that image nor a reconstructed local display substitutes for this slot.
 
 ---
 
@@ -177,7 +204,10 @@ The editor's Python selection in 8d is not evidence of the controller/runtime ve
 
 #### Screenshot 9 — Terminal showing `/etc/nginx/sites-available/epicbook` and a successful Nginx configuration test
 
-Add your screenshot here.
+**Combined live capture pending.** The real deploy log records successful Nginx
+pre-start configuration validation and service start before Git checkout failed.
+That does not supply this separate live site-file/config-test image or prove the
+reload handler/application completed.
 
 ---
 
@@ -191,19 +221,31 @@ Create the `epicbook` role to clone the repository to `{{ app_dest }}`, set owne
 
 #### Screenshot 10 — Editor showing `roles/epicbook/tasks/main.yml`
 
-Three separate genuine source views; the optional runtime has not run on a server.
+**Corrected source only, captured after verified cleanup.** These three genuine
+native VS Code frames show the exact working-tree source SHA256
+`f35f24479485f49a0f62e72d798f3a974d3ec1d68fac2cd38fad06d4608b71e3`,
+verified before and after each capture. HEAD `49c70a3` at capture did **not**
+contain the fix; the later committed role must match this snapshot. See the
+[corrected-source receipt](./epicbook-prod/evidence/corrected-source-captures.json).
+No image edits or successful remote redeployment are claimed.
 
 **10a — Identities and private parent directory (lines 1–28)**
 
-![Screenshot 10a — EpicBook role, first page](./epicbook-prod/evidence/images/screenshot-10a.png)
+![Screenshot 10a — Corrected EpicBook role, first page](./epicbook-prod/evidence/images/screenshot-10a-corrected.png)
 
-**10b — Private source directories and pinned clone (lines 30–53)**
+**10b — Private metadata parent, uncreated Git leaf and post-clone protection (lines 30–61)**
 
-![Screenshot 10b — EpicBook role, second page](./epicbook-prod/evidence/images/screenshot-10b.png)
+![Screenshot 10b — Corrected EpicBook role, second page](./epicbook-prod/evidence/images/screenshot-10b-corrected.png)
 
-**10c — Source validation and optional runtime import (lines 55–81)**
+**10c — Source validation and optional runtime import (lines 63–89)**
 
-![Screenshot 10c — EpicBook role, third page](./epicbook-prod/evidence/images/screenshot-10c.png)
+![Screenshot 10c — Corrected EpicBook role, third page](./epicbook-prod/evidence/images/screenshot-10c-corrected.png)
+
+Historical pre-fix images remain unchanged: [original 10a](./epicbook-prod/evidence/images/screenshot-10a.png),
+[original 10b](./epicbook-prod/evidence/images/screenshot-10b.png),
+[original 10c](./epicbook-prod/evidence/images/screenshot-10c.png), and their
+[original source receipt](./epicbook-prod/evidence/source-captures.json).
+They document the earlier buggy source, not this correction.
 
 ---
 
@@ -233,7 +275,14 @@ Run `ansible-playbook -i inventory.ini site.yml` and confirm `common` → `nginx
 
 #### Screenshot 12 — Terminal showing the role-based Ansible run and final recap with `failed=0`
 
-Add your screenshot here.
+**Successful slot 12 remains pending.** The actual opt-in run exited 2 at
+`Clone the reviewed immutable EpicBook source without overwriting local edits`:
+Git rejected the precreated separate metadata directory. Web recap:
+`ok=20 changed=12 unreachable=0 failed=1`. No live retry occurred before cleanup.
+
+**Supporting failure evidence only — not the required successful recap:**
+
+![Actual failed EpicBook checkout and recap, not successful screenshot 12](./epicbook-prod/evidence/images/deployment-failure.png)
 
 ---
 
@@ -267,7 +316,23 @@ Add your screenshot here.
 
 Describe an issue you faced and how you fixed it, what you learned, any security issues you identified, and your production remediation plan.
 
-Preparation notes (AI-assisted; not a claim of firsthand learner deployment):
+Evidence-backed preparation/pilot notes (AI-assisted; not an invented firsthand learner reflection):
+
+- The real pilot exposed a Git semantics error: `--separate-git-dir` cannot clone
+  into a metadata destination already created by the preceding task. After
+  verified cleanup, the fix retained a private writable parent and used an
+  uncreated child, then enforced ownership/mode. Actual offline Git reproduced
+  exit 128; an isolated local Ansible fixture verified the fix and unchanged
+  second run. This does not prove remote application idempotence.
+- The initial host-trust stop was traced offline to JSON-encoded boot output:
+  an overly broad parser captured ECDSA while labeling it ED25519. Separate
+  reviewed controls decoded and strictly parsed the evidence, then a fresh actual
+  scan and SSH succeeded. The failed evidence was preserved, not relabeled as
+  successful or attributed to a changed server key.
+- The parent chose cleanup rather than retry the failed deployment. A reviewed
+  saved plan deleted 11 resources; actual state/output, RG and resource-specific
+  absence checks passed before the deadline. No completed-cleanup PNG or zero
+  billing is claimed.
 
 - Source inspection found that the referenced EpicBook uses server-rendered
   Handlebars, Sequelize, MySQL and port 8080. Serving its checkout as a static web
@@ -328,12 +393,12 @@ Add your screenshot here.
 # Completion Checklist
 
 - [x] Task 1: `epicbook-prod` project and role structure created (Screenshot 1)
-- [ ] Task 2: Cloud VM provisioned with Terraform (Screenshot 3 source captured; live Screenshot 2 pending)
-- [ ] Task 3: Passwordless SSH and Ansible ping verified (Screenshots 4–5)
+- [x] Task 2: Cloud VM genuinely provisioned with Terraform, then verified cleaned (Screenshots 2–3)
+- [ ] Task 3: Passwordless SSH and Ansible ping actually passed; Screenshot 4 captured, valid Screenshot 5 still pending
 - [x] Task 4: `site.yml` orchestrates roles in common → nginx → epicbook order (Screenshot 6)
 - [x] Task 5: `common` role created (Screenshot 7)
 - [ ] Task 6: `nginx` role, template, and handler created (Screenshot 8 captured; live Screenshot 9 pending)
-- [x] Task 7: `epicbook` role created (Screenshot 10)
+- [x] Task 7: `epicbook` role corrected and locally tested; new Screenshot 10 frames match corrected source, with originals preserved as history (no remote redeployment claim)
 - [x] Task 8: Group variables defined (Screenshot 11)
 - [ ] Task 9: Playbook run successfully with `failed=0` (Screenshot 12)
 - [ ] Task 10: Site verified and idempotent rerun confirmed (Screenshots 13–15)

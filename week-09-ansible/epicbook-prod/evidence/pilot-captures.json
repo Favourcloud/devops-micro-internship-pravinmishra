@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 09 Assignment 5",
+  "approval": "Coordinator approved these original PNG bytes after privacy review; learner name and nonsecret temporary public lab address/hostname are intentionally visible.",
+  "scope": "Genuine native captures, not local test screenshots or stored-output replay; no slot5, successful slot12, application, idempotence or cleanup PNG claimed.",
+  "items": [
+    {
+      "slot": 2,
+      "image": "images/screenshot-2a.png",
+      "image_sha256": "e31ee580577b8f08a404d31b78c9df51e30b085e10ccf56d3bfee7990cd46292",
+      "image_bytes": 1410743,
+      "purpose": "Successful genuine Terraform apply with automatically printed outputs",
+      "pilot_source_commit": "49c70a333b0671f9e75c61363aaab4a580c712ee",
+      "outcome_sha256": "7a894bbcb3ca988fa8a4a724508e0b5229a2d9816dc5939c4152322e1c1cf687",
+      "private_capture_provenance_sha256": "a3c9f73e81e2ca87db141697371e15115e6795d95cdc465ad0638be76730e921",
+      "pixel_edits": "none"
+    },
+    {
+      "slot": 2,
+      "image": "images/screenshot-2b.png",
+      "image_sha256": "d5370291123b3c498fa330bffd683fedfbf87e2a2523e38b2416991a42f847a3",
+      "image_bytes": 949649,
+      "purpose": "Separate genuine Terraform outputs and authenticated collection",
+      "pilot_source_commit": "49c70a333b0671f9e75c61363aaab4a580c712ee",
+      "outcome_sha256": "63e6c8f19460180467b27f24f0ec010f6b5a22fc4c21408638edb5d39192134c",
+      "private_capture_provenance_sha256": "c83620c02b13aa30c6591be46ba496db0b86d114ff2bd4b33642af4c7b6bacbb",
+      "pixel_edits": "none"
+    },
+    {
+      "slot": 4,
+      "image": "images/screenshot-04.png",
+      "image_sha256": "00ac01ba86c778c9ce7bbdde8a0a4cd33205f19e0299ae35a4829a5358fcf1df",
+      "image_bytes": 1003537,
+      "purpose": "Genuine passwordless SSH hostname after corrected authenticated host trust",
+      "pilot_source_commit": "49c70a333b0671f9e75c61363aaab4a580c712ee",
+      "outcome_sha256": "d0f3bbf87626a71f81d22ad8b0f9a52e634c727ad2028f074d27b3827f037f96",
+      "private_capture_provenance_sha256": "f5912c74c1d3405eb3f9da55fe3af242ec7e169e2d3170a6c37f6cd862cb6751",
+      "pixel_edits": "none"
+    },
+    {
+      "slot": null,
+      "image": "images/deployment-failure.png",
+      "image_sha256": "26e37cafe44cc283a08e586a3d9e362f32517d013891a78c2c120c0ee643ace4",
+      "image_bytes": 1326480,
+      "purpose": "Actual failed deployment recap; NOT successful screenshot 12",
+      "pilot_source_commit": "49c70a333b0671f9e75c61363aaab4a580c712ee",
+      "outcome_sha256": "406873ff38d610f5c328a1bf4a48ef07df10a1a64b0c0082325b22fed2cf1fde",
+      "private_capture_provenance_sha256": "f5912c74c1d3405eb3f9da55fe3af242ec7e169e2d3170a6c37f6cd862cb6751",
+      "pixel_edits": "none"
+    }
+  ]
+}

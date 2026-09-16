@@ -89,7 +89,14 @@ class RoleContractTests(unittest.TestCase):
         clone = next(t for t in tasks if "ansible.builtin.git" in t)
         self.assertFalse(clone["ansible.builtin.git"]["force"])
         self.assertEqual(clone["ansible.builtin.git"]["umask"], "0027")
-        self.assertEqual(clone["ansible.builtin.git"]["separate_git_dir"], "/opt/epicbook/git-metadata")
+        metadata = clone["ansible.builtin.git"]["separate_git_dir"]
+        self.assertEqual(metadata, "/opt/epicbook/git-metadata/repository.git")
+        directories = next(t for t in tasks if "loop" in t and "ansible.builtin.file" in t)
+        self.assertIn({"path": str(Path(metadata).parent), "mode": "0700"}, directories["loop"])
+        self.assertNotIn(metadata, [item["path"] for item in directories["loop"]])
+        protection = next(t for t in tasks if t.get("ansible.builtin.file", {}).get("path") == metadata)
+        self.assertGreater(tasks.index(protection), tasks.index(clone))
+        self.assertEqual(protection["ansible.builtin.file"]["mode"], "0700")
         self.assertEqual(clone["notify"], "Reload nginx")
 
     def test_fail_closed_and_reverse_proxy_templates(self):

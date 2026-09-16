@@ -1,42 +1,64 @@
-# Assignment 5 — EpicBook Azure preparation
+# Assignment 5 — EpicBook Azure pilot and preparation
 
-**Status: code-ready preparation, not a deployed or production-certified application.**
-Source screenshots **1, 3, 6, 7, 8, 10 and 11** are captured and coordinator-reviewed;
-all other numbered slots, passwordless SSH/ping, live MySQL/application checks,
-public HTTP 200, second-run idempotency, LinkedIn and video evidence remain pending.
-Fifteen untouched native PNGs and sanitized source/hash receipts live under
-[evidence](evidence/source-captures.json) and the supplementary
-[tree/Terraform capture manifest](evidence/infrastructure-source-captures.json).
-The three genuine tree views cover 43 tracked files at `a15fc8c`, before the five
-additional images and their receipt manifest were added, not a final file count.
-The Ansible editor views bind unchanged source at
-`d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3`, not remote execution. Screenshot 8d's
-editor-selected Python 3.9.6 is not controller/runtime evidence; CLI validation
-uses the existing Python 3.13.3 environment.
-See [the original brief](../assignment-05-production-grade-epicbook-terraform-and-ansible-roles.md)
-and [the evidence manifest](evidence/assignment-05-manifest.json).
+**Status: genuine VM pilot provisioned, application deployment failed, cleanup
+verified; checkout corrected and tested offline only. This is not a completed or
+production-certified application deployment.**
 
-No cloud resources were provisioned by this preparation. No credentials, state,
-subscription/account IDs, real inventory or application JavaScript are committed.
-Work here did not apply Terraform, SSH to a server, publish anything or perform
-Assignment 6. GitHub Copilot assisted research, implementation and local
-validation; this is not a learner's firsthand deployment reflection.
+The parent coordinator executed the individually approved live stages on
+16 September 2026 against frozen source
+`49c70a333b0671f9e75c61363aaab4a580c712ee` and create-plan SHA256
+`65d3b78f94b21b93c77eebe8da463f8c00957ef84ee14c44e2906e03d87e1520`:
 
-The historical B1ms plan passed with **11 creates, 0 updates, 0 deletes**, but is
-**superseded and must never be applied**: the UK South SKU catalogue reports
-`NotAvailableForSubscription` at location level. Its original private plan and
-source/hash bindings are preserved. The coordinator approved a separately planned
-nonzonal D2lds_v6 preparation. An intermediate identity-bound plan passed at
-19:22:39 UTC on 16 September 2026: **11 creates, 0 updates, 0 deletes**, on source
-`53766f5b5fc71f7c0a58c56fdeea976f18d48608`. It is retained as history and must not be
-applied, because further source evidence was subsequently integrated. Terraform
-and Ansible bytes did not change. After the final evidence commit, the coordinator
-requires one fresh unique identity-before-plan seal and a freeze of **all tracked
-files**. That final plan report stays private/uncommitted until the apply outcome,
-avoiding a plan → documentation → new HEAD loop. Exact-plan approval is still
-required. Actual plans/inputs/logs remain private and ignored. **No apply occurred.** Neither
-catalogue eligibility, quota nor a successful plan proves physical allocation
-capacity, VM creation or application operation.
+| Actual stage (UTC) | Observed result |
+| --- | --- |
+| Apply 20:08:26–20:10:35 | 11 creates, 0 updates/deletes; Terraform exit 0 |
+| Outputs 20:40:51 | Authenticated state, outputs, VM, managed OS disk and boot collection |
+| Trust/SSH/inventory/ping 21:05–21:06 | Fresh authenticated host-key match, passwordless hostname check, displayed inventory and real pong |
+| Deploy 21:07:29–21:14:28 | Ansible exit 2; web recap ok=20, changed=12, unreachable=0, failed=1 at Git checkout |
+| Cleanup verified 21:37:27 | Reviewed saved plan: 11 deletes only; apply exit 0; empty state/outputs; authenticated RG, exact VM, OS disk and public IP absent |
+
+Cleanup completed before the original **22:08:26 UTC** deadline. Resource absence
+is not a zero-charge/final-billing claim. See the sanitized
+[pilot outcome receipt](evidence/pilot-outcome.json) and
+[approved live capture hashes](evidence/pilot-captures.json). These are derived
+from preserved actual artifacts, not replayed output. No cleanup PNG is claimed.
+
+Source slots **1, 3, 6, 7, 8 and 11** retain their reviewed scope; live slots
+**2 and 4** now have genuine captures. Three new **10a–c corrected-source frames**
+bind the post-cleanup working-tree snapshot; original pre-fix images remain
+unchanged history. Slot 1 remains a historical 43-file tree at `a15fc8c`, not the
+final file count. Slot 5 still lacks a valid numbered PNG despite genuine
+inventory/ping; the proposed
+220723 image belongs to A2 and is excluded. The deployment-failure PNG is
+supporting evidence, **not successful slot 12**. Live application/database,
+HTTP/browser, remote second-run idempotence, LinkedIn and video remain pending.
+
+The original [Ansible capture receipts](evidence/source-captures.json) and
+[tree/Terraform receipts](evidence/infrastructure-source-captures.json) are intact.
+Unchanged Ansible views still match their recorded source; historical EpicBook
+views are checked against their original Git revision, not relabeled current.
+The [corrected-source receipt](evidence/corrected-source-captures.json) records
+source SHA256 `f35f24479485f49a0f62e72d798f3a974d3ec1d68fac2cd38fad06d4608b71e3`,
+verified before and after each new capture. HEAD `49c70a3` at capture did **not**
+contain that fix; the later committed role must match this working-tree hash.
+These source images are not evidence that the correction was re-deployed.
+Screenshot 8d's editor-selected Python 3.9.6 is not controller evidence; actual
+CLI validation uses Python 3.13.3. See
+[the complete brief](../assignment-05-production-grade-epicbook-terraform-and-ansible-roles.md)
+and [status manifest](evidence/assignment-05-manifest.json).
+
+No credentials, state, subscription/account IDs, private logs or real inventory
+are committed. Approved screenshots intentionally retain the temporary public lab
+address/hostname. No application JavaScript was changed. GitHub Copilot assisted
+implementation, diagnosis and local checks; these notes are not an invented
+learner reflection or Assignment 6 evidence.
+
+The never-applied B1ms and intermediate D2lds plans remain historical and must not
+be executed. The final applied plan/approvals are also historical, not reusable
+permission for another run. A reviewed private TMPDIR relocation was an explicit
+exception, not exact full-environment equality. Original failed preflights,
+failed trust, private artifacts and source seals remain unchanged. No current
+cloud or runtime authorization exists; future allocation capacity is not promised.
 
 ## Source research: this is not a static website
 
@@ -118,7 +140,8 @@ One cached UK South SKU/usage response reports no D2lds_v6 location restriction,
 but zones 2/3 are restricted: **do not set a zone**. The Dldsv6 family and regional
 quotas each had 0 used/10 allowed cores. A5's two cores plus the separately prepared
 A2 fleet's eight exhaust both limits; this is not reserved quota or capacity.
-No quota increase, allocation attempt or billing/identity change was made here.
+That eligibility check did not allocate resources or change quota/billing/identity.
+The separately approved genuine A5 allocation and subsequent cleanup are recorded above.
 
 Official Microsoft documentation supports [Dldsv6 Gen2/x64 and Standard HDD](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dldsv6-series),
 [D-family/Ubuntu 22.04 Trusted Launch](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch),
@@ -153,9 +176,14 @@ extra-variable overrides, `--start-at-task` or `--skip-tags always`.
   again **before** its reload handler. Neither `root` nor `alias` points at source.
   Hidden paths, server-side files/config/SQL are denied in both modes.
 - `epicbook`: immutable clone into `/opt/epicbook/source`, owned by
-  `epicbook-deploy:epicbook` with restrictive umask; separate Git metadata directory
-  is `0700`. The nonlogin runtime account `epicbook` can read but not own/write the
-  source. Nginx's `www-data` user is not added to the application group.
+  `epicbook-deploy:epicbook` with restrictive umask. A deployment-user-owned
+  **0700 metadata parent** `/opt/epicbook/git-metadata` allows Git to create the
+  **previously uncreated** child `repository.git`; its ownership and 0700 mode
+  are enforced after checkout. Precreating that child would reproduce the actual
+  pilot failure. The root-owned application ancestor is not made group-writable,
+  and cloning does not run as root. The nonlogin runtime account `epicbook` can
+  read but not own/write source or traverse private Git metadata. Nginx's
+  `www-data` user is not added to the application group.
 
 ### Two explicit modes
 
@@ -187,7 +215,9 @@ here. No default `root` DB password is used; administration uses Ubuntu socket a
 ## Local validation (safe to run now)
 
 Use an existing POSIX controller with Python, PyYAML, Jinja2, Ansible, ansible-lint,
-OpenSSH at `/usr/bin/ssh` and `/usr/bin/false` for the non-networking proxy test.
+OpenSSH at `/usr/bin/ssh`, `/usr/bin/false` for the non-networking proxy test,
+and `/usr/bin/git`. Retain full repository history for historical source-capture
+verification; the tests do not fetch missing commits.
 Tested: Python 3.13.3, ansible-core 2.21.4 / Ansible 14.4, ansible-lint 26.8.0,
 `ansible.mysql` **5.2.0**, Terraform **1.13.5**. The collection is pinned in
 `ansible/requirements.yml`; install only if missing, into a task-local collection
@@ -204,7 +234,7 @@ bash scripts/verify.sh
 This performs format checking, backend-disabled init using the checked-in provider
 lock, Terraform validation and **12 mocked tests**, including rejection of the
 superseded B1ms size and assertions for nonzonal NVMe/pinned-image/managed-disk
-contracts, Ansible syntax/production lint, and **19 local tests**. These verify
+contracts, Ansible syntax/production lint, and **24 local tests**. These verify
 approved PNG/source hashes and normal unapproved/unconfigured execution rejections, plus
 `--limit web` missing/false-approval and invalid-target rejection subtests that
 never invoke their recording SSH stub. Positive source-only/runtime preflights,
@@ -224,7 +254,19 @@ no mirror is supplied; it does not query Azure. Shared provider reuse is read-on
 with its binary SHA256 checked against the coordinator's verified source and the
 provider lock retained for registry checksums.
 
-Observed compatibility test in a **disposable pinned upstream checkout**:
+The new Git regression first reproduces the existing-metadata failure with real
+`/usr/bin/git` (exit 128). A separate local fixture runs the actual directory,
+Git and post-clone permission tasks with only paths/principals adapted, local
+connection, privilege escalation disabled and a harmless notification handler.
+It checks a pinned commit different from upstream HEAD, source/private metadata
+modes, current UID/GID ownership, `.git` indirection and a genuinely unchanged
+second Ansible run. A non-writable fixture ancestor models the relevant write
+restriction; it is **not** a Linux multi-user or complete remote-role test.
+Git is file-protocol-only, global/system Git config and hooks are disabled, and
+short owned temporary directories are removed. These tests neither run the
+production site playbook locally nor contact a server.
+
+Historical compatibility test in a **disposable pinned upstream checkout**:
 Node 22.23.2/npm 10.9.8 `ci --omit=dev --ignore-scripts --no-audit --no-fund` installed
 107 packages without changing either upstream manifest. Server syntax, six runtime
 imports, Sequelize model construction and an actual Handlebars render containing
@@ -249,10 +291,13 @@ Node checksums were retrieved from
 
 Npm reported deprecated `debug@4.1.1`; no audit/remediation or lifecycle scripts were
 run. Pinned old upstream dependencies are a production review gate, not an assurance
-of security. Local MySQL, Nginx and Linux systemd were unavailable, so actual SQL
-import, service sandboxing, `nginx -t` and end-to-end idempotency remain unverified.
+of security. Local MySQL, Nginx and Linux systemd were unavailable to that probe.
+The later genuine pilot did pass the Nginx role's pre-start configuration check
+and started Nginx before checkout failed. It did not complete the separate live
+site/config capture, SQL/runtime installation, service sandbox verification or
+end-to-end idempotence.
 
-## Future authorized lab runbook — NOT executed by this preparation
+## Future authorized rerun — no current execution permission
 
 **Stop until the coordinator verifies the current Azure identity/subscription,
 plan, SSH key custody, SKU capacity, budget, expiry and teardown owner.** The later
@@ -350,10 +395,21 @@ A1/A2/A3/A4/A6 remain separate.
    LinkedIn publication, video and the learner's reflection remain human actions.
 8. Retain the dedicated lab for Assignment 6 **only** within the approved budget
    and expiry. Otherwise stop and record the block. After approved evidence work,
-   back up anything required, then have the authorized operator review and run
-   `terraform -chdir=terraform/azure plan -destroy`, followed by approved
-   `terraform -chdir=terraform/azure destroy`. Verify deletion/no orphan resources
-   and retain sanitized teardown proof. Teardown deletes the root-disk database.
+   back up anything required, then have the authorized operator create a **saved
+   delete-only plan** using the exact bound state, inputs, TF_DATA_DIR and account.
+   Independently review every deletion before separately approving application
+   of that saved plan, not an unreviewed fresh `destroy`:
+
+   ```bash
+   terraform -chdir=terraform/azure plan -destroy -out="$PWD/.local/a5-delete.tfplan"
+   # Stop for exact-state/delete-only review and separate explicit authorization.
+   terraform -chdir=terraform/azure apply "$PWD/.local/a5-delete.tfplan"
+   ```
+
+   Verify empty state/outputs, authenticated RG absence and the exact actual VM,
+   OS managed disk and public IP absence. Retain sanitized proof without claiming
+   zero cost. Teardown deletes the root-disk database. The completed pilot already
+   followed the saved-plan workflow; its artifacts must not be reused for a new lab.
 
 ## Production gaps and Assignment 6 handoff
 
@@ -365,7 +421,9 @@ because the role names are reusable. Password rotation must be coordinated with
 service restart; server source is immutable/pinned and never publicly served.
 
 The A6 baseline is `ansible/site.yml`, `ansible/group_vars/web.yml`, the three role
-directories and the actual approved inventory/recaps when later available. There
+directories and fresh approved inventory/successful recaps when later available.
+The pilot VM is deleted, its inventory is historical, and complete A5 runtime
+success is still a prerequisite—not supplied by the offline checkout correction. There
 is **no A6 risk script, Claude transcript, auto-fix or evidence** in this change.
 A6 must obtain its genuine **Claude Code plan before creating the risk script**,
 then preserve human-only application of the proposed Ansible change. A5's Copilot

@@ -27,7 +27,7 @@
     group: "{{ app_group }}"
     mode: "0750"
 
-- name: Create source and private Git metadata directories
+- name: Create source and private Git metadata parent directories
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: directory
@@ -43,7 +43,7 @@
     repo: "{{ app_repo }}"
     dest: "{{ app_dest }}"
     version: "{{ app_revision }}"
-    separate_git_dir: /opt/epicbook/git-metadata
+    separate_git_dir: /opt/epicbook/git-metadata/repository.git
     force: false
     update: true
     umask: "0027"
@@ -51,6 +51,14 @@
   become_user: "{{ app_user }}"
   register: epicbook_checkout
   notify: Reload nginx
+
+- name: Restrict the cloned Git metadata leaf
+  ansible.builtin.file:
+    path: /opt/epicbook/git-metadata/repository.git
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: "0700"
 
 - name: Confirm the actual application layout rather than assuming a static index
   ansible.builtin.stat:
