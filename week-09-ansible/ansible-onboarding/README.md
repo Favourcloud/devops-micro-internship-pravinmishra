@@ -10,7 +10,7 @@
 
 Prepared on **macOS (Darwin), x86_64, Python 3.13.3**. The isolated `.venv` is under this directory; system Python and other assignments' environments are unchanged. [`requirements.txt`](requirements.txt) pins the resolved dependencies; [`requirements.in`](requirements.in) lists the four requested tools for deliberate future upgrades.
 
-The [15 September validation record](evidence/local-validation.json) is preserved as historical evidence for its recorded source hashes. It contains actual sanitized local command results, the localhost smoke result and an isolated Git-hook installation test. It is **not a screenshot**, remote connectivity test or proof that editor extensions, signing or SSH keys are configured. Assignment-required screenshots and human access steps remain open until genuinely verified.
+The [15 September validation record](evidence/local-validation.json) is preserved as historical evidence for its recorded source hashes. It contains actual sanitized local command results, the localhost smoke result and an isolated Git-hook installation test. It is **not a screenshot**, remote connectivity test or proof that editor extensions, signing or SSH keys are configured. The [screenshot manifest](../screenshots/assignment-01-manifest.json) records reviewed original images and any remaining gaps. CLI records alone do not complete screenshot or interactive-editor requirements.
 
 ## New Machine? Do This
 
@@ -32,10 +32,10 @@ The [15 September validation record](evidence/local-validation.json) is preserve
 Run the complete check suite from this directory with `.venv` activated:
 
 ```bash
-python scripts/verify.py
+python scripts/verify.py --report evidence/validation-new-run.json
 ```
 
-This also tests both passing hooks and deliberately invalid YAML/module names in a disposable Git fixture, removes the fixture, and refreshes the sanitized evidence JSON. It does not install hooks in this shared repository. For individual checks:
+Choose a new report filename for each run. Existing evidence is refused before any checks run and is never overwritten. This also tests both passing hooks and deliberately invalid YAML/module names in a disposable Git fixture, removes the fixture, and writes a new sanitized evidence JSON. It does not install hooks in this shared repository. For individual checks:
 
 ```bash
 bash scripts/lint.sh yamllint
@@ -95,3 +95,13 @@ The 16 September controller installation retains all 38 pinned versions. PyPI do
 ## SSH evidence boundaries
 
 `verify_ssh.py` reads only the public key, private-file metadata, effective client settings and agent listings. Agent fingerprints and comments are removed before display. It does not read private-key contents, change a passphrase, connect to GitHub, validate a remote fingerprint or prove GitHub account authorization. The existing `known_hosts` file is checked only for existence. The optional alias does not add a key to GitHub.
+
+## Capture and submission boundaries
+
+The [capture-session validation](evidence/capture-validation-20260916.json) is separate from both historical validation records. The [GUI verification record](evidence/gui-verification-20260916.json) describes the genuine editor/interpreter checks and the [screenshot manifest](../screenshots/assignment-01-manifest.json) binds reviewed originals to their displayed source versions. Copilot executes the evidence commands; no manual learner action is invented.
+
+Terminal evidence executes actual commands and removes private path prefixes, file ownership and agent identifiers before display. Screenshot 8 reads the original successful hook-installation JSON alongside fresh identity/hook checks; the existing hook is not reinstalled. Its email local part is hidden. Images are not cropped, redacted after capture, composited or reconstructed.
+
+A Python-extension activation failure was traced to component-wise resolution of macOS file-ID aliases. The isolated launcher now uses verified private short symlinks to the **same existing** profile and extensions, avoiding both that error and long IPC paths. No packages, keys or controller setup were recreated. Failed/private test captures are not assignment evidence.
+
+The controller's local `main` is not GitHub's `main`. The [repository submission instructions](../../INSTRUCTIONS.md) require changes to reach this fork's graded default branch, `main`, followed by an instructor review run. No assignment-grading workflow is configured here, and no new external grading result is claimed. A feature-branch push alone is not grading completion. Any further merge requires separate authorization.

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Run local onboarding checks without installing hooks in the shared repository."""
 
+import argparse
 import hashlib
 import json
 import os
@@ -78,11 +79,11 @@ def verify_hooks(scratch):
     }
     run(
         "isolated git init",
-        ["git", "init", "--quiet", "--initial-branch=main", "--template="],
+        ["/usr/bin/git", "init", "--quiet", "--initial-branch=main", "--template="],
         cwd=fixture,
         env=fixture_env,
     )
-    run("isolated git add", ["git", "add", "."], cwd=fixture, env=fixture_env)
+    run("isolated git add", ["/usr/bin/git", "add", "."], cwd=fixture, env=fixture_env)
     (destination / ".venv").symlink_to(VENV, target_is_directory=True)
     pre_commit = [str(VENV / "bin/pre-commit")]
     config = str(RELATIVE_PROJECT / ".pre-commit-config.yaml")
@@ -124,6 +125,16 @@ def verify_hooks(scratch):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--report", type=Path, default=PROJECT / "evidence/local-validation.json",
+        help="New report path; existing evidence is never overwritten",
+    )
+    target = parser.parse_args().report
+    if target.exists():
+        parser.error("Report already exists; use --report with a new path to preserve historical evidence")
+    if not target.parent.is_dir():
+        parser.error("The report parent directory must already exist")
     run("dependency consistency", [str(VENV / "bin/python"), "-m", "pip", "check"])
     frozen = run("dependency lock match", [str(VENV / "bin/python"), "-m", "pip", "freeze"])
     if frozen.strip() != (PROJECT / "requirements.txt").read_text(encoding="utf-8").strip():
@@ -181,9 +192,9 @@ def main():
         "checks": RESULTS,
         "source_sha256": sources,
     }
-    target = PROJECT / "evidence/local-validation.json"
-    target.write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
-    print(f"PASS: {len(RESULTS)} command checks; evidence/local-validation.json written")
+    with target.open("x", encoding="utf-8") as report:
+        report.write(json.dumps(evidence, indent=2) + "\n")
+    print(f"PASS: {len(RESULTS)} command checks; new report written")
 
 
 if __name__ == "__main__":
