@@ -1,6 +1,21 @@
-# Restore Bedrock access before another live review
+# Bedrock enrollment and review continuation
 
-**Eze Favour — enrollment is not yet verified. No new inference or deployment is authorized by this runbook.**
+**Eze Favour — enrollment availability verified on 16 September 2026; post-enrollment inference and the assignment review loop remain pending.**
+
+The [sanitized continuation record](reports/continuation-20260916.json) verifies
+private MFA authentication, user-triggered local SDK acceptance at **13:26:22 UTC**,
+and independent readiness at **13:27:31 UTC**: agreement `AVAILABLE`, authorization
+`AUTHORIZED`, entitlement `AVAILABLE`, region `AVAILABLE`. No model call was used
+to establish that readiness. The [dated setup record](enrollment-proposal/SETUP-20260916.md)
+contains the full timeline and completion boundaries.
+
+The temporary session expired at **13:29 UTC** and the unchanged permission
+window at **13:30 UTC (14:30 Lagos)**. Do not reuse or silently renew them, repeat
+the completed acceptance, or treat expiry as proof of identity/key removal.
+The separate restricted runtime profile is not the enrollment profile.
+The user separately approved up to **$0.32 within the existing $0.50 allowance**
+for global Haiku reviews and the safe hook demonstration; the **$0.18 unknown-usage
+reservation is preserved**. This runbook grants no additional approval.
 
 The historical connection test succeeded, but subsequent Claude reviews failed
 with Marketplace enrollment authorization errors. Those facts are compatible:
@@ -31,7 +46,12 @@ enabled the chosen model for the account. Do not attach an administrator or
 Marketplace policy to the runtime role, bypass an organization restriction,
 restart OmniRoute, or enable the legacy root/personal Claude settings.
 
-## Human administrator enrollment step
+## Historical administrator enrollment procedure
+
+**Reference only: acceptance is now complete. Do not repeat it or use the expired
+session.** The actual user-triggered SDK acceptance and read-only verification
+supersede the earlier handoff below; no new administrator session is needed merely
+to repeat this evidence.
 
 Use an authorized **non-root administrator**, in a separate console session or
 explicitly named local profile. The user handles login, MFA, payment details and
@@ -90,9 +110,12 @@ usage**, **$0.18 reserved for incomplete usage records**, and **$0.32 unreserved
 The reservation is not a verified charge. This continuation made no new model
 call and does not release reservations or increase the allowance.
 
-Present a bounded retry/review budget and obtain the user's confirmation before
-the next billable call. Stop on an access failure instead of repeating retries
-or switching models. A CLI budget threshold is not an AWS account spending cap.
+The user confirmed the bounded **$0.32 remaining review allowance at
+2026-09-16T13:30:22.429Z**. Record usage atomically, reserve before invocation,
+and block concurrent or unreconciled runs before the next billable call. Do not
+release the historical $0.18 reservation without reconciliation. Stop on an
+access failure instead of repeating retries or switching models. A CLI budget
+threshold is not an AWS account spending cap.
 
 Use a new private run directory and the reviewed isolated launcher environment.
 Retain controlled, byte-identical Skill registration and explicitly selected

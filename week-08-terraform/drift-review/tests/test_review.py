@@ -372,6 +372,38 @@ class HookTests(unittest.TestCase):
         (live / "baseline-report.txt").symlink_to(self.work / "private.txt")
         self.assertEqual(self.invoke(tool="Read", payload={"file_path": "reports/live/baseline-report.txt"}).returncode, 2)
 
+    def test_configured_exec_form_command(self):
+        settings = json.loads((ROOT / ".claude/settings.json").read_text())
+        hook = settings["hooks"]["PreToolUse"][0]["hooks"][0]
+        spaced = self.work / "project with spaces"
+        script = spaced / ".claude/hooks/review_gate.py"
+        script.parent.mkdir(parents=True)
+        shutil.copyfile(self.hook, script)
+        (spaced / ".review-data").mkdir()
+        for workspace in (self.work, spaced):
+            command = [hook["command"], *(arg.replace("${CLAUDE_PROJECT_DIR}", str(workspace))
+                                         for arg in hook["args"])]
+            for tool, payload, expected_exit in (
+                ("Read", {"file_path": "README.md"}, 0),
+                ("Bash", {"command": "ls -l reports"}, 0),
+                ("Bash", {"command": "terraform apply -input=false"}, 2),
+            ):
+                with self.subTest(workspace=workspace.name, tool=tool, payload=payload):
+                    event = {"hook_event_name": "PreToolUse", "cwd": str(workspace),
+                             "tool_name": tool, "tool_input": payload}
+                    env = dict(os.environ, CLAUDE_PROJECT_DIR=str(workspace))
+                    env.pop("BASH_ENV", None); env.pop("ENV", None)
+                    process = subprocess.run(command, input=json.dumps(event), text=True,
+                                             capture_output=True, cwd=workspace, env=env,
+                                             timeout=hook["timeout"])
+                    self.assertEqual(process.returncode, expected_exit, process.stderr)
+                    if expected_exit == 2:
+                        self.assertIn("DENY:", process.stderr)
+                    else:
+                        context = json.loads(process.stdout)["hookSpecificOutput"]
+                        self.assertEqual(context["hookEventName"], "PreToolUse")
+                        self.assertIn("not mutation authorization", context["additionalContext"])
+
     def test_settings_and_skill_configuration(self):
         settings = json.loads((ROOT / ".claude/settings.json").read_text())
         hook = settings["hooks"]["PreToolUse"][0]
@@ -429,6 +461,41 @@ class SubmissionTests(unittest.TestCase):
         self.assertIn("Add a screenshot of the published LinkedIn post here.", submission)
         self.assertIn("- [ ] Included all 19 numbered screenshots", submission)
         self.assertIn("- [ ] Published the required LinkedIn post", submission)
+
+    def test_enrollment_continuation_boundaries(self):
+        self.assertIn("!reports/continuation-20260916.json", (ROOT / ".gitignore").read_text().splitlines())
+        record = json.loads((ROOT / "reports/continuation-20260916.json").read_text())
+        self.assertIn("NOT CLAUDE REVIEW OR DEPLOYMENT EVIDENCE", record["evidence_class"])
+        self.assertEqual(record["model"], "anthropic.claude-haiku-4-5-20251001-v1:0")
+        self.assertEqual(record["origin_region"], "ap-south-1")
+        acceptance = record["offer_acceptance"]
+        ready = record["independent_read_only_availability"]
+        self.assertEqual(acceptance["status"], "ACCEPTANCE_RESPONSE_CONFIRMED")
+        self.assertEqual(acceptance["immediate_agreement_status"], "PENDING")
+        self.assertEqual([ready[key] for key in ("agreement", "authorization", "entitlement", "region")],
+                         ["AVAILABLE", "AUTHORIZED", "AVAILABLE", "AVAILABLE"])
+        self.assertIs(ready["acceptance_repeated"], False)
+        self.assertIs(ready["model_invoked"], False)
+        self.assertLess(datetime.fromisoformat(acceptance["timestamp_utc"]),
+                        datetime.fromisoformat(ready["timestamp_utc"]))
+        self.assertLess(datetime.fromisoformat(ready["timestamp_utc"]),
+                        datetime.fromisoformat(record["mfa_session"]["expires_at_utc"]))
+        self.assertEqual(record["mfa_session"]["permission_expires_at_utc"], "2026-09-16T13:30:00+00:00")
+        self.assertIs(record["mfa_session"]["expiry_extended"], False)
+        approval = record["review_budget_approval"]
+        self.assertAlmostEqual(approval["maximum_new_usage_usd"] + approval["unchanged_unknown_usage_reservation_usd"],
+                               approval["original_additional_allowance_usd"])
+        for flag in ("provisioning_approved", "terraform_human_resolution_approved", "aws_account_spending_cap"):
+            self.assertIs(approval[flag], False)
+        plan = record["fresh_lab_preflight"]
+        self.assertEqual(plan["terraform_plan_exit"], 2)
+        self.assertEqual(plan["network_plan_resource_type"], "aws_vpc")
+        self.assertEqual([plan[key] for key in ("network_plan_create_count", "network_plan_update_count", "network_plan_delete_count")], [1, 0, 0])
+        for flag in ("network_plan_applied", "security_group_create_plan_prepared", "deleted_vpc_binding_reused"):
+            self.assertIs(plan[flag], False)
+        for digest in (acceptance["approved_offer_source_sha256"], acceptance["approved_legal_pdf_sha256"],
+                       acceptance["private_result_sha256"], ready["private_result_sha256"], plan["network_plan_sha256"]):
+            self.assertRegex(digest, r"^[0-9a-f]{64}$")
 
     def test_screenshot_provenance_matches_files(self):
         manifest = json.loads((ROOT / "screenshots/manifest.json").read_text())

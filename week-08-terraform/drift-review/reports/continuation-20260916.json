@@ -1,0 +1,72 @@
+{
+  "evidence_class": "SANITIZED ENROLLMENT, APPROVAL AND READ-ONLY LAB PREFLIGHT — NOT CLAUDE REVIEW OR DEPLOYMENT EVIDENCE",
+  "student": "Eze Favour",
+  "model": "anthropic.claude-haiku-4-5-20251001-v1:0",
+  "origin_region": "ap-south-1",
+  "mfa_session": {
+    "created_at_utc": "2026-09-16T12:48:03+00:00",
+    "exact_same_account_non_root_identity_verified": true,
+    "expires_at_utc": "2026-09-16T13:29:00+00:00",
+    "permission_expires_at_utc": "2026-09-16T13:30:00+00:00",
+    "expiry_extended": false
+  },
+  "offer_acceptance": {
+    "timestamp_utc": "2026-09-16T13:26:22+00:00",
+    "execution_method": "User-triggered local SDK helper with private terminal confirmation, not a console acceptance",
+    "status": "ACCEPTANCE_RESPONSE_CONFIRMED",
+    "fresh_terms_matched_approved_offer": true,
+    "approved_offer_source_sha256": "119d95a384225820525e0327c2577d7860f7ce1c72801b3af151fd296dd84893",
+    "approved_legal_pdf_sha256": "9959a0c298faab9e1375d42d8f1fa8894cff36ef64683441ee249d5c84def3c1",
+    "private_result_sha256": "69df24c6491f8a008aa97375c0e2a440285e2d0ed6b539fc05e496e271fee28b",
+    "immediate_agreement_status": "PENDING"
+  },
+  "independent_read_only_availability": {
+    "timestamp_utc": "2026-09-16T13:27:31+00:00",
+    "agreement": "AVAILABLE",
+    "authorization": "AUTHORIZED",
+    "entitlement": "AVAILABLE",
+    "region": "AVAILABLE",
+    "private_result_sha256": "687b26da9b3a6a8cdb803a5bb74f5204494f1f532c48717578c9aa3cbfc60745",
+    "acceptance_repeated": false,
+    "model_invoked": false
+  },
+  "review_budget_approval": {
+    "timestamp_utc": "2026-09-16T13:30:22.429+00:00",
+    "maximum_new_usage_usd": 0.32,
+    "original_additional_allowance_usd": 0.5,
+    "unchanged_unknown_usage_reservation_usd": 0.18,
+    "reported_additional_cost_at_approval_usd": 0,
+    "scope": "Existing global Haiku reviews and safe hook demonstration only",
+    "provisioning_approved": false,
+    "terraform_human_resolution_approved": false,
+    "aws_account_spending_cap": false
+  },
+  "fresh_lab_preflight": {
+    "timestamp_utc": "2026-09-16T13:44:17+00:00",
+    "exact_non_root_source_identity_verified": true,
+    "empty_managed_states_verified": true,
+    "tag_scoped_vpc_count": 0,
+    "tag_scoped_security_group_count": 0,
+    "creation_permission_dry_run": "DryRunOperation",
+    "network_plan_sha256": "6424ebd034ba76350eb229e494c010c0b69c343e82d8a36695cf21e3b64155cc",
+    "network_plan_create_count": 1,
+    "network_plan_update_count": 0,
+    "network_plan_delete_count": 0,
+    "terraform_plan_exit": 2,
+    "network_plan_resource_type": "aws_vpc",
+    "network_plan_applied": false,
+    "security_group_create_plan_prepared": false,
+    "deleted_vpc_binding_reused": false,
+    "expected_monthly_resource_type_cost_usd": 0
+  },
+  "limitations": [
+    "Availability was independently observed at the recorded time; this is not a successful runtime inference or Skill review.",
+    "Enrollment credentials and policy grants have expired; no renewal, identity deletion or policy detachment is claimed.",
+    "The $0.32 approval is within the original allowance, not an increase; old unknown-usage reservations remain reserved, not verified charges.",
+    "The fresh network create plan is unapplied. The security-group create plan requires a newly approved VPC binding.",
+    "Cleanup permissions were previously exercised and the saved scoped policy was reviewed; this preflight is not a fresh actual-resource cleanup permission test.",
+    "The $0 estimate covers only the isolated VPC and closed unattached security group, not account billing, model usage or paid AWS features.",
+    "No Claude runtime review, hook denial, human Terraform resolution or new screenshot is established by this record.",
+    "Raw offers, signed URLs, credentials, account bindings, plans and transcripts remain private. Hashes identify bytes, not a signed attestation."
+  ]
+}

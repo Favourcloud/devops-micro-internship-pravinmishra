@@ -20,6 +20,7 @@ reports/*
 !reports/resolved-report.txt
 !reports/local-validation.json
 !reports/live-preflight.json
+!reports/continuation-20260916.json
 !reports/live/
 reports/live/*
 !reports/live/baseline-report.txt
