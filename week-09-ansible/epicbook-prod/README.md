@@ -22,7 +22,10 @@ The historical B1ms plan passed with **11 creates, 0 updates, 0 deletes**, but i
 **superseded and must never be applied**: the UK South SKU catalogue reports
 `NotAvailableForSubscription` at location level. Its original private plan and
 source/hash bindings are preserved. The coordinator approved a separately planned
-nonzonal D2lds_v6 preparation; the current plan status is recorded in the manifest.
+nonzonal D2lds_v6 preparation. Its **new identity-bound real plan passed at
+19:22:39 UTC on 16 September 2026: 11 creates, 0 updates, 0 deletes**. Source commit
+`53766f5b5fc71f7c0a58c56fdeea976f18d48608` and plan hash are recorded in the manifest;
+account/input/environment equality and the embedded Terraform/lock were checked.
 Actual plans/inputs/logs remain private and ignored. **No apply occurred.** Neither
 catalogue eligibility, quota nor a successful plan proves physical allocation
 capacity, VM creation or application operation.
