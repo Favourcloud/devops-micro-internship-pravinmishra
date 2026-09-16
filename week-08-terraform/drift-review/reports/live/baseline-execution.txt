@@ -1,0 +1,26 @@
+Eze Favour — genuine baseline execution evidence
+SANITIZED HISTORICAL OUTPUT EXPORT — not a reconstructed terminal
+Executor: GitHub Copilot under explicit user provisioning approval.
+Raw private paths/refresh identifiers omitted; screenshot pixels will not be edited.
+The lab has since been deleted; this output describes the timestamps below.
+
+network root — 2026-09-15T18:07:05+00:00
+Command: terraform plan -input=false -no-color -detailed-exitcode -out=[PRIVATE PLAN PATH]
+Actual Terraform detailed exit: 0
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+
+security-group root — 2026-09-15T18:07:25+00:00
+Command: terraform plan -input=false -no-color -detailed-exitcode -out=[PRIVATE PLAN PATH]
+Actual Terraform detailed exit: 0
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+
+Live checker — 2026-09-15T18:08:14+00:00
+Actual captured subprocess exit: 0
+Actual status: HEALTHY
+Report: reports/live/baseline-report.txt

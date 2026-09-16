@@ -1,0 +1,81 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.13.5",
+  "applyable": true,
+  "complete": true,
+  "errored": false,
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_security_group.synthetic",
+          "mode": "managed",
+          "type": "aws_security_group",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "values": {
+            "name": "synthetic-only",
+            "description": "Synthetic baseline",
+            "ingress": [
+              {
+                "protocol": "tcp",
+                "from_port": 22,
+                "to_port": 22,
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "ipv6_cidr_blocks": [],
+                "security_groups": [],
+                "prefix_list_ids": [],
+                "self": false
+              }
+            ],
+            "egress": []
+          }
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_security_group.synthetic",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "update"
+        ],
+        "before": {
+          "name": "synthetic-only",
+          "description": "Synthetic baseline",
+          "ingress": [],
+          "egress": []
+        },
+        "after": {
+          "name": "synthetic-only",
+          "description": "Synthetic baseline",
+          "ingress": [
+            {
+              "protocol": "tcp",
+              "from_port": 22,
+              "to_port": 22,
+              "cidr_blocks": [
+                "0.0.0.0/0"
+              ],
+              "ipv6_cidr_blocks": [],
+              "security_groups": [],
+              "prefix_list_ids": [],
+              "self": false
+            }
+          ],
+          "egress": []
+        },
+        "after_unknown": {},
+        "before_sensitive": {},
+        "after_sensitive": {}
+      }
+    }
+  ],
+  "output_changes": {},
+  "resource_drift": []
+}

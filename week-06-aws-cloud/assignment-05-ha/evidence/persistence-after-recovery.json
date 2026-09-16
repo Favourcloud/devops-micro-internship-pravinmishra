@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-09-15T01:30:55.253245+00:00",
+  "result": "passed",
+  "description": "Records written before termination and during AZ evacuation remain readable after two-AZ recovery.",
+  "books": [
+    {
+      "id": 2,
+      "title": "HA verification 2026-09-15T01:26:55.088848+00:00",
+      "author": "Synthetic lab record"
+    },
+    {
+      "id": 1,
+      "title": "HA verification 2026-09-15T01:15:04.121054+00:00",
+      "author": "Synthetic lab record"
+    }
+  ],
+  "serving_instance_id": "i-0d4e5495fb5b81371"
+}

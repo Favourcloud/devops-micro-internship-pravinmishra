@@ -1,0 +1,122 @@
+{
+  "evidence_type": "Incremental planning estimate for proposed missing resources, based on observed AWS inventory and read-only AWS Price List queries; not a Terraform plan or invoice",
+  "recorded_at": "2026-09-15T03:21:35.736297+00:00",
+  "region": "eu-north-1",
+  "currency": "USD",
+  "hours_per_month": 730,
+  "inventory_reference": "preflight-2026-09-15.json",
+  "resource_prices": [
+    {
+      "resource": "Public Application Load Balancer",
+      "quantity": 1,
+      "billing_basis": "hour",
+      "quote": {
+        "service": "AWSELB",
+        "region": "eu-north-1",
+        "sku": "FY6N7P3VBQKBHGCC",
+        "rate_code": "FY6N7P3VBQKBHGCC.JRTCKXETXF.6YS6EN2CT7",
+        "usd": "0.0239400000",
+        "unit": "Hrs",
+        "description": "$0.02394 per Application LoadBalancer-hour (or partial hour)",
+        "effective_date": "2026-08-01T00:00:00Z"
+      },
+      "normalized_monthly_usd": "17.48"
+    },
+    {
+      "resource": "Used ALB capacity planning allowance",
+      "quantity": 1,
+      "billing_basis": "hour",
+      "quote": {
+        "service": "AWSELB",
+        "region": "eu-north-1",
+        "sku": "3T8FA94JAYX6F8NU",
+        "rate_code": "3T8FA94JAYX6F8NU.JRTCKXETXF.6YS6EN2CT7",
+        "usd": "0.0076000000",
+        "unit": "LCU-Hrs",
+        "description": "$0.0076 per used Application load balancer capacity unit-hour (or partial hour)",
+        "effective_date": "2026-08-01T00:00:00Z"
+      },
+      "normalized_monthly_usd": "5.55"
+    },
+    {
+      "resource": "Additional in-use public IPv4 addresses",
+      "quantity": 2,
+      "billing_basis": "hour",
+      "quote": {
+        "service": "AmazonVPC",
+        "region": "eu-north-1",
+        "sku": "H24SU884XW7MB5WC",
+        "rate_code": "H24SU884XW7MB5WC.JRTCKXETXF.6YS6EN2CT7",
+        "usd": "0.0050000000",
+        "unit": "Hrs",
+        "description": "$0.005 per In-use public IPv4 address per hour",
+        "effective_date": "2026-07-01T00:00:00Z"
+      },
+      "normalized_monthly_usd": "7.30"
+    },
+    {
+      "resource": "MySQL db.t4g.micro Single-AZ read replica",
+      "quantity": 1,
+      "billing_basis": "hour",
+      "quote": {
+        "service": "AmazonRDS",
+        "region": "eu-north-1",
+        "sku": "PU5VD2C87KKPZFAK",
+        "rate_code": "PU5VD2C87KKPZFAK.JRTCKXETXF.6YS6EN2CT7",
+        "usd": "0.0160000000",
+        "unit": "Hrs",
+        "description": "$ 0.016 per RDS db.t4g.micro Single-AZ instance hour (or partial hour) running MySQL",
+        "effective_date": "2026-09-01T00:00:00Z"
+      },
+      "normalized_monthly_usd": "11.68"
+    },
+    {
+      "resource": "Read-replica gp2 storage",
+      "quantity": 20,
+      "billing_basis": "month",
+      "quote": {
+        "service": "AmazonRDS",
+        "region": "eu-north-1",
+        "sku": "U63WBDFC7NMP6GQX",
+        "rate_code": "U63WBDFC7NMP6GQX.JRTCKXETXF.6YS6EN2CT7",
+        "usd": "0.1200000000",
+        "unit": "GB-Mo",
+        "description": "$0.12 per GB-month of provisioned gp2 storage running MySQL",
+        "effective_date": "2026-09-01T00:00:00Z"
+      },
+      "normalized_monthly_usd": "2.40"
+    }
+  ],
+  "incremental_monthly_usd": "44.40",
+  "four_hour_incremental_equivalent_usd": "0.24",
+  "proposed_additions_allowance_usd": "5.00",
+  "allowance_approved": false,
+  "deployment_performed": false,
+  "identity_gate": "Use an approved non-root deployment profile; current default profile resolves to root. No identity changes were performed.",
+  "assumptions": [
+    "Reuse existing Stockholm VPC, subnets, Web/App EC2, internal ALB, and private encrypted Multi-AZ primary.",
+    "Source database currently has 20 GB gp2 storage; proposed replica uses matching capacity/storage type and a separate Single-AZ db.t4g.micro instance.",
+    "One LCU and two ALB public IPv4 addresses are planning allowances, not usage limits.",
+    "Totals use unrounded rates; displayed component rounding can differ by one cent.",
+    "Four-hour values are normalized equivalents; service minimum billing and proration differ."
+  ],
+  "excluded_costs": [
+    "All pre-existing EC2, internal ALB, NAT, storage, public IPv4 and databases, including ha-mysql-db and Assignment 4; these may already be charging.",
+    "Data transfer, NAT processing, additional ALB LCUs/IPs, RDS CPU surplus credits, backups/snapshots, logging, API calls and taxes.",
+    "Additional web/app instances, new networking, private-management endpoints, migration work, cleanup delays or failed deletion."
+  ],
+  "approval_and_stop_plan": [
+    "Obtain explicit approval of incremental spending, exact new-resource scope and retention/cleanup intent before apply. The Assignment 5 retest proposal does not authorize this capstone spend.",
+    "Establish approved non-root access and a safe way to inspect existing runtime/configuration before launching chargeable additions.",
+    "Use a dedicated new-additions-only Terraform state; existing shared infrastructure is referenced read-only, not imported for blanket destruction.",
+    "Abort testing if no stable UI/database baseline is established within 60 minutes of starting changes. Begin removal of only newly created resources by 120 minutes; reserve a four-hour target for cleanup and verification.",
+    "Continue cleanup if it exceeds the target. Do not delete state, source databases or shared VPC resources to meet a deadline.",
+    "No timer, budget alarm or hard spending cap has been installed. Billing alerts are delayed."
+  ],
+  "sources": [
+    "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetProducts.html",
+    "https://aws.amazon.com/elasticloadbalancing/pricing/",
+    "https://aws.amazon.com/rds/mysql/pricing/",
+    "https://aws.amazon.com/vpc/pricing/"
+  ]
+}

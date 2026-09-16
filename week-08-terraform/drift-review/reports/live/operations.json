@@ -1,0 +1,156 @@
+{
+  "evidence_class": "SANITIZED EXPORT OF ACTUAL TERRAFORM/AWS OPERATIONS — NOT A CLAUDE REVIEW",
+  "student": "Eze Favour",
+  "date_utc": "2026-09-15",
+  "region": "ap-south-1",
+  "executor": "GitHub Copilot, separately authorized by the user; not Claude and not manually executed by the user",
+  "scope": "One dedicated VPC and one closed, unattached security group; no paid workload components or earlier coursework targets",
+  "provisioning_and_cleanup_explicitly_approved_before_creation": true,
+  "creation": [
+    {
+      "timestamp_utc": "2026-09-15T18:04:51+00:00",
+      "executor": "GitHub Copilot under explicit user approval, not Claude",
+      "root": "network",
+      "terraform_exit": 0,
+      "reviewed_plan_sha256": "f59a234e4d66883a9b626ccb60a3b5bea85d2c36edda9b4d973179f527e86a4d"
+    },
+    {
+      "timestamp_utc": "2026-09-15T18:06:30+00:00",
+      "executor": "GitHub Copilot under explicit user approval, not Claude",
+      "root": "security-group",
+      "terraform_exit": 0,
+      "reviewed_plan_sha256": "5aae35c25b6c4e159d357428c8c58bd347ac381f94dc43c17e6d5d621d6007a3"
+    }
+  ],
+  "baseline": [
+    {
+      "timestamp_utc": "2026-09-15T18:07:05+00:00",
+      "terraform_exit": 0,
+      "root": "network",
+      "resources": [
+        {
+          "type": "aws_vpc",
+          "actions": [
+            "no-op"
+          ]
+        }
+      ],
+      "plan_sha256": "56abd01cf4a5d6878a386ea260fbd9c5ab48e9a7fe3f6dd7be90a805c163e760",
+      "source_sha256": "dc662b2424e1ec6428b3e39416468cab81f7fdfb3b7860ea4d2e1d7c22ac1d93",
+      "public_ssh_proposed_only": false,
+      "applied": false
+    },
+    {
+      "timestamp_utc": "2026-09-15T18:07:25+00:00",
+      "terraform_exit": 0,
+      "root": "security-group",
+      "resources": [
+        {
+          "type": "aws_security_group",
+          "actions": [
+            "no-op"
+          ]
+        }
+      ],
+      "plan_sha256": "2d4fa2cca8fea91de1d8c976d67e329627da5fb9ee26571365d3b96d7a344b78",
+      "source_sha256": "99be21d337fc7ae0eb004fdb9427db3f535947a12a1c0f178ddaf1d47e3e2cc1",
+      "public_ssh_proposed_only": false,
+      "applied": false
+    }
+  ],
+  "baseline_checker": {
+    "timestamp_utc": "2026-09-15T18:08:14+00:00",
+    "checker_exit": 0,
+    "mode": "LIVE",
+    "status": "HEALTHY",
+    "raw_temporary_plan_removed_by_checker": true
+  },
+  "proposal": {
+    "timestamp_utc": "2026-09-15T18:20:52+00:00",
+    "classification": "UNAPPLIED CONFIGURATION CHANGE, NOT OUT-OF-BAND DRIFT",
+    "terraform_detailed_exit": 2,
+    "checker_exit": 2,
+    "status": "FAIL",
+    "proposed_resource_updates": 1,
+    "refresh_drift_entries": 0,
+    "deployed_ingress_rule_count_after_planning": 0,
+    "risky_rule_applied": false,
+    "public_proposal_sha256": "ff8156e4e292a4fdf31e55de85097688821e0848d8191930c3333d69f545ca2d",
+    "private_loaded_override_matches_public_example": true
+  },
+  "technical_reset": {
+    "timestamp_utc": "2026-09-15T18:22:55+00:00",
+    "checker_exit": 0,
+    "terraform_detailed_exit": 0,
+    "status": "HEALTHY",
+    "human_resolution_approved": false,
+    "interpretation": "Technical baseline recheck after cleanup preparation, not an approved resolution"
+  },
+  "reset_reason": "Temporary override removed for cleanup safety under prior cleanup authorization; human resolution approval remains pending, as explicitly clarified by the user",
+  "cleanup_actions": [
+    {
+      "timestamp_utc": "2026-09-15T18:23:33+00:00",
+      "root": "security-group",
+      "terraform_exit": 0,
+      "deleted_resource_type": "aws_security_group",
+      "reviewed_plan_sha256": "98d276309e79450c325573e1d109cb7eaac2c4e8bf54934450f1ac6ecfdd0a10",
+      "only_created_resource_binding_matched": true,
+      "executor": "GitHub Copilot under explicit cleanup approval"
+    },
+    {
+      "timestamp_utc": "2026-09-15T18:25:37+00:00",
+      "root": "network",
+      "terraform_exit": 0,
+      "deleted_resource_type": "aws_vpc",
+      "reviewed_plan_sha256": "497ff9ab229d5877ab1937620c850c1a7115b69686f304a45c559e1fb4cea546",
+      "only_created_resource_binding_matched": true,
+      "executor": "GitHub Copilot under explicit cleanup approval"
+    }
+  ],
+  "cleanup_verification": {
+    "timestamp_utc": "2026-09-15T18:25:59+00:00",
+    "cleanup": "VERIFIED",
+    "terraform_managed_resource_count": 0,
+    "lab_tagged_vpc_count": 0,
+    "lab_tagged_security_group_count": 0,
+    "exact_created_vpc_lookup": "InvalidVpcID.NotFound",
+    "exact_created_group_lookup": "InvalidGroup.NotFound",
+    "earlier_coursework_resources_targeted": false,
+    "bedrock_role_targeted": false,
+    "risky_rule_applied": false,
+    "human_resolution_approved": false
+  },
+  "final_local_terraform_validation": {
+    "network": {
+      "fmt_exit": 0,
+      "validate_exit": 0,
+      "valid": true,
+      "source_and_lock_match_tracked": true
+    },
+    "security-group": {
+      "fmt_exit": 0,
+      "validate_exit": 0,
+      "valid": true,
+      "source_and_lock_match_tracked": true
+    }
+  },
+  "limits": [
+    "Report HEALTHY covers supported security-group ingress and destructive actions only.",
+    "Reports describe their recorded times; the lab is now deleted.",
+    "DescribeSubnets was denied during an extra cleanup guard; no permissions were widened. Authorized ENI/default-group checks and the exact deletion-only VPC plan were used; real deletion and NotFound checks then succeeded.",
+    "No Claude review or runtime hook denial is claimed.",
+    "Lab resource-type cost expected $0; account billing was not queried."
+  ],
+  "public_report_sha256": {
+    "baseline-report.txt": "21651a09c5bd244061daa43c622ce7807058dcaa91b6aaedd8e71574bdc785ef",
+    "drift-detected-report.txt": "e48fe440def35ce750df38284152767fb7e65aabcfd7005c5299a3b9034a280a",
+    "resolved-report.txt": "c5a290189d89df763eeb93d2cfb0c1a2884ae687ac0633f033c2a5416382df77"
+  },
+  "private_record_sha256": {
+    "baseline-checker-result.json": "16ec52769b27df6ed545f956cfce91c5b4c93bcff579ee838bb9feb2e584ffea",
+    "proposal-verification.json": "0634edb144c4dc3119e691ca45740c8771b7766a047b89f06b96c45c9f3433bb",
+    "cleanup-preparation.json": "4a041122b6d7bfd25a13c9a79e26b2470747486b4ca3dd9dd744bb8075468893",
+    "reset-checker-result.json": "8542a99a7b10ceaf512cd005568b0a848de0f97ed63490d1bfeb4995778e84ac",
+    "cleanup-verification.json": "7f44d6126a3718605a82da49a6725ccfea1fca363d61974f077380b492274988"
+  }
+}

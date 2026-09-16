@@ -1,0 +1,4 @@
+# Keep these false until the documented deployment gates have been approved.
+# Supply the actual account ID privately through TF_VAR_expected_account_id.
+deployment_approved = false
+runtime_verified    = false

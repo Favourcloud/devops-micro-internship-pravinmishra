@@ -1,0 +1,893 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-15T11:00:53.764082+00:00",
+  "scope": "Local redaction of the ten listed Assignment 6 historical capstone screenshots and inspection of the listed historical LinkedIn screenshot only. Operation guards below describe that redaction step; subsequent review and Git publication are separate.",
+  "source_git_revision": "4d4b117724575e98f92af37fd1d658a54cd48f1b",
+  "coordinate_convention": {
+    "origin": "top-left of the original image",
+    "rectangle_order": [
+      "left",
+      "top",
+      "right",
+      "bottom"
+    ],
+    "units": "integer pixels",
+    "bounds": "Half-open: left/top inclusive; right/bottom exclusive. Width = right-left; height = bottom-top.",
+    "padding_and_clipping": "OCR/glyph bounds were expanded with safety padding; row masks use floor(left/top) and ceil(right/bottom) before padding. Final rectangles are entirely within [0,width] x [0,height]. The header rectangle begins at top=0 to cover the clipped image edge. Reported rectangles are the exact applied bounds, not OCR bounding boxes. No image was cropped or resized."
+  },
+  "method": {
+    "replacement": "Opaque RGB pixel replacement, never blur. No pixels outside the listed rectangles were changed.",
+    "header_label": "Only the conservatively covered upper-right overlay received the explicit label Eze Favour | account ID redacted. No blanket author labels or new proof graphics were added.",
+    "serialization": "Changed PNGs were saved as RGB with only IHDR, IDAT, and IEND chunks and no metadata. Unchanged PNGs were not re-saved and remain byte-identical. Original alpha channels were fully opaque."
+  },
+  "counts": {
+    "images_inspected": 11,
+    "images_changed": 5,
+    "images_unchanged": 6,
+    "masks": 24,
+    "masks_by_category": {
+      "account_header": 1,
+      "account_id": 19,
+      "account_id_in_arn": 3,
+      "operator_ipv4_cidr": 1
+    },
+    "password_or_connection_command_masks": 0,
+    "changed_pixels": 39217,
+    "changed_pixels_outside_masks": 0
+  },
+  "verification_methods": [
+    "Compared SHA256 of every starting worktree file, local backup, and corresponding Git HEAD blob; rechecked backups and Git blobs after redaction.",
+    "Local Apple Vision accurate OCR on all 11 originals at native size and 3x enlargement, plus focused 4x upper-header crops; no network OCR or uploads.",
+    "Additional padded, inverted, and thresholded local OCR of the existing dark upper-right overlay; unreadable/clipped content conservatively covered.",
+    "Local pixel glyph-template alignment and padded enlarged OCR to locate account substrings within the three ARNs while retaining separable resource identifiers. Apple Vision fast-mode OCR was also tried but did not resolve account spans.",
+    "Post-redaction Apple Vision accurate OCR of all 11 images at native size, 3x enlargement, and focused 4x header crops, plus enlarged padded details of all three redacted ARNs.",
+    "Checked post-redaction OCR for account-ID patterns, operator IPv4 /32 patterns, original identified sensitive values, and credential/connection-command candidates; none remained in recognized text.",
+    "Compared every RGB pixel against the original and asserted zero changed pixels outside the exact mask union; checked every replacement patch against its opaque fill/label specification.",
+    "Verified dimensions, PNG modes/chunks, absence of metadata in changed PNGs, and byte identity of all six unmodified images, including LinkedIn."
+  ],
+  "post_redaction_ocr": {
+    "engine": "Apple Vision VNRecognizeTextRequest",
+    "recognition_level": "accurate",
+    "language": "en-US",
+    "language_correction": false,
+    "runs": {
+      "after-ocr.json": {
+        "images_processed": 11,
+        "recognized_text_observations": 598,
+        "remaining_account_id_patterns": 0,
+        "remaining_operator_ipv4_32_patterns": 0,
+        "remaining_source_sensitive_values": 0,
+        "credential_or_connection_command_candidates": 0
+      },
+      "after-upscaled-ocr.json": {
+        "images_processed": 11,
+        "recognized_text_observations": 601,
+        "remaining_account_id_patterns": 0,
+        "remaining_operator_ipv4_32_patterns": 0,
+        "remaining_source_sensitive_values": 0,
+        "credential_or_connection_command_candidates": 0
+      },
+      "after-headers-ocr.json": {
+        "images_processed": 11,
+        "recognized_text_observations": 84,
+        "remaining_account_id_patterns": 0,
+        "remaining_operator_ipv4_32_patterns": 0,
+        "remaining_source_sensitive_values": 0,
+        "credential_or_connection_command_candidates": 0
+      },
+      "after-arn-detail-ocr.json": {
+        "images_processed": 3,
+        "recognized_text_observations": 11,
+        "remaining_account_id_patterns": 0,
+        "remaining_operator_ipv4_32_patterns": 0,
+        "remaining_source_sensitive_values": 0,
+        "credential_or_connection_command_candidates": 0
+      }
+    },
+    "header_redaction_label_recognized": true
+  },
+  "tooling": {
+    "image_processing": "Pillow 12.3.0",
+    "ocr_execution": "Local macOS Swift / Apple Vision only"
+  },
+  "limitations": [
+    "OCR is not an exhaustive privacy guarantee: clipped, small, anti-aliased, or low-resolution glyphs can be missed or misread. Native OCR missed some detail, and enlarged OCR did not reliably recognize the operator CIDR. Multiple scales/crops and pixel-region checks were used.",
+    "No reliable account text could be recovered from the pre-existing dark upper-right overlay in 10_Security_Groups.png. Its entire region was conservatively masked and explicitly labeled; this is not a reconstructed console or a fresh capture.",
+    "No password or connection-command string was identified in the scoped images by the local OCR inspection. Their absence from recognized text is not a guarantee about unrecognized content.",
+    "Only targeted privacy fields were removed. Public infrastructure addresses, private network ranges, resource identifiers, learner text, and technical status evidence remain where separable.",
+    "Git history was NOT scrubbed; original image pixels remain available in existing Git commits. Other assignments and all images not listed here were NOT scrubbed.",
+    "Previously shared or published copies, remote caches, and credential/account access were not altered. Historical/remote-copy cleanup and any credential rotation require separate assessment. The conservative header mask was reviewed before committing; it remains an explicitly labeled privacy edit, not new console proof."
+  ],
+  "historical_evidence_integrity": {
+    "historical_not_new_capture": true,
+    "does_not_claim_a_deployment_fix": true,
+    "unhealthy_and_reachability_evidence_remains_byte_identical": true,
+    "no_console_reconstruction": true
+  },
+  "scope_guards": {
+    "no_aws_api_calls": true,
+    "no_external_ocr_or_uploads": true,
+    "no_commit_or_push": true,
+    "no_publishing": true,
+    "no_markdown_terraform_or_existing_json_edits": true,
+    "git_history_scrubbed": false,
+    "other_assignments_scrubbed": false,
+    "raw_ocr_and_backup_location": ".tools/a6-redaction/",
+    "raw_scratch_artifacts_removed_after_verification": true
+  },
+  "images": [
+    {
+      "path": "week-06-aws-cloud/screenshots/01_Web_EC2.png",
+      "disposition": "redacted",
+      "original_sha256": "36574a0bb44c55056f2af7bd8c0f9c736798ca65b65287415610b57e00b12695",
+      "output_sha256": "f4a112feb08ae2e1a275aa9dcf51d803073c6d69df2b5ff4b418d18874832500",
+      "dimensions": {
+        "width": 1595,
+        "height": 827
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGB",
+      "mask_count": 3,
+      "masks": [
+        {
+          "rectangle": [
+            743,
+            306,
+            825,
+            326
+          ],
+          "category": "account_id_in_arn",
+          "reason": "AWS account component of the EC2 instance ARN; service, region, and separable resource identifier retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-01"
+        },
+        {
+          "rectangle": [
+            629,
+            455,
+            713,
+            476
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in the Owner ID value; field label retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-02"
+        },
+        {
+          "rectangle": [
+            829,
+            625,
+            923,
+            646
+          ],
+          "category": "operator_ipv4_cidr",
+          "reason": "Operator IPv4 /32 source value in the SSH inbound rule; port, protocol, rule ID, and other source rows retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-03"
+        }
+      ],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": false,
+        "changed_pixel_count": 5378,
+        "masked_pixel_area": 5378,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "IDAT",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": true
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/02_App_EC2.png",
+      "disposition": "redacted",
+      "original_sha256": "5848f868ec734a24e3fa83646600da26a0319bb7e6b8cb5607ff30005f52731b",
+      "output_sha256": "70e329cdc0289a1c2a26c73a5ef86e060ec0f22ac5791faecfa235fddf8312da",
+      "dimensions": {
+        "width": 950,
+        "height": 589
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGB",
+      "mask_count": 1,
+      "masks": [
+        {
+          "rectangle": [
+            375,
+            224,
+            431,
+            239
+          ],
+          "category": "account_id_in_arn",
+          "reason": "AWS account component of the EC2 instance ARN; separable resource identifier and instance status retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-01"
+        }
+      ],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": false,
+        "changed_pixel_count": 840,
+        "masked_pixel_area": 840,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": true
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/03_Internal_ALB.png",
+      "disposition": "inspected_unchanged",
+      "original_sha256": "52419ee551efb6b08591a34eaafb2bb055bc9d7dcc08dc34aceefd2179c03997",
+      "output_sha256": "52419ee551efb6b08591a34eaafb2bb055bc9d7dcc08dc34aceefd2179c03997",
+      "dimensions": {
+        "width": 1663,
+        "height": 296
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGBA",
+      "mask_count": 0,
+      "masks": [],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": true,
+        "changed_pixel_count": 0,
+        "masked_pixel_area": 0,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "sRGB",
+          "gAMA",
+          "pHYs",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": false
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/04_App_Target_Health_UNHEALTHY.png",
+      "disposition": "inspected_unchanged",
+      "original_sha256": "f6c41491777e619bd8149f1f050cfee06f883b0229663eff072a281b34155dbc",
+      "output_sha256": "f6c41491777e619bd8149f1f050cfee06f883b0229663eff072a281b34155dbc",
+      "dimensions": {
+        "width": 1659,
+        "height": 278
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGBA",
+      "mask_count": 0,
+      "masks": [],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": true,
+        "changed_pixel_count": 0,
+        "masked_pixel_area": 0,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "sRGB",
+          "gAMA",
+          "pHYs",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": false
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/05_Internal_ALB_SG.png",
+      "disposition": "redacted",
+      "original_sha256": "29dc10faa13b202e2178562024f3b60889430c2d6323f4669e5d755dc4a678a4",
+      "output_sha256": "737d4df4048d4b4fd9012d9e5a00b83037078888899a3b0e10e1565a6340f3f0",
+      "dimensions": {
+        "width": 1270,
+        "height": 390
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGB",
+      "mask_count": 1,
+      "masks": [
+        {
+          "rectangle": [
+            54,
+            127,
+            138,
+            146
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in the security-group Owner value; field label and security-group identifiers retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-01"
+        }
+      ],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": false,
+        "changed_pixel_count": 1596,
+        "masked_pixel_area": 1596,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": true
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/06_BookReview_RDS.png",
+      "disposition": "inspected_unchanged",
+      "original_sha256": "0092e705963045c3af3e6cb2b3da35e929b71c41fda9f563e909f2f9cf742b42",
+      "output_sha256": "0092e705963045c3af3e6cb2b3da35e929b71c41fda9f563e909f2f9cf742b42",
+      "dimensions": {
+        "width": 1586,
+        "height": 772
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGBA",
+      "mask_count": 0,
+      "masks": [],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": true,
+        "changed_pixel_count": 0,
+        "masked_pixel_area": 0,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "sRGB",
+          "gAMA",
+          "pHYs",
+          "IDAT",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": false
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/07_RDS_Databases_List.png",
+      "disposition": "inspected_unchanged",
+      "original_sha256": "84813995f8949e97ea9ac4c03c190e650ab6b45e63833491cecad727a4275fca",
+      "output_sha256": "84813995f8949e97ea9ac4c03c190e650ab6b45e63833491cecad727a4275fca",
+      "dimensions": {
+        "width": 1668,
+        "height": 225
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGBA",
+      "mask_count": 0,
+      "masks": [],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": true,
+        "changed_pixel_count": 0,
+        "masked_pixel_area": 0,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "sRGB",
+          "gAMA",
+          "pHYs",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": false
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/08_Read_Replica_Creation.png",
+      "disposition": "inspected_unchanged",
+      "original_sha256": "70ca6e8104488ca84229da0968533a65483288acae21af2efc13e736c6de98c6",
+      "output_sha256": "70ca6e8104488ca84229da0968533a65483288acae21af2efc13e736c6de98c6",
+      "dimensions": {
+        "width": 1047,
+        "height": 782
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGBA",
+      "mask_count": 0,
+      "masks": [],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": true,
+        "changed_pixel_count": 0,
+        "masked_pixel_area": 0,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "sRGB",
+          "gAMA",
+          "pHYs",
+          "IDAT",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": false
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/09_RDS_Subnet_Group.png",
+      "disposition": "redacted",
+      "original_sha256": "60e767ff11255ef797682c6be6c74c0331e7c749a94852dd4c2e490d87c5e0e1",
+      "output_sha256": "77c3f2ba733343e7e73b5897bb87fdd02f0c4a1d874bc4a630e928950fb30bd3",
+      "dimensions": {
+        "width": 1336,
+        "height": 655
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGB",
+      "mask_count": 1,
+      "masks": [
+        {
+          "rectangle": [
+            162,
+            171,
+            246,
+            190
+          ],
+          "category": "account_id_in_arn",
+          "reason": "AWS account component of the RDS subnet-group ARN; service, region, and subnet-group identifier retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-01"
+        }
+      ],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": false,
+        "changed_pixel_count": 1596,
+        "masked_pixel_area": 1596,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": true
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/screenshots/10_Security_Groups.png",
+      "disposition": "redacted",
+      "original_sha256": "840fd2526f8d6417ce64cfd280dd7c95975d9aeb3a1f71b960b16e0bd581ef88",
+      "output_sha256": "514278b4ed8c0dd2b52fc2a6a47316dc20fd0307a012680a45401a8c5b87469a",
+      "dimensions": {
+        "width": 1727,
+        "height": 526
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGB",
+      "mask_count": 18,
+      "masks": [
+        {
+          "rectangle": [
+            1147,
+            84,
+            1236,
+            102
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 1; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-01"
+        },
+        {
+          "rectangle": [
+            1149,
+            108,
+            1236,
+            126
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 2; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-02"
+        },
+        {
+          "rectangle": [
+            1147,
+            130,
+            1236,
+            150
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 3; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-03"
+        },
+        {
+          "rectangle": [
+            1149,
+            154,
+            1236,
+            174
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 4; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-04"
+        },
+        {
+          "rectangle": [
+            1147,
+            178,
+            1236,
+            199
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 5; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-05"
+        },
+        {
+          "rectangle": [
+            1147,
+            203,
+            1236,
+            220
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 6; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-06"
+        },
+        {
+          "rectangle": [
+            1148,
+            227,
+            1236,
+            245
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 7; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-07"
+        },
+        {
+          "rectangle": [
+            1149,
+            251,
+            1236,
+            269
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 8; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-08"
+        },
+        {
+          "rectangle": [
+            1149,
+            275,
+            1236,
+            293
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 9; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-09"
+        },
+        {
+          "rectangle": [
+            1147,
+            297,
+            1236,
+            317
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 10; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-10"
+        },
+        {
+          "rectangle": [
+            1149,
+            321,
+            1236,
+            339
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 11; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-11"
+        },
+        {
+          "rectangle": [
+            1149,
+            345,
+            1236,
+            363
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 12; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-12"
+        },
+        {
+          "rectangle": [
+            1147,
+            369,
+            1236,
+            387
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 13; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-13"
+        },
+        {
+          "rectangle": [
+            1149,
+            391,
+            1236,
+            411
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 14; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-14"
+        },
+        {
+          "rectangle": [
+            1149,
+            415,
+            1236,
+            435
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 15; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-15"
+        },
+        {
+          "rectangle": [
+            1149,
+            439,
+            1236,
+            459
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 16; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-16"
+        },
+        {
+          "rectangle": [
+            1147,
+            463,
+            1236,
+            483
+          ],
+          "category": "account_id",
+          "reason": "AWS account ID in security-group Owner column, visible row 17; group IDs, descriptions, and rule counts retained.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "id": "mask-17"
+        },
+        {
+          "rectangle": [
+            1446,
+            0,
+            1670,
+            84
+          ],
+          "category": "account_header",
+          "reason": "Existing dark upper-right overlay conservatively covered because its clipped/low-resolution content is not reliably readable by OCR. Whole-region label explicitly identifies the redaction rather than implying a new console capture.",
+          "replacement": "opaque_rgb_pixel_replacement",
+          "fill_rgb": [
+            18,
+            24,
+            28
+          ],
+          "label": "Eze Favour | account ID redacted",
+          "label_rgb": [
+            255,
+            255,
+            255
+          ],
+          "id": "mask-18"
+        }
+      ],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": false,
+        "changed_pixel_count": 29807,
+        "masked_pixel_area": 47116,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "IDAT",
+          "IDAT",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": true
+      }
+    },
+    {
+      "path": "week-06-aws-cloud/image-1.png",
+      "disposition": "inspected_unchanged",
+      "original_sha256": "fefdeb5948e6758314ee8beaf67297111439e6955976f878c9fa3bfc0f776edc",
+      "output_sha256": "fefdeb5948e6758314ee8beaf67297111439e6955976f878c9fa3bfc0f776edc",
+      "dimensions": {
+        "width": 581,
+        "height": 906
+      },
+      "original_mode": "RGBA",
+      "output_mode": "RGBA",
+      "mask_count": 0,
+      "masks": [],
+      "verification": {
+        "original_matches_git_head_blob": true,
+        "dimensions_unchanged": true,
+        "original_alpha_fully_opaque": true,
+        "byte_identical_if_unmodified": true,
+        "changed_pixel_count": 0,
+        "masked_pixel_area": 0,
+        "changed_pixels_outside_masks": 0,
+        "replacement_pixels_match_opaque_mask_specification": true,
+        "output_png_chunks": [
+          "IHDR",
+          "sRGB",
+          "gAMA",
+          "pHYs",
+          "IDAT",
+          "IDAT",
+          "IEND"
+        ],
+        "metadata_removed_on_changed_image": false
+      }
+    }
+  ]
+}
