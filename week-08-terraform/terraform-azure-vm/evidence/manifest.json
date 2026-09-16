@@ -8,22 +8,22 @@
   "vm_public_ip": null,
   "assignment_complete": false,
   "evidence_summary": {
-    "verified": 5,
-    "pending": 6,
+    "verified": 6,
+    "pending": 5,
     "required": 11
   },
   "capture_provenance": {
     "operator": "GitHub Copilot under user delegation; not manual learner execution",
     "method": "Unmodified native macOS screenshots of the isolated assignment VS Code window",
-    "parent_verified_at": "2026-09-16T23:20:57.327450+00:00",
+    "screenshots_1_to_5_parent_verified_at": "2026-09-16T23:20:57.327450+00:00",
     "privacy_checked": true,
-    "scope": "Local prerequisite and source evidence only; no Azure authentication, cloud/API operations, SSH, runtime deployment or grade is evidenced."
+    "scope": "Local prerequisite, source and normal local-backend initialization evidence only; no Azure authentication, provider configuration/API operations, SSH, runtime deployment or grade is evidenced."
   },
   "source_provenance": {
     "path": "../main.tf",
     "commit": "dbdab95b21f517cfe0751d07e667001c0fb6a775",
     "sha256": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
-    "bound_screenshot_numbers": [4, 5]
+    "bound_screenshot_numbers": [4, 5, 6]
   },
   "original_rubric": {
     "path": "../../assignment-01-create-an-azure-virtual-machine-using-terraform.md",
@@ -50,7 +50,17 @@
     "mock_runs_passed": 31,
     "mock_runs_failed": 0,
     "topology_assertions": 8,
-    "scope": "Local checks and AzureRM mocks only; not cloud execution or screenshot evidence."
+    "scope": "Prior full offline run for the five-image integration; local checks and AzureRM mocks only, not cloud execution or screenshot evidence."
+  },
+  "evidence_validation": {
+    "status": "passed",
+    "recorded_at": "2026-09-16T23:37:07Z",
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py'",
+    "delivery_tests_passed": 15,
+    "original_png_hashes_verified": 6,
+    "terraform_rerun": false,
+    "frozen_source_parity": "passed; source, inputs, lock, offline runner and Terraform mock tests unchanged from dbdab95b21f517cfe0751d07e667001c0fb6a775",
+    "scope": "Sixth-image evidence-only follow-up: exact hashes/timestamps, normal-init scope and timestamp basis, ordered rubric/image mapping, local-only checklist, source freeze, provenance privacy and links. Previous full Terraform results are retained separately, not claimed as rerun."
   },
   "screenshots": [
     {
@@ -114,9 +124,20 @@
     {
       "number": 6,
       "requirement": "Terminal showing successful terraform init",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-06-terraform-init.png",
+      "captured_at": "2026-09-16T23:29:53.340580+00:00",
+      "timestamp_basis": "Original macOS PNG filesystem creation time",
+      "sha256": "25c14486cf7e12c6280a37007d5b8bba309ee3ed810d7f51fa6e2dac3468233b",
+      "image_modified": false,
+      "method": "Native macOS screenshot after the exact assignment editor was verified by the capture helper",
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "privacy_checked": true,
+      "tools": {"terraform": "1.13.5", "azurerm": "4.47.0"},
+      "source_commit": "dbdab95b21f517cfe0751d07e667001c0fb6a775",
+      "source_sha256": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
+      "command": "terraform init -input=false -lockfile=readonly -plugin-dir=\"$PROVIDER_MIRROR\"",
+      "boundary": "Successful normal initialization of the configured local backend and locked provider from an existing mirror, not backend-disabled or mock initialization. Isolated credential-free environment; no Azure provider configuration, plan/apply, managed-resource state or public IP."
     },
     {
       "number": 7,

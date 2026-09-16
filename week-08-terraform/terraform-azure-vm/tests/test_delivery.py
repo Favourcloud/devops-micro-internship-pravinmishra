@@ -18,6 +18,7 @@ EVIDENCE = {
     3: ("screenshot-03-vscode-terraform-extension.png", "e28bef4bb2c24b3c848f8eb8d18709c275707444efb0a6933987a495b90fa316", "2026-09-16T23:17:43.782880+00:00"),
     4: ("screenshot-04-provider-resource-group.png", "c55e65fdb6d57bc019a35c75f76194e64446636cf9aec033dd8a67f412f864da", "2026-09-16T23:18:40.961449+00:00"),
     5: ("screenshot-05-vm-public-ip-source.png", "a868ba9d1d7c44dd6381d1d1381281da39c47994cc6e21cb0e24130682a52262", "2026-09-16T23:19:01.779340+00:00"),
+    6: ("screenshot-06-terraform-init.png", "25c14486cf7e12c6280a37007d5b8bba309ee3ed810d7f51fa6e2dac3468233b", "2026-09-16T23:29:53.340580+00:00"),
 }
 
 
@@ -58,10 +59,10 @@ class DeliveryTests(unittest.TestCase):
         self.assertNotIn("Add your screenshot here.", current)
         self.assertNotIn("[Enter the public IP", current)
 
-    def test_five_original_images_verified_and_six_slots_pending(self):
+    def test_six_original_images_verified_and_five_slots_pending(self):
         slots = self.manifest["screenshots"]
         self.assertEqual([slot["number"] for slot in slots], list(range(1, 12)))
-        self.assertEqual(self.manifest["evidence_summary"], {"verified": 5, "pending": 6, "required": 11})
+        self.assertEqual(self.manifest["evidence_summary"], {"verified": 6, "pending": 5, "required": 11})
         for slot in slots:
             number = slot["number"]
             if number in EVIDENCE:
@@ -136,9 +137,9 @@ class DeliveryTests(unittest.TestCase):
             self.assertEqual((ROOT / name).read_bytes(), original, f"Frozen source changed: {name}")
         self.assertEqual(hashlib.sha256((ROOT / "main.tf").read_bytes()).hexdigest(), MAIN_SHA256)
         self.assertEqual(self.manifest["source_provenance"], {
-            "path": "../main.tf", "commit": SOURCE_COMMIT, "sha256": MAIN_SHA256, "bound_screenshot_numbers": [4, 5]
+            "path": "../main.tf", "commit": SOURCE_COMMIT, "sha256": MAIN_SHA256, "bound_screenshot_numbers": [4, 5, 6]
         })
-        for slot in self.manifest["screenshots"][3:5]:
+        for slot in self.manifest["screenshots"][3:6]:
             self.assertEqual(slot["source_commit"], SOURCE_COMMIT)
             self.assertEqual(slot["source_sha256"], MAIN_SHA256)
 
@@ -158,7 +159,7 @@ class DeliveryTests(unittest.TestCase):
         for file in (BRIEF, ROOT / "README.md"):
             text = file.read_text()
             self.assertIn("**Learner:** Eze Favour", text)
-            self.assertIn("5/11", text)
+            self.assertIn("6/11", text)
             self.assertIn("https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/favourcloud-week-08-azure-vm/week-08-terraform/terraform-azure-vm", text)
             self.assertIn("https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/9", text)
             self.assertIn("not manual learner execution", text)
@@ -171,7 +172,7 @@ class DeliveryTests(unittest.TestCase):
         current_items = re.findall(r"^- \[([ x])\] (.+)$", checklist(BRIEF.read_text()), re.M)
         self.assertEqual([text for _, text in current_items], original_items)
         checked = [index for index, (marker, _) in enumerate(current_items, 1) if marker == "x"]
-        self.assertEqual(checked, [1, 2, 5, 6, 7, 8, 9, 10])
+        self.assertEqual(checked, [1, 2, 5, 6, 7, 8, 9, 10, 11])
 
     def test_public_provenance_excludes_private_capture_material(self):
         self.assertEqual(self.manifest["schema_version"], 2)
@@ -183,6 +184,19 @@ class DeliveryTests(unittest.TestCase):
         self.assertEqual(slots[1]["tools"], {"azure_cli": "2.89.1"})
         self.assertEqual(slots[2]["tools"], {"extension_id": "hashicorp.terraform", "extension_version": "2.40.0"})
         self.assertTrue(slots[2]["extension_installed_and_enabled"])
+        init = slots[5]
+        self.assertEqual(init["tools"], {"terraform": "1.13.5", "azurerm": "4.47.0"})
+        self.assertEqual(init["timestamp_basis"], "Original macOS PNG filesystem creation time")
+        self.assertEqual(init["operator"], capture["operator"])
+        self.assertTrue(init["privacy_checked"])
+        self.assertEqual(init["command"], 'terraform init -input=false -lockfile=readonly -plugin-dir="$PROVIDER_MIRROR"')
+        self.assertIn("normal initialization of the configured local backend", init["boundary"])
+        self.assertIn("no Azure provider configuration", init["boundary"])
+        validation = self.manifest["evidence_validation"]
+        self.assertEqual(validation["status"], "passed")
+        self.assertEqual(validation["delivery_tests_passed"], 15)
+        self.assertEqual(validation["original_png_hashes_verified"], 6)
+        self.assertFalse(validation["terraform_rerun"])
         serialized = json.dumps(self.manifest)
         self.assertNotRegex(serialized, r"/(Users|home)/|\.ocr\.txt|integration-input\.json")
         self.assertNotRegex(serialized, r'"(window|pid|window_id|bounds|raw_ocr|private_path|capture_path)"\s*:')

@@ -1,8 +1,9 @@
 # Week 08 Assignment 1 — Azure VM (Eze Favour)
 
-**Partial submission: 5/11 genuine screenshots verified; the assignment is not
-complete.** Screenshots 1–5 document local installed tools and frozen source.
-Screenshots 6–11 remain pending in the [evidence manifest](evidence/manifest.json).
+**Partial submission: 6/11 genuine screenshots verified; the assignment is not
+complete.** Screenshots 1–5 document local installed tools and frozen source;
+screenshot 6 records successful normal initialization of the local backend.
+Screenshots 7–11 remain pending in the [evidence manifest](evidence/manifest.json).
 No fresh cloud/spending authorization exists for this run. No Azure login, live
 plan, apply, VM verification, public IP allocation or destroy was performed.
 Local validation and mock resources are not deployment evidence or proof of a
@@ -14,7 +15,7 @@ grade.
 - **Evidence operator:** GitHub Copilot under user delegation, not manual learner execution.
 
 The [submission](../assignment-01-create-an-azure-virtual-machine-using-terraform.md)
-presents the five original, unmodified native VS Code PNGs in their correct
+presents the six original, unmodified native VS Code PNGs in their correct
 numbered slots. Every original requirement, heading, question and checklist item
 text is retained; only responses, insertions and checkbox markers are updated.
 The manifest's original byte-count/hash describe the reference rubric, not an
@@ -101,7 +102,7 @@ separate from the live backend.
 The runner performs these local checks, stopping on the first failure:
 
 1. Fifteen Python delivery safeguards: reference-rubric fingerprint and ordered
-   requirement parity, five exact PNG hashes/timestamps and six pending slots,
+   requirement parity, six exact PNG hashes/timestamps and five pending slots,
    absent authorization/runtime claims, ignore rules, sensitive external input
    contract, disabled registration/no live helpers, private backend/NSG ordering,
    safe outputs/eight resources, mock-only tests, publishable-file exclusions,
@@ -123,8 +124,18 @@ executes **only the AzureRM mock**, not a cloud deployment.
 
 The lock's public AzureRM checksums were reused from the existing repository's
 compatible 4.47.0 lock and verified by backend-disabled, read-only initialization;
-no other project's state or configuration is used. The current check result is
-recorded in [the manifest](evidence/manifest.json), not as raw command logs.
+no other project's state or configuration is used. Check results are recorded
+in [the manifest](evidence/manifest.json), not as raw command logs. Its
+`offline_validation` records the prior complete offline run, including 31
+passing mocks. The sixth-image follow-up changes evidence only, so it uses this
+focused delivery check from the project directory instead of rerunning Terraform:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+That separate result is recorded as `evidence_validation`; frozen-source
+comparisons keep the distinction explicit.
 
 ## Private state, credentials and permissions
 
@@ -263,11 +274,13 @@ backups or saved plan files.
 
 ## Evidence handoff and status transitions
 
-**5/11 verified.** The parent captured the five native images on 2026-09-16,
-23:16–23:19 UTC, and verified privacy and visible requirements. This integration
-copies those original PNG bytes without editing them. Exact timestamps and
-SHA-256 values are in the [public manifest](evidence/manifest.json); private OCR,
-window/PID metadata and local capture paths are intentionally excluded.
+**6/11 verified.** The parent captured images 1–5 on 2026-09-16 at 23:16–23:19
+UTC and image 6 at `2026-09-16T23:29:53.340580+00:00`, and verified privacy and
+visible requirements. Image 6's timestamp is based explicitly on the original
+macOS PNG filesystem creation time. All six images retain their original bytes.
+Exact timestamps and SHA-256 values are in the
+[public manifest](evidence/manifest.json); private OCR, window/PID metadata,
+configuration/diagnostic receipts and local capture paths are excluded.
 
 | Slot | Genuine evidence required | Current status |
 | --- | --- | --- |
@@ -276,15 +289,23 @@ window/PID metadata and local capture paths are intentionally excluded.
 | 3 | VS Code HashiCorp Terraform extension installed/enabled | [Verified: extension 2.40.0, Disable/Uninstall controls](evidence/screenshots/screenshot-03-vscode-terraform-extension.png) |
 | 4 | VS Code `main.tf`: AzureRM provider and resource group | [Verified: frozen source](evidence/screenshots/screenshot-04-provider-resource-group.png) |
 | 5 | VS Code `main.tf`: VM and public-IP output; password hidden | [Verified: variable reference, no password value](evidence/screenshots/screenshot-05-vm-public-ip-source.png) |
-| 6 | Terminal: successful actual `terraform init` | Pending authorized sequence/capture; backend-disabled checks are not this screenshot |
+| 6 | Terminal: successful actual `terraform init` | [Verified: normal local-backend init, locked AzureRM 4.47.0](evidence/screenshots/screenshot-06-terraform-init.png) |
 | 7 | Actual Terraform plan summary | Pending authorized run/capture |
 | 8 | Actual successful Terraform apply | Pending authorized run/capture |
 | 9 | Actual `terraform output` public IP | Pending authorized run/capture |
 | 10 | Azure CLI VM name and `VM running` | Pending authorized run/capture |
 | 11 | Actual successful Terraform destroy | Pending authorized run/capture |
 
-Screenshots 4–5 bind `main.tf` to source commit
-`dbdab95b21f517cfe0751d07e667001c0fb6a775`, SHA-256
+Screenshot 6 shows **normal** `terraform init -input=false -lockfile=readonly
+-plugin-dir="$PROVIDER_MIRROR"`: the configured `local` backend initialized,
+locked AzureRM 4.47.0 was loaded from the existing mirror, and Terraform reported
+success. This was not `-backend=false` or a mock. It ran in an isolated,
+credential-free environment and did not configure an authenticated Azure
+provider, execute a cloud plan/apply, create managed-resource state or allocate
+an IP. Local backend initialization metadata is not deployed-resource state.
+
+Screenshots 4–5 and the configuration initialized in screenshot 6 bind `main.tf`
+to source commit `dbdab95b21f517cfe0751d07e667001c0fb6a775`, SHA-256
 `53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db`.
 The Terraform source, variable/input contract, lock and mock-runner behavior are
 unchanged by this evidence integration. Screenshot 5 shows
