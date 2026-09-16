@@ -1,0 +1,97 @@
+{
+  "checked_at_utc": "2026-09-16T19:26:20Z",
+  "checked_at_note": "UTC audit start; individual fetches completed shortly afterwards. DMI displays only the review date.",
+  "learner": "Eze Favour",
+  "dmi_profile_name": "Favour Eze",
+  "github_username": "Favourcloud",
+  "badge_href": "https://dmi.pravinmishra.com/s/Favourcloud.html",
+  "graded_main_snapshot": "0983d638c1139d78bd9a4de18a719626bf89bc9c",
+  "source_commit": "b9f903148c273aee9dab83aa2080580df6b70373",
+  "sources": [
+    {
+      "url": "https://dmi.pravinmishra.com/s/Favourcloud.html",
+      "http_status": 200,
+      "raw_download_sha256": "e66527510cff976df8a18e852028fa43b465146055fb01535f3d025e5683bd53",
+      "excerpt": "evidence/dmi-profile-20260916.txt",
+      "excerpt_sha256": "604f0970a4a53e63ca5de7c32b3207f96f3c2995117112589ac9fb0c3d7f8827"
+    },
+    {
+      "url": "https://dmi.pravinmishra.com/how-it-works.html",
+      "http_status": 200,
+      "raw_download_sha256": "81b1d21593e30dd32cba95fedb5a009c00c196e731ef2bea4182f03ed076a894",
+      "excerpt": "evidence/dmi-rubric-20260916.txt",
+      "excerpt_sha256": "750bb691608aca4f23ad3bc9a91e1effead54588ffdad02b919907049acca0a1"
+    },
+    {
+      "url": "https://medium.com/feed/@rosenaefavour",
+      "http_status": 200,
+      "raw_download_sha256": "b476bb58705489db4875e2daf309a8cf5135e51eef1c69c71cf4a3e661667a19",
+      "audit": "evidence/medium-feed-audit-20260916.json",
+      "scope": "Seven RSS entries returned. Six match the current Weekly Progress blog URLs; one is an older alternate Week 01 article. This is feed evidence, not signed-in Stories or an exhaustive search for unpublished drafts."
+    }
+  ],
+  "publication_results": {
+    "new_publications": 0,
+    "verified_new_public_urls": [],
+    "missing_weekly_cells": 9,
+    "potential_points": 190,
+    "points_earned_by_local_edits": 0
+  },
+  "drafts": [
+    {
+      "file": "drafts/week-06-blog.md",
+      "status": "UNPUBLISHED_DRAFT",
+      "sha256": "101f5d9a1f331d91c8d22d5e0617c3593497d05c402bf89e45ce3cc7cba731eb",
+      "words_excluding_urls": 1031,
+      "characters": 8061,
+      "badge_target_occurrences": 1,
+      "minimum_200_words": true
+    },
+    {
+      "file": "drafts/week-08-blog.md",
+      "status": "UNPUBLISHED_DRAFT",
+      "sha256": "93b1864d3f579f84caeb6e26015ebb2708d310e0fe921a9f8a18b73856dad82f",
+      "words_excluding_urls": 681,
+      "characters": 5145,
+      "badge_target_occurrences": 1,
+      "minimum_200_words": true
+    },
+    {
+      "file": "drafts/week-08-linkedin.md",
+      "status": "UNPUBLISHED_DRAFT",
+      "sha256": "018479f08c0842305bcb5591704afdb6374cbed3c5b17908b44edf1dcf7c27e7",
+      "words_excluding_urls": 307,
+      "characters": 2212,
+      "badge_target_occurrences": 1,
+      "within_3000_characters": true
+    },
+    {
+      "file": "drafts/week-09-blog.md",
+      "status": "UNPUBLISHED_DRAFT",
+      "sha256": "0d6407ee92ee85d468b30b1d855762ff5c0534a3620b837ab4208e21b736fe5f",
+      "words_excluding_urls": 683,
+      "characters": 5362,
+      "badge_target_occurrences": 1,
+      "minimum_200_words": true
+    },
+    {
+      "file": "drafts/week-09-linkedin.md",
+      "status": "UNPUBLISHED_DRAFT",
+      "sha256": "05ca838a2c07afb655e352cf972e0ef2946f9ad598ea29c466a8fede3f214004",
+      "words_excluding_urls": 295,
+      "characters": 2145,
+      "badge_target_occurrences": 1,
+      "within_3000_characters": true
+    }
+  ],
+  "held_weeks": {
+    "07": "Review the existing Azure evidence and missing references before making deployment claims; public LinkedIn activity could not be inspected.",
+    "10": "Current assignment files are unfinished; no successful pipeline evidence reviewed."
+  },
+  "blockers": [
+    "Browser connection: Codex auth token is unavailable.",
+    "Plugin search returned no suitable organic LinkedIn/Medium publishing capability.",
+    "Existing private drafts and LinkedIn activity were not accessible; deduplication is required before publication.",
+    "User review of first-person draft wording and actual public publication remain pending."
+  ]
+}

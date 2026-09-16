@@ -96,7 +96,7 @@ Paste your forked repository URL here:
 
 Paste your LinkedIn post URL here:
 
-`https://www.linkedin.com/posts/eze-favour-devops_dmi-cohort3-agentic-ai-week2-skills-activity-1234567890`
+**Publication evidence pending:** the former link was an example URL, not verified publication evidence, and has been removed. The real weekly Week 02 post is linked in the [root Weekly Progress table](../README.md#weekly-progress) and is credited by DMI. Its coverage of this specific assignment has not been independently verified.
 
 # Completion Checklist
 
@@ -109,7 +109,7 @@ Paste your LinkedIn post URL here:
 - [x] `/tf-plan` executed and output analyzed by Claude
 - [x] All required screenshots added
 - [x] GitHub repository URL included
-- [x] LinkedIn post URL included
+- [ ] Assignment-specific LinkedIn publication verified
 
 ---
 

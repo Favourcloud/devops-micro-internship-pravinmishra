@@ -1,0 +1,146 @@
+Favour Eze
+Progress in the DevOps Micro Internship.
+🚀 8 / 14 Weeks Complete
+8 weeks fully complete, 6 blogs credited, 7 LinkedIn posts verified — including a 8-week streak. Consistent, strong work. Keep it going!
+Share your progress
+LinkedIn
+X
+Facebook
+WhatsApp
+Weekly Review
+Week by week
+Every check, every week — fix an item and the next run turns it green.
+W00
+W01
+W02
+W03
+W04
+W05
+W06
+W07
+W08
+W09
+W10
+W11
+W12
+W13
+Week 00 — Internet And Networking
+60 / 60
+Complete
+✅Assignments — 1/1 assignment files passing20 pts
+✅LinkedIn post — URL verified10 pts
+✅Blog post — URL verified, DMI credit found30 pts
+Outstanding week — all 1 assignment file passed, blog credited and LinkedIn post verified. The full package. 🏆
+Week 01 — Success Mindset
+60 / 60
+Complete
+✅Assignments — 1/1 assignment files passing20 pts
+✅LinkedIn post — URL verified10 pts
+✅Blog post — URL verified, DMI credit found30 pts
+Worth adding:
+screenshots folder has no images — add this week's screenshots
+Outstanding week — all 1 assignment file passed, blog credited and LinkedIn post verified. The full package. 🏆
+Week 02 — Agentic Ai
+230 / 230
+Complete
+✅Assignments — 8/8 assignment files passing160 pts
+✅LinkedIn post — URL verified10 pts
+✅Blog post — URL verified, DMI credit found30 pts
+✅Attendance — recorded for the Saturday session30 pts
+Outstanding week — all 8 assignment files passed, blog credited and LinkedIn post verified. The full package. 🏆
+Week 03 — Linux And Bash For Devops
+190 / 190
+Complete
+✅Assignments — 6/6 assignment files passing120 pts
+✅LinkedIn post — URL verified10 pts
+✅Blog post — URL verified, DMI credit found30 pts
+✅Attendance — recorded for the Saturday session30 pts
+Outstanding week — all 6 assignment files passed, blog credited and LinkedIn post verified. The full package. 🏆
+Week 04 — Git And Github
+180 / 190
+Complete
+✅Assignments — 6/6 assignment files passing120 pts
+✅LinkedIn post — URL verified10 pts
+✅Blog post — URL verified, DMI credit found30 pts
+✅Attendance — recorded for the Saturday session20 pts
+Outstanding week — all 6 assignment files passed, blog credited and LinkedIn post verified. The full package. 🏆
+Week 05 — Devops Lifecycle
+160 / 170
+Complete
+✅Assignments — 5/5 assignment files passing100 pts
+✅LinkedIn post — URL verified10 pts
+✅Blog post — URL verified, DMI credit found30 pts
+✅Attendance — recorded for the Saturday session20 pts
+Outstanding week — all 5 assignment files passed, blog credited and LinkedIn post verified. The full package. 🏆
+Week 06 — Aws Cloud
+170 / 210
+Complete
+✅Assignments — 7/7 assignment files passing140 pts
+✅LinkedIn post — URL verified10 pts
+❌Blog post — no blog URL in your README progress table — add your post link0 pts
+✅Attendance — recorded for the Saturday session20 pts
+Worth adding:
+Blog post — no blog URL in your README progress table — add your post link
+Great week — all 7 assignment files passed and LinkedIn post verified. 💪
+Week 07 — Azure Cloud
+160 / 210
+Complete
+✅Assignments — 7/7 assignment files passing140 pts
+❌LinkedIn post — no LinkedIn URL in your README progress table — add your post link0 pts
+❌Blog post — no blog URL in your README progress table — add your post link0 pts
+✅Attendance — recorded for the Saturday session20 pts
+Worth adding:
+LinkedIn post — no LinkedIn URL in your README progress table — add your post link
+Blog post — no blog URL in your README progress table — add your post link
+Well done — all 7 assignment files passed. ✅
+Week 08 — Terraform
+30 / 190
+In progress
+❌Assignments — 0/6 assignment files passing0 pts
+❌LinkedIn post — no LinkedIn URL in your README progress table — add your post link0 pts
+❌Blog post — no blog URL in your README progress table — add your post link0 pts
+✅Attendance — recorded for the Saturday session30 pts
+To turn this week green:
+assignment-01-create-an-azure-virtual-machine-using-terraform.md — template placeholder text still present ('Add your screenshot here.') — replace it with your own answer
+assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md — template placeholder text still present ('Add your screenshot here.') — replace it with your own answer
+assignment-03-deploy-a-react-application-on-azure-virtual-machine-using-terraform.md — template placeholder text still present ('Add your screenshot here.') — replace it with your own answer
+assignment-04-deploy-epicbook-application-on-aws-using-terraform.md — template placeholder text still present ('Add your screenshot here.') — replace it with your own answer
+assignment-05-deploy-book-review-app-in-your-favorite-cloud-agentic-terraform-project.md — template placeholder text still present ('Add your screenshot here.', 'Write your answer here') — replace it with your own answer
+assignment-06-ai-assisted-terraform-drift-and-policy-review.md — template placeholder text still present ('Add your screenshot here.') — replace it with your own answer
+screenshots folder has no images — add this week's screenshots
+LinkedIn post — no LinkedIn URL in your README progress table — add your post link
+Blog post — no blog URL in your README progress table — add your post link
+Week 09 — Ansible
+30 / 190
+In progress
+❌Assignments — 0/6 assignment files passing0 pts
+❌LinkedIn post — no LinkedIn URL in your README progress table — add your post link0 pts
+❌Blog post — no blog URL in your README progress table — add your post link0 pts
+✅Attendance — recorded for the Saturday session30 pts
+To turn this week green:
+assignment-01-set-up-a-team-ready-ansible-development-workstation.md — template placeholder text still present ('Add your screenshot here.') — replace it with your own answer
+assignment-02-provision-linux-vms-and-run-ansible-ad-hoc-commands.md — template placeholder text still present ('Add your answer here', 'Add your screenshot here.', 'Add your URL here') — replace it with your own answer
+assignment-03-deploy-static-website-to-multiple-servers-using-multi-play-ansible-playbook.md — template placeholder text still present ('Add your answer here', 'Add your screenshot here.', 'Add your URL here') — replace it with your own answer
+assignment-04-deploy-mini-finance-project-using-terraform-and-ansible.md — template placeholder text still present ('Add your screenshot here.', 'Add your URL here', 'Write your answer here') — replace it with your own answer
+assignment-05-production-grade-epicbook-terraform-and-ansible-roles.md — template placeholder text still present ('Add your screenshot here.', 'Add your URL here', 'Write your answer here') — replace it with your own answer
+assignment-06-ai-assisted-ansible-change-risk-review.md — template placeholder text still present ('Add your answer here', 'Add your screenshot here.') — replace it with your own answer
+screenshots folder has no images — add this week's screenshots
+LinkedIn post — no LinkedIn URL in your README progress table — add your post link
+Blog post — no blog URL in your README progress table — add your post link
+Week 10 — Azure Devops
+30 / 170
+In progress
+❌Assignments — 0/5 assignment files passing0 pts
+❌LinkedIn post — no LinkedIn URL in your README progress table — add your post link0 pts
+❌Blog post — no blog URL in your README progress table — add your post link0 pts
+✅Attendance — recorded for the Saturday session30 pts
+To turn this week green:
+assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md — template placeholder text still present ('Add your screenshot here.', 'Write your answer here') — replace it with your own answer
+assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md — template placeholder text still present ('Add your screenshot here.', 'Write your summary here') — replace it with your own answer
+assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md — template placeholder text still present ('Add your screenshot here.', 'Write your summary here') — replace it with your own answer
+assignment-04-automate-epicbook-deployment-with-dual-pipelines.md — template placeholder text still present ('Add your screenshot here.', 'Write your explanation here') — replace it with your own answer
+assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md — template placeholder text still present ('Add your screenshot here.', 'Write your answer here') — replace it with your own answer
+screenshots folder has no images — add this week's screenshots
+LinkedIn post — no LinkedIn URL in your README progress table — add your post link
+Blog post — no blog URL in your README progress table — add your post link
+Last checked: 2026-09-16 · updated after every review run

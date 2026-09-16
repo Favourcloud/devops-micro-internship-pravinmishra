@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "check": "Original files unchanged during preparation",
+      "passed": true
+    },
+    {
+      "check": "Every existing weekly publication URL preserved",
+      "passed": true
+    },
+    {
+      "check": "Both false assignment publication URLs removed",
+      "passed": true
+    },
+    {
+      "check": "All new JSON parses",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-06-blog.md SHA256",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-06-blog.md exact badge link",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-06-blog.md >=200 words",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-08-blog.md SHA256",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-08-blog.md exact badge link",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-08-blog.md >=200 words",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-08-linkedin.md SHA256",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-08-linkedin.md exact badge link",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-08-linkedin.md <=3000 characters",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-08-linkedin.md P.S. and required hashtags",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-09-blog.md SHA256",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-09-blog.md exact badge link",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-09-blog.md >=200 words",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-09-linkedin.md SHA256",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-09-linkedin.md exact badge link",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-09-linkedin.md <=3000 characters",
+      "passed": true
+    },
+    {
+      "check": "drafts/week-09-linkedin.md P.S. and required hashtags",
+      "passed": true
+    },
+    {
+      "check": "New relative file links resolve",
+      "passed": true
+    },
+    {
+      "check": "Pinned repository source links resolve to Git objects",
+      "passed": true
+    },
+    {
+      "check": "Focused secret and private-path scan",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "new_link_errors": [],
+  "invalid_git_refs": [],
+  "secret_pattern_findings": [],
+  "scope": "Documentation and unpublished drafts only; no cloud/model execution and no grading simulation."
+}

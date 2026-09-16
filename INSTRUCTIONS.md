@@ -66,13 +66,14 @@ Open `README.md` and update the **About Me** section with your:
 
 ### Rubric Checks Before Submission
 
-The [published grading rules](https://dmi.pravinmishra.com/how-it-works.html), checked on 15 September 2026, require:
+The [published grading rules](https://dmi.pravinmishra.com/how-it-works.html), rechecked on 16 September 2026, require:
 
 - **Assignment files:** keep the exact expected folder and filename. Submit genuine, original answers with at least 50 words after code blocks, HTML comments, headings and table formatting are stripped. Untouched templates, copied answer keys and template placeholder text fail. Do not delete placeholders from unfinished work just to satisfy an automated check.
 - **LinkedIn:** put each week's public post URL in the root README's **Weekly Progress** table. It must begin with `https://www.linkedin.com/posts/`; a profile, shortened URL or `/feed/update/` URL is not the accepted form. Obtain the real canonical URL from the published post rather than inventing a slug. A link elsewhere in an assignment is not enough.
 - **Blog:** put the publicly accessible article URL in the same table. The article must contain at least 200 words and an actual clickable link to **your own** badge page. A relative reflection-file path, a mention of DMI or a link to a different DMI page does not satisfy the missing public-article/personal-credit requirements.
 - **Evidence:** preserve real results and unfinished tasks. Passing the automated writing checks does not establish technical correctness. Every submitted screenshot must still meet the name/username rule below.
 - **Attendance:** only the instructor's attendance record controls those points; GitHub changes cannot correct them.
+- **Locked credit:** the published rules say fully passed assignment weeks and credited blogs are not rechecked; LinkedIn and attendance are recomputed on each run. Locked points do not certify the completeness or technical correctness of current files. See the [dated publication audit](./publication-review/README.md) for current gaps.
 
 ### Personal Blog Credit Footer
 
