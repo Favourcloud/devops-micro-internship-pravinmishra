@@ -6,18 +6,21 @@
   any_errors_fatal: true
   pre_tasks:
     - name: Require one explicitly configured IPv4 host before any SSH connection
+      vars:
+        # Delegation supplies localhost connection variables; validate the original VM instead.
+        mini_finance_target: "{{ hostvars[inventory_hostname] }}"
       ansible.builtin.assert:
         that:
           - groups['web'] | length == 1
-          - ansible_host is defined
-          - ansible_host is match('^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$')
-          - ansible_host.split('.') | map('int') | max <= 255
-          - ansible_host.split('.') | map('int') | min >= 0
-          - ansible_host.split('.')[0] | int not in [0, 127]
-          - ansible_user is defined
-          - ansible_user is match('^[a-z][a-z0-9_]{2,31}$')
-          - ansible_user != 'root'
-          - ansible_connection | default('ssh') == 'ssh'
+          - mini_finance_target.ansible_host is defined
+          - mini_finance_target.ansible_host is match('^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$')
+          - mini_finance_target.ansible_host.split('.') | map('int') | max <= 255
+          - mini_finance_target.ansible_host.split('.') | map('int') | min >= 0
+          - mini_finance_target.ansible_host.split('.')[0] | int not in [0, 127]
+          - mini_finance_target.ansible_user is defined
+          - mini_finance_target.ansible_user is match('^[a-z][a-z0-9_]{2,31}$')
+          - mini_finance_target.ansible_user != 'root'
+          - mini_finance_target.ansible_connection | default('ssh') == 'ssh'
           - not ansible_check_mode
         fail_msg: >-
           Configure one real Azure host and administrator in a private inventory after approval.

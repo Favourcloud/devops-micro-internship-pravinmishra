@@ -1,4 +1,4 @@
-"""Offline contract and real Ansible fail-closed tests. No cloud or SSH calls."""
+"""Offline Ansible contract/SSH-stub tests. No cloud access or SSH network calls."""
 
 import configparser
 import json
@@ -213,6 +213,39 @@ class RealAnsiblePreflight(unittest.TestCase):
         inventory = self.directory / "inventory.ini"
         inventory.write_text("[web]\nmini ansible_host=192.0.2.10 ansible_user=azureuser\n")
         self.assertIn("Check mode is not a substitute", self.run_guard(inventory, "--check"))
+
+    def assert_ssh_boundary(self, controller_variables):
+        inventory = self.directory / "inventory.ini"
+        inventory.write_text(
+            '[web]\nmini_finance ansible_host=192.0.2.10 ansible_user=azureuser '
+            'ansible_ssh_private_key_file="/not-read-by-refusing-stub"\n'
+            '[controller]\nlocalhost ' + controller_variables + '\n'
+        )
+        result = subprocess.run(
+            ["ansible-playbook", "-i", str(inventory), "site.yml"],
+            cwd=ANSIBLE, env=self.env, text=True, capture_output=True, timeout=60,
+        )
+        output = result.stdout + result.stderr
+        self.assertNotEqual(result.returncode, 0, "The SSH refusal stub must stop the run")
+        self.assertTrue(self.ssh_called.exists(), output)
+        self.assertIn("All assertions passed", output)
+        self.assertIn("TASK [Gather facts only after the controller preflight succeeds]", output)
+        self.assertNotIn("TASK [Install web server", output)
+        self.assertNotIn("TASK [Fetch the public site", output)
+
+    def test_documented_inventory_reaches_ssh_boundary(self):
+        self.assert_ssh_boundary("ansible_connection=local")
+
+    def test_delegated_host_connection_variables_do_not_replace_target_values(self):
+        self.assert_ssh_boundary("ansible_connection=local ansible_host=localhost ansible_user=root")
+
+    def test_explicit_local_target_fails_before_ssh(self):
+        inventory = self.directory / "inventory.ini"
+        inventory.write_text(
+            "[web]\nmini ansible_host=192.0.2.10 ansible_user=azureuser ansible_connection=local\n"
+            "[controller]\nlocalhost ansible_connection=local\n"
+        )
+        self.assertIn("Configure one real Azure host", self.run_guard(inventory))
 
 
 if __name__ == "__main__":

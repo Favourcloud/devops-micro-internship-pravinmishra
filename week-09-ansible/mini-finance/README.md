@@ -65,7 +65,7 @@ python -m unittest discover -s tests -v
 
 `init` downloads the signed pinned provider from HashiCorp; it is not network-air-gapped, but does not authenticate to Azure or create resources. `terraform test` uses **only mocked plans**, no real apply, and no Azure environment variables are needed. Its RFC 5737 addresses and RFC 8032 public test vector are clearly marked fixtures, **not deployed addresses or the user's SSH key**. Do not reuse them for deployment.
 
-The Python tests execute real Ansible inventory parsing and failure preflights with an SSH executable that refuses/logs any attempt; empty/malformed/multiple-host inventories, root login and check mode must fail before SSH, package operations or HTTP. Those negative executions are expected tests, **not connectivity evidence**. The committed empty inventory also fails a normal `ansible-playbook -i inventory.ini site.yml` invocation. `--syntax-check` is the supported offline check; `--check` is deliberately rejected instead of implying that uncreated release paths or HTTP were verified.
+The Python tests execute real Ansible inventory parsing and preflights with an SSH **refusal stub**, never a network SSH client. Empty/malformed/multiple-host inventories, root login, explicit local targets and check mode fail before the stub, package operations or HTTP. Two positive cases use the documented inventory and an overridden localhost context: both pass the guard and reach only the refusing stub at fact gathering. The guard validates the original `hostvars[inventory_hostname]` for address, user and connection rather than delegated localhost variables. These are regression tests, **not connectivity evidence**. The committed empty inventory also fails a normal `ansible-playbook -i inventory.ini site.yml` invocation. `--syntax-check` is the supported offline check; `--check` is deliberately rejected instead of implying that uncreated release paths or HTTP were verified.
 
 ### Recorded local results — 2026-09-16
 
@@ -75,7 +75,7 @@ The Python tests execute real Ansible inventory parsing and failure preflights w
 | `init -backend=false -input=false` | AzureRM 4.47.0 installed; signed provider checksums locked |
 | `validate` | Valid configuration |
 | `test` | 10 mocked-plan runs passed, 0 failed |
-| Python 3.13.3 `unittest discover -s tests -v` | 17 tests passed; no SSH executable invoked |
+| Python 3.13.3 `unittest discover -s tests -v` | 20 tests passed; positive guards reach a refusal stub, negatives do not; no SSH network calls |
 | Ansible core 2.21.4 `--syntax-check` | Passed |
 | ansible-lint 26.8.0 `--offline site.yml group_vars/all.yml` | 0 failures, 0 warnings |
 
