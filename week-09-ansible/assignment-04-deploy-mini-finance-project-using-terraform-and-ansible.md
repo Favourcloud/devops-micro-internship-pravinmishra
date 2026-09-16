@@ -8,6 +8,14 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 In this assignment, you will provision an Azure VM with Terraform and use Ansible to automate the install, deploy, and verify workflow for the Mini Finance static website — a clean separation between infrastructure and configuration management.
 
+## Submission status — code preparation only (2026-09-16)
+
+The [Mini Finance project and gated runbook](mini-finance/README.md) contain Azure Terraform, an intentionally unconfigured `inventory.ini`, and three Ansible plays. Local Terraform formatting/init/validation and 10 mocked-plan tests passed; 17 Python contract/preflight tests, Ansible syntax check and offline lint passed. Provider initialization accessed HashiCorp downloads, not Azure resources.
+
+**Not deployed:** the user approved a US$5 combined temporary AWS/Azure lab budget with teardown after evidence; the coordinator allocated A4 at most US$1/two hours. Azure scope/permissions, capacity and the live plan still require verification/review before execution. No live cloud plan, apply/destroy, remote SSH, real Ansible deployment, browser verification, remote idempotence run, screenshot capture or LinkedIn publication was performed. All eight numbered screenshots and the LinkedIn screenshot are explicitly pending in the [assignment-specific manifest](screenshots/assignment-04-manifest.json). Existing coursework evidence is not reused.
+
+GitHub Copilot prepared the code, runbook and local tests under user direction; upstream Mini Finance assets remain attributed to their authors and are not vendored here. Learner-authored firsthand reflection remains pending. The original task goals/questions below are retained.
+
 ---
 
 # Task 1 — Set Up Folder Layout
@@ -20,7 +28,7 @@ Create the `mini-finance` project with separate `terraform/` and `ansible/` subd
 
 #### Screenshot 1 — Terminal or editor showing the complete `mini-finance` project tree
 
-Add your screenshot here.
+**Pending.** The project tree is prepared; no screenshot has been captured.
 
 ---
 
@@ -34,19 +42,19 @@ Provision an Ubuntu 22.04 Standard_B1s VM with a public IP, SSH key authenticati
 
 #### Screenshot 2 — Terminal showing the end of a successful `terraform apply`
 
-Add your screenshot here.
+**Pending.** Requires an authorized, successful Azure apply; none was performed.
 
 ---
 
 #### Screenshot 3 — Terminal showing `terraform output public_ip`
 
-Add your screenshot here.
+**Pending.** No real Azure VM output exists for this preparation; no example IP is presented as real.
 
 ---
 
 #### Screenshot 4 — Terraform code or Azure Portal showing NSG inbound rules for ports 22 and 80
 
-Add your screenshot here.
+**Pending.** Code restricts SSH to one controller IPv4 `/32`, permits HTTP 80, and denies other inbound traffic; no screenshot or deployed NSG is claimed.
 
 ---
 
@@ -60,7 +68,7 @@ Connect to the VM with SSH using the injected key and run `hostname` remotely wi
 
 #### Screenshot 5 — Terminal showing the successful passwordless SSH hostname check
 
-Add your screenshot here.
+**Pending.** Requires the actual VM, the existing user's key and independently verified host key. No remote SSH connection was attempted.
 
 ---
 
@@ -74,13 +82,13 @@ Create `ansible/inventory.ini` and a three-play `site.yml` that installs Nginx a
 
 #### Screenshot 6 — Editor showing `inventory.ini` and the three plays in `site.yml`
 
-Add your screenshot here.
+**Pending.** Both files are prepared, but the committed inventory is deliberately empty/fail-closed until real outputs are supplied privately. No screenshot was captured.
 
 ---
 
 #### Screenshot 7 — Terminal showing `ansible-playbook -i inventory.ini site.yml` with HTTP 200, assertion OK, and no failures
 
-Add your screenshot here.
+**Pending.** Local syntax/lint and no-SSH negative tests are not a real deployment, HTTP 200, successful remote recap or idempotence result.
 
 ---
 
@@ -94,7 +102,7 @@ Confirm the Mini Finance site is publicly accessible and correctly served by Ngi
 
 #### Screenshot 8 — Browser showing the Mini Finance site loaded from `http://<public_ip>` with the URL visible
 
-Add your screenshot here.
+**Pending.** No deployed public URL or browser verification exists for this preparation.
 
 ---
 
@@ -102,7 +110,9 @@ Add your screenshot here.
 
 Describe an issue you faced and how you fixed it, and what you learned.
 
-Write your answer here.
+**Learner reflection pending.** No firsthand deployment challenge, fix or learning experience is claimed.
+
+**Locally evidenced AI-assisted preparation note:** read-only public upstream inspection found tracked `js/.DS_Store`, documentation and `git_tracking_summary.txt`. The prepared deployment exports only explicit web assets from pinned revision `296334fc27de87bdfcafdad041e41573d8815700`, keeps the Git checkout outside `/var/www/html`, rejects hidden/symlinked assets and denies dot paths in Nginx. Offline tests check these safeguards; live behavior remains unverified. This engineering note does not replace the learner's own reflection after authorized work.
 
 ---
 
@@ -118,13 +128,13 @@ Publish a LinkedIn post about the Terraform + Ansible deployment, mentioning the
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+**Pending — not published.** No LinkedIn URL has been fabricated or submitted.
 
 ---
 
 #### Screenshot — Published LinkedIn post showing the text and at least one image or proof
 
-Add your screenshot here.
+**Pending.** Publication and an authentic screenshot remain manual learner actions after real deployment evidence is available.
 
 ---
 

@@ -1,0 +1,30 @@
+{
+  "assignment": "week-09-assignment-04",
+  "status": "code-preparation-only",
+  "recorded_on": "2026-09-16",
+  "capture_performed": false,
+  "deployment_performed": false,
+  "note": "All evidence remains pending. Offline validation is not deployment, connectivity, screenshot, remote idempotence or firsthand learner evidence. Never substitute mock/documentation IPs or reused coursework screenshots.",
+  "screenshots": [
+    {"number": 1, "subject": "Complete mini-finance project tree", "status": "pending", "path": null},
+    {"number": 2, "subject": "End of a successful authorized Azure terraform apply", "status": "pending", "path": null},
+    {"number": 3, "subject": "Actual terraform output public_ip", "status": "pending", "path": null},
+    {"number": 4, "subject": "Terraform or Azure NSG inbound rules: controller /32 SSH and HTTP", "status": "pending", "path": null},
+    {"number": 5, "subject": "Passwordless SSH hostname with verified host key", "status": "pending", "path": null},
+    {"number": 6, "subject": "Sanitized inventory.ini and three plays in site.yml", "status": "pending", "path": null},
+    {"number": 7, "subject": "Real Ansible run: HTTP 200, assertions OK, no failures", "status": "pending", "path": null},
+    {"number": 8, "subject": "Browser showing actual public Mini Finance URL and rendered site", "status": "pending", "path": null},
+    {"number": "linkedin", "subject": "Published LinkedIn post with text and an authentic image/proof", "status": "pending", "path": null}
+  ],
+  "linkedin_url": null,
+  "learner_reflection": "pending",
+  "remote_idempotence": "pending",
+  "blockers": [
+    "Azure scope, permissions and provider registration not verified for deployment",
+    "User approved US$5 combined labs; A4 allocation is at most US$1/two hours with teardown after evidence, but the live plan remains unreviewed",
+    "No supplied real VM outputs or approved private local variables",
+    "No independently verified VM host key or authorized SSH/Ansible execution",
+    "Authentic screenshots, learner reflection and LinkedIn publication pending"
+  ],
+  "attribution": "GitHub Copilot prepared code, documentation and local tests under user direction; no firsthand learner deployment claims."
+}
