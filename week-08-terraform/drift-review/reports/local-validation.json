@@ -1,7 +1,7 @@
 {
   "evidence_class": "OFFLINE REGRESSION AND EVIDENCE-INTEGRITY VALIDATION — DOES NOT RE-RUN CLOUD OR CLAUDE",
   "student": "Eze Favour",
-  "timestamp_utc": "2026-09-15T20:47:58+00:00",
+  "timestamp_utc": "2026-09-16T11:51:07+00:00",
   "status": "PASS",
   "reproduction_command": "python3.13 tests/run_validation.py --report NEW_PATH",
   "equivalent_unittest_command": "python3.13 -m unittest discover -s tests -v",
@@ -28,9 +28,9 @@
       "source_hash_matches": true
     }
   },
-  "source_file_count": 50,
+  "source_file_count": 54,
   "source_sha256": {
-    "../assignment-06-ai-assisted-terraform-drift-and-policy-review.md": "3ef6fe770dff98b8ea13001ccaf2bdd52fb193ed1831a89b61222e29058e1804",
+    "../assignment-06-ai-assisted-terraform-drift-and-policy-review.md": "bbd3404a2658a66adafe08abc0f686ed9777e66fc4c04848daba830a4557387e",
     ".claude/hooks/review_gate.py": "1e026426fd240bd68074390b92444b33c3075698850766880013b2605f4d1863",
     ".claude/settings.json": "80f27de9d31466654ad6b9f39703105246592458d3e0919b1d7fffe07756e2fe",
     ".claude/skills/tf-drift-review/SKILL.md": "dcf561bfcb4d7b4771fa982714d13652c8224c48ded5c4177871b4e7708c6589",
@@ -38,8 +38,12 @@
     "AI Assignment/tf-drift-check.sh": "5abf9373d62fed1ca613ea768600a48145d004c575cd947f74390e5fa88319cb",
     "BEDROCK_ACCESS.md": "3ecd00959d6117ac012d36da304b39d12b0265d2e69fd06f591f23e19ecb1912",
     "CLAUDE.md": "9fdb3d8fa3ae38570eb8499b36120898404eed4c50fe2a6aa5ce6226f6330550",
-    "README.md": "434f1205f0e196d62f1c43ff57890cd1d870be03525c1f7fd7c054a1b606a5c3",
+    "README.md": "07543f316facf57f0c3b704a2f3296ebef4fe56da3c7e665ce9ca1959c42a4d9",
     "drift-review-summary.md": "55a9e937154be04b8b65d87333e3fa61e950686c3011602e2e3096a47565642e",
+    "enrollment-proposal/README.md": "6d050c24f7450b5fd8cb0b48e7204a7f0d43db5eb5b9aa73fcd722737e7ec45a",
+    "enrollment-proposal/SETUP-20260916.md": "641fe7cbff7c097b2b8f5ae647fc1afa8e40565b906088216c33129dd1af85a0",
+    "enrollment-proposal/haiku-enrollment-policy-20260916.json": "5c97288b2d078ab9277ea4a6493bfac553f480347cce87ef649d705d3e16fbf1",
+    "enrollment-proposal/haiku-enrollment-policy.json": "3bc92a92e9a430b4d1c4abab88867bbb1f795e9aa7bd02ae816e99694dba8122",
     "fixtures/clean.json": "c631b7d9a656cae8b9577f45259e801eaed60088d5ca7233aaa938a6daba233c",
     "fixtures/detected.json": "4640935be0de7979bb25a7faac84ed67240881ffe0ef8c136e0f620a225ba893",
     "fixtures/empty.json": "a4526c29c59e4ece8265bd0dd26e895e7c1fb90b9e3db8ebdb6264ca20a23ea6",
