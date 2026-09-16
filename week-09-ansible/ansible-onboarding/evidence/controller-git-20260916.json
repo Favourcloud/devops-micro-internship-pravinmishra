@@ -1,0 +1,22 @@
+{
+  "branch": {
+    "exit_code": 0,
+    "output": "main\n"
+  },
+  "name": {
+    "exit_code": 0,
+    "output": "Eze Favour\n"
+  },
+  "email": {
+    "exit_code": 0,
+    "output": "232700277+Favourcloud@users.noreply.github.com\n"
+  },
+  "default_branch": {
+    "exit_code": 0,
+    "output": "main\n"
+  },
+  "install_hook": {
+    "exit_code": 0,
+    "output": "pre-commit installed at .git/hooks/pre-commit\n"
+  }
+}

@@ -1,0 +1,8 @@
+# Optional local readiness alias. This does not authorize or test a remote login.
+Host dmi-week09-github
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/dmi_week09_ed25519
+  IdentitiesOnly yes
+  StrictHostKeyChecking yes
+  ForwardAgent no

@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 09 Assignment 1",
+  "learner": "Eze Favour",
+  "capture_rules": [
+    "Genuine application windows only; no rendered or reconstructed terminal images.",
+    "Eze Favour must be visible.",
+    "Capture only the intended genuine Visual Studio Code or Terminal window.",
+    "Remove sensitive command output before display; disclose each redaction.",
+    "Original screenshot pixels must remain unchanged.",
+    "Record actual capture time, source hashes and PNG hash only after capture."
+  ],
+  "screenshots": [
+    {
+      "slot": 1,
+      "required": "Actual controller on main: ansible-onboarding path, ls -la, git status",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 2,
+      "required": "Active virtual environment, which ansible, and all four tool versions",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 3,
+      "required": "Genuine VS Code Extensions panel: Ansible, YAML and Python installed",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 4,
+      "required": "VS Code settings.json and .editorconfig side by side",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 5,
+      "required": "Complete ansible.cfg in the editor",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 6,
+      "required": "Ansible version/config path and ansible-config dump --only-changed",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 7,
+      "required": "Loaded Ed25519 agent identity and verified SSH settings",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 8,
+      "required": "Git full name/email/default branch, actual hook installation and hook file",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 9,
+      "required": "pre-commit run --all-files succeeds in the actual controller",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 10,
+      "required": "Ansible project configuration and loaded Ed25519 key together",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 11,
+      "required": "Final ansible-onboarding project structure",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    },
+    {
+      "slot": 12,
+      "required": "Markdown preview with Eze Favour, summary and onboarding checklist",
+      "status": "PENDING",
+      "file": null,
+      "captured_at_utc": null,
+      "sha256": null,
+      "source_sha256": {},
+      "blocker": "No genuine window capture yet; native desktop control/capture unavailable to this agent session."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "recorded_at_utc": "2026-09-16T14:42:24.886211+00:00",
+  "learner": "Eze Favour",
+  "status": "PASS",
+  "checks": {
+    "public_key_is_ed25519": true,
+    "private_key_file_exists": true,
+    "private_key_mode_600": true,
+    "agent_socket_configured": true,
+    "fresh_key_loaded_in_current_agent": true,
+    "user_ssh_config_exists": true,
+    "effective_alias_matches_safe_settings": true,
+    "known_hosts_exists": true
+  },
+  "ssh_add_l": {
+    "exit_code": 0,
+    "sanitized_output": [
+      "256 [fingerprint redacted] [comment redacted] (ED25519)"
+    ]
+  },
+  "ssh_G_dmi_week09_github": {
+    "hostname": [
+      "github.com"
+    ],
+    "user": [
+      "git"
+    ],
+    "identityfile": [
+      "~/.ssh/dmi_week09_ed25519"
+    ],
+    "identitiesonly": [
+      "yes"
+    ],
+    "stricthostkeychecking": [
+      "true"
+    ],
+    "forwardagent": [
+      "no"
+    ]
+  },
+  "private_key_contents_read": false,
+  "remote_connection_attempted": false,
+  "known_host_fingerprint_verified": false,
+  "redaction": "Agent fingerprints and comments removed before display. No private paths or public-key bodies recorded.",
+  "verifier_sha256": "fdf16db79a6b413668bd58785bb950991ff3ca7dacc19fc2fd9eb80373ab8311"
+}
