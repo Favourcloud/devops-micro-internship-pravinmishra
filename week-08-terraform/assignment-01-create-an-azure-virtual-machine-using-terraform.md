@@ -179,3 +179,22 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+## Eze Favour — Assignment 1 Offline Deliverables
+
+The original assignment above is preserved in full. The runnable Terraform
+source, safe input interface, private-state handling, offline tests and
+prospective authorized execution steps are in
+[terraform-azure-vm/README.md](terraform-azure-vm/README.md).
+
+**Status: offline code only; runtime and evidence pending.** There is no fresh
+cloud/spending authorization for this run. No live deployment, VM public IP,
+Azure CLI running-state verification or destroy is claimed. The public-IP
+question remains unanswered, and the original completion checklist is not an
+assertion that those runtime tasks have been completed.
+
+All eleven numbered screenshot slots remain pending in the
+[Assignment 1 evidence manifest](terraform-azure-vm/evidence/manifest.json).
+Local validation and mock-provider tests do not satisfy screenshot or cloud
+execution requirements. The parent/controller owns fresh authorization and
+genuine GUI/source/command captures.

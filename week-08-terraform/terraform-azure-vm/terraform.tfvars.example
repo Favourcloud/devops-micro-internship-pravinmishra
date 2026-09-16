@@ -1,0 +1,10 @@
+# Illustrative, non-secret values only. Not an authorization or a capacity check.
+# Copy to .private/approved.tfvars ONLY after choosing freshly approved values.
+project_name         = "dmi-w08-a1"
+location             = "uksouth"
+vm_size              = "Standard_D2lds_v6"
+admin_username       = "dmiuser"
+controller_ipv4_cidr = "192.0.2.10/32" # Documentation address: replace with your actual controller IPv4 /32.
+
+# Do not add a password, subscription/account ID, token, key or credential here.
+# No admin_password entry: use a hidden prompt or TF_VAR_admin_password instead.

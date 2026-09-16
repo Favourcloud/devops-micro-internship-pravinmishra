@@ -1,0 +1,15 @@
+.terraform/
+.private/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.plan
+*.tfvars
+*.tfvars.json
+.env
+.env.*
+*.log
+crash.*
+*.pem
+*.key
+__pycache__/

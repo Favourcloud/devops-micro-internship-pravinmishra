@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "assignment": "week-08-assignment-01",
+  "learner": "Eze Favour",
+  "phase": "offline-ready-runtime-pending",
+  "cloud_authorization": "not-granted-for-this-run",
+  "live_deployment_performed": false,
+  "vm_public_ip": null,
+  "assignment_complete": false,
+  "original_rubric": {
+    "path": "../../assignment-01-create-an-azure-virtual-machine-using-terraform.md",
+    "base_commit": "faa96981d6edb4cb3fd67c56a98864f222d59da7",
+    "preserved_prefix_bytes": 5672,
+    "sha256": "23ec7be7267e6cc02c29afadb4b3bdefc730843b7a583ca0eea5c82381bcb787"
+  },
+  "offline_validation": {
+    "status": "passed",
+    "recorded_at": "2026-09-16T23:08:01Z",
+    "command": "python3 tests/run_offline.py --terraform \"$TERRAFORM_BIN\" --plugin-dir \"$PROVIDER_MIRROR\"",
+    "terraform_version": "1.13.5",
+    "azurerm_version": "4.47.0",
+    "platform": "darwin_amd64",
+    "provider_source": "Existing read-only filesystem mirror, verified against the committed lock; no provider download.",
+    "python_safeguards_passed": 11,
+    "terraform_fmt": "passed",
+    "terraform_init": "passed; backend disabled; lockfile read-only",
+    "terraform_validate": "passed",
+    "mock_runs_passed": 31,
+    "mock_runs_failed": 0,
+    "topology_assertions": 8,
+    "scope": "Local checks and AzureRM mocks only; not cloud execution or screenshot evidence."
+  },
+  "screenshots": [
+    {
+      "number": 1,
+      "requirement": "Terminal showing successful terraform version output",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 2,
+      "requirement": "Terminal showing successful az version output",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 3,
+      "requirement": "VS Code Extensions panel showing HashiCorp Terraform installed and enabled",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 4,
+      "requirement": "VS Code main.tf showing AzureRM provider and resource group",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 5,
+      "requirement": "VS Code main.tf showing Linux VM and public IP output with password hidden",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 6,
+      "requirement": "Terminal showing successful terraform init",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 7,
+      "requirement": "Actual Terraform plan summary showing proposed resources",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 8,
+      "requirement": "Actual Terraform apply output showing successful completion",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 9,
+      "requirement": "Actual Terraform output showing the VM public IP",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 10,
+      "requirement": "Azure CLI showing the deployed VM name and VM running status",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    },
+    {
+      "number": 11,
+      "requirement": "Actual successful Terraform destroy completion",
+      "status": "pending",
+      "artifact": null,
+      "captured_at": null
+    }
+  ]
+}
