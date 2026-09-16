@@ -4,9 +4,9 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Learner:** Eze Favour. **Choice:** Azure only, four Ubuntu 22.04 VMs (`web1`, `web2`, `app1`, `db1`).
 
-**Submission status: CODE PREPARATION — NOT CLOUD-COMPLETE.** Terraform and local inventory tests are implemented; no real public IPs, apply, SSH, remote ad-hoc results or A2 screenshots are claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval, with at most US$2 for A2+A3. Historical B1s read-only plans proposed 23 creates and no updates/deletes but must not be executed; the approved D2lds_v6 replacement requires a new sealed plan, A5 pilot and exact-plan review before apply. The coordinator selected Azure after the allowed non-root AWS identity lacked EC2 permissions; no escalation was attempted. The historical enrollment expired at `2026-09-16T13:30Z`. Assignment 3 will reuse web1/web2, not add servers.
+**Submission status: CODE PREPARATION — NOT CLOUD-COMPLETE.** Terraform and local inventory tests are implemented; no real public IPs, apply, SSH, remote ad-hoc results or runtime screenshots are claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval, with at most US$2 for A2+A3. Historical B1s read-only plans proposed 23 creates and no updates/deletes but must not be executed; the approved D2lds_v6 replacement requires a new sealed plan, A5 pilot and exact-plan review before apply. The coordinator selected Azure after the allowed non-root AWS identity lacked EC2 permissions; no escalation was attempted. The historical enrollment expired at `2026-09-16T13:30Z`. Assignment 3 will reuse web1/web2, not add servers.
 
-Copilot assisted implementation, source review, local validation and the technical explanations below. They are not invented learner actions or personal experience. The learner must review the answers and add genuine firsthand reflection after authorized execution. See the [runbook](ansible-adhoc-lab/README.md) and [17-slot screenshot manifest](screenshots/assignment-02-manifest.json). Every screenshot and LinkedIn slot remains pending; original assignment requirements are retained.
+Copilot assisted implementation, source review, local validation and the technical explanations below. They are not invented learner actions or personal experience. The learner must review the answers and add genuine firsthand reflection after authorized execution. See the [runbook](ansible-adhoc-lab/README.md) and [17-slot screenshot manifest](screenshots/assignment-02-manifest.json). Genuine source-only screenshots fulfill slots **1, 3, 4 and 5**; the other 13 numbered slots and LinkedIn remain pending. Original assignment requirements are retained; template inventory is not live connectivity evidence.
 
 ---
 
@@ -30,7 +30,9 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 #### Screenshot 1 — Terminal showing the complete `ansible-adhoc-lab` project structure
 
-**PENDING — Screenshot 1.** Genuine screenshot not captured; local checks do not substitute for an image. Show the complete reviewed source layout, not private cache/state files. Capture guidance: [manifest slot 1](screenshots/assignment-02-manifest.json).
+![Genuine terminal capture of the complete tracked A2 structure](screenshots/assignment-02-01-project-structure.png)
+
+**Captured 16 September 2026, 19:21:03 UTC — source structure only.** The coordinator-approved native VS Code terminal capture shows the actual 15 tracked filenames at `b64d6be` and Eze Favour. Private files are excluded. It binds filenames, not subsequent README/validation content. Original bytes and the private run receipt were verified; see [manifest slot 1](screenshots/assignment-02-manifest.json).
 
 ---
 
@@ -42,7 +44,7 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 ### Notes
 
-Created the required Terraform, Ansible, helper, test and README files. Ignore rules are project-local to avoid changing the repository root or Assignment 1. Screenshot capture is still pending.
+Created the required Terraform, Ansible, helper, test and README files. Ignore rules are project-local to preserve the repository root and Assignment 1. The genuine tracked-tree capture is included; the initial uncommitted-state capture remains missing historical evidence.
 
 ---
 
@@ -63,19 +65,29 @@ Do not configure both providers for this assignment.
 
 #### Screenshot 3 — Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation
 
-**PENDING — Screenshot 3.** Genuine screenshot not captured; local checks do not substitute for an image. Show web1, web2, app1, db1 and for_each. Capture guidance: [manifest slot 3](screenshots/assignment-02-manifest.json).
+![Actual four-role Terraform map](screenshots/assignment-02-03a-host-roles.png)
+
+![Actual VM for_each implementation](screenshots/assignment-02-03b-vm-for-each.png)
+
+**Captured 16 September 2026, 19:21:45 and 19:21:56 UTC — source only.** These untouched native VS Code images show `main.tf` lines 1–13 and 118–142 from `b64d6be`, including all four roles and VM `for_each`. The coordinator approved the captures; image, receipt and source hashes were verified. See [manifest slot 3](screenshots/assignment-02-manifest.json). This does not prove VMs exist.
 
 ---
 
 #### Screenshot 4 — Terraform configuration showing SSH restricted to the controller IP and HTTP allowed only for web hosts
 
-**PENDING — Screenshot 4.** Genuine screenshot not captured; local checks do not substitute for an image. Show controller /32 SSH, web-only /32 HTTP and explicit deny-all-other inbound. Capture guidance: [manifest slot 4](screenshots/assignment-02-manifest.json).
+![Controller SSH and conditional web-only HTTP source rules](screenshots/assignment-02-04a-inbound-rules.png)
+
+![Controller IPv4 /32 input validation](screenshots/assignment-02-04b-controller-validation.png)
+
+**Captured 16 September 2026, 19:22:07 and 19:22:18 UTC — source only.** The approved original images show `main.tf` lines 69–96 and `variables.tf` lines 35–48 at `b64d6be`: controller-source SSH, conditional web-only HTTP and IPv4 `/32` validation. The additional deny rule remains in source outside these intended ranges. Byte/source/receipt hashes are in [manifest slot 4](screenshots/assignment-02-manifest.json); no deployed-network result is claimed.
 
 ---
 
 #### Screenshot 5 — Terraform output configuration showing how public IP addresses are associated with the server roles
 
-**PENDING — Screenshot 5.** Genuine screenshot not captured; local checks do not substitute for an image. Show public_ips role mapping and only two web_urls. Capture guidance: [manifest slot 5](screenshots/assignment-02-manifest.json).
+![Actual Terraform role-to-IP output definitions](screenshots/assignment-02-05-role-outputs.png)
+
+**Captured 16 September 2026, 19:22:30 UTC — output configuration only.** This untouched, coordinator-approved VS Code image shows `outputs.tf` lines 1–9 at `b64d6be`. Source/image/receipt hashes are verified in [manifest slot 5](screenshots/assignment-02-manifest.json). These are definitions, **not assigned public IP values or live Terraform output**.
 
 ---
 

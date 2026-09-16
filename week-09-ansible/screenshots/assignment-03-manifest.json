@@ -2,7 +2,7 @@
   "assignment": 3,
   "learner": "Eze Favour",
   "platform": "Azure",
-  "status": "code-preparation; slot 4 genuine source capture included; no live screenshots captured",
+  "status": "code-preparation; genuine local captures in slots 1, 4, 5; no live screenshots captured",
   "numbered_slots": 11,
   "capture_rules": [
     "All screenshot slots remain pending until genuine captures exist.",
@@ -16,12 +16,19 @@
     {
       "slot": 1,
       "requirement": "Terminal or VS Code showing the complete `static-web` project structure",
-      "status": "pending",
-      "scope": "local",
-      "file": null,
-      "capture_command_or_action": "From week-09-ansible: find static-web -path \"*/.local\" -prune -o -path \"*/.ansible\" -prune -o -path \"*/.cache\" -prune -o -type f -print",
-      "acceptance": "Show complete static-web source structure, not private outputs/caches.",
-      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+      "status": "captured",
+      "scope": "local tracked filename listing; not deployment evidence",
+      "file": "assignment-03-01-project-structure.png",
+      "sha256": "4a6651632595e4d4d0bf2e6c9e587abd5e53572f4883ba4cf2850a0bf54f1b0f",
+      "captured_at_utc": "2026-09-16T19:15:48.130467+00:00",
+      "capture_method": "Coordinator-approved native VS Code task window; actual tracked-file listing rerun in foreground terminal",
+      "image_modifications": "None; exact original PNG bytes",
+      "source_commit": "4d58d0d3ce66e94f87da5ee435299425ec31afae",
+      "tracked_file_count": 11,
+      "tracked_filenames": [".ansible-lint", ".gitignore", "README.md", "SOURCE.md", "ansible.cfg", "files/contact.html", "files/index.html", "files/style.css", "inventory.ini", "site.yml", "tests/test_site.py"],
+      "private_run_receipt_sha256": "f5eef993e0213d0cf66f82fefc53761d958cddb5a7ff3d8a73af4e07421ca80e",
+      "acceptance": "Shows the actual complete 11-file tracked structure and Eze Favour. Binds filenames, not later README content; private caches/runtime inputs excluded.",
+      "blocker": null
     },
     {
       "slot": 2,
@@ -64,12 +71,25 @@
     {
       "slot": 5,
       "requirement": "Successful syntax-check output showing `playbook: site.yml`",
-      "status": "pending",
-      "scope": "local",
-      "file": null,
-      "capture_command_or_action": "ansible-playbook -i inventory.ini site.yml --syntax-check",
-      "acceptance": "Capture real playbook: site.yml output; syntax success is local-only.",
-      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+      "status": "captured",
+      "scope": "local syntax check with UNCONFIGURED template; no SSH or deployment",
+      "file": "assignment-03-05-syntax-check.png",
+      "sha256": "07aecff6718bee70f35be19ac00451d2a989c61776ddedb79b00c44ec891e37e",
+      "captured_at_utc": "2026-09-16T19:14:38.049302+00:00",
+      "capture_method": "Coordinator-approved native VS Code task window; actual Ansible command rerun in foreground terminal",
+      "image_modifications": "None; exact original PNG bytes",
+      "source_commit": "4d58d0d3ce66e94f87da5ee435299425ec31afae",
+      "source_sha256": {
+        "ansible.cfg": "58503daba470b4041812e68efc611c218741203c20937cc3d4e03a2c28352dac",
+        "inventory.ini": "516edb7de9d85a68a6e447f2d0bf3f6fcd4c00a0197872e8854150ab373ba192",
+        "site.yml": "314678c912983a822584a16cee58f084fbd3bd85c1733e81b163d24514984ea1"
+      },
+      "command": "ansible-playbook -i inventory.ini site.yml --syntax-check",
+      "exit_code": 0,
+      "ssh_disabled": true,
+      "private_run_receipt_sha256": "ec6c73a107043ad5379ffc5335ef0896a553d898b9d90810cd8fddd77a6e82f4",
+      "acceptance": "Actual playbook: site.yml and exit 0 are visible with Eze Favour. Local syntax only; no managed-host verification.",
+      "blocker": null
     },
     {
       "slot": 6,

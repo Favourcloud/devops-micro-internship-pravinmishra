@@ -2,7 +2,7 @@
 
 **Learner:** Eze Favour. **Status:** code preparation and local validation, not a deployed lab.
 
-Azure only: four Ubuntu 22.04 hosts named `web1`, `web2`, `app1`, `db1`. Assignment 3 reuses **these same two web hosts**; do not create another pair. The app/db names are inventory roles, not installed application/database services. Copilot assisted implementation, technical explanations and local checks. No learner SSH, provisioning, remote Ansible, screenshots or firsthand cloud experience is claimed here.
+Azure only: four Ubuntu 22.04 hosts named `web1`, `web2`, `app1`, `db1`. Assignment 3 reuses **these same two web hosts**; do not create another pair. The app/db names are inventory roles, not installed application/database services. Copilot assisted implementation, technical explanations and local checks. No learner SSH, provisioning, remote Ansible or firsthand cloud experience is claimed here. Coordinator-supplied genuine source captures are included for A2 slots 1/3/4/5; they do not prove deployed infrastructure.
 
 ## Approval and safety boundary
 

@@ -16,7 +16,7 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Submission status: CODE PREPARATION — NOT DEPLOYMENT-COMPLETE.** Three plays, source provenance, syntax/lint and loopback-only verification tests are prepared. No managed-host ping, website deployment, remote idempotency, browser screenshots or publication is claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval and at most US$2 for A2+A3. A2's historical B1s plans proposed 23 creates with no updates/deletes but are not for execution; the approved D2lds_v6 revision requires a fresh sealed plan, A5 pilot and coordinator review before apply. A3 still reuses the same two A2 web roles. The authorized non-root AWS identity lacked EC2 permissions, so the coordinator selected Azure without escalation. The historical enrollment expired at `2026-09-16T13:30Z`.
 
-Copilot assisted implementation, the genuine source download, local checks and these technical explanations. The learner must review the answers and provide firsthand reflection after actual execution. The [11-slot screenshot manifest](screenshots/assignment-03-manifest.json) retains every required screenshot plus LinkedIn. **Slot 4 has a genuine source-only editor capture**; the other ten numbered screenshots and LinkedIn remain pending. Source visibility is not evidence of deployment.
+Copilot assisted implementation, the genuine source download, local checks and these technical explanations. The learner must review the answers and provide firsthand reflection after actual execution. The [11-slot screenshot manifest](screenshots/assignment-03-manifest.json) retains every required screenshot plus LinkedIn. **Slots 1, 4 and 5 have genuine local-only captures** of the tracked structure, personalized source and syntax check; the other eight numbered screenshots and LinkedIn remain pending. Source visibility and syntax success are not evidence of deployment.
 
 ---
 
@@ -38,7 +38,9 @@ Create the required folders and files for the Ansible project.
 
 ### Screenshot 1 — Terminal or VS Code showing the complete `static-web` project structure
 
-**PENDING — Screenshot 1.** Genuine screenshot not captured; local checks do not substitute for an image. Show complete static-web source structure, not private outputs/caches. Capture guidance: [manifest slot 1](screenshots/assignment-03-manifest.json).
+![Genuine terminal capture of the complete static-web tracked structure](screenshots/assignment-03-01-project-structure.png)
+
+**Captured 16 September 2026, 19:15:48 UTC — local structure only.** The coordinator-approved native VS Code terminal capture shows an actual foreground listing of all 11 tracked `static-web` files and Eze Favour. Private/generated files are excluded. This binds the filename list from `4d58d0d`, not later README content. Original image bytes, source filenames and run-receipt hash were verified; see [manifest slot 1](screenshots/assignment-03-manifest.json).
 
 ---
 
@@ -240,7 +242,9 @@ Check the playbook for YAML or Ansible syntax errors before running it.
 
 ### Screenshot 5 — Successful syntax-check output showing `playbook: site.yml`
 
-**PENDING — Screenshot 5.** Genuine screenshot not captured; local checks do not substitute for an image. Capture real playbook: site.yml output; syntax success is local-only. Capture guidance: [manifest slot 5](screenshots/assignment-03-manifest.json).
+![Genuine terminal capture of the successful local Ansible syntax check](screenshots/assignment-03-05-syntax-check.png)
+
+**Captured 16 September 2026, 19:14:38 UTC — local syntax only.** The actual foreground command `ansible-playbook -i inventory.ini site.yml --syntax-check` returned `playbook: site.yml` and exit code 0. Eze Favour and the **UNCONFIGURED template / no SSH or deployment** label are visible. The coordinator approved the native capture; original bytes and the exact config/inventory/playbook hashes were verified against its run receipt. See [manifest slot 5](screenshots/assignment-03-manifest.json). This does not fulfill ping, live inventory or deployment evidence.
 
 ---
 
@@ -328,7 +332,7 @@ Copy and paste the complete contents of your `README.md` file below:
 ````markdown
 # Week 09 Assignment 3 — Multi-play static website
 
-**Learner:** Eze Favour. **Platform:** Azure, reusing Assignment 2's `web1` and `web2` Ubuntu 22.04 hosts. **Status:** locally validated code preparation; no remote deployment, URLs, idempotency result, screenshots or LinkedIn post yet.
+**Learner:** Eze Favour. **Platform:** Azure, reusing Assignment 2's `web1` and `web2` Ubuntu 22.04 hosts. **Status:** locally validated code preparation with genuine local-only captures for slots 1/4/5; no remote deployment, URLs, idempotency result, runtime screenshots or LinkedIn post yet.
 
 Copilot assisted the code, source download, technical explanations and local checks. These notes are not a record of learner-operated cloud work. The learner must review them and supply firsthand reflection after genuine execution.
 
@@ -350,7 +354,7 @@ The existing course `CodeTrack` website was genuinely downloaded from the learne
 
 Use the existing Assignment 1 Ansible controller (validated with Python 3.13.3, Ansible 14.4.0/core 2.21.4 and ansible-lint 26.8.0). Do not recreate its environment, keys or agent. Reuse the four-host [A2 Terraform lab](../ansible-adhoc-lab/README.md); A3 creates **no extra infrastructure**. Standard Ubuntu Nginx's default site serves `/var/www/html`. This playbook is for the dedicated fresh lab, not arbitrary production servers with custom Nginx configuration.
 
-The coordinator has a user-approved combined temporary-cloud budget and an A2+A3 allocation of at most US$2 and two hours after apply. Azure replaces the initial AWS choice because the non-root AWS identity lacks EC2 permissions. A2's explicitly authorized read-only Azure plan succeeded with 23 creates and no updates/deletes; exact saved-plan approval, actual capacity and the execution window remain pending. Expired AWS enrollment is not reused. Do not provision, SSH, run package/service tasks or contact managed HTTP endpoints until authorized. Verify both hosts' fingerprints against authenticated Azure boot diagnostics and store matching keys only in A2's `.local/known_hosts`; the configuration preserves strict checking with no global known-hosts fallback. Current `.invalid` inventory names are intentionally not real endpoints.
+The coordinator has a user-approved combined temporary-cloud budget and an A2+A3 allocation of at most US$2 and two hours after apply. Azure replaces the initial AWS choice because the non-root AWS identity lacks EC2 permissions. A2's historical B1s read-only plans proposed 23 creates with no updates/deletes but must not be executed. The approved D2lds_v6 replacement requires a fresh identity-sealed plan, successful A5 pilot and coordinator review before A2 apply; actual allocation and the execution window remain gated. Expired AWS enrollment is not reused. Do not provision, SSH, run package/service tasks or contact managed HTTP endpoints until authorized. Verify both hosts' fingerprints against authenticated Azure boot diagnostics and store matching keys only in A2's `.local/known_hosts`; the configuration preserves strict checking with no global known-hosts fallback. Current `.invalid` inventory names are intentionally not real endpoints.
 
 A2's renderer creates ignored, mode-0600 `inventory.local.ini` explicitly from real Terraform output after approval. Its `--web-only` option selects the same `web1` and `web2`; never invent IPs or replace tracked `inventory.ini`. No private-key path or credentials are committed. The existing SSH key/agent must already be selected. Approval assertions run before remote modules because fact gathering is off. Each play defaults `live_execution_approved` to false; only an authorized operator may explicitly override it. These are workflow safeguards, not a substitute for authorization.
 
@@ -414,7 +418,7 @@ curl --fail --silent --show-error --noproxy '*' --head "http://${WEB2_IP:?set ac
 
 Open each actual URL in the controller's browser; verify the footer, CSS and contact/back links. HTTP access is restricted to the controller /32, so another viewer will not reach the site. Capture the public IP/full name in genuine browser windows only after privacy review. Do not broaden the Terraform-managed NSGs for a screenshot. If the controller IP changes, update it through Terraform after a fresh authorized plan.
 
-The [A3 manifest](../screenshots/assignment-03-manifest.json) preserves all 11 numbered slots plus the LinkedIn slot. Every slot remains pending. Syntax checks or loopback screenshots do not satisfy cloud screenshots. Do not publish a LinkedIn post without separate approval. Real URLs and published-post links remain pending; redact public IPs in submitted evidence if preferred and never show account IDs, credentials, keys, state or private paths.
+The [A3 manifest](../screenshots/assignment-03-manifest.json) preserves all 11 numbered slots plus LinkedIn. Genuine, coordinator-approved native captures now cover slots 1 (tracked filenames), 4 (personalized source) and 5 (local syntax). Original PNG bytes and source/run receipts are verified; every other numbered slot and LinkedIn remain pending. Template inventories, syntax checks and loopback tests do not fulfill cloud evidence. Do not publish a LinkedIn post without separate approval. Real URLs and published-post links remain pending; redact public IPs in submitted evidence if preferred and never show account IDs, credentials, keys, state or private paths.
 
 ## Troubleshooting, learning and cleanup
 
