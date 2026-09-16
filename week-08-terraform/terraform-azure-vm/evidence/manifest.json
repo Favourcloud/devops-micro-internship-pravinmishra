@@ -1,27 +1,49 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "assignment": "week-08-assignment-01",
   "learner": "Eze Favour",
-  "phase": "offline-ready-runtime-pending",
+  "phase": "offline-ready-partial-evidence-runtime-pending",
   "cloud_authorization": "not-granted-for-this-run",
   "live_deployment_performed": false,
   "vm_public_ip": null,
   "assignment_complete": false,
+  "evidence_summary": {
+    "verified": 5,
+    "pending": 6,
+    "required": 11
+  },
+  "capture_provenance": {
+    "operator": "GitHub Copilot under user delegation; not manual learner execution",
+    "method": "Unmodified native macOS screenshots of the isolated assignment VS Code window",
+    "parent_verified_at": "2026-09-16T23:20:57.327450+00:00",
+    "privacy_checked": true,
+    "scope": "Local prerequisite and source evidence only; no Azure authentication, cloud/API operations, SSH, runtime deployment or grade is evidenced."
+  },
+  "source_provenance": {
+    "path": "../main.tf",
+    "commit": "dbdab95b21f517cfe0751d07e667001c0fb6a775",
+    "sha256": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
+    "bound_screenshot_numbers": [4, 5]
+  },
   "original_rubric": {
     "path": "../../assignment-01-create-an-azure-virtual-machine-using-terraform.md",
     "base_commit": "faa96981d6edb4cb3fd67c56a98864f222d59da7",
-    "preserved_prefix_bytes": 5672,
-    "sha256": "23ec7be7267e6cc02c29afadb4b3bdefc730843b7a583ca0eea5c82381bcb787"
+    "original_bytes": 5672,
+    "original_sha256": "23ec7be7267e6cc02c29afadb4b3bdefc730843b7a583ca0eea5c82381bcb787",
+    "preservation": "All original requirements, headings, questions and checklist item text retained in order; response placeholders, evidence insertions and checklist markers may be completed. The current submission is not an unchanged byte-prefix."
   },
   "offline_validation": {
     "status": "passed",
-    "recorded_at": "2026-09-16T23:08:01Z",
+    "recorded_at": "2026-09-16T23:27:23Z",
     "command": "python3 tests/run_offline.py --terraform \"$TERRAFORM_BIN\" --plugin-dir \"$PROVIDER_MIRROR\"",
     "terraform_version": "1.13.5",
     "azurerm_version": "4.47.0",
     "platform": "darwin_amd64",
     "provider_source": "Existing read-only filesystem mirror, verified against the committed lock; no provider download.",
-    "python_safeguards_passed": 11,
+    "python_safeguards_passed": 15,
+    "original_png_hashes_verified": 5,
+    "frozen_source_parity": "passed; source, inputs, lock, offline runner and Terraform mock tests unchanged from dbdab95b21f517cfe0751d07e667001c0fb6a775",
+    "rubric_requirement_parity": "passed; original requirements retained with filled evidence responses and local-only checklist markers",
     "terraform_fmt": "passed",
     "terraform_init": "passed; backend disabled; lockfile read-only",
     "terraform_validate": "passed",
@@ -34,37 +56,60 @@
     {
       "number": 1,
       "requirement": "Terminal showing successful terraform version output",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-01-terraform-version.png",
+      "captured_at": "2026-09-16T23:16:55.898946+00:00",
+      "sha256": "74b9d503afc2358ed99bf744e6ad85bdc96e7b201402e350e62f8599a8828302",
+      "image_modified": false,
+      "tools": {"terraform": "1.13.5", "platform": "darwin_amd64"},
+      "boundary": "Installed-tool version evidence only; not Terraform deployment evidence."
     },
     {
       "number": 2,
       "requirement": "Terminal showing successful az version output",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-02-azure-cli-version.png",
+      "captured_at": "2026-09-16T23:17:27.854821+00:00",
+      "sha256": "eab34f1d807225ad3d708ae879c22dc2854e5de7b696affbf8cb717fdec057e4",
+      "image_modified": false,
+      "tools": {"azure_cli": "2.89.1"},
+      "boundary": "Installed-tool version evidence only; not Azure sign-in, subscription selection or API activity."
     },
     {
       "number": 3,
       "requirement": "VS Code Extensions panel showing HashiCorp Terraform installed and enabled",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-03-vscode-terraform-extension.png",
+      "captured_at": "2026-09-16T23:17:43.782880+00:00",
+      "sha256": "e28bef4bb2c24b3c848f8eb8d18709c275707444efb0a6933987a495b90fa316",
+      "image_modified": false,
+      "tools": {"extension_id": "hashicorp.terraform", "extension_version": "2.40.0"},
+      "extension_installed_and_enabled": true,
+      "boundary": "The actual extension page shows Disable/Uninstall controls; no manual learner installation is claimed."
     },
     {
       "number": 4,
       "requirement": "VS Code main.tf showing AzureRM provider and resource group",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-04-provider-resource-group.png",
+      "captured_at": "2026-09-16T23:18:40.961449+00:00",
+      "sha256": "c55e65fdb6d57bc019a35c75f76194e64446636cf9aec033dd8a67f412f864da",
+      "image_modified": false,
+      "source_commit": "dbdab95b21f517cfe0751d07e667001c0fb6a775",
+      "source_sha256": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
+      "boundary": "Frozen provider/resource-group source only; no Azure resources created."
     },
     {
       "number": 5,
       "requirement": "VS Code main.tf showing Linux VM and public IP output with password hidden",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-05-vm-public-ip-source.png",
+      "captured_at": "2026-09-16T23:19:01.779340+00:00",
+      "sha256": "a868ba9d1d7c44dd6381d1d1381281da39c47994cc6e21cb0e24130682a52262",
+      "image_modified": false,
+      "source_commit": "dbdab95b21f517cfe0751d07e667001c0fb6a775",
+      "source_sha256": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
+      "boundary": "Shows admin_password = var.admin_password and the full public_ip_address output block; no actual password or allocated IP is displayed."
     },
     {
       "number": 6,

@@ -1,16 +1,26 @@
 # Week 08 Assignment 1 — Azure VM (Eze Favour)
 
-**Offline infrastructure deliverable only. The assignment is not complete.** No
-fresh cloud/spending authorization exists for this run. No Azure login, live
-plan, apply, VM verification, public IP allocation, destroy or GUI capture was
-performed for this deliverable. All eleven screenshot slots remain pending in
-the [evidence manifest](evidence/manifest.json). Local validation and mock
-resources are not deployment evidence or proof of a grade.
+**Partial submission: 5/11 genuine screenshots verified; the assignment is not
+complete.** Screenshots 1–5 document local installed tools and frozen source.
+Screenshots 6–11 remain pending in the [evidence manifest](evidence/manifest.json).
+No fresh cloud/spending authorization exists for this run. No Azure login, live
+plan, apply, VM verification, public IP allocation or destroy was performed.
+Local validation and mock resources are not deployment evidence or proof of a
+grade.
 
-The [original assignment](../assignment-01-create-an-azure-virtual-machine-using-terraform.md)
-remains intact, including its questions, checklist and eleven screenshot slots.
-This project owns only Assignment 1; it does not reuse another assignment's
-state, plans, credentials, approvals or resources.
+- **Learner:** Eze Favour
+- **Project:** [assignment branch](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/favourcloud-week-08-azure-vm/week-08-terraform/terraform-azure-vm)
+- **Branch/review:** `favourcloud-week-08-azure-vm` · [Draft PR #9](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/9)
+- **Evidence operator:** GitHub Copilot under user delegation, not manual learner execution.
+
+The [submission](../assignment-01-create-an-azure-virtual-machine-using-terraform.md)
+presents the five original, unmodified native VS Code PNGs in their correct
+numbered slots. Every original requirement, heading, question and checklist item
+text is retained; only responses, insertions and checkbox markers are updated.
+The manifest's original byte-count/hash describe the reference rubric, not an
+unchanged prefix of the current submission. This project owns only Assignment
+1; it does not reuse another assignment's state, plans, credentials, approvals
+or resources.
 
 ## Infrastructure
 
@@ -90,11 +100,13 @@ separate from the live backend.
 
 The runner performs these local checks, stopping on the first failure:
 
-1. Eleven Python delivery safeguards: original rubric fingerprint/eleven slots,
-   pending evidence and absent authorization/runtime claims, ignore rules,
-   sensitive external input contract, disabled registration/no live helpers,
-   private backend/NSG ordering, safe outputs/eight resources, mock-only tests,
-   publishable-file exclusions and local Markdown links.
+1. Fifteen Python delivery safeguards: reference-rubric fingerprint and ordered
+   requirement parity, five exact PNG hashes/timestamps and six pending slots,
+   absent authorization/runtime claims, ignore rules, sensitive external input
+   contract, disabled registration/no live helpers, private backend/NSG ordering,
+   safe outputs/eight resources, mock-only tests, publishable-file exclusions,
+   local links, frozen-source bytes, numbered image mappings, truthful checklist
+   markers and sanitized public provenance.
 2. `terraform fmt -check -recursive -diff`.
 3. `terraform init -backend=false -input=false -lockfile=readonly`.
 4. `terraform validate`.
@@ -251,29 +263,44 @@ backups or saved plan files.
 
 ## Evidence handoff and status transitions
 
+**5/11 verified.** The parent captured the five native images on 2026-09-16,
+23:16–23:19 UTC, and verified privacy and visible requirements. This integration
+copies those original PNG bytes without editing them. Exact timestamps and
+SHA-256 values are in the [public manifest](evidence/manifest.json); private OCR,
+window/PID metadata and local capture paths are intentionally excluded.
+
 | Slot | Genuine evidence required | Current status |
 | --- | --- | --- |
-| 1 | Terminal: `terraform version` | Pending capture |
-| 2 | Terminal: `az version` | Pending capture |
-| 3 | VS Code HashiCorp Terraform extension installed/enabled | Pending capture |
-| 4 | VS Code `main.tf`: AzureRM provider and resource group | Pending capture |
-| 5 | VS Code `main.tf`: VM and public-IP output; password hidden | Pending capture |
-| 6 | Terminal: successful actual `terraform init` | Pending capture |
+| 1 | Terminal: `terraform version` | [Verified: Terraform 1.13.5](evidence/screenshots/screenshot-01-terraform-version.png) |
+| 2 | Terminal: `az version` | [Verified: Azure CLI 2.89.1](evidence/screenshots/screenshot-02-azure-cli-version.png) |
+| 3 | VS Code HashiCorp Terraform extension installed/enabled | [Verified: extension 2.40.0, Disable/Uninstall controls](evidence/screenshots/screenshot-03-vscode-terraform-extension.png) |
+| 4 | VS Code `main.tf`: AzureRM provider and resource group | [Verified: frozen source](evidence/screenshots/screenshot-04-provider-resource-group.png) |
+| 5 | VS Code `main.tf`: VM and public-IP output; password hidden | [Verified: variable reference, no password value](evidence/screenshots/screenshot-05-vm-public-ip-source.png) |
+| 6 | Terminal: successful actual `terraform init` | Pending authorized sequence/capture; backend-disabled checks are not this screenshot |
 | 7 | Actual Terraform plan summary | Pending authorized run/capture |
 | 8 | Actual successful Terraform apply | Pending authorized run/capture |
 | 9 | Actual `terraform output` public IP | Pending authorized run/capture |
 | 10 | Azure CLI VM name and `VM running` | Pending authorized run/capture |
 | 11 | Actual successful Terraform destroy | Pending authorized run/capture |
 
-For each real capture, the parent verifies correspondence to this A1 run, redacts
-only sensitive material without changing the result, and saves the image under
-an A1-owned evidence path. Only then change its manifest slot from `pending` to
-`verified`, add its relative artifact path, capture timestamp and SHA-256, and
-link it next to the corresponding original screenshot slot without deleting the
-rubric. Update the pending-only regression expectations in the evidence tests
-alongside genuine transitions. Never substitute mock outputs, generated images,
-logs from another assignment or a local check for a required screenshot.
+Screenshots 4–5 bind `main.tf` to source commit
+`dbdab95b21f517cfe0751d07e667001c0fb6a775`, SHA-256
+`53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db`.
+The Terraform source, variable/input contract, lock and mock-runner behavior are
+unchanged by this evidence integration. Screenshot 5 shows
+`admin_password = var.admin_password` and the complete public-IP output source,
+not a secret or allocated IP. No manual learner execution is claimed.
 
-`live_deployment_performed`, `vm_public_ip`, authorization status and
-`assignment_complete` remain false/null/pending until supported by the new real
-run and all required evidence, including teardown. No grade is asserted.
+For each remaining real capture, the parent must verify correspondence to this
+A1 run and inspect privacy before publication. Record any necessary redaction
+honestly rather than describing an edited image as original. Only after genuine
+evidence exists should its slot become `verified`, with a relative artifact
+path, timestamp and SHA-256, and an image/caption in the matching numbered slot.
+Update evidence-test expectations alongside verified transitions while retaining
+all rubric requirements. Never substitute mock outputs, generated images, another
+assignment's logs or a local check for a required screenshot.
+
+Deployment/authorization fields change only when supported by an actual newly
+authorized run. The VM public IP remains null and the assignment remains
+incomplete; completion requires every task and all eleven images, including
+teardown evidence. No grade is asserted.
