@@ -1,9 +1,18 @@
 {
   "assignment": "week-09-assignment-04",
-  "status": "code-preparation-only",
+  "status": "code-preparation-with-unapplied-plan",
   "recorded_on": "2026-09-16",
   "capture_performed": false,
   "deployment_performed": false,
+  "live_plan": {
+    "status": "prepared-not-applied",
+    "source_commit": "835b90b041315c76b10b6984448504b0c0d11fd4",
+    "creates": 8,
+    "updates": 0,
+    "deletes": 0,
+    "region": "uksouth",
+    "sha256": "96d810732360f038241ceb2007f5845b16316da970dfcd9bbc99245328e32e97"
+  },
   "note": "All evidence remains pending. Offline validation is not deployment, connectivity, screenshot, remote idempotence or firsthand learner evidence. Never substitute mock/documentation IPs or reused coursework screenshots.",
   "screenshots": [
     {"number": 1, "subject": "Complete mini-finance project tree", "status": "pending", "path": null},
@@ -20,9 +29,9 @@
   "learner_reflection": "pending",
   "remote_idempotence": "pending",
   "blockers": [
-    "Azure scope, permissions and provider registration not verified for deployment",
+    "Coordinator reported Azure preflight and authorized read-only plan; exact-plan approval and live allocation capacity remain pending",
     "User approved US$5 combined labs; A4 allocation is at most US$1/two hours with teardown after evidence, but the live plan remains unreviewed",
-    "No supplied real VM outputs or approved private local variables",
+    "Private variables supplied for planning only; no real VM outputs or remote verification",
     "No independently verified VM host key or authorized SSH/Ansible execution",
     "Authentic screenshots, learner reflection and LinkedIn publication pending"
   ],

@@ -1,8 +1,8 @@
 # Mini Finance — Week 09 Assignment 4 (Azure, code preparation)
 
-**Status: locally validated preparation, not a deployed assignment.** No Azure plan against a live subscription, apply/destroy, SSH connection, remote Ansible run, browser verification, remote idempotence run, screenshot capture, or LinkedIn publication was performed for this submission. All eight numbered screenshots and the LinkedIn screenshot remain pending in the [evidence manifest](../screenshots/assignment-04-manifest.json). The [assignment brief and questions](../assignment-04-deploy-mini-finance-project-using-terraform-and-ansible.md) are preserved.
+**Status: validated preparation with an unapplied Azure plan, not a deployed assignment.** An authorized read-only live Terraform plan was prepared on 2026-09-16: **8 to create, 0 to update, 0 to delete**. No apply/destroy, SSH connection, remote Ansible run, browser verification, remote idempotence run, screenshot capture, or LinkedIn publication was performed for this submission. All eight numbered screenshots and the LinkedIn screenshot remain pending in the [evidence manifest](../screenshots/assignment-04-manifest.json). The [assignment brief and questions](../assignment-04-deploy-mini-finance-project-using-terraform-and-ansible.md) are preserved.
 
-During preparation on 2026-09-16, the user approved a **US$5 combined AWS/Azure temporary-lab budget with teardown after evidence**; the coordinator allocated this assignment **at most US$1 and two hours**. This is not a passed Azure permissions/capacity check or permission to apply an unreviewed plan. The exact subscription/tenant, effective permissions, region/SKU availability and live Terraform plan remain subject to owner/coordinator verification. `uksouth` is only a proposed region, not a verified deployment location. A cached CLI sign-in is **not** sufficient. Historical AWS permission is expired; it is not being renewed or treated as Azure authorization. This project does not change login, billing, IAM/RBAC, provider registration or global configuration.
+During preparation on 2026-09-16, the user approved a **US$5 combined AWS/Azure temporary-lab budget with teardown after evidence**; the coordinator allocated this assignment **at most US$1 and two hours**. This is not a passed Azure permissions/capacity check or permission to apply an unreviewed plan. The coordinator reported successful Azure management permission/provider-registration/quota checks and authorized the private plan using the current CLI subscription, `uksouth`, the existing user's `.pub` key and current controller IPv4 `/32`. The exact saved plan still requires coordinator review before any apply. Quota/size listing and a successful plan do not guarantee live allocation capacity; `uksouth` is the planned region, not a deployed location. A cached CLI sign-in is **not** sufficient. Historical AWS permission is expired; it is not being renewed or treated as Azure authorization. This project does not change login, billing, IAM/RBAC, provider registration or global configuration.
 
 ## Layout
 
@@ -79,7 +79,13 @@ The Python tests execute real Ansible inventory parsing and failure preflights w
 | Ansible core 2.21.4 `--syntax-check` | Passed |
 | ansible-lint 26.8.0 `--offline site.yml group_vars/all.yml` | 0 failures, 0 warnings |
 
-These checks do **not** establish Azure authorization/capacity, VM creation, real key compatibility, remote Nginx syntax/runtime, availability, or second-run idempotence. Runtime checks below remain pending.
+These offline checks do **not** establish Azure authorization/capacity, VM creation, real key compatibility, remote Nginx syntax/runtime, availability, or second-run idempotence. Runtime checks below remain pending.
+
+### Authorized read-only live plan — 2026-09-16
+
+Terraform 1.13.5 prepared a private saved plan against the current Azure CLI subscription from infrastructure commit `835b90b041315c76b10b6984448504b0c0d11fd4`: **8 creates, 0 updates, 0 deletes** (one each: resource group, VNet, subnet, NSG, public IP, NIC, NIC/NSG association and Linux VM). The unique run prefix is `dmi-w09-a4-20260916-835b90`; planned VM/image/disk/network settings match the assignment and include managed boot diagnostics.
+
+The owner-approved existing public key was read from its `.pub` file only; controller `/32` was obtained via approved HTTPS lookup, and subscription selection came from the existing Azure CLI. Actual public-key content, controller address, subscription identifier, variables, full logs, plan binary and JSON remain in **0600 private session artifacts**, not this repository. Saved plan SHA-256: `96d810732360f038241ceb2007f5845b16316da970dfcd9bbc99245328e32e97`. Source was committed before planning; subsequent preparation-status documentation does not change infrastructure. **No apply occurred.** Exact-plan review, real capacity, host-key bootstrap and deployment/evidence remain pending.
 
 ## Future operator runbook — STOP until explicitly authorized
 
@@ -100,7 +106,7 @@ Read-only [Azure Retail Prices API](https://prices.azure.com/api/retail/prices) 
 | S4 LRS Disk Operations | US$0.0005 per 10,000 operations |
 | IP Addresses, Standard IPv4 Static Public IP | US$0.005/hour |
 
-Using a 730-hour month for disk proration, compute + disk + IPv4 are **approximately US$0.04 for two hours**, excluding disk operations, egress, taxes, billing increments and any existing account charges. This is a planning estimate, not a billing guarantee or permission to exceed the **US$1/two-hour A4 allocation**. The owner/coordinator must still verify eligibility/quota, review the real plan, monitor elapsed time and retain enough budget for capture plus cleanup.
+Using a 730-hour month for disk proration, compute + disk + IPv4 are **approximately US$0.04 for two hours**, excluding disk operations, diagnostic storage, egress, taxes, billing increments and any existing account charges. This is a planning estimate, not a billing guarantee or permission to exceed the **US$1/two-hour A4 allocation**. The owner/coordinator must still verify eligibility/quota, review the real plan, monitor elapsed time and retain enough budget for capture plus cleanup.
 
 ### 2. Private inputs and reviewed Terraform plan
 
