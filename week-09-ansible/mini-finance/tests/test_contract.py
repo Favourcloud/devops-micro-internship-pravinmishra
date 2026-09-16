@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shlex
 import shutil
 import subprocess
 import tempfile
@@ -38,6 +39,10 @@ class DeploymentContract(unittest.TestCase):
         args = config.get("ssh_connection", "ssh_args")
         self.assertIn("StrictHostKeyChecking=yes", args)
         self.assertIn("BatchMode=yes", args)
+        self.assertIn("ControlMaster=no", args)
+        self.assertIn("ControlPath=none", args)
+        self.assertNotIn("ControlPersist", args)
+        self.assertFalse(config.has_option("ssh_connection", "control_path_dir"))
         self.assertNotIn("accept-new", args)
 
     def test_public_source_is_immutable_and_not_inside_docroot(self):
@@ -148,6 +153,34 @@ class DeploymentContract(unittest.TestCase):
         self.assertEqual(list(ROOT.rglob("*.pem")), [])
         for file in (ANSIBLE / "inventory.ini", ROOT / "terraform/terraform.tfvars.example"):
             self.assertNotRegex(file.read_text(), r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
+
+
+class RealOpenSSHConfiguration(unittest.TestCase):
+    def test_long_control_path_reaches_refusing_proxy_without_network_or_keys(self):
+        ssh = shutil.which("ssh")
+        self.assertIsNotNone(ssh, "OpenSSH is required for the local configuration regression")
+        config = configparser.ConfigParser()
+        config.read(ANSIBLE / "ansible.cfg")
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            marker = directory / "proxy-called"
+            proxy = directory / "refuse-network"
+            proxy.write_text(f"#!/bin/sh\n: > {shlex.quote(str(marker))}\nexit 99\n")
+            proxy.chmod(0o700)
+            long_path = str(directory / ("x" * 160) / "unit-test-socket")
+            result = subprocess.run(
+                [ssh, "-F", "/dev/null", *shlex.split(config.get("ssh_connection", "ssh_args")),
+                 "-o", f"ControlPath={long_path}", "-o", f"ProxyCommand={shlex.quote(str(proxy))}",
+                 "-o", "IdentityFile=none", "-o", "IdentityAgent=none", "-o", "IdentitiesOnly=yes",
+                 "-o", "UserKnownHostsFile=/dev/null", "-o", "GlobalKnownHostsFile=/dev/null",
+                 "-o", "ConnectTimeout=1", "azureuser@192.0.2.10", "true"],
+                text=True, capture_output=True, timeout=10,
+            )
+            output = result.stdout + result.stderr
+            self.assertNotEqual(result.returncode, 0, "The proxy must refuse all connections")
+            self.assertTrue(marker.exists(), output)
+            self.assertNotIn("too long", output.lower())
+            self.assertFalse(Path(long_path).exists())
 
 
 class RealAnsiblePreflight(unittest.TestCase):

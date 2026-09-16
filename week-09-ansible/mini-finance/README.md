@@ -65,7 +65,9 @@ python -m unittest discover -s tests -v
 
 `init` downloads the signed pinned provider from HashiCorp; it is not network-air-gapped, but does not authenticate to Azure or create resources. `terraform test` uses **only mocked plans**, no real apply, and no Azure environment variables are needed. Its RFC 5737 addresses and RFC 8032 public test vector are clearly marked fixtures, **not deployed addresses or the user's SSH key**. Do not reuse them for deployment.
 
-The Python tests execute real Ansible inventory parsing and preflights with an SSH **refusal stub**, never a network SSH client. Empty/malformed/multiple-host inventories, root login, explicit local targets and check mode fail before the stub, package operations or HTTP. Two positive cases use the documented inventory and an overridden localhost context: both pass the guard and reach only the refusing stub at fact gathering. The guard validates the original `hostvars[inventory_hostname]` for address, user and connection rather than delegated localhost variables. These are regression tests, **not connectivity evidence**. The committed empty inventory also fails a normal `ansible-playbook -i inventory.ini site.yml` invocation. `--syntax-check` is the supported offline check; `--check` is deliberately rejected instead of implying that uncreated release paths or HTTP were verified.
+The Ansible-related Python tests execute real inventory parsing and preflights with an SSH **refusal stub**, never a network SSH connection. Empty/malformed/multiple-host inventories, root login, explicit local targets and check mode fail before the stub, package operations or HTTP. Two positive cases use the documented inventory and an overridden localhost context: both pass the guard and reach only the refusing stub at fact gathering. The guard validates the original `hostvars[inventory_hostname]` for address, user and connection rather than delegated localhost variables. These are regression tests, **not connectivity evidence**. The committed empty inventory also fails a normal `ansible-playbook -i inventory.ini site.yml` invocation. `--syntax-check` is the supported offline check; `--check` is deliberately rejected instead of implying that uncreated release paths or HTTP were verified.
+
+SSH multiplexing is explicitly disabled (`ControlMaster=no`, `ControlPath=none`, no `ControlPersist`) so long worktree/controller-cache paths cannot exceed macOS's 104-byte Unix socket limit. A separate real OpenSSH regression reproduced `ControlPath too long` before the fix, then reached only a refusing local `ProxyCommand` afterward. It uses no network, agent or private key; strict host-key checking and batch authentication remain required for deployment.
 
 ### Recorded local results — 2026-09-16
 
@@ -75,7 +77,7 @@ The Python tests execute real Ansible inventory parsing and preflights with an S
 | `init -backend=false -input=false` | AzureRM 4.47.0 installed; signed provider checksums locked |
 | `validate` | Valid configuration |
 | `test` | 10 mocked-plan runs passed, 0 failed |
-| Python 3.13.3 `unittest discover -s tests -v` | 20 tests passed; positive guards reach a refusal stub, negatives do not; no SSH network calls |
+| Python 3.13.3 `unittest discover -s tests -v` | 21 tests passed; positive guards reach a refusal stub; real OpenSSH reaches only a refusing local proxy; no SSH network calls |
 | Ansible core 2.21.4 `--syntax-check` | Passed |
 | ansible-lint 26.8.0 `--offline site.yml group_vars/all.yml` | 0 failures, 0 warnings |
 
@@ -85,7 +87,11 @@ These offline checks do **not** establish Azure authorization/capacity, VM creat
 
 Terraform 1.13.5 prepared a private saved plan against the current Azure CLI subscription from infrastructure commit `835b90b041315c76b10b6984448504b0c0d11fd4`: **8 creates, 0 updates, 0 deletes** (one each: resource group, VNet, subnet, NSG, public IP, NIC, NIC/NSG association and Linux VM). The unique run prefix is `dmi-w09-a4-20260916-835b90`; planned VM/image/disk/network settings match the assignment and include managed boot diagnostics.
 
-The owner-approved existing public key was read from its `.pub` file only; controller `/32` was obtained via approved HTTPS lookup, and subscription selection came from the existing Azure CLI. Actual public-key content, controller address, subscription identifier, variables, full logs, plan binary and JSON remain in **0600 private session artifacts**, not this repository. Saved plan SHA-256: `96d810732360f038241ceb2007f5845b16316da970dfcd9bbc99245328e32e97`. Source was committed before planning; subsequent preparation-status documentation does not change infrastructure. **No apply occurred.** Exact-plan review, real capacity, host-key bootstrap and deployment/evidence remain pending.
+The owner-approved existing public key was read from its `.pub` file only; controller `/32` was obtained via approved HTTPS lookup, and subscription selection came from the existing Azure CLI. Actual public-key content, controller address, subscription identifier, variables, full logs, plan binary and JSON remain in **0600 private session artifacts**, not this repository.
+
+The original plan (`96d810732360f038241ceb2007f5845b16316da970dfcd9bbc99245328e32e97`) and raw logs are preserved. Its subscription selection was not separately persisted, so historical identity is **not inferred**. With renewed coordinator authorization, the current CLI subscription was sealed privately **before** generating a separate fresh real plan using unchanged Terraform source, inputs and provider. The unique resource group remained absent and the result remained **8 creates, 0 updates, 0 deletes**. The fresh plan SHA-256 is `65fe9cfe53dd2021cbe5f0688920443a7147e9600a5a93b8a734e5c3217d8cae`; it needs renewed exact-plan review before execution.
+
+A private one-shot apply runner was prepared, not launched; 27 offline helper tests passed without running its entry point or external commands. It binds the fresh plan/account/source/provider, preserves raw logs and streams disclosed display-only redactions, and records a maximum US$1/two-hour approval and cleanup deadline. That deadline is not automatic teardown or a guaranteed billing cap. The coordinator must launch visibly only after review and manage authorized Terraform cleanup. No runner, private scope, credentials or raw plan/logs are committed. **No apply occurred.** Real capacity, host-key bootstrap and deployment/evidence remain pending.
 
 ## Future operator runbook — STOP until explicitly authorized
 

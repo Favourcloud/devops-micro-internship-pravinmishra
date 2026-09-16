@@ -11,7 +11,10 @@
     "updates": 0,
     "deletes": 0,
     "region": "uksouth",
-    "sha256": "96d810732360f038241ceb2007f5845b16316da970dfcd9bbc99245328e32e97"
+    "sha256": "65fe9cfe53dd2021cbe5f0688920443a7147e9600a5a93b8a734e5c3217d8cae",
+    "current_subscription_sealed_before_fresh_plan": true,
+    "historical_subscription_identity_inferred": false,
+    "preserved_original_plan_sha256": "96d810732360f038241ceb2007f5845b16316da970dfcd9bbc99245328e32e97"
   },
   "note": "All evidence remains pending. Offline validation is not deployment, connectivity, screenshot, remote idempotence or firsthand learner evidence. Never substitute mock/documentation IPs or reused coursework screenshots.",
   "screenshots": [
@@ -29,8 +32,8 @@
   "learner_reflection": "pending",
   "remote_idempotence": "pending",
   "blockers": [
-    "Coordinator reported Azure preflight and authorized read-only plan; exact-plan approval and live allocation capacity remain pending",
-    "User approved US$5 combined labs; A4 allocation is at most US$1/two hours with teardown after evidence, but the live plan remains unreviewed",
+    "Coordinator authorized a fresh read-only plan after privately sealing current subscription scope; renewed exact-plan approval and live allocation capacity remain pending",
+    "User approved US$5 combined labs; A4 allocation is at most US$1/two hours with teardown after evidence; the private guarded apply runner has not been launched",
     "Private variables supplied for planning only; no real VM outputs or remote verification",
     "No independently verified VM host key or authorized SSH/Ansible execution",
     "Authentic screenshots, learner reflection and LinkedIn publication pending"
