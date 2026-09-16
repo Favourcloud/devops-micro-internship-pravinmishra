@@ -1,0 +1,134 @@
+{
+  "assignment": 3,
+  "learner": "Eze Favour",
+  "platform": "Azure",
+  "status": "code-preparation; no live screenshots captured",
+  "numbered_slots": 11,
+  "capture_rules": [
+    "All screenshot slots remain pending until genuine captures exist.",
+    "Show Eze Favour visibly in every required screenshot.",
+    "Do not expose credentials, private keys, account/subscription IDs, private paths, state or plans.",
+    "Label local/template checks honestly; they are not connectivity or deployed-state proof.",
+    "Use generated inventory.local.ini for authorized live work; preserve tracked inventory.ini as unconfigured.",
+    "No desktop control or LinkedIn publication is authorized by code preparation."
+  ],
+  "screenshots": [
+    {
+      "slot": 1,
+      "requirement": "Terminal or VS Code showing the complete `static-web` project structure",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "From week-09-ansible: find static-web -path \"*/.local\" -prune -o -path \"*/.ansible\" -prune -o -path \"*/.cache\" -prune -o -type f -print",
+      "acceptance": "Show complete static-web source structure, not private outputs/caches.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 2,
+      "requirement": "Output of `ansible-inventory -i inventory.ini --graph` showing `web1` and `web2`",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "From static-web: ansible-inventory -i inventory.ini --graph",
+      "acceptance": "Show web1/web2 and explicitly label UNCONFIGURED template. After authorization use inventory.local.ini for the real counterpart.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 3,
+      "requirement": "Ansible ping output showing `SUCCESS` and `pong` for both servers",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "ansible web -i inventory.local.ini -m ansible.builtin.ping",
+      "acceptance": "After approval and fingerprint review, show SUCCESS/pong for both real servers.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 4,
+      "requirement": "Edited `files/index.html` showing the footer line with your full name",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "Display static-web/files/index.html and SOURCE.md",
+      "acceptance": "Show Eze Favour footer and genuine pinned download provenance; content is not proof of deployment.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 5,
+      "requirement": "Successful syntax-check output showing `playbook: site.yml`",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "ansible-playbook -i inventory.ini site.yml --syntax-check",
+      "acceptance": "Capture real playbook: site.yml output; syntax success is local-only.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 6,
+      "requirement": "Play 3 verification showing HTTP `200` for both servers",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "ansible-playbook -i inventory.local.ini site.yml -e '{\"live_execution_approved\": true}'",
+      "acceptance": "Capture Play 3 successful HTTP 200 and personalized-content assertions for both real web hosts, not loopback tests.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 7,
+      "requirement": "Final play recap showing `unreachable=0` and `failed=0` for `web1`, `web2`, and `localhost`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "Inspect .local/first-run.log from the approved full playbook run",
+      "acceptance": "Show genuine recap with unreachable=0 and failed=0 for web1, web2 and localhost.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 8,
+      "requirement": "Second playbook run showing the play recap with `changed=0`, `unreachable=0`, and `failed=0` for both web servers",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "Immediately repeat the approved full playbook without edits; inspect .local/second-run.log",
+      "acceptance": "Show genuine changed=0, unreachable=0, failed=0 for both web hosts; do not alter output.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 9,
+      "requirement": "`curl -I` output showing HTTP `200 OK` from both servers",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "curl --fail --silent --show-error --noproxy '*' --head http://<actual-web1-ip>/; repeat for web2",
+      "acceptance": "Show HTTP 200 OK from both real endpoints, not fixture addresses.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 10,
+      "requirement": "Browser showing the website from Server 1 with the public IP and your full name visible",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "Open actual web1 URL in approved controller browser",
+      "acceptance": "Show public IP and Eze Favour footer; check CSS and contact/back links. No desktop operation is authorized in code preparation.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 11,
+      "requirement": "Browser showing the website from Server 2 with the public IP and your full name visible",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "Open actual web2 URL in approved controller browser",
+      "acceptance": "Show the second public IP and Eze Favour footer, without broadening controller-only HTTP access.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    }
+  ],
+  "linkedin": {
+    "slot": "linkedin",
+    "status": "pending",
+    "url": null,
+    "file": null,
+    "blocker": "Publication not authorized; no published post or screenshot."
+  }
+}

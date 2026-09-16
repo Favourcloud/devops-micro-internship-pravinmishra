@@ -1,0 +1,194 @@
+{
+  "assignment": 2,
+  "learner": "Eze Favour",
+  "platform": "Azure",
+  "status": "code-preparation; no live screenshots captured",
+  "numbered_slots": 17,
+  "capture_rules": [
+    "All screenshot slots remain pending until genuine captures exist.",
+    "Show Eze Favour visibly in every required screenshot.",
+    "Do not expose credentials, private keys, account/subscription IDs, private paths, state or plans.",
+    "Label local/template checks honestly; they are not connectivity or deployed-state proof.",
+    "Use generated inventory.local.ini for authorized live work; preserve tracked inventory.ini as unconfigured.",
+    "No desktop control or LinkedIn publication is authorized by code preparation."
+  ],
+  "screenshots": [
+    {
+      "slot": 1,
+      "requirement": "Terminal showing the complete `ansible-adhoc-lab` project structure",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "From week-09-ansible: find ansible-adhoc-lab -path \"*/.local\" -prune -o -path \"*/.ansible\" -prune -o -path \"*/.cache\" -prune -o -type f -print",
+      "acceptance": "Show the complete reviewed source layout, not private cache/state files.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 2,
+      "requirement": "Terminal showing `git status --short` with the new project files and updated `.gitignore`",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "/usr/bin/git status --short -- week-09-ansible/ansible-adhoc-lab; display ansible-adhoc-lab/.gitignore",
+      "acceptance": "Before commit, show the actual changed files and project-local ignore rules; after commit, use an honestly labelled git show --stat rather than inventing dirty output.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 3,
+      "requirement": "Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "Display terraform/main.tf local.hosts and azurerm_linux_virtual_machine.hosts",
+      "acceptance": "Show web1, web2, app1, db1 and for_each.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 4,
+      "requirement": "Terraform configuration showing SSH restricted to the controller IP and HTTP allowed only for web hosts",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "Display terraform/main.tf NSG rules and variables.tf controller validation",
+      "acceptance": "Show controller /32 SSH, web-only /32 HTTP and explicit deny-all-other inbound.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 5,
+      "requirement": "Terraform output configuration showing how public IP addresses are associated with the server roles",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "Display terraform/outputs.tf",
+      "acceptance": "Show public_ips role mapping and only two web_urls.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 6,
+      "requirement": "Final `terraform apply` output showing `Apply complete`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "Approved exact saved plan: terraform -chdir=terraform apply ../.local/lab.tfplan",
+      "acceptance": "Capture the genuine Apply complete summary only after separate plan/apply approval.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 7,
+      "requirement": "`terraform output public_ips` showing the role-to-IP mapping for all three or four VMs",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "terraform -chdir=terraform output public_ips",
+      "acceptance": "Show all four role mappings; redact actual public IPs consistently if desired.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 8,
+      "requirement": "Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "Read-only Azure Portal view of the dedicated lab VMs",
+      "acceptance": "Show all four role-based names and Running status, with subscription/account metadata hidden.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 9,
+      "requirement": "Terminal showing successful SSH hostname output from all VMs",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc ssh-hostnames --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "After authenticated fingerprint review, show actual hostname output from every VM.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 10,
+      "requirement": "`inventory.ini` showing the `web`, `app`, and `db` groups",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "Display ansible/inventory.ini",
+      "acceptance": "Label UNCONFIGURED template explicitly. Once authorized, separately capture the generated inventory.local.ini with real addresses redacted; never replace the tracked template.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 11,
+      "requirement": "Output of `ansible-inventory -i inventory.ini --graph`",
+      "status": "pending",
+      "scope": "local",
+      "file": null,
+      "capture_command_or_action": "(cd ansible && ansible-inventory -i inventory.ini --graph)",
+      "acceptance": "Show web/app/db membership; graph of .invalid template names is not connectivity evidence. Live counterpart uses inventory.local.ini.",
+      "blocker": "Genuine screenshot not captured; local checks do not substitute for an image."
+    },
+    {
+      "slot": 12,
+      "requirement": "Output of `ansible all -i inventory.ini -m ping`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc ping --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show SUCCESS/pong for all four real managed hosts.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 13,
+      "requirement": "Output of `ansible all -i inventory.ini -m command -a \"uptime\"`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc uptime --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show uptime from all four real managed hosts.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 14,
+      "requirement": "Output of `ansible web -i inventory.ini -m apt -a \"name=nginx state=present update_cache=yes\" --become`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc install-nginx --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show actual apt result for web1/web2 with become.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 15,
+      "requirement": "Output of `ansible web -i inventory.ini -m service -a \"name=nginx state=started enabled=yes\" --become`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc start-nginx --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show Nginx started and enabled on both web hosts.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 16,
+      "requirement": "Output of `ansible all -i inventory.ini -m apt -a \"name=htop state=present update_cache=yes\" --become`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc install-htop --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show actual htop package result for every host with become.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    },
+    {
+      "slot": 17,
+      "requirement": "Output of `ansible web -i inventory.ini -m command -a \"systemctl is-active nginx\"`",
+      "status": "pending",
+      "scope": "live",
+      "file": null,
+      "capture_command_or_action": "python scripts/lab.py adhoc nginx-status --approved --inventory ansible/inventory.local.ini",
+      "acceptance": "Show active from both web hosts.",
+      "blocker": "No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply."
+    }
+  ],
+  "linkedin": {
+    "slot": "linkedin",
+    "status": "pending",
+    "url": null,
+    "file": null,
+    "blocker": "Publication not authorized; no published post or screenshot."
+  }
+}

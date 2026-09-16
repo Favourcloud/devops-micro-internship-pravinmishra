@@ -1,0 +1,121 @@
+{
+  "recorded_at_utc": "2026-09-16T18:23:07.999874+00:00",
+  "scope": "Code preparation and explicitly authorized read-only plan; not a deployed lab",
+  "tools": {
+    "terraform": "1.13.5",
+    "azurerm": "4.47.0",
+    "python": "3.13.3",
+    "ansible_core": "2.21.4",
+    "ansible": "14.4.0",
+    "ansible_lint": "26.8.0"
+  },
+  "checks": [
+    {
+      "command": "terraform fmt -check -recursive",
+      "status": "passed"
+    },
+    {
+      "command": "terraform init -backend=false -input=false -lockfile=readonly",
+      "status": "passed",
+      "detail": "Verified existing AzureRM mirror reused read-only with own TF_DATA_DIR; no cloud resources."
+    },
+    {
+      "command": "terraform validate",
+      "status": "passed"
+    },
+    {
+      "command": "terraform test",
+      "status": "passed",
+      "test_runs": 7,
+      "detail": "Mocked azurerm, all command=plan; no remote API operations."
+    },
+    {
+      "command": "python -m unittest discover -s ansible-adhoc-lab/tests -v",
+      "status": "passed",
+      "test_methods": 7
+    },
+    {
+      "command": "python -m unittest discover -s static-web/tests -v",
+      "status": "passed",
+      "test_methods": 5,
+      "detail": "Provenance/assets, three plays, approval/template failures, positive SSH-stub boundary/local-connection rejection, actual loopback-only HTTP verification with success and four negative cases."
+    },
+    {
+      "command": "ansible-playbook -i inventory.ini site.yml --syntax-check",
+      "status": "passed"
+    },
+    {
+      "command": "ansible-playbook -i inventory.ini site.yml --list-hosts",
+      "status": "passed",
+      "detail": "web1/web2 for two plays; localhost for third."
+    },
+    {
+      "command": "ansible-lint --offline --nocolor site.yml",
+      "status": "passed",
+      "detail": "production profile; zero failures/warnings."
+    },
+    {
+      "command": "ansible-inventory -i inventory.ini --graph; ansible-config dump --only-changed",
+      "status": "passed",
+      "detail": "A2 role groups and strict host-key checking; templates not connectivity proof."
+    },
+    {
+      "command": "Submission/manifests/source-paste verification",
+      "status": "passed",
+      "detail": "Original headings/questions preserved; exact editable source pastes; 17+11 numbered slots and two LinkedIn slots remain pending."
+    }
+  ],
+  "real_plan": {
+    "recorded_at_utc": "2026-09-16T18:20:43.096524+00:00",
+    "scope": "Authorized real Azure read-only plan; not applied",
+    "git_head_at_plan": "0983d638c1139d78bd9a4de18a719626bf89bc9c",
+    "source_sha256": {
+      "week-09-ansible/ansible-adhoc-lab/terraform/main.tf": "27b063aa045d0bc116baed76976e16362c0cdda4fe28b218ee2f17f9ca36c807",
+      "week-09-ansible/ansible-adhoc-lab/terraform/outputs.tf": "a46e24e55b3ab66733af93443f66c1c33d3a66309a6ef54936a1a2e387b2be85",
+      "week-09-ansible/ansible-adhoc-lab/terraform/providers.tf": "c0cf7176c61ea3462accaf3c8b7810fd30d9140e7ca9edd12d0d13e2cb2733a1",
+      "week-09-ansible/ansible-adhoc-lab/terraform/variables.tf": "5fcad6fd5391ce5f01975720f5cb417ef48e76d8dd451d64c945c1eead956c2e",
+      "week-09-ansible/ansible-adhoc-lab/terraform/.terraform.lock.hcl": "1f5467f97786038441e615734d0c88f4a0fd6f41c3e4511ce64951b2c0f75c9e"
+    },
+    "plan_sha256": "bd0883133b02d5f9ffc34a83e5b42d60d4a1dc3c27611d5ecef62801cf05dcc8",
+    "actions": {
+      "create": 23
+    },
+    "resource_types": {
+      "azurerm_linux_virtual_machine": 4,
+      "azurerm_network_interface": 4,
+      "azurerm_network_interface_security_group_association": 4,
+      "azurerm_network_security_group": 4,
+      "azurerm_public_ip": 4,
+      "azurerm_resource_group": 1,
+      "azurerm_subnet": 1,
+      "azurerm_virtual_network": 1
+    },
+    "region": "uksouth",
+    "vm_count": 4,
+    "vm_size": "Standard_B1s",
+    "disk_count": 4,
+    "disk_gib_each": 32,
+    "disk_tier": "Standard_LRS",
+    "public_ips": "4 Standard Static",
+    "budget_usd_max": 2,
+    "max_hours_after_apply": 2,
+    "remaining_gates": [
+      "Coordinator exact saved-plan/source review",
+      "Separate apply authorization",
+      "Actual allocation/capacity",
+      "Authenticated boot fingerprints before any SSH",
+      "Real evidence and reviewed teardown"
+    ],
+    "applied": false
+  },
+  "live_results": {
+    "apply": "not performed",
+    "ssh": "not performed",
+    "remote_adhoc": "not performed",
+    "website_deployment": "not performed",
+    "remote_idempotency": "not verified",
+    "screenshots": "all pending",
+    "linkedin": "not authorized/not published",
+    "destroy": "not applicable; no apply performed"
+  }
+}

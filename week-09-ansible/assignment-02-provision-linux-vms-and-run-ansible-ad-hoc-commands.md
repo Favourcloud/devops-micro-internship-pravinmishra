@@ -2,6 +2,12 @@
 
 Part of the DevOps Micro Internship (DMI) with Agentic AI
 
+**Learner:** Eze Favour. **Choice:** Azure only, four Ubuntu 22.04 VMs (`web1`, `web2`, `app1`, `db1`).
+
+**Submission status: CODE PREPARATION — NOT CLOUD-COMPLETE.** Terraform and local inventory tests are implemented; no real public IPs, apply, SSH, remote ad-hoc results or screenshots are claimed. The coordinator relayed a shared US$5 temporary-cloud budget approval, with at most US$2 for A2+A3; an authorized read-only Azure plan succeeded with 23 creates and no updates/deletes, but exact saved-plan approval and the runtime window remain pending. The coordinator selected Azure after the allowed non-root AWS identity lacked EC2 permissions; no escalation was attempted. The historical enrollment expired at `2026-09-16T13:30Z`. Assignment 3 will reuse web1/web2, not add servers.
+
+Copilot assisted implementation, source review, local validation and the technical explanations below. They are not invented learner actions or personal experience. The learner must review the answers and add genuine firsthand reflection after authorized execution. See the [runbook](ansible-adhoc-lab/README.md) and [17-slot screenshot manifest](screenshots/assignment-02-manifest.json). Every screenshot and LinkedIn slot remains pending; original assignment requirements are retained.
+
 ---
 
 ## Purpose
@@ -24,19 +30,19 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 #### Screenshot 1 — Terminal showing the complete `ansible-adhoc-lab` project structure
 
-Add your screenshot here.
+**PENDING — Screenshot 1.** Genuine screenshot not captured; local checks do not substitute for an image. Show the complete reviewed source layout, not private cache/state files. Capture guidance: [manifest slot 1](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 2 — Terminal showing `git status --short` with the new project files and updated `.gitignore`
 
-Add your screenshot here.
+**PENDING — Screenshot 2.** Genuine screenshot not captured; local checks do not substitute for an image. Before commit, show the actual changed files and project-local ignore rules; after commit, use an honestly labelled git show --stat rather than inventing dirty output. Capture guidance: [manifest slot 2](screenshots/assignment-02-manifest.json).
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Created the required Terraform, Ansible, helper, test and README files. Ignore rules are project-local to avoid changing the repository root or Assignment 1. Screenshot capture is still pending.
 
 ---
 
@@ -57,25 +63,25 @@ Do not configure both providers for this assignment.
 
 #### Screenshot 3 — Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation
 
-Add your screenshot here.
+**PENDING — Screenshot 3.** Genuine screenshot not captured; local checks do not substitute for an image. Show web1, web2, app1, db1 and for_each. Capture guidance: [manifest slot 3](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 4 — Terraform configuration showing SSH restricted to the controller IP and HTTP allowed only for web hosts
 
-Add your screenshot here.
+**PENDING — Screenshot 4.** Genuine screenshot not captured; local checks do not substitute for an image. Show controller /32 SSH, web-only /32 HTTP and explicit deny-all-other inbound. Capture guidance: [manifest slot 4](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 5 — Terraform output configuration showing how public IP addresses are associated with the server roles
 
-Add your screenshot here.
+**PENDING — Screenshot 5.** Genuine screenshot not captured; local checks do not substitute for an image. Show public_ips role mapping and only two web_urls. Capture guidance: [manifest slot 5](screenshots/assignment-02-manifest.json).
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Selected Azure only at the coordinator's direction. Four Ubuntu 22.04 Standard_B1s hosts use for_each, dedicated networking, controller-only SSH, web-only HTTP, existing public-key authentication and role-keyed outputs. AzureRM is pinned to 4.47.0; no second cloud provider is configured.
 
 ---
 
@@ -89,25 +95,25 @@ Initialize and validate the Terraform configuration, review the execution plan, 
 
 #### Screenshot 6 — Final `terraform apply` output showing `Apply complete`
 
-Add your screenshot here.
+**PENDING — Screenshot 6.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Capture the genuine Apply complete summary only after separate plan/apply approval. Capture guidance: [manifest slot 6](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 7 — `terraform output public_ips` showing the role-to-IP mapping for all three or four VMs
 
-Add your screenshot here.
+**PENDING — Screenshot 7.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show all four role mappings; redact actual public IPs consistently if desired. Capture guidance: [manifest slot 7](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 8 — Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible
 
-Add your screenshot here.
+**PENDING — Screenshot 8.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show all four role-based names and Running status, with subscription/account metadata hidden. Capture guidance: [manifest slot 8](screenshots/assignment-02-manifest.json).
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Backend-disabled init, validate and seven mocked plan tests pass locally. An explicitly authorized read-only Azure plan also succeeded on 2026-09-16 at 18:20 UTC: 23 creates, zero updates/deletes. See [sanitized validation](ansible-adhoc-lab/validation.json). No apply, Running-state screenshot or real role-to-IP output is claimed. Exact saved-plan approval and B1s allocation remain live gates; budget is at most US$2 and two hours for A2+A3 together.
 
 ---
 
@@ -121,13 +127,13 @@ Verify that each managed VM can be accessed from the Ansible controller using SS
 
 #### Screenshot 9 — Terminal showing successful SSH hostname output from all VMs
 
-Add your screenshot here.
+**PENDING — Screenshot 9.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. After authenticated fingerprint review, show actual hostname output from every VM. Capture guidance: [manifest slot 9](screenshots/assignment-02-manifest.json).
 
 ---
 
 ### Notes
 
-Add your task notes here.
+Use the existing loaded SSH identity as azureuser. Before SSH, compare host-key fingerprints from authenticated boot diagnostics against key scans, storing verified entries only in the task-local known_hosts. No global SSH changes or key generation are needed. Live SSH remains pending.
 
 ---
 
@@ -143,19 +149,19 @@ The inventory allows Ansible to run commands against all servers, or only specif
 
 #### Screenshot 10 — `inventory.ini` showing the `web`, `app`, and `db` groups
 
-Add your screenshot here.
+**PENDING — Screenshot 10.** Genuine screenshot not captured; local checks do not substitute for an image. Label UNCONFIGURED template explicitly. Once authorized, separately capture the generated inventory.local.ini with real addresses redacted; never replace the tracked template. Capture guidance: [manifest slot 10](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 11 — Output of `ansible-inventory -i inventory.ini --graph`
 
-Add your screenshot here.
+**PENDING — Screenshot 11.** Genuine screenshot not captured; local checks do not substitute for an image. Show web/app/db membership; graph of .invalid template names is not connectivity evidence. Live counterpart uses inventory.local.ini. Capture guidance: [manifest slot 11](screenshots/assignment-02-manifest.json).
 
 ---
 
 ### Notes
 
-Add your task notes here.
+The required inventory.ini exists with web/app/db groups and intentionally unresolvable .invalid names. Its graph was checked locally. Explicit rendering from Terraform public_ips creates ignored inventory.local.ini with mode 0600; only that generated inventory is used for approved live commands. A3 selects the same web1/web2 addresses.
 
 ---
 
@@ -171,43 +177,43 @@ This task proves that the inventory is working and that Ansible can control mult
 
 #### Screenshot 12 — Output of `ansible all -i inventory.ini -m ping`
 
-Add your screenshot here.
+**PENDING — Screenshot 12.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show SUCCESS/pong for all four real managed hosts. Capture guidance: [manifest slot 12](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 13 — Output of `ansible all -i inventory.ini -m command -a "uptime"`
 
-Add your screenshot here.
+**PENDING — Screenshot 13.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show uptime from all four real managed hosts. Capture guidance: [manifest slot 13](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 14 — Output of `ansible web -i inventory.ini -m apt -a "name=nginx state=present update_cache=yes" --become`
 
-Add your screenshot here.
+**PENDING — Screenshot 14.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show actual apt result for web1/web2 with become. Capture guidance: [manifest slot 14](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 15 — Output of `ansible web -i inventory.ini -m service -a "name=nginx state=started enabled=yes" --become`
 
-Add your screenshot here.
+**PENDING — Screenshot 15.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show Nginx started and enabled on both web hosts. Capture guidance: [manifest slot 15](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 16 — Output of `ansible all -i inventory.ini -m apt -a "name=htop state=present update_cache=yes" --become`
 
-Add your screenshot here.
+**PENDING — Screenshot 16.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show actual htop package result for every host with become. Capture guidance: [manifest slot 16](screenshots/assignment-02-manifest.json).
 
 ---
 
 #### Screenshot 17 — Output of `ansible web -i inventory.ini -m command -a "systemctl is-active nginx"`
 
-Add your screenshot here.
+**PENDING — Screenshot 17.** No authorized completed cloud/SSH/deployment run or genuine screenshot yet; exact plan and execution gates apply. Show active from both web hosts. Capture guidance: [manifest slot 17](screenshots/assignment-02-manifest.json).
 
 ---
 
 ### Notes
 
-Add your task notes here.
+The runbook and fixed wrapper include all six required ad-hoc operations with fully qualified builtin modules. Privilege escalation is used only for package/service changes. Tests cover command construction and rejection before execution; no SUCCESS/pong, remote apt/service result or Nginx active result is claimed.
 
 ---
 
@@ -219,13 +225,13 @@ Add your task notes here.
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+**PENDING — not published; separate authorization required.**
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+**PENDING — LinkedIn screenshot.** Publication is not authorized and no post exists. Only a genuine separately approved published post may satisfy this slot.
 
 ---
 
@@ -235,37 +241,37 @@ Answer the following in your own words:
 
 **1. What is the purpose of an Ansible inventory file?**
 
-Add your answer here.
+An inventory names the managed hosts, associates connection settings with them, and groups them so a command can target all hosts or a role. The tracked inventory here is deliberately unconfigured; only the explicitly generated local inventory contains approved real addresses.
 
 ---
 
 **2. What is the difference between the `web`, `app`, and `db` groups in your inventory?**
 
-Add your answer here.
+`web` contains web1 and web2 and receives Nginx/HTTP tasks. `app` contains app1 and `db` contains db1; these are organizational roles only, not evidence that application or database software is installed. All four receive connectivity, uptime and htop checks.
 
 ---
 
 **3. What does the Ansible `ping` module verify?**
 
-Add your answer here.
+Ansible ping verifies that the controller can authenticate over the configured SSH transport, run the Python-based module on the host, and receive pong. It is not ICMP ping and does not prove Nginx or HTTP content is healthy.
 
 ---
 
 **4. Why do package installation commands require `--become`?**
 
-Add your answer here.
+Installing packages and changing system services need root privileges on Ubuntu. `--become` asks Ansible to escalate the existing SSH user for those tasks instead of connecting as root. Read-only uptime/status tasks do not request escalation.
 
 ---
 
 **5. When would you use an ad-hoc command instead of a playbook?**
 
-Add your answer here.
+Use an ad-hoc command for a small, one-off operation such as checking uptime or service status across a group. Use a playbook for a repeatable ordered workflow with multiple tasks, assertions and handlers, as in Assignment 3.
 
 ---
 
 **6. What is one challenge you faced while setting up SSH or inventory, and how did you fix it?**
 
-Add your answer here.
+**Firsthand SSH/inventory reflection: PENDING learner input after authorized execution.** No remote SSH issue has been observed here. A real local engineering issue was preventing sample inventory from being mistaken for live hosts; the solution uses .invalid templates, explicit output validation, exclusive mode-0600 rendering and approval tests. This is an AI-assisted implementation note, not an invented learner experience.
 
 ---
 
@@ -273,13 +279,13 @@ Add your answer here.
 
 Confirm that the following files are included in your assignment workspace:
 
-- [ ] `ansible-adhoc-lab/README.md`
-- [ ] `ansible-adhoc-lab/terraform/providers.tf`
-- [ ] `ansible-adhoc-lab/terraform/main.tf`
-- [ ] `ansible-adhoc-lab/terraform/variables.tf`
-- [ ] `ansible-adhoc-lab/terraform/outputs.tf`
-- [ ] `ansible-adhoc-lab/ansible/inventory.ini`
-- [ ] Updated `.gitignore`
+- [x] `ansible-adhoc-lab/README.md`
+- [x] `ansible-adhoc-lab/terraform/providers.tf`
+- [x] `ansible-adhoc-lab/terraform/main.tf`
+- [x] `ansible-adhoc-lab/terraform/variables.tf`
+- [x] `ansible-adhoc-lab/terraform/outputs.tf`
+- [x] `ansible-adhoc-lab/ansible/inventory.ini`
+- [x] Updated `.gitignore`
 
 ---
 
@@ -300,21 +306,23 @@ Confirm that the following files are included in your assignment workspace:
 
 # Completion Checklist
 
-- [ ] Task 1: `ansible-adhoc-lab` project structure created
-- [ ] Task 1: `.gitignore` updated for Terraform files
-- [ ] Task 2: Terraform configuration created
-- [ ] Task 2: Server roles defined for either three or four VMs
-- [ ] Task 2: `count` or `for_each` used
-- [ ] Task 2: SSH restricted to the controller public IP
-- [ ] Task 2: HTTP allowed only for web hosts
-- [ ] Task 2: Terraform output maps roles to public IPs
-- [ ] Task 3: Terraform initialized successfully
-- [ ] Task 3: Terraform configuration validated
+Checked items below describe **source implementation/local validation only**, not deployed state. Template inventory checks are not SSH proof. Remote execution, screenshots, learner-owned answers and publication remain incomplete.
+
+- [x] Task 1: `ansible-adhoc-lab` project structure created
+- [x] Task 1: `.gitignore` updated for Terraform files
+- [x] Task 2: Terraform configuration created
+- [x] Task 2: Server roles defined for either three or four VMs
+- [x] Task 2: `count` or `for_each` used
+- [x] Task 2: SSH restricted to the controller public IP
+- [x] Task 2: HTTP allowed only for web hosts
+- [x] Task 2: Terraform output maps roles to public IPs
+- [x] Task 3: Terraform initialized successfully
+- [x] Task 3: Terraform configuration validated
 - [ ] Task 3: Terraform apply completed successfully
 - [ ] Task 3: All selected VMs are running
 - [ ] Task 4: SSH key-based access works for every VM
-- [ ] Task 5: `inventory.ini` contains `web`, `app`, and `db` groups
-- [ ] Task 5: `ansible-inventory -i inventory.ini --graph` shows the correct groups
+- [x] Task 5: `inventory.ini` contains `web`, `app`, and `db` groups
+- [x] Task 5: `ansible-inventory -i inventory.ini --graph` shows the correct groups
 - [ ] Task 6: `ansible all -i inventory.ini -m ping` returns `SUCCESS`
 - [ ] Task 6: Ad-hoc commands run successfully
 - [ ] Task 6: `--become` was used for package and service tasks
