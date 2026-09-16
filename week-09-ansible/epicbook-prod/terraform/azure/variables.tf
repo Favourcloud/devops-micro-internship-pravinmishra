@@ -60,13 +60,13 @@ variable "ssh_public_key" {
 }
 
 variable "vm_size" {
-  description = "Reviewed 1-vCPU/2-GiB single-VM lab size; availability is not assumed."
+  description = "Reviewed nonzonal 2-vCPU/4-GiB NVMe single-VM lab size; allocation capacity is not assumed."
   type        = string
-  default     = "Standard_B1ms"
+  default     = "Standard_D2lds_v6"
 
   validation {
-    condition     = var.vm_size == "Standard_B1ms"
-    error_message = "Only Standard_B1ms is approved by this preparation."
+    condition     = var.vm_size == "Standard_D2lds_v6"
+    error_message = "Only the reviewed nonzonal Standard_D2lds_v6 is approved by this preparation."
   }
 }
 

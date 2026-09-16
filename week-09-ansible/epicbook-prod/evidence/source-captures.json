@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 09 Assignment 5",
+  "scope": "Only source slots 6,7,8,10,11; not provisioning, runtime, connection, idempotency or tool-version evidence.",
+  "review": "Coordinator manually reviewed content, learner name and privacy. Initial notification-obscured slot7 excluded; approved replacement used.",
+  "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+  "approval_receipt_sha256": "6726e98c074e01bf435f1eb3d3b6e6189ee546ce996c5623127ccdd4fb59623e",
+  "private_receipts": "Original capture and approval receipts retained privately by coordinator; hashes only, no private filesystem paths committed.",
+  "editor_runtime_note": "Screenshot8d shows editor-selected system Python3.9.6, not executed controller tooling; actual CLI tests used Python3.13.3.",
+  "items": [
+    {
+      "slot": "6",
+      "image": "images/screenshot-06.png",
+      "image_sha256": "ca295f16640f0b74787b5804f52580631bdcca151151e26911b24a3891e63196",
+      "image_bytes": 1067158,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/site.yml",
+      "source_sha256": "bf86dde1e896baed7769096a1e1865dd974346a105ceb5031597a8d5b044d142",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        76,
+        89
+      ],
+      "captured_at_utc": "2026-09-16T19:07:15.680148+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "9a2c9ecbdea4a9642efb69adfca8ddc8817214de6fae5c8e452a5d720960f431",
+      "source_only": true
+    },
+    {
+      "slot": "7",
+      "image": "images/screenshot-07.png",
+      "image_sha256": "64634c1252993adba63159ede15b8b1a5665e1ceccf80036f14016e0fd0f9544",
+      "image_bytes": 1112664,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/common/tasks/main.yml",
+      "source_sha256": "1a7d547670b1cdfcfac9e35fa72d5770dd1a5667d0d4bb3db977f3b2a7ac532a",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        1,
+        33
+      ],
+      "captured_at_utc": "2026-09-16T19:06:21.997360+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "25b598fe772d0ed9d12011d22990f023fa93180f857bf09bbffe7ac9d08c1618",
+      "source_only": true
+    },
+    {
+      "slot": "8a",
+      "image": "images/screenshot-8a.png",
+      "image_sha256": "45afb1707ad70266fbe180a73efa8c03cf5d3e79e866e38cc551088731c8f807",
+      "image_bytes": 1132680,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/nginx/tasks/main.yml",
+      "source_sha256": "481cbcecdfe477b812ac0028ee67bd0c5355ba726839681832a624115e773a7e",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        1,
+        26
+      ],
+      "captured_at_utc": "2026-09-16T19:07:27.056719+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "ddf9ace9473b51dd68563136fcb0a087695687751ee44cc6f5da5f54a899e9f3",
+      "source_only": true
+    },
+    {
+      "slot": "8b",
+      "image": "images/screenshot-8b.png",
+      "image_sha256": "3c0e0326b34e3e8b39abbf9a1d313e2ae9de0b256794cbfdcc28b3c2eff0ce1b",
+      "image_bytes": 1045154,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/nginx/tasks/main.yml",
+      "source_sha256": "481cbcecdfe477b812ac0028ee67bd0c5355ba726839681832a624115e773a7e",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        27,
+        42
+      ],
+      "captured_at_utc": "2026-09-16T19:07:38.344858+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "86664b86ae7fa986b5a19c5bed688bcdd6f7839ef26cd77e3eec7c0de36e506b",
+      "source_only": true
+    },
+    {
+      "slot": "8c",
+      "image": "images/screenshot-8c.png",
+      "image_sha256": "7a91ea546619c0adffb75078f8ba6c385c25de91be8d832cf36ee441378c9dfc",
+      "image_bytes": 940148,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/nginx/handlers/main.yml",
+      "source_sha256": "72d134f252ae2b746e6bee8375a03a481249458565b74ff5288efc862636500c",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        1,
+        12
+      ],
+      "captured_at_utc": "2026-09-16T19:07:49.524197+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "969d56d9a398dfec923d3ae50d2d01bec836fa297d1f26099a6d7352b0418db2",
+      "source_only": true
+    },
+    {
+      "slot": "8d",
+      "image": "images/screenshot-8d.png",
+      "image_sha256": "f7613c8ff96b0c42461e4464f0426a77cbb217423796524d307dc54ff6714358",
+      "image_bytes": 1118708,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/nginx/templates/epicbook.conf.j2",
+      "source_sha256": "6f8549feb0640c5a1910a4d34a80bda2138b7423edb8dbd8ddf8025ce608cc22",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        1,
+        29
+      ],
+      "captured_at_utc": "2026-09-16T19:08:00.658980+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "b630062a50345a11fce9015128bf24f8511943d80d78ce5fd816d9c7cc031422",
+      "source_only": true
+    },
+    {
+      "slot": "10a",
+      "image": "images/screenshot-10a.png",
+      "image_sha256": "23bcc0ab9360688344094b5d7cc4f51c4c617c312ba3db991f38e414fd2a715c",
+      "image_bytes": 1107755,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/main.yml",
+      "source_sha256": "d8587984ac0fa5bf07095ac45e39722c7fa0d4071fb8eddf81f9d4637fba1310",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        1,
+        28
+      ],
+      "captured_at_utc": "2026-09-16T19:08:12.133805+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "fa407fd08d8ad66e564aa91a9185b952c23b8be7df2e1fcafefd43927135af14",
+      "source_only": true
+    },
+    {
+      "slot": "10b",
+      "image": "images/screenshot-10b.png",
+      "image_sha256": "f04ed0ef59e25000ed8cb0d2b9a82a1a023aad65e3960ade579b45c5f19ce700",
+      "image_bytes": 1161985,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/main.yml",
+      "source_sha256": "d8587984ac0fa5bf07095ac45e39722c7fa0d4071fb8eddf81f9d4637fba1310",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        30,
+        53
+      ],
+      "captured_at_utc": "2026-09-16T19:08:23.506237+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "3037f21459e9c9629c4269e263da3795b8590306559e952d9c01d1fa982f6364",
+      "source_only": true
+    },
+    {
+      "slot": "10c",
+      "image": "images/screenshot-10c.png",
+      "image_sha256": "ae50e7b154f0583ca2a90250e8b3f4eacd2a55329f9e463a117c13d633f40767",
+      "image_bytes": 1158305,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/main.yml",
+      "source_sha256": "d8587984ac0fa5bf07095ac45e39722c7fa0d4071fb8eddf81f9d4637fba1310",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        55,
+        81
+      ],
+      "captured_at_utc": "2026-09-16T19:08:34.976203+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "8af2de6916a61c7149ef4f5537ed0d6e0997656ff510c2b8ea820892ae02cad4",
+      "source_only": true
+    },
+    {
+      "slot": "11",
+      "image": "images/screenshot-11.png",
+      "image_sha256": "cbb0d83090b0bdbe59985fe03c372f843e09820412ce0cbd340a3ab8aa16eeb0",
+      "image_bytes": 1030046,
+      "dimensions_px": [
+        3104,
+        2024
+      ],
+      "source_file": "week-09-ansible/epicbook-prod/ansible/group_vars/web.yml",
+      "source_sha256": "96409c38517f46bb4481d4c2d18edb57688d0168a91fc4a38b580ebf70f6886e",
+      "source_commit": "d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3",
+      "intended_lines": [
+        1,
+        16
+      ],
+      "captured_at_utc": "2026-09-16T19:08:46.341394+00:00",
+      "coordinator_approved_at_utc": "2026-09-16T19:11:40.498819+00:00",
+      "capture_method": "Native week09-capture: genuine Visual Studio Code task window only",
+      "image_modifications": "None; no cropping, redaction, resizing or reconstruction",
+      "original_receipt_sha256": "534966db46c706044753e5b234751121b4c3928a35f1dd14f9e6ffbba7b60d50",
+      "source_only": true
+    }
+  ]
+}

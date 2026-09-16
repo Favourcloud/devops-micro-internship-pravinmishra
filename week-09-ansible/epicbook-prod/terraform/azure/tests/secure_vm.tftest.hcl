@@ -28,8 +28,8 @@ run "secure_single_vm" {
   command = apply
 
   assert {
-    condition     = azurerm_linux_virtual_machine.web.size == "Standard_B1ms" && azurerm_resource_group.epicbook.location == "uksouth"
-    error_message = "Use the reviewed low-cost VM size and location."
+    condition     = azurerm_linux_virtual_machine.web.size == "Standard_D2lds_v6" && azurerm_resource_group.epicbook.location == "uksouth" && azurerm_linux_virtual_machine.web.zone == null
+    error_message = "Use the reviewed nonzonal D2lds_v6 VM in UK South; do not select restricted zones."
   }
   assert {
     condition     = azurerm_resource_group.epicbook.name == "week09-a5-epicbook-${var.run_id}-rg" && azurerm_linux_virtual_machine.web.name == "week09-a5-epicbook-${var.run_id}-vm"
@@ -44,8 +44,18 @@ run "secure_single_vm" {
     error_message = "Require key-only access and reviewed Gen2 boot protections."
   }
   assert {
-    condition     = azurerm_linux_virtual_machine.web.source_image_reference[0].publisher == "Canonical" && azurerm_linux_virtual_machine.web.source_image_reference[0].sku == "22_04-lts-gen2"
-    error_message = "Use the actual Ubuntu 22.04 Gen2 image."
+    condition = (
+      azurerm_linux_virtual_machine.web.source_image_reference[0].publisher == "Canonical" &&
+      azurerm_linux_virtual_machine.web.source_image_reference[0].offer == "0001-com-ubuntu-server-jammy" &&
+      azurerm_linux_virtual_machine.web.source_image_reference[0].sku == "22_04-lts-gen2" &&
+      azurerm_linux_virtual_machine.web.source_image_reference[0].version == "22.04.202608060" &&
+      azurerm_linux_virtual_machine.web.disk_controller_type == "NVMe"
+    )
+    error_message = "Pin the verified Ubuntu 22.04 Gen2 Trusted Launch/NVMe-capable image and controller."
+  }
+  assert {
+    condition     = length(azurerm_linux_virtual_machine.web.os_disk[0].diff_disk_settings) == 0
+    error_message = "Keep the managed OS disk; do not put application data on ephemeral local NVMe storage."
   }
   assert {
     condition     = azurerm_network_security_rule.ssh.source_address_prefix == var.controller_cidr && azurerm_network_security_rule.ssh.destination_port_range == "22"
@@ -112,6 +122,12 @@ run "reject_unreviewed_region" {
 run "reject_expensive_size" {
   command = plan
   variables { vm_size = "Standard_D64s_v5" }
+  expect_failures = [var.vm_size]
+}
+
+run "reject_superseded_b1ms" {
+  command = plan
+  variables { vm_size = "Standard_B1ms" }
   expect_failures = [var.vm_size]
 }
 

@@ -23,10 +23,17 @@ configuration, and guarded SQL initialization; the default deliberately returns
 
 Local syntax, lint, mock infrastructure tests and source compatibility checks do
 not prove provisioning, SSH, database operation, public HTTP 200 or second-run
-idempotency. All **15 numbered screenshots**, the published LinkedIn post and the
-video reflection remain pending. Existing tasks and evidence checklist below are
-preserved; no learner action or screenshot is fabricated. See the runbook for
-remaining approval, compatibility and production-hardening gates.
+idempotency. Source-only screenshots **6, 7, 8, 10 and 11** are now captured and
+coordinator-reviewed; the other ten numbered slots, LinkedIn and video remain
+pending. The native editor PNG bytes are unchanged and bind the Ansible files at
+commit `d3a00aa48f89f0560a18cbfe5529b89fa8b51aa3`; see the
+[sanitized capture/source receipts](./epicbook-prod/evidence/source-captures.json).
+These images do not prove a deployment or controller tool version. The editor's
+Python 3.9.6 selection visible in Screenshot 8d is not the Python 3.13.3 CLI test
+environment. No learner action or screenshot is fabricated. The approved Azure
+preparation now uses nonzonal D2lds_v6, explicit NVMe and a pinned Ubuntu image;
+the historical B1ms plan is preserved but must not be applied. See the runbook for
+remaining exact-plan, budget, compatibility and production-hardening gates.
 
 # Task 1 — Set Up Folder Layout
 
@@ -92,7 +99,9 @@ Create `site.yml` invoking the `common`, `nginx`, and `epicbook` roles in that e
 
 #### Screenshot 6 — Editor showing `ansible/site.yml` with the three roles in the required order
 
-Add your screenshot here.
+Captured and reviewed source only: `common` → `nginx` → `epicbook`.
+
+![Screenshot 6 — Actual site.yml role order in Visual Studio Code](./epicbook-prod/evidence/images/screenshot-06.png)
 
 ---
 
@@ -106,7 +115,9 @@ Create `roles/common/tasks/main.yml` to update apt, upgrade packages, install ba
 
 #### Screenshot 7 — Editor showing `roles/common/tasks/main.yml`
 
-Add your screenshot here.
+Captured and reviewed source only; the notification-free replacement image is used.
+
+![Screenshot 7 — Actual common role tasks in Visual Studio Code](./epicbook-prod/evidence/images/screenshot-07.png)
 
 ---
 
@@ -120,7 +131,25 @@ Create the `nginx` role to install Nginx, deploy the `epicbook.conf.j2` template
 
 #### Screenshot 8 — Editor showing the Nginx role tasks, handler, and `epicbook.conf.j2` template
 
-Add your screenshot here.
+Four separate genuine source views; none is a live Nginx test.
+
+**8a — Installation, template and enabled-site tasks (lines 1–26)**
+
+![Screenshot 8a — Nginx tasks, first page](./epicbook-prod/evidence/images/screenshot-8a.png)
+
+**8b — Default removal, validation and service tasks (lines 27–42)**
+
+![Screenshot 8b — Nginx tasks, second page](./epicbook-prod/evidence/images/screenshot-8b.png)
+
+**8c — Validate-before-reload handler (lines 1–12)**
+
+![Screenshot 8c — Nginx handlers](./epicbook-prod/evidence/images/screenshot-8c.png)
+
+**8d — Vhost template (lines 1–29)**
+
+![Screenshot 8d — EpicBook Nginx template](./epicbook-prod/evidence/images/screenshot-8d.png)
+
+The editor's Python selection in 8d is not evidence of the controller/runtime version.
 
 ---
 
@@ -140,7 +169,19 @@ Create the `epicbook` role to clone the repository to `{{ app_dest }}`, set owne
 
 #### Screenshot 10 — Editor showing `roles/epicbook/tasks/main.yml`
 
-Add your screenshot here.
+Three separate genuine source views; the optional runtime has not run on a server.
+
+**10a — Identities and private parent directory (lines 1–28)**
+
+![Screenshot 10a — EpicBook role, first page](./epicbook-prod/evidence/images/screenshot-10a.png)
+
+**10b — Private source directories and pinned clone (lines 30–53)**
+
+![Screenshot 10b — EpicBook role, second page](./epicbook-prod/evidence/images/screenshot-10b.png)
+
+**10c — Source validation and optional runtime import (lines 55–81)**
+
+![Screenshot 10c — EpicBook role, third page](./epicbook-prod/evidence/images/screenshot-10c.png)
 
 ---
 
@@ -154,7 +195,9 @@ Define `app_repo`, `app_dest`, `app_user`, and `app_group` in `ansible/group_var
 
 #### Screenshot 11 — Editor showing `ansible/group_vars/web.yml`
 
-Add your screenshot here.
+Captured and reviewed source only; runtime remains disabled by default.
+
+![Screenshot 11 — Actual EpicBook group variables](./epicbook-prod/evidence/images/screenshot-11.png)
 
 ---
 
@@ -265,11 +308,11 @@ Add your screenshot here.
 - [ ] Task 1: `epicbook-prod` project and role structure created (Screenshot 1)
 - [ ] Task 2: Cloud VM provisioned with Terraform (Screenshots 2–3)
 - [ ] Task 3: Passwordless SSH and Ansible ping verified (Screenshots 4–5)
-- [ ] Task 4: `site.yml` orchestrates roles in common → nginx → epicbook order (Screenshot 6)
-- [ ] Task 5: `common` role created (Screenshot 7)
-- [ ] Task 6: `nginx` role, template, and handler created (Screenshots 8–9)
-- [ ] Task 7: `epicbook` role created (Screenshot 10)
-- [ ] Task 8: Group variables defined (Screenshot 11)
+- [x] Task 4: `site.yml` orchestrates roles in common → nginx → epicbook order (Screenshot 6)
+- [x] Task 5: `common` role created (Screenshot 7)
+- [ ] Task 6: `nginx` role, template, and handler created (Screenshot 8 captured; live Screenshot 9 pending)
+- [x] Task 7: `epicbook` role created (Screenshot 10)
+- [x] Task 8: Group variables defined (Screenshot 11)
 - [ ] Task 9: Playbook run successfully with `failed=0` (Screenshot 12)
 - [ ] Task 10: Site verified and idempotent rerun confirmed (Screenshots 13–15)
 - [ ] Reflection and security remediation notes written (Notes)

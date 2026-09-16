@@ -109,6 +109,7 @@ resource "azurerm_linux_virtual_machine" "web" {
   location                        = azurerm_resource_group.epicbook.location
   resource_group_name             = azurerm_resource_group.epicbook.name
   size                            = var.vm_size
+  disk_controller_type            = "NVMe"
   admin_username                  = "ubuntu"
   disable_password_authentication = true
   network_interface_ids           = [azurerm_network_interface.web.id]
@@ -135,7 +136,7 @@ resource "azurerm_linux_virtual_machine" "web" {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-jammy"
     sku       = "22_04-lts-gen2"
-    version   = "latest"
+    version   = "22.04.202608060"
   }
 
   depends_on = [
