@@ -12,6 +12,12 @@ Work here did not apply Terraform, SSH to a server, publish anything or perform
 Assignment 6. GitHub Copilot assisted research, implementation and local
 validation; this is not a learner's firsthand deployment reflection.
 
+A separately authorized **real Azure plan** passed on 16 September 2026:
+**11 creates, 0 updates, 0 deletes**, with a previously absent unique resource
+group. The sanitized manifest records its source commit and plan SHA256; actual
+plan/inputs/logs remain private and ignored. **No apply occurred.** A successful
+plan does not prove SKU capacity, VM creation or application operation.
+
 ## Source research: this is not a static website
 
 The repository is linked in the [Week 08 Assignment 4 resources](../../week-08-terraform/assignment-04-deploy-epicbook-application-on-aws-using-terraform.md#resources).

@@ -54,7 +54,17 @@
     "provider_binary_sha256": "0aa6e61c4e286fee033d2b6196c5f6012e7a158f5b18c0f82604f444b5e0832c"
   },
   "real_azure_plan": {
-    "status": "authorized-plan-only-pending",
+    "status": "passed-not-applied",
+    "completed_utc": "2026-09-16T18:24:35Z",
+    "source_commit": "a693b8c67741bbad86c9a278101128a73807c702",
+    "plan_sha256": "0ee7a26e0d2058ffff04076269ab9229c5cacd5a95cef8c1f4fdc4103fbb48af",
+    "planned_actions": {"create": 11, "update": 0, "delete": 0},
+    "resource_group_previously_absent": true,
+    "reviewed_resource_contracts_match": true,
+    "provider_binary_unchanged": true,
+    "artifact_handling": "Plan, inputs, JSON and logs retained only in ignored task-local storage: files 0600, directory 0700; no cloud identifiers or key material in this manifest.",
+    "authentication": "Coordinator-authorized existing Azure CLI identity; explicit privately pinned subscription; existing public SSH key only.",
+    "does_not_prove": "SKU capacity, successful VM creation, trusted host-key boot logs, remote access, application runtime or idempotency",
     "apply_authorized": false,
     "applied": false
   },
