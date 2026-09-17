@@ -1,8 +1,8 @@
 # Week 08 Assignment 06 — local drift/policy reviewer
 
-**Student: Eze Favour. Status: the genuine clean/risk/final review cycle, human decision, cleanup and all 19 numbered screenshots are verified. The earlier implementation and 14 screenshots were merged in PR #2; these subsequent updates remain on the working branch. No manual human Terraform execution or LinkedIn/Medium publication is claimed.**
+**Student: Eze Favour. Status: the genuine clean/risk/final review cycle, human decision, cleanup and all 19 numbered screenshots are verified and present on `main` through PR #3. No manual human Terraform execution or LinkedIn/Medium publication is claimed.**
 
-[PR #2](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/2) was merged by GitHub Copilot with explicit user approval at **2026-09-16 11:13:58 UTC**, producing commit `d244042`. Enrollment setup commit `976212b` was pushed afterward and is **not part of that merged PR**. This continuation does not merge subsequent changes. Git merge approval is not human approval of the Terraform resolution.
+[PR #2](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/2) was merged by GitHub Copilot with explicit user approval at **2026-09-16 11:13:58 UTC**, producing commit `d244042`. Enrollment setup commit `976212b` and the later continuation were not part of PR #2, but subsequently reached `main` through [PR #3](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/3), merged at **2026-09-16 16:48:27 UTC** (`f05bb7d`). On 17 September, all 19 screenshots on inspected `main` commit `faa96981d6edb4cb3fd67c56a98864f222d59da7` were verified byte-identical to the retained originals. This status correction does not rerun the historical operations, change their source hashes, authorize another merge, or establish whole-week completion. Git merge approval is not human approval of the Terraform resolution.
 
 ## Verified 16 September cycle — safe resolution approved
 

@@ -8,9 +8,9 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 **Full Name:** Eze Favour
 
-**GitHub Repository/Folder URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/favourcloud-week-06-assignment-4-ec2-rds/week-08-terraform/drift-review
+**GitHub Repository/Folder URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/main/week-08-terraform/drift-review
 
-The URL targets the existing working branch. [PR #2](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/2) merged the earlier implementation and 14 screenshots into `main` at **2026-09-16 11:13:58 UTC** (`d244042`), after explicit user approval; GitHub Copilot performed that merge. Enrollment setup and later continuation work are **not part of that merged PR**. This update is uncommitted work after head `9cdb899`; no new commit, push, merge or LinkedIn/Medium publication is claimed here. The later focused resolution decision is evidenced separately below; merge approval was not resolution approval. Relative source: [drift-review/](drift-review/README.md).
+**Persistence verified on 17 September 2026:** [PR #2](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/2) merged the earlier implementation and 14 screenshots into `main` at **2026-09-16 11:13:58 UTC** (`d244042`), after explicit user approval; GitHub Copilot performed that merge. [PR #3](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/3) subsequently merged the enrollment setup and continuation evidence, including all **19 genuine numbered screenshots**, at **2026-09-16 16:48:27 UTC** (`f05bb7d`). All 19 image files on the inspected `main` snapshot `faa96981d6edb4cb3fd67c56a98864f222d59da7` match the retained originals byte-for-byte. This is repository-persistence verification, not a new cloud or Claude run, manual human Terraform execution, publication, or whole-week completion. The separately recorded human resolution decision below is not inferred from merge approval. Relative source: [drift-review/](drift-review/README.md).
 
 ## Current Submission Status — Verified Operations, Partial Rubric
 
