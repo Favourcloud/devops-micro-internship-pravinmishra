@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "learner": "Eze Favour",
+  "repository": "Favourcloud/devops-micro-internship-pravinmishra",
+  "assignment": "week-08-assignment-03",
+  "assignment_complete": false,
+  "status": "offline-preparation-with-local-evidence",
+  "provenance": "provenance.json",
+  "captured_slots": [1, 2, 3, 4, 5, 6, 7, 8],
+  "pending_slots": [9, 10, 11, 12, 13, 14, 15],
+  "cloud_authorized": false,
+  "cloud_deployment_verified": false,
+  "public_ip_address": null,
+  "screenshots": [
+    {
+      "number": 1,
+      "task": 0,
+      "rubric_heading": "### Screenshot 1 — Terraform Version",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-01-terraform-version.png"
+    },
+    {
+      "number": 2,
+      "task": 0,
+      "rubric_heading": "### Screenshot 2 — Azure CLI Version",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-02-azure-cli-version.png"
+    },
+    {
+      "number": 3,
+      "task": 0,
+      "rubric_heading": "### Screenshot 3 — HashiCorp Terraform Extension",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-03-vscode-terraform-extension.png"
+    },
+    {
+      "number": 4,
+      "task": 1,
+      "rubric_heading": "### Screenshot 4 — Provider, Resource Group, and Network Security Group",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-04-provider-resource-group-nsg-source.png"
+    },
+    {
+      "number": 5,
+      "task": 1,
+      "rubric_heading": "### Screenshot 5 — Linux Virtual Machine and `custom_data`",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-05-linux-vm-custom-data-source.png"
+    },
+    {
+      "number": 6,
+      "task": 1,
+      "rubric_heading": "### Screenshot 6 — Completed `cloud-init.sh`",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-06-completed-cloud-init-source.png"
+    },
+    {
+      "number": 7,
+      "task": 1,
+      "rubric_heading": "### Screenshot 7 — Public IP Output Block",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-07-public-ip-output-source.png"
+    },
+    {
+      "number": 8,
+      "task": 2,
+      "rubric_heading": "### Screenshot 8 — Terraform Initialization",
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-08-terraform-init.png"
+    },
+    {
+      "number": 9,
+      "task": 3,
+      "rubric_heading": "### Screenshot 9 — Terraform Plan",
+      "status": "pending",
+      "file": null
+    },
+    {
+      "number": 10,
+      "task": 3,
+      "rubric_heading": "### Screenshot 10 — Terraform Apply",
+      "status": "pending",
+      "file": null
+    },
+    {
+      "number": 11,
+      "task": 3,
+      "rubric_heading": "### Screenshot 11 — VM Public IP Output",
+      "status": "pending",
+      "file": null
+    },
+    {
+      "number": 12,
+      "task": 4,
+      "rubric_heading": "### Screenshot 12 — SSH Connection and Completed React Deployment",
+      "status": "pending",
+      "file": null
+    },
+    {
+      "number": 13,
+      "task": 4,
+      "rubric_heading": "### Screenshot 13 — Nginx Service Status",
+      "status": "pending",
+      "file": null
+    },
+    {
+      "number": 14,
+      "task": 5,
+      "rubric_heading": "### Screenshot 14 — React Application in the Browser",
+      "status": "pending",
+      "file": null
+    },
+    {
+      "number": 15,
+      "task": 6,
+      "rubric_heading": "### Screenshot 15 — Terraform Destroy",
+      "status": "pending",
+      "file": null
+    }
+  ],
+  "upstream": {
+    "repository": "https://github.com/pravinmishraaws/my-react-app",
+    "commit": "f1b1aff14fe15c5bde092067c93a307fa3d97982",
+    "lock_sha256": "287a9d37c611438b6c4ed0979fbf45128bda5dc3ff5175683c74941ba0440257",
+    "source_modified": false
+  },
+  "verification": {
+    "source_head": "3a0eea8f2dc9c62d28e511155065e6e145a3555b",
+    "result_scope": "Historical source validation and local application build; not rerun for the evidence-only integration.",
+    "terraform_version": "1.13.5",
+    "azurerm_version": "4.47.0",
+    "terraform_mock_runs": 35,
+    "python_tests": 46,
+    "shell_syntax": "passed",
+    "terraform_fmt": "passed",
+    "terraform_init_backend_disabled": "passed",
+    "terraform_validate": "passed",
+    "cloud_commands_executed": false,
+    "bootstrap_runtime": "stub-tested-only; Ubuntu and Nginx execution pending",
+    "local_build": {
+      "status": "passed",
+      "platform": "darwin_x64",
+      "node_version": "22.23.2",
+      "npm_version": "10.9.8",
+      "node_archive_sha256": "96dff79f4e19a78715da559ec7cac2028f4985a175ea0c3454625a269c21deb7",
+      "commands": [
+        "npm ci --ignore-scripts --no-audit --no-fund --fetch-timeout=60000 --fetch-retries=2",
+        "npm run build"
+      ],
+      "installed_packages": 1343,
+      "production_output": "build/index.html and static JS/CSS assets",
+      "tracked_source_unchanged": true,
+      "temporary_dependencies_cleaned": true,
+      "warnings": [
+        "Legacy dependency deprecations",
+        "Stale Browserslist database; locked upstream left unchanged"
+      ],
+      "cloud_evidence": false
+    }
+  },
+  "evidence_integration": {
+    "status": "passed",
+    "focused_python_tests": 25,
+    "delivery_tests": 15,
+    "capture_tests": 10,
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_[de]*.py'",
+    "original_pngs_verified": 8,
+    "frozen_source_files_verified": 8,
+    "frozen_source_changed": false,
+    "terraform_mocks_rerun": false,
+    "upstream_build_rerun": false,
+    "cloud_commands_executed": false,
+    "private_artifacts": "Existing ignored/untracked capture artifacts retained untouched; directories 0700 and files 0600."
+  },
+  "blockers": [
+    "Fresh identity, permission and budget approval unavailable; old approvals are retired.",
+    "No Azure plan/apply/output, SSH, Nginx, browser or destroy verification; recorded normal initialization is local only.",
+    "Seven cloud/runtime screenshot slots (9–15) remain pending; eight genuine Copilot-operated local captures do not establish deployment.",
+    "Region, x86-64 VM SKU, capacity, quota and price must be approved before deployment.",
+    "Existing private SSH key stays outside this project; only its matching public key is supplied."
+  ]
+}
