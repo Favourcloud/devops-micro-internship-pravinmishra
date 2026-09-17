@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "organization_url": "https://dev.azure.com/example-organization",
+  "pool_name": "DMI-Week10-A1",
+  "agent_name": "simulated-agent-not-live",
+  "host": {
+    "system": "Linux",
+    "distribution": "ubuntu",
+    "version_id": "24.04",
+    "machine": "x86_64",
+    "uid": 1001,
+    "account": "azdoagent",
+    "privileged_groups": [],
+    "sudo_allowed": false,
+    "free_disk_mib": 4096,
+    "git_version": "2.43.0",
+    "commands": ["bash", "tar", "sha256sum", "uname", "whoami", "df", "systemctl", "git"]
+  },
+  "package": {
+    "version": "5.279.0",
+    "architecture": "x64",
+    "download_url": "https://download.agent.dev.azure.com/agent/5.279.0/vsts-agent-linux-x64-5.279.0.tar.gz",
+    "sha256": "6e3352e1dc44c924cd85840df279f21c200e6365596a7c38f3087015262555dc",
+    "metadata_url": "https://github.com/microsoft/azure-pipelines-agent/releases/tag/v5.279.0",
+    "compatibility_reviewed": true
+  }
+}

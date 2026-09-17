@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "organization_url": null,
+  "pool_name": null,
+  "agent_name": null,
+  "host": {
+    "system": null,
+    "distribution": null,
+    "version_id": null,
+    "machine": null,
+    "uid": null,
+    "account": null,
+    "privileged_groups": [],
+    "sudo_allowed": null,
+    "free_disk_mib": null,
+    "git_version": null,
+    "commands": []
+  },
+  "package": {
+    "version": null,
+    "architecture": null,
+    "download_url": null,
+    "sha256": null,
+    "metadata_url": null,
+    "compatibility_reviewed": false
+  }
+}

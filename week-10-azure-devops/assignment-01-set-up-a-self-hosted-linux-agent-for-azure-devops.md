@@ -2,6 +2,14 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+<!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->
+## Source preparation — not a completed assignment
+
+Eze Favour's [offline A1 project](self-hosted-agent/README.md) provides a manual-only verification pipeline, a human-operated runbook, and credential-free local tests. The [seven-slot manifest](self-hosted-agent/evidence/manifest.json) is entirely pending; no live resource, agent, pipeline success, or screenshot is claimed.
+
+Fresh authorization is required before any cloud, PAT, SSH, agent registration, service, or pipeline operation. Screenshot capture and publication remain separately gated. The original tasks, evidence slots, checklist, and unanswered notes below are unchanged. See the [Week 10 sequence](README.md) for the remaining assignments.
+<!-- END WEEK10 A1 OFFLINE PREPARATION -->
+
 ---
 
 ## Purpose
