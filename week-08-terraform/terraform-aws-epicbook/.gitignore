@@ -1,0 +1,17 @@
+.terraform/
+*.tfstate*
+*.tfplan*
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+*.pem
+*.key
+*.log
+crash.*
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.private/
+evidence/raw/
+__pycache__/

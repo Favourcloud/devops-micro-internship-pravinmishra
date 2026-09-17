@@ -1,0 +1,252 @@
+{
+  "learner": "Eze Favour",
+  "assignment": "Week 08 Assignment 4",
+  "mode": "OFFLINE PREPARATION ONLY",
+  "slots": [
+    {
+      "number": 1,
+      "title": "Terraform Version",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 2,
+      "title": "AWS CLI Version",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 3,
+      "title": "HashiCorp Terraform Extension",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 4,
+      "title": "Modular Project Structure",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 5,
+      "title": "VPC and Subnets",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 6,
+      "title": "Internet Gateway and Public Routing",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 7,
+      "title": "EC2 and RDS Security Groups",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 8,
+      "title": "Network Module Outputs",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 9,
+      "title": "EC2 Resource and `user_data`",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 10,
+      "title": "`user_data.sh`",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 11,
+      "title": "EC2 Module Variables and Outputs",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 12,
+      "title": "DB Subnet Group and RDS MySQL",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 13,
+      "title": "Private RDS and Sensitive Variables",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 14,
+      "title": "RDS Endpoint Output",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 15,
+      "title": "Root Module Blocks",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 16,
+      "title": "Values Passed Between Modules",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 17,
+      "title": "Root Outputs",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 18,
+      "title": "Terraform Initialization",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 19,
+      "title": "Terraform Validation",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 20,
+      "title": "Terraform Plan",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 21,
+      "title": "Terraform Apply",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 22,
+      "title": "Terraform Outputs",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 23,
+      "title": "EC2 Running",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 24,
+      "title": "Private RDS Available",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 25,
+      "title": "Installed Software and Nginx",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 26,
+      "title": "EC2-to-RDS Connection",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 27,
+      "title": "EpicBook Tables and Imported Data",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 28,
+      "title": "Dependencies and `node_modules`",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 29,
+      "title": "Nginx Configuration and Service",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 30,
+      "title": "EpicBook on Port `8080`",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 31,
+      "title": "EpicBook Through the EC2 Public IP",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 32,
+      "title": "Cart or Checkout Action",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 33,
+      "title": "Corresponding RDS Record",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 34,
+      "title": "Terraform Destroy",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    },
+    {
+      "number": 35,
+      "title": "Published LinkedIn Post",
+      "status": "pending",
+      "file": null,
+      "reason": "No genuine GUI capture authorized or made; offline checks are not screenshot evidence."
+    }
+  ]
+}

@@ -2,6 +2,22 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Learner:** Eze Favour
+
+**Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
+**Status:** OFFLINE PREPARATION ONLY — not deployed, not a completed live submission.
+
+The [modular source and runbook](terraform-aws-epicbook/README.md) and
+[sanitized local validation record](terraform-aws-epicbook/evidence/local-validation.md)
+cover source and mock checks only. The [exact 35-slot manifest](terraform-aws-epicbook/evidence/screenshot-manifest.json)
+marks **every screenshot pending**, including local-tool screenshots: no GUI captures were made.
+Checked items below refer only to six locally created source deliverables, not AWS resources.
+The required private `terraform.tfvars` is deliberately not committed; use the safe example only after authorization.
+All live URLs, cloud provisioning, software/runtime validation, cart/database evidence, destruction,
+learner reflection and mandatory LinkedIn publication remain pending behind fresh consent.
+The pinned instructor app supports a cart path, but its checkout click deletes carts rather than
+creating an order; see the runbook's source-derived limitation. The checkout/order checklist is not waived.
+
 ---
 
 ## Purpose
@@ -407,6 +423,8 @@ Verify that EpicBook, EC2, Nginx, and Amazon RDS work together successfully.
 
 **EC2 Public IP URL:** Add the working EpicBook EC2 public IP URL here
 
+**Status:** PENDING — no EC2 instance or live URL was created during offline preparation.
+
 ## Evidence
 
 ### Screenshot 31 — EpicBook Through the EC2 Public IP
@@ -471,6 +489,8 @@ Add your screenshot here.
 
 **LinkedIn Post URL:** Add your LinkedIn post URL here
 
+**Status:** PENDING — mandatory publication requires genuine evidence, the learner's own words and explicit human approval.
+
 ---
 
 # Submission Instructions
@@ -495,12 +515,12 @@ Add your screenshot here.
 - [ ] Configured AWS CLI
 - [ ] Confirmed the AWS Region
 - [ ] Installed the HashiCorp Terraform extension
-- [ ] Created the modular Terraform project
-- [ ] Created the root `main.tf`, `variables.tf`, and `outputs.tf`
-- [ ] Created the Network module
-- [ ] Created the EC2 module
-- [ ] Created the RDS module
-- [ ] Created the EC2 `user_data.sh`
+- [x] Created the modular Terraform project
+- [x] Created the root `main.tf`, `variables.tf`, and `outputs.tf`
+- [x] Created the Network module
+- [x] Created the EC2 module
+- [x] Created the RDS module
+- [x] Created the EC2 `user_data.sh`
 - [ ] Created VPC `10.0.0.0/16`
 - [ ] Created public subnet `10.0.1.0/24`
 - [ ] Created private DB subnet A `10.0.2.0/24`
