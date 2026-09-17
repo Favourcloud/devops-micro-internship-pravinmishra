@@ -2,7 +2,26 @@
 
 **Learner:** Eze Favour · **Fork:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
 
-**OFFLINE PREPARATION ONLY.** This is a Copilot-assisted configuration and runbook, not a claim of learner execution, cloud success, submission completion, or grades. No AWS API, real plan/apply/destroy, SSH, browser verification, or screenshot capture was performed for this preparation. All ten screenshots remain pending in the [original assignment](../assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md) and [manifest](evidence/manifest.json). No personal reflection has been invented.
+**OFFLINE PREPARATION ONLY — 4 of 10 genuine local captures included.** This is a Copilot-assisted configuration and runbook, not a claim of manual learner execution, cloud success, submission completion, or grades. The coordinating session supplied four unmodified local screenshots; no AWS API, real plan/apply/destroy, SSH, or browser runtime verification was performed. Slots **5–10 remain pending** in the [original assignment](../assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md) and [manifest](evidence/manifest.json). No personal reflection has been invented.
+
+## Local evidence now available
+
+| Slot | Genuine original | What it establishes |
+| --- | --- | --- |
+| 1 | [AWS CLI version](evidence/screenshot-01-aws-cli-version.png) | Local installed CLI version, not account access |
+| 2 | [AWS provider and VPC source](evidence/screenshot-02-aws-provider-vpc-source.png) | Actual `main.tf` in VS Code; AMI block folded in the editor without changing HCL |
+| 3 | [EC2 and public-IP output source](evidence/screenshot-03-ec2-public-ip-source.png) | Configuration source, not a real instance or public-IP result |
+| 4 | [Normal local-backend Terraform init](evidence/screenshot-04-terraform-init.png) | Successful local initialization, not an AWS plan/deployment |
+
+The [sanitized provenance](evidence/capture-provenance.json) records capture times, original SHA-256 hashes, operator and scope. All four original PNG byte streams are unchanged. The operator was **GitHub Copilot under user delegation, not manual learner execution**. All seven source/runtime/provider-lock/runner/mock files remain frozen at source head `ded8bf1b44fe0e76fb0d9a36b40d795aab46e4b4`.
+
+Screenshot 4 records actual `terraform init -input=false -lockfile=readonly`, including successful **local** backend configuration targeting `.private/terraform.tfstate`, using only the existing AWS 6.64.0 filesystem provider mirror. The capture session verified the `env -i` startup guard, empty authentication files, metadata disabled, and no managed resource state. This is different from the earlier runner's `init -backend=false`; neither is cloud execution or permission to deploy. The private receipt, raw logs, OCR, workstation tool paths and provider data are not submission artifacts.
+
+Historical configuration validation remains **25 native mock runs and 28 Python tests** at the source head. Evidence-only delivery checks are recorded separately in [local validation](evidence/local-validation.json); native mock tests were not re-executed merely to integrate images. To repeat only the focused delivery tests from this project directory, without Terraform/provider execution:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_evidence_delivery.py' -v
+```
 
 ## Topology and scope
 
@@ -108,7 +127,7 @@ The sensitive flag redacts the public key from usual CLI output, not from state.
 
 ### Tasks 1–2: inspect configuration and initialize
 
-Capture screenshots 2–3 in VS Code with Eze Favour visible, showing actual provider/VPC and EC2/public-IP output respectively. Do not capture input files, credentials, account IDs or private keys. Capture screenshot 1 from the real local AWS CLI version output. Then:
+Local prerequisite/source screenshots 1–3 are already included with Eze Favour visible. They show the CLI version and actual provider/VPC and EC2/public-IP output **source**, not a deployed system. Refresh them only if relevant source/tool context changes; never capture input files, credentials, account IDs or private keys. For the later newly authorized workspace, inspect the configuration and initialize as needed:
 
 ```bash
 terraform fmt -check -recursive
@@ -116,7 +135,7 @@ terraform init -lockfile=readonly
 terraform validate
 ```
 
-This live init establishes the local backend at `.private/terraform.tfstate`; it is separate from temporary offline `-backend=false` initialization. Capture screenshot 4 from this genuine output; do not present a mock-test window as a live deployment. If changing Terraform platform requires a new provider package, obtain it only through the approved installation process and verify against the lockfile.
+This normal init establishes the local backend at `.private/terraform.tfstate`; it is separate from temporary offline `-backend=false` initialization. Screenshot 4 already records a genuine normal local-backend init with empty authentication and no managed resource state. Initialization is **not** a live deployment or account-access verification. If changing Terraform platform requires a new provider package, obtain it only through the approved installation process and verify against the lockfile.
 
 ### Task 3: plan, review, apply
 
@@ -191,7 +210,7 @@ If any check fails, preserve private state/inventory and escalate to the coordin
 
 The [manifest](evidence/manifest.json) maps exactly ten numbered slots to the original rubric. Each capture must be genuine, readable, current, and show Eze Favour/name or username. Screen only the necessary output; exclude credentials, account IDs, private keys and controller identity details. Authorized instance public-IP evidence is required by the assignment; no real IP is fabricated here.
 
-The parent capture session should add approved screenshots under `evidence/`, update the manifest and the existing numbered slots, and check runtime items only after real verification. Preserve every original heading, task, question and checklist item. A local syntax/test result is not a deployment screenshot or proof of manual learner work. This draft does not update the root README, A1, other assignments, LinkedIn, blog, grades or publication status.
+The parent capture session supplied the four local originals now linked in slots 1–4. Slots 5–10, the actual EC2 public-IP field and all runtime checks remain pending behind fresh approval. Add future authorized originals under `evidence/`, update their provenance/manifest and existing numbered slots, and check runtime items only after real verification. Preserve every original heading, task, question and checklist item. A local syntax/test/init result is not a deployment screenshot or proof of manual learner work. This draft does not update the root README, A1, other assignments, LinkedIn, blog, grades or publication status.
 
 ## Official references
 

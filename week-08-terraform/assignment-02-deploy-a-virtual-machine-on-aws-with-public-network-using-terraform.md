@@ -10,7 +10,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 The [Terraform project and gated runbook](terraform-aws-vm/README.md) implement this assignment's public EC2 topology with an isolated private subnet, controller-only SSH, public HTTP, and a real Ubuntu Nginx bootstrap. Local mock tests check the configuration without contacting AWS. These are Copilot-assisted preparation checks, not evidence that the learner manually executed the tasks. No live account access, deployment, public IP, Nginx runtime verification, or cleanup has been established for this assignment. No personal reflection or grade outcome is claimed.
 
-All ten screenshot slots below remain **pending**. See the [evidence manifest](terraform-aws-vm/evidence/manifest.json) for their exact requirements. A fresh approved account/Region, sufficient existing EC2 permissions, a budget and cleanup window, and genuine captures are required before the runtime checklist can be completed. Historical approval does not authorize this assignment.
+**4 of 10 genuine local captures are included below; slots 5–10 remain pending.** Screenshots 1–4 show the local AWS CLI version, provider/VPC source, EC2/public-IP output source, and successful normal local-backend initialization. They were captured by GitHub Copilot under user delegation, not through manual learner execution. See the [evidence manifest](terraform-aws-vm/evidence/manifest.json) and [sanitized capture provenance](terraform-aws-vm/evidence/capture-provenance.json) for timestamps, original-byte hashes and scope. A fresh approved account/Region, sufficient existing EC2 permissions, a budget and cleanup window, and genuine runtime captures are still required. Historical approval and local initialization do not authorize an AWS deployment.
 
 ---
 
@@ -34,7 +34,9 @@ Prepare your local environment for Terraform deployment by installing Terraform,
 
 Ensure that your full name is visible and that no AWS credentials, account IDs, or other sensitive information are exposed.
 
-**Pending — Screenshot 1 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 1: local AWS CLI version](terraform-aws-vm/evidence/screenshot-01-aws-cli-version.png)
+
+Genuine, unmodified local capture showing the installed AWS CLI version. Copilot-operated under user delegation; this does not verify AWS account access.
 
 ---
 
@@ -64,7 +66,9 @@ The configuration must include:
 
 #### Screenshot 2 — VS Code showing the AWS provider configuration and VPC configuration in `main.tf`
 
-**Pending — Screenshot 2 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 2: AWS provider and VPC source in main.tf](terraform-aws-vm/evidence/screenshot-02-aws-provider-vpc-source.png)
+
+Genuine VS Code source capture. The AMI data block is folded in the editor so the provider and VPC are visible together; neither HCL nor PNG pixels were modified.
 
 ---
 
@@ -72,7 +76,9 @@ The configuration must include:
 
 Ensure that no AWS credentials, private keys, account IDs, or other sensitive information are visible.
 
-**Pending — Screenshot 3 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 3: EC2 and public-IP output source in main.tf](terraform-aws-vm/evidence/screenshot-03-ec2-public-ip-source.png)
+
+Genuine VS Code capture of the EC2 resource and public-IP **output source**. This is not an actual EC2 instance, Terraform output result, or deployed public IP.
 
 ---
 
@@ -86,7 +92,9 @@ Initialize the Terraform working directory and download the required provider co
 
 #### Screenshot 4 — Terminal showing the successful `terraform init` output
 
-**Pending — Screenshot 4 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 4: successful normal local-backend Terraform init](terraform-aws-vm/evidence/screenshot-04-terraform-init.png)
+
+Actual `terraform init -input=false -lockfile=readonly` completed with the **local** backend targeting `.private/terraform.tfstate`, using the AWS 6.64.0 filesystem-only provider mirror. The capture session verified an `env -i` startup guard, empty authentication configuration, disabled metadata discovery, and no managed resource state. This differs from the earlier mock runner's `-backend=false` initialization; neither result establishes an AWS deployment.
 
 ---
 
@@ -182,10 +190,10 @@ Remove all AWS resources created by Terraform after completing the deployment an
 
 # Completion Checklist
 
-Checked configuration items below refer only to repository preparation. Unchecked items require actual learner/tool confirmation or a newly authorized live run; offline mock init/test results do not complete Tasks 2–5.
+Checked items below refer to repository preparation and the captured Copilot-operated local AWS CLI/normal-init verification, not manual learner execution. Account access, Region confirmation and runtime tasks remain unverified. The local-backend init satisfies only the local initialization step; no real plan/apply, public IP, Nginx runtime or destroy result is claimed.
 
 * [ ] Installed Terraform and verified it using `terraform version`
-* [ ] Installed AWS CLI and verified it using `aws --version`
+* [x] Installed AWS CLI and verified it using `aws --version`
 * [ ] Configured AWS CLI and verified account access
 * [ ] Confirmed the correct AWS Region
 * [ ] Installed and enabled the HashiCorp Terraform extension in VS Code
@@ -199,7 +207,7 @@ Checked configuration items below refer only to repository preparation. Unchecke
 * [x] Defined the EC2 instance inside the public subnet
 * [ ] Configured SSH authentication without exposing the private key
 * [x] Added the Terraform output for the EC2 public IP address
-* [ ] Completed `terraform init` successfully
+* [x] Completed `terraform init` successfully
 * [ ] Reviewed the Terraform execution plan using `terraform plan`
 * [ ] Completed `terraform apply` successfully
 * [ ] Captured and recorded the EC2 public IP using `terraform output`
