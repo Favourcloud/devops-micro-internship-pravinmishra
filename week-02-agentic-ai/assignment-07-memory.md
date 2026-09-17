@@ -91,7 +91,7 @@ Run three tests that prove Claude remembers what you told it — without you say
 
 Paste your Linkedin post link here:
 
-`https://www.linkedin.com/posts/eze-favour-devops_dmi-cohort3-agentic-ai-week2-memory-activity-1234567890`
+**Publication evidence pending:** the former link was an example URL, not verified publication evidence, and has been removed. The real weekly Week 02 post is linked in the [root Weekly Progress table](../README.md#weekly-progress) and is credited by DMI. Its coverage of this specific assignment has not been independently verified.
 
 ---
 
@@ -112,7 +112,7 @@ Paste your forked repository URL here:
 - [x] Claude recalled hero colors correctly (Screenshot 5)
 - [x] Claude refused JavaScript request based on memory (Screenshot 6)
 - [x] All screenshots added and committed to GitHub repo
-- [x] Linkedin post created.
+- [ ] Assignment-specific LinkedIn publication verified
 
 ---
 

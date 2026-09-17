@@ -1,0 +1,38 @@
+Scoring
+How points are earned
+Graded automatically, the same rules for everyone
+WhatPoints
+Each assignment file passing all checks20
+Weekly LinkedIn post (URL in your progress table)10
+Weekly blog post (must load + credit DMI)30
+Live-session attendance (per slot: Morning · Mid · Evening)10 each
+Live-session attendance applies to the live cohort and counts from Week 2 onward.
+Real work only. Placeholder text scores 0. Copied or untouched files score 0. Answers under 50 real words score 0.
+No pre-filling ahead. Grading is capped at the cohort's current week — you can't stack up points by pasting future weeks early.
+Every run is kept. Score history is stored permanently, so any result can be looked up — not argued about.
+The Rubric
+The exact rules, in full
+The same rules run against every student, every week — nothing here is decided case by case
+One assignment file20 pts · pass or fail
+A file fails automatically if any of these is true:
+It isn't at the exact path the template expects — same week folder name, same assignment-*.md filename. There is no fallback matching, so keep your fork synced with the template.
+It is byte-for-byte identical to a file in the template repo — an untouched stub, or a copied answer key.
+It still contains template placeholder text: Add your answer here, Add your screenshot here., Add your URL here, or Add your post content here.
+It has fewer than 50 words of your own writing, counted after stripping code blocks, HTML comments, headings and table formatting.
+Otherwise it passes and is worth 20 points. There is no partial credit inside a file.
+Weekly LinkedIn post10 pts
+Read from the Weekly Progress table in your fork's root README.md — your own table, never inferred from anywhere else. The URL must begin with https://www.linkedin.com/posts/. A profile link or a shortened URL scores 0.
+Weekly blog post30 pts
+Same table. All three must hold:
+The URL loads.
+The page has at least 200 words.
+The page contains a real link to your own badge page — dmi.pravinmishra.com/s/<your-username>.html.
+A genuine, well-written post that links some other DMI page, or only mentions DMI in text, scores 0. The requirement is that every weekly post sends real traffic to your own graded work.
+Live-session attendance10 pts per slot
+Morning, Mid and Evening slots on Saturday, taken from the team's attendance record — not derived from your GitHub activity. Applies to the live cohort, and counts from Week 2 onward — weeks 00 and 01 carry no attendance component at all.
+How a week adds up
+Week total = assignment points + LinkedIn + blog + attendance. Each week's maximum depends on how many assignment files that week has, so totals aren't directly comparable week to week. Your grand total is the sum across every graded week.
+Once earned, it stays earned
+A week whose assignments have fully passed, and a blog post that has been verified, are locked — they are never re-checked. LinkedIn and attendance are recomputed on every run, so a corrected or backfilled attendance record always takes effect. If a rule changes later, credit you already earned under the older rule is not taken back.
+What these checks cover
+The agent enforces that the work is real, original and on schedule: present at the right path, written by you, not a placeholder, and substantial enough to be a genuine answer. It does not judge whether your answer is technically correct.
