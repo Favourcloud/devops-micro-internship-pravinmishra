@@ -1,0 +1,22 @@
+[DEFAULT]
+logging_folder =
+runtime_folder = /run/book-router
+data_folder = /run/book-router
+
+[logger]
+level = WARNING
+
+[routing:verified_primary]
+bind_address = 127.0.0.1
+bind_port = 6446
+destinations = @@DB_HOST@@:3306
+routing_strategy = first-available
+protocol = classic
+connect_timeout = 5
+client_connect_timeout = 5
+client_ssl_mode = REQUIRED
+client_ssl_cert = /run/book-router/certificate.pem
+client_ssl_key = /run/book-router/private-key.pem
+server_ssl_mode = REQUIRED
+server_ssl_verify = VERIFY_IDENTITY
+server_ssl_ca = /etc/book-review/rds-ca.pem

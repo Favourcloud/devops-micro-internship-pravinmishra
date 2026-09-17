@@ -1,0 +1,49 @@
+{
+  "scope": "Representative public GitHub Advisory Database affected-version matches for pinned next@15.2.3; not an exhaustive audit or exploit test",
+  "query": "https://api.github.com/advisories?ecosystem=npm&affects=next%4015.2.3",
+  "pinned_upstream": "84280063bea7ccd5144dafa2b969ec4e2e69ffbb",
+  "release_status": "blocked_pending_reviewed_fixed_upstream_pin_and_compatibility_security_review",
+  "application_javascript_modified": false,
+  "additional_dependency_checks": [
+    {"package": "sequelize@6.37.6", "matches": ["GHSA-6457-6jrx-69cr"], "note": "High severity JSON-column cast SQL injection advisory; affected-version match, source-specific applicability review pending."},
+    {"package": "mysql2@3.13.0", "matches": ["GHSA-3f6p-5ww8-9rcr", "GHSA-rgwj-5xj2-c3m3"], "note": "High auth-plugin downgrade and medium compressed-protocol DoS matches; exact applicability and verified Router boundary must be reviewed before release."},
+    {"package": "express@4.21.2", "matches": ["GHSA-pj86-cfqh-vqx6"], "note": "Only returned match was explicitly withdrawn; not presented as an active vulnerability."},
+    {"package": "jsonwebtoken@9.0.2", "matches": [], "note": "No matches returned by this bounded direct-package query; not a safety certification."},
+    {"package": "react@19.0.0", "matches": [], "note": "No direct react package match; this does not clear Next or react-server-dom/transitive packages."}
+  ],
+  "findings": [
+    {
+      "id": "GHSA-9qr9-h5gf-34mp",
+      "severity": "critical",
+      "url": "https://github.com/advisories/GHSA-9qr9-h5gf-34mp",
+      "summary": "Next.js RCE in React flight protocol",
+      "affected_15_2_range": ">= 15.2.0-canary.0, < 15.2.6",
+      "first_patched_in_that_line": "15.2.6",
+      "applicability": "Pinned version matches and uses App Router; public release blocked. No exploit attempted."
+    },
+    {
+      "id": "GHSA-2xp9-vwfh-vxw4",
+      "severity": "critical",
+      "url": "https://github.com/advisories/GHSA-2xp9-vwfh-vxw4",
+      "summary": "Unauthenticated RCE in image optimization when AVIF files are used",
+      "affected_15_range": ">= 10.0.0, < 15.5.24",
+      "first_patched_in_that_line": "15.5.24",
+      "applicability": "Version matches; unused /_next/image is denied by proposed Nginx. Configuration mitigation is not a release clearance or replacement for source review."
+    },
+    {
+      "id": "GHSA-p293-qw3h-jr36",
+      "severity": "critical",
+      "url": "https://github.com/advisories/GHSA-p293-qw3h-jr36",
+      "summary": "Unauthenticated RCE on Windows-hosted Next.js servers",
+      "affected_15_range": ">= 13.4.0, < 15.5.24",
+      "first_patched_in_that_line": "15.5.24",
+      "applicability": "Affected-version match only; Windows-host condition does not match the proposed Linux deployment."
+    }
+  ],
+  "limitations": [
+    "Additional high/medium Next.js matches were returned; full locked-transitive dependency and configuration applicability review remains a release gate.",
+    "Versions above are per-advisory first fixes, not a recommended current safe upgrade target.",
+    "No paid scanning service, deployment, live exploitation or upstream package modification was performed.",
+    "Setting runtime_release_authorized=true cannot fix vulnerable dependencies."
+  ]
+}
