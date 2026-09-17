@@ -5,7 +5,7 @@
     ".claude/agents/terraform-engineer.md": "27f3d2a4362434fd6ded503bcac44f07b19045c755f4e5cf43af4d109ccee681",
     ".claude/settings.json.example": "23544ae624d1b767d02e91359f637abdfc448ea6eaaa9e99b07c6cf243a16072",
     ".mcp.json.example": "0416df22639df418ca9f782ef4761dff359f58c1ed19a1efe1a16ff17094a017",
-    "CLAUDE.md": "0582d4516d00589280438b0285b2bd688ac815e640fb3056899c7190ae3106bc",
+    "CLAUDE.md": "a87364d01d3cf2791acd78be4b77be4d5500f44e4ef7a647038f92ffd6a843df",
     "hooks/post_tool_validate.py": "8e732a5b3493bf5870c2f40d65dff0a50a1a30ece7acc62ecccd26b9f420a52d",
     "hooks/pre_tool_guard.py": "41c504954af4ead68977d582a8dfe6e56ffcbda3996e1b1dc5ca972e90d9fac6",
     "scripts/validate_offline.py": "5b9a3d61e756a0f1a480df8ba3ecffbe1dde150f828b7f8c615dc59b6c9ab367",

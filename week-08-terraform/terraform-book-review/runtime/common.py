@@ -184,10 +184,30 @@ def connect_db(config, secret, *, replica=False, database=True, driver=None):
     context = ssl.create_default_context(cafile=verified_ca(config))
     context.check_hostname = True
     context.verify_mode = ssl.CERT_REQUIRED
-    return driver.connect(host=config["replica_host" if replica else "db_host"], port=3306,
+    class RequiredTLSConnection(driver.connections.Connection):
+        def _require_tls(self):
+            if (not self._secure or not isinstance(self._sock, ssl.SSLSocket)
+                    or self._sock.context is not self.ctx
+                    or self._sock.server_hostname != self.host or not self._sock.cipher()):
+                raise RuntimeFailure("database_tls_not_negotiated")
+
+        def _request_authentication(self):
+            # PyMySQL 1.1.1 otherwise authenticates in plaintext when SSL is not advertised.
+            if (not self.ssl or not isinstance(self.ctx, ssl.SSLContext)
+                    or self.ctx.verify_mode != ssl.CERT_REQUIRED or not self.ctx.check_hostname
+                    or not self.server_capabilities & driver.constants.CLIENT.SSL):
+                raise RuntimeFailure("database_verified_tls_required")
+            super()._request_authentication()
+            self._require_tls()
+
+        def _execute_command(self, command, sql):
+            self._require_tls()
+            return super()._execute_command(command, sql)
+
+    return RequiredTLSConnection(host=config["replica_host" if replica else "db_host"], port=3306,
                           user=secret["username"], password=secret["password"],
                           database=config["db_name"] if database else None,
-                          ssl=context, ssl_verify_cert=True, ssl_verify_identity=True,
+                          ssl=context,
                           connect_timeout=5, read_timeout=5, write_timeout=5,
                           autocommit=True, charset="utf8mb4")
 

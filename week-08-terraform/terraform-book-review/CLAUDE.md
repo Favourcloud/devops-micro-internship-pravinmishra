@@ -2,6 +2,17 @@
 
 These are **Copilot-authored draft templates**, not the instructor-provided starter kit. That kit was absent from the pinned instructor application tree and must be obtained/reconciled. No Claude/model calls, live MCP, cloud access or deployed application are evidenced here. Read README.md for the architecture and remaining human gates.
 
+## Architecture context — source design, not deployed evidence
+
+- Dedicated AWS VPC with **six subnets in two AZs**: two public Web, two private App and two private DB. Four baseline compute nodes: one Web and one App in each AZ, with bounded per-AZ Auto Scaling groups.
+- Traffic/security-group chain: browser HTTPS → **public ALB443 → Web80** (Next loopback3000) → **private ALB80 → App3001 → loopback MySQL Router6446 → verified TLS/private MySQL3306**. Only the immediately preceding tier's SG may reach each network listener; only App SG reaches DB. The intra-VPC HTTP hops are an explicit tradeoff, not end-to-end TLS.
+- One IGW and two same-AZ NAT gateways provide HA outbound access. DB subnets have **no internet default route**. No SSH, key pairs or direct internet ingress to compute/DB; private SSM operation requires separate approval and scoped identity. Require IMDSv2 and encrypted disks.
+- Private encrypted **Multi-AZ primary** has an HA standby; the **distinct asynchronous read replica** is for explicit read-only verification, not application read splitting. The optional private initializer has a separate least-privilege identity and is **disabled by default**; App never receives master credentials.
+- Terraform **1.13.5/AWS6.64.0**, local modules, ephemeral sensitive inputs propagated to write-only DB/secret fields, exact runtime secret versions, scoped tags and deliberate cleanup protection are required. No secrets in source, state, user data or logs; no generated private keys.
+- **Not free-tier**: four baseline nodes, two NATs/ALBs and primary+standby+replica are cost drivers. The upstream release remains blocked. Existing authorized ACM/DNS, reviewed AMI/artifact/CA/secret inputs, fresh identity/cost/cleanup approval and a human-reviewed real plan/change are gates. All apply/destroy/state mutations remain human-controlled; offline plan approval is not cloud approval.
+
+This concrete context is still a **Copilot-authored inactive draft pending the provided kit**, not Claude generation, activation, human sign-off or live topology proof.
+
 ## Scope and authority
 
 - Offline infrastructure/source preparation only. AWS is an approved design assumption, not spend authorization. Never use AWS/Azure/auth/STS/SSH, generate secrets/keys, install integrations, or execute live Terraform operations.

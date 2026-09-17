@@ -45,6 +45,17 @@ class EvidenceContract(unittest.TestCase):
         self.assertFalse(self.manifest["instructor_starter_kit"]["found_in_pinned_upstream"])
         self.assertEqual("pending_not_executed", self.manifest["claude_mcp_workflow"])
 
+    def test_policy_contains_concrete_screenshot_one_architecture_context(self):
+        policy = (ROOT / "CLAUDE.md").read_text()
+        context = policy.split("## Architecture context", 1)[1].split("## Scope and authority", 1)[0]
+        for requirement in ("six subnets in two AZs", "Four baseline", "public ALB443", "Web80",
+                            "loopback3000", "private ALB80", "App3001", "Router6446", "MySQL3306",
+                            "Multi-AZ primary", "distinct asynchronous read replica", "no internet default route",
+                            "No SSH", "separate least-privilege identity", "disabled by default", "1.13.5/AWS6.64.0",
+                            "write-only", "Not free-tier", "release remains blocked", "human-reviewed real plan",
+                            "Copilot-authored inactive draft pending the provided kit"):
+            self.assertIn(requirement, context)
+
     def test_manifest_contains_no_local_account_or_secret_artifacts(self):
         text = json.dumps(self.manifest)
         self.assertNotRegex(text, r"/Users/|/tmp/|arn:aws:|AKIA[A-Z0-9]{16}|BEGIN .*PRIVATE KEY")

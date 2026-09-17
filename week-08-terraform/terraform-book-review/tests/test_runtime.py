@@ -409,16 +409,19 @@ class DatabaseTests(OfflineCase):
 
     def test_all_direct_db_paths_require_ca_and_hostname(self):
         for replica, database in [(False, True), (True, True), (False, False)]:
-            driver, context = mock.Mock(), mock.Mock()
+            calls, context = [], mock.Mock()
+            class Connection:
+                def __init__(self, **kwargs):
+                    calls.append(kwargs)
+            driver = mock.Mock(connections=mock.Mock(Connection=Connection))
             with mock.patch.object(common, "verified_ca", return_value=str(common.CA_FILE)), mock.patch.object(common.ssl, "create_default_context", return_value=context) as factory:
                 common.connect_db(config(), SYNTHETIC_APP, replica=replica, database=database, driver=driver)
             factory.assert_called_once_with(cafile=str(common.CA_FILE))
             self.assertTrue(context.check_hostname)
             self.assertEqual(context.verify_mode, ssl.CERT_REQUIRED)
-            kwargs = driver.connect.call_args.kwargs
+            kwargs = calls[0]
             self.assertIs(kwargs["ssl"], context)
-            self.assertTrue(kwargs["ssl_verify_cert"])
-            self.assertTrue(kwargs["ssl_verify_identity"])
+            self.assertEqual({key for key in kwargs if key.startswith("ssl")}, {"ssl"})
             self.assertEqual(kwargs["host"], config()["replica_host" if replica else "db_host"])
             self.assertLessEqual(kwargs["read_timeout"], 5)
 
@@ -835,7 +838,7 @@ class HttpAndServiceTests(OfflineCase):
         self.assertIn("CAP_NET_BIND_SERVICE", services.unit("book-nginx"))
 
     def test_runtime_version_checks_use_explicit_fake_commands(self):
-        outputs = {"node": b"v22.18.0", "npm": b"10.9.3", "nginx": b"nginx/1.24.0",
+        outputs = {"node": b"v22.18.0", "npm": b"10.9.3", "/usr/sbin/nginx": b"nginx/1.24.0",
                    "mysqlrouter": b"MySQL Router Ver 8.4.6", "aws": b"aws-cli/2.27.0"}
         with mock.patch.object(bootstrap, "run", side_effect=lambda command: mock.Mock(stdout=outputs[command[0]], stderr=b"")), mock.patch.object(bootstrap.platform, "python_version", return_value="3.12.3"), mock.patch.object(bootstrap.importlib.metadata, "version", return_value="1.1.1"):
             versions = bootstrap.runtime_versions()
@@ -876,6 +879,25 @@ class HttpAndServiceTests(OfflineCase):
             with self.assertRaises(common.RuntimeFailure):
                 bootstrap.prerequisites()
         run.assert_not_called()
+
+
+class BootstrapCommandPathsTests(OfflineCase):
+    def test_nginx_version_uses_trusted_absolute_path_with_restricted_environment(self):
+        outputs = {"node": b"v22.18.0", "npm": b"10.9.3", "/usr/sbin/nginx": b"nginx/1.24.0",
+                   "mysqlrouter": b"MySQL Router Ver 8.4.6", "aws": b"aws-cli/2.27.0"}
+        def execute(command, **kwargs):
+            self.assertEqual(kwargs["env"], common.SAFE_ENV)
+            self.assertNotIn("/usr/sbin", kwargs["env"]["PATH"].split(":"))
+            return mock.Mock(stdout=outputs[command[0]], stderr=b"")
+        with mock.patch.object(bootstrap.subprocess, "run", side_effect=execute) as run, mock.patch.object(bootstrap.platform, "python_version", return_value="3.12.3"), mock.patch.object(bootstrap.importlib.metadata, "version", return_value="1.1.1"):
+            self.assertEqual(bootstrap.runtime_versions()["nginx"], "1.24.0")
+        self.assertIn(["/usr/sbin/nginx", "-v"], [call.args[0] for call in run.call_args_list])
+
+    def test_useradd_uses_trusted_absolute_path_without_creating_a_real_user(self):
+        account = mock.Mock(pw_uid=2001, pw_gid=2001, pw_shell="/usr/sbin/nologin", pw_dir="/nonexistent")
+        with mock.patch.object(bootstrap.pwd, "getpwnam", side_effect=[KeyError, account]), mock.patch.object(bootstrap.grp, "getgrgid", return_value=mock.Mock(gr_name="book-app")), mock.patch.object(bootstrap.subprocess, "run") as run:
+            self.assertIs(bootstrap.ensure_user("book-app"), account)
+        run.assert_called_once_with(["/usr/sbin/useradd", "--system", "--user-group", "--home-dir", "/nonexistent", "--shell", "/usr/sbin/nologin", "book-app"], env=common.SAFE_ENV, check=True, capture_output=True, timeout=30)
 
 
 if __name__ == "__main__":

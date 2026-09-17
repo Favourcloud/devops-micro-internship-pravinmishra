@@ -27,7 +27,7 @@ def run(command):
 
 def runtime_versions():
     commands = {"node": ["node", "--version"], "npm": ["npm", "--version"],
-                "nginx": ["nginx", "-v"], "mysqlrouter": ["mysqlrouter", "--version"],
+                "nginx": ["/usr/sbin/nginx", "-v"], "mysqlrouter": ["mysqlrouter", "--version"],
                 "awscli": ["aws", "--version"]}
     patterns = {"node": r"v(22\.[0-9]+\.[0-9]+)", "npm": r"(10\.[0-9]+\.[0-9]+)",
                 "nginx": r"nginx/([0-9]+\.[0-9]+\.[0-9]+)",
@@ -69,7 +69,7 @@ def ensure_user(name):
     try:
         account = pwd.getpwnam(name)
     except KeyError:
-        run(["useradd", "--system", "--user-group", "--home-dir", "/nonexistent", "--shell", "/usr/sbin/nologin", name])
+        run(["/usr/sbin/useradd", "--system", "--user-group", "--home-dir", "/nonexistent", "--shell", "/usr/sbin/nologin", name])
         account = pwd.getpwnam(name)
     if (account.pw_uid == 0 or account.pw_gid == 0 or grp.getgrgid(account.pw_gid).gr_name != name
             or account.pw_shell != "/usr/sbin/nologin" or account.pw_dir != "/nonexistent"):
