@@ -4,9 +4,28 @@
 
 **Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
 
-**Status:** offline source preparation, not a completed assignment or an authorized deployment.
+**Status:** offline preparation with eight genuine local captures, not a completed assignment or an authorized deployment.
 
-The [original assignment](../assignment-03-deploy-a-react-application-on-azure-virtual-machine-using-terraform.md) retains every rubric heading, requirement and checklist item. All **15 screenshots and the VM public IP are pending** in the [evidence manifest](evidence/manifest.json). No manual learner execution, Azure success, SSH session, browser check, cleanup result or reflection is invented. Local tool/source checks are not the requested cloud screenshots. No new permission follows from previous sessions; earlier authorizations are retired.
+The [original assignment](../assignment-03-deploy-a-react-application-on-azure-virtual-machine-using-terraform.md) retains every rubric heading, requirement and checklist item. Screenshot slots **1–8 contain local evidence; 9–15 and the VM public IP remain pending** in the [evidence manifest](evidence/manifest.json). No manual learner execution, Azure success, SSH session, browser check, cleanup result or reflection is invented. Local tool/source/initialization captures are not cloud screenshots. No new permission follows from previous sessions; earlier authorizations are retired.
+
+## Genuine local evidence — slots 1–8
+
+These eight original PNGs were captured in a genuine isolated VS Code window on **2026-09-17 UTC**, labelled **Eze Favour — Week 08 Assignment 3**, and operated by **GitHub Copilot under user delegation, not manually by the learner**. They are unaltered window captures, not mock output, reconstructed screenshots or composites. The [sanitized provenance](evidence/provenance.json) records each original SHA-256, capture time, operator and local-only scope without private workstation paths, process/window IDs, account IDs or raw logs. The parent reviewed capture privacy; integration verifies the original bytes and PNG metadata guards.
+
+| Slot | Original capture | What it establishes |
+|---|---|---|
+| 1 | [Terraform version](evidence/screenshots/screenshot-01-terraform-version.png) | Installed local Terraform 1.13.5, darwin_amd64. |
+| 2 | [Azure CLI version](evidence/screenshots/screenshot-02-azure-cli-version.png) | Installed local Azure CLI 2.89.1; no login or Azure API action. |
+| 3 | [Terraform extension](evidence/screenshots/screenshot-03-vscode-terraform-extension.png) | Installed HashiCorp Terraform extension in VS Code. |
+| 4 | [Provider, RG and NSG source](evidence/screenshots/screenshot-04-provider-resource-group-nsg-source.png) | Native split view of unchanged provider/RG/SSH/HTTP source, not deployed resources. |
+| 5 | [VM and custom data source](evidence/screenshots/screenshot-05-linux-vm-custom-data-source.png) | Unchanged Linux VM and `custom_data` configuration, not VM creation. |
+| 6 | [Completed cloud-init source](evidence/screenshots/screenshot-06-completed-cloud-init-source.png) | Native split view of build/Nginx excerpts and the complete main workflow, not the whole file or execution. |
+| 7 | [Public IP output source](evidence/screenshots/screenshot-07-public-ip-output-source.png) | Output block only, not an allocated address or live output. |
+| 8 | [Normal local initialization](evidence/screenshots/screenshot-08-terraform-init.png) | Actual successful `terraform init -input=false -lockfile=readonly` with a local backend. |
+
+Slot 8 is **normal local-backend initialization**, distinct from the earlier backend-disabled validation: Terraform 1.13.5 and AzureRM 4.47.0 were reused through a filesystem-only mirror in an `env -i` environment with empty Azure configuration and a passed startup guard. The configured backend target is `.private/terraform.tfstate`; the capture receipt confirms **no managed-resource state**. No provider download, Azure authentication, live plan/apply/destroy or cloud API action occurred. Tools already installed on the workstation were verified, not claimed as newly installed for the capture.
+
+Captured source is frozen at **`3a0eea8f2dc9c62d28e511155065e6e145a3555b`**. All eight receipt-listed HCL/lock/bootstrap/example/runner/mock file hashes remain unchanged. Slot 6 does not display the entire script; the complete [tracked cloud-init.sh](cloud-init.sh) is the source deliverable. Its visible literal `/tmp/dmi-react.XXXXXXXX` is a public script template, not a private capture path. Existing ignored 0700 private capture directories and 0600 capture files are retained; their contents are not published or required to be absent.
 
 ## Files and architecture
 
@@ -75,13 +94,23 @@ The runner refuses live/auto-loaded tfvars, extra Terraform/override/test files 
 6. `terraform validate -no-color`.
 7. `terraform test -filter=tests/app.tftest.hcl -filter=tests/inputs.tftest.hcl -no-color`.
 
-All Terraform test runs use `mock_provider "azurerm"`. The test DSL's `command = plan/apply` is an in-memory mock operation, **not** a real plan/apply. Failures stop later steps and propagate a nonzero status. No raw logs, state or input files are published. Ordered rubric tests permit answers/evidence to be added while protecting the original instructions; evidence guards intentionally require updates when genuine screenshots are later supplied.
+All Terraform test runs use `mock_provider "azurerm"`. The test DSL's `command = plan/apply` is an in-memory mock operation, **not** a real plan/apply. Failures stop later steps and propagate a nonzero status. No raw logs, state or input files are published. Ordered rubric tests permit answers/evidence to be added while protecting the original instructions; evidence guards verify the eight supplied originals and keep the seven cloud slots pending.
 
 ### Verified local application build, separate from deployment
 
 An isolated **macOS x86-64** build using the checksum-verified Node 22.23.2/npm 10.9.8 archive genuinely ran `npm ci --ignore-scripts --no-audit --no-fund --fetch-timeout=60000 --fetch-retries=2` and `npm run build` at the pinned commit. npm installed 1,343 packages; CRA reported **Compiled successfully** and produced `build/index.html`, JS and CSS assets. Tracked upstream files remained unchanged. Installation plus compilation took approximately 37 seconds. Temporary Node, dependencies/cache, source and outputs were cleaned; no global packages were installed.
 
-The build emitted legacy-dependency deprecation and stale Browserslist database warnings. Those were not concealed or fixed by mutating the locked instructor app. npm audit was not run; build success is not a vulnerability assessment. This actual local compilation does **not** verify Ubuntu package installation, Linux runtime, cloud-init, Nginx, Azure capacity, public HTTP, SSH, browser behavior or cloud cleanup. Stubbed shell tests establish orchestration/error-path behavior only. The offline suite passed **35 native Terraform mock runs and 46 Python tests**, plus shell syntax, formatting, backend-disabled initialization and Terraform validation. The 46 Python tests include 21 stubbed bootstrap tests (with additional stage/guard subcases), 10 runner tests and 15 delivery/rubric/privacy tests. These results are recorded in the evidence manifest; none fills a screenshot slot.
+The build emitted legacy-dependency deprecation and stale Browserslist database warnings. Those were not concealed or fixed by mutating the locked instructor app. npm audit was not run; build success is not a vulnerability assessment. This actual local compilation does **not** verify Ubuntu package installation, Linux runtime, cloud-init, Nginx, Azure capacity, public HTTP, SSH, browser behavior or cloud cleanup. Stubbed shell tests establish orchestration/error-path behavior only. At source commit `3a0eea8f2dc9c62d28e511155065e6e145a3555b`, the offline suite passed **35 native Terraform mock runs and 46 Python tests**, plus shell syntax, formatting, backend-disabled initialization and Terraform validation. The 46 Python tests included 21 stubbed bootstrap tests (with additional stage/guard subcases), 10 runner tests and 15 delivery/rubric/privacy tests. These are historical source-validation results, not a rerun during evidence integration. The build and mocks do not fill screenshot slots; the eight supplied originals are separate evidence.
+
+### Focused evidence integration checks
+
+From this directory, run only the delivery and capture checks without Terraform, cloud commands, bootstrap execution or package installation:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_[de]*.py'
+```
+
+**Evidence integration result: 25 focused Python tests passed** — 15 delivery checks and 10 capture/provenance checks, with per-image/file subcases. These checks cover the ordered original rubric and all 15 titles, eight original PNG hashes/structure and relative links, sanitized metadata, UTC times and operator attribution, frozen source hashes, local initialization limits, pending cloud evidence and retained ignored private artifacts. The command was run with an empty inherited environment and bytecode writes disabled. Historical 46-Python/35-mock/build results are kept separate; the mock suite and application build were not rerun for this evidence-only update.
 
 ## Prospective authorized runbook — DO NOT execute now
 

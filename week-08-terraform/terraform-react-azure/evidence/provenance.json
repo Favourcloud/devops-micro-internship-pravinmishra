@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "learner": "Eze Favour",
+  "repository": "Favourcloud/devops-micro-internship-pravinmishra",
+  "source_head": "3a0eea8f2dc9c62d28e511155065e6e145a3555b",
+  "source_hashes": {
+    ".terraform.lock.hcl": "1f5467f97786038441e615734d0c88f4a0fd6f41c3e4511ce64951b2c0f75c9e",
+    "cloud-init.sh": "e20f13c232b0d1d94e4aae5301d9c77d9a2d2b63b19d9f660d467ac4cf5ba3ef",
+    "main.tf": "8c0e1da381dcfe054478bb3635dedf10d1386198f8f63fed8c2d7014deac6984",
+    "terraform.tfvars.example": "8f12d7b9949954a9a76c6134fbd6b4c02c6e52dcac85e39ae56ef4ad8a9912a3",
+    "tests/app.tftest.hcl": "84597eaf1ad1ddbedc71191269ea7df3a2d6c75a58a5029501bfaf23751eaee0",
+    "tests/inputs.tftest.hcl": "c4c15c87810c26955ed5ee502cb987ce7afde27257d63ac2060813e3c655e12a",
+    "tests/run_offline.py": "169349b79194f2ecd690a2581aa902e451e744e4c3c2b0483db70a2b0fa24136",
+    "variables.tf": "8a635a1054598ea2b2a8cb3e3a7eb422f08b062fe4de64f83343a962ca704c96"
+  },
+  "receipt_verified_at_utc": "2026-09-17T00:15:58.752951+00:00",
+  "capture_method": "Native macOS capture of a genuine isolated VS Code window; original PNG bytes, not composites.",
+  "operator": "GitHub Copilot under user delegation; not manual learner execution",
+  "visible_identity": "Eze Favour — Week 08 Assignment 3",
+  "privacy_review": "Parent capture receipt marks all originals privacy-checked; integration verifies unchanged hashes and metadata guards. No pixel edits or redaction performed.",
+  "screenshots": [
+    {
+      "number": 1,
+      "file": "screenshots/screenshot-01-terraform-version.png",
+      "sha256": "93f3ebbb927c485ee943b8bb8ad65ce9a3a6f2ccedb154d9ac3bbf70cc76fcb2",
+      "bytes": 309119,
+      "captured_at_utc": "2026-09-17T00:10:42.741304+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-tool-version",
+      "description": "Actual local Terraform 1.13.5 darwin_amd64 version output; no infrastructure action."
+    },
+    {
+      "number": 2,
+      "file": "screenshots/screenshot-02-azure-cli-version.png",
+      "sha256": "8135e68dcc14aaa59db3c9c4a5b680e7452af1bfba15227123c8ee665442dea5",
+      "bytes": 310991,
+      "captured_at_utc": "2026-09-17T00:11:19.381267+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-tool-version",
+      "description": "Actual local Azure CLI 2.89.1 version output; no login or Azure API call."
+    },
+    {
+      "number": 3,
+      "file": "screenshots/screenshot-03-vscode-terraform-extension.png",
+      "sha256": "43004d6e22151765238884de2b4067ee2cb44dd91aa88bda45b80f7589f178ae",
+      "bytes": 287575,
+      "captured_at_utc": "2026-09-17T00:12:39.274761+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-editor-extension",
+      "description": "Installed HashiCorp Terraform extension in the native VS Code Extensions panel."
+    },
+    {
+      "number": 4,
+      "file": "screenshots/screenshot-04-provider-resource-group-nsg-source.png",
+      "sha256": "9a91e8e7b004aaa5babd99e78b4b6e53dc9f30c0cfb387e82f93916fad6e3605",
+      "bytes": 912947,
+      "captured_at_utc": "2026-09-17T00:13:32.638075+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-source",
+      "description": "Native split view of unchanged main.tf showing AzureRM provider, resource group and NSG SSH/HTTP rules; source only."
+    },
+    {
+      "number": 5,
+      "file": "screenshots/screenshot-05-linux-vm-custom-data-source.png",
+      "sha256": "13cb3785ef8f92df791de2cf16f2e5f8ed6e461e9ec7c98b3e1402a1e5273f61",
+      "bytes": 662938,
+      "captured_at_utc": "2026-09-17T00:12:45.578533+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-source",
+      "description": "Unchanged Linux VM and custom_data source; no VM deployment."
+    },
+    {
+      "number": 6,
+      "file": "screenshots/screenshot-06-completed-cloud-init-source.png",
+      "sha256": "0d47200479bc624483f6d356af61da9c2cb836a09520a2c0767615878bd34422",
+      "bytes": 1022458,
+      "captured_at_utc": "2026-09-17T00:15:05.128463+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-source",
+      "description": "Native split view of completed cloud-init.sh showing build/Nginx excerpts and the complete main workflow; not the entire file or runtime."
+    },
+    {
+      "number": 7,
+      "file": "screenshots/screenshot-07-public-ip-output-source.png",
+      "sha256": "a3d42b114a36061d606c95de46859d9fddc3702f2dc39a2a93f7a8088a293459",
+      "bytes": 524609,
+      "captured_at_utc": "2026-09-17T00:12:52.540325+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-source",
+      "description": "Public IP output block source, not an allocated address or live Terraform output."
+    },
+    {
+      "number": 8,
+      "file": "screenshots/screenshot-08-terraform-init.png",
+      "sha256": "b78d0a3c44dca82a48e6e91b6095096b4ada3176e53f4544307c9a3a16a09071",
+      "bytes": 375841,
+      "captured_at_utc": "2026-09-17T00:11:28.980755+00:00",
+      "image_modified": false,
+      "privacy_checked": true,
+      "operator": "GitHub Copilot under user delegation; not manual learner execution",
+      "evidence_kind": "local-backend-init",
+      "description": "Successful normal Terraform init with local backend and filesystem-only AzureRM 4.47.0 mirror; no managed-resource state or cloud action."
+    }
+  ],
+  "normal_init": {
+    "command": "terraform init -input=false -lockfile=readonly",
+    "backend_type": "local",
+    "backend_target": ".private/terraform.tfstate",
+    "managed_resource_state_exists": false,
+    "filesystem_only_provider_mirror": true,
+    "startup_environment_guard_passed": true
+  },
+  "cloud_actions_authorized": false,
+  "cloud_execution_verified": false,
+  "assignment_complete": false,
+  "pending_slots": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "notes": [
+    "All eight original native VS Code window images; Copilot-operated, not manual learner execution.",
+    "Screenshots 4 and 6 use genuine editor split views of unchanged source, not composites.",
+    "Screenshot 6 shows build/Nginx source excerpts and complete main workflow, not entire file or execution; full tracked script remains the source deliverable.",
+    "The literal /tmp/dmi-react.XXXXXXXX visible in screenshot 6 is a public script template, not a local private path.",
+    "Normal initialization is local backend only, no managed-resource state or cloud API authorization."
+  ]
+}

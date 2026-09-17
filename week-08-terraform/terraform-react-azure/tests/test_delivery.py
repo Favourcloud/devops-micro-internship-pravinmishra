@@ -75,21 +75,27 @@ class DeliveryTests(unittest.TestCase):
             self.assertLess(index, len(actual), f'Missing/reordered rubric line: {line}')
             index += 1
 
-    def test_all_fifteen_slots_pending(self):
+    def test_fifteen_slots_with_eight_local_captures(self):
         data = json.loads((ROOT / 'evidence/manifest.json').read_text())
         self.assertFalse(data['assignment_complete'])
         self.assertFalse(data['cloud_authorized'])
         self.assertFalse(data['cloud_deployment_verified'])
         self.assertIsNone(data['public_ip_address'])
+        self.assertEqual(data['captured_slots'], list(range(1, 9)))
+        self.assertEqual(data['pending_slots'], list(range(9, 16)))
         self.assertEqual([s['number'] for s in data['screenshots']], list(range(1, 16)))
         headings = re.findall(r'^### Screenshot .+$', BRIEF.read_text(), re.M)
         self.assertEqual([s['rubric_heading'] for s in data['screenshots']], headings)
         self.assertEqual([s['task'] for s in data['screenshots']], [0]*3 + [1]*4 + [2] + [3]*3 + [4]*2 + [5, 6])
         for slot in data['screenshots']:
-            self.assertEqual(slot['status'], 'pending')
-            self.assertIsNone(slot['file'])
-        self.assertEqual(BRIEF.read_text().count('Add your screenshot here.'), 15)
-        self.assertNotRegex(BRIEF.read_text(), r'!\[[^\]]*\]\(')
+            if slot['number'] <= 8:
+                self.assertEqual(slot['status'], 'captured-local-only')
+                self.assertTrue((ROOT / 'evidence' / slot['file']).is_file())
+            else:
+                self.assertEqual(slot['status'], 'pending')
+                self.assertIsNone(slot['file'])
+        self.assertEqual(BRIEF.read_text().count('Add your screenshot here.'), 7)
+        self.assertEqual(len(re.findall(r'!\[[^\]]*\]\(', BRIEF.read_text())), 8)
 
     def test_known_identity_and_pending_ip(self):
         brief = BRIEF.read_text()
@@ -102,7 +108,10 @@ class DeliveryTests(unittest.TestCase):
                     '/' + r'Users/[^/\s]+/', r'(?i)window[_ -]?id\s*[:=]\s*\d+']
         for path in public_files():
             self.assertFalse(path.is_symlink())
-            self.assertNotIn(path.suffix, {'.js', '.jsx', '.pem', '.key', '.tfstate', '.tfplan'})
+            self.assertNotIn(path.suffix, {'.js', '.jsx', '.pem', '.key', '.tfstate', '.tfplan', '.tfvars', '.log', '.tfrc'})
+            if path.suffix == '.png':
+                self.assertTrue(path.read_bytes().startswith(b'\x89PNG\r\n\x1a\n'))
+                continue
             text = path.read_text()
             for pattern in patterns:
                 self.assertNotRegex(text, pattern, str(path.relative_to(ROOT)))
@@ -110,7 +119,8 @@ class DeliveryTests(unittest.TestCase):
                 self.assertEqual(account, '00000000-0000-0000-0000-000000000000')
 
     def test_private_outputs_ignored(self):
-        paths = ['.private/state', 'terraform.tfstate', 'backup.tfstate.backup', 'run.tfplan',
+        paths = ['.private/state', '.private/evidence-capture.json', '.private/evidence-capture/data',
+                 'terraform.tfstate', 'backup.tfstate.backup', 'run.tfplan',
                  'real.tfvars', 'real.tfvars.json', 'override.tf', 'test_override.tf.json',
                  'secret.pem', 'key.key', 'id_ed25519', 'id_ed25519.pub', '.terraform/data',
                  'evidence/raw/screenshot.png', 'node_modules/a', 'build/index.html', 'debug.log']

@@ -4,7 +4,10 @@
   "repository": "Favourcloud/devops-micro-internship-pravinmishra",
   "assignment": "week-08-assignment-03",
   "assignment_complete": false,
-  "status": "offline-preparation-only",
+  "status": "offline-preparation-with-local-evidence",
+  "provenance": "provenance.json",
+  "captured_slots": [1, 2, 3, 4, 5, 6, 7, 8],
+  "pending_slots": [9, 10, 11, 12, 13, 14, 15],
   "cloud_authorized": false,
   "cloud_deployment_verified": false,
   "public_ip_address": null,
@@ -13,57 +16,57 @@
       "number": 1,
       "task": 0,
       "rubric_heading": "### Screenshot 1 — Terraform Version",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-01-terraform-version.png"
     },
     {
       "number": 2,
       "task": 0,
       "rubric_heading": "### Screenshot 2 — Azure CLI Version",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-02-azure-cli-version.png"
     },
     {
       "number": 3,
       "task": 0,
       "rubric_heading": "### Screenshot 3 — HashiCorp Terraform Extension",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-03-vscode-terraform-extension.png"
     },
     {
       "number": 4,
       "task": 1,
       "rubric_heading": "### Screenshot 4 — Provider, Resource Group, and Network Security Group",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-04-provider-resource-group-nsg-source.png"
     },
     {
       "number": 5,
       "task": 1,
       "rubric_heading": "### Screenshot 5 — Linux Virtual Machine and `custom_data`",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-05-linux-vm-custom-data-source.png"
     },
     {
       "number": 6,
       "task": 1,
       "rubric_heading": "### Screenshot 6 — Completed `cloud-init.sh`",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-06-completed-cloud-init-source.png"
     },
     {
       "number": 7,
       "task": 1,
       "rubric_heading": "### Screenshot 7 — Public IP Output Block",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-07-public-ip-output-source.png"
     },
     {
       "number": 8,
       "task": 2,
       "rubric_heading": "### Screenshot 8 — Terraform Initialization",
-      "status": "pending",
-      "file": null
+      "status": "captured-local-only",
+      "file": "screenshots/screenshot-08-terraform-init.png"
     },
     {
       "number": 9,
@@ -122,6 +125,8 @@
     "source_modified": false
   },
   "verification": {
+    "source_head": "3a0eea8f2dc9c62d28e511155065e6e145a3555b",
+    "result_scope": "Historical source validation and local application build; not rerun for the evidence-only integration.",
     "terraform_version": "1.13.5",
     "azurerm_version": "4.47.0",
     "terraform_mock_runs": 35,
@@ -153,10 +158,24 @@
       "cloud_evidence": false
     }
   },
+  "evidence_integration": {
+    "status": "passed",
+    "focused_python_tests": 25,
+    "delivery_tests": 15,
+    "capture_tests": 10,
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_[de]*.py'",
+    "original_pngs_verified": 8,
+    "frozen_source_files_verified": 8,
+    "frozen_source_changed": false,
+    "terraform_mocks_rerun": false,
+    "upstream_build_rerun": false,
+    "cloud_commands_executed": false,
+    "private_artifacts": "Existing ignored/untracked capture artifacts retained untouched; directories 0700 and files 0600."
+  },
   "blockers": [
     "Fresh identity, permission and budget approval unavailable; old approvals are retired.",
-    "No real Azure init/plan/apply/output, SSH, Nginx, browser or destroy verification.",
-    "All 15 genuine, learner-labelled screenshot slots remain pending.",
+    "No Azure plan/apply/output, SSH, Nginx, browser or destroy verification; recorded normal initialization is local only.",
+    "Seven cloud/runtime screenshot slots (9–15) remain pending; eight genuine Copilot-operated local captures do not establish deployment.",
     "Region, x86-64 VM SKU, capacity, quota and price must be approved before deployment.",
     "Existing private SSH key stays outside this project; only its matching public key is supplied."
   ]
