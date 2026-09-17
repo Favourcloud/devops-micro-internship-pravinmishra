@@ -15,7 +15,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 ## Purpose
 
-> **Preparation status — not a completed submission:** [Project source and architecture](terraform-book-review/README.md) are being prepared offline by Copilot. No cloud deployment, working public URL, Claude/MCP activity, captured screenshot, learner reflection, or LinkedIn publication is claimed. The pinned instructor repository contains no provided Claude starter kit; draft templates do not satisfy that missing input. All original Tasks 0–10, Screenshots 1–28, reflection questions, and checklist requirements below remain required. See the [28-slot pending evidence manifest](terraform-book-review/evidence/manifest.json) and project runbook for release blockers and human gates.
+> **Preparation status — not a completed submission:** [Project source and architecture](terraform-book-review/README.md) were prepared offline by Copilot. Four genuine original local-source captures for slots 1, 2, 3 and 6 are attached below and in the [evidence gallery](terraform-book-review/evidence/README.md), anchored to reviewed source `23748110108196f26c1394830a48af5317f7ca22`, not this later documentation revision. Of 24 missing images, six local candidates (7, 8, 14, 15, 16, 17) are capture-blocked by unreadable frames; eighteen other slots remain separately gated. No cloud deployment, working public URL, manual learner execution, Claude/MCP activity, learner reflection, or LinkedIn publication is claimed. The provided kit remains missing; inactive draft definitions are not that kit or executed agents. All original Tasks 0–10, Screenshots 1–28, 15 unanswered reflections and 55 unchecked requirements remain preserved. See the [28-slot evidence manifest](terraform-book-review/evidence/manifest.json) and project runbook for provenance, release blockers and human gates.
 
 Deploy the Book Review App using Terraform on AWS or Azure in a secure, highly available, production-style three-tier architecture. Use Claude Code, specialized subagents, Terraform MCP, and validation hooks to support the engineering workflow while keeping all infrastructure-changing operations under human control.
 
@@ -35,6 +35,12 @@ Add a screenshot of the project `CLAUDE.md` showing the three-tier architecture,
 
 Add your screenshot here.
 
+<!-- A5 source capture 1 -->
+![Screenshot 1: original local source view](terraform-book-review/evidence/screenshots/screenshot-01-project-context.png)
+
+**Source-only evidence:** Actual CLAUDE.md showing three-tier architecture, security boundaries, Terraform requirements and human-approval rules. Visibly Copilot-authored inactive draft, not the provided kit or Claude execution. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+<!-- /A5 source capture -->
+
 ---
 
 ### Screenshot 2 — Terraform Engineer Subagent
@@ -43,6 +49,12 @@ Add a screenshot showing the Terraform Engineer subagent configuration.
 
 Add your screenshot here.
 
+<!-- A5 source capture 2 -->
+![Screenshot 2: original local source view](terraform-book-review/evidence/screenshots/screenshot-02-terraform-engineer-agent.png)
+
+**Source-only evidence:** Inactive Terraform Engineer agent source with inherited model selection and bounded tools. This is configuration text, not an executed agent or Claude-generated work. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+<!-- /A5 source capture -->
+
 ---
 
 ### Screenshot 3 — Architecture and Security Reviewer Subagent
@@ -50,6 +62,12 @@ Add your screenshot here.
 Add a screenshot showing the Architecture and Security Reviewer subagent configuration.
 
 Add your screenshot here.
+
+<!-- A5 source capture 3 -->
+![Screenshot 3: original local source view](terraform-book-review/evidence/screenshots/screenshot-03-architecture-reviewer-agent.png)
+
+**Source-only evidence:** Inactive read-only Architecture/Security Reviewer definition. This shows the bounded reviewer configuration, not a performed Claude architecture or security review. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+<!-- /A5 source capture -->
 
 ---
 
@@ -109,6 +127,14 @@ Create the modular Terraform project and implement the network and security laye
 Add a screenshot showing the modular Terraform project structure.
 
 Add your screenshot here.
+
+<!-- A5 source capture 6 -->
+![Screenshot 6: original local source view](terraform-book-review/evidence/screenshots/screenshot-06-modular-project-structure.png)
+
+**Source-only evidence:** Genuine Explorer view showing all nine actual module directories. Twelve is the root module-call count, not the directory count; this is source structure, not deployed infrastructure. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+
+Original native window frame initially captured while framing network source. Accepted once for slot 6 after OCR confirmed all nine module folders. Pixels are unchanged; this frame is NOT counted as slot 7.
+<!-- /A5 source capture -->
 
 ---
 
