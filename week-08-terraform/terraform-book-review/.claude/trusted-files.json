@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "files": {
+    ".claude/agents/architecture-security-reviewer.md": "6b6a5db86723bd580fff8d2863e62209e5531658552b846892d401595fcbc55b",
+    ".claude/agents/terraform-engineer.md": "27f3d2a4362434fd6ded503bcac44f07b19045c755f4e5cf43af4d109ccee681",
+    ".claude/settings.json.example": "23544ae624d1b767d02e91359f637abdfc448ea6eaaa9e99b07c6cf243a16072",
+    ".mcp.json.example": "0416df22639df418ca9f782ef4761dff359f58c1ed19a1efe1a16ff17094a017",
+    "CLAUDE.md": "0582d4516d00589280438b0285b2bd688ac815e640fb3056899c7190ae3106bc",
+    "hooks/post_tool_validate.py": "8e732a5b3493bf5870c2f40d65dff0a50a1a30ece7acc62ecccd26b9f420a52d",
+    "hooks/pre_tool_guard.py": "41c504954af4ead68977d582a8dfe6e56ffcbda3996e1b1dc5ca972e90d9fac6",
+    "scripts/validate_offline.py": "5b9a3d61e756a0f1a480df8ba3ecffbe1dde150f828b7f8c615dc59b6c9ab367",
+    "tests/test_guard_policy.py": "a0b337f3dc47ef56f51a240592e1cef2ab00f7be371da6febb13cf9b88ef2fb1",
+    "tests/test_offline_validation.py": "463cd5052e1def05200c67f2b76a2ad4157d396adc3a2f92e92724c664cba0c9",
+    "source-lock.json": "7d68c515f0476e16981afee3406098418c3a866a71d32367c5a0b1886241f4c9",
+    "terraform/.terraform.lock.hcl": "c90b0c192926e5f3ac9b3d5ecb988be686de52a1554225529779c33b77295af6",
+    "runtime/deploy-manifest.json": "598d2be31229323e61e495164d75d1bee2423d802658d0095beb6a3222a67c42"
+  },
+  "terraform_tests": {
+    "terraform/tests/architecture.tftest.hcl": "4d92ad68ed136946d8a121b4c751e980d508d12ef474facd65efdf40f05ea095"
+  }
+}

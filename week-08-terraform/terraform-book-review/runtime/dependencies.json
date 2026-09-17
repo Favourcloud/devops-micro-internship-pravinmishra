@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "installation": "Operator-supplied, reviewed Ubuntu 24.04 Linux amd64 AMI; bootstrap never installs packages",
+  "required": {
+    "os": "Ubuntu 24.04 LTS amd64",
+    "node": "22.x LTS (exact patch recorded in artifact-manifest.json)",
+    "npm": "10.x (exact patch recorded in artifact-manifest.json)",
+    "nginx": "1.24.x or newer supported Ubuntu package (exact version recorded in artifact)",
+    "mysqlrouter": "8.4.x LTS (exact patch recorded in artifact)",
+    "python": "3.12.x (exact patch recorded in artifact)",
+    "PyMySQL": "1.1.1",
+    "awscli": "2.x (exact version recorded in artifact)",
+    "systemd": "Ubuntu 24.04 packaged systemd with LoadCredential and RuntimeDirectory",
+    "ca-certificates": "Operator-maintained OS trust store plus preinstalled root-owned /etc/book-review/rds-ca.pem, checked against rds_ca_sha256; no runtime CA download"
+  },
+  "dependencies_install_scripts": "npm ci --ignore-scripts --no-audit --no-fund, before an explicitly approved isolated build; no npm ci/build in bootstrap",
+  "application": {
+    "next": "15.2.3",
+    "react": "19.0.0",
+    "sequelize": "6.37.6",
+    "mysql2": "3.13.0"
+  },
+  "release_authorized": false,
+  "status": "Offline source only; current pinned dependencies are release-blocked. A human-approved fixed upstream revision and security review are required outside this scope; setting release_authorized=true is not a dependency fix."
+}

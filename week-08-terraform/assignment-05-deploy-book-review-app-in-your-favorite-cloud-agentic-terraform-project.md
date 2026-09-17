@@ -6,14 +6,16 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 ## Student Details
 
-**Full Name:** Add your full name here  
-**Cloud Platform:** AWS or Azure  
-**GitHub Repository URL:** Add your repository URL here  
+**Full Name:** Eze Favour  
+**Cloud Platform:** AWS — coordinator-selected offline architecture assumption; learner confirmation and cloud-change approval remain pending  
+**GitHub Repository URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra  
 **Public Application URL / Load-Balancer DNS:** Add the public URL or DNS here
 
 ---
 
 ## Purpose
+
+> **Preparation status — not a completed submission:** [Project source and architecture](terraform-book-review/README.md) are being prepared offline by Copilot. No cloud deployment, working public URL, Claude/MCP activity, captured screenshot, learner reflection, or LinkedIn publication is claimed. The pinned instructor repository contains no provided Claude starter kit; draft templates do not satisfy that missing input. All original Tasks 0–10, Screenshots 1–28, reflection questions, and checklist requirements below remain required. See the [28-slot pending evidence manifest](terraform-book-review/evidence/manifest.json) and project runbook for release blockers and human gates.
 
 Deploy the Book Review App using Terraform on AWS or Azure in a secure, highly available, production-style three-tier architecture. Use Claude Code, specialized subagents, Terraform MCP, and validation hooks to support the engineering workflow while keeping all infrastructure-changing operations under human control.
 
@@ -90,7 +92,7 @@ The diagram must show:
 
 ## Architecture Diagram
 
-Add the completed architecture diagram here.
+The [completed source architecture diagram](terraform-book-review/README.md#architecture-created-before-infrastructure-source) was written before infrastructure source. It shows the two-AZ/six-subnet VPC, IGW and per-AZ NAT, public and internal load balancers, Web/App tiers, Multi-AZ MySQL and a separate read replica. It is a design artifact, **not evidence of deployed resources**.
 
 ---
 

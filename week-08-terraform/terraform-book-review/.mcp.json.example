@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "terraform": {
+      "type": "stdio",
+      "command": "/HUMAN_VERIFIED_TOOLS/terraform-mcp-server-v1.3.0",
+      "args": [
+        "stdio",
+        "--tools",
+        "search_providers,get_provider_details,get_latest_provider_version,get_provider_capabilities,search_modules,get_module_details,get_latest_module_version"
+      ],
+      "env": {
+        "ENABLE_TF_OPERATIONS": "false",
+        "OTEL_METRICS_ENABLED": "false",
+        "INSTANA_ENABLED": "false"
+      }
+    }
+  }
+}

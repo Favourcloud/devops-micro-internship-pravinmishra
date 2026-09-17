@@ -1,0 +1,19 @@
+# NON-DEPLOYABLE EXAMPLE: replace only after fresh human identity/cost/plan approval.
+# Supply passwords/JWT through protected ephemeral inputs, NEVER in any tfvars file.
+region                = "eu-west-1"
+availability_zones    = ["eu-west-1a", "eu-west-1b"]
+name                  = "dmi-book-review"
+cleanup_id            = "replace-with-approved-record"
+ami_id                = "ami-REPLACE_WITH_REVIEWED_AMI"
+public_hostname       = "books.example.invalid"
+certificate_arn       = "REPLACE_WITH_EXISTING_MATCHING_ACM_ARN"
+router_secret_arn     = "REPLACE_WITH_EXISTING_ROUTER_TLS_SECRET_ARN"
+rds_ca_sha256         = "REPLACE_WITH_VERIFIED_RDS_CA_BUNDLE_SHA256"
+runtime_artifact_url  = "https://artifacts.example.invalid/reviewed-linux-build.tar.gz"
+runtime_artifact_sha256 = "REPLACE_WITH_REVIEWED_LINUX_ARTIFACT_SHA256"
+final_snapshot_suffix = "replaceunique"
+
+# Remain closed until source-policy/dependency, runtime, and separate change gates are resolved.
+runtime_release_authorized   = false
+enable_database_initializer  = false
+deletion_protection          = true

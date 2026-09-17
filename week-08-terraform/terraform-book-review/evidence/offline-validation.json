@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "scope": "offline_source_preparation_only",
+  "recorded_at_utc": "2026-09-17T01:34:17Z",
+  "assignment_complete": false,
+  "cloud_verified": false,
+  "terraform": {
+    "version": "1.13.5",
+    "platform": "darwin_amd64",
+    "aws_provider_version": "6.64.0",
+    "installation": "approved_read_only_filesystem_mirror",
+    "backend_initialized": false,
+    "lockfile_mode": "readonly",
+    "stages_passed": ["fmt", "init_backend_false", "validate", "provider_schema", "mock_plan_tests"],
+    "mock_tests_passed": 43,
+    "mock_tests_failed": 0,
+    "every_run_explicitly_plan": true,
+    "sensitive_write_only_fields_verified": ["aws_db_instance.password_wo", "aws_secretsmanager_secret_version.secret_string_wo"],
+    "all_three_complete_userdata_payloads_within_16384_compressed_bytes": true,
+    "real_plan_apply_or_state_inspection_performed": false
+  },
+  "python": {
+    "version": "3.11.7",
+    "normal_tests_passed": 136,
+    "optimized_tests_passed": 136,
+    "tests_failed": 0,
+    "suite_breakdown": {
+      "brief_and_infrastructure": 21,
+      "guards_and_offline_runner": 40,
+      "configuration_integration": 4,
+      "runtime_and_upstream": 71
+    },
+    "additional_system_python_version": "3.9.6",
+    "additional_system_python_subset_passed": 65,
+    "runtime_network_process_database_interactions": "faked",
+    "empty_home_and_credential_free_environment": true
+  },
+  "not_performed": [
+    "upstream_application_build",
+    "linux_runtime_artifact_or_ami_creation",
+    "cloud_authentication_api_or_provisioning",
+    "live_mysql_or_router_tests",
+    "browser_actions_or_screenshot_capture",
+    "claude_model_execution_or_live_mcp_activation",
+    "learner_reflection_answers",
+    "linkedin_publication"
+  ],
+  "limitations": "These checks establish only the recorded local source/configuration contracts. The missing provided kit, vulnerable upstream release, independent human review and all live acceptance gates remain pending. No real deployed state, functioning public URL, successful authentication or assignment completion is evidenced."
+}
