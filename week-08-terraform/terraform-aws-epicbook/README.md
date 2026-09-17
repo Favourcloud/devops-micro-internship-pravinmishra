@@ -2,10 +2,24 @@
 
 **Learner:** Eze Favour · **Repository:** Favourcloud/devops-micro-internship-pravinmishra
 
-**OFFLINE PREPARATION ONLY. No AWS resources, live URL, screenshots or LinkedIn post were created.**
+**OFFLINE PREPARATION ONLY. No AWS resources, live URL or LinkedIn post were created.**
 
 [Original assignment, preserved](../assignment-04-deploy-epicbook-application-on-aws-using-terraform.md) ·
-[35 pending screenshot slots](evidence/screenshot-manifest.json) · [Local validation record](evidence/local-validation.md)
+[35-slot manifest: 19 local captures, 16 pending](evidence/screenshot-manifest.json) ·
+[Original hashes and sanitized provenance](evidence/provenance.json) · [Local validation record](evidence/local-validation.md)
+
+Slots 1–19 contain original, unchanged PNGs captured by Copilot under delegation against
+`7c0005592f167730edb0ec3f56bf29324af6a031`; all 22 frozen implementation/test files still match.
+They show local tools, source and credential-free init/validate, not manual learner execution,
+cloud deployment or runtime results. Slots 20–35 remain pending. The parent reports no significant
+issues in independent review of the credential fixes/regressions from `86210c7` to `7c000559`;
+both collision/quoting findings are resolved at that source head. Independent evidence-integration
+verification still remains pending; this is not runtime or full-submission clearance.
+Slot 4 shows `terraform.tfvars.example` only; private `terraform.tfvars` is not created.
+Slot 10 shows native split-editor excerpts at lines 21–47 and 83–117 with word-wrap,
+not the whole script or executed bootstrap. Slots 11/13/15 are also native split editors,
+not synthetic composites. Slots 8/11/14/17 show output source expressions, not runtime values.
+Capture timestamps are retained honestly; screenshot numbering is rubric order, not capture chronology.
 
 ## Deliverables and interfaces
 
@@ -20,7 +34,7 @@ terraform-aws-epicbook/
 │   └── rds/{main,variables,outputs}.tf
 ├── scripts/                          # offline runner, schema/preflight/cleanup checks
 ├── tests/                            # native AWS mocks, stdlib/stub tests, original brief
-└── evidence/                         # pending manifest; sanitized local check record only
+└── evidence/                         # 35-slot manifest, provenance, validation, 19 original PNGs
 ```
 
 There are **12 Terraform source files, 25 resource blocks expanding to 28 managed resource instances**, plus one Ubuntu AMI data lookup. The exact future real plan remains unapproved/unexecuted.
@@ -87,13 +101,36 @@ Preflight refuses tfvars, state, override files, initialized `.terraform`, `.pri
 
 Mock tests cover topology, private routing/SGs, module wiring, write-only unreadability, sensitive/ephemeral declarations, user-data references/size, storage/IMDS settings and input rejection. Standard-library/stub tests cover SQL ordering, bounded retry/failure, temporary credential cleanup, file permissions, scoped grants, readiness failures/default Nginx rejection, runner isolation, original brief/manifest integrity and exact-ID cleanup-ledger rejection. They **do not execute the real app or prove actual systemd, MySQL, IAM or AWS behavior**.
 
+### Captured local commands and evidence-only checks
+
+The historical frozen-source runner passed **22 native mocks and 52 Python checks**;
+that result is separate from this evidence-only integration, which does not rerun unchanged mock suites.
+For slots 18–19, the parent separately ran `terraform init -input=false -lockfile=readonly`
+and `terraform validate` successfully, credential-free with the existing filesystem-only mirror.
+This was **normal init**, not the runner's `-backend=false` invocation. The source has an
+**implicit default local backend**: the future default managed-state path is `terraform.tfstate`,
+not `.private/terraform.tfstate`. No backend metadata `.tfstate` file or managed state at the
+root/default or `.private` path was created. `TF_DATA_DIR` controls metadata only; it does not
+change the managed-state path. An explicit `.private/*.tfplan` plan path does not relocate state either.
+Future authorized state remains private/ignored and needs restrictive permissions and agreed retention.
+
+From the project directory, run only the focused delivery checks for evidence changes:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_evidence.py -v
+```
+
+These check the ordered rubric, links, honest scope, original PNG hashes/structure/metadata and
+22 frozen source hashes without Terraform/AWS execution, network, GUI or private-workspace cleanup.
+They do not certify pixels independently of the parent's capture/privacy review.
+
 ## Future authorized runbook — STOP until fresh approval
 
-Everything below is an **unexecuted procedure**, not authority to run it. The coordinating parent owns consent, real identity/price review, serialized captures and cleanup. Earlier permission/budget authorizations are retired. No authentication, STS, AWS API, SSH, plan/apply/destroy, provider registration, billing/IAM change or GUI capture is permitted under the offline task.
+The live procedure below remains **unexecuted**, not authority to run it. The separately recorded local init/validate do not satisfy the consent/plan/apply gate. The coordinating parent owns consent, real identity/price review, serialized captures and cleanup. Earlier permission/budget authorizations are retired. No authentication, STS, AWS API, SSH, plan/apply/destroy, provider registration or billing/IAM change is permitted under the offline task. The 19 existing parent captures do not authorize additional GUI activity; this integration only copies their original bytes.
 
 ### Gate 0 — identity, permission, price and ownership
 
-Obtain explicit approval for Region, controller IPv4, two AZs, existing SSH key ownership, exact AMI/class/engine availability, 28-resource scope including IAM/Secrets Manager, maximum spend/runtime, public HTTP risk, no-backup data loss, secret destruction, and the operator/cleanup deadline. Prior identity lacked EC2 permission: an authorized account administrator must review the minimal resource permissions and scoped `iam:PassRole`; do not escalate yourself or substitute administrator policies. Confirm Terraform/AWS CLI/VS Code extension separately for screenshots 1–3; none are currently captured. Generate no new key under this offline task. If no suitable existing key is available, stop for explicit approval of separate key management.
+Obtain explicit approval for Region, controller IPv4, two AZs, existing SSH key ownership, exact AMI/class/engine availability, 28-resource scope including IAM/Secrets Manager, maximum spend/runtime, public HTTP risk, no-backup data loss, secret destruction, and the operator/cleanup deadline. Prior identity lacked EC2 permission: an authorized account administrator must review the minimal resource permissions and scoped `iam:PassRole`; do not escalate yourself or substitute administrator policies. Slots 1–3 show existing local Terraform/AWS CLI/VS Code extension checks only; they do not establish AWS configuration, account identity, permissions or manual learner installation. Generate no new key under this offline task. If no suitable existing key is available, stop for explicit approval of separate key management.
 
 Only after approval, in a private terminal (never record account IDs):
 
@@ -129,7 +166,7 @@ terraform plan -out=.private/create.tfplan
 
 Use a private process environment; never `-var=db_password=...`, an inline environment assignment containing a password, shell history, clipboard screenshots, `terraform show -json` on screen, or `terraform output -json` in public evidence. Preserve secret input in the approved password manager, not a file in the worktree. An ephemeral password must be supplied again for saved-plan apply; the runner must keep the **same password and counter** for the approved plan/apply pair.
 
-Stop after plan. Have the human review changes and current price estimate. The plan should propose exactly the 28 managed resources above, approved image/class/Region, no unexpected replacement/deletion, no NAT/LB/Multi-AZ, no public RDS, no SSH `/0`, no broad IAM, no secret in user data. If it differs, stop and revise the source/approval, not the account manually. Capture sanitized screenshots 4–20 in assignment order with Eze Favour visibly identified and all sensitive identifiers redacted.
+Stop after plan. Have the human review changes and current price estimate. The plan should propose exactly the 28 managed resources above, approved image/class/Region, no unexpected replacement/deletion, no NAT/LB/Multi-AZ, no public RDS, no SSH `/0`, no broad IAM, no secret in user data. If it differs, stop and revise the source/approval, not the account manually. Keep the documented local evidence for slots 4–19; slot 4 still needs private-tfvars completion without exposing its contents. Capture screenshot 20 only from the future approved real plan. Any replacement/additional view needs separate parent capture authorization and privacy review, with Eze Favour visibly identified and no sensitive identifiers exposed.
 
 Only after separate approval of this exact plan:
 
@@ -227,6 +264,6 @@ Inventory shape: `{ "account": "<private approved account>", "region": "<approve
 
 ### Task 12 — mandatory learner publication and final submission
 
-All **35** original screenshot slots remain pending. After authorized execution, capture each original requested view in order and label Eze Favour in the required views. Source/config screenshots must still be genuine screenshots, not generated images. Review every image for account IDs, usernames, passwords, key paths, secret ARNs, tokens, private endpoints/metadata and unrelated browser content before publication. Keep raw captures private; publish only human-reviewed sanitized copies with honest annotations. Do not alter command outcomes or fabricate resources.
+All **35** original screenshot slots and requirements are retained: **slots 1–19 have local captures; slots 20–35 remain pending**. The first 19 PNGs are parent-reviewed, byte-identical originals with recorded hashes; no pixels were edited. They are not deployment, order or cleanup evidence, and slot 4's private-tfvars requirement remains incomplete. After authorized execution, capture the remaining requested views and present them in rubric order with Eze Favour identified. Review every new image for account IDs, usernames, passwords, key paths, secret ARNs, tokens, private endpoints/metadata and unrelated browser content before publication. Keep unsafe raw captures private; use only approved privacy-safe evidence with honest annotations. Source/config views must remain genuine screenshots, not generated images. Do not alter command outcomes or fabricate resources.
 
 The learner writes their own reflection based on what actually happened; no automatic autobiographical reflection or grade claim is supplied. Mandatory LinkedIn post must include genuine permitted deployment proof and be reviewer-accessible. The learner reviews and explicitly authorizes publication, posts manually, then supplies the real URL and screenshot 35. Never post automatically, substitute a draft URL or mark the requirement optional. Update the brief/manifest only with actual evidence, preserving originals and separately explaining unresolved checkout behavior. Offline source/tests alone are not a completed Week 08 submission.
