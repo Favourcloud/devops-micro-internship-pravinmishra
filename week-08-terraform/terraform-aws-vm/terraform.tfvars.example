@@ -1,0 +1,9 @@
+# Illustrative only. Copy into .private/lab.tfvars AFTER new live approval.
+# Region must match that approval; this value is not a deployment decision.
+aws_region = "eu-west-2"
+# Deliberately invalid: substitute the controller's current public IPv4 /32.
+ssh_cidr      = "REPLACE_WITH_YOUR_PUBLIC_IPV4/32"
+instance_type = "t3.micro"
+name_prefix   = "dmi-w08-a2"
+# Supply ssh_public_key through TF_VAR_ssh_public_key from an existing .pub file.
+# Never put the matching private key, credentials or an account ID here.

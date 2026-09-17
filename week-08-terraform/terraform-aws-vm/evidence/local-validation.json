@@ -1,0 +1,86 @@
+{
+  "status": "passed — offline preparation only",
+  "validated_at_utc": "2026-09-16T23:36:16Z",
+  "validation_scope": "Historical pre-capture configuration validation: 25 native mock runs and 28 Python tests at the source head. The checks array below is not a new execution during evidence integration.",
+  "validated_source_head": "ded8bf1b44fe0e76fb0d9a36b40d795aab46e4b4",
+  "executed_by": "Copilot automation; not a claim of manual learner execution",
+  "terraform_version": "1.13.5",
+  "terraform_platform": "darwin_amd64",
+  "aws_provider_version": "6.64.0",
+  "provider_source": "Previously installed trusted filesystem mirror, read-only reuse; existing public lockfile checksums retained",
+  "isolation": "env -i; temporary 0700 HOME, TF_DATA_DIR and short /tmp socket directory; empty credential/config files; metadata and checkpoint disabled; no direct registry fallback",
+  "checks": [
+    {
+      "command": "bash scripts/check-offline.sh",
+      "result": "passed",
+      "terraform_commands": [
+        "terraform version",
+        "terraform fmt -check -recursive",
+        "terraform init -backend=false -lockfile=readonly -input=false -no-color",
+        "terraform validate -no-color",
+        "terraform test -test-directory=tests -no-color"
+      ],
+      "mock_runs_passed": 25,
+      "mock_runs_failed": 0,
+      "positive_mock_runs": 2,
+      "expected_input_rejection_runs": 23,
+      "assertion_blocks": 27,
+      "shell_syntax": "bash -n scripts/cloud-init.sh scripts/check-offline.sh passed"
+    },
+    {
+      "command": "python3 -B -m unittest discover -s tests -p 'test_*.py' -v",
+      "result": "passed",
+      "tests_passed": 28,
+      "tests_failed": 0,
+      "contract_tests": 13,
+      "cleanup_helper_tests": 15,
+      "scope": "Rubric metadata/ordered preservation; mutable answer/image slots; ten evidence mappings; local links and external URL syntax; exact resources/outputs; mock-only Terraform tests; bootstrap and README shell syntax; ignored artifacts; secret/account checks; isolated runner environment and temporary cleanup; exact-ID cleanup parsing with mocked AWS responses and fail-closed authorization/Region checks"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "expected_managed_resource_count": 11,
+  "expected_data_lookup_count": 1,
+  "live_aws_api_calls": 0,
+  "real_plan_apply_destroy_executed": false,
+  "bootstrap_runtime_executed": false,
+  "screenshots_captured_during_initial_validation": 0,
+  "evidence_integration": {
+    "status": "passed — evidence-only delivery validation",
+    "validated_at_utc": "2026-09-17T00:14:16Z",
+    "source_head": "ded8bf1b44fe0e76fb0d9a36b40d795aab46e4b4",
+    "checks": [
+      {
+        "command": "python3 -B -m unittest discover -s tests -p 'test_evidence_delivery.py' -v",
+        "result": "passed",
+        "tests_passed": 18,
+        "tests_failed": 0,
+        "scope": "Four original-byte SHA-256 matches; PNG structure/CRC/dimensions; seven frozen source hashes and captured Git versions; capture provenance/operator/UTC/privacy allowlists; ten original rubric titles and ordered requirements; mutable answers/images/checkmarks and deletion rejection; local Markdown image labels/links; 4/10 counts and six pending runtime gates; normal local-backend init distinction; historical result separation; scoped delivery diff and ignored private artifacts"
+      },
+      {
+        "command": "git diff --check",
+        "result": "passed"
+      }
+    ],
+    "local_originals_integrated": 4,
+    "pending_screenshot_slots": [5, 6, 7, 8, 9, 10],
+    "provenance": "evidence/capture-provenance.json",
+    "frozen_source_files": 7,
+    "native_mock_tests_reexecuted": false,
+    "terraform_commands_executed_by_integration_session": false,
+    "aws_api_calls_by_integration_session": 0,
+    "new_screenshots_captured_by_integration_session": 0,
+    "png_bytes_modified": false,
+    "normal_local_init": "Captured by coordinating session: terraform init -input=false -lockfile=readonly; local backend, filesystem-only AWS 6.64.0 mirror, empty authentication, metadata disabled and no managed resource state. Not an AWS runtime result."
+  },
+  "limitations": [
+    "Mock tests check configuration, not AWS permissions, capacity, AMI availability or costs.",
+    "Bash syntax/static checks do not demonstrate cloud-init or Nginx runtime success.",
+    "Cleanup helper tests mock AWS subprocess responses; no actual resource cleanup is established.",
+    "Local links and external URL syntax are checked; external URLs are not fetched.",
+    "Fresh identity, Region, permission, budget, saved-plan and cleanup approval remain required.",
+    "Four genuine local captures are integrated; slots 5–10 remain pending. No deployment, publication, manual learner execution or grade claim."
+  ]
+}

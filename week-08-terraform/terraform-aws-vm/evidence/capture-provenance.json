@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 08 Assignment 2",
+  "learner": "Eze Favour",
+  "source_head": "ded8bf1b44fe0e76fb0d9a36b40d795aab46e4b4",
+  "receipt_verified_at_utc": "2026-09-17T00:07:28.030952+00:00",
+  "operator": "GitHub Copilot under user delegation; not manual learner execution",
+  "capture_method": "Native unmodified macOS window captures of the isolated genuine VS Code window",
+  "window_title": "Eze Favour — Week 08 Assignment 2",
+  "source_hashes": {
+    "main.tf": "01b6a3b86b030aa1e34a5cddf8748b1b65131cd73e8a75e63ed7a67e42c1754a",
+    ".terraform.lock.hcl": "c90b0c192926e5f3ac9b3d5ecb988be686de52a1554225529779c33b77295af6",
+    "terraform.tfvars.example": "bb244b436be0ea8815e1f46feb989e5418bcc28966a1f09cb4354ae916a9b796",
+    "scripts/cloud-init.sh": "a4238889345828c1fb0abf132c6fb66ea188744f628f11eccbc0f7c159de62fb",
+    "scripts/check-offline.sh": "710953ee004f6cb9d64676849eba3eb1c349a992154d2417cc6c688a14057fbe",
+    "scripts/check-cleanup.py": "299df5a08e6d26ec228763dc84528df9d61437fb8b5250f53f59043667916caa",
+    "tests/offline.tftest.hcl": "191db019082d8ba5f62f37b9820c92f5da149623b52b357a4e7371b16c0b3377"
+  },
+  "screenshots": [
+    {
+      "number": 1,
+      "file": "evidence/screenshot-01-aws-cli-version.png",
+      "label": "Eze Favour — Screenshot 1: local AWS CLI version",
+      "captured_at_utc": "2026-09-16T23:55:39.945356+00:00",
+      "sha256": "9266633c48e844ad579fb3cae0ac057a4deb41dece2e990e966b145094fe0c99",
+      "width_px": 3584,
+      "height_px": 2006,
+      "image_modified": false,
+      "privacy_checked_by_capture_session": true,
+      "scope": "Local prerequisite/source/init evidence only; not AWS runtime evidence"
+    },
+    {
+      "number": 2,
+      "file": "evidence/screenshot-02-aws-provider-vpc-source.png",
+      "label": "Eze Favour — Screenshot 2: AWS provider and VPC source in main.tf",
+      "captured_at_utc": "2026-09-17T00:06:34.595631+00:00",
+      "sha256": "944ddc9006baaab8547718d05210f5cab5ac3520d78f3f3cd2b9e2b1034ec4ab",
+      "width_px": 3584,
+      "height_px": 2006,
+      "image_modified": false,
+      "privacy_checked_by_capture_session": true,
+      "scope": "Local prerequisite/source/init evidence only; not AWS runtime evidence"
+    },
+    {
+      "number": 3,
+      "file": "evidence/screenshot-03-ec2-public-ip-source.png",
+      "label": "Eze Favour — Screenshot 3: EC2 and public-IP output source in main.tf",
+      "captured_at_utc": "2026-09-17T00:06:41.307179+00:00",
+      "sha256": "8d408535a6a787afa1cfc6e4749ee1726753e109b5cac6c33603b338d6f92481",
+      "width_px": 3584,
+      "height_px": 2006,
+      "image_modified": false,
+      "privacy_checked_by_capture_session": true,
+      "scope": "Local prerequisite/source/init evidence only; not AWS runtime evidence"
+    },
+    {
+      "number": 4,
+      "file": "evidence/screenshot-04-terraform-init.png",
+      "label": "Eze Favour — Screenshot 4: successful normal local-backend Terraform init",
+      "captured_at_utc": "2026-09-16T23:58:44.242825+00:00",
+      "sha256": "ce60e6dee0a4065c8737dfaace3dc9e2d9fa7c31f5789dfd5ee74386973ac22a",
+      "width_px": 3584,
+      "height_px": 2006,
+      "image_modified": false,
+      "privacy_checked_by_capture_session": true,
+      "scope": "Local prerequisite/source/init evidence only; not AWS runtime evidence"
+    }
+  ],
+  "normal_init": {
+    "screenshot_number": 4,
+    "command": "terraform init -input=false -lockfile=readonly",
+    "backend_type": "local",
+    "backend_target": ".private/terraform.tfstate",
+    "managed_resource_state_exists": false,
+    "filesystem_only_provider_mirror": true,
+    "aws_provider_version": "6.64.0",
+    "environment": "env -i; empty authentication files; metadata disabled; startup environment guard verified by capture session",
+    "verification_source": "Coordinating capture-session receipt; not re-executed during evidence integration"
+  },
+  "cloud_actions_authorized": false,
+  "cloud_execution_verified": false,
+  "assignment_complete": false,
+  "pending_slots": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "notes": [
+    "Four of ten genuine local captures integrated without changing PNG bytes. No pixel modifications or reconstructed terminal images.",
+    "Screenshot 2 uses genuine editor folding of the public AMI data block; no HCL edit.",
+    "Screenshot 3 shows EC2/public-IP output source, not a real EC2 instance or public IP result.",
+    "Screenshot 4 is normal local-backend initialization, not the earlier backend-disabled mock runner and not an AWS deployment.",
+    "Seven source/runtime/provider-lock/runner/mock files remain unchanged from the captured source head.",
+    "Only allowlisted public provenance is retained. The private receipt, process/window identifiers, OCR, workstation tool paths, raw logs and provider data are not included."
+  ]
+}
