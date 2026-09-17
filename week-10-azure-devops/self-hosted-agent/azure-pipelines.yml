@@ -1,0 +1,27 @@
+trigger: none
+pr: none
+
+parameters:
+  - name: poolName
+    displayName: Approved dedicated self-hosted pool (replace the placeholder)
+    type: string
+    default: __choose_approved_pool__
+
+jobs:
+  - job: VerifyLinuxAgent
+    displayName: Manual A1 Linux agent verification
+    condition: eq(variables['Build.Reason'], 'Manual')
+    timeoutInMinutes: 5
+    pool:
+      name: ${{ parameters.poolName }}
+      demands:
+        - Agent.OS -equals Linux
+    steps:
+      - checkout: none
+      - bash: |
+          set -euo pipefail
+          test "$(id -u)" -ne 0
+          uname -a
+          whoami
+          df -h
+        displayName: Verify non-root Linux identity and disk space
