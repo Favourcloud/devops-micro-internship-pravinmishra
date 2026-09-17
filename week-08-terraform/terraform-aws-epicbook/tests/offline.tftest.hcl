@@ -186,6 +186,37 @@ run "reject_reserved_username" {
   variables { db_username = "rdsadmin" }
   expect_failures = [var.db_username]
 }
+run "reject_application_master_username" {
+  command = plan
+  variables { db_username = "epicbookapp" }
+  expect_failures = [var.db_username]
+}
+run "reject_application_master_username_case_insensitive" {
+  command = plan
+  variables { db_username = "EpicBookApp" }
+  expect_failures = [var.db_username]
+}
+run "rds_reject_application_master_username" {
+  command = plan
+  module { source = "./modules/rds" }
+  variables {
+    project_name       = "mock-epicbook"
+    private_subnet_ids = ["subnet-00000000000000002", "subnet-00000000000000003"]
+    security_group_id  = "sg-00000000000000002"
+    instance_class     = "db.t3.micro"
+    engine_version     = "8.4"
+    credential_version = 1
+    db_username        = "epicbookapp"
+  }
+  expect_failures = [var.db_username]
+}
+run "accept_distinct_master_and_hash_password" {
+  command = plan
+  variables {
+    db_username = "mockadmin"
+    db_password = "MockPasswordOnly#0123456789"
+  }
+}
 run "reject_fractional_rotation" {
   command = plan
   variables { credential_version = 1.5 }

@@ -27,6 +27,26 @@ cleanup = load('cleanup', ROOT / 'scripts/check-cleanup.py')
 schema = load('schema', ROOT / 'scripts/check-schema.py')
 
 
+def parse_mysql_option_value(raw):
+    """Small independent model of MySQL 8.4 option syntax, not a MySQL client."""
+    quote, escaped, content = None, False, []
+    for char in raw:
+        if char == '#' and quote is None:
+            break
+        if char in ('"', "'") and not escaped:
+            if quote is None:
+                quote = char
+            elif quote == char:
+                quote = None
+        content.append(char)
+        escaped = bool(quote and char == '\\' and not escaped)
+    value = ''.join(content).strip()
+    if len(value) >= 2 and value[0] in ('"', "'") and value[-1] == value[0]:
+        value = value[1:-1]
+    escapes = {'b': '\b', 'n': '\n', 'r': '\r', 't': '\t', 's': ' ', '\\': '\\', '"': '"', "'": "'"}
+    return re.sub(r'''\\([bnrts\\"'])''', lambda match: escapes[match[1]], value)
+
+
 class RuntimeTests(unittest.TestCase):
     def test_retry_succeeds_after_transient_failure(self):
         with patch.object(runtime.time, 'sleep') as sleep:
@@ -46,6 +66,78 @@ class RuntimeTests(unittest.TestCase):
         options = runtime.mysql_options({'host': 'mock.invalid'}, {'username': 'mockadmin', 'password': 'mock-only'})
         self.assertIn('ssl-mode=VERIFY_IDENTITY', options)
         self.assertIn('connect-timeout=10', options)
+
+    def test_mysql_password_hash_round_trip(self):
+        for password in ['MockPasswordOnly#0123456789', '#MockPasswordOnly0123456789',
+                         'MockPasswordOnly0123456789#', 'Mock!#%^*+=_-Password0123456789']:
+            with self.subTest(password=password):
+                options = runtime.mysql_options({'host': 'mock.invalid'}, {'username': 'mockadmin', 'password': password})
+                value = next(line.split('=', 1)[1] for line in options.splitlines() if line.startswith('password='))
+                self.assertEqual(value[0], '"')
+                self.assertEqual(parse_mysql_option_value(value), password)
+
+    def test_mysql_option_quote_escape_round_trip(self):
+        # Serializer-only inputs; quotes/backslashes/control characters remain forbidden in real passwords.
+        for value in ['mock"#quoted', "mock'#quoted", r'mock\n#literal', 'mock\\',
+                      ' mock with spaces ', 'mock\t\n\r\b#control']:
+            with self.subTest(value=value):
+                options = runtime.mysql_options({'host': 'mock.invalid'}, {'username': 'mockadmin', 'password': value})
+                encoded = next(line.split('=', 1)[1] for line in options.splitlines() if line.startswith('password='))
+                self.assertEqual(parse_mysql_option_value(encoded), value)
+                self.assertEqual(len(options.splitlines()), 8)
+
+    def test_mysql_option_parser_reference_cases(self):
+        self.assertEqual(parse_mysql_option_value('MockPasswordOnly#0123456789'), 'MockPasswordOnly')
+        self.assertEqual(parse_mysql_option_value('"MockPasswordOnly#0123456789" # comment'), 'MockPasswordOnly#0123456789')
+        self.assertEqual(parse_mysql_option_value(r'''"mock\"#quoted"'''), 'mock"#quoted')
+        self.assertEqual(parse_mysql_option_value(r'''"mock\\n\s\S"'''), 'mock\\n \\S')
+
+    def test_runtime_username_collision_rejected_before_sql(self):
+        for username in ['epicbookapp', 'EpicBookApp', 'EPICBOOKAPP']:
+            for operation in [runtime.prepare, runtime.verify]:
+                with self.subTest(username=username, operation=operation.__name__):
+                    client = unittest.mock.Mock()
+                    client.get_secret_value.return_value = {'SecretString': json.dumps({
+                        'username': username, 'password': 'MockPasswordOnly#0123456789'})}
+                    boto = types.SimpleNamespace(client=unittest.mock.Mock(return_value=client))
+                    conf = types.SimpleNamespace(Config=lambda **kwargs: kwargs)
+                    with patch.dict('sys.modules', {'boto3': boto, 'botocore.config': conf}), \
+                         patch.object(runtime, 'run_sql') as sql, patch.object(runtime, 'initialize_database') as initialize, \
+                         patch.object(runtime, 'RUNTIME') as directory, \
+                         patch.object(runtime.tempfile, 'TemporaryDirectory', side_effect=AssertionError('No files before validation')) as temporary:
+                        directory.mkdir.side_effect = AssertionError('No files before validation')
+                        with self.assertRaisesRegex(ValueError, 'reserved'):
+                            operation({'region': 'eu-west-1', 'secret_arn': 'mock-only', 'host': 'mock.invalid'})
+                        sql.assert_not_called()
+                        initialize.assert_not_called()
+                        directory.mkdir.assert_not_called()
+                        temporary.assert_not_called()
+
+    def test_noncolliding_username_and_hash_password_accepted(self):
+        credentials = {'username': 'mockadmin', 'password': 'MockPasswordOnly#0123456789'}
+        client = unittest.mock.Mock()
+        client.get_secret_value.return_value = {'SecretString': json.dumps(credentials)}
+        boto = types.SimpleNamespace(client=unittest.mock.Mock(return_value=client))
+        conf = types.SimpleNamespace(Config=lambda **kwargs: kwargs)
+        with patch.dict('sys.modules', {'boto3': boto, 'botocore.config': conf}):
+            self.assertEqual(runtime.fetch_credentials({'region': 'eu-west-1', 'secret_arn': 'mock-only', 'host': 'mock.invalid'}), credentials)
+
+    def test_verify_preserves_hash_password_in_private_options(self):
+        original = tempfile.TemporaryDirectory
+        credentials = {'username': 'mockadmin', 'password': 'MockPasswordOnly#0123456789'}
+        with original() as directory:
+            base = Path(directory)
+            def sql(options, statement):
+                self.assertEqual(options.stat().st_mode & 0o777, 0o600)
+                value = next(line.split('=', 1)[1] for line in options.read_text().splitlines() if line.startswith('password='))
+                self.assertEqual(parse_mysql_option_value(value), credentials['password'])
+                return 'mock-only verification'
+            with patch.object(runtime, 'fetch_credentials', return_value=credentials), \
+                 patch.object(runtime, 'run_sql', side_effect=sql) as execute, patch('builtins.print'), \
+                 patch.object(runtime.tempfile, 'TemporaryDirectory', side_effect=lambda **kwargs: original(dir=base)):
+                runtime.verify({'host': 'mock.invalid'})
+            execute.assert_called_once()
+            self.assertEqual(list(base.iterdir()), [])
 
     def test_sql_password_not_on_command_line(self):
         response = types.SimpleNamespace(returncode=0, stdout='1\n')
@@ -127,10 +219,12 @@ class RuntimeTests(unittest.TestCase):
             base = Path(directory)
             ca = base / 'ca.pem'
             ca.write_text('mock-ca')
-            credentials = {'username': 'mockadmin', 'password': 'mock-only-not-real-secret-123'}
+            credentials = {'username': 'mockadmin', 'password': 'MockPasswordOnly#0123456789'}
             seen = []
             def sql(options, statement):
                 self.assertEqual(options.stat().st_mode & 0o777, 0o600)
+                value = next(line.split('=', 1)[1] for line in options.read_text().splitlines() if line.startswith('password='))
+                self.assertEqual(parse_mysql_option_value(value), credentials['password'])
                 seen.append(statement)
                 return '1'
             with patch.object(runtime, 'RUNTIME', base / 'run'), patch.object(runtime, 'CA', ca), \

@@ -79,8 +79,8 @@ variable "db_username" {
   sensitive   = true
   description = "RDS master username. Sensitive, but AWS stores this non-write-only field in Terraform state."
   validation {
-    condition     = can(regex("^[a-zA-Z][a-zA-Z0-9]{0,15}$", var.db_username)) && !contains(["admin", "root", "mysql", "rdsadmin"], lower(var.db_username))
-    error_message = "Use 1-16 alphanumeric characters starting with a letter; avoid reserved usernames."
+    condition     = can(regex("^[a-zA-Z][a-zA-Z0-9]{0,15}$", var.db_username)) && !contains(["admin", "root", "mysql", "rdsadmin", "epicbookapp"], lower(var.db_username))
+    error_message = "Use 1-16 alphanumeric characters starting with a letter; avoid reserved usernames, including epicbookapp."
   }
 }
 

@@ -24,7 +24,7 @@ No personal tool paths, raw logs, credentials or account metadata are published 
 ## Results
 
 Final completed run (2026-09-17): Terraform **1.13.5**, AWS provider **6.64.0**, macOS darwin_amd64.
-The expanded final suite passed **18 native mock runs and 46 standard-library tests**,
+The credential-fix suite passed **22 native mock runs and 52 standard-library tests**,
 with zero failures. Final rerun status: **PASS**.
 
 | Check | Verified result |
@@ -33,9 +33,9 @@ with zero failures. Final rerun status: **PASS**.
 | `terraform init -backend=false -lockfile=readonly -input=false` | PASS, existing filesystem mirror; no download or AWS calls |
 | `terraform validate` | PASS |
 | `terraform providers schema -json` plus `scripts/check-schema.py` | PASS: both credential fields sensitive/write-only; numeric version fields |
-| `terraform test -test-directory=tests` | PASS: 18 native mock runs, 0 failed |
+| `terraform test -test-directory=tests` | PASS: 22 native mock runs, 0 failed |
 | `bash -n` for user data and runner | PASS |
-| Python stdlib tests (runtime/privacy/cleanup/preservation suite) | PASS: 46 tests, 0 failed |
+| Python stdlib tests (runtime/privacy/cleanup/preservation suite) | PASS: 52 tests, 0 failed |
 
 The native mock tests check exact subnets, routing, SG restrictions, private TLS RDS,
 module wiring, encrypted disk/IMDSv2, user-data references/size, write-only unreadable
@@ -44,6 +44,19 @@ partial import failure, bounded retries, protected files, cleanup on error, limi
 DB grants, catalogue readiness versus default Nginx/failed service/HTTP, isolation,
 original assignment and all 35 manifest slots, and exact-ID cleanup-ledger rejection.
 A provider mock is not an AWS plan. A SQL/subprocess stub is not MySQL/Node/systemd.
+
+Credential regressions reproduced the previous helper's missing username guard and
+unquoted `#` password truncation using synthetic inputs only. Root and direct RDS-module
+mock tests now reject the application username as the master; runtime tests reject
+case variants before any SQL or credential-file creation in both `prepare` and `verify`.
+A distinct master and an allowed `#` password are accepted. Both orchestration paths
+preserve that password in protected temporary option files and remove those files.
+Serializer fixtures cover quoted comment characters, double quotes, backslashes,
+spaces and supported control escapes without broadening the allowed password alphabet.
+The test parser is a small independent model checked against the public
+[MySQL 8.4 option-file rules](https://docs.oracle.com/cd/E17952_01/mysql-8.4-en/option-files.html)
+and [8.4.0 parser implementation](https://github.com/mysql/mysql-server/blob/mysql-8.4.0/mysys/my_default.cc),
+not execution of a real MySQL parser, client or server.
 
 ## Source facts and explicit limits
 

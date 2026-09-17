@@ -12,6 +12,10 @@ variable "engine_version" { type = string }
 variable "db_username" {
   type      = string
   sensitive = true
+  validation {
+    condition     = lower(var.db_username) != "epicbookapp"
+    error_message = "The RDS master username must not be epicbookapp (case-insensitive); it is reserved for the application."
+  }
 }
 variable "db_password" {
   type      = string

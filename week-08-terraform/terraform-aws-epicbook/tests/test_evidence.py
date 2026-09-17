@@ -66,7 +66,7 @@ class EvidenceTests(unittest.TestCase):
 
     def test_record_identifies_mock_only_results(self):
         record = (ROOT / 'evidence/local-validation.md').read_text()
-        for required in ['OFFLINE ONLY', '18', '46', 'not runtime evidence', '35 screenshots remain pending']:
+        for required in ['OFFLINE ONLY', '22 native mock runs and 52 standard-library tests', 'not runtime evidence', '35 screenshots remain pending']:
             self.assertIn(required, record)
 
 

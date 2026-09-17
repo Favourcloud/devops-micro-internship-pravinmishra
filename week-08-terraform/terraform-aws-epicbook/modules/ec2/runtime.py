@@ -11,6 +11,7 @@ import sys
 import tempfile
 import time
 
+APP_DB_USERNAME = 'epicbookapp'
 APP = Path('/opt/epicbook')
 RUNTIME = Path('/run/epicbook')
 CA = Path('/etc/ssl/certs/rds-global-bundle.pem')
@@ -36,6 +37,8 @@ def fetch_credentials(config):
     credentials = json.loads(response['SecretString'])
     if not re.fullmatch(r'[A-Za-z][A-Za-z0-9]{0,15}', credentials['username']):
         raise ValueError('Unsupported database username')
+    if credentials['username'].lower() == APP_DB_USERNAME:
+        raise ValueError('Database username is reserved for the application')
     if not re.fullmatch(r'[A-Za-z0-9!#%^*+=_-]{24,64}', credentials['password']):
         raise ValueError('Unsupported password format')
     if not re.fullmatch(r'[A-Za-z0-9.-]+', config['host']):
@@ -43,10 +46,16 @@ def fetch_credentials(config):
     return credentials
 
 
+def mysql_option_value(value):
+    escapes = {'\\': '\\\\', '"': '\\"', '\b': '\\b', '\t': '\\t', '\n': '\\n', '\r': '\\r'}
+    return '"' + ''.join(escapes.get(char, char) for char in value) + '"'
+
+
 def mysql_options(config, credentials):
-    return ('[client]\nuser=' + credentials['username'] + '\npassword=' + credentials['password']
-            + '\nhost=' + config['host'] + '\nport=3306\nssl-mode=VERIFY_IDENTITY\nssl-ca='
-            + str(CA) + '\nconnect-timeout=10\n')
+    return ('[client]\nuser=' + mysql_option_value(credentials['username'])
+            + '\npassword=' + mysql_option_value(credentials['password'])
+            + '\nhost=' + mysql_option_value(config['host']) + '\nport=3306\nssl-mode=VERIFY_IDENTITY\nssl-ca='
+            + mysql_option_value(str(CA)) + '\nconnect-timeout=10\n')
 
 
 def run_sql(options, sql):
@@ -72,7 +81,7 @@ def initialize_database(execute, app=APP):
 
 
 def app_config(host, password, ca):
-    return {'production': {'username': 'epicbookapp', 'password': password, 'database': 'bookstore',
+    return {'production': {'username': APP_DB_USERNAME, 'password': password, 'database': 'bookstore',
             'host': host, 'port': 3306, 'dialect': 'mysql', 'logging': False,
             'dialectOptions': {'ssl': {'ca': ca, 'rejectUnauthorized': True}}}}
 
@@ -90,10 +99,10 @@ def prepare(config):
         retry(lambda: execute('SELECT 1;'))
         initialize_database(execute)
         password = secrets.token_hex(24)
-        execute("CREATE USER IF NOT EXISTS 'epicbookapp'@'%' IDENTIFIED BY '" + password + "' REQUIRE SSL;\n"
-                "ALTER USER 'epicbookapp'@'%' IDENTIFIED BY '" + password + "' REQUIRE SSL;\n"
+        execute(f"CREATE USER IF NOT EXISTS '{APP_DB_USERNAME}'@'%' IDENTIFIED BY '{password}' REQUIRE SSL;\n"
+                f"ALTER USER '{APP_DB_USERNAME}'@'%' IDENTIFIED BY '{password}' REQUIRE SSL;\n"
                 "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, INDEX, REFERENCES "
-                "ON bookstore.* TO 'epicbookapp'@'%';")
+                f"ON bookstore.* TO '{APP_DB_USERNAME}'@'%';")
         target = RUNTIME / 'config.json'
         target.write_text(json.dumps(app_config(config['host'], password, CA.read_text())))
         target.chmod(0o640)
