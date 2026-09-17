@@ -1,8 +1,10 @@
-# Assignment 1 — Self-hosted Ubuntu agent: offline foundation
+# Assignment 1 — Self-hosted Ubuntu agent: foundation and VM pilot
 
-Learner: **Eze Favour**. **Source preparation only — assignment not complete.**
+Learner: **Eze Favour**. **Assignment not complete — agent and evidence still pending.**
 
-This project does not provision, register, install, start, or contact anything. No VM, PAT, agent pool, Online agent, successful Azure run, or screenshot has been verified. All seven [evidence slots](evidence/manifest.json) remain pending and all eight original checklist items remain unchecked. Local test success is not live evidence.
+The original offline foundation was **source preparation only** and was merged in PR #14. A separately authorized **2026-09-17 Azure VM pilot** subsequently provisioned an isolated Ubuntu-image VM and verified its cleanup before the approved deadline. See the [Terraform adaptation and actual run record](azure-vm/README.md). SSH was not attempted: the late-enabled boot log did not provide a trusted host fingerprint. The adaptation now enables managed boot diagnostics from creation; first-boot fingerprint retrieval still needs live verification.
+
+No PAT, agent pool, registered/Online agent, successful Azure pipeline, or screenshot is verified. All seven [evidence slots](evidence/manifest.json) remain pending and all eight original checklist items remain unchecked. Local test success is not live evidence. The read-only candidate helper and manual-only verification YAML remain unchanged; neither performs provisioning or registration.
 
 ## Deliverables
 
@@ -10,6 +12,7 @@ This project does not provision, register, install, start, or contact anything. 
 - [`validate_candidate.py`](validate_candidate.py): read-only validation of an explicitly supplied, allowlisted JSON candidate; optional SHA-256 comparison of an already acquired archive. It never executes the archive, `config.sh`, shell commands, network requests, package installation, or service operations.
 - [`candidate.example.json`](candidate.example.json): deliberately incomplete input, which must fail validation. It is not a host inventory or package pin.
 - [`tests/`](tests/): stdlib unit/fixture and contract tests, including original-brief preservation and a real YAML parse using existing Ruby/Psych.
+- [`azure-vm/`](azure-vm/README.md): separately approved key-only Terraform adaptation, nonprivileged agent-account bootstrap, saved-plan checker, mocked/offline tests and sanitized VM-pilot receipt. It performs no agent installation or registration.
 
 ## Offline validation
 
@@ -47,7 +50,7 @@ Reuse reviewed Week 08 source as a reference, not proof that old resources remai
 | [Azure VM (Week 08 A1)](../../week-08-terraform/terraform-azure-vm/README.md) / [source](../../week-08-terraform/terraform-azure-vm/main.tf) | Ubuntu 22.04, controller-only SSH, explicit region/SKU, private local state | Password SSH is deliberately enabled for that earlier assignment; it is not the desired key-only agent baseline. A separate reviewed Terraform adaptation is needed for key-only SSH and chosen capacity/architecture. No agent account or agent package is installed. |
 | [AWS VM (Week 08 A2)](../../week-08-terraform/terraform-aws-vm/README.md) / [source](../../week-08-terraform/terraform-aws-vm/main.tf) | Ubuntu 24.04 x86_64, key-based controller-only SSH, encrypted 8 GiB root disk, Nginx bootstrap and public HTTP | It is a web lab, not a dedicated agent: remove public port 80 and Nginx through a separately reviewed Terraform adaptation, size the disk, and review outbound dependencies. No agent account or package is installed. |
 
-Neither template is an A1-ready provisioner unchanged. This delivery copies no provider project and changes neither reference. All cloud resource changes must go through reviewed Terraform with approved inputs/state ownership; do not modify AWS/Azure resources manually or run Terraform here. Never inspect or publish earlier private state/tfvars. No cost/free-tier assumption is made. Do not attach a cloud instance role or managed identity to this verification-only agent unless separately justified and approved; builds can otherwise inherit that access.
+Neither template is an A1-ready provisioner unchanged. The original offline delivery changed neither reference; the later [key-only Azure adaptation](azure-vm/README.md) resolves the password-SSH gap without modifying Week 08 or Week 09. All cloud resource changes must go through reviewed Terraform with approved inputs/state ownership; do not modify AWS/Azure resources manually. The recorded pilot's permission and lifetime have ended: another VM requires fresh scoped authorization and the adaptation's reviewed plan/cleanup procedure. Never inspect or publish earlier private state/tfvars. No cost/free-tier assumption is made. Do not attach a cloud instance role or managed identity to this verification-only agent unless separately justified and approved; builds can otherwise inherit that access.
 
 The host needs outbound TLS/DNS access to the organization's documented Azure DevOps endpoints and approved package/update sources. The agent initiates communication: no inbound agent port is required. Restrict inbound SSH to the approved operator and verify the host key out of band; never bypass host-key checking. Do not open SSH to the world to troubleshoot. Confirm Ubuntu and architecture after authorized SSH with `cat /etc/os-release` and `uname -m`; these commands are instructions, not recorded execution.
 

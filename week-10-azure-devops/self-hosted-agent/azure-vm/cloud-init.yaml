@@ -1,0 +1,15 @@
+#cloud-config
+package_update: false
+package_upgrade: false
+ssh_pwauth: false
+users:
+  - default
+  - name: azdoagent
+    gecos: Azure DevOps isolated agent
+    shell: /bin/bash
+    lock_passwd: true
+    sudo: false
+    groups: []
+runcmd:
+  - [install, -d, -m, '0700', -o, azdoagent, -g, azdoagent, /home/azdoagent/azdo-agent]
+  - [chmod, '0700', /home/azdoagent]
