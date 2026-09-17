@@ -1,0 +1,272 @@
+{
+  "learner": "Eze Favour",
+  "assignment": "Week 08 Assignment 4",
+  "mode": "OFFLINE PREPARATION ONLY",
+  "slots": [
+    {
+      "number": 1,
+      "title": "Terraform Version",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-01-terraform-version.png",
+      "reason": "Existing Terraform 1.13.5 on darwin_amd64, checked locally by Copilot; not a learner installation record.",
+      "sha256": "74905a383cfbc2eaa6282a756690ea480a5b813fabe9b8dc437a47878cc550b5"
+    },
+    {
+      "number": 2,
+      "title": "AWS CLI Version",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-02-aws-cli-version.png",
+      "reason": "Existing AWS CLI 2.26.1 version output only; no AWS configuration, authentication, account or Region verification.",
+      "sha256": "1616b8c553a261315b2a36ec108fd7a86b31ef37d564c9e6270c8d9243e497cd"
+    },
+    {
+      "number": 3,
+      "title": "HashiCorp Terraform Extension",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-03-terraform-extension.png",
+      "reason": "Local VS Code view of the installed/enabled HashiCorp Terraform extension; Copilot-operated, not manual learner execution.",
+      "sha256": "b5fe534214b1f3bfec912102b7d39e55db44d39c8a2aff936afacfb615d03bd6"
+    },
+    {
+      "number": 4,
+      "title": "Modular Project Structure",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-04-modular-project-explorer.png",
+      "reason": "Partial requirement evidence: Explorer shows the complete module directories and terraform.tfvars.example only. The required private terraform.tfvars has not been created and remains gated.",
+      "sha256": "99e782968b8970769fefd2e0a9936b3248dc89032822a2ad560a74967eac2686"
+    },
+    {
+      "number": 5,
+      "title": "VPC and Subnets",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-05-vpc-subnets-source.png",
+      "reason": "VPC and public/private subnet source configuration only; no deployed VPC or subnets.",
+      "sha256": "97d36f568edc8c468591441a2b12e1b27691879748f2ad23730a76323189f208"
+    },
+    {
+      "number": 6,
+      "title": "Internet Gateway and Public Routing",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-06-internet-gateway-routing-source.png",
+      "reason": "Internet Gateway, public routing and association source configuration only; no created AWS resources.",
+      "sha256": "b3aa7ffe294fe648808105ac41da0f040fffddb2dea5eefa42ef9df214692b0c"
+    },
+    {
+      "number": 7,
+      "title": "EC2 and RDS Security Groups",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-07-security-groups-source.png",
+      "reason": "EC2/RDS security-group source, including EC2-referenced MySQL ingress; no live security-group verification.",
+      "sha256": "280487c353ec157ea77e7382e2b48c9839aca0dc6d1a85ecd0f59dd9bf505f6e"
+    },
+    {
+      "number": 8,
+      "title": "Network Module Outputs",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-08-network-outputs-source.png",
+      "reason": "Network output source expressions, not actual resource IDs or runtime values.",
+      "sha256": "c17b9f10c05cf0678fe8bb447c4d95793a9d1a08f5b1b8cec318fb8e606096b5"
+    },
+    {
+      "number": 9,
+      "title": "EC2 Resource and `user_data`",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-09-ec2-user-data-source.png",
+      "reason": "EC2 resource and user_data template connection source only; no instance launch or executed bootstrap.",
+      "sha256": "41b2f2cb68f065a83c9d56f5d7e21053cdf413072c45ae9c9b61df294a973728"
+    },
+    {
+      "number": 10,
+      "title": "`user_data.sh`",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-10-user-data-script-source.png",
+      "reason": "Native split-editor source excerpts at lines 21–47 and 83–117, with editor word-wrap. Not the whole script visible, an executed script, or a synthetic composite.",
+      "sha256": "5b693296505f2524876a59ddb504d08fdc2da11b08a09d13c8f9860b90a9bd5d"
+    },
+    {
+      "number": 11,
+      "title": "EC2 Module Variables and Outputs",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-11-ec2-variables-outputs-source.png",
+      "reason": "Native split-editor variables and output source expressions, not actual instance IDs/public IPs or a synthetic composite.",
+      "sha256": "687f5d622976a63d549cbfcaf06a2e3e15091958cacfcf53a246a70959854bc8"
+    },
+    {
+      "number": 12,
+      "title": "DB Subnet Group and RDS MySQL",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-12-rds-subnet-group-source.png",
+      "reason": "DB subnet group and MySQL resource source only; no provisioned RDS instance.",
+      "sha256": "c6aacae07ef0e149946a68155ad21f1f12c5a40822d430623a2771b47a5d9cc6"
+    },
+    {
+      "number": 13,
+      "title": "Private RDS and Sensitive Variables",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-13-private-rds-sensitive-inputs-source.png",
+      "reason": "Native split-editor private-RDS/SG and sensitive-variable declarations, not secret values, a running database or a synthetic composite.",
+      "sha256": "cbc0c47a6db67a3330585e4909a52c8bf5d8eb60223491c9d7d7fc781e5e3cf5"
+    },
+    {
+      "number": 14,
+      "title": "RDS Endpoint Output",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-14-rds-endpoint-output-source.png",
+      "reason": "RDS endpoint output source expressions, not an actual endpoint or runtime value.",
+      "sha256": "c4f48d85841e69410e2b26bffa41b4462ea88a73bfe59d90cdedfc46ab2bc2f4"
+    },
+    {
+      "number": 15,
+      "title": "Root Module Blocks",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-15-root-module-blocks-source.png",
+      "reason": "Native split-editor root Network/EC2/RDS module blocks, not applied modules or a synthetic composite.",
+      "sha256": "08170ece7ce9ca3b85588d449ea7ee34941f8b9e8df52cd9c6479fcec79191f2"
+    },
+    {
+      "number": 16,
+      "title": "Values Passed Between Modules",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-16-module-value-wiring-source.png",
+      "reason": "Cross-module subnet/SG input source wiring, not values returned by deployed resources.",
+      "sha256": "003d0ab6c45187b0e36d875167e77fc920e32dc6eddc4b8eb80c39c4000c1d8e"
+    },
+    {
+      "number": 17,
+      "title": "Root Outputs",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-17-root-outputs-source.png",
+      "reason": "Root public-IP and RDS-endpoint output source expressions, not actual public IPs, endpoints or runtime values.",
+      "sha256": "881e1e08d96d66df4b767c14dcd6e1a6f3b4dfcfe96aad557edadc1b36182cdd"
+    },
+    {
+      "number": 18,
+      "title": "Terraform Initialization",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-18-terraform-init.png",
+      "reason": "Successful local terraform init -input=false -lockfile=readonly, credential-free with the existing filesystem-only provider mirror. Implicit default local backend; no backend metadata .tfstate or managed state at the root/default or .private path was created. TF_DATA_DIR is metadata-only, not a state-path override. This was not backend-disabled init or a cloud operation.",
+      "sha256": "63f21e7e267f5cdef715131c10832df1601021e381275b5f364006ecb5e8e96f"
+    },
+    {
+      "number": 19,
+      "title": "Terraform Validation",
+      "status": "captured_local",
+      "file": "screenshots/screenshot-19-terraform-validate.png",
+      "reason": "Successful local terraform validate, separately executed by Copilot; not a live plan, apply or deployment.",
+      "sha256": "0667f8faac7aec1b2410c22c9e5e105af4dea6ad5386e2ad3da0a3273fd3ec6f"
+    },
+    {
+      "number": 20,
+      "title": "Terraform Plan",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 21,
+      "title": "Terraform Apply",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 22,
+      "title": "Terraform Outputs",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 23,
+      "title": "EC2 Running",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 24,
+      "title": "Private RDS Available",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 25,
+      "title": "Installed Software and Nginx",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 26,
+      "title": "EC2-to-RDS Connection",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 27,
+      "title": "EpicBook Tables and Imported Data",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 28,
+      "title": "Dependencies and `node_modules`",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 29,
+      "title": "Nginx Configuration and Service",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 30,
+      "title": "EpicBook on Port `8080`",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 31,
+      "title": "EpicBook Through the EC2 Public IP",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 32,
+      "title": "Cart or Checkout Action",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 33,
+      "title": "Corresponding RDS Record",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 34,
+      "title": "Terraform Destroy",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    },
+    {
+      "number": 35,
+      "title": "Published LinkedIn Post",
+      "status": "pending",
+      "file": null,
+      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+    }
+  ],
+  "provenance": "provenance.json"
+}

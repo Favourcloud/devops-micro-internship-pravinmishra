@@ -1,0 +1,13 @@
+# TEMPLATE ONLY. Copy to ignored terraform.tfvars only after fresh authorization.
+# Region/AZs and key name must be independently confirmed; values here grant no consent.
+aws_region         = "eu-west-1"
+availability_zones = ["eu-west-1a", "eu-west-1b"]
+controller_cidr    = "203.0.113.10/32" # Documentation-only IP: replace with controller public IPv4.
+key_name           = "REPLACE-WITH-EXISTING-LAB-KEY"
+project_name       = "eze-favour-epicbook"
+ec2_instance_type  = "t3.micro"
+db_instance_class  = "db.t3.micro"
+mysql_version      = "8.4"
+credential_version = 1
+accept_lab_data_loss = false # Deliberately fails until explicitly reviewed and accepted.
+# Do not put db_password or db_username here. Supply through private interactive input.
