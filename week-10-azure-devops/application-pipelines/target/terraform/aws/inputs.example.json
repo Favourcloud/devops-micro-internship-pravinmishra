@@ -1,0 +1,17 @@
+{
+  "aws_region": null,
+  "account_id": null,
+  "operator_arn": null,
+  "ami_id": null,
+  "operator_public_key": null,
+  "name_prefix": null,
+  "controller_ipv4_cidr": null,
+  "agent_ipv4_cidr": null,
+  "approval": {
+    "live_execution_approved": false,
+    "approved_at": null,
+    "expires_at": null,
+    "estimated_total_usd": null,
+    "planning_allowance_usd": null
+  }
+}

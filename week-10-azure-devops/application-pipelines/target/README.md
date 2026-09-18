@@ -15,10 +15,13 @@ and service, and the assignment marker. The input helper is read-only.
   provider-enforced spending cap. Never deploy or create IAM users using AWS root.
 - Provision a **dedicated, fresh Ubuntu 22.04 or 24.04 target** through reviewed
   Terraform. A2 requires AWS; A3 needs a separate target. Do not reuse either A1's
-  agent host or A2's grading host for A3. Terraform adaptations are **still pending**:
-  use the linked Week08 references only after removing their web/app cloud-init
-  bootstrap and restricting SSH to the controller and agent's approved `/32`s.
-  Do not copy old state/keys or assume an older resource is still running.
+  agent host or A2's grading host for A3. The new [narrow Terraform roots](terraform/README.md)
+  omit web/app bootstrap and restrict SSH to the controller and agent's approved
+  `/32`s. Shared guard, AWS and Azure schema/mock-plan checks passed after the
+  explicitly approved AWS provider restoration. Actual deployment identity,
+  pricing/quota, plan review and execution are separate gates. Neither target has
+  been provisioned. Do not copy old state/keys or assume an older resource is still
+  running.
 - Verify the target image, administrator, fixed public IPv4s and independently
   authenticated SSH host key. This playbook requires an inventory with exactly
   one `week10_web` host and a separate, non-root administrator with reviewed sudo
@@ -81,16 +84,25 @@ ANSIBLE_CONFIG="$PWD/ansible.cfg" ansible-playbook \
 ```
 
 Run the [parent's offline test command](../README.md#offline-checks) from the
-repository root. Its **74 tests** include 24 target input/source-contract tests,
-real YAML parsing and negative cases, in addition to the existing pipeline/payload
-checks. These tests deny network and filesystem writes. Separate real Ansible
-syntax and in-memory expression checks, plus both Jinja render branches, passed
-with network denied and writes confined to owned Ansible scratch. An attempted
-controller-only playbook execution was blocked by the sandbox at Ansible's local
-RPC startup; it is **not** a successful negative-preflight execution. The guard was
-not relaxed. Actual task execution and idempotence remain pending. Use a cleared
-environment and never an existing authenticated inventory for offline tests.
-These checks are not deployment evidence.
+repository root. Its **86 tests** include 24 target input/source-contract tests and
+12 Terraform source contracts, real YAML parsing and negative cases, in addition
+to the existing pipeline/payload checks. These tests deny network and filesystem
+writes. Separate real Ansible syntax and in-memory expression checks, plus both
+Jinja render branches, passed with network denied and writes confined to owned
+Ansible scratch.
+
+The initial controller-only CLI attempt was blocked at local RPC startup, not a
+successful preflight test. A follow-up passed **four real controller-only negative
+cases**: empty inventory group, invalid public input, root operator and missing
+trusted host-key file. Each exited at its expected controller rejection before the
+remote configuration play. This required explicit local Unix-IPC and discard-only
+`/dev/null` exceptions, with IP networking and SSH execution still denied. Both
+`ANSIBLE_LOCAL_TEMP` and `ANSIBLE_REMOTE_TEMP` (also used by the local connection),
+`ANSIBLE_HOME` and `TMPDIR` were confined to short, owner-only invocation scratch;
+HOME was `/nonexistent`, the environment cleared and bytecode disabled. Earlier
+stdio/temp-path sandbox failures are not counted as successful preflight tests.
+Use only synthetic inventories for these checks. Actual remote task execution,
+Nginx runtime and idempotence remain pending. These checks are not deployment evidence.
 
 Only after the live gates above are satisfied, a human may review and execute:
 
