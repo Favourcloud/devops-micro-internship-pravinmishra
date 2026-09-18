@@ -8,8 +8,8 @@ needs its own approval and state. Do not reuse an agent as either web target.
 | Root | Prepared shape | Current validation / live gate |
 | --- | --- | --- |
 | `guard/` | Shared explicit approval, assignment, SSH sources, time and estimate contract | Provider-free validation and 19 native **plan** tests passed |
-| `aws/` — A2 | One Ubuntu 24.04 x86_64 `t3.micro`, dedicated VPC/subnet/Internet route, scoped SSH, public lab HTTP | AWS schema validation and five native **mock plan** tests passed after explicitly approved provider restoration; a scoped non-root deployment identity and fresh live review remain required |
-| `azure/` — A3 | One Ubuntu 22.04 Gen2 `Standard_D2lds_v6` in UK South, separate network, scoped SSH, public lab HTTP | AzureRM schema validation and six native **mock plan** tests passed; fresh identity, quota, image, pricing and live execution remain pending |
+| `aws/` — A2 | One Ubuntu 24.04 x86_64 `t3.micro`, dedicated VPC/subnet/Internet route, scoped SSH, public lab HTTP | AWS schema validation and 13 native **mock plan** tests passed, including exact federated-session binding and root rejection; restricted read-only AWS access was verified, but deployment permissions and a fresh live plan remain required |
+| `azure/` — A3 | One Ubuntu 22.04 Gen2 `Standard_D2lds_v6` in UK South, separate network, scoped SSH, public lab HTTP | AzureRM schema validation and six native **mock plan** tests previously passed; metadata for the same SKU was rechecked below, but A3-specific approved inputs, complete cost review, actual capacity and live execution remain pending |
 
 Each cloud root declares **eight cloud resources plus one local `terraform_data`
 approval resource**. The Azure VM includes its billable managed OS disk; AWS includes
@@ -32,12 +32,17 @@ reviewed provider lockfile text is reused, unchanged.
    identity, account/subscription, region, target, SSH sources, keys, costs,
    lifetime and cleanup. Do not turn repeated “proceed” messages into a renewed
    time window. These definitions authorize nothing by themselves.
-2. **Never use AWS root**, including for access bootstrapping or cleanup. Obtain
+2. **AWS root must not operate Terraform, targets, pipelines or cleanup.** Prefer
    an existing approved IAM/SSO identity through the account administrator. Bind
-   `account_id` and the exact non-root IAM-user/assumed-role-session `operator_arn`.
-   A changed session requires identity re-review. Azure binds subscription, tenant
-   and operator object ID; required resource providers must already be registered.
-   Do not enable automatic subscription-wide registration to bypass a failure.
+   `account_id` and the exact non-root IAM-user, assumed-role-session or restricted
+   STS federated-user `operator_arn`. ARN matching identifies the caller; it does
+   not prove least privilege or permission to deploy. Review session policy, expiry
+   and cleanup access independently. A changed session requires identity re-review.
+   See the [restricted-session preparation](#restricted-session-preparation) below
+   for the expressly authorized one-off credential-issuance exception, not a general
+   root bootstrap procedure. Azure binds subscription, tenant and operator object
+   ID; required resource providers must already be registered. Do not enable
+   automatic subscription-wide registration to bypass a failure.
 3. Verify the exact regional image and compatibility before filling the null
    input. A2 requires a public Canonical (`099720109477`) available Ubuntu 24.04
    amd64 HVM/EBS AMI with the reviewed Noble gp3 image name. The owner ID is the
@@ -73,6 +78,74 @@ production use. AWS explicitly permits TCP 80/443 egress for package repositorie
 AWS-provided DNS has its own platform behavior. Azure retains standard NSG outbound
 rules. Neither is an application-aware egress filter. The key-only administrators
 (`ubuntu` / `labadmin`) are for reviewed Ansible setup, **not pipeline deployment**.
+
+## Restricted-session preparation
+
+AWS [GetFederationToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html)
+can issue restricted temporary credentials without creating an IAM user, role or
+permanent access key. AWS permits, but **does not recommend**, root as the issuer;
+root-issued sessions last at most one hour. Prefer approved workforce/IAM access.
+Use root for this exceptional issuance only with explicit fresh permission; these
+files neither issue credentials nor authorize doing so. The target still rejects
+root itself. Federated session names must contain 2–32 allowed characters with no
+path; IAM user and STS principal namespaces are checked separately.
+
+For read-only readiness, pass an exact read allowlist plus an explicit **Deny with
+NotAction** for everything else and a regional restriction for EC2. An Allow-only
+session policy is insufficient isolation from additional resource-policy grants to
+a session. Do not authorize console federation, IAM administration or writes. Verify
+the returned caller/account and expiration through the restricted credentials,
+not through the issuing root login. A genuine EC2 `--dry-run` authorization denial
+can check rejection without creating a resource; it is not an apply or a deployment
+permission check. Never retry it without `--dry-run`.
+
+On 18 September 2026 an explicitly approved, one-hour **read-only federated session**
+was issued and verified: EC2 reads succeeded and CreateVpc dry-run authorization was
+denied. No permanent IAM identity or cloud resource was created. This resolves the
+root-only **readiness** access issue, not deployment permissions. The immutable
+expiry was **15:04:43 UTC**, within the original 16:15:07.889 UTC window; neither
+session renewal nor a new budget is implied. The invocation's temporary credential
+file was removed after the readiness checks without reading its contents; this is
+not server-side revocation, and the original root credentials were not changed.
+Fresh Canonical AMI, instance offering, quota and price reads are not VM capacity,
+a reviewed live plan or application proof.
+
+Keep temporary credentials only in an invocation-owned, mode-0600 SDK credential
+file outside the repository, inside a mode-0700 directory. Pass SDK **file paths**,
+not credential values, to isolated processes; clear other credential sources and
+disable metadata fallback. Never use command arguments, exported credential values,
+Terraform variables/state, shell tracing, logs, agent hosts or pipeline variables
+for the credentials. Remove the invocation's temporary credential file when finished;
+local deletion is not server-side revocation. Preserve only sanitized metadata and
+let the service-enforced expiry retire this read-only session. Do not rotate/delete
+the user's original root key as an implicit cleanup step.
+
+This session deliberately **cannot apply or destroy**. A write-capable deployment
+session needs a separately reviewed least-privilege policy, fresh identity/input/plan
+checks and guaranteed access through cleanup. No such policy or automatic renewal
+is supplied here. The fresh agent's real egress IP is also still required; never put
+a synthetic address into a live input to manufacture a passing plan.
+
+### Actual readiness snapshot — 18 September 2026
+
+| Check | Actual observation; not deployment evidence |
+| --- | --- |
+| AWS A2 image | Public Canonical `ami-03cf5768bcc686a8c`, `ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20260904`, available x86_64 HVM/EBS in `eu-west-2`, with no product codes |
+| AWS eligibility | `t3.micro` listed in four availability zones; standard on-demand vCPU quota was 5. Current quota consumption and actual launch capacity were not verified |
+| AWS public rates | Linux `t3.micro` US$0.0118/hour; gp3 US$0.0928/GB-month; public IPv4 US$0.005/hour. These are component rates, not the combined deployment estimate or an invoice |
+| Azure agent prerequisites | Enabled approved subscription and signed-in object verified; exact Ubuntu Gen2 image `22.04.202608060`; selected `Standard_D2lds_v6` had zone-2/3 restrictions but no location restriction. Regional and Dldsv6-family use were each 0/10 vCPUs; required providers were already registered |
+| Azure public rates | Linux VM US$0.131/hour, 32 GiB S4 LRS disk US$1.69/month, Standard public IPv4 US$0.005/hour. Transfer, disk operations and applicable diagnostics/storage charges still need the complete-window review |
+| Azure discovery recovery | CLI SKU enumeration timed out; bounded direct read-only ARM catalogue retrieval succeeded. The timeout was not counted as a passed check |
+| **Azure DevOps access gate** | The current Azure token received a login redirect, then **HTTP 401 / TF400813** from the exact private-project endpoint with redirects suppressed. This does not invalidate an existing browser login; it shows this API identity/token is not authorized through the attempted method. The Azure DevOps CLI extension was absent and was not installed |
+| Live outcome | No PAT, permanent IAM identity, VM, agent registration or application pipeline run was created. **No real target plan was generated:** the fresh agent's actual IP and deployment access are still missing. No new cleanup safeguard was needed because no cloud resources were allocated |
+
+An authorized Azure DevOps organization sign-in or fresh, minimally scoped PAT is
+needed before agent registration can proceed. Use a hidden local input channel,
+**never chat, arguments, environment exports or screenshots**, for a PAT. Do not
+change organization membership, tenant association or permissions just to bypass
+this denial. A2/A3 write-scoped access, complete cost review, authentic SSH trust,
+exact live inputs/plan and an independent cleanup safeguard remain separate gates.
+Do not renew the original window or infer a successful agent from these reads.
 
 ## Protected input, plan and state workflow
 
@@ -179,6 +252,11 @@ mock-plan tests. All original briefs/evidence remain unchanged. The native check
   test now checks known plan values, while the source-contract suite independently
   rejects any `user_data_base64` configuration. No mock apply was substituted for
   the failed plan assertion, and no live AWS operation was performed by the tests.
+- The subsequent federated-caller increment re-ran AWS formatting, schema validation
+  and **13 mock plans**, plus **86 application/source and 43 A1/preservation tests**.
+  It retained runtime/input root rejection and added exact federated caller/account,
+  namespace and name-shape cases. The shared guard/Azure tests above are unchanged
+  historical results, not additional runs claimed for this increment.
 
 For native tests use a cleared environment, `HOME=/nonexistent`, checkpointing
 disabled, separate fresh `TF_DATA_DIR`s and a filesystem-only provider mirror

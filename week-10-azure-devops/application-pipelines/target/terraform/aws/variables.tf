@@ -22,8 +22,8 @@ variable "operator_arn" {
   nullable  = false
   sensitive = true
   validation {
-    condition     = can(regex("^arn:aws:(iam|sts)::[0-9]{12}:(user/|assumed-role/)[A-Za-z0-9+=,.@_/-]+$", var.operator_arn))
-    error_message = "Supply the exact approved non-root IAM user or assumed-role session ARN; never bootstrap access using root."
+    condition     = can(regex("^arn:aws:(iam::[0-9]{12}:user/[A-Za-z0-9+=,.@_/-]+|sts::[0-9]{12}:assumed-role/[A-Za-z0-9+=,.@_/-]+|sts::[0-9]{12}:federated-user/[A-Za-z0-9+=,.@_-]{2,32})$", var.operator_arn))
+    error_message = "Supply the exact approved non-root IAM user, assumed-role or restricted federated-user session ARN; root cannot operate this target."
   }
 }
 

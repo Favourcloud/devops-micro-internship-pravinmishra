@@ -90,6 +90,94 @@ run "root_input_rejected" {
   expect_failures = [var.operator_arn]
 }
 
+run "restricted_federated_session" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:sts::000000000000:federated-user/synthetic-session"
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = {
+      account_id = "000000000000"
+      arn        = "arn:aws:sts::000000000000:federated-user/synthetic-session"
+    }
+  }
+  assert {
+    condition     = data.aws_caller_identity.current.arn == var.operator_arn
+    error_message = "A federated caller must match the exact approved non-root session."
+  }
+}
+
+run "federated_session_mismatch" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:sts::000000000000:federated-user/different-session"
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = {
+      account_id = "000000000000"
+      arn        = "arn:aws:sts::000000000000:federated-user/synthetic-session"
+    }
+  }
+  expect_failures = [aws_vpc.target]
+}
+
+run "federated_account_mismatch" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:sts::111111111111:federated-user/synthetic-session"
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = {
+      account_id = "111111111111"
+      arn        = "arn:aws:sts::111111111111:federated-user/synthetic-session"
+    }
+  }
+  expect_failures = [aws_vpc.target]
+}
+
+run "federated_wrong_service_rejected" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:iam::000000000000:federated-user/synthetic-session"
+  }
+  expect_failures = [var.operator_arn]
+}
+
+run "federated_path_rejected" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:sts::000000000000:federated-user/path/session"
+  }
+  expect_failures = [var.operator_arn]
+}
+
+run "federated_short_name_rejected" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:sts::000000000000:federated-user/a"
+  }
+  expect_failures = [var.operator_arn]
+}
+
+run "federated_long_name_rejected" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:sts::000000000000:federated-user/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+  expect_failures = [var.operator_arn]
+}
+
+run "iam_user_wrong_service_rejected" {
+  command = plan
+  variables {
+    operator_arn = "arn:aws:sts::000000000000:user/synthetic-operator"
+  }
+  expect_failures = [var.operator_arn]
+}
+
 run "floating_ami_rejected" {
   command = plan
   variables {
