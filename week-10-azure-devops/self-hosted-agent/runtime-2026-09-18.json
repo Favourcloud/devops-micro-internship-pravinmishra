@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "assignment": "week-10-assignment-01",
+  "status": "technical_trial_succeeded_and_cleaned_submission_pending",
+  "date_utc": "2026-09-18",
+  "execution": "Assistant-operated under fresh user authorization; not a claim of learner-performed steps or reflections.",
+  "authorization": {
+    "operating_expires_at": "2026-09-18T11:01:05.989Z",
+    "retired": true,
+    "authorizes_future_runtime": false
+  },
+  "agent_trial": {
+    "os": "Ubuntu 22.04",
+    "architecture": "x86_64",
+    "agent_version": "5.279.0",
+    "published_package_digest_verified": true,
+    "bundled_runtime_verified_on_host": true,
+    "registered_agent_id": 17,
+    "pool_id": 11,
+    "service_user": "azdoagent",
+    "service_running_nonroot_verified": true,
+    "online_verified_during_trial": true
+  },
+  "manual_run": {
+    "definition_id": 1,
+    "run_id": 1,
+    "run_url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=1&view=results",
+    "branch": "refs/heads/main",
+    "source_commit": "aef39187af3b62f0508f831b3282ac052ddb3dae",
+    "pool_name": "DMI-Week10-A1",
+    "queue_id": 11,
+    "queued_at": "2026-09-18T10:29:45.5667806Z",
+    "started_at": "2026-09-18T10:29:56.0222453Z",
+    "finished_at": "2026-09-18T10:30:20.1368875Z",
+    "status": "completed",
+    "result": "succeeded",
+    "worker_matches_registered_agent": true,
+    "commands_verified": ["uname -a", "whoami", "df -h"],
+    "whoami": "azdoagent",
+    "task_log_sha256": "d387b7b6bdb4f77c9b81bcf77ec2c8e47c056bd8ccc9f3356d19eefa35043659"
+  },
+  "cleanup": {
+    "service_stopped_disabled_uninstalled": true,
+    "terraform_delete_apply_exit_code": 0,
+    "terraform_cleanup_verified_at": "2026-09-18T10:41:37.044449Z",
+    "terraform_state_empty": true,
+    "resource_group_absent": true,
+    "vm_absent": true,
+    "os_disk_absent": true,
+    "public_ip_absent": true,
+    "agent_removal_verified_at": "2026-09-18T10:53:08.461173Z",
+    "agent_absent": true,
+    "pool_registered_agent_count": 0,
+    "successful_run_retained_after_cleanup": true,
+    "session_cleanup_backstop_cleared": true
+  },
+  "submission": {
+    "screenshots_captured": 0,
+    "required_screenshot_slots": 7,
+    "original_checklist_items_checked": 0,
+    "required_checklist_items": 8,
+    "learner_notes": "pending",
+    "pat_scope_verified": null,
+    "pat_expiry_verified": null,
+    "pat_revocation_verified": null,
+    "assignment_complete": false
+  },
+  "provenance": "Sanitized summary of authorized registration/service checks, actual Azure DevOps run metadata and task output, reviewed Terraform cleanup receipts, and an independent post-removal agent-list check. Private inputs, keys, credentials, Azure subscription/resource identifiers, state, plans and raw logs are not published. This receipt is not screenshot evidence; offline tests validate its structure and consistency, not the live facts."
+}
