@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-09-18T18:27:45.750272+00:00",
+  "status": "temporary-session-verified-deployment-not-started",
+  "operator": "authorized assistant",
+  "assignment_evidence": false,
+  "credential_issuance": {
+    "root_use_explicitly_authorized": true,
+    "root_used_only_for_sts_identity_and_issuance": true,
+    "expected_issuer_account_verified": true,
+    "expected_non_root_identity_independently_verified": true,
+    "identity_verified_at": "2026-09-18T18:27:22.426996+00:00",
+    "requested_duration_seconds": 3600,
+    "credential_expiration": "2026-09-18T19:27:20+00:00",
+    "permanent_iam_identity_or_key_created": false,
+    "root_used_by_terraform_or_pipeline": false,
+    "credential_values_published_or_forwarded_to_agent": false,
+    "policy_sha256": "ad4a00088be694e31e48bc85e897f975e2d0f169a81169cf1795cb494609da4f",
+    "policy_characters": 1856,
+    "policy_scope": "Explicit action allowlist/deny boundary, eu-west-2 EC2 fence, A2 request/resource-tag restrictions and fixed AMI exception; not unique-prefix isolation or proof every Terraform action succeeds"
+  },
+  "aws_checks": {
+    "region": "eu-west-2",
+    "tagged_create_vpc_dry_run": "DryRunOperation",
+    "untagged_create_vpc_dry_run": "UnauthorizedOperation",
+    "other_region_describe_vpcs": "UnauthorizedOperation",
+    "existing_a2_vpc_count": 0,
+    "ami_id": "ami-03cf5768bcc686a8c",
+    "ami_name": "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20260904",
+    "canonical_ami_available_x86_64_hvm_ebs_verified": true,
+    "standard_vcpu_quota": 5,
+    "quota_usage_or_launch_capacity_verified": false,
+    "all_apply_destroy_permissions_verified": false,
+    "live_cleanup_tested": false
+  },
+  "local_operation_tests": {
+    "passed": 16,
+    "credentials_used": false,
+    "network_denied": true,
+    "filesystem_writes_denied": true,
+    "scope": "Controller broker action/identity/lifetime/credential guards and synthetic policy-condition fixtures; not a full IAM simulator, application tests or live cleanup proof"
+  },
+  "resource_window": {
+    "approved_hours": 24,
+    "combined_planning_allowance_usd": 10,
+    "provider_enforced_spending_cap": false,
+    "activated": false,
+    "activated_at": null,
+    "expires_at": null,
+    "cleanup_lead_minutes": 45,
+    "credential_renewal_extends_resource_deadline": false
+  },
+  "outcome": {
+    "temporary_non_root_aws_session_created": true,
+    "cloud_resources_created": false,
+    "real_target_plan_generated": false,
+    "agent_registered": false,
+    "application_pipeline_run": false,
+    "application_deployed": false,
+    "screenshots_captured": 0,
+    "assignment_complete": false
+  }
+}
