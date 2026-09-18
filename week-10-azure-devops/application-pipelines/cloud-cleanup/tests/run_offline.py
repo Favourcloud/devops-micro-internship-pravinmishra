@@ -18,7 +18,7 @@ spec.loader.exec_module(native)
 
 def source_files(root):
     provider = "azurerm" if root.name == "azure" else "aws"
-    files = sorted([*root.glob("*.tf"), root / ".terraform.lock.hcl", *root.glob("tests/*.tftest.hcl")])
+    files = sorted([*root.glob("*.tf"), *root.glob("*.json.tftpl"), root / ".terraform.lock.hcl", *root.glob("tests/*.tftest.hcl")])
     if not all(path.is_file() and not path.is_symlink() for path in files):
         raise ValueError("Only regular reviewed source and lockfiles are allowed.")
     for path in root.glob("tests/*.tftest.hcl"):
@@ -94,11 +94,12 @@ def main():
     terraform = args.terraform.resolve()
     native.source_files = source_files
     checks = {}
-    for phase in ("bootstrap", "canary"):
-        for cloud in ("azure", "aws"):
-            native.SOURCE = ROOT / phase / cloud
-            plugins = args.azure_plugin_dir if cloud == "azure" else args.aws_plugin_dir
-            checks[phase + "/" + cloud] = native.check(terraform, plugins.resolve())
+    roots = [("operator", "aws"), ("bootstrap", "azure"), ("bootstrap", "aws"),
+             ("canary", "azure"), ("canary", "aws")]
+    for phase, cloud in roots:
+        native.SOURCE = ROOT / phase / cloud
+        plugins = args.azure_plugin_dir if cloud == "azure" else args.aws_plugin_dir
+        checks[phase + "/" + cloud] = native.check(terraform, plugins.resolve())
     guards = [builtin_destroy(terraform, cloud) for cloud in ("azure", "aws")]
     print(json.dumps({"roots": checks, "builtin_guard_destroy_checks": guards,
                       "external_network_denied": True, "cloud_resources_created": False}, indent=2, sort_keys=True))
