@@ -1,0 +1,9 @@
+.private/
+.terraform/
+*.tfstate*
+*.tfplan
+*.tfvars
+*.tfvars.json
+!inputs.example.tfvars.json
+crash.log
+__pycache__/
