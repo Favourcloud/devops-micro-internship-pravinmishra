@@ -3,10 +3,12 @@
 **Eze Favour · Offline preparation, not a completed assignment.**
 
 This folder provides a read-only validator for the four-value manual
-Terraform-to-Ansible handoff, a deterministic JSON inventory formatter, and
-findings from the actual pinned instructor source. It does **not** provision
-infrastructure, create repositories, run Ansible, install Node packages, execute
-instructor JavaScript or SQL, register an agent, or produce submission evidence.
+Terraform-to-Ansible handoff, a deterministic JSON inventory formatter, findings
+from the actual pinned instructor source, and an [offline-tested Azure workload
+configuration](terraform/README.md). No infrastructure has been provisioned by
+this delivery. No repositories, Ansible runs, Node package installations,
+instructor JavaScript/SQL execution, agent registration or submission evidence
+are claimed.
 The [original assignment](../assignment-04-automate-epicbook-deployment-with-dual-pipelines.md)
 remains unchanged, with all 40 checklist items and six screenshot slots pending.
 
@@ -14,13 +16,29 @@ remains unchanged, with all 40 checklist items and six screenshot slots pending.
 
 | Repository | Required responsibility | Current gate |
 | --- | --- | --- |
-| `infra-epicbook` | Terraform, private Azure Storage remote state, reviewed saved-plan approval/apply pipeline, four non-sensitive outputs | Repository, infrastructure source, Azure identity/scope, prices, retention budget and live run pending |
+| `infra-epicbook` | Terraform, private Azure Storage remote state, reviewed saved-plan approval/apply pipeline, four non-sensitive outputs | Workload Terraform source tested offline; repository, state bootstrap, pipeline, Azure identity/scope, prices, retention budget and live run pending |
 | `theepicbook` | Reviewed application source, idempotent Ansible and a separate application pipeline | Repository import, runtime compatibility, database/TLS bootstrap, protected SSH access and live run pending |
 
 These are separate future deliverables, not folders pretending to be two existing
 repositories. A1's imported **assessment** repository does not satisfy either
 EpicBook repository requirement. No A4 infrastructure is inferred from the
 retired A1 VM or an earlier assignment.
+
+## Azure workload source — 18 September 2026
+
+[The Terraform root](terraform/README.md) now defines two SSH-restricted Ubuntu
+VMs, three subnets, private MySQL/DNS/TLS configuration and exactly the four
+handoff outputs. It requires a protected OIDC Azure backend and separate A4
+approval, uses an ephemeral/write-only database administrator password, and
+retains explicit image, identity, budget and expiry/cleanup gates. The backend
+bootstrap and both pipelines remain unimplemented; there was no live plan/apply.
+
+Native schema validation passed with the already installed AzureRM 4.47.0;
+**30 plan-only mock cases** passed under external-network denial with a local
+Unix-socket RPC exception. The combined stdlib suite now has **51 passing tests**
+(36 existing plus 15 new). Neither mocked outputs nor fixture prices/identities
+are live facts. Follow the linked root's isolated reproduction commands, version
+support boundary, state prerequisites and remaining execution gates.
 
 ## Validating the manual handoff
 
@@ -133,9 +151,10 @@ compatibility or a comprehensive dependency audit.
   private MySQL and remote state; no retired A1 approval is reusable.
 - Dedicated infrastructure/application identities and an approved connection
   model. Retain isolation from untrusted repository changes.
-- Real Terraform definitions and an exact reviewed saved plan; approval before
-  apply; protected state and plan handling. Saved plans can contain secrets too:
-  do not publish raw plan/state files or JSON in ordinary artifacts or logs.
+- Instantiate the tested workload definitions only after fresh scope and backend
+  readiness; complete the state bootstrap/infrastructure pipeline and review an
+  exact saved plan before apply. Saved plans can contain secrets too: do not
+  publish raw plan/state files or JSON in ordinary artifacts or logs.
 - An explicitly reviewed route from the self-hosted agent to both SSH targets,
   authentic host keys, least-privilege non-root accounts and no blanket sudo
   bypass. Inventory formatting does not establish any of these.
@@ -159,9 +178,11 @@ From the repository root, using the system Python already available on macOS:
   -s week-10-azure-devops/epicbook/tests -v
 ```
 
-The suite uses in-memory fixtures, including explicitly synthetic addresses that
-are never contacted. It checks input rejection, deterministic inventory shape,
-non-echoing failures, no network/process/file-write API use in the helper, source
-metadata and unchanged A4/A5 briefs. It does not run an application, Ansible,
-Terraform, SQL, Azure Pipelines or a cloud API. No screenshots or reports are
-presented as live assignment evidence.
+This stdlib suite uses in-memory fixtures, including explicitly synthetic
+addresses that are never contacted. It checks input rejection, deterministic
+inventory shape, non-echoing failures, no network/process/file-write API use in
+the handoff helper, Terraform source/runner contracts, historical source metadata
+and unchanged A4/A5 briefs. It does not run an application, Ansible, Terraform,
+SQL, Azure Pipelines or a cloud API. Native Terraform tests are a separate,
+sandboxed command documented above. No screenshots or reports are presented as
+live assignment evidence.
