@@ -102,9 +102,15 @@ class PlanTests(unittest.TestCase):
         self.assertIn("inbound_rules", self.check())
 
     def test_expired_or_overlong_lifetime_rejected(self):
-        for hours in (-1, 3):
+        for hours in (-1, 25):
             self.inputs["expires_at"] = (self.now + timedelta(hours=hours)).isoformat()
             self.assertIn("lifetime", self.check())
+
+    def test_full_day_lifetime_allowed_but_not_extended(self):
+        self.inputs['expires_at'] = (self.now + timedelta(hours=24)).isoformat()
+        self.assertEqual(self.check(), [])
+        self.inputs['expires_at'] = (self.now + timedelta(hours=24, seconds=1)).isoformat()
+        self.assertIn('lifetime', self.check())
 
     def test_missing_approval_rejected(self):
         self.inputs["live_execution_approved"] = False

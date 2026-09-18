@@ -4,8 +4,9 @@
 human-operated Ansible playbook fills the target-configuration gap in the
 [application pipeline contract](../README.md). It is never invoked by either
 pipeline. Running it against a host **does change that host**: packages, a locked
-account, its authorized public key, directories, the dedicated Nginx configuration
-and service, and the assignment marker. The input helper is read-only.
+deployment and forwarding accounts, separate authorized public keys, directories,
+validated SSH forwarding restrictions/reload, the dedicated Nginx configuration
+and service, and the assignment markers. The input helper is read-only.
 
 ## Required decisions before any connection
 
@@ -26,14 +27,18 @@ and service, and the assignment marker. The input helper is read-only.
   authenticated SSH host key. This playbook requires an inventory with exactly
   one `week10_web` host and a separate, non-root administrator with reviewed sudo
   access. Do not give the pipeline the administrator's identity or private key.
-- Use a dedicated deployment key. Inputs contain only its **single Ed25519 public
-  key**, with no comment/options. Keep its private key/passphrase in the approved
+- Use separate deployment and forwarding keys. Inputs contain their **distinct,
+  single Ed25519 public keys**, with no comments/options. Obtain `tunnel_public_key`
+  from the fresh [agent transport preparation](../transport/README.md), never its
+  private half. The following secret-store rule refers to the deployment key. Keep its private key/passphrase in the approved
   SSH service-connection secret store, never source, CLI values, environment
   exports, logs or screenshots. This playbook does not create or handle PATs.
-- Review the Azure `CopyFilesOverSSH@0`/`SSH@0` tasks' actual host-authentication
-  support separately. Controller OpenSSH pinning below does **not** prove those
-  tasks authenticate the deployment host. Stop live pipeline setup if the required
-  assurance is unavailable; the marker does not replace host authentication.
+- Complete the [host-pinned transport contract](../transport/README.md) and its live
+  acceptance checks. Controller OpenSSH pinning below does **not** configure the
+  native tasks. Their connection must use the approved agent loopback port/user,
+  with its exact UUID bound into the root-owned profile. Keep live setup blocked
+  until actual endpoint binding, forwarding restrictions and cleanup are verified;
+  a marker does not replace host authentication.
 - Agree a grading/retention window before promising a publicly reachable A2 site.
   Public HTTP is only for non-sensitive lab content, not credentials or production
   use. No screenshots, learner reflections or social posts are generated here.
@@ -49,7 +54,7 @@ before selecting a different controller/target version.
 In this directory, prepare protected, ignored copies of
 `inputs.example.json` → `inputs.local.json` and
 `inventory.example.json` → `inventory.local.json`. Null defaults deliberately
-fail. Supply only the four `week10_target` fields; set inventory host/IP, approved
+fail. Supply only the five `week10_target` fields; set inventory host/IP, approved
 administrator and the path to its protected key. Paths are not key contents.
 Do not add arbitrary Ansible overrides, dynamic inventory plugins, SSH options,
 `--limit`, `--start-at-task`, tags or extra variables that bypass the preflight.
@@ -84,12 +89,17 @@ ANSIBLE_CONFIG="$PWD/ansible.cfg" ansible-playbook \
 ```
 
 Run the [parent's offline test command](../README.md#offline-checks) from the
-repository root. Its **86 tests** include 24 target input/source-contract tests and
-12 Terraform source contracts, real YAML parsing and negative cases, in addition
-to the existing pipeline/payload checks. These tests deny network and filesystem
-writes. Separate real Ansible syntax and in-memory expression checks, plus both
-Jinja render branches, passed with network denied and writes confined to owned
-Ansible scratch.
+repository root. The transport increment passed **137 tests**, including 25 target
+input/source contracts, 33 transport tests, Terraform source contracts, real YAML
+parsing and the existing pipeline/payload/receipt checks. These tests deny network
+and filesystem writes; SSH/systemd/host interactions are fixtures, not real execution.
+Both updated playbooks separately passed native Ansible 2.21.4 syntax checks and
+six new controller-only rejections (root operator, mismatched inventory IP and
+missing trusted-host file, for each playbook), with zero changes and no SSH/sudo
+or IP networking. A localhost-only limit provided an additional backstop. Writes
+were confined to cleaned invocation scratch. The earlier source version separately
+passed in-memory expression checks and both Jinja render branches; those are
+historical results, not new remote-task validation.
 
 The initial controller-only CLI attempt was blocked at local RPC startup, not a
 successful preflight test. A follow-up passed **four real controller-only negative
@@ -128,7 +138,15 @@ test: it can still connect and read the actual host, so it also needs permission
   this assignment. Do not create a marker manually to bypass these checks.
 - `week10deploy` has a locked password, its own group, no supplementary groups and
   no sudo. Actual UID, groups and sudo denial are checked **before** its key is
-  installed. The key is restricted to the agent `/32`, with no forwarding or PTY.
+  installed. Its key is restricted to target `127.0.0.1/32`, with no forwarding or
+  PTY: native deployment sessions arrive through the separately authenticated tunnel.
+- `week10tunnel` is independently locked/non-sudo, with a non-login shell and a
+  distinct key restricted to the agent `/32`. `configure-tunnel.yml` appends a
+  managed EOF Match block, validates the complete candidate with `sshd -t`, checks
+  effective `sshd -T -C` settings and reloads SSH **before** authorizing its key.
+  Only local TCP forwarding to `127.0.0.1:22` is permitted; remote/Unix forwarding,
+  shell/SFTP sessions, agent/X11 forwarding and PTY are denied. A separate root-owned
+  marker prevents silent adoption or cross-assignment reuse of this account.
 - `/var/www` remains `root:root 0755`; only `/var/www/html` is made writable by the
   deployment account. There is no recursive chown/delete or application upload.
   Review the actual contents before pipeline deployment; installing Ubuntu Nginx

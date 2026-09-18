@@ -1,0 +1,4 @@
+*.local
+*.local.json
+.private/
+__pycache__/

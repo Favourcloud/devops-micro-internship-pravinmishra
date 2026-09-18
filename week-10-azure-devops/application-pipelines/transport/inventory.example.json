@@ -1,0 +1,16 @@
+{
+  "all": {
+    "children": {
+      "week10_agent": {
+        "hosts": {
+          "reviewed_agent": {
+            "ansible_host": null,
+            "ansible_user": null,
+            "ansible_ssh_private_key_file": null,
+            "ansible_connection": "ssh"
+          }
+        }
+      }
+    }
+  }
+}

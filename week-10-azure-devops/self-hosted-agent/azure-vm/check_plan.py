@@ -28,7 +28,7 @@ def validate(plan, inputs, *, destroy=False, now=None):
     if not destroy:
         try:
             end = datetime.fromisoformat(inputs["expires_at"].replace("Z", "+00:00"))
-            if not 0 < (end - now).total_seconds() <= 7200:
+            if not 0 < (end - now).total_seconds() <= 86400:
                 errors.append("lifetime")
         except (KeyError, ValueError, TypeError):
             errors.append("lifetime")

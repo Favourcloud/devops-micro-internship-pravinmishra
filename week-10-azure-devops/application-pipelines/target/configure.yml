@@ -33,7 +33,7 @@
           - hostvars[groups['week10_web'][0]].ansible_user is defined
           - hostvars[groups['week10_web'][0]].ansible_user is string
           - hostvars[groups['week10_web'][0]].ansible_user is match('^[a-z_][a-z0-9_-]{0,31}$')
-          - hostvars[groups['week10_web'][0]].ansible_user not in ['root', 'week10deploy']
+          - hostvars[groups['week10_web'][0]].ansible_user not in ['root', 'week10deploy', 'week10tunnel']
           - hostvars[groups['week10_web'][0]].ansible_connection | default('ssh') == 'ssh'
         fail_msg: Use the exact approved host and a separate non-root operator, not the pipeline account.
 
@@ -102,6 +102,12 @@
         - {path: /home/week10deploy, kind: directory}
         - {path: /home/week10deploy/.ssh, kind: directory}
         - {path: /home/week10deploy/.ssh/authorized_keys, kind: file}
+        - {path: /etc/ssh, kind: directory}
+        - {path: /etc/ssh/sshd_config, kind: file}
+        - {path: /etc/ssh/.dmi-week10-tunnel, kind: file}
+        - {path: /home/week10tunnel, kind: directory}
+        - {path: /home/week10tunnel/.ssh, kind: directory}
+        - {path: /home/week10tunnel/.ssh/authorized_keys, kind: file}
       register: week10_path_stats
 
     - name: Refuse links, special files and hard-linked managed files
@@ -123,13 +129,52 @@
         database: passwd
         key: week10deploy
         fail_key: false
+      register: week10_deploy_passwd
+
+    - name: Inspect any existing forwarding account without password hashes
+      ansible.builtin.getent:
+        database: passwd
+        key: week10tunnel
+        fail_key: false
+      register: week10_tunnel_passwd
+
+    - name: Refuse to adopt an unmarked forwarding identity
+      ansible.builtin.assert:
+        that:
+          - week10_fs['/etc/ssh'].uid == 0 and week10_fs['/etc/ssh'].gid == 0
+          - week10_fs['/etc/ssh'].mode == '0755'
+          - week10_fs['/etc/ssh/sshd_config'].uid == 0 and week10_fs['/etc/ssh/sshd_config'].gid == 0
+          - week10_fs['/etc/ssh/sshd_config'].mode in ['0600', '0644']
+          - week10_fs['/etc/ssh/.dmi-week10-tunnel'].exists or not week10_fs['/home/week10tunnel'].exists
+          - week10_fs['/etc/ssh/.dmi-week10-tunnel'].exists or week10_tunnel_passwd.ansible_facts.getent_passwd['week10tunnel'] is none
+
+    - name: Check an existing forwarding marker before reading it
+      ansible.builtin.assert:
+        that:
+          - week10_fs['/etc/ssh/.dmi-week10-tunnel'].uid == 0
+          - week10_fs['/etc/ssh/.dmi-week10-tunnel'].gid == 0
+          - week10_fs['/etc/ssh/.dmi-week10-tunnel'].mode == '0644'
+          - week10_fs['/etc/ssh/.dmi-week10-tunnel'].size == 10
+      when: week10_fs['/etc/ssh/.dmi-week10-tunnel'].exists
+
+    - name: Read only the existing non-secret forwarding marker
+      ansible.builtin.slurp:
+        src: /etc/ssh/.dmi-week10-tunnel
+      register: week10_tunnel_marker
+      when: week10_fs['/etc/ssh/.dmi-week10-tunnel'].exists
+
+    - name: Refuse forwarding-profile reuse across assignments
+      ansible.builtin.assert:
+        that:
+          - (week10_tunnel_marker.content | b64decode) == week10_target.assignment ~ '\n'
+      when: week10_fs['/etc/ssh/.dmi-week10-tunnel'].exists
 
     - name: Refuse to adopt an unmarked site or existing account
       ansible.builtin.assert:
         that:
           - week10_fs['/var/www/.dmi-week10-target'].exists or not week10_fs['/var/www/html'].exists
           - week10_fs['/var/www/.dmi-week10-target'].exists or not week10_fs['/home/week10deploy'].exists
-          - week10_fs['/var/www/.dmi-week10-target'].exists or ansible_facts.getent_passwd['week10deploy'] is none
+          - week10_fs['/var/www/.dmi-week10-target'].exists or week10_deploy_passwd.ansible_facts.getent_passwd['week10deploy'] is none
           - week10_fs['/var'].uid == 0 and week10_fs['/var'].gid == 0
           - week10_fs['/var'].mode == '0755'
           - week10_fs['/home'].uid == 0 and week10_fs['/home'].gid == 0
@@ -224,13 +269,16 @@
         mode: '0700'
       loop: [/home/week10deploy, /home/week10deploy/.ssh]
 
-    - name: Authorize only the reviewed agent source and deployment public key
+    - name: Allow the deployment key only through the authenticated loopback tunnel
       ansible.builtin.copy:
-        content: 'restrict,from="{{ week10_target.agent_ipv4 }}/32" {{ week10_target.deployment_public_key }}{{ "\n" }}'
+        content: 'restrict,from="127.0.0.1/32" {{ week10_target.deployment_public_key }}{{ "\n" }}'
         dest: /home/week10deploy/.ssh/authorized_keys
         owner: week10deploy
         group: week10deploy
         mode: '0600'
+
+    - name: Configure separately restricted authenticated forwarding
+      ansible.builtin.import_tasks: configure-tunnel.yml
 
     - name: Keep the web-root parent root-owned
       ansible.builtin.file:
@@ -277,6 +325,11 @@
         mode: '0644'
 
   handlers:
+    - name: Reload validated SSH restrictions
+      ansible.builtin.service:
+        name: ssh
+        state: reloaded
+
     - name: Reload validated Nginx
       ansible.builtin.service:
         name: nginx
