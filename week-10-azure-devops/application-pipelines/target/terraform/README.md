@@ -136,16 +136,31 @@ a synthetic address into a live input to manufacture a passing plan.
 | Azure agent prerequisites | Enabled approved subscription and signed-in object verified; exact Ubuntu Gen2 image `22.04.202608060`; selected `Standard_D2lds_v6` had zone-2/3 restrictions but no location restriction. Regional and Dldsv6-family use were each 0/10 vCPUs; required providers were already registered |
 | Azure public rates | Linux VM US$0.131/hour, 32 GiB S4 LRS disk US$1.69/month, Standard public IPv4 US$0.005/hour. Transfer, disk operations and applicable diagnostics/storage charges still need the complete-window review |
 | Azure discovery recovery | CLI SKU enumeration timed out; bounded direct read-only ARM catalogue retrieval succeeded. The timeout was not counted as a passed check |
-| **Azure DevOps access gate** | The current Azure token received a login redirect, then **HTTP 401 / TF400813** from the exact private-project endpoint with redirects suppressed. This does not invalidate an existing browser login; it shows this API identity/token is not authorized through the attempted method. The Azure DevOps CLI extension was absent and was not installed |
-| Live outcome | No PAT, permanent IAM identity, VM, agent registration or application pipeline run was created. **No real target plan was generated:** the fresh agent's actual IP and deployment access are still missing. No new cleanup safeguard was needed because no cloud resources were allocated |
+| Earlier Azure DevOps token attempt | The Azure token received a login redirect, then **HTTP 401 / TF400813** from the exact private-project endpoint with redirects suppressed. This remains a failed attempt, not a successful check. The Azure DevOps CLI extension was absent and was not installed |
+| Earlier readiness outcome | Those checks created no PAT, permanent IAM identity, VM, agent registration or application pipeline run. **No real target plan was generated:** the fresh agent's actual IP and deployment access were missing. No new cleanup safeguard was needed because no cloud resources were allocated |
+| Subsequent PAT read checks | A hidden-input PAT verified identity, the exact private project, pool 11 and existing definition 1. An independent saved-login check passed at **16:08 UTC**; those reads still passed during the **16:47 UTC** follow-up. There were **zero Online agents**. This does not verify token scopes, server expiry or write permissions |
+| **Current application access gate** | Repository-list and SSH service-connection-list requests each returned **HTTP 401**, including the 16:47 UTC recheck. Working A1 read access is not application-management access. No import, connection creation or application run was attempted |
+| **Current SSH transport gate** | Reviewed public Microsoft task sources do not configure `hostVerifier`; an OpenSSH known-hosts file does not configure those Node clients. The [source finding and remaining alternatives](../../README.md#ssh-transport-review--18-september-2026) are not live task-package verification or an implemented transport fix |
 
-An authorized Azure DevOps organization sign-in or fresh, minimally scoped PAT is
-needed before agent registration can proceed. Use a hidden local input channel,
-**never chat, arguments, environment exports or screenshots**, for a PAT. Do not
-change organization membership, tenant association or permissions just to bypass
-this denial. A2/A3 write-scoped access, complete cost review, authentic SSH trust,
-exact live inputs/plan and an independent cleanup safeguard remain separate gates.
-Do not renew the original window or infer a successful agent from these reads.
+The [follow-up receipt](../../readiness-2026-09-18.json) records these later checks
+separately from the earlier failed method. In the existing PAT's Edit screen,
+review **Code: Read, write & manage** and **Service Connections: Read, query &
+manage**, retaining the approved short expiry and required Agent Pools/Build/Project
+scopes. Do not use Full access. Save without regenerating, then repeat the denied
+reads using the existing hidden credential. If the scopes are already enabled,
+review the account's project permissions and required Basic access level; a PAT
+cannot grant permissions or licensing the account lacks. The HTTP status alone
+does not establish which of these is the cause. Do not silently change membership,
+tenant association, roles or billing to bypass the denial.
+
+Keep the controller management token local and use a separate narrowly scoped
+registration credential. For any fresh handoff use a hidden local input channel,
+**never chat, arguments, environment exports or screenshots**. A2/A3 write-scoped
+cloud access, complete cost review, authenticated pipeline transport, exact live
+inputs/plan and an independent cleanup safeguard remain separate gates. The
+original **12:15–16:15 UTC** window has ended; record a fresh bounded authorization
+before paid creation rather than rolling that window forward. No agent or deployed
+application is inferred from successful read requests.
 
 ## Protected input, plan and state workflow
 

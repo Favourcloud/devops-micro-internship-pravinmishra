@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "pre-deployment-blocked",
+  "assignment_evidence": false,
+  "azure_devops": {
+    "observed_at": "2026-09-18T16:47:57.979370+00:00",
+    "authentication_verified": true,
+    "private_project_verified": true,
+    "pool_id": 11,
+    "pipeline_id": 1,
+    "online_agent_count": 0,
+    "repository_list_http_status": 401,
+    "ssh_connection_list_http_status": 401,
+    "management_access_verified": false,
+    "write_permissions_verified": false,
+    "pat_scopes_and_server_expiry_verified": false,
+    "organization_permissions_changed_by_this_check": false,
+    "scope_or_account_permission_cause_confirmed": false
+  },
+  "static_personalization": {
+    "prepared_at": "2026-09-18T16:45:45.917959+00:00",
+    "source_commit": "258b8a380d45b030f29a1ace237b3f4d120820fd",
+    "source_sha256": "54331bf7a84f7abd39df42228003dcdd6816f9aea0aa3ce799765c108453875a",
+    "candidate_sha256": "9dd3172061357866ec2949eff456588f2ca446b1dd9f36a27e5e6501f971973e",
+    "candidate_bytes": 15882,
+    "change": "One learner-name paragraph inside the existing header.",
+    "all_other_source_bytes_unchanged": true,
+    "upstream_script_blocks_unchanged": true,
+    "static_payload_contract_passed": true,
+    "javascript_executed": false,
+    "browser_rendering_verified": false,
+    "azure_repos_imported": false,
+    "deployed": false
+  },
+  "ssh_transport_review": {
+    "source_review_only": true,
+    "tasks_repository": "https://github.com/microsoft/azure-pipelines-tasks",
+    "tasks_commit": "b7a1e04faa09a7028a67c9ac6d8c60c78153a6da",
+    "ssh_task_source_version": "0.279.0",
+    "copy_task_source_version": "0.280.0",
+    "ssh2_declared_dependency_range": "^1.15.0",
+    "ssh2_reference_commit": "a56e70e68efd6a1c7e665c9a473eb68d25571a55",
+    "sftp_client_reference_commit": "25075fb4064ad144b563d97cad747aac40d31de9",
+    "host_verifier_configured_in_reviewed_tasks": false,
+    "known_hosts_input_exposed_by_reviewed_tasks": false,
+    "service_installed_task_packages_examined": false,
+    "authenticated_transport_verified": false,
+    "live_use_approved": false
+  },
+  "outcome": {
+    "application_repository_created": false,
+    "application_pipeline_run": false,
+    "cloud_resources_created": false,
+    "screenshots_captured": 0,
+    "assignment_complete": false
+  }
+}
