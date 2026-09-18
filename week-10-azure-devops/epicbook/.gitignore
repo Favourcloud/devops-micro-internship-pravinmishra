@@ -1,0 +1,12 @@
+.private/
+__pycache__/
+*.pyc
+handoff.local.json
+inventory.local.json
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.pem
+*.key
+.env
+.env.*
