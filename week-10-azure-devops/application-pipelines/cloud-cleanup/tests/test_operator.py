@@ -119,6 +119,27 @@ class OperatorTests(unittest.TestCase):
         self.assertIn("AWS_LOGIN_CACHE_DIRECTORY=", text)
         self.assertIn("never run it standalone", text.replace("**", ""))
 
+    def test_root_exception_does_not_broaden_resource_or_policy_scope(self):
+        text = "\n".join(p.read_text() for p in (ROOT / "operator/aws").glob("*.tf"))
+        resources = set(re.findall(r'^resource "([^"]+)" "([^"]+)"', text, re.M))
+        self.assertEqual(resources, {("terraform_data", "authorization"),
+                                     ("aws_iam_policy", "runtime_boundary"),
+                                     ("aws_iam_policy", "operator"),
+                                     ("aws_iam_user", "operator"),
+                                     ("aws_iam_user_policy_attachment", "operator")})
+        self.assertRegex(text, r'variable "root_bootstrap_approval" \{[\s\S]*?default\s*=\s*null')
+        self.assertIn('timeadd(var.root_bootstrap_approval.approved_at, "1h")', text)
+        self.assertIn('timecmp(timestamp(), var.root_bootstrap_approval.expires_at) < 0', text)
+        self.assertIn('var.administrator_arn == "arn:aws:iam::${var.account_id}:root"', text)
+        self.assertIn('var.mfa_enrolled_and_verified', text)
+        for phase in ("bootstrap", "canary"):
+            variables = (ROOT / phase / "aws/variables.tf").read_text()
+            self.assertNotIn("root_bootstrap_approval", variables)
+        readme = (ROOT / "operator/README.md").read_text()
+        self.assertIn("not an IAM restriction or revocation of root credentials", readme)
+        self.assertIn("local state alone is not independent custody", readme)
+        self.assertIn("Creation-time Terraform preconditions are not a destroy authorization mechanism", readme)
+
     def test_no_credentials_provisioners_or_network_in_source(self):
         files = list((ROOT / "operator/aws").glob("*.tf"))
         text = "\n".join(p.read_text() for p in files)

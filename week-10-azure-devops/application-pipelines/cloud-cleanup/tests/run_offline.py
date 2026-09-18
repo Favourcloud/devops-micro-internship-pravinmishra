@@ -8,6 +8,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import time
 
 ROOT = Path(__file__).resolve().parents[1]
 REFERENCE = ROOT.parents[1] / "epicbook/terraform/tests/run_offline.py"
@@ -85,6 +86,54 @@ def builtin_destroy(terraform, cloud):
             "real_cloud_provider_used": False}
 
 
+def builtin_root_expiry(terraform):
+    """A saved plan must fail after root approval expires, without any cloud provider."""
+    root = ROOT / "operator/aws"
+    guard = re.search(r'(?ms)^resource "terraform_data" "authorization" \{.*?^\}', (root / "main.tf").read_text())
+    if guard is None:
+        raise ValueError("Operator authorization guard missing.")
+    identity = {"account_id": "000000000001", "arn": "arn:aws:iam::000000000001:root"}
+    with tempfile.TemporaryDirectory(prefix="w10-r-", dir="/private/tmp") as directory:
+        scratch = Path(directory)
+        (scratch / "main.tf").write_text(guard.group().replace("data.aws_caller_identity.current", "local.identity"))
+        (scratch / "fixtures.tf.json").write_text(json.dumps({"locals": {
+            "identity": identity, "user_arn": "arn:aws:iam::000000000001:user/dmi-w10-bootstrap-abcdef123456"}}))
+        for name in ("variables.tf", "approval.tf"):
+            shutil.copyfile(root / name, scratch / name)
+
+        def run(arguments, expected_failure=False):
+            result = subprocess.run(["/usr/bin/sandbox-exec", "-p", native.profile_for(scratch), str(terraform), *arguments],
+                                    cwd=scratch, env=native.environment_for(scratch), capture_output=True, text=True, timeout=120)
+            if expected_failure:
+                if not result.returncode or "The separate root exception must still be valid" not in result.stdout + result.stderr:
+                    raise ValueError("Expired root saved-plan application did not fail at the expected guard.")
+            elif result.returncode:
+                raise ValueError("Builtin root-expiry fixture failed: " + result.stderr[:2000])
+            return result.stdout
+
+        run(["init", "-backend=false", "-input=false"])
+        now = datetime.now(timezone.utc)
+        expiry = now + timedelta(seconds=10)
+        stamp = lambda value: value.strftime("%Y-%m-%dT%H:%M:%SZ")
+        inputs = {
+            "lease_id": "abcdef123456", "account_id": identity["account_id"], "administrator_arn": identity["arn"],
+            "oidc_issuer": "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000002/v2.0",
+            "live_execution_approved": True,
+            "approval": {"approved_at": stamp(now - timedelta(minutes=2)), "expires_at": stamp(now + timedelta(hours=1)),
+                         "estimated_total_usd": 0, "planning_allowance_usd": 10},
+            "root_bootstrap_approval": {"approved_at": stamp(now - timedelta(minutes=1)), "expires_at": stamp(expiry)},
+        }
+        (scratch / "case.auto.tfvars.json").write_text(json.dumps(inputs))
+        run(["plan", "-input=false", "-out=fixture.tfplan"])
+        time.sleep(max(0, (expiry - datetime.now(timezone.utc)).total_seconds()) + 0.1)
+        run(["apply", "-input=false", "-no-color", "fixture.tfplan"], expected_failure=True)
+        state = json.loads(run(["show", "-json"]))
+        if state.get("values", {}).get("root_module", {}).get("resources"):
+            raise ValueError("Expired root fixture unexpectedly created a built-in resource.")
+    return {"expired_saved_plan_rejected": True, "real_cloud_provider_used": False,
+            "root_credentials_used": False, "resources_created": False}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--terraform", required=True, type=Path)
@@ -102,6 +151,7 @@ def main():
         checks[phase + "/" + cloud] = native.check(terraform, plugins.resolve())
     guards = [builtin_destroy(terraform, cloud) for cloud in ("azure", "aws")]
     print(json.dumps({"roots": checks, "builtin_guard_destroy_checks": guards,
+                      "builtin_root_expiry_check": builtin_root_expiry(terraform),
                       "external_network_denied": True, "cloud_resources_created": False}, indent=2, sort_keys=True))
 
 
