@@ -101,9 +101,9 @@ resource "terraform_data" "authorization" {
       condition = (
         timecmp(var.approval.approved_at, plantimestamp()) <= 0 &&
         timecmp(var.approval.expires_at, plantimestamp()) > 0 &&
-        timecmp(var.approval.expires_at, timeadd(var.approval.approved_at, "4h")) <= 0
+        timecmp(var.approval.expires_at, timeadd(var.approval.approved_at, "24h")) <= 0
       )
-      error_message = "The approved window must already have begun, remain unexpired and be no longer than four hours."
+      error_message = "The approved window must already have begun, remain unexpired and be no longer than 24 hours."
     }
     precondition {
       condition     = timecmp(var.approval.expires_at, timestamp()) > 0

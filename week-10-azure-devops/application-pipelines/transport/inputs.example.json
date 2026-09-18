@@ -1,0 +1,13 @@
+{
+  "week10_agent_transport": {
+    "agent_ipv4": null,
+    "profile": {
+      "assignment": null,
+      "target_ipv4": null,
+      "host_public_key": null,
+      "ssh_endpoint_id": null,
+      "authorized_at": null,
+      "expires_at": null
+    }
+  }
+}

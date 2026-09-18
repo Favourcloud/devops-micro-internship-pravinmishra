@@ -96,7 +96,7 @@ class TerraformTargetTests(unittest.TestCase):
         self.assertIn("var.approval.live_execution_approved", resource)
         self.assertIn("plantimestamp()", resource)
         self.assertIn("timestamp()", resource)
-        self.assertIn('timeadd(var.approval.approved_at, "4h")', resource)
+        self.assertIn('timeadd(var.approval.approved_at, "24h")', resource)
         self.assertIn("var.approval.planning_allowance_usd <= 10", text)
         self.assertNotIn("timestamp()", text.split('resource "terraform_data"')[0])
 

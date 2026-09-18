@@ -10,7 +10,7 @@ Learner: **Eze Favour**. Status: **A1 live technical trial verified; A2's Azure 
 - **A1 cleanup:** the service was stopped, disabled and uninstalled. Reviewed Terraform cleanup verified empty state and exact resource-group/VM/OS-disk/public-IP absence at **10:41:37 UTC**, before the fixed expiry. Server-side agent removal was then independently verified; pool 11 had zero registered agents. The successful run remains available, but **no A1 agent or VM was left running**. The cleanup backstop was cleared. This authorization is retired; PAT scope, expiry and revocation remain unverified and require private human handling.
 - **A1 pool permission:** only definition **1** was added to this project's YAML permission list, and its authorization was read back. The reloaded security page at **08:52 UTC** verified restricted YAML mode and the five retained user/group role assignments. No all-pipeline access was enabled. The API omitted its all-pipelines flag, so that field remains unknown rather than being interpreted as `false`; restricted mode was verified separately in the UI. The UI warns that all Classic pipelines can use the resource and other-project YAML pipelines are not shown. Existing Classic pipelines and organization-wide access have **not** been comprehensively audited; review those isolation limits before attaching an agent.
 - **Temporary Azure labs:** the [first pilot receipt](self-hosted-agent/azure-vm/runtime-2026-09-17.json) remains unchanged. A second, separately authorized lab established trusted SSH, verified Ubuntu 22.04/x86_64 and the non-sudo agent account, and verified the published Microsoft agent 5.279.0 package. It did **not** register an agent or start its service. Empty state and exact resource-group/VM/disk/IP absence were verified at **00:29:30 UTC on 18 September**, before expiry. Both labs were cleaned up; their authorizations are retired and neither supplies a current agent host.
-- **A2/A3 source:** [pipeline templates, guarded Terraform/Ansible targets, payload/remote checks and runbook](application-pipelines/README.md), with credential-free local tests. These are not application build/test or pipeline results. Native-task SSH host authentication remains an unresolved live gate.
+- **A2/A3 source:** [pipeline templates, guarded Terraform/Ansible targets, payload/remote checks and runbook](application-pipelines/README.md), with credential-free local tests. These are not application build/test or pipeline results. The [host-pinned transport implementation](application-pipelines/transport/README.md) now includes separate forwarding/deployment keys, guarded agent/target setup, per-job bounded lifecycle and 33 offline transport tests within 137 passing application/source tests. Its actual endpoint binding, host-key rejection, runtime/cleanup and native-task behavior remain unverified live gates.
 - **A2 repository milestone:** after the user edited the existing PAT, previously denied repository and SSH-connection reads succeeded at **16:58 UTC**. The authorized assistant imported the pinned public static source into the private project's `Azure-Static-Website` repository, then committed the name-only HTML edit as **`8bfa3682a7440f12791085c1d4d0aa0f7fbcb4fb`**. Independent read-backs verified its bytes, parent and one-file Git diff by **17:06 UTC**. See the [sanitized import receipt](application-pipelines/static-import-2026-09-18.json). No application pipeline/SSH connection, VM, deployment or evidence was created; A3's application import remains pending.
 - **A4 source:** [manual handoff validator, inventory formatter and pinned-source review](epicbook/README.md); **36 offline tests passed**. Infrastructure, Ansible and both real pipelines are still to be implemented.
 
@@ -25,6 +25,18 @@ These are recorded operational facts and source-validation results, **not submis
 | [5 — Read-only failure triage](assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md) | Brief only; no substitute kit | A4's two healthy pipelines, actual instructor-supplied files, separately authorized Claude use, genuine controlled failure/recovery | 0/12 |
 
 There are **36 numbered screenshot slots**, plus A2's separate unnumbered LinkedIn image. All remain pending. Submission capture and social publication still need separate approval. The [A1 evidence manifest](self-hosted-agent/evidence/manifest.json) records seven empty slots, not substitute evidence; its pending flags describe unsubmitted captures, separately from the verified technical trial. Learner reflections and original completion checklists remain unanswered/unchecked.
+
+## Current resource-window decision
+
+The user subsequently requested **24-hour resource-approval windows**, replacing
+the proposed four-hour A2 window. The current A2 scope is one fresh Azure agent
+and one AWS web target, with the existing **US$10 combined planning allowance**
+(not an enforced cap). Its clock starts with first provisioning, not source tests;
+no new resource or active deadline is claimed here. Record one fixed UTC expiry
+and begin cleanup at least 45 minutes before it. Non-root AWS deployment/cleanup
+access, exact plans, costs, authentic host keys and a cleanup safeguard remain
+required. Credential renewal does not extend that deadline. This grants no root
+use, instructor-JavaScript changes, screenshots, social posts or paid AI activity.
 
 ## Delivery / run sequence
 

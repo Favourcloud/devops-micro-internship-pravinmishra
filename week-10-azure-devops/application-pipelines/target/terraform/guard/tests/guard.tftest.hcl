@@ -25,6 +25,19 @@ run "valid_contract" {
   }
 }
 
+run "full_day_window" {
+  command = plan
+  variables {
+    approval = {
+      live_execution_approved = true
+      approved_at             = formatdate("YYYY-MM-DD'T'00:00:00Z", timestamp())
+      expires_at              = timeadd(formatdate("YYYY-MM-DD'T'00:00:00Z", timestamp()), "24h")
+      estimated_total_usd     = 5
+      planning_allowance_usd  = 10
+    }
+  }
+}
+
 run "approval_required" {
   command = plan
   variables {
@@ -105,7 +118,7 @@ run "overlong_window" {
     approval = {
       live_execution_approved = true
       approved_at             = timestamp()
-      expires_at              = timeadd(timestamp(), "5h")
+      expires_at              = timeadd(timestamp(), "25h")
       estimated_total_usd     = 2
       planning_allowance_usd  = 10
     }

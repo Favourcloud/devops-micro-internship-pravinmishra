@@ -24,6 +24,7 @@ FIXTURE = {
     "agent_ipv4": "8.8.8.8",
     "target_ipv4": "1.1.1.1",
     "deployment_public_key": PUBLIC_KEY,
+    "tunnel_public_key": "ssh-ed25519 " + base64.b64encode(KEY_BLOB[:-32] + bytes(range(1, 33))).decode("ascii"),
 }
 
 
@@ -78,6 +79,10 @@ class InputTests(unittest.TestCase):
         for key in (None, [], "", "-----BEGIN OPENSSH PRIVATE KEY-----", "command=whoami " + PUBLIC_KEY, PUBLIC_KEY + " comment", PUBLIC_KEY + "\n", PUBLIC_KEY + "\n" + PUBLIC_KEY, PUBLIC_KEY.replace("ssh-ed25519", "ssh-rsa")):
             with self.subTest(key=key):
                 self.reject(deployment_public_key=key)
+
+    def test_forwarding_key_must_be_valid_and_separate(self):
+        for value in (PUBLIC_KEY, None, [], 'private-fixture', PUBLIC_KEY + ' comment'):
+            self.reject(tunnel_public_key=value)
 
     def test_key_wire_structure_and_encoding_are_checked(self):
         for blob in (KEY_BLOB[:-1], KEY_BLOB + b"x", b"x" + KEY_BLOB[1:], KEY_BLOB[:15] + struct.pack(">I", 31) + KEY_BLOB[19:], KEY_BLOB[:-32] + bytes(32)):
@@ -156,7 +161,7 @@ class TargetSourceTests(unittest.TestCase):
         self.assertEqual(command["ansible.builtin.command"]["argv"][:3], ["/usr/bin/python3", "-I", "-B"])
         binding = self.controller["tasks"][2]["ansible.builtin.assert"]["that"]
         self.assertTrue(any("ansible_host == week10_target.target_ipv4" in test for test in binding))
-        self.assertTrue(any("not in ['root', 'week10deploy']" in test for test in binding))
+        self.assertTrue(any("not in ['root', 'week10deploy', 'week10tunnel']" in test for test in binding))
         self.assertTrue(any("ansible_connection" in test and "== 'ssh'" in test for test in binding))
 
     def test_strict_host_authentication_is_not_tofu(self):
@@ -193,7 +198,7 @@ class TargetSourceTests(unittest.TestCase):
         self.assertLess(assert_index, key_index)
         key = self.tasks[key_index]["ansible.builtin.copy"]
         self.assertEqual(key["mode"], "0600")
-        self.assertTrue(key["content"].startswith('restrict,from="{{ week10_target.agent_ipv4 }}/32"'))
+        self.assertTrue(key["content"].startswith('restrict,from="127.0.0.1/32"'))
         self.assertNotIn("sudoers", json.dumps(self.module_tasks("ansible.builtin.copy")))
 
     def test_parent_and_webroot_match_pipeline_contract_without_recursive_chown(self):

@@ -1,0 +1,220 @@
+---
+- name: Validate the isolated agent and fixed public transport profile
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  any_errors_fatal: true
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  tasks:
+    - name: Require one explicit agent and public input
+      ansible.builtin.assert:
+        that:
+          - week10_agent_transport is defined
+          - groups.get('week10_agent', []) | length == 1
+
+    - name: Check input shape and the unexpired bounded window locally
+      ansible.builtin.command:
+        argv: [/usr/bin/python3, -I, -B, "{{ playbook_dir }}/../ci/ssh_tunnel.py", validate-agent-inputs]
+        stdin: "{{ week10_agent_transport | to_json }}"
+      changed_when: false
+      no_log: true
+
+    - name: Bind the SSH inventory to the reviewed agent and administrator
+      ansible.builtin.assert:
+        that:
+          - hostvars[groups['week10_agent'][0]].ansible_host == week10_agent_transport.agent_ipv4
+          - hostvars[groups['week10_agent'][0]].ansible_user is string
+          - hostvars[groups['week10_agent'][0]].ansible_user is match('^[a-z_][a-z0-9_-]{0,31}$')
+          - hostvars[groups['week10_agent'][0]].ansible_user not in ['root', 'azdoagent']
+          - hostvars[groups['week10_agent'][0]].ansible_connection | default('ssh') == 'ssh'
+
+    - name: Inspect the separately authenticated agent host-key file
+      ansible.builtin.stat:
+        path: "{{ playbook_dir }}/known_hosts.local"
+        follow: false
+      register: week10_agent_known_hosts
+
+    - name: Require authentic agent host keys before any SSH connection
+      ansible.builtin.assert:
+        that:
+          - week10_agent_known_hosts.stat.exists
+          - week10_agent_known_hosts.stat.isreg
+          - not week10_agent_known_hosts.stat.islnk
+          - week10_agent_known_hosts.stat.size > 0
+
+    - name: Record completed controller checks
+      ansible.builtin.set_fact:
+        week10_transport_preflight: true
+
+- name: Prepare one fresh transport profile without starting a tunnel or agent
+  hosts: week10_agent
+  gather_facts: false
+  become: true
+  any_errors_fatal: true
+  vars:
+    week10_profile_dir: "/etc/dmi-week10/tunnels/{{ week10_agent_transport.profile.assignment }}"
+    ansible_ssh_common_args: >-
+      -o StrictHostKeyChecking=yes
+      -o UserKnownHostsFile={{ (playbook_dir ~ '/known_hosts.local') | quote }}
+      -o GlobalKnownHostsFile=/dev/null
+      -o IdentitiesOnly=yes
+    ansible_ssh_extra_args: ''
+  pre_tasks:
+    - name: Refuse a bypassed controller preflight
+      ansible.builtin.assert:
+        that: ["hostvars['localhost'].week10_transport_preflight | default(false)"]
+      delegate_to: localhost
+      become: false
+
+    - name: Gather only the required OS facts
+      ansible.builtin.setup:
+        gather_subset: ['!all', '!min', distribution]
+
+    - name: Require the reviewed Ubuntu agent release
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.distribution == 'Ubuntu'
+          - ansible_facts.distribution_version == '22.04'
+
+    - name: Inspect the existing agent identity without password hashes
+      ansible.builtin.getent:
+        database: passwd
+        key: azdoagent
+
+    - name: Read the agent primary UID
+      ansible.builtin.command:
+        argv: [/usr/bin/id, -u, azdoagent]
+      changed_when: false
+      register: week10_agent_uid
+
+    - name: Read the actual agent groups
+      ansible.builtin.command:
+        argv: [/usr/bin/id, -Gn, azdoagent]
+      changed_when: false
+      register: week10_agent_groups
+
+    - name: Verify agent sudo remains denied
+      ansible.builtin.command:
+        argv: [/usr/bin/sudo, -n, -l, -U, azdoagent]
+      environment: {LC_ALL: C}
+      changed_when: false
+      failed_when: false
+      no_log: true
+      register: week10_agent_sudo
+
+    - name: Check only the public password-lock status, never a password hash
+      ansible.builtin.command:
+        argv: [/usr/bin/passwd, -S, azdoagent]
+      environment: {LC_ALL: C}
+      changed_when: false
+      register: week10_agent_lock
+      no_log: true
+
+    - name: Refuse privileged or missing agent accounts
+      ansible.builtin.assert:
+        that:
+          - week10_agent_uid.stdout | int >= 1000
+          - week10_agent_groups.stdout == 'azdoagent'
+          - week10_agent_lock.stdout.split()[0:2] == ['azdoagent', 'L']
+          - ansible_facts.getent_passwd['azdoagent'][4] == '/home/azdoagent'
+          - week10_agent_sudo.rc == 1
+          - "'is not allowed to run sudo on' in (week10_agent_sudo.stdout ~ week10_agent_sudo.stderr)"
+
+    - name: Inspect profile parents without following symlinks
+      ansible.builtin.stat:
+        path: "{{ item }}"
+        follow: false
+      loop: [/etc, /etc/dmi-week10, /etc/dmi-week10/tunnels]
+      register: week10_transport_parents
+
+    - name: Require root-controlled real profile parents
+      ansible.builtin.assert:
+        that:
+          - not item.stat.exists or (item.stat.isdir and not item.stat.islnk)
+          - not item.stat.exists or (item.stat.uid == 0 and item.stat.gid == 0 and item.stat.mode == '0755')
+      loop: "{{ week10_transport_parents.results }}"
+
+    - name: Inspect the proposed one-time profile directory
+      ansible.builtin.stat:
+        path: "{{ week10_profile_dir }}"
+        follow: false
+      register: week10_existing_profile
+
+    - name: Refuse profile adoption, key reuse or implicit authorization renewal
+      ansible.builtin.assert:
+        that: ["not week10_existing_profile.stat.exists"]
+        fail_msg: Existing or partial profile requires separate review; never overwrite it to renew a window.
+
+  tasks:
+    - name: Ensure the standard unprivileged user-manager bus is available
+      ansible.builtin.apt:
+        name: dbus-user-session
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Create root-controlled transport directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+      loop: [/etc/dmi-week10, /etc/dmi-week10/tunnels, "{{ week10_profile_dir }}"]
+
+    - name: Generate a new forwarding-only key on this fresh agent
+      ansible.builtin.command:
+        argv: [/usr/bin/ssh-keygen, -q, -t, ed25519, -N, '', -C, '', -f, "{{ week10_profile_dir }}/id_ed25519"]
+        creates: "{{ week10_profile_dir }}/id_ed25519"
+      no_log: true
+
+    - name: Restrict the private identity to the non-root agent
+      ansible.builtin.file:
+        path: "{{ week10_profile_dir }}/id_ed25519"
+        owner: azdoagent
+        group: azdoagent
+        mode: '0400'
+
+    - name: Protect the public identity metadata
+      ansible.builtin.file:
+        path: "{{ week10_profile_dir }}/id_ed25519.pub"
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Install only the independently authenticated target host pin
+      ansible.builtin.copy:
+        content: '{{ week10_agent_transport.profile.assignment }} {{ week10_agent_transport.profile.host_public_key }}{{ "\n" }}'
+        dest: "{{ week10_profile_dir }}/known_hosts"
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Enable the standard agent user manager without granting sudo
+      ansible.builtin.command:
+        argv: [/usr/bin/loginctl, enable-linger, azdoagent]
+        creates: /var/lib/systemd/linger/azdoagent
+
+    - name: Start the unprivileged user manager, not any tunnel
+      ansible.builtin.systemd_service:
+        name: "user@{{ week10_agent_uid.stdout }}.service"
+        state: started
+
+    - name: Read only the new public forwarding key for the target handoff
+      ansible.builtin.slurp:
+        src: "{{ week10_profile_dir }}/id_ed25519.pub"
+      register: week10_forwarding_public_key
+
+    - name: Complete the immutable profile after successful preparation
+      ansible.builtin.copy:
+        content: '{{ week10_agent_transport.profile | to_nice_json }}{{ "\n" }}'
+        dest: "{{ week10_profile_dir }}/profile.json"
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Display public key metadata only, never the private identity
+      ansible.builtin.debug:
+        msg: "{{ week10_forwarding_public_key.content | b64decode | trim }}"

@@ -14,7 +14,7 @@ parameters:
 variables:
   learnerName: Eze Favour
   deploymentDate: __set_actual_deployment_date__
-  sshServiceConnection: __set_approved_react_ssh_connection__
+  sshServiceConnection: __set_approved_react_ssh_connection_id__
   nodeVersion: 22.23.2
   targetFolder: /var/www/html
 
@@ -136,6 +136,7 @@ stages:
     jobs:
       - job: DeployProduction
         timeoutInMinutes: 15
+        cancelTimeoutInMinutes: 2
         workspace:
           clean: all
         steps:
@@ -155,6 +156,13 @@ stages:
             env:
               SITE_ROOT: $(Pipeline.Workspace)/site-build
               DEPLOYMENT_DATE: $(deploymentDate)
+          - bash: |
+              set -euo pipefail
+              python3 -I -B ci/ssh_tunnel.py start week10-a3 "$JOB_ID" "$SSH_CONNECTION_ID"
+            displayName: Start the bounded host-pinned SSH transport
+            env:
+              JOB_ID: $(System.JobId)
+              SSH_CONNECTION_ID: $(sshServiceConnection)
           - task: SSH@0
             displayName: Verify the separate React target before copying
             inputs:
@@ -165,6 +173,13 @@ stages:
               failOnStdErr: true
               enableRemoteVsoCommands: false
               readyTimeout: '20000'
+          - bash: |
+              set -euo pipefail
+              python3 -I -B ci/ssh_tunnel.py check week10-a3 "$JOB_ID" "$SSH_CONNECTION_ID"
+            displayName: Recheck authenticated transport before transfer
+            env:
+              JOB_ID: $(System.JobId)
+              SSH_CONNECTION_ID: $(sshServiceConnection)
           - task: CopyFilesOverSSH@0
             displayName: Deploy production artifact contents, not the source repository
             inputs:
@@ -176,6 +191,13 @@ stages:
               overwrite: true
               failOnEmptySource: true
               readyTimeout: '20000'
+          - bash: |
+              set -euo pipefail
+              python3 -I -B ci/ssh_tunnel.py check week10-a3 "$JOB_ID" "$SSH_CONNECTION_ID"
+            displayName: Recheck authenticated transport before verification
+            env:
+              JOB_ID: $(System.JobId)
+              SSH_CONNECTION_ID: $(sshServiceConnection)
           - task: SSH@0
             displayName: Verify files, local HTTP, SPA fallback and static 404s
             inputs:
@@ -186,3 +208,10 @@ stages:
               failOnStdErr: true
               enableRemoteVsoCommands: false
               readyTimeout: '20000'
+          - bash: |
+              set -euo pipefail
+              python3 -I -B ci/ssh_tunnel.py stop week10-a3 "$JOB_ID"
+            displayName: Stop only this job's SSH transport
+            condition: always()
+            env:
+              JOB_ID: $(System.JobId)

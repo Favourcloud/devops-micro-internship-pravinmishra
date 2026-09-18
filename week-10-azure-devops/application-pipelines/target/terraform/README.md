@@ -7,7 +7,7 @@ needs its own approval and state. Do not reuse an agent as either web target.
 
 | Root | Prepared shape | Current validation / live gate |
 | --- | --- | --- |
-| `guard/` | Shared explicit approval, assignment, SSH sources, time and estimate contract | Provider-free validation and 19 native **plan** tests passed |
+| `guard/` | Shared explicit approval, assignment, SSH sources, time and estimate contract | 20 provider-free native **plan** tests passed, including the 24-hour window |
 | `aws/` — A2 | One Ubuntu 24.04 x86_64 `t3.micro`, dedicated VPC/subnet/Internet route, scoped SSH, public lab HTTP | AWS schema validation and 13 native **mock plan** tests passed, including exact federated-session binding and root rejection; restricted read-only AWS access was verified, but deployment permissions and a fresh live plan remain required |
 | `azure/` — A3 | One Ubuntu 22.04 Gen2 `Standard_D2lds_v6` in UK South, separate network, scoped SSH, public lab HTTP | AzureRM schema validation and six native **mock plan** tests previously passed; metadata for the same SKU was rechecked below, but A3-specific approved inputs, complete cost review, actual capacity and live execution remain pending |
 
@@ -66,8 +66,8 @@ reviewed provider lockfile text is reused, unchanged.
    whole-window estimate**, not a per-root quote; repeating `planning_allowance_usd`
    in two inputs does not grant two budgets. Maintain one external resource/cost
    ledger. These roots do not aggregate spending or impose a provider billing cap.
-7. Approval must already have started, remain unexpired and last at most four
-   hours, with a positive estimate within an allowance of at most US$10. These
+7. Approval must already have started, remain unexpired and last at most **24
+   hours**, with a positive estimate within an allowance of at most US$10. These
    conservative source limits do not replace a fresh grant. Arrange and verify an
    independent, narrowly scoped cleanup safeguard **before apply**, with enough
    margin for failures. No safeguard or paid resource is started by these files.
@@ -141,7 +141,7 @@ a synthetic address into a live input to manufacture a passing plan.
 | Subsequent PAT read checks | A hidden-input PAT verified identity, the exact private project, pool 11 and existing definition 1. An independent saved-login check passed at **16:08 UTC**; those reads still passed during the **16:47 UTC** follow-up. There were **zero Online agents**. This does not verify token scopes, server expiry or write permissions |
 | Earlier application access failure | Repository-list and SSH service-connection-list requests each returned **HTTP 401**, including the 16:47 UTC recheck. No import, connection creation or application run was attempted during those checks |
 | **Subsequent application access and source progress** | After the user edited the saved PAT, both denied reads succeeded at **16:58 UTC**. A2's new private Azure repository was created, the pinned source imported and the name-only HTML commit independently verified by **17:06 UTC**. No SSH connection or application pipeline was created; these operations are not cloud deployment permission or application execution |
-| **Current SSH transport gate** | Reviewed public Microsoft task sources do not configure `hostVerifier`; an OpenSSH known-hosts file does not configure those Node clients. The [source finding and remaining alternatives](../../README.md#ssh-transport-review--18-september-2026) are not live task-package verification or an implemented transport fix |
+| **Transport source follow-up** | The reviewed native tasks still do not configure `hostVerifier`. The [host-pinned loopback transport](../../transport/README.md) is now implemented and offline-tested, but authentic host keys, saved endpoint binding, actual SSH restrictions and native-task behavior still require live acceptance |
 
 The [earlier follow-up receipt](../../readiness-2026-09-18.json) preserves the failed
 checks. The later [A2 import receipt](../../static-import-2026-09-18.json) records
@@ -161,9 +161,11 @@ registration credential. For any fresh handoff use a hidden local input channel,
 **never chat, arguments, environment exports or screenshots**. A2/A3 write-scoped
 cloud access, complete cost review, authenticated pipeline transport, exact live
 inputs/plan and an independent cleanup safeguard remain separate gates. The
-original **12:15–16:15 UTC** window has ended; record a fresh bounded authorization
-before paid creation rather than rolling that window forward. No agent or deployed
-application is inferred from successful read requests.
+original **12:15–16:15 UTC** window has ended. A subsequent [24-hour A2 resource
+approval](../../../README.md#current-resource-window-decision) is recorded but not
+activated. Use that fresh scope and one fixed deadline; do not roll retired windows
+forward or increase the US$10 combined allowance. No agent or deployed application
+is inferred from successful read requests.
 
 ## Protected input, plan and state workflow
 
@@ -254,7 +256,11 @@ Terraform source contracts using the existing `.tools/terraform` formatter/parse
 Those source checks are distinct from the separately executed provider schema and
 mock-plan tests. All original briefs/evidence remain unchanged. The native checks additionally used Terraform **1.13.5**:
 
-- `guard`: `init -backend=false`, `validate` and `test` — 19 plan cases passed.
+- `guard`: the earlier run passed 19 cases. The 24-hour-window increment reran
+  backend-disabled initialization and **20 provider-free plan cases**, including
+  the exact full-day boundary and rejection of longer/expired/future windows.
+  Only the reviewed source/test files were copied into fresh scratch; no cloud
+  provider, backend, live input/state or account was used.
 - `azure`: `init -backend=false -lockfile=readonly`, `validate` and `test` — six mock
   plan cases passed with the existing **AzureRM 4.47.0** executable linked from an
   existing reviewed provider mirror, not copied/downloaded. Terraform checked the
@@ -273,8 +279,8 @@ mock-plan tests. All original briefs/evidence remain unchanged. The native check
 - The subsequent federated-caller increment re-ran AWS formatting, schema validation
   and **13 mock plans**, plus **86 application/source and 43 A1/preservation tests**.
   It retained runtime/input root rejection and added exact federated caller/account,
-  namespace and name-shape cases. The shared guard/Azure tests above are unchanged
-  historical results, not additional runs claimed for this increment.
+  namespace and name-shape cases. Those provider-backed AWS/Azure tests remain
+  historical results, not additional runs claimed for the transport/window increment.
 
 For native tests use a cleared environment, `HOME=/nonexistent`, checkpointing
 disabled, separate fresh `TF_DATA_DIR`s and a filesystem-only provider mirror

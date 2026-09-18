@@ -34,7 +34,7 @@ This is a narrow adaptation of the [Week 08 Azure VM reference](../../../week-08
 - Managed boot diagnostics uses Azure-managed storage, not a new user-owned storage account. Keep console output private. Enable it at creation so the initial host-key fingerprint can be retrieved through authenticated Azure access.
 - Local state and all live inputs/plans/logs/keys belong under ignored, mode-0700 `.private/`; files should be mode 0600. `tests/simulated-operator.pub` is a separate public-only test fixture whose private key was destroyed, not an operator key.
 
-The source/plan checks prevent selected mistakes; they are **not an IAM boundary, automatic TTL controller or spending cap**. An expiry tag does not delete resources. The Terraform gate verifies the explicit subscription/tenant/operator, approval flag and nonexpired deadline at apply. The separate checker requires at most two hours remaining for creation. Cleanup remains possible after expiry.
+The source/plan checks prevent selected mistakes; they are **not an IAM boundary, automatic TTL controller or spending cap**. An expiry tag does not delete resources. The Terraform gate verifies the explicit subscription/tenant/operator, approval flag and nonexpired deadline at apply. The separate checker now permits at most **24 hours remaining** for creation, following the user's updated Week10 resource-window requirement. This does not renew any historical authorization, increase an allowance or create resources. Use the one recorded lab deadline across agent and targets; do not roll it forward when renewing credentials. Cleanup remains possible after expiry.
 
 ## Offline validation
 

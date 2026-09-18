@@ -8,7 +8,7 @@ import struct
 import sys
 
 
-FIELDS = {"assignment", "agent_ipv4", "target_ipv4", "deployment_public_key"}
+FIELDS = {"assignment", "agent_ipv4", "target_ipv4", "deployment_public_key", "tunnel_public_key"}
 MAX_BYTES = 4096
 
 
@@ -37,7 +37,13 @@ def validate(data):
         raise ValueError("assignment required")
     if public_ipv4(data["agent_ipv4"]) == public_ipv4(data["target_ipv4"]):
         raise ValueError("separate target required")
-    key = data["deployment_public_key"]
+    for field in ("deployment_public_key", "tunnel_public_key"):
+        public_key(data[field])
+    if data["deployment_public_key"] == data["tunnel_public_key"]:
+        raise ValueError("separate deployment and forwarding keys required")
+
+
+def public_key(key):
     if not isinstance(key, str) or len(key) != 80 or not key.startswith("ssh-ed25519 "):
         raise ValueError("one Ed25519 public key without options or comments required")
     try:

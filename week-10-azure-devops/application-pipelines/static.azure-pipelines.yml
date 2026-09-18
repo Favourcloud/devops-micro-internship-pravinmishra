@@ -13,7 +13,7 @@ parameters:
 
 variables:
   learnerName: Eze Favour
-  sshServiceConnection: __set_approved_static_ssh_connection__
+  sshServiceConnection: __set_approved_static_ssh_connection_id__
   targetFolder: /var/www/html
 
 pool:
@@ -26,6 +26,7 @@ jobs:
     displayName: Verify and deploy the static website
     condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
     timeoutInMinutes: 15
+    cancelTimeoutInMinutes: 2
     workspace:
       clean: all
     steps:
@@ -55,6 +56,13 @@ jobs:
           SOURCE_BRANCH: $(Build.SourceBranch)
           SITE_ROOT: $(Build.ArtifactStagingDirectory)/site
           MANIFEST_TEMP: $(Agent.TempDirectory)/dmi-static-manifest.sha256
+      - bash: |
+          set -euo pipefail
+          python3 -I -B ci/ssh_tunnel.py start week10-a2 "$JOB_ID" "$SSH_CONNECTION_ID"
+        displayName: Start the bounded host-pinned SSH transport
+        env:
+          JOB_ID: $(System.JobId)
+          SSH_CONNECTION_ID: $(sshServiceConnection)
       - task: SSH@0
         displayName: Verify the dedicated target before copying
         inputs:
@@ -65,6 +73,13 @@ jobs:
           failOnStdErr: true
           enableRemoteVsoCommands: false
           readyTimeout: '20000'
+      - bash: |
+          set -euo pipefail
+          python3 -I -B ci/ssh_tunnel.py check week10-a2 "$JOB_ID" "$SSH_CONNECTION_ID"
+        displayName: Recheck authenticated transport before transfer
+        env:
+          JOB_ID: $(System.JobId)
+          SSH_CONNECTION_ID: $(sshServiceConnection)
       - task: CopyFilesOverSSH@0
         displayName: Copy only the reviewed static payload
         inputs:
@@ -76,6 +91,13 @@ jobs:
           overwrite: true
           failOnEmptySource: true
           readyTimeout: '20000'
+      - bash: |
+          set -euo pipefail
+          python3 -I -B ci/ssh_tunnel.py check week10-a2 "$JOB_ID" "$SSH_CONNECTION_ID"
+        displayName: Recheck authenticated transport before verification
+        env:
+          JOB_ID: $(System.JobId)
+          SSH_CONNECTION_ID: $(sshServiceConnection)
       - task: SSH@0
         displayName: Verify checksums and the served website
         inputs:
@@ -86,3 +108,10 @@ jobs:
           failOnStdErr: true
           enableRemoteVsoCommands: false
           readyTimeout: '20000'
+      - bash: |
+          set -euo pipefail
+          python3 -I -B ci/ssh_tunnel.py stop week10-a2 "$JOB_ID"
+        displayName: Stop only this job's SSH transport
+        condition: always()
+        env:
+          JOB_ID: $(System.JobId)

@@ -259,9 +259,10 @@ class PipelineTests(unittest.TestCase):
         self.assertIn('test ! -L index.html', sequence[1]["bash"])
         self.assertIn('cp -- index.html "$SITE_ROOT/index.html"', sequence[1]["bash"])
         self.assertIn("--verify-manifest", sequence[1]["bash"])
-        self.assertEqual([step.get("task") for step in sequence[2:]], ["SSH@0", "CopyFilesOverSSH@0", "SSH@0"])
-        self.assertEqual(sequence[2]["inputs"]["args"], "static preflight")
-        self.assertEqual(sequence[4]["inputs"]["args"], "static verify")
+        native = [step for step in sequence if "task" in step]
+        self.assertEqual([step["task"] for step in native], ["SSH@0", "CopyFilesOverSSH@0", "SSH@0"])
+        self.assertEqual(native[0]["inputs"]["args"], "static preflight")
+        self.assertEqual(native[-1]["inputs"]["args"], "static verify")
         self.assertIn("PullRequest", self.static["jobs"][0]["condition"])
 
     def test_four_stages_depend_on_success_in_order(self):
