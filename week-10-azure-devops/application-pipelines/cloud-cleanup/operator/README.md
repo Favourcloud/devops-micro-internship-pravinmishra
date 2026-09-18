@@ -4,7 +4,17 @@
 
 At **23:03:19 UTC**, the explicitly approved creation-only Terraform operation was verified against frozen source `91787063e1e36bcdd08ab3d1811c50b9c7f73d62`: persistent user **`dmi-week10-operator`**, its operator policy/boundary, and the canary runtime boundary were created. Both live policy documents matched the reviewed templates. Private state and exact recovery metadata were retained; an independent backup is **not** claimed.
 
-The user had **zero attached/inline policies, groups, access keys and MFA devices**, and no console password. It is **not yet a usable login**. Private password/MFA enrollment and independent verification must precede any policy attachment. The original privilege deadline remains **19 September 2026, 18:18:03 UTC**; retention does not renew it. No role, issuer, VM or hosted cleanup service was created, and the existing Week08 user was unchanged. These are initial API/state verification results, not ongoing monitoring, browser authentication, assignment completion or screenshot evidence.
+The user had **zero attached/inline policies, groups, access keys and MFA devices**, and no console password. At that checkpoint, it was **not yet a usable login**. Private password/MFA enrollment and independent verification must precede any policy attachment. The original privilege deadline remains **19 September 2026, 18:18:03 UTC**; retention does not renew it. No role, issuer, VM or hosted cleanup service was created, and the existing Week08 user was unchanged. These are initial API/state verification results, not ongoing monitoring, browser authentication, assignment completion or screenshot evidence.
+
+## Verified activation — 18 September 2026
+
+At **23:36:43 UTC**, the reviewed policy attachment was applied with Terraform and independently verified against AWS and the existing protected state. The user had **one enrolled MFA device, one attached operator policy, zero access keys, zero inline policies and zero groups**. The console password was configured with no mandatory reset outstanding. Both live policy documents and the permissions boundary still matched frozen source `91787063e1e36bcdd08ab3d1811c50b9c7f73d62`.
+
+The first attachment plan stopped on one unexpected user tag. After explicit owner approval, a separate saved plan removed only that extra setup tag and attached the unchanged policy; the three managed tags were preserved. The rejected plan was not applied. The successful plan SHA-256 was `5d49b1e4b7b4be2ff9f5cda248541fe4170f9aaaf32f6e08ed6cb37a0261147b`. Targeted private-controller tests passed offline with network and filesystem writes denied; these were gate tests, not sign-in evidence.
+
+The original privilege deadline remains **19 September 2026, 18:18:03 UTC**. The root administration window was not extended. No role, issuer, VM or hosted cleanup service was created. **Actual non-root browser/CLI sign-in, MFA request context and Terraform-provider acceptance remain unverified**; attachment alone does not establish effective access. AWS CLI 2.26.1 was rechecked locally and is still below the documented 2.32.0 login prerequisite. This is not assignment completion or screenshot evidence.
+
+The existing state and its backup were verified owner-only (`0600`) within a private directory. Historical creation inputs remain unchanged and describe the inactive phase; a separate private activation override and recovery record describe the active attachment. Preserve all of them. Do not rerun the creation plan or apply its inactive inputs alone. An independent external backup is still **not** claimed. Any later IAM maintenance needs a currently valid, explicitly authorized administration window; it must not renew privileges automatically.
 
 ## Source contract
 
