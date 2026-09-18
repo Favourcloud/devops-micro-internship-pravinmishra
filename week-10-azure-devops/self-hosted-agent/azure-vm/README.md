@@ -4,6 +4,8 @@
 
 ## Actual outcome — 2026-09-17
 
+This section and its immutable receipt describe **the first pilot only**. The [Week 10 status](../../README.md) records the later host/package verification, cleanup and Azure DevOps setup. The historical pending gates below are not a current status report; every new lab still requires fresh authorization and host verification.
+
 The user explicitly approved one temporary Azure lab, local missing-tool installation, dedicated SSH access, a **US$1 planning allowance** and cleanup within the original two-hour window. The allowance was **not an enforced billing cap**. That authorization window has ended; do not reuse it for another deployment.
 
 | Operation | Actual result |

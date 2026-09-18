@@ -2,7 +2,7 @@
 
 Learner: **Eze Favour**. **Offline source preparation only. Neither assignment is complete.**
 
-These are separately scoped follow-on files. The frozen A1/VM delivery and the existing Week 10 index describe earlier work and are intentionally unchanged. No application-repository import, application dependency installation/build/test, SSH service connection, pipeline run, deployment, screenshot or social publication is claimed here. [Source coordinates](sources.json) record public reads, not successful execution.
+These are separately scoped follow-on files; see the [Week 10 status and remaining gates](../README.md) for the combined delivery. No application-repository import, application dependency installation/build/test, SSH service connection, pipeline run, deployment, screenshot or social publication is claimed here. [Source coordinates](sources.json) record public reads, not successful execution.
 
 | Brief | Prepared source | Still required |
 | --- | --- | --- |

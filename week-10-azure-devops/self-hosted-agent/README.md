@@ -2,9 +2,9 @@
 
 Learner: **Eze Favour**. **Assignment not complete — agent and evidence still pending.**
 
-The original offline foundation was **source preparation only** and was merged in PR #14. A separately authorized **2026-09-17 Azure VM pilot** subsequently provisioned an isolated Ubuntu-image VM and verified its cleanup before the approved deadline. See the [Terraform adaptation and actual run record](azure-vm/README.md). SSH was not attempted: the late-enabled boot log did not provide a trusted host fingerprint. The adaptation now enables managed boot diagnostics from creation; first-boot fingerprint retrieval still needs live verification.
+The original offline foundation was **source preparation only** and was merged in PR #14. The [Terraform adaptation and first pilot record](azure-vm/README.md) describe a separately authorized, cleaned-up VM whose late-enabled diagnostics did not establish SSH trust. A later authorized lab verified host trust, guest prerequisites and the Microsoft agent package, then was also destroyed before its deadline. These historical checks do not establish a current agent host or authorize another deployment.
 
-No PAT, agent pool, registered/Online agent, successful Azure pipeline, or screenshot is verified. All seven [evidence slots](evidence/manifest.json) remain pending and all eight original checklist items remain unchecked. Local test success is not live evidence. The read-only candidate helper and manual-only verification YAML remain unchanged; neither performs provisioning or registration.
+The private project, dedicated pool, imported assessment repository and manual A1 pipeline definition now exist; see the [18 September status and remaining gates](../README.md). Definition-specific pool authorization and final pre-run checks remain pending. **No agent registration, service, Online agent or successful pipeline run is verified.** All seven [evidence slots](evidence/manifest.json) remain pending and all eight original checklist items remain unchecked. Local test success is not live evidence. The read-only candidate helper and manual-only verification YAML remain unchanged; neither performs provisioning or registration.
 
 ## Deliverables
 
