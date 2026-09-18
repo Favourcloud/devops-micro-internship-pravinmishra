@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "kind": "canary",
+  "armed": false,
+  "lease_id": null,
+  "source_commit": null,
+  "approved_at": null,
+  "cleanup_at": null,
+  "expires_at": null,
+  "budget": {"estimated_total_usd": null, "planning_allowance_usd": 10},
+  "readiness": {
+    "nonroot_bootstrap_verified": false,
+    "scoped_connection_verified": false,
+    "hosted_capacity_verified": false,
+    "exclusive_lock_verified": false,
+    "control_plane_teardown_verified": false
+  },
+  "azure": {"subscription_id": null, "tenant_id": null, "client_id": null, "principal_id": null},
+  "aws": {"account_id": null},
+  "federation": {"issuer": null, "subject": null, "authorized_party": null}
+}
