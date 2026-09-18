@@ -102,7 +102,7 @@ class OperatorTests(unittest.TestCase):
         self.assertFalse(result["bootstrap_permissions_verified"])
         self.assertNotIn("UserId", result)
         for arn in ("arn:aws:iam::000000000001:root", "arn:aws:sts::000000000001:federated-user/fixture",
-                    "arn:aws:sts::000000000001:assumed-role/other/test", "arn:aws:iam::000000000009:user/dmi-w10-bootstrap-abcdef123456"):
+                    "arn:aws:sts::000000000001:assumed-role/other/test", "arn:aws:iam::000000000009:user/dmi-week10-operator"):
             with self.subTest(arn=arn), self.assertRaises(ValueError):
                 review.verify_identity({**document, "Arn": arn}, FIXTURE["account_id"], FIXTURE["lease_id"])
         with self.assertRaises(ValueError):
@@ -137,8 +137,33 @@ class OperatorTests(unittest.TestCase):
             self.assertNotIn("root_bootstrap_approval", variables)
         readme = (ROOT / "operator/README.md").read_text()
         self.assertIn("not an IAM restriction or revocation of root credentials", readme)
-        self.assertIn("local state alone is not independent custody", readme)
-        self.assertIn("Creation-time Terraform preconditions are not a destroy authorization mechanism", readme)
+        self.assertIn("local state alone is not independent custody", readme.lower())
+        self.assertIn("Creation preconditions are not destroy authorization", readme)
+
+    def test_persistent_identity_does_not_renew_permissions(self):
+        first = review.render(FIXTURE)
+        second = review.render({**FIXTURE, "lease_id": "123456abcdef"})
+        self.assertEqual(first["operator_arn"], "arn:aws:iam::000000000001:user/dmi-week10-operator")
+        self.assertEqual(first["operator_arn"], second["operator_arn"])
+        self.assertNotEqual(first["cleanup_role_arn"], second["cleanup_role_arn"])
+        for result in (first, second):
+            statements = {s["Sid"]: s for s in result["policies"]["operator-policy"]["Statement"]}
+            self.assertEqual(statements["ExpireWithoutRenewal"]["Condition"]["DateGreaterThanEquals"]["aws:CurrentTime"], FIXTURE["expires_at"])
+            self.assertIn("arn:aws:iam::000000000001:policy/dmi-week10-operator", statements["ReadBoundaries"]["Resource"])
+
+    def test_persistent_resources_are_guarded_but_attachment_can_be_removed(self):
+        text = (ROOT / "operator/aws/main.tf").read_text()
+        for kind, name in (("aws_iam_user", "operator"), ("aws_iam_policy", "operator"), ("aws_iam_policy", "runtime_boundary")):
+            block = re.search(r'(?ms)^resource "' + kind + '" "' + name + r'" \{.*?^\}', text).group()
+            self.assertIn("prevent_destroy = true", block)
+        attachment = re.search(r'(?ms)^resource "aws_iam_user_policy_attachment" "operator" \{.*?^\}', text).group()
+        self.assertNotIn("prevent_destroy", attachment)
+        self.assertIn("timecmp(timestamp(), var.approval.expires_at) < 0", attachment)
+        self.assertIn("timecmp(plantimestamp(), var.approval.approved_at) >= 0", attachment)
+        self.assertIn("var.persistent_identity_approved", text)
+        variables = (ROOT / "operator/aws/variables.tf").read_text()
+        self.assertRegex(variables, r'variable "persistent_identity_approved" \{[\s\S]*?default\s*=\s*false')
+        self.assertRegex(variables, r'variable "administration_approval" \{[\s\S]*?default\s*=\s*null')
 
     def test_no_credentials_provisioners_or_network_in_source(self):
         files = list((ROOT / "operator/aws").glob("*.tf"))

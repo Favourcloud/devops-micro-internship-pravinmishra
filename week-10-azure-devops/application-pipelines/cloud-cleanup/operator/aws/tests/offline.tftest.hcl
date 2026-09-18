@@ -9,12 +9,47 @@ mock_provider "aws" {
   }
 }
 variables {
-  lease_id                = "abcdef123456"
-  account_id              = "000000000001"
-  administrator_arn       = "arn:aws:sts::000000000001:assumed-role/fixture-administrator/test"
-  oidc_issuer             = "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000002/v2.0"
-  live_execution_approved = true
-  approval                = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "4h"), estimated_total_usd = 1, planning_allowance_usd = 10 }
+  lease_id                     = "abcdef123456"
+  account_id                   = "000000000001"
+  administrator_arn            = "arn:aws:sts::000000000001:assumed-role/fixture-administrator/test"
+  oidc_issuer                  = "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000002/v2.0"
+  live_execution_approved      = true
+  persistent_identity_approved = true
+  approval                     = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "4h"), estimated_total_usd = 1, planning_allowance_usd = 10 }
+}
+run "persistent_retention_requires_explicit_approval" {
+  command = plan
+  variables { persistent_identity_approved = false }
+  expect_failures = [terraform_data.authorization]
+}
+run "stable_human_identity_across_lease_scopes" {
+  command = plan
+  variables { lease_id = "123456abcdef" }
+  assert {
+    condition     = aws_iam_user.operator.name == "dmi-week10-operator" && aws_iam_policy.operator.name == "dmi-week10-operator" && aws_iam_policy.runtime_boundary.name == "dmi-w10-cleanup-boundary-123456abcdef"
+    error_message = "The human identity must not be renamed by a later lease scope."
+  }
+}
+run "nonroot_maintenance_preserves_expired_privileges" {
+  command = plan
+  variables {
+    approval                = { approved_at = "2000-01-01T00:00:00Z", expires_at = "2000-01-01T04:00:00Z", estimated_total_usd = 0, planning_allowance_usd = 10 }
+    administration_approval = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "30m") }
+  }
+  assert {
+    condition     = length(aws_iam_user_policy_attachment.operator) == 0 && jsondecode(aws_iam_policy.operator.policy).Statement[1].Condition.DateGreaterThanEquals["aws:CurrentTime"] == "2000-01-01T04:00:00Z"
+    error_message = "Post-expiry administration must not renew or activate privileges."
+  }
+}
+run "no_expired_nonroot_maintenance" {
+  command = plan
+  variables { administration_approval = { approved_at = "2000-01-01T00:00:00Z", expires_at = "2000-01-01T00:30:00Z" } }
+  expect_failures = [terraform_data.authorization]
+}
+run "no_long_nonroot_maintenance" {
+  command = plan
+  variables { administration_approval = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "2h") } }
+  expect_failures = [var.administration_approval]
 }
 run "inert_until_mfa_verification" {
   command = plan
@@ -140,18 +175,45 @@ run "no_future_root_exception" {
   }
   expect_failures = [terraform_data.authorization]
 }
-run "root_exception_cannot_extend_identity_window" {
+run "root_maintenance_keeps_original_expired_policy" {
   command = plan
   variables {
     administrator_arn       = "arn:aws:iam::000000000001:root"
     root_bootstrap_approval = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "30m") }
-    approval                = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "10m"), estimated_total_usd = 0, planning_allowance_usd = 10 }
+    approval                = { approved_at = "2000-01-01T00:00:00Z", expires_at = "2000-01-01T04:00:00Z", estimated_total_usd = 0, planning_allowance_usd = 10 }
   }
   override_data {
     target = data.aws_caller_identity.current
     values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:root" }
   }
-  expect_failures = [terraform_data.authorization]
+  assert {
+    condition     = length(aws_iam_user_policy_attachment.operator) == 0 && jsondecode(local.operator_policy).Statement[1].Condition.DateGreaterThanEquals["aws:CurrentTime"] == "2000-01-01T04:00:00Z"
+    error_message = "Fresh root maintenance cannot renew the retained policy or activate access."
+  }
+}
+run "root_cannot_activate_expired_privileges" {
+  command = plan
+  variables {
+    administrator_arn         = "arn:aws:iam::000000000001:root"
+    root_bootstrap_approval   = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "30m") }
+    approval                  = { approved_at = "2000-01-01T00:00:00Z", expires_at = "2000-01-01T04:00:00Z", estimated_total_usd = 0, planning_allowance_usd = 10 }
+    bootstrap_access_enabled  = true
+    mfa_enrolled_and_verified = true
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:root" }
+  }
+  expect_failures = [aws_iam_user_policy_attachment.operator[0]]
+}
+run "no_combined_administrator_windows" {
+  command = plan
+  variables {
+    administrator_arn       = "arn:aws:iam::000000000001:root"
+    root_bootstrap_approval = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "30m") }
+    administration_approval = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "30m") }
+  }
+  expect_failures = [var.administration_approval]
 }
 run "no_negative_estimate" {
   command = plan
@@ -179,10 +241,10 @@ run "no_wrong_account" {
 }
 run "no_self_administration" {
   command = plan
-  variables { administrator_arn = "arn:aws:iam::000000000001:user/dmi-w10-bootstrap-abcdef123456" }
+  variables { administrator_arn = "arn:aws:iam::000000000001:user/dmi-week10-operator" }
   override_data {
     target = data.aws_caller_identity.current
-    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:user/dmi-w10-bootstrap-abcdef123456" }
+    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:user/dmi-week10-operator" }
   }
   expect_failures = [terraform_data.authorization]
 }

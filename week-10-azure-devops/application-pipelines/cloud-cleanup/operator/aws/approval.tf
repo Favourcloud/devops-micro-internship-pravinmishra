@@ -1,5 +1,5 @@
 variable "approval" {
-  description = "Fixed IAM-identity lifecycle and reviewed estimate. This root creates no billed compute/storage; zero is valid for identity-only setup. The combined allowance is unchanged and is not a spending cap."
+  description = "Fixed privileged-access window, not IAM-object retention. Zero is valid for identity-only setup; the existing combined allowance and lab deadlines are unchanged."
   type = object({
     approved_at            = string
     expires_at             = string
@@ -16,6 +16,6 @@ variable "approval" {
       var.approval.planning_allowance_usd > 0 &&
       var.approval.planning_allowance_usd <= 10, false
     )
-    error_message = "Review a maximum 24-hour identity window and nonnegative estimate within the existing positive allowance of at most US$10; no workload is authorized."
+    error_message = "Review a maximum 24-hour privileged-access window and nonnegative estimate within the existing positive allowance of at most US$10; no workload is authorized."
   }
 }

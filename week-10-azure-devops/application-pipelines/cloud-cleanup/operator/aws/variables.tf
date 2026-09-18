@@ -40,6 +40,25 @@ variable "root_bootstrap_approval" {
     error_message = "The root IAM exception must have a fixed UTC window of at most one hour."
   }
 }
+variable "administration_approval" {
+  description = "Optional fresh non-root administrator maintenance window; does not extend the operator's privilege expiry. Root must instead use root_bootstrap_approval."
+  type = object({
+    approved_at = string
+    expires_at  = string
+  })
+  default = null
+  validation {
+    condition = var.administration_approval == null ? true : try(
+      var.root_bootstrap_approval == null &&
+      endswith(var.administration_approval.approved_at, "Z") &&
+      endswith(var.administration_approval.expires_at, "Z") &&
+      timecmp(var.administration_approval.expires_at, var.administration_approval.approved_at) > 0 &&
+      timecmp(var.administration_approval.expires_at, timeadd(var.administration_approval.approved_at, "1h")) <= 0,
+      false
+    )
+    error_message = "Non-root maintenance needs one fixed UTC window of at most one hour, never combined with a root exception."
+  }
+}
 variable "oidc_issuer" {
   description = "The approved Entra tenant issuer to scope IAM permissions, not proof of actual connection/token claims."
   type        = string
@@ -51,6 +70,11 @@ variable "oidc_issuer" {
 variable "live_execution_approved" {
   type    = bool
   default = false
+}
+variable "persistent_identity_approved" {
+  description = "Explicit approval to retain the IAM user and protective policies, not to extend bootstrap permissions or any lab-resource lifetime."
+  type        = bool
+  default     = false
 }
 variable "bootstrap_access_enabled" {
   type    = bool

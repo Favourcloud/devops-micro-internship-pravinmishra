@@ -97,7 +97,8 @@ def builtin_root_expiry(terraform):
         scratch = Path(directory)
         (scratch / "main.tf").write_text(guard.group().replace("data.aws_caller_identity.current", "local.identity"))
         (scratch / "fixtures.tf.json").write_text(json.dumps({"locals": {
-            "identity": identity, "user_arn": "arn:aws:iam::000000000001:user/dmi-w10-bootstrap-abcdef123456"}}))
+            "identity": identity, "user_arn": "arn:aws:iam::000000000001:user/dmi-week10-operator",
+            "administration_window": "${var.root_bootstrap_approval}"}}))
         for name in ("variables.tf", "approval.tf"):
             shutil.copyfile(root / name, scratch / name)
 
@@ -118,7 +119,7 @@ def builtin_root_expiry(terraform):
         inputs = {
             "lease_id": "abcdef123456", "account_id": identity["account_id"], "administrator_arn": identity["arn"],
             "oidc_issuer": "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000002/v2.0",
-            "live_execution_approved": True,
+            "live_execution_approved": True, "persistent_identity_approved": True,
             "approval": {"approved_at": stamp(now - timedelta(minutes=2)), "expires_at": stamp(now + timedelta(hours=1)),
                          "estimated_total_usd": 0, "planning_allowance_usd": 10},
             "root_bootstrap_approval": {"approved_at": stamp(now - timedelta(minutes=1)), "expires_at": stamp(expiry)},

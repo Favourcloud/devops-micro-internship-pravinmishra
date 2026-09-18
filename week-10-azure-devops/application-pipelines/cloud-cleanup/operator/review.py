@@ -34,7 +34,7 @@ def render(value):
     inputs = validate_inputs(value)
     base = "arn:aws:iam::" + inputs["account_id"] + ":"
     lease = inputs["lease_id"]
-    inputs.update(user_arn=base + "user/dmi-w10-bootstrap-" + lease,
+    inputs.update(user_arn=base + "user/dmi-week10-operator",
                   role_arn=base + "role/dmi-w10-cleanup-" + lease,
                   boundary_arn=base + "policy/dmi-w10-cleanup-boundary-" + lease,
                   issuer_arn=base + "oidc-provider/" + inputs["oidc_issuer"].removeprefix("https://"))
@@ -57,7 +57,7 @@ def supports_browser_login(version_output):
 def verify_identity(document, account_id, lease_id):
     if not re.fullmatch(r"[0-9]{12}", account_id) or not re.fullmatch(r"[a-f0-9]{12}", lease_id):
         raise ValueError("Invalid expected identity metadata.")
-    expected = f"arn:aws:iam::{account_id}:user/dmi-w10-bootstrap-{lease_id}"
+    expected = f"arn:aws:iam::{account_id}:user/dmi-week10-operator"
     if (not isinstance(document, dict) or set(document) != {"Account", "Arn", "UserId"}
             or document["Account"] != account_id or document["Arn"] != expected
             or not isinstance(document["UserId"], str) or not re.fullmatch(r"AIDA[A-Z0-9]{17}", document["UserId"])):
