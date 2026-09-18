@@ -1,5 +1,13 @@
 # Non-root AWS operator — source and owner handoff
 
+## Verified initial creation — 18 September 2026
+
+At **23:03:19 UTC**, the explicitly approved creation-only Terraform operation was verified against frozen source `91787063e1e36bcdd08ab3d1811c50b9c7f73d62`: persistent user **`dmi-week10-operator`**, its operator policy/boundary, and the canary runtime boundary were created. Both live policy documents matched the reviewed templates. Private state and exact recovery metadata were retained; an independent backup is **not** claimed.
+
+The user had **zero attached/inline policies, groups, access keys and MFA devices**, and no console password. It is **not yet a usable login**. Private password/MFA enrollment and independent verification must precede any policy attachment. The original privilege deadline remains **19 September 2026, 18:18:03 UTC**; retention does not renew it. No role, issuer, VM or hosted cleanup service was created, and the existing Week08 user was unchanged. These are initial API/state verification results, not ongoing monitoring, browser authentication, assignment completion or screenshot evidence.
+
+## Source contract
+
 **Persistent identity, expiring permissions.** This source and its tests do not prove live creation or successful sign-in. For this bounded single-account lab, use one dedicated MFA-protected IAM user with temporary AWS CLI browser-login credentials. Retaining the identity and protective policies requires explicit approval; it never renews privileges or extends lab-resource deadlines. Do not introduce AWS Organizations just to enable SSO. An existing organization-backed Identity Center role remains preferable when already available; an Identity Center account instance does not provide AWS-account access.
 
 The saved Azure DevOps PAT is unrelated and need not be replaced. The existing `GetFederationToken` broker cannot call IAM APIs, regardless of its policy or renewal. Do not broaden that broker, inspect its credentials, or give root/operator credentials to a hosted runner. Root is rejected by default; the separately authorized, short-lived exception below applies **only to this IAM identity root**, never to workload or cleanup-control-plane roots.
