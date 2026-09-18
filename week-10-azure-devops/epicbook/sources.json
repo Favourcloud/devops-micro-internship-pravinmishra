@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "assignment": 4,
+  "learner": "Eze Favour",
+  "source_reviewed_on": "2026-09-18",
+  "upstream": {
+    "repository": "https://github.com/pravinmishraaws/theepicbook",
+    "commit": "763becebb8d3f5663a76bb30facddc25be63cfd5",
+    "file_sha256": {
+      "README.md": "ab56cd423545847a164fae5656307fec59585effbf265c3b824445b54f4e40f2",
+      "Installation & Configuration Guide.md": "5ed3a1daecfb96a68ccf5c36d13fe88a72f5d85aa86bbbee73ef22a64ca89c13",
+      "package.json": "eafabcb4928bdb8eb306f3cef48903a60487794a90efb2edef016884117267cb",
+      "package-lock.json": "305a0821a2ab693d25a65e796c3c72d3f526c5fcaa14ad2ac2953cbf2d411fbf",
+      "config/config.json": "5daaa3dd923111d183d387d416ed354362da4005287d98f5e9620c958d245ae1",
+      "server.js": "2adc1f0559d37846904178ab7e0c9d029c9602bcd0db5eef0aafb2d10220e8db",
+      "models/index.js": "8a4b3bf5e2d3c01945701ab2513d70a51137bedd2f9d1881418684ab5f3d57c3",
+      "views/layouts/main.handlebars": "3a20a894c0a286632743fe727b3788cfa9aad340626e62f813adf5017c277851",
+      "db/BuyTheBook_Schema.sql": "ef15a628560714b2a2d0707bbb5b3f59cbf18c5ba7a438d920a861ace5ebfa62",
+      "models/cart.js": "601cdab81ed51819f3cbc03c049adcf05304547b1ac3cad16e5dcf0581576acb",
+      "models/checkout.js": "31ee452d7e54b9e89e7f4e89e233838a718c5374676f8ef92477c5df6f49193f",
+      "models/book.js": "3a8e88a134ed2923e7c54b221921ec53c247866cd341794ecb2103ea54ebec48",
+      "routes/cart-api-routes.js": "2cd08ff3d884324c740a204a1a6ba3108720a9fe9f9f63dd7f3fb12d7639e9f1"
+    }
+  },
+  "locked_dependencies": {
+    "lockfile_version": 3,
+    "mysql2": "2.1.0",
+    "sequelize": "6.3.0",
+    "express": "4.17.1",
+    "express-handlebars": "5.0.0"
+  },
+  "manual_handoff_fields": [
+    "app_public_ip",
+    "backend_ansible_host",
+    "backend_private_ip",
+    "mysql_fqdn"
+  ],
+  "this_delivery": {
+    "application_imported": false,
+    "cloud_resources_created": false,
+    "application_executed": false,
+    "pipelines_run": false,
+    "assignment_complete": false,
+    "evidence": []
+  }
+}

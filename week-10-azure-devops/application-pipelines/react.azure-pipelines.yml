@@ -1,0 +1,188 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - main
+pr: none
+
+parameters:
+  - name: poolName
+    displayName: Approved dedicated Linux agent pool
+    type: string
+    default: DMI-Week10-A1
+
+variables:
+  learnerName: Eze Favour
+  deploymentDate: __set_actual_deployment_date__
+  sshServiceConnection: __set_approved_react_ssh_connection__
+  nodeVersion: 22.23.2
+  targetFolder: /var/www/html
+
+pool:
+  name: ${{ parameters.poolName }}
+  demands:
+    - Agent.OS -equals Linux
+
+stages:
+  - stage: Build
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    jobs:
+      - job: BuildProduction
+        timeoutInMinutes: 20
+        workspace:
+          clean: all
+        steps:
+          - checkout: self
+            clean: true
+            persistCredentials: false
+          - bash: |
+              set -euo pipefail
+              test "$(id -u)" -ne 0
+              test "$LEARNER_NAME" = 'Eze Favour'
+              test "$TARGET_FOLDER" = '/var/www/html'
+              case "$SSH_CONNECTION" in ''|__*) printf '%s\n' 'Set the approved SSH service connection first.' >&2; exit 1 ;; esac
+              python3 -I -B -c 'import datetime, os; value = os.environ["DEPLOYMENT_DATE"]; assert datetime.date.fromisoformat(value).isoformat() == value'
+              printf 'Learner: %s\nConfigured deployment date: %s\n' "$LEARNER_NAME" "$DEPLOYMENT_DATE"
+            displayName: Validate non-secret deployment settings
+            env:
+              LEARNER_NAME: $(learnerName)
+              DEPLOYMENT_DATE: $(deploymentDate)
+              SSH_CONNECTION: $(sshServiceConnection)
+              TARGET_FOLDER: $(targetFolder)
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+              checkLatest: false
+            displayName: Use the reviewed Node version
+          - bash: |
+              set -euo pipefail
+              npm ci --ignore-scripts --no-audit --no-fund
+              npm --ignore-scripts run build
+              python3 -I -B ci/validate_site.py react build --deployment-date "$DEPLOYMENT_DATE" > "$MANIFEST_TEMP"
+              mv -- "$MANIFEST_TEMP" build/dmi-site.sha256
+              python3 -I -B ci/validate_site.py react build --deployment-date "$DEPLOYMENT_DATE" --verify-manifest
+            displayName: Build and validate production files
+            env:
+              CI: 'true'
+              GENERATE_SOURCEMAP: 'false'
+              DEPLOYMENT_DATE: $(deploymentDate)
+              MANIFEST_TEMP: $(Agent.TempDirectory)/dmi-react-manifest.sha256
+          - task: PublishPipelineArtifact@1
+            displayName: Transfer the candidate build to later stages
+            inputs:
+              targetPath: $(Build.SourcesDirectory)/build
+              artifact: candidate-site
+
+  - stage: Test
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - job: TestSource
+        timeoutInMinutes: 20
+        workspace:
+          clean: all
+        steps:
+          - checkout: self
+            clean: true
+            persistCredentials: false
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(nodeVersion)
+              checkLatest: false
+            displayName: Use the same Node version as Build
+          - bash: |
+              set -euo pipefail
+              test "$(id -u)" -ne 0
+              npm ci --ignore-scripts --no-audit --no-fund
+              npm exec --offline --ignore-scripts -- react-scripts test --watchAll=false --runInBand
+            displayName: Run all Jest tests without the starter package-script filter
+            env:
+              CI: 'true'
+
+  - stage: Publish
+    dependsOn: Test
+    condition: succeeded()
+    jobs:
+      - job: PublishTestedBuild
+        timeoutInMinutes: 10
+        workspace:
+          clean: all
+        steps:
+          - checkout: self
+            clean: true
+            persistCredentials: false
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: current
+              artifactName: candidate-site
+              targetPath: $(Pipeline.Workspace)/candidate-site
+          - bash: |
+              set -euo pipefail
+              test "$(id -u)" -ne 0
+              python3 -I -B ci/validate_site.py react "$SITE_ROOT" --deployment-date "$DEPLOYMENT_DATE" --verify-manifest
+            displayName: Verify candidate integrity after successful tests
+            env:
+              SITE_ROOT: $(Pipeline.Workspace)/candidate-site
+              DEPLOYMENT_DATE: $(deploymentDate)
+          - task: PublishPipelineArtifact@1
+            displayName: Publish only the tested production artifact
+            inputs:
+              targetPath: $(Pipeline.Workspace)/candidate-site
+              artifact: site-build
+
+  - stage: Deploy
+    dependsOn: Publish
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - job: DeployProduction
+        timeoutInMinutes: 15
+        workspace:
+          clean: all
+        steps:
+          - checkout: self
+            clean: true
+            persistCredentials: false
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: current
+              artifactName: site-build
+              targetPath: $(Pipeline.Workspace)/site-build
+          - bash: |
+              set -euo pipefail
+              test "$(id -u)" -ne 0
+              python3 -I -B ci/validate_site.py react "$SITE_ROOT" --deployment-date "$DEPLOYMENT_DATE" --verify-manifest
+            displayName: Recheck the exact artifact before transfer
+            env:
+              SITE_ROOT: $(Pipeline.Workspace)/site-build
+              DEPLOYMENT_DATE: $(deploymentDate)
+          - task: SSH@0
+            displayName: Verify the separate React target before copying
+            inputs:
+              sshEndpoint: $(sshServiceConnection)
+              runOptions: script
+              scriptPath: $(Build.SourcesDirectory)/ci/verify_remote.sh
+              args: react preflight
+              failOnStdErr: true
+              enableRemoteVsoCommands: false
+              readyTimeout: '20000'
+          - task: CopyFilesOverSSH@0
+            displayName: Deploy production artifact contents, not the source repository
+            inputs:
+              sshEndpoint: $(sshServiceConnection)
+              sourceFolder: $(Pipeline.Workspace)/site-build
+              contents: '**'
+              targetFolder: $(targetFolder)
+              cleanTargetFolder: false
+              overwrite: true
+              failOnEmptySource: true
+              readyTimeout: '20000'
+          - task: SSH@0
+            displayName: Verify files, local HTTP, SPA fallback and static 404s
+            inputs:
+              sshEndpoint: $(sshServiceConnection)
+              runOptions: script
+              scriptPath: $(Build.SourcesDirectory)/ci/verify_remote.sh
+              args: react verify
+              failOnStdErr: true
+              enableRemoteVsoCommands: false
+              readyTimeout: '20000'

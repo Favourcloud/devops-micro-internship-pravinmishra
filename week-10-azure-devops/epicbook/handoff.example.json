@@ -1,0 +1,6 @@
+{
+  "app_public_ip": null,
+  "backend_ansible_host": null,
+  "backend_private_ip": null,
+  "mysql_fqdn": null
+}

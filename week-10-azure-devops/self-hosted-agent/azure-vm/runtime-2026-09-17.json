@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "assignment": "week-10-assignment-01",
+  "status": "vm_pilot_cleaned_agent_incomplete",
+  "date_utc": "2026-09-17",
+  "budget": {
+    "planning_allowance_usd": 1,
+    "enforced_cap": false,
+    "billing_verified": false,
+    "cleanup_deadline_utc": "2026-09-17T11:58:58Z",
+    "d2lds_v6_linux_compute_quote_usd_per_hour": 0.131,
+    "quote_excludes": "disk, public IP, egress and tax"
+  },
+  "attempts": [
+    {
+      "size": "Standard_B2s",
+      "region": "uksouth",
+      "zonal": false,
+      "apply_started_at": "2026-09-17T10:10:25.857728+00:00",
+      "apply_finished_at": "2026-09-17T10:11:39.835052+00:00",
+      "apply_exit_code": 1,
+      "result": "SkuNotAvailable; VM not created",
+      "create_plan_sha256": "42ca8b59431169c85f11965817979943f2908e37969ce9ffbd214ec02fcd02c1",
+      "applied_source_sha256": {
+        ".terraform.lock.hcl": "1f5467f97786038441e615734d0c88f4a0fd6f41c3e4511ce64951b2c0f75c9e",
+        "check_plan.py": "2d2f19d62645a3788fabb31393c9ec0822ee6398c07108633c439034299ca4f3",
+        "cloud-init.yaml": "539619e94f2f0359591be8972060dad7d0fecaecbb77becca2b5255f32df84be",
+        "main.tf": "ce47ca5b85c21a8607fba7d938e232816fa3cb267790f0c285001da40c43e306",
+        "variables.tf": "bfbda8a4901c69bce4955f0ea64d4a25b0421b7bac7e9b17ecf5094dcb45b238",
+        "versions.tf": "b4cdc3e14679e0b23114b693e5e039eca15069d5acde9abbaebeed535a1a0a34"
+      },
+      "cleanup": {
+        "resource_group_absent": true,
+        "vm_absent": true,
+        "disk_absent": true,
+        "public_ip_absent": true,
+        "terraform_state_empty": true
+      },
+      "cleanup_verified_at": "2026-09-17T10:15:17.100158+00:00",
+      "destroy_plan_sha256": "898961982b450da13380de961d7b91f84f0784d254fe4347ed6a7ec201e3127d"
+    },
+    {
+      "size": "Standard_D2lds_v6",
+      "region": "uksouth",
+      "zonal": false,
+      "apply_started_at": "2026-09-17T10:21:13.297713+00:00",
+      "apply_finished_at": "2026-09-17T10:23:16.985150+00:00",
+      "apply_exit_code": 0,
+      "result": "VM provisioned; subsequently destroyed",
+      "create_plan_sha256": "95db5e798680475a7eba87d3a3feeb23415f09ac5d9652cea06a2c8f11d7f841",
+      "applied_source_sha256": {
+        ".terraform.lock.hcl": "1f5467f97786038441e615734d0c88f4a0fd6f41c3e4511ce64951b2c0f75c9e",
+        "check_plan.py": "aacb70019a88aa839bf434c49c40a94d705539e490c15da391e270b9e50ba3db",
+        "cloud-init.yaml": "539619e94f2f0359591be8972060dad7d0fecaecbb77becca2b5255f32df84be",
+        "main.tf": "c1ebb4ab00c0bf50a692cc4271e711000f6010cfa022cf63935d691a1a96be8f",
+        "variables.tf": "902a7bcbafbdb573f5ff6239a7a5fd09ba1a3025e5bcbdd7309ee1d05b68d77e",
+        "versions.tf": "b4cdc3e14679e0b23114b693e5e039eca15069d5acde9abbaebeed535a1a0a34"
+      },
+      "cleanup": {
+        "resource_group_absent": true,
+        "vm_absent": true,
+        "disk_absent": true,
+        "public_ip_absent": true,
+        "terraform_state_empty": true
+      },
+      "cleanup_verified_at": "2026-09-17T11:55:19.603586+00:00",
+      "destroy_plan_sha256": "e7ce95fd08dd030fada553ce84de786bc9649732fe80ec464636d1d662021fc3"
+    }
+  ],
+  "host_verification": {
+    "diagnostics_update_plan_sha256": "f053351b252e1bd1636b6df6b9386c0af5fdb60f6349e869af4b85c1403a1d00",
+    "diagnostics_update_exit_code": 0,
+    "diagnostics_update_source_sha256": {
+      "main.tf": "6f3127de490e9d84164d790e5f7d8e0a16cabceb5f8dadbd3f8f84928a9635b7",
+      "variables.tf": "902a7bcbafbdb573f5ff6239a7a5fd09ba1a3025e5bcbdd7309ee1d05b68d77e",
+      "versions.tf": "b4cdc3e14679e0b23114b693e5e039eca15069d5acde9abbaebeed535a1a0a34"
+    },
+    "finished_at": "2026-09-17T11:50:10.289014+00:00",
+    "stop_reason": "trusted_ed25519_fingerprint_unavailable",
+    "host_key_verified": false,
+    "ssh_attempted": false,
+    "guest_account_verified": false
+  },
+  "remaining_gates": {
+    "organization_confirmed": false,
+    "pat_created": false,
+    "pool_created": false,
+    "agent_package_installed": false,
+    "agent_registered": false,
+    "agent_service_verified": false,
+    "agent_online": false,
+    "manual_pipeline_passed": false,
+    "screenshots_captured": 0,
+    "assignment_complete": false
+  },
+  "provenance": "Derived from private saved plans, apply receipts and authenticated cleanup checks. Raw state, logs, inputs, keys and identifiers remain private. Not screenshot evidence."
+}

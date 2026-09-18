@@ -11,7 +11,7 @@ PROJECT = Path(__file__).resolve().parents[1]
 WEEK = PROJECT.parent
 REPO = WEEK.parent
 BASELINE = json.loads((PROJECT / "tests/source-baseline.json").read_text())
-NEW_ROOT_ROW = "| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | [Assignment 1 — offline preparation; live agent and evidence pending](./week-10-azure-devops/README.md) | — | — |"
+NEW_ROOT_ROW = "| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | [Assignments 1–4 — source preparation; live pipelines and evidence pending](./week-10-azure-devops/README.md) | — | — |"
 A1 = WEEK / next(name for name in BASELINE["briefs"] if name.startswith("assignment-01-"))
 
 
