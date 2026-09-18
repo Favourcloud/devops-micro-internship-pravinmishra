@@ -139,7 +139,7 @@ Week 04 → Git & GitHub
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | 🔄 In Progress | [Assignments 1–6 — merged preparation, verified evidence and remaining deliverables](#week-08-deliverable-locations) | — | — |
 | 09 | Ansible | 🔄 In Progress | [Assignment 1 — workstation and 12 screenshots complete; later assignments pending](./week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md#current-status) | — | — |
-| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | [Assignments 1–4 — source preparation; live pipelines and evidence pending](./week-10-azure-devops/README.md) | — | — |
+| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | [A1 manual run verified; A2–A4 preparation and submission evidence pending](./week-10-azure-devops/README.md) | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
