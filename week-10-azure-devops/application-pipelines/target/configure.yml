@@ -1,0 +1,283 @@
+---
+- name: Validate the explicit target before connecting
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  any_errors_fatal: true
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  tasks:
+    - name: Require a single isolated SSH target and public inputs
+      ansible.builtin.assert:
+        that:
+          - week10_target is defined
+          - groups.get('week10_web', []) | length == 1
+        fail_msg: Supply reviewed public inputs and exactly one week10_web inventory host.
+
+    - name: Validate public input syntax without cloud or filesystem discovery
+      ansible.builtin.command:
+        argv:
+          - /usr/bin/python3
+          - -I
+          - -B
+          - "{{ playbook_dir }}/validate_inputs.py"
+        stdin: "{{ week10_target | to_json }}"
+      changed_when: false
+      no_log: true
+
+    - name: Bind the inventory to the reviewed target and separate administrator
+      ansible.builtin.assert:
+        that:
+          - hostvars[groups['week10_web'][0]].ansible_host == week10_target.target_ipv4
+          - hostvars[groups['week10_web'][0]].ansible_user is defined
+          - hostvars[groups['week10_web'][0]].ansible_user is string
+          - hostvars[groups['week10_web'][0]].ansible_user is match('^[a-z_][a-z0-9_-]{0,31}$')
+          - hostvars[groups['week10_web'][0]].ansible_user not in ['root', 'week10deploy']
+          - hostvars[groups['week10_web'][0]].ansible_connection | default('ssh') == 'ssh'
+        fail_msg: Use the exact approved host and a separate non-root operator, not the pipeline account.
+
+    - name: Check the explicitly supplied trusted host-key file
+      ansible.builtin.stat:
+        path: "{{ playbook_dir }}/known_hosts.local"
+        follow: false
+      register: week10_known_hosts
+
+    - name: Require a real reviewed host-key file
+      ansible.builtin.assert:
+        that:
+          - week10_known_hosts.stat.exists
+          - week10_known_hosts.stat.isreg
+          - not week10_known_hosts.stat.islnk
+          - week10_known_hosts.stat.size > 0
+        fail_msg: Supply authentic host keys from a trusted channel; keyscan alone is not verification.
+
+    - name: Record successful controller preflight for the configuration play
+      ansible.builtin.set_fact:
+        week10_preflight_passed: true
+
+- name: Configure one separately approved Ubuntu web target
+  hosts: week10_web
+  gather_facts: false
+  become: true
+  any_errors_fatal: true
+  vars:
+    ansible_ssh_common_args: >-
+      -o StrictHostKeyChecking=yes
+      -o UserKnownHostsFile={{ (playbook_dir ~ '/known_hosts.local') | quote }}
+      -o GlobalKnownHostsFile=/dev/null
+      -o IdentitiesOnly=yes
+    ansible_ssh_extra_args: ''
+  pre_tasks:
+    - name: Fail closed if controller validation did not succeed
+      ansible.builtin.assert:
+        that:
+          - hostvars['localhost'].week10_preflight_passed | default(false)
+      delegate_to: localhost
+      become: false
+
+    - name: Gather only the OS facts required by this playbook
+      ansible.builtin.setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - distribution
+
+    - name: Require the reviewed Ubuntu versions
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.distribution == 'Ubuntu'
+          - ansible_facts.distribution_version in ['22.04', '24.04']
+
+    - name: Inspect managed paths without following symlinks
+      ansible.builtin.stat:
+        path: "{{ item.path }}"
+        follow: false
+      loop:
+        - {path: /var, kind: directory}
+        - {path: /home, kind: directory}
+        - {path: /var/www, kind: directory}
+        - {path: /var/www/html, kind: directory}
+        - {path: /var/www/.dmi-week10-target, kind: file}
+        - {path: /home/week10deploy, kind: directory}
+        - {path: /home/week10deploy/.ssh, kind: directory}
+        - {path: /home/week10deploy/.ssh/authorized_keys, kind: file}
+      register: week10_path_stats
+
+    - name: Refuse links, special files and hard-linked managed files
+      ansible.builtin.assert:
+        that:
+          - not item.stat.exists or not item.stat.islnk
+          - not item.stat.exists or (item.stat.isdir if item.item.kind == 'directory' else item.stat.isreg)
+          - not item.stat.exists or item.item.kind != 'file' or item.stat.nlink == 1
+      loop: "{{ week10_path_stats.results }}"
+      loop_control:
+        label: "{{ item.item.path }}"
+
+    - name: Index the inspected filesystem metadata
+      ansible.builtin.set_fact:
+        week10_fs: "{{ dict(week10_path_stats.results | map(attribute='item.path') | zip(week10_path_stats.results | map(attribute='stat'))) }}"
+
+    - name: Inspect the deployment account without reading password hashes
+      ansible.builtin.getent:
+        database: passwd
+        key: week10deploy
+        fail_key: false
+
+    - name: Refuse to adopt an unmarked site or existing account
+      ansible.builtin.assert:
+        that:
+          - week10_fs['/var/www/.dmi-week10-target'].exists or not week10_fs['/var/www/html'].exists
+          - week10_fs['/var/www/.dmi-week10-target'].exists or not week10_fs['/home/week10deploy'].exists
+          - week10_fs['/var/www/.dmi-week10-target'].exists or ansible_facts.getent_passwd['week10deploy'] is none
+          - week10_fs['/var'].uid == 0 and week10_fs['/var'].gid == 0
+          - week10_fs['/var'].mode == '0755'
+          - week10_fs['/home'].uid == 0 and week10_fs['/home'].gid == 0
+          - week10_fs['/home'].mode == '0755'
+          - not week10_fs['/var/www'].exists or (week10_fs['/var/www'].uid == 0 and week10_fs['/var/www'].gid == 0)
+          - not week10_fs['/var/www'].exists or week10_fs['/var/www'].mode == '0755'
+        fail_msg: Dedicated fresh target or matching root-owned marker required; do not adopt another site or account.
+
+    - name: Check ownership of an existing marker before reading it
+      ansible.builtin.assert:
+        that:
+          - week10_fs['/var/www/.dmi-week10-target'].uid == 0
+          - week10_fs['/var/www/.dmi-week10-target'].gid == 0
+          - week10_fs['/var/www/.dmi-week10-target'].mode == '0644'
+          - week10_fs['/var/www/.dmi-week10-target'].size == 10
+      when: week10_fs['/var/www/.dmi-week10-target'].exists
+
+    - name: Read only the non-secret ownership marker
+      ansible.builtin.slurp:
+        src: /var/www/.dmi-week10-target
+      register: week10_marker
+      when: week10_fs['/var/www/.dmi-week10-target'].exists
+
+    - name: Refuse cross-assignment target reuse
+      ansible.builtin.assert:
+        that:
+          - (week10_marker.content | b64decode) == week10_target.assignment ~ '\n'
+      when: week10_fs['/var/www/.dmi-week10-target'].exists
+
+  tasks:
+    - name: Install only the required Ubuntu web and verification packages
+      ansible.builtin.apt:
+        name: [nginx, curl, coreutils, findutils]
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Create the dedicated unprivileged primary group
+      ansible.builtin.group:
+        name: week10deploy
+        state: present
+
+    - name: Configure a locked account with no supplementary groups
+      ansible.builtin.user:
+        name: week10deploy
+        group: week10deploy
+        groups: ''
+        append: false
+        home: /home/week10deploy
+        create_home: true
+        shell: /bin/bash
+        password_lock: true
+        state: present
+
+    - name: Verify the actual non-root deployment identity
+      ansible.builtin.command:
+        argv: [/usr/bin/id, -u, week10deploy]
+      register: week10_uid
+      changed_when: false
+
+    - name: Verify the actual group membership
+      ansible.builtin.command:
+        argv: [/usr/bin/id, -Gn, week10deploy]
+      register: week10_groups
+      changed_when: false
+
+    - name: Verify sudo is denied without modifying sudoers
+      ansible.builtin.command:
+        argv: [/usr/bin/sudo, -n, -l, -U, week10deploy]
+      environment:
+        LC_ALL: C
+      register: week10_sudo
+      changed_when: false
+      failed_when: false
+      no_log: true
+
+    - name: Reject any privileged deployment identity before authorizing its key
+      ansible.builtin.assert:
+        that:
+          - week10_uid.stdout | int >= 1000
+          - week10_groups.stdout == 'week10deploy'
+          - week10_sudo.rc == 1
+          - "'is not allowed to run sudo on' in (week10_sudo.stdout ~ week10_sudo.stderr)"
+        fail_msg: Deployment account privileges are not safely isolated; operator review required.
+
+    - name: Protect the deployment home and SSH directory
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: week10deploy
+        group: week10deploy
+        mode: '0700'
+      loop: [/home/week10deploy, /home/week10deploy/.ssh]
+
+    - name: Authorize only the reviewed agent source and deployment public key
+      ansible.builtin.copy:
+        content: 'restrict,from="{{ week10_target.agent_ipv4 }}/32" {{ week10_target.deployment_public_key }}{{ "\n" }}'
+        dest: /home/week10deploy/.ssh/authorized_keys
+        owner: week10deploy
+        group: week10deploy
+        mode: '0600'
+
+    - name: Keep the web-root parent root-owned
+      ansible.builtin.file:
+        path: /var/www
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Give the unprivileged account ownership of only its web-root directory
+      ansible.builtin.file:
+        path: /var/www/html
+        state: directory
+        owner: week10deploy
+        group: www-data
+        mode: '0755'
+        recurse: false
+
+    - name: Validate and install the dedicated target Nginx configuration
+      ansible.builtin.template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: '0644'
+        validate: /usr/sbin/nginx -t -c %s
+      notify: Reload validated Nginx
+
+    - name: Enable and start the persistent web service
+      ansible.builtin.service:
+        name: nginx
+        enabled: true
+        state: started
+
+    - name: Complete any validated reload before declaring target ownership
+      ansible.builtin.meta: flush_handlers
+
+    - name: Record the assignment marker only after successful configuration
+      ansible.builtin.copy:
+        content: '{{ week10_target.assignment }}{{ "\n" }}'
+        dest: /var/www/.dmi-week10-target
+        owner: root
+        group: root
+        mode: '0644'
+
+  handlers:
+    - name: Reload validated Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: reloaded

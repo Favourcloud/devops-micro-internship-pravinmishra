@@ -1,0 +1,17 @@
+{
+  "all": {
+    "children": {
+      "week10_web": {
+        "hosts": {
+          "reviewed_target": {
+            "ansible_host": null,
+            "ansible_user": null,
+            "ansible_connection": "ssh",
+            "ansible_port": 22,
+            "ansible_ssh_private_key_file": null
+          }
+        }
+      }
+    }
+  }
+}

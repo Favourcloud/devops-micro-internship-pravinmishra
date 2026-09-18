@@ -1,0 +1,5 @@
+*.local
+*.local.json
+*.local.ini
+*.retry
+.private/

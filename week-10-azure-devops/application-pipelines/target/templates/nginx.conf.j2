@@ -1,0 +1,41 @@
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log warn;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    access_log /var/log/nginx/access.log;
+    sendfile on;
+    server_tokens off;
+
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name _;
+        root /var/www/html;
+        index index.html;
+
+        location ~ /\. {
+            deny all;
+        }
+
+        location ^~ /static/ {
+            try_files $uri =404;
+        }
+
+        location / {
+{% if week10_target.assignment == 'week10-a3' %}
+            try_files $uri $uri/ /index.html;
+{% else %}
+            try_files $uri $uri/ =404;
+{% endif %}
+        }
+    }
+}
