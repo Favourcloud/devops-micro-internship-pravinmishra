@@ -1,8 +1,10 @@
 # Week 10 — static and React pipeline preparation
 
-Learner: **Eze Favour**. **Offline source preparation only. Neither assignment is complete.**
+Learner: **Eze Favour**. **Source preparation and non-mutating readiness checks only. Neither assignment is complete.**
 
 These are separately scoped follow-on files; see the [Week 10 status and remaining gates](../README.md) for the combined delivery. No application-repository import, application dependency installation/build/test, SSH service connection, pipeline run, deployment, screenshot or social publication is claimed here. [Source coordinates](sources.json) record public reads, not successful execution.
+
+The [18 September readiness snapshot](target/terraform/README.md#actual-readiness-snapshot--18-september-2026) records real restricted AWS access and cloud metadata checks. The current Azure token was rejected by Azure DevOps for the private project (**401 / TF400813**); no new VM or PAT was created. An authorized Azure DevOps sign-in or securely supplied fresh PAT is the immediate agent gate, not another AWS provider installation.
 
 | Brief | Prepared source | Still required |
 | --- | --- | --- |
@@ -12,7 +14,7 @@ These are separately scoped follow-on files; see the [Week 10 status and remaini
 ## Before configuring either pipeline
 
 1. Complete [A1's actual agent gates](../self-hosted-agent/README.md). A pool's existence does not mean an agent is Online. Use only a dedicated, unprivileged agent and reviewed code in the private project. Do not run untrusted fork PRs. `pr: none` is not an Azure Repos branch-policy or Classic-pipeline security control: review those separately. Authorize only each exact pipeline to its pool and SSH connection; never grant all pipelines access.
-2. Obtain fresh identity, cloud scope, price/budget, lifetime, cleanup and evidence permissions. A1's temporary Azure-agent allowance does **not** authorize A2's AWS host or A3's host. A2 specifically requires AWS and that its EC2 instance remain running during grading; a grading/retention window has not been agreed. Never use AWS root credentials.
+2. Obtain fresh identity, cloud scope, price/budget, lifetime, cleanup and evidence permissions. A1's temporary Azure-agent allowance does **not** authorize A2's AWS host or A3's host. A2 specifically requires AWS and that its EC2 instance remain running during grading; a grading/retention window has not been agreed. Never operate targets or pipelines as AWS root. [Restricted-session readiness](target/terraform/README.md#restricted-session-preparation) verified expressly authorized short-lived, non-root **read-only** AWS access; this is not write permission or a deployment.
 3. Import the correct instructor repository into **Azure Repos** using the approved private project. Review the import and commit/ref before enabling CI. No repository was imported by this preparation. Recheck the [pinned public source facts](sources.json) if upstream changed.
 4. Copy the selected `static.azure-pipelines.yml` or `react.azure-pipelines.yml` to the **imported application's** root as `azure-pipelines.yml`. Copy [ci/validate_site.py](ci/validate_site.py) and [ci/verify_remote.sh](ci/verify_remote.sh) unchanged into its `ci/` directory. Do not point these application pipelines at this assessment repository. No instructor JavaScript is vendored, edited or executed here.
 5. Replace the SSH service-connection placeholder with the reviewed connection's **name**, not a secret. Select the approved pool at queue time; its default name does not prove readiness. For React, set `deploymentDate` to the actual intended date, `YYYY-MM-DD`, matching the personalized app. Keep `learnerName: Eze Favour` and `targetFolder: /var/www/html`.
