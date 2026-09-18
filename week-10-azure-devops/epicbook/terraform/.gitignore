@@ -1,0 +1,8 @@
+.terraform/
+.private/
+*.tfvars
+*.tfvars.json
+!*.example.tfvars.json
+backend.hcl
+crash*.log
+terraform*.log
