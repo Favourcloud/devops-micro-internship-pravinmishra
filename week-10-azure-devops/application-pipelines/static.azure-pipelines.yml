@@ -1,0 +1,88 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - '*'
+pr: none
+
+parameters:
+  - name: poolName
+    displayName: Approved dedicated Linux agent pool
+    type: string
+    default: DMI-Week10-A1
+
+variables:
+  learnerName: Eze Favour
+  sshServiceConnection: __set_approved_static_ssh_connection__
+  targetFolder: /var/www/html
+
+pool:
+  name: ${{ parameters.poolName }}
+  demands:
+    - Agent.OS -equals Linux
+
+jobs:
+  - job: DeployStatic
+    displayName: Verify and deploy the static website
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    timeoutInMinutes: 15
+    workspace:
+      clean: all
+    steps:
+      - checkout: self
+        clean: true
+        persistCredentials: false
+      - bash: |
+          set -euo pipefail
+          test "$(id -u)" -ne 0
+          test "$LEARNER_NAME" = 'Eze Favour'
+          test "$TARGET_FOLDER" = '/var/www/html'
+          case "$SSH_CONNECTION" in ''|__*) printf '%s\n' 'Set the approved SSH service connection first.' >&2; exit 1 ;; esac
+          printf 'Learner: %s\nRun: %s\nBranch: %s\n' "$LEARNER_NAME" "$RUN_ID" "$SOURCE_BRANCH"
+          test -f index.html
+          test ! -L index.html
+          mkdir -p -- "$SITE_ROOT"
+          cp -- index.html "$SITE_ROOT/index.html"
+          python3 -I -B ci/validate_site.py static "$SITE_ROOT" > "$MANIFEST_TEMP"
+          mv -- "$MANIFEST_TEMP" "$SITE_ROOT/dmi-site.sha256"
+          python3 -I -B ci/validate_site.py static "$SITE_ROOT" --verify-manifest
+        displayName: Pipeline information and reviewed static payload
+        env:
+          LEARNER_NAME: $(learnerName)
+          SSH_CONNECTION: $(sshServiceConnection)
+          TARGET_FOLDER: $(targetFolder)
+          RUN_ID: $(Build.BuildId)
+          SOURCE_BRANCH: $(Build.SourceBranch)
+          SITE_ROOT: $(Build.ArtifactStagingDirectory)/site
+          MANIFEST_TEMP: $(Agent.TempDirectory)/dmi-static-manifest.sha256
+      - task: SSH@0
+        displayName: Verify the dedicated target before copying
+        inputs:
+          sshEndpoint: $(sshServiceConnection)
+          runOptions: script
+          scriptPath: $(Build.SourcesDirectory)/ci/verify_remote.sh
+          args: static preflight
+          failOnStdErr: true
+          enableRemoteVsoCommands: false
+          readyTimeout: '20000'
+      - task: CopyFilesOverSSH@0
+        displayName: Copy only the reviewed static payload
+        inputs:
+          sshEndpoint: $(sshServiceConnection)
+          sourceFolder: $(Build.ArtifactStagingDirectory)/site
+          contents: '**'
+          targetFolder: $(targetFolder)
+          cleanTargetFolder: false
+          overwrite: true
+          failOnEmptySource: true
+          readyTimeout: '20000'
+      - task: SSH@0
+        displayName: Verify checksums and the served website
+        inputs:
+          sshEndpoint: $(sshServiceConnection)
+          runOptions: script
+          scriptPath: $(Build.SourcesDirectory)/ci/verify_remote.sh
+          args: static verify
+          failOnStdErr: true
+          enableRemoteVsoCommands: false
+          readyTimeout: '20000'

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "offline-preparation-only",
+  "live_verified": false,
+  "applications_imported": false,
+  "application_builds_run": false,
+  "application_tests_run": false,
+  "sources": {
+    "static": {
+      "repository": "https://github.com/pravinmishraaws/Azure-Static-Website",
+      "commit": "258b8a380d45b030f29a1ace237b3f4d120820fd",
+      "index_html_sha256": "54331bf7a84f7abd39df42228003dcdd6816f9aea0aa3ce799765c108453875a",
+      "application_files": ["index.html"],
+      "has_upstream_inline_script": true
+    },
+    "react": {
+      "repository": "https://github.com/pravinmishraaws/my-react-app",
+      "commit": "f1b1aff14fe15c5bde092067c93a307fa3d97982",
+      "react_scripts": "5.0.1",
+      "package_test_script": "react-scripts test tests",
+      "configured_test_path": "src/tests/App.test.js",
+      "additional_test_path": "src/App.test.js",
+      "additional_test_review": "Expects learn react text not present in App.js; application execution has not been performed here.",
+      "personalization_path": "src/App.js",
+      "personalization_pending": true,
+      "production_directory": "build"
+    }
+  },
+  "node": {
+    "version": "22.23.2",
+    "metadata_url": "https://nodejs.org/dist/v22.23.2/SHASUMS256.txt",
+    "metadata_read": true,
+    "package_downloaded": false,
+    "linux_x64_tar_gz_sha256": "b294a556e639d64338823920e5866c21c02741742d2e1529ee1a225c1ec9252a"
+  },
+  "evidence": {
+    "static_numbered_slots": 5,
+    "static_additional_linkedin_image": 1,
+    "react_numbered_slots": 6,
+    "captured": 0,
+    "successful_run_urls": [],
+    "website_urls": []
+  }
+}
