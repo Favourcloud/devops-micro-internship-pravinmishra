@@ -1,6 +1,6 @@
 # Week 10 — Azure DevOps
 
-Learner: **Eze Favour**. Status: **A1 live technical trial verified; A2's Azure repository imported and personalized; A3–A4 source preparation delivered; deployments and submission evidence remain pending and no assignment is complete**.
+Learner: **Eze Favour**. Status: **A1 live technical trial verified; A2's Azure repository imported, personalized and supplied with tested pipeline source; restricted AWS session verified; A3–A4 source preparation delivered; deployments and submission evidence remain pending and no assignment is complete**.
 
 ## Recorded progress — 18 September 2026
 
@@ -12,6 +12,8 @@ Learner: **Eze Favour**. Status: **A1 live technical trial verified; A2's Azure 
 - **Temporary Azure labs:** the [first pilot receipt](self-hosted-agent/azure-vm/runtime-2026-09-17.json) remains unchanged. A second, separately authorized lab established trusted SSH, verified Ubuntu 22.04/x86_64 and the non-sudo agent account, and verified the published Microsoft agent 5.279.0 package. It did **not** register an agent or start its service. Empty state and exact resource-group/VM/disk/IP absence were verified at **00:29:30 UTC on 18 September**, before expiry. Both labs were cleaned up; their authorizations are retired and neither supplies a current agent host.
 - **A2/A3 source:** [pipeline templates, guarded Terraform/Ansible targets, payload/remote checks and runbook](application-pipelines/README.md), with credential-free local tests. These are not application build/test or pipeline results. The [host-pinned transport implementation](application-pipelines/transport/README.md) now includes separate forwarding/deployment keys, guarded agent/target setup, per-job bounded lifecycle and 33 offline transport tests within 137 passing application/source tests. Its actual endpoint binding, host-key rejection, runtime/cleanup and native-task behavior remain unverified live gates.
 - **A2 repository milestone:** after the user edited the existing PAT, previously denied repository and SSH-connection reads succeeded at **16:58 UTC**. The authorized assistant imported the pinned public static source into the private project's `Azure-Static-Website` repository, then committed the name-only HTML edit as **`8bfa3682a7440f12791085c1d4d0aa0f7fbcb4fb`**. Independent read-backs verified its bytes, parent and one-file Git diff by **17:06 UTC**. See the [sanitized import receipt](application-pipelines/static-import-2026-09-18.json). No application pipeline/SSH connection, VM, deployment or evidence was created; A3's application import remains pending.
+- **A2 pipeline-source handoff:** Azure commit **`6b38993a18f75c2588803a42b6e7790c95e95b81`** added only the tested YAML and three helpers. By **18:23 UTC**, independent reads verified its exact parent, stored hashes, unchanged application blobs and absence of application definitions/builds. See the [source-handoff receipt](application-pipelines/static-pipeline-source-2026-09-18.json). The connection UUID remains unset; no pipeline was enabled or run.
+- **AWS access follow-up:** after explicit root-use permission, root was used only for STS identity verification and restricted temporary-session issuance. At **18:27 UTC**, the exact non-root session passed a tagged VPC dry-run; untagged creation and an out-of-region read were denied. See the [AWS session receipt](application-pipelines/aws-session-readiness-2026-09-18.json). It expires at **19:27:20 UTC**; root-issued credentials have a one-hour service limit, separate from the resource window. No permanent IAM identity/key or cloud resource was created. Complete apply/destroy permissions and live cleanup remain unverified.
 - **A4 source:** [manual handoff validator, inventory formatter and pinned-source review](epicbook/README.md); **36 offline tests passed**. Infrastructure, Ansible and both real pipelines are still to be implemented.
 
 These are recorded operational facts and source-validation results, **not submission screenshots or assignment completion**. Private authentication, keys, state, plans and raw execution records are not published. No new cloud operation is authorized by publishing this source.
@@ -19,7 +21,7 @@ These are recorded operational facts and source-validation results, **not submis
 | Assignment | Source status | Live gate / next dependency | Numbered screenshots |
 | --- | --- | --- | --- |
 | [1 — Self-hosted Linux agent](assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md) | [Foundation and verified live trial](self-hosted-agent/README.md); non-root Online agent and manual run 1 succeeded, then cleaned up | PAT revocation, genuine screenshots and learner notes; fresh bounded authorization/runtime for further live use | 0/7 |
-| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization and prepared pipeline](application-pipelines/README.md) | Fresh A1 agent; non-root AWS identity, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 0/5 |
+| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization/pipeline-source upload and restricted AWS session](application-pipelines/README.md) | Fresh agent/registration credential; full deployment/cleanup permissions, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 0/5 |
 | [3 — React CI/CD](assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md) | [Build/Test/Publish/Deploy template](application-pipelines/README.md) | Authorized app personalization/stale-test correction; separate Terraform/Ansible target; actual build/test, artifact deployment and automatic run | 0/6 |
 | [4 — EpicBook dual pipelines](assignment-04-automate-epicbook-deployment-with-dual-pipelines.md) | [Handoff checks and source constraints](epicbook/README.md) | Two repositories, Terraform/remote state, two Azure VMs and private MySQL, runtime/TLS/schema review, idempotent Ansible, both pipelines and live handoff | 0/6 |
 | [5 — Read-only failure triage](assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md) | Brief only; no substitute kit | A4's two healthy pipelines, actual instructor-supplied files, separately authorized Claude use, genuine controlled failure/recovery | 0/12 |
@@ -35,8 +37,13 @@ and one AWS web target, with the existing **US$10 combined planning allowance**
 no new resource or active deadline is claimed here. Record one fixed UTC expiry
 and begin cleanup at least 45 minutes before it. Non-root AWS deployment/cleanup
 access, exact plans, costs, authentic host keys and a cleanup safeguard remain
-required. Credential renewal does not extend that deadline. This grants no root
-use, instructor-JavaScript changes, screenshots, social posts or paid AI activity.
+required. Credential renewal does not extend that deadline. The later explicit
+root-use permission was implemented only as controller-side STS issuance of
+restricted non-root sessions, not root Terraform/pipeline access or permanent IAM
+changes. Root-issued sessions last at most one hour and need separate renewal;
+resource approval cannot lengthen their service-enforced lifetime. Instructor-
+JavaScript changes, screenshots, social posts and paid AI activity remain outside
+this scope.
 
 ## Delivery / run sequence
 

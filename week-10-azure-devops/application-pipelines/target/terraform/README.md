@@ -8,7 +8,7 @@ needs its own approval and state. Do not reuse an agent as either web target.
 | Root | Prepared shape | Current validation / live gate |
 | --- | --- | --- |
 | `guard/` | Shared explicit approval, assignment, SSH sources, time and estimate contract | 20 provider-free native **plan** tests passed, including the 24-hour window |
-| `aws/` — A2 | One Ubuntu 24.04 x86_64 `t3.micro`, dedicated VPC/subnet/Internet route, scoped SSH, public lab HTTP | AWS schema validation and 13 native **mock plan** tests passed, including exact federated-session binding and root rejection; restricted read-only AWS access was verified, but deployment permissions and a fresh live plan remain required |
+| `aws/` — A2 | One Ubuntu 24.04 x86_64 `t3.micro`, dedicated VPC/subnet/Internet route, scoped SSH, public lab HTTP | AWS schema validation and 13 native **mock plan** tests passed, including exact federated-session binding and root rejection; a later restricted session passed a tagged VPC dry-run, but complete deployment/cleanup permissions and a fresh live plan remain required |
 | `azure/` — A3 | One Ubuntu 22.04 Gen2 `Standard_D2lds_v6` in UK South, separate network, scoped SSH, public lab HTTP | AzureRM schema validation and six native **mock plan** tests previously passed; metadata for the same SKU was rechecked below, but A3-specific approved inputs, complete cost review, actual capacity and live execution remain pending |
 
 Each cloud root declares **eight cloud resources plus one local `terraform_data`
@@ -120,11 +120,18 @@ local deletion is not server-side revocation. Preserve only sanitized metadata a
 let the service-enforced expiry retire this read-only session. Do not rotate/delete
 the user's original root key as an implicit cleanup step.
 
-This session deliberately **cannot apply or destroy**. A write-capable deployment
-session needs a separately reviewed least-privilege policy, fresh identity/input/plan
-checks and guaranteed access through cleanup. No such policy or automatic renewal
-is supplied here. The fresh agent's real egress IP is also still required; never put
-a synthetic address into a live input to manufacture a passing plan.
+That historical read-only session deliberately **could not apply or destroy**.
+A later, separately authorized root-issued non-root session passed a tagged VPC
+dry-run at **18:27 UTC**, while untagged creation and another-region reads were
+denied. See the [separate session receipt](../../aws-session-readiness-2026-09-18.json)
+and [scope/remaining gates](../../README.md#actual-aws-session-follow-up--18-september-2026).
+No permanent IAM identity/key was created. This is not proof every apply/destroy
+action will succeed or that cleanup/automatic renewal works. Its one-hour expiry
+is **19:27:20 UTC**; the 24-hour resource approval does not extend STS credentials.
+The controller-only broker and credentials are not published or forwarded to a
+pipeline. Fresh identity/input/plan checks, renewal/cleanup access and the agent's
+real egress IP remain required; never put a synthetic address into a live input to
+manufacture a passing plan.
 
 ### Actual readiness snapshot — 18 September 2026
 

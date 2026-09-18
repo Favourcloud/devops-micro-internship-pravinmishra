@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-09-18T18:23:54.990553+00:00",
+  "status": "pipeline-source-uploaded-execution-not-enabled",
+  "operator": "authorized assistant",
+  "assignment_evidence": false,
+  "repository": {
+    "url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_git/Azure-Static-Website",
+    "visibility": "private",
+    "branch": "refs/heads/main",
+    "parent_commit": "8bfa3682a7440f12791085c1d4d0aa0f7fbcb4fb",
+    "prepared_commit": "6b38993a18f75c2588803a42b6e7790c95e95b81",
+    "push_id": 4,
+    "pushed_at": "2026-09-18T18:19:04.584625+00:00",
+    "source_revision": "a9930bcd39168906681de4b7c30ebc0cba09eebf",
+    "only_added_files": {
+      "/azure-pipelines.yml": {
+        "source_path": "static.azure-pipelines.yml",
+        "sha256": "912f3faf9a99ec990f65f67861e843c912546e652d7e1cabec9454733ae7c66b"
+      },
+      "/ci/validate_site.py": {
+        "source_path": "ci/validate_site.py",
+        "sha256": "b9b43de61632b90061a86da1ee5e22716e7f3ecc5463ddaade99420926300c16"
+      },
+      "/ci/verify_remote.sh": {
+        "source_path": "ci/verify_remote.sh",
+        "sha256": "8eb3ada58e02d3fa5fdc42eaed710742a38edf31236e88d4d21e63b0e1154ab4"
+      },
+      "/ci/ssh_tunnel.py": {
+        "source_path": "ci/ssh_tunnel.py",
+        "sha256": "6a413853b29e3e74b03784b10d2e5ec77a868db25f18c964ce56abe5eee3d187"
+      }
+    },
+    "added_directory": "/ci",
+    "original_blobs": {
+      "/README.md": "f37162f93cb8c145d046b5701b4e0f68678de6cf",
+      "/index.html": "48803e0aecfc3047c2977fddd0d93cabfe668cc9"
+    },
+    "exact_parent_verified": true,
+    "exact_file_and_directory_changes_verified": true,
+    "stored_source_hashes_verified": true,
+    "original_application_blobs_unchanged": true
+  },
+  "execution_gate": {
+    "application_pipeline_definition_count": 0,
+    "application_build_count": 0,
+    "existing_a1_definition_revision": 4,
+    "a1_uses_separate_repository_and_unchanged_manual_yaml": true,
+    "source_contains_all_branch_ci_trigger": true,
+    "ssh_connection_id_is_unset_placeholder": true,
+    "pipeline_created": false,
+    "pipeline_enabled_or_queued": false
+  },
+  "local_operation_tests": {
+    "passed": 16,
+    "credentials_used": false,
+    "network_denied": true,
+    "filesystem_writes_denied": true,
+    "discard_only_exception": "/dev/null",
+    "scope": "Exact-parent/add-only handoff, source hashes, CI drift, original blob preservation and no write retry; not application tests or pipeline results"
+  },
+  "outcome": {
+    "pipeline_source_uploaded_and_read_back": true,
+    "instructor_javascript_changed_or_executed": false,
+    "application_pipeline_run": false,
+    "ssh_service_connection_created": false,
+    "cloud_resources_created": false,
+    "application_deployed": false,
+    "screenshots_captured": 0,
+    "assignment_complete": false
+  }
+}
