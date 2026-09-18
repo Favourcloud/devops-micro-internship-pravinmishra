@@ -1,0 +1,19 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid": "NotBeforeApproval", "Effect": "Deny", "Action": "*", "Resource": "*", "Condition": {"DateLessThan": {"aws:CurrentTime": "${approved_at}"}}},
+    {"Sid": "ExpireWithoutRenewal", "Effect": "Deny", "Action": "*", "Resource": "*", "Condition": {"DateGreaterThanEquals": {"aws:CurrentTime": "${expires_at}"}}},
+    {"Sid": "RequireMFA", "Effect": "Deny", "NotAction": "sts:GetCallerIdentity", "Resource": "*", "Condition": {"BoolIfExists": {"aws:MultiFactorAuthPresent": "false"}}},
+    {"Sid": "NoOtherAPIs", "Effect": "Deny", "NotAction": ["sts:GetCallerIdentity", "signin:AuthorizeOAuth2Access", "signin:CreateOAuth2Token", "iam:ListOpenIDConnectProviders", "iam:GetUser", "iam:ListMFADevices", "iam:GetRole", "iam:GetRolePolicy", "iam:ListRolePolicies", "iam:ListAttachedRolePolicies", "iam:ListInstanceProfilesForRole", "iam:ListRoleTags", "iam:CreateRole", "iam:PutRolePolicy", "iam:DeleteRolePolicy", "iam:UpdateAssumeRolePolicy", "iam:UpdateRole", "iam:DeleteRole", "iam:PutRolePermissionsBoundary", "iam:TagRole", "iam:TagOpenIDConnectProvider", "iam:CreateOpenIDConnectProvider", "iam:GetOpenIDConnectProvider", "iam:ListOpenIDConnectProviderTags", "iam:DeleteOpenIDConnectProvider", "iam:GetPolicy", "iam:GetPolicyVersion"], "Resource": "*"},
+    {"Sid": "IdentityAndIssuerInventory", "Effect": "Allow", "Action": ["sts:GetCallerIdentity", "iam:ListOpenIDConnectProviders"], "Resource": "*"},
+    {"Sid": "ReadOwnIdentity", "Effect": "Allow", "Action": ["iam:GetUser", "iam:ListMFADevices"], "Resource": "${user_arn}"},
+    {"Sid": "RemoteBrowserLogin", "Effect": "Allow", "Action": ["signin:AuthorizeOAuth2Access", "signin:CreateOAuth2Token"], "Resource": "arn:aws:signin:eu-west-2:${account_id}:oauth2/public-client/remote"},
+    {"Sid": "ReadExactRole", "Effect": "Allow", "Action": ["iam:GetRole", "iam:GetRolePolicy", "iam:ListRolePolicies", "iam:ListAttachedRolePolicies", "iam:ListInstanceProfilesForRole", "iam:ListRoleTags"], "Resource": "${role_arn}"},
+    {"Sid": "ManageOnlyBoundedRole", "Effect": "Allow", "Action": ["iam:CreateRole", "iam:PutRolePolicy", "iam:DeleteRolePolicy", "iam:UpdateAssumeRolePolicy", "iam:UpdateRole", "iam:DeleteRole", "iam:PutRolePermissionsBoundary"], "Resource": "${role_arn}", "Condition": {"StringEquals": {"iam:PermissionsBoundary": "${boundary_arn}"}}},
+    {"Sid": "ExactCreationTags", "Effect": "Allow", "Action": ["iam:TagRole", "iam:TagOpenIDConnectProvider"], "Resource": ["${role_arn}", "${issuer_arn}"], "Condition": {"StringEquals": {"aws:RequestTag/assignment": "week10-cleanup-canary", "aws:RequestTag/cleanup_lease": "${lease_id}"}, "ForAllValues:StringEquals": {"aws:TagKeys": ["assignment", "cleanup_lease"]}}},
+    {"Sid": "CreateExactIssuer", "Effect": "Allow", "Action": "iam:CreateOpenIDConnectProvider", "Resource": "${issuer_arn}", "Condition": {"StringEquals": {"aws:RequestTag/assignment": "week10-cleanup-canary", "aws:RequestTag/cleanup_lease": "${lease_id}"}}},
+    {"Sid": "ReadExactIssuer", "Effect": "Allow", "Action": ["iam:GetOpenIDConnectProvider", "iam:ListOpenIDConnectProviderTags"], "Resource": "${issuer_arn}"},
+    {"Sid": "DeleteOwnedIssuer", "Effect": "Allow", "Action": "iam:DeleteOpenIDConnectProvider", "Resource": "${issuer_arn}", "Condition": {"StringEquals": {"aws:ResourceTag/assignment": "week10-cleanup-canary", "aws:ResourceTag/cleanup_lease": "${lease_id}"}}},
+    {"Sid": "ReadBoundaries", "Effect": "Allow", "Action": ["iam:GetPolicy", "iam:GetPolicyVersion"], "Resource": ["${boundary_arn}", "arn:aws:iam::${account_id}:policy/dmi-w10-bootstrap-${lease_id}"]}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {"Sid": "NoOtherAPIs", "Effect": "Deny", "NotAction": ["ec2:Describe*", "ec2:DeleteVpc", "sts:GetCallerIdentity"], "Resource": "*"},
+    {"Sid": "RegionFence", "Effect": "Deny", "Action": "ec2:*", "Resource": "*", "Condition": {"StringNotEquals": {"aws:RequestedRegion": "eu-west-2"}}},
+    {"Sid": "RegionalMetadataReads", "Effect": "Allow", "Action": "ec2:Describe*", "Resource": "*"},
+    {"Sid": "OnlyThisCanary", "Effect": "Allow", "Action": "ec2:DeleteVpc", "Resource": "arn:aws:ec2:eu-west-2:${account_id}:vpc/*", "Condition": {"StringEquals": {"ec2:ResourceTag/assignment": "week10-cleanup-canary", "ec2:ResourceTag/cleanup_lease": "${lease_id}"}}},
+    {"Effect": "Allow", "Action": "sts:GetCallerIdentity", "Resource": "*"}
+  ]
+}

@@ -9,10 +9,11 @@ mock_provider "aws" {
   }
 }
 variables {
-  lease_id                = "abcdef123456"
-  account_id              = "000000000001"
-  bootstrap_operator_arn  = "arn:aws:sts::000000000001:assumed-role/fixture-bootstrap/test"
-  live_execution_approved = true
+  lease_id                         = "abcdef123456"
+  account_id                       = "000000000001"
+  bootstrap_operator_arn           = "arn:aws:sts::000000000001:assumed-role/fixture-bootstrap/test"
+  live_execution_approved          = true
+  runtime_permissions_boundary_arn = "arn:aws:iam::000000000001:policy/dmi-w10-cleanup-boundary-abcdef123456"
   federation = {
     issuer            = "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000002/v2.0"
     subject           = "fixture/exact-service-connection"
@@ -49,6 +50,18 @@ run "canary_delete_not_workload_permissions" {
     error_message = "Do not grant create, instance, IAM, cross-region or other-lease deletion rights."
   }
 }
+run "mandatory_runtime_boundary" {
+  command = plan
+  assert {
+    condition     = aws_iam_role.cleanup.permissions_boundary == var.runtime_permissions_boundary_arn
+    error_message = "A delegated bootstrap must not create an unbounded runtime role."
+  }
+}
+run "no_arbitrary_boundary" {
+  command = plan
+  variables { runtime_permissions_boundary_arn = "arn:aws:iam::000000000001:policy/AdministratorAccess" }
+  expect_failures = [var.runtime_permissions_boundary_arn]
+}
 run "no_approval" {
   command = plan
   variables { live_execution_approved = false }
@@ -68,6 +81,28 @@ run "no_sts_broker_bootstrap" {
   command = plan
   variables { bootstrap_operator_arn = "arn:aws:sts::000000000001:federated-user/fixture" }
   expect_failures = [var.bootstrap_operator_arn]
+}
+run "no_lookalike_issuer_host" {
+  command = plan
+  variables {
+    federation = {
+      issuer            = "https://login-microsoftonline.com/00000000-0000-0000-0000-000000000002/v2.0"
+      subject           = "fixture/exact-service-connection"
+      metadata_verified = true
+    }
+  }
+  expect_failures = [var.federation]
+}
+run "no_lookalike_issuer_version" {
+  command = plan
+  variables {
+    federation = {
+      issuer            = "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000002/v2x0"
+      subject           = "fixture/exact-service-connection"
+      metadata_verified = true
+    }
+  }
+  expect_failures = [var.federation]
 }
 run "no_unverified_claims" {
   command = plan
