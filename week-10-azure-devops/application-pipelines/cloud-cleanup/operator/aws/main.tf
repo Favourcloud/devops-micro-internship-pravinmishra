@@ -46,11 +46,26 @@ resource "terraform_data" "authorization" {
         timecmp(plantimestamp(), var.approval.approved_at) >= 0 &&
         timecmp(plantimestamp(), var.approval.expires_at) < 0
       )
-      error_message = "A separately authorized non-root administrator must manage this identity; the operator cannot administer itself."
+      error_message = "The exact separately authorized administrator must manage this identity within its original lifecycle; the operator cannot administer itself."
+    }
+    precondition {
+      condition = var.root_bootstrap_approval == null ? true : try(
+        var.administrator_arn == "arn:aws:iam::${var.account_id}:root" &&
+        timecmp(plantimestamp(), var.root_bootstrap_approval.approved_at) >= 0 &&
+        timecmp(plantimestamp(), var.root_bootstrap_approval.expires_at) < 0 &&
+        timecmp(var.root_bootstrap_approval.approved_at, var.approval.approved_at) >= 0 &&
+        timecmp(var.root_bootstrap_approval.expires_at, var.approval.expires_at) <= 0,
+        false
+      )
+      error_message = "Root needs an explicit current IAM-only exception contained within the unchanged identity lifecycle."
     }
     precondition {
       condition     = timecmp(timestamp(), var.approval.expires_at) < 0
       error_message = "The original approval must still be valid when applying the saved plan."
+    }
+    precondition {
+      condition     = var.root_bootstrap_approval == null ? true : try(timecmp(timestamp(), var.root_bootstrap_approval.expires_at) < 0, false)
+      error_message = "The separate root exception must still be valid when applying the saved plan."
     }
   }
 }

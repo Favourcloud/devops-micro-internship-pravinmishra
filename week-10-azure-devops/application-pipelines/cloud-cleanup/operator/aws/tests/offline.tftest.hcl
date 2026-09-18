@@ -70,6 +70,103 @@ run "no_root_administrator" {
   variables { administrator_arn = "arn:aws:iam::000000000001:root" }
   expect_failures = [var.administrator_arn]
 }
+run "explicit_root_identity_only" {
+  command = plan
+  variables {
+    administrator_arn = "arn:aws:iam::000000000001:root"
+    root_bootstrap_approval = {
+      approved_at = timeadd(timestamp(), "-1m")
+      expires_at  = timeadd(timestamp(), "30m")
+    }
+    approval = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "4h"), estimated_total_usd = 0, planning_allowance_usd = 10 }
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:root" }
+  }
+  assert {
+    condition     = length(aws_iam_user_policy_attachment.operator) == 0 && aws_iam_user.operator.permissions_boundary == aws_iam_policy.operator.arn
+    error_message = "Explicit root bootstrap still creates only a bounded, inactive identity."
+  }
+}
+run "root_cannot_skip_mfa" {
+  command = plan
+  variables {
+    administrator_arn        = "arn:aws:iam::000000000001:root"
+    bootstrap_access_enabled = true
+    root_bootstrap_approval  = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "30m") }
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:root" }
+  }
+  expect_failures = [aws_iam_user_policy_attachment.operator[0]]
+}
+run "no_root_exception_for_nonroot_caller" {
+  command = plan
+  variables {
+    root_bootstrap_approval = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "30m") }
+  }
+  expect_failures = [terraform_data.authorization]
+}
+run "no_long_root_exception" {
+  command = plan
+  variables {
+    root_bootstrap_approval = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "1h") }
+  }
+  expect_failures = [var.root_bootstrap_approval]
+}
+run "no_expired_root_exception" {
+  command = plan
+  variables {
+    administrator_arn       = "arn:aws:iam::000000000001:root"
+    root_bootstrap_approval = { approved_at = "2000-01-01T00:00:00Z", expires_at = "2000-01-01T01:00:00Z" }
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:root" }
+  }
+  expect_failures = [terraform_data.authorization]
+}
+run "no_future_root_exception" {
+  command = plan
+  variables {
+    administrator_arn       = "arn:aws:iam::000000000001:root"
+    root_bootstrap_approval = { approved_at = timeadd(timestamp(), "1m"), expires_at = timeadd(timestamp(), "30m") }
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:root" }
+  }
+  expect_failures = [terraform_data.authorization]
+}
+run "root_exception_cannot_extend_identity_window" {
+  command = plan
+  variables {
+    administrator_arn       = "arn:aws:iam::000000000001:root"
+    root_bootstrap_approval = { approved_at = timeadd(timestamp(), "-1m"), expires_at = timeadd(timestamp(), "30m") }
+    approval                = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "10m"), estimated_total_usd = 0, planning_allowance_usd = 10 }
+  }
+  override_data {
+    target = data.aws_caller_identity.current
+    values = { account_id = "000000000001", arn = "arn:aws:iam::000000000001:root" }
+  }
+  expect_failures = [terraform_data.authorization]
+}
+run "no_negative_estimate" {
+  command = plan
+  variables {
+    approval = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "4h"), estimated_total_usd = -1, planning_allowance_usd = 10 }
+  }
+  expect_failures = [var.approval]
+}
+run "no_zero_allowance" {
+  command = plan
+  variables {
+    approval = { approved_at = timeadd(timestamp(), "-5m"), expires_at = timeadd(timestamp(), "4h"), estimated_total_usd = 0, planning_allowance_usd = 0 }
+  }
+  expect_failures = [var.approval]
+}
 run "no_federation_broker" {
   command = plan
   variables { administrator_arn = "arn:aws:sts::000000000001:federated-user/fixture" }

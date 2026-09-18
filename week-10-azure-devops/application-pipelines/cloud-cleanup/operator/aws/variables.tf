@@ -15,8 +15,29 @@ variable "account_id" {
 variable "administrator_arn" {
   type = string
   validation {
-    condition     = can(regex("^arn:aws:(iam::[0-9]{12}:user/[A-Za-z0-9+=,.@_/-]+|sts::[0-9]{12}:assumed-role/[A-Za-z0-9+=,.@_/-]+)$", var.administrator_arn))
-    error_message = "Use a separately authorized non-root IAM user or assumed role; root and federation-broker sessions are rejected."
+    condition = (
+      can(regex("^arn:aws:(iam::[0-9]{12}:user/[A-Za-z0-9+=,.@_/-]+|sts::[0-9]{12}:assumed-role/[A-Za-z0-9+=,.@_/-]+)$", var.administrator_arn)) ||
+      (var.root_bootstrap_approval != null && var.administrator_arn == "arn:aws:iam::${var.account_id}:root")
+    )
+    error_message = "Use an authorized non-root administrator, or the exact account root with explicit short-lived IAM-only bootstrap approval. Federation-broker sessions remain rejected."
+  }
+}
+variable "root_bootstrap_approval" {
+  description = "Optional, separately authorized root exception for this IAM identity root only; never credentials or permission to run workload roots."
+  type = object({
+    approved_at = string
+    expires_at  = string
+  })
+  default = null
+  validation {
+    condition = var.root_bootstrap_approval == null ? true : try(
+      endswith(var.root_bootstrap_approval.approved_at, "Z") &&
+      endswith(var.root_bootstrap_approval.expires_at, "Z") &&
+      timecmp(var.root_bootstrap_approval.expires_at, var.root_bootstrap_approval.approved_at) > 0 &&
+      timecmp(var.root_bootstrap_approval.expires_at, timeadd(var.root_bootstrap_approval.approved_at, "1h")) <= 0,
+      false
+    )
+    error_message = "The root IAM exception must have a fixed UTC window of at most one hour."
   }
 }
 variable "oidc_issuer" {
