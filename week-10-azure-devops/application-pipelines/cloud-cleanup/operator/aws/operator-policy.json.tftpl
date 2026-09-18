@@ -14,6 +14,6 @@
     {"Sid": "CreateExactIssuer", "Effect": "Allow", "Action": "iam:CreateOpenIDConnectProvider", "Resource": "${issuer_arn}", "Condition": {"StringEquals": {"aws:RequestTag/assignment": "week10-cleanup-canary", "aws:RequestTag/cleanup_lease": "${lease_id}"}}},
     {"Sid": "ReadExactIssuer", "Effect": "Allow", "Action": ["iam:GetOpenIDConnectProvider", "iam:ListOpenIDConnectProviderTags"], "Resource": "${issuer_arn}"},
     {"Sid": "DeleteOwnedIssuer", "Effect": "Allow", "Action": "iam:DeleteOpenIDConnectProvider", "Resource": "${issuer_arn}", "Condition": {"StringEquals": {"aws:ResourceTag/assignment": "week10-cleanup-canary", "aws:ResourceTag/cleanup_lease": "${lease_id}"}}},
-    {"Sid": "ReadBoundaries", "Effect": "Allow", "Action": ["iam:GetPolicy", "iam:GetPolicyVersion"], "Resource": ["${boundary_arn}", "arn:aws:iam::${account_id}:policy/dmi-w10-bootstrap-${lease_id}"]}
+    {"Sid": "ReadBoundaries", "Effect": "Allow", "Action": ["iam:GetPolicy", "iam:GetPolicyVersion"], "Resource": ["${boundary_arn}", "arn:aws:iam::${account_id}:policy/dmi-week10-operator"]}
   ]
 }
