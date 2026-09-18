@@ -39,7 +39,7 @@ run "isolated_no_bootstrap_target" {
       aws_instance.target.instance_type == "t3.micro" &&
       aws_instance.target.associate_public_ip_address &&
       aws_instance.target.user_data == null &&
-      aws_instance.target.user_data_base64 == null &&
+      # user_data_base64 is unknown until apply; source contracts check its omission.
       aws_instance.target.metadata_options[0].http_tokens == "required" &&
       aws_instance.target.metadata_options[0].http_put_response_hop_limit == 1 &&
       aws_instance.target.metadata_options[0].instance_metadata_tags == "disabled" &&

@@ -17,10 +17,11 @@ and service, and the assignment marker. The input helper is read-only.
   Terraform. A2 requires AWS; A3 needs a separate target. Do not reuse either A1's
   agent host or A2's grading host for A3. The new [narrow Terraform roots](terraform/README.md)
   omit web/app bootstrap and restrict SSH to the controller and agent's approved
-  `/32`s. Their shared guard and Azure mock plans passed; the missing local AWS
-  provider still blocks AWS schema/mock validation. Complete that gate before any
-  AWS apply. Neither target has been provisioned. Do not copy old state/keys or
-  assume an older resource is still running.
+  `/32`s. Shared guard, AWS and Azure schema/mock-plan checks passed after the
+  explicitly approved AWS provider restoration. Actual deployment identity,
+  pricing/quota, plan review and execution are separate gates. Neither target has
+  been provisioned. Do not copy old state/keys or assume an older resource is still
+  running.
 - Verify the target image, administrator, fixed public IPv4s and independently
   authenticated SSH host key. This playbook requires an inventory with exactly
   one `week10_web` host and a separate, non-root administrator with reviewed sudo

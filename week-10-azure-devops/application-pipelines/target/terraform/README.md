@@ -8,7 +8,7 @@ needs its own approval and state. Do not reuse an agent as either web target.
 | Root | Prepared shape | Current validation / live gate |
 | --- | --- | --- |
 | `guard/` | Shared explicit approval, assignment, SSH sources, time and estimate contract | Provider-free validation and 19 native **plan** tests passed |
-| `aws/` — A2 | One Ubuntu 24.04 x86_64 `t3.micro`, dedicated VPC/subnet/Internet route, scoped SSH, public lab HTTP | HCL/source contracts checked; **AWS provider schema and five mock plans remain unexecuted** because the locked provider is unavailable locally. Non-root AWS access is also required |
+| `aws/` — A2 | One Ubuntu 24.04 x86_64 `t3.micro`, dedicated VPC/subnet/Internet route, scoped SSH, public lab HTTP | AWS schema validation and five native **mock plan** tests passed after explicitly approved provider restoration; a scoped non-root deployment identity and fresh live review remain required |
 | `azure/` — A3 | One Ubuntu 22.04 Gen2 `Standard_D2lds_v6` in UK South, separate network, scoped SSH, public lab HTTP | AzureRM schema validation and six native **mock plan** tests passed; fresh identity, quota, image, pricing and live execution remain pending |
 
 Each cloud root declares **eight cloud resources plus one local `terraform_data`
@@ -160,8 +160,8 @@ and private records appropriately; an empty local state alone is not cleanup pro
 
 The [parent stdlib suite](../../README.md#offline-checks) includes 12 read-only
 Terraform source contracts using the existing `.tools/terraform` formatter/parser.
-It is not AWS provider schema validation. All original briefs/evidence remain
-unchanged. The native checks additionally used Terraform **1.13.5**:
+Those source checks are distinct from the separately executed provider schema and
+mock-plan tests. All original briefs/evidence remain unchanged. The native checks additionally used Terraform **1.13.5**:
 
 - `guard`: `init -backend=false`, `validate` and `test` — 19 plan cases passed.
 - `azure`: `init -backend=false -lockfile=readonly`, `validate` and `test` — six mock
@@ -169,10 +169,16 @@ unchanged. The native checks additionally used Terraform **1.13.5**:
   existing reviewed provider mirror, not copied/downloaded. Terraform checked the
   committed lock; offline mirror initialization reports no registry signature
   authentication, not a fresh online signature verification.
-- `aws`: the same offline-only initialization could not find **AWS 6.64.0**.
-  No large provider was installed. Its five mock plan cases are supplied but **not
-  run**; do not apply this root before restoring the reviewed toolchain and passing
-  `validate` and these mock-only tests in an approved environment.
+- `aws`: the initial offline-only initialization could not find **AWS 6.64.0**.
+  After explicit permission to restore the approximately 195 MB compressed package,
+  backend-disabled initialization installed the locked provider in an ignored,
+  owner-only cache. Terraform verified the committed checksums and reported it
+  signed by HashiCorp. With credentials cleared and IP networking denied again,
+  schema validation and **five mock plan cases passed**. One initial assertion
+  depended on computed `user_data_base64`, which is unknown before apply; the native
+  test now checks known plan values, while the source-contract suite independently
+  rejects any `user_data_base64` configuration. No mock apply was substituted for
+  the failed plan assertion, and no live AWS operation was performed by the tests.
 
 For native tests use a cleared environment, `HOME=/nonexistent`, checkpointing
 disabled, separate fresh `TF_DATA_DIR`s and a filesystem-only provider mirror
