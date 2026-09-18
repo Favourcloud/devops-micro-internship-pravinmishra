@@ -4,7 +4,9 @@ Learner: **Eze Favour**. **Source preparation and non-mutating readiness checks 
 
 These are separately scoped follow-on files; see the [Week 10 status and remaining gates](../README.md) for the combined delivery. No application-repository import, application dependency installation/build/test, SSH service connection, pipeline run, deployment, screenshot or social publication is claimed here. [Source coordinates](sources.json) record public reads, not successful execution.
 
-The [18 September readiness snapshot](target/terraform/README.md#actual-readiness-snapshot--18-september-2026) records real restricted AWS access and cloud metadata checks. The current Azure token was rejected by Azure DevOps for the private project (**401 / TF400813**); no new VM or PAT was created. An authorized Azure DevOps sign-in or securely supplied fresh PAT is the immediate agent gate, not another AWS provider installation.
+The [earlier readiness snapshot](target/terraform/README.md#actual-readiness-snapshot--18-september-2026) records restricted AWS access, cloud metadata and the failed Azure-token method. A securely supplied PAT subsequently verified private-project, identity, pool and existing-pipeline access. The [16:47 UTC follow-up receipt](readiness-2026-09-18.json) distinguishes that working login from **repository-list and SSH service-connection-list HTTP 401 responses**. No Online agent, application import, connection creation or application run is claimed. Check the existing PAT's Code and Service Connections scopes and the account's project permissions/access level; do not request Full access or assume another token paste will fix authorization.
+
+**Live deployment is also blocked on SSH host authentication.** The reviewed Microsoft task sources do not configure a host verifier. The native-task templates remain source references, not approved live deployment configurations; see the [transport finding](#ssh-transport-review--18-september-2026).
 
 | Brief | Prepared source | Still required |
 | --- | --- | --- |
@@ -25,6 +27,34 @@ The [18 September readiness snapshot](target/terraform/README.md#actual-readines
 - A3 uses React 19 / `react-scripts` 5.0.1. Its documented name/date fields are in **`src/App.js`**. Changing them is outside this preparation's no-JavaScript-edit boundary and remains a separately authorized application-repository task. A terminal caption or an added screenshot label is not application personalization.
 - The starter's `npm test` is `react-scripts test tests`: it filters tests to `src/tests/App.test.js`. Another file, `src/App.test.js`, expects “learn react”, which is absent from the reviewed component. This is a **source-review finding**, not a reported test execution. The pipeline deliberately invokes the local test runner without that filter. It is expected to expose the stale assertion; a real run is still required. Review/fix the test to match intended behavior under appropriate authorization. Do not delete tests, hide the failure, use `--passWithNoTests`, or claim all tests passed after selecting only the convenient tests.
 - Node **22.23.2** is an actual published version; its official [checksum listing](https://nodejs.org/dist/v22.23.2/SHASUMS256.txt) was read without downloading a package. `NodeTool@0` uses that exact version in both Build and Test. This does not claim independent archive verification by NodeTool. Review the release/support status before live use; do not silently upgrade the application lockfile.
+
+## Reproducible static personalization
+
+[ci/personalize_static.py](ci/personalize_static.py) accepts only the exact `index.html` SHA-256 recorded in [sources.json](sources.json). It emits one additional **Learner: Eze Favour** paragraph inside the existing header and leaves every other source byte unchanged, including the instructor's inline script. It neither fetches a repository nor writes its input, invokes Git/cloud tools, executes JavaScript or deploys anything. An upstream change or already-personalized input is rejected rather than silently patched.
+
+Use an unchanged file from the pinned instructor commit and a **different, new output file** in an approved private staging directory. Never redirect stdout onto the input. For example, these are prospective paths, not an import or execution record:
+
+```sh
+umask 077
+set -C
+env -i PATH=/usr/bin:/bin HOME=/nonexistent \
+  /usr/bin/python3 -I -B week-10-azure-devops/application-pipelines/ci/personalize_static.py \
+  /approved/unchanged/index.html > /approved/candidate/index.html
+```
+
+The real pinned 15,814-byte source was fetched and its recorded digest verified on 18 September. The resulting 15,882-byte candidate passed the static payload contract; removing the single added paragraph reproduced the original bytes, and the one script block was unchanged. Its digest is in the [readiness receipt](readiness-2026-09-18.json). This was a local, network-denied transformation, **not** browser verification, an Azure Repos import or deployment. The HTML remains in private staging; only the transformation helper is committed here. Do not upload that helper or the source repository as website content.
+
+## SSH transport review — 18 September 2026
+
+The public Microsoft task source was reviewed at commit [`b7a1e04faa09a7028a67c9ac6d8c60c78153a6da`](https://github.com/microsoft/azure-pipelines-tasks/tree/b7a1e04faa09a7028a67c9ac6d8c60c78153a6da):
+
+- [`SSH@0` source, version 0.279.0](https://github.com/microsoft/azure-pipelines-tasks/blob/b7a1e04faa09a7028a67c9ac6d8c60c78153a6da/Tasks/SshV0/ssh.ts) constructs SSH and script-copy connection options without `hostVerifier` or a known-hosts input. Its [helper](https://github.com/microsoft/azure-pipelines-tasks/blob/b7a1e04faa09a7028a67c9ac6d8c60c78153a6da/Tasks/SshV0/ssh2helpers.ts#L121-L159) passes those options to the SSH/SFTP clients.
+- [`CopyFilesOverSSH@0` source, version 0.280.0](https://github.com/microsoft/azure-pipelines-tasks/blob/b7a1e04faa09a7028a67c9ac6d8c60c78153a6da/Tasks/CopyFilesOverSSHV0/copyfilesoverssh.ts) likewise omits a verifier in both execution paths. Its [helper](https://github.com/microsoft/azure-pipelines-tasks/blob/b7a1e04faa09a7028a67c9ac6d8c60c78153a6da/Tasks/CopyFilesOverSSHV0/sshhelper.ts#L31-L46) forwards the configuration unchanged.
+- Their declared `ssh2` dependency range starts at `^1.15.0`. The [pinned 1.15.0 documentation](https://github.com/mscdex/ssh2/blob/a56e70e68efd6a1c7e665c9a473eb68d25571a55/README.md#L953-L955) specifies automatic acceptance when `hostVerifier` is unset. The SFTP client exposes the same optional setting. Installing an OpenSSH `known_hosts` file does not configure these separate Node clients.
+
+This is **public source review**, not examination of the organization's installed task packages or a live interception test. Do not claim a pipeline is host-pinned because controller SSH, `ssh-keyscan` or an earlier independent probe succeeded. Do not add an unsupported task input, accept unknown keys or disable host checking to manufacture progress.
+
+Resolve and test an authenticated transport before live use. A reviewed host-pinned tunnel could retain the brief's required native tasks, but its accounts, forwarding restrictions, endpoint binding, key handling and cleanup have **not** been implemented or approved here. Replacing the required tasks with OpenSSH requires an explicitly accepted assignment variation; it must not silently remove the original `CopyFilesOverSSH@0` / `SSH@0` requirement. This gate remains open.
 
 ## Target contract — implement through reviewed Terraform and Ansible
 
@@ -75,6 +105,8 @@ env -i PATH=/usr/bin:/bin HOME=/nonexistent PYTHONDONTWRITEBYTECODE=1 \
   /usr/bin/python3 -I -B -m unittest discover \
   -s week-10-azure-devops/application-pipelines/tests -v
 ```
+
+For the personalization/readiness increment, **98 application/source tests plus 43 A1/preservation tests passed** with networking and filesystem writes denied. The new tests cover pinned-input rejection, the name-only transformation, bounded read-only input, safe CLI rejection and the distinction between authentication, management access and deployment evidence. These are local checks, not application build/test runs or Azure pipeline results.
 
 The suite parses both YAML files with real Psych, checks pipeline dependencies/permissions/artifact wiring, validates Bash syntax, tests payload/manifest rejection paths and runs the remote verifier **only with in-process shell stubs**. Fixtures are in-memory and explicitly synthetic; they are not React builds, deployments, pipeline logs or evidence. No test creates a file/account/service, contacts a host, installs a package, or executes instructor JavaScript. Azure's service-side schema validation, real npm tests, task execution and all live proof remain pending.
 
