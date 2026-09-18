@@ -139,19 +139,22 @@ a synthetic address into a live input to manufacture a passing plan.
 | Earlier Azure DevOps token attempt | The Azure token received a login redirect, then **HTTP 401 / TF400813** from the exact private-project endpoint with redirects suppressed. This remains a failed attempt, not a successful check. The Azure DevOps CLI extension was absent and was not installed |
 | Earlier readiness outcome | Those checks created no PAT, permanent IAM identity, VM, agent registration or application pipeline run. **No real target plan was generated:** the fresh agent's actual IP and deployment access were missing. No new cleanup safeguard was needed because no cloud resources were allocated |
 | Subsequent PAT read checks | A hidden-input PAT verified identity, the exact private project, pool 11 and existing definition 1. An independent saved-login check passed at **16:08 UTC**; those reads still passed during the **16:47 UTC** follow-up. There were **zero Online agents**. This does not verify token scopes, server expiry or write permissions |
-| **Current application access gate** | Repository-list and SSH service-connection-list requests each returned **HTTP 401**, including the 16:47 UTC recheck. Working A1 read access is not application-management access. No import, connection creation or application run was attempted |
+| Earlier application access failure | Repository-list and SSH service-connection-list requests each returned **HTTP 401**, including the 16:47 UTC recheck. No import, connection creation or application run was attempted during those checks |
+| **Subsequent application access and source progress** | After the user edited the saved PAT, both denied reads succeeded at **16:58 UTC**. A2's new private Azure repository was created, the pinned source imported and the name-only HTML commit independently verified by **17:06 UTC**. No SSH connection or application pipeline was created; these operations are not cloud deployment permission or application execution |
 | **Current SSH transport gate** | Reviewed public Microsoft task sources do not configure `hostVerifier`; an OpenSSH known-hosts file does not configure those Node clients. The [source finding and remaining alternatives](../../README.md#ssh-transport-review--18-september-2026) are not live task-package verification or an implemented transport fix |
 
-The [follow-up receipt](../../readiness-2026-09-18.json) records these later checks
-separately from the earlier failed method. In the existing PAT's Edit screen,
-review **Code: Read, write & manage** and **Service Connections: Read, query &
-manage**, retaining the approved short expiry and required Agent Pools/Build/Project
-scopes. Do not use Full access. Save without regenerating, then repeat the denied
-reads using the existing hidden credential. If the scopes are already enabled,
-review the account's project permissions and required Basic access level; a PAT
-cannot grant permissions or licensing the account lacks. The HTTP status alone
-does not establish which of these is the cause. Do not silently change membership,
-tenant association, roles or billing to bypass the denial.
+The [earlier follow-up receipt](../../readiness-2026-09-18.json) preserves the failed
+checks. The later [A2 import receipt](../../static-import-2026-09-18.json) records
+successful post-edit reads, actual repository creation/import and the exact-parent
+name-only HTML commit. The saved credential was reused; no regeneration or further
+secret paste was needed. This resolves those read failures and verifies the
+specific repository writes, not service-connection write permission, cloud access,
+exact PAT scopes or server expiry. No membership, role or billing change was made.
+
+For any later authorization failure, check the existing token's necessary custom
+scopes and the account's project permissions/access level; a PAT cannot grant
+permissions or licensing the account lacks. Keep the approved short expiry and
+never request Full access or silently change organization permissions.
 
 Keep the controller management token local and use a separate narrowly scoped
 registration credential. For any fresh handoff use a hidden local input channel,
