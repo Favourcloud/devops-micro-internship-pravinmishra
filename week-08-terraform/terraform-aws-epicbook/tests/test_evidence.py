@@ -53,12 +53,61 @@ class EvidenceTests(unittest.TestCase):
         self.provenance = json.loads((EVIDENCE / 'provenance.json').read_text())
         self.captures = self.provenance['screenshots']
 
-    def test_original_brief_every_line_preserved_in_order(self):
-        original = '\n'.join(self.baseline['lines']) + '\n'
-        self.assertEqual(hashlib.sha256(original.encode()).hexdigest(), self.baseline['sha256'])
-        current = iter(BRIEF.read_text().replace('- [x]', '- [ ]').splitlines())
+    def assert_original_requirements(self, text):
+        notices = {
+            4: 'Partial source evidence is supplied below; the required private input file remains pending.',
+            10: 'Source excerpts are supplied below; they do not show the entire script or a bootstrap run.',
+        }
+        for capture in self.captures:
+            number = capture['number']
+            heading = f"### Screenshot {number} — {self.manifest['slots'][number - 1]['title']}\n"
+            self.assertEqual(text.count(heading), 1)
+            section = text.split(heading, 1)[1].split('\n### Screenshot ', 1)[0]
+            self.assertNotIn('Add your screenshot here.', section)
+            image = f"![Screenshot {number} — Eze Favour — original local capture](terraform-aws-epicbook/evidence/{capture['file']})"
+            self.assertEqual(section.count(image), 1)
+            if number in notices:
+                self.assertEqual(section.count(notices[number]), 1)
+                restored = section.replace(notices[number], 'Add your screenshot here.')
+            else:
+                restored = section.replace(image, 'Add your screenshot here.\n\n' + image)
+            text = text.replace(heading + section, heading + restored, 1)
+        current = iter(text.replace('- [x]', '- [ ]').splitlines())
         for required in self.baseline['lines']:
             self.assertTrue(any(line == required for line in current), 'Lost or reordered original line: ' + required)
+
+    def test_original_requirements_preserved_with_evidenced_prompt_replacements(self):
+        original = '\n'.join(self.baseline['lines']) + '\n'
+        self.assertEqual(hashlib.sha256(original.encode()).hexdigest(), self.baseline['sha256'])
+        self.assert_original_requirements(BRIEF.read_text())
+
+    def test_missing_or_duplicate_accepted_image_is_rejected(self):
+        text = BRIEF.read_text()
+        image = re.search(r'^!\[Screenshot 1 — .+$', text, re.M).group()
+        for replacement in ('', image + '\n' + image):
+            with self.subTest(replacement=replacement), self.assertRaises(AssertionError):
+                self.assert_original_requirements(text.replace(image, replacement))
+
+    def test_unmet_prompt_and_requirement_removal_is_rejected(self):
+        text = BRIEF.read_text()
+        for changed in (text.replace('Add your screenshot here.\n', '', 1),
+                        text.replace('### Screenshot 20 — Terraform Plan\n', '', 1),
+                        text.replace('- [ ] Created VPC `10.0.0.0/16`\n', '', 1)):
+            with self.subTest(changed=changed[:30]), self.assertRaises(AssertionError):
+                self.assert_original_requirements(changed)
+
+    def test_partial_notices_cannot_be_removed(self):
+        text = BRIEF.read_text()
+        for notice in ('Partial source evidence is supplied below; the required private input file remains pending.',
+                       'Source excerpts are supplied below; they do not show the entire script or a bootstrap run.'):
+            with self.subTest(notice=notice), self.assertRaises(AssertionError):
+                self.assert_original_requirements(text.replace(notice, 'Complete live proof.'))
+
+    def test_source_notes_are_attributed_and_do_not_complete_live_work(self):
+        text = BRIEF.read_text()
+        self.assertIn('factual Copilot-operated source/local-check notes, not firsthand learner reflection', text)
+        self.assertIn('No real plan, application/database transaction, order workflow, destroy run', text)
+        self.assertEqual(text.count('Add your screenshot here.'), 16)
 
     def test_manifest_exact_original_titles(self):
         titles = re.findall(r'^### Screenshot (\d+) — (.+)$', '\n'.join(self.baseline['lines']), re.M)

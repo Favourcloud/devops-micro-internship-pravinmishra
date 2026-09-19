@@ -33,8 +33,6 @@ Prepare the Book Review App project and configure the provided Claude Code Agent
 
 Add a screenshot of the project `CLAUDE.md` showing the three-tier architecture, security boundaries, Terraform requirements, and human-approval rules.
 
-Add your screenshot here.
-
 <!-- A5 source capture 1 -->
 ![Screenshot 1: original local source view](terraform-book-review/evidence/screenshots/screenshot-01-project-context.png)
 
@@ -47,8 +45,6 @@ Add your screenshot here.
 
 Add a screenshot showing the Terraform Engineer subagent configuration.
 
-Add your screenshot here.
-
 <!-- A5 source capture 2 -->
 ![Screenshot 2: original local source view](terraform-book-review/evidence/screenshots/screenshot-02-terraform-engineer-agent.png)
 
@@ -60,8 +56,6 @@ Add your screenshot here.
 ### Screenshot 3 — Architecture and Security Reviewer Subagent
 
 Add a screenshot showing the Architecture and Security Reviewer subagent configuration.
-
-Add your screenshot here.
 
 <!-- A5 source capture 3 -->
 ![Screenshot 3: original local source view](terraform-book-review/evidence/screenshots/screenshot-03-architecture-reviewer-agent.png)
@@ -125,8 +119,6 @@ Create the modular Terraform project and implement the network and security laye
 ### Screenshot 6 — Modular Terraform Project Structure
 
 Add a screenshot showing the modular Terraform project structure.
-
-Add your screenshot here.
 
 <!-- A5 source capture 6 -->
 ![Screenshot 6: original local source view](terraform-book-review/evidence/screenshots/screenshot-06-modular-project-structure.png)
@@ -390,6 +382,12 @@ Use Screenshot 27 as the focused evidence for the structured architecture or sec
 ## Goal
 
 Reflect on the architecture, Terraform implementation, and Agentic AI workflow. Answer each question briefly in your own words.
+
+<!-- A5 factual source notes -->
+**Factual source notes — Copilot-assisted, 19 September 2026; not learner answers:** The [existing architecture and tradeoffs](terraform-book-review/README.md#boundaries-and-tradeoffs) separate Web, App and database traffic using tier-specific security groups across six subnets in two AZs. Multi-AZ standby capacity addresses availability; the distinct asynchronous read replica is not that standby, and the unchanged application uses only the primary. The [source layout](terraform-book-review/README.md#source-layout-and-resource-inventory) has nine module directories and twelve root calls connected through inputs/outputs. These are proposed design properties, not live observations.
+
+The four attached source captures show inactive Copilot-authored context/agent definitions and module structure. They do not establish provided-kit provenance, Claude/MCP execution or a learner's decisions. The [recorded offline validation](terraform-book-review/evidence/offline-validation.json) is not a real cloud plan or deployment. All fifteen own-words reflection prompts below remain unanswered; the learner must supply genuine experience rather than adopt these notes as personal testimony.
+<!-- /A5 factual source notes -->
 
 ## Architecture
 

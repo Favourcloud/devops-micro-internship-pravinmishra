@@ -207,14 +207,61 @@ class EvidenceContract(unittest.TestCase):
             self.assertNotIn(path.suffix, {".log", ".txt"})
             self.assertFalse(path.name.endswith(".png.json"))
 
-    def test_entire_original_brief_preserved_except_explicit_additions(self):
-        restored = self.brief.replace("**Full Name:** Eze Favour  ", "**Full Name:** Add your full name here  ")
+    def assert_original_brief(self, text):
+        for item in self.captures:
+            heading = f'### Screenshot {item["slot"]} — {item["title"]}\n'
+            self.assertEqual(text.count(heading), 1)
+            section = text.split(heading, 1)[1].split('\n---', 1)[0]
+            marker = f'<!-- A5 source capture {item["slot"]} -->'
+            self.assertEqual(section.count(marker), 1)
+            self.assertNotIn('Add your screenshot here.', section)
+            self.assertIn(f'(terraform-book-review/evidence/{item["path"]})', section)
+            self.assertIn(item['caption'], section)
+            restored_section = section.replace(marker, 'Add your screenshot here.\n\n' + marker)
+            text = text.replace(heading + section, heading + restored_section, 1)
+        self.assertEqual(text.count('<!-- A5 factual source notes -->'), 1)
+        self.assertEqual(text.count('<!-- /A5 factual source notes -->'), 1)
+        text, count = re.subn(r'\n<!-- A5 factual source notes -->\n.*?\n<!-- /A5 factual source notes -->\n', '', text, flags=re.S)
+        self.assertEqual(count, 1)
+        restored = text.replace("**Full Name:** Eze Favour  ", "**Full Name:** Add your full name here  ")
         restored = restored.replace("**Cloud Platform:** AWS — coordinator-selected offline architecture assumption; learner confirmation and cloud-change approval remain pending  ", "**Cloud Platform:** AWS or Azure  ")
         restored = restored.replace("**GitHub Repository URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra  ", "**GitHub Repository URL:** Add your repository URL here  ")
         restored = re.sub(r"\n> \*\*Preparation status — not a completed submission:\*\*[^\n]*\n", "", restored)
         restored = CAPTURE_BLOCK.sub("", restored)
         restored = restored.replace("The [completed source architecture diagram](terraform-book-review/README.md#architecture-created-before-infrastructure-source) was written before infrastructure source. It shows the two-AZ/six-subnet VPC, IGW and per-AZ NAT, public and internal load balancers, Web/App tiers, Multi-AZ MySQL and a separate read replica. It is a design artifact, **not evidence of deployed resources**.", "Add the completed architecture diagram here.")
         self.assertEqual("086e7fbc6c5dceaa07312b02b19e7ef1c1849d4d04dcc0c41ed9634faacb285b", hashlib.sha256(restored.encode()).hexdigest())
+
+    def test_original_brief_preserved_with_four_evidenced_prompt_replacements(self):
+        self.assert_original_brief(self.brief)
+
+    def test_unmet_prompt_question_and_checklist_removal_is_rejected(self):
+        for old in ('Add your screenshot here.\n', 'Write your answer here.\n',
+                    '### 1. Why did you separate the Web, Application, and Database tiers?\n',
+                    '- [ ] '):
+            with self.subTest(old=old), self.assertRaises(AssertionError):
+                self.assert_original_brief(self.brief.replace(old, '', 1))
+
+    def test_missing_or_relocated_capture_is_rejected(self):
+        block = next(CAPTURE_BLOCK.finditer(self.brief)).group()
+        for changed in (self.brief.replace(block, ''), self.brief.replace(block, '') + block,
+                        self.brief.replace(block, block + block)):
+            with self.subTest(changed=changed[:30]), self.assertRaises(AssertionError):
+                self.assert_original_brief(changed)
+
+    def test_factual_notes_are_not_learner_answers(self):
+        notes = self.brief.split('<!-- A5 factual source notes -->', 1)[1].split('<!-- /A5 factual source notes -->', 1)[0]
+        self.assertIn('Copilot-assisted, 19 September 2026; not learner answers', notes)
+        self.assertIn('not a real cloud plan or deployment', notes)
+        self.assertIn('All fifteen own-words reflection prompts below remain unanswered', notes)
+        self.assertEqual(15, self.brief.count('Write your answer here.'))
+        self.assertEqual(24, self.brief.count('Add your screenshot here.'))
+
+    def test_notes_marker_cannot_hide_an_original_requirement(self):
+        notes = re.search(r'\n<!-- A5 factual source notes -->\n.*?\n<!-- /A5 factual source notes -->\n', self.brief, re.S).group()
+        changed = self.brief.replace(notes, notes.replace('<!-- /A5 factual source notes -->', '### 1. Why did you separate the Web, Application, and Database tiers?\n<!-- /A5 factual source notes -->'), 1)
+        changed = changed.rsplit('### 1. Why did you separate the Web, Application, and Database tiers?\n', 1)
+        with self.assertRaises(AssertionError):
+            self.assert_original_brief(''.join(changed))
 
     def test_dependency_matches_are_not_release_clearance(self):
         advisories = json.loads((ROOT / "evidence/dependency-advisories.json").read_text())

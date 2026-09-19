@@ -62,7 +62,7 @@ Add both Ubuntu servers to the Ansible inventory.
 
 ## Configuration File
 
-Copy and paste the complete contents of your `inventory.ini` file below:
+Submitted [`inventory.ini`](static-web/inventory.ini) source is reproduced below. It is intentionally unconfigured; this supplies the editable template, not a live inventory or connectivity result:
 
 ```ini
 # UNCONFIGURED TEMPLATE: .invalid names cannot be managed hosts.
@@ -119,7 +119,7 @@ Create a single Ansible playbook containing separate plays for installation, dep
 
 ## Configuration File
 
-Copy and paste the complete contents of your `site.yml` file below:
+Submitted [`site.yml`](static-web/site.yml) source is reproduced below. The three plays are prepared with execution disabled by default; this is not a successful deployment record:
 
 ```yaml
 ---
@@ -329,7 +329,7 @@ Document how the project works and record what you learned.
 
 ## README Content
 
-Copy and paste the complete contents of your `README.md` file below:
+Submitted [`README.md`](static-web/README.md) content is reproduced below, including factual Copilot-assisted preparation notes. Firsthand learner reflection and live results remain pending:
 
 ````markdown
 # Week 09 Assignment 3 — Multi-play static website
