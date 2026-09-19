@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "execution_authorized": false,
+  "cloud": null,
+  "lease_id": null,
+  "source_commit": null,
+  "approved_at": null,
+  "expires_at": null,
+  "saved_plan_sha256": null,
+  "plan_json_sha256": null,
+  "external_custody": {
+    "storage_account_resource_id": null,
+    "state_blob_version": null,
+    "state_sha256": null,
+    "restore_receipt_sha256": null
+  },
+  "resources": []
+}
