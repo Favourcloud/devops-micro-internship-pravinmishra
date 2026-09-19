@@ -98,7 +98,8 @@ class VmSshEvidenceTests(unittest.TestCase):
             self.assertIn("Full-size content/privacy review is user-attested", section)
             self.assertIn("(evidence/a1-human-review-2026-09-19.json)", section)
             self.assertIn("subsequently destroyed", section)
-        self.assertEqual(self.brief.count("- [ ]"), 8)
+        self.assertEqual(self.brief.count("- [ ]"), 3)
+        self.assertEqual(self.brief.count("- [x]"), 5)
 
     def test_manifest_matches_original_capture_metadata(self):
         manifest = json.loads((WEEK / "self-hosted-agent/evidence/manifest.json").read_text())

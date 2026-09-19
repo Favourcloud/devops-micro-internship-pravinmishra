@@ -206,9 +206,17 @@ Add your screenshot here.
 
 # Completion Checklist
 
-* [ ] The correct Azure Static Website repository was imported into Azure Repos
-* [ ] `index.html` is visible in Azure Repos
-* [ ] Your Full Name was added to the website
+<!-- BEGIN WEEK10 ANSWER A2-CHECKLIST -->
+**Source-only task credit — assistant reconciliation, not a completed CI/CD workflow.** Four checks below reflect the existing 18 September records and published source views in screenshots 1 and 3. The [import/personalization receipt](application-pipelines/static-import-2026-09-18.json) records the instructor repository imported at `258b8a380d45b030f29a1ace237b3f4d120820fd`, then only `/index.html` changed to add **Eze Favour** at `8bfa3682a7440f12791085c1d4d0aa0f7fbcb4fb`, with remote content read back. Name credit is for the repository source, not a deployed website.
+
+The [source-handoff receipt](application-pipelines/static-pipeline-source-2026-09-18.json) binds uploaded YAML at `6b38993a18f75c2588803a42b6e7790c95e95b81` to the all-branch trigger. No application pipeline/run or SSH service connection was created by that handoff; the connection ID was an unset placeholder. A YAML trigger is not proof that a pushed commit triggered a deployment, and GitHub publication does not synchronize Azure Repos.
+
+The remaining 18 checks stay open. All four A2 images still need full-size human review; they cover only slots 1 and 3. No current Online agent, deployment, deployed name, grading availability, complete workflow summary, final website URL, universal sensitive-data clearance or LinkedIn publication is claimed. No new live operation or PAT use is authorized.
+<!-- END WEEK10 ANSWER A2-CHECKLIST -->
+
+* [x] The correct Azure Static Website repository was imported into Azure Repos
+* [x] `index.html` is visible in Azure Repos
+* [x] Your Full Name was added to the website
 * [ ] The target EC2 instance was provisioned using Terraform
 * [ ] A suitable Ubuntu image and EC2 size were selected
 * [ ] Nginx was configured using Ansible
@@ -217,7 +225,7 @@ Add your screenshot here.
 * [ ] TCP ports 22 and 80 are configured correctly
 * [ ] The self-hosted Azure Pipelines agent is online
 * [ ] The SSH Service Connection was created successfully
-* [ ] The YAML trigger includes all branches
+* [x] The YAML trigger includes all branches
 * [ ] The YAML uses the correct self-hosted agent pool
 * [ ] The copy and remote-verification tasks completed successfully
 * [ ] The pipeline status is **Succeeded**
