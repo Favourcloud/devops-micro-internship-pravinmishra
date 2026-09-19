@@ -7,6 +7,13 @@ New completed slots require an explicit allowlist update and evidence tests.
 import re
 
 
+ASSIGNMENTS = {
+    "assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md": "01",
+    "assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md": "02",
+    "assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md": "03",
+    "assignment-04-automate-epicbook-deployment-with-dual-pipelines.md": "04",
+    "assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md": "05",
+}
 CAPTURE_SLOTS = {"01": ("A1-S1", "A1-S7"), "02": ("A2-S1", "A2-S3")}
 PREPARATION_EDITS = (
     (
@@ -31,10 +38,9 @@ def restore_original_prompts(raw, name):
     may be replaced. Unknown, duplicated or malformed answer markers fail closed.
     Existing baseline hashes then catch any other change to a brief.
     """
-    match = re.fullmatch(r"assignment-(0[1-5])-[a-z0-9-]+\.md", name)
-    if match is None:
+    if name not in ASSIGNMENTS:
         raise ValueError("Unknown assignment filename")
-    assignment = match.group(1)
+    assignment = ASSIGNMENTS[name]
     expected = tuple(marker.encode() for marker in CAPTURE_SLOTS.get(assignment, ()))
     found = tuple(re.findall(rb"<!-- BEGIN WEEK10 CAPTURE ([^\n]+) -->", raw))
     if found != expected:

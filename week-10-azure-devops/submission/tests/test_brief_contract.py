@@ -39,6 +39,12 @@ class BriefContractTests(unittest.TestCase):
                 original = CONTRACT.restore_original_prompts((WEEK / name).read_bytes(), name)
                 self.assertEqual(hashlib.sha256(original).hexdigest(), assignment["brief_sha256"])
 
+    def test_only_exact_published_brief_filenames_are_accepted(self):
+        self.assertEqual(set(CONTRACT.ASSIGNMENTS), {a["brief"] for a in self.assignments})
+        for name in ("assignment-01-unapproved.md", "assignment-06-unapproved.md", "../" + self.a1):
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                CONTRACT.restore_original_prompts(self.raw, name)
+
     def test_only_supported_screenshot_prompts_are_replaced(self):
         current = json.loads((WEEK / "evidence/current.json").read_text())
         supported = [(int(a), int(s.split("-S")[1])) for a, slots in CONTRACT.CAPTURE_SLOTS.items() for s in slots]
