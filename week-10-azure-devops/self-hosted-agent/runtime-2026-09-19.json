@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "assignment": "week-10-assignment-01",
+  "status": "vm_ssh_verified_registration_blocked_cleaned_up",
+  "assistant_operated": true,
+  "source_commit": "ecf5ad4b7d373a73bddeaca72efa2f7406b9ef7e",
+  "authorization": {
+    "activated_at": "2026-09-19T19:38:57.110340+00:00",
+    "expires_at": "2026-09-19T20:38:57.110340+00:00",
+    "maximum_minutes": 60,
+    "planning_allowance_usd": 10,
+    "enforced_spending_cap": false,
+    "actual_billed_cost_usd": null,
+    "retired": true,
+    "existing_full_access_pat_reuse_explicitly_approved": true
+  },
+  "vm": {
+    "cloud": "Azure",
+    "region": "uksouth",
+    "name": "dmi-w10-a1-0919-4ffacc-vm",
+    "size": "Standard_D2lds_v6",
+    "os": "Ubuntu 22.04.5 LTS",
+    "architecture": "x86_64",
+    "secure_boot_verified": true,
+    "vtpm_verified": true,
+    "ssh_host_fingerprint_authenticated": true,
+    "ssh_user": "labadmin",
+    "agent_account": "azdoagent",
+    "agent_sudo_denied": true,
+    "agent_password_locked": true
+  },
+  "package": {
+    "version": "5.279.0",
+    "published_sha256": "6e3352e1dc44c924cd85840df279f21c200e6365596a7c38f3087015262555dc",
+    "release_url": "https://github.com/microsoft/azure-pipelines-agent/releases/tag/v5.279.0",
+    "download_hash_matched": true,
+    "listener_version_verified": true,
+    "required_libraries_resolved": true,
+    "dependency_installer_executed": false
+  },
+  "registration": {
+    "attempted": true,
+    "succeeded": false,
+    "blocked_prompt": "Optional Team Explorer Everywhere TFVC licence agreement; Git sources do not require it",
+    "eula_response_sent": false,
+    "pat_sent_to_agent": false,
+    "timeout_seconds": 300,
+    "agent_configuration_and_credentials_absent_afterward": true,
+    "agent_processes_absent_afterward": true,
+    "retry_performed": false,
+    "fresh_retry_approval_obtained": false,
+    "secondary_zero_sized_pty_observed": true
+  },
+  "pat": {
+    "existing_protected_value_used_for_authorized_ado_reads": true,
+    "value_exposed_or_copied": false,
+    "server_scope_or_expiry_changed": false,
+    "revoked": false,
+    "native_metadata_scope_observed": "Full access",
+    "native_metadata_expiry_observed": "2026-12-18",
+    "metadata_row_cryptographically_matched_to_protected_value": false,
+    "least_privilege_token_claimed": false
+  },
+  "new_service_started": false,
+  "new_online_agent_verified": false,
+  "new_pipeline_run": null,
+  "cleanup": {
+    "requested_at": "2026-09-19T20:01:25.529765+00:00",
+    "terraform_destroy_completed_at": "2026-09-19T20:04:40.727968+00:00",
+    "absence_verified_at": "2026-09-19T20:07:17.365621+00:00",
+    "terraform_state_empty": true,
+    "resource_group_absent": true,
+    "vm_absent": true,
+    "os_disk_absent": true,
+    "public_ip_absent": true,
+    "owned_agent_absent": true,
+    "pool_agent_count": 0,
+    "before_operating_expiry": true,
+    "initial_verifier_rejected_disk_not_found_wording": true,
+    "recheck_was_read_only": true,
+    "destroy_retried": false
+  },
+  "local_checks": {
+    "controller_tests_passed": 81,
+    "absence_parser_tests_passed": 8,
+    "network_denied": true,
+    "ordinary_file_writes_denied": true,
+    "ci_run_claimed": false
+  },
+  "submission": {
+    "new_slots_captured": [
+      2,
+      3
+    ],
+    "human_visual_privacy_reviewed": false,
+    "learner_reflection_supplied": false,
+    "assignment_complete": false
+  }
+}

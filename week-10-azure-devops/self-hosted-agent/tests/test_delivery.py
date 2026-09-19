@@ -40,7 +40,7 @@ class PreservationTests(unittest.TestCase):
         self.assertEqual(len(BASELINE["a1_screenshot_titles"]), 7)
         self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), BASELINE["a1_unchecked_checklist"])
         self.assertEqual(len(BASELINE["a1_unchecked_checklist"]), 8)
-        self.assertEqual(text.count("Add your screenshot here."), 5)
+        self.assertEqual(text.count("Add your screenshot here."), 3)
         self.assertNotIn("Write your answer here.", text)
         self.assertIn("**Learner input still required:**", text)
         self.assertNotRegex(text, r"(?m)^- \[[xX]\]")
@@ -71,7 +71,8 @@ class PreservationTests(unittest.TestCase):
         self.assertIs(manifest["live_verified"], False)
         self.assertEqual(len(manifest["screenshots"]), 7)
         captures = {item["slot"]: item for item in json.loads((WEEK / "evidence/captures-2026-09-19.json").read_text())["captures"] if item["assignment"] == 1}
-        self.assertEqual(set(captures), {1, 7})
+        captures.update({item["slot"]: item for item in json.loads((WEEK / "evidence/a1-vm-ssh-2026-09-19.json").read_text())["captures"]})
+        self.assertEqual(set(captures), {1, 2, 3, 7})
         for number, item in enumerate(manifest["screenshots"], 1):
             self.assertEqual(set(item), {"slot", "title", "status", "captured", "path", "sha256", "captured_at", "run_url"})
             self.assertEqual(item["slot"], number)

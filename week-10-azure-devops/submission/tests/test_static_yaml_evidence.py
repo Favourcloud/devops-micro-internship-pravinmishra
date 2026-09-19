@@ -120,9 +120,9 @@ class StaticYamlEvidenceTests(unittest.TestCase):
     def test_cumulative_counts_preserve_original_bundle_and_snapshot(self):
         self.assertEqual(set(self.current), {"schema_version", "status", "numbered_required", "numbered_captured", "numbered_missing", "raw_images", "separate_linkedin_image_captured", "assignment_completion_claimed", "human_visual_review_verified", "captured_slots", "bundles"})
         self.assertEqual((self.current["schema_version"], self.current["status"]), (1, "partial_captures_review_pending"))
-        self.assertEqual((self.current["numbered_required"], self.current["numbered_captured"], self.current["numbered_missing"], self.current["raw_images"]), (36, 4, 32, 6))
-        self.assertEqual(self.current["captured_slots"], [[1, 1], [1, 7], [2, 1], [2, 3]])
-        self.assertEqual(self.current["bundles"], ["captures-2026-09-19.json", "static-yaml-2026-09-19.json"])
+        self.assertEqual((self.current["numbered_required"], self.current["numbered_captured"], self.current["numbered_missing"], self.current["raw_images"]), (36, 6, 30, 8))
+        self.assertEqual(self.current["captured_slots"], [[1, 1], [1, 2], [1, 3], [1, 7], [2, 1], [2, 3]])
+        self.assertEqual(self.current["bundles"], ["captures-2026-09-19.json", "static-yaml-2026-09-19.json", "a1-vm-ssh-2026-09-19.json"])
         for key in ("separate_linkedin_image_captured", "assignment_completion_claimed", "human_visual_review_verified"):
             self.assertIs(self.current[key], False)
         original = json.loads((WEEK / "evidence/captures-2026-09-19.json").read_text())
@@ -130,8 +130,10 @@ class StaticYamlEvidenceTests(unittest.TestCase):
         self.assertEqual(original["numbered_captured"], 3)
         self.assertEqual(snapshot["screenshots"]["numbered_captured"], 0)
         slots = {(i["assignment"], i["slot"]) for i in original["captures"]} | {(self.record["assignment"], self.record["slot"])}
+        fresh = json.loads((WEEK / "evidence/a1-vm-ssh-2026-09-19.json").read_text())
+        slots.update((i["assignment"], i["slot"]) for i in fresh["captures"])
         self.assertEqual(slots, {tuple(s) for s in self.current["captured_slots"]})
-        self.assertEqual(len(original["captures"]) + len(self.record["images"]), self.current["raw_images"])
+        self.assertEqual(len(original["captures"]) + len(self.record["images"]) + len(fresh["captures"]), self.current["raw_images"])
 
 
 if __name__ == "__main__":
