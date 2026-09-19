@@ -79,13 +79,13 @@ class LinkedInProgressTests(unittest.TestCase):
 
     def test_draft_adds_no_screenshot_or_completed_assignment(self):
         current = json.loads((WEEK / "evidence/current.json").read_text())
-        self.assertEqual(current["numbered_captured"], 6)
-        self.assertEqual(current["numbered_missing"], 30)
-        self.assertEqual(current["raw_images"], 8)
+        self.assertEqual(current["numbered_captured"], 9)
+        self.assertEqual(current["numbered_missing"], 27)
+        self.assertEqual(current["raw_images"], 11)
         self.assertIs(current["separate_linkedin_image_captured"], False)
         self.assertIs(current["assignment_completion_claimed"], False)
         self.assertIs(current["human_visual_review_verified"], False)
-        self.assertEqual(len(list((WEEK / "screenshots").glob("*.png"))), 8)
+        self.assertEqual(len(list((WEEK / "screenshots").glob("*.png"))), 11)
 
     def test_only_the_public_repository_url_is_in_the_draft(self):
         urls = re.findall(r"https?://\S+", self.text)
@@ -110,10 +110,10 @@ class LinkedInProgressTests(unittest.TestCase):
             self.assertIn("does not satisfy A2", document)
         readme = (WEEK / "README.md").read_text()
         self.assertIn("## Assignment status", readme)
-        self.assertIn("six explicitly allowlisted image substitutions", readme)
+        self.assertIn("nine explicitly allowlisted image substitutions", readme)
         blocks = sum(len(re.findall(rb"<!-- BEGIN WEEK10 CAPTURE ", path.read_bytes()))
                      for path in WEEK.glob("assignment-*.md"))
-        self.assertEqual(blocks, 6)
+        self.assertEqual(blocks, 9)
 
 
 if __name__ == "__main__":

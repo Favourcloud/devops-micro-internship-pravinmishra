@@ -112,7 +112,7 @@ class RuntimeReceiptTests(unittest.TestCase):
         self.assertEqual(manifest["status"], "partial_captures_review_pending")
         self.assertIs(manifest["live_verified"], False)
         captured = [slot for slot in manifest["screenshots"] if slot["captured"]]
-        self.assertEqual([slot["slot"] for slot in captured], [1, 2, 3, 7])
+        self.assertEqual([slot["slot"] for slot in captured], list(range(1, 8)))
         for slot in captured:
             self.assertGreater(datetime.fromisoformat(slot["captured_at"]), datetime.fromisoformat("2026-09-19T08:15:30+00:00"))
 

@@ -97,10 +97,6 @@ class VmSshEvidenceTests(unittest.TestCase):
             self.assertEqual(re.findall(r"!\[[^\]]*\]\(([^)]+)\)", section), [item["path"]])
             self.assertIn("Human visual/privacy review is pending.", section)
             self.assertIn("subsequently destroyed", section)
-        for slot in (4, 5, 6):
-            section = re.search(r"^#### Screenshot " + str(slot) + r" — [^\n]+\n(.*?)(?=\n---)", self.brief, re.M | re.S).group(1)
-            self.assertIn("Add your screenshot here.", section)
-            self.assertNotIn("WEEK10 CAPTURE", section)
         self.assertEqual(self.brief.count("- [ ]"), 8)
 
     def test_manifest_matches_original_capture_metadata(self):

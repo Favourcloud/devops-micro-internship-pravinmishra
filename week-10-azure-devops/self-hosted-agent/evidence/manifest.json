@@ -37,32 +37,32 @@
     {
       "slot": 4,
       "title": "Screenshot 4 — Terminal showing successful agent configuration without exposing the PAT",
-      "status": "pending",
-      "captured": false,
-      "path": null,
-      "sha256": null,
-      "captured_at": null,
+      "status": "captured_review_pending",
+      "captured": true,
+      "path": "screenshots/assignment-01-screenshot-04-registered-agent-configuration.png",
+      "sha256": "35f89125ca6ad904f5ddba714fef23fcf2894e06f504d51cb68bf63c84749830",
+      "captured_at": "2026-09-19T21:51:24.003806+00:00",
       "run_url": null
     },
     {
       "slot": 5,
       "title": "Screenshot 5 — Terminal showing the agent service running successfully",
-      "status": "pending",
-      "captured": false,
-      "path": null,
-      "sha256": null,
-      "captured_at": null,
+      "status": "captured_review_pending",
+      "captured": true,
+      "path": "screenshots/assignment-01-screenshot-05-running-agent-service.png",
+      "sha256": "a73869bbce92a2d7df251a57bf26d653915f958d7417ae39da6914ed6bcc33fe",
+      "captured_at": "2026-09-19T21:51:37.489031+00:00",
       "run_url": null
     },
     {
       "slot": 6,
       "title": "Screenshot 6 — Agent Pool listing showing the registered agent online",
-      "status": "pending",
-      "captured": false,
-      "path": null,
-      "sha256": null,
-      "captured_at": null,
-      "run_url": null
+      "status": "captured_review_pending",
+      "captured": true,
+      "path": "screenshots/assignment-01-screenshot-06-online-agent.png",
+      "sha256": "f7a9da72b5f0e67f2f3004c2b0f005117b6b0b795b42e3d8436c721f11546d14",
+      "captured_at": "2026-09-19T21:53:03.700803+00:00",
+      "run_url": "https://dev.azure.com/aneneeze2021/_settings/agentpools?poolId=11&view=agents"
     },
     {
       "slot": 7,
