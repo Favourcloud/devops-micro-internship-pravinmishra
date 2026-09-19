@@ -4,6 +4,8 @@
 
 > **Later screenshot supplements:** [four numbered A1/A2 slots now have genuine attachments](evidence/README.md), using six original PNGs. A2 slot 3 is source-only YAML evidence in three views; its SSH connection remains unset. Human visual/privacy review is pending. The zero-image counts and test results below describe the original **08:15:30 UTC** snapshot, before those captures; use the supplement for current image availability.
 
+> **Current checker / LinkedIn update:** see the [checker entry points](README.md#checker-entry-points--current-partial-submission). The [factual LinkedIn draft](submission/linkedin-progress-draft.txt) is **not published**: the existing Chrome tab requires private sign-in. [Publication status](evidence/linkedin-progress.json) has no public post URL or screenshot. It adds no completed screenshot slot and does not satisfy A2's LinkedIn requirement. The dated report below remains the original partial-submission snapshot.
+
 This handoff collects genuine recorded progress and tested source. A1 had a
 successful authorized technical trial; A2 reached the Azure Repos/source-handoff
 milestone. A2–A4 live deployments and A5 triage remain unfinished. All required

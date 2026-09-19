@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "learner": "Eze Favour",
+  "request_date_utc": "2026-09-19",
+  "publication_status": "blocked_private_sign_in",
+  "publication_authorized": true,
+  "draft_path": "submission/linkedin-progress-draft.txt",
+  "draft_sha256": "2b163abca5996bde84a6ef3930dcffebf0de93ac20ac93102f6dbc61e4ea81db",
+  "draft_basis": {
+    "source_commit": "459cc1a8d2f79038ca64f5fb6c2ed4745268e17a",
+    "a1_receipt": "self-hosted-agent/runtime-2026-09-18.json",
+    "static_source_receipt": "application-pipelines/static-pipeline-source-2026-09-18.json",
+    "local_validation_checkpoint_tests": 338,
+    "local_validation_checkpoint_date_utc": "2026-09-19"
+  },
+  "account_verified": false,
+  "post_submitted": false,
+  "publication_verified": false,
+  "public_post_url": null,
+  "screenshot_path": null,
+  "counts_as_assignment_evidence": false,
+  "assignment_specific_linkedin_requirements_met": false,
+  "blocker": "The existing native Chrome LinkedIn tab redirected to sign-in. Private sign-in and verification of the posting account are required. No post was submitted; no public post URL or screenshot is available."
+}
