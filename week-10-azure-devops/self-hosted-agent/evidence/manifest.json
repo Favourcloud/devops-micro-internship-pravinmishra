@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "assignment": "week-10-assignment-01",
-  "status": "pending",
+  "status": "partial_captures_review_pending",
   "live_verified": false,
   "screenshots": [
     {
       "slot": 1,
       "title": "Screenshot 1 — Azure DevOps Agent Pools page showing the newly created pool",
-      "status": "pending",
-      "captured": false,
-      "path": null,
-      "sha256": null,
-      "captured_at": null,
-      "run_url": null
+      "status": "captured_review_pending",
+      "captured": true,
+      "path": "screenshots/assignment-01-screenshot-01-agent-pool.png",
+      "sha256": "f2a7640a96c5d3a2136ed1ee3882c762863ea189e1063253345552ebada9a128",
+      "captured_at": "2026-09-19T08:33:05.292701+00:00",
+      "run_url": "https://dev.azure.com/aneneeze2021/_settings/agentpools?poolId=11&view=agents"
     },
     {
       "slot": 2,
@@ -67,12 +67,12 @@
     {
       "slot": 7,
       "title": "Screenshot 7 — Successful test pipeline run output in Azure DevOps showing the Linux commands",
-      "status": "pending",
-      "captured": false,
-      "path": null,
-      "sha256": null,
-      "captured_at": null,
-      "run_url": null
+      "status": "captured_review_pending",
+      "captured": true,
+      "path": "screenshots/assignment-01-screenshot-07-linux-pipeline-output.png",
+      "sha256": "956e610d09f104a667dd5e7dad3d41ea09db8d7334d725339df6f63fd8480496",
+      "captured_at": "2026-09-19T08:30:36.994737+00:00",
+      "run_url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=1&view=logs"
     }
   ]
 }

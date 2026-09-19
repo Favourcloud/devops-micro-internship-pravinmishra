@@ -40,6 +40,12 @@ Create a self-hosted agent pool (e.g. `SelfHostedPool`) in Azure DevOps Organiza
 
 Add your screenshot here.
 
+<!-- BEGIN WEEK10 CAPTURE A1-S1 -->
+![A1 screenshot 1: dedicated DMI-Week10-A1 pool](screenshots/assignment-01-screenshot-01-agent-pool.png)
+
+Captured 19 September 2026. Shows the retained pool, **not an Online agent**. Human visual/privacy review is pending. [Provenance and remaining gaps](evidence/README.md).
+<!-- END WEEK10 CAPTURE A1-S1 -->
+
 ---
 
 # Task 3 — Provision the Ubuntu VM
@@ -107,6 +113,12 @@ Create and run a YAML pipeline targeting the self-hosted pool, running `uname -a
 #### Screenshot 7 — Successful test pipeline run output in Azure DevOps showing the Linux commands
 
 Add your screenshot here.
+
+<!-- BEGIN WEEK10 CAPTURE A1-S7 -->
+![A1 screenshot 7: successful Linux verification command output](screenshots/assignment-01-screenshot-07-linux-pipeline-output.png)
+
+Captured 19 September 2026 from **historical run 1 on 18 September**. The host was subsequently cleaned up; this is not current host-health evidence. Human visual/privacy review is pending. [Provenance and remaining gaps](evidence/README.md).
+<!-- END WEEK10 CAPTURE A1-S7 -->
 
 ---
 

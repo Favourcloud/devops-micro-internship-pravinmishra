@@ -2,7 +2,7 @@
 
 Learner: **Eze Favour**. Status: **A1's historical technical trial and A2's repository/source handoff are verified; A3–A4 source preparation is available. Live deployments and submission evidence remain pending. No assignment is submission-complete.**
 
-> **Submitting now:** use the [19 September submission handoff](SUBMISSION.md) for the actual A1 run, deliverable links, current local validation and explicit unmet requirements. It is a **partial submission**, not completion evidence for all five assignments.
+> **Submitting now:** the [three genuine screenshot attachments](evidence/README.md) are embedded under A1 slots **1 and 7** and A2 slot **1**. Human visual/privacy review is pending. The [original submission handoff](SUBMISSION.md) is the earlier zero-image snapshot; this is still a **partial submission**, not completion of all five assignments.
 
 ## Submission checkpoint — 19 September 2026
 
@@ -33,13 +33,13 @@ These are recorded operational facts and source-validation results, **not submis
 
 | Assignment | Source status | Live gate / next dependency | Numbered screenshots |
 | --- | --- | --- | --- |
-| [1 — Self-hosted Linux agent](assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md) | [Foundation and verified live trial](self-hosted-agent/README.md); non-root Online agent and manual run 1 succeeded, then cleaned up | PAT revocation, genuine screenshots and learner notes; fresh bounded authorization/runtime for further live use | 0/7 |
-| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization/pipeline-source upload](application-pipelines/README.md); [restricted operator and unarmed cleanup source](application-pipelines/cloud-cleanup/README.md) | Freshly authorized agent/target and authentication; independently proven workload cleanup, full deployment permissions, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 0/5 |
+| [1 — Self-hosted Linux agent](assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md) | [Foundation and verified live trial](self-hosted-agent/README.md); non-root Online agent and manual run 1 succeeded, then cleaned up | PAT revocation, genuine screenshots and learner notes; fresh bounded authorization/runtime for further live use | 2/7 captured; review pending |
+| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization/pipeline-source upload](application-pipelines/README.md); [restricted operator and unarmed cleanup source](application-pipelines/cloud-cleanup/README.md) | Freshly authorized agent/target and authentication; independently proven workload cleanup, full deployment permissions, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 1/5 captured; review pending |
 | [3 — React CI/CD](assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md) | [Build/Test/Publish/Deploy template](application-pipelines/README.md) | Authorized app personalization/stale-test correction; separate Terraform/Ansible target; actual build/test, artifact deployment and automatic run | 0/6 |
 | [4 — EpicBook dual pipelines](assignment-04-automate-epicbook-deployment-with-dual-pipelines.md) | [Handoff checks, source constraints and tested workload Terraform](epicbook/README.md) | Two repositories, protected-state bootstrap, exact approved live plan for two Azure VMs/private MySQL, runtime/TLS/schema review, idempotent Ansible, both pipelines and live handoff | 0/6 |
 | [5 — Read-only failure triage](assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md) | Brief only; no substitute kit | A4's two healthy pipelines, actual instructor-supplied files, separately authorized Claude use, genuine controlled failure/recovery | 0/12 |
 
-There are **36 numbered screenshot slots**, plus A2's separate unnumbered LinkedIn image. All remain pending. Submission capture and social publication still need separate approval. The [A1 evidence manifest](self-hosted-agent/evidence/manifest.json) records seven empty slots, not substitute evidence; its pending flags describe unsubmitted captures, separately from the verified technical trial. Learner reflections and original completion checklists remain unanswered/unchecked.
+There are **36 numbered screenshot slots**, plus A2's separate unnumbered LinkedIn image. **Three genuine captures are attached; 33 numbered slots and the LinkedIn image remain missing.** See the [capture provenance and exact placements](evidence/README.md). The [A1 evidence manifest](self-hosted-agent/evidence/manifest.json) records two captures and five pending slots, without claiming a currently Online agent. Human visual/privacy review, learner reflections and original completion checklists remain pending. Social publication is not authorized by attaching evidence.
 
 ## Runtime authorization remains separate
 
@@ -68,4 +68,4 @@ packaging task.
 5. Implement and verify A4's infrastructure and application pipelines, protected state, database and manual handoff before attempting A5 with the real supplied kit. Do not fabricate incidents, reports or recovery.
 6. Capture genuine, readable evidence only after approval; review it for secrets, match every original slot, and complete human reflections/publication only when actually performed.
 
-The original briefs remain the source of requirements. A1 contains only a clearly delimited preparation notice; its seven screenshot requirements, eight unchecked checklist entries, and unanswered notes are preserved.
+The original briefs remain the source of requirements. A1 retains its preparation notice; three clearly delimited image additions now attach evidence to the matching A1/A2 slots. Removing only those additions restores every original brief byte. Screenshot requirements, all 124 unchecked checklist entries and unanswered learner notes are preserved.

@@ -20,6 +20,7 @@ class PreservationTests(unittest.TestCase):
         for name, expected in BASELINE["briefs"].items():
             with self.subTest(brief=name):
                 raw = (WEEK / name).read_bytes()
+                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
                 if name.startswith("assignment-01-"):
                     raw, count = re.subn(
                         rb"<!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->\n.*?<!-- END WEEK10 A1 OFFLINE PREPARATION -->\n\n",
@@ -59,22 +60,32 @@ class PreservationTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(original).hexdigest(), BASELINE["root_readme_sha256"])
         self.assertEqual(BASELINE["base_commit"], "d7c5fbf15c25edf2cc2d23c07d69796ed4b19212")
 
-    def test_manifest_is_allowlisted_and_entirely_pending(self):
+    def test_manifest_is_allowlisted_and_only_real_captures_are_attached(self):
         manifest = json.loads((PROJECT / "evidence/manifest.json").read_text())
         self.assertEqual(set(manifest), {"schema_version", "assignment", "status", "live_verified", "screenshots"})
         self.assertEqual(manifest["schema_version"], 1)
         self.assertEqual(manifest["assignment"], "week-10-assignment-01")
-        self.assertEqual(manifest["status"], "pending")
+        self.assertEqual(manifest["status"], "partial_captures_review_pending")
         self.assertIs(manifest["live_verified"], False)
         self.assertEqual(len(manifest["screenshots"]), 7)
+        captures = {item["slot"]: item for item in json.loads((WEEK / "evidence/captures-2026-09-19.json").read_text())["captures"] if item["assignment"] == 1}
+        self.assertEqual(set(captures), {1, 7})
         for number, item in enumerate(manifest["screenshots"], 1):
             self.assertEqual(set(item), {"slot", "title", "status", "captured", "path", "sha256", "captured_at", "run_url"})
             self.assertEqual(item["slot"], number)
             self.assertEqual(item["title"], BASELINE["a1_screenshot_titles"][number - 1])
-            self.assertEqual(item["status"], "pending")
-            self.assertIs(item["captured"], False)
-            for key in ("path", "sha256", "captured_at", "run_url"):
-                self.assertIsNone(item[key])
+            if number in captures:
+                self.assertEqual(item["status"], "captured_review_pending")
+                self.assertIs(item["captured"], True)
+                for key in ("path", "sha256", "captured_at"):
+                    self.assertEqual(item[key], captures[number][key])
+                self.assertEqual(item["run_url"], captures[number]["source_url"])
+                self.assertEqual(hashlib.sha256((WEEK / item["path"]).read_bytes()).hexdigest(), item["sha256"])
+            else:
+                self.assertEqual(item["status"], "pending")
+                self.assertIs(item["captured"], False)
+                for key in ("path", "sha256", "captured_at", "run_url"):
+                    self.assertIsNone(item[key])
 
     def test_no_new_images_or_javascript(self):
         prohibited = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".js", ".jsx", ".ts", ".tsx"}

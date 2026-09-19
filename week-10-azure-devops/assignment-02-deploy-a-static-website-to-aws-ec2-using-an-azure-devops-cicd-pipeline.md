@@ -42,6 +42,12 @@ Add a screenshot of Azure Repos showing:
 
 Add your screenshot here.
 
+<!-- BEGIN WEEK10 CAPTURE A2-S1 -->
+![A2 screenshot 1: Azure Static Website repository and project files](screenshots/assignment-02-screenshot-01-azure-repos.png)
+
+Captured 19 September 2026. This proves the repository/source view, **not deployment**. Human visual/privacy review is pending. [Provenance and remaining gaps](evidence/README.md).
+<!-- END WEEK10 CAPTURE A2-S1 -->
+
 ---
 
 # Task 2 — Provision and Configure the Target EC2 Instance

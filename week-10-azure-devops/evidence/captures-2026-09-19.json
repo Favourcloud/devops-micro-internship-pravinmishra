@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "partial_captures_review_pending",
+  "snapshot_as_of_utc": "2026-09-19T08:15:30Z",
+  "supplements_frozen_source_commit": "80c16e402deca4bf0004d32619e6babba3095096",
+  "numbered_required": 36,
+  "numbered_captured": 3,
+  "numbered_missing": 33,
+  "separate_linkedin_image_captured": false,
+  "assignment_completion_claimed": false,
+  "human_visual_review_verified": false,
+  "captures": [
+    {
+      "assignment": 1,
+      "slot": 1,
+      "title": "Azure DevOps Agent Pools page showing the newly created pool",
+      "captured_at": "2026-09-19T08:33:05.292701+00:00",
+      "sha256": "f2a7640a96c5d3a2136ed1ee3882c762863ea189e1063253345552ebada9a128",
+      "bytes": 417776,
+      "dimensions": [
+        3584,
+        2064
+      ],
+      "source_url": "https://dev.azure.com/aneneeze2021/_settings/agentpools?poolId=11&view=agents",
+      "method": "Native macOS screencapture of guarded, focused Favour Chrome page",
+      "pixels_edited_or_synthesized": false,
+      "local_ocr_markers_checked": [
+        "DMI-Week10-A1",
+        "Agent pools"
+      ],
+      "ocr_sensitive_screen_marker_found": false,
+      "human_visual_review_verified": false,
+      "limitations": "Shows the retained dedicated pool, not a currently Online agent.",
+      "path": "screenshots/assignment-01-screenshot-01-agent-pool.png",
+      "brief": "assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md"
+    },
+    {
+      "assignment": 1,
+      "slot": 7,
+      "title": "Successful test pipeline run output in Azure DevOps showing the Linux commands",
+      "captured_at": "2026-09-19T08:30:36.994737+00:00",
+      "sha256": "956e610d09f104a667dd5e7dad3d41ea09db8d7334d725339df6f63fd8480496",
+      "bytes": 586194,
+      "dimensions": [
+        3584,
+        2064
+      ],
+      "source_url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=1&view=logs",
+      "method": "Native macOS screencapture of guarded, focused Favour Chrome page",
+      "pixels_edited_or_synthesized": false,
+      "local_ocr_markers_checked": [
+        "20260918.1",
+        "Linux / Ubuntu / x86_64",
+        "azdoagent",
+        "Filesystem",
+        "Finishing: Verify non-root Linux identity and disk space"
+      ],
+      "ocr_sensitive_screen_marker_found": false,
+      "human_visual_review_verified": false,
+      "limitations": "Historical run 1 from 18 September; it does not imply the cleaned-up host still exists.",
+      "path": "screenshots/assignment-01-screenshot-07-linux-pipeline-output.png",
+      "brief": "assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md"
+    },
+    {
+      "assignment": 2,
+      "slot": 1,
+      "title": "Azure Static Website in Azure Repos",
+      "captured_at": "2026-09-19T08:32:00.642905+00:00",
+      "sha256": "2270ea7c29078822be81fe5ecf2359bc308c38895a9ab4becef04c6fdb77137e",
+      "bytes": 416598,
+      "dimensions": [
+        3584,
+        2064
+      ],
+      "source_url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_git/Azure-Static-Website?path=%2F",
+      "method": "Native macOS screencapture of guarded, focused Favour Chrome page",
+      "pixels_edited_or_synthesized": false,
+      "local_ocr_markers_checked": [
+        "Azure-Static-Website",
+        "main",
+        "index.html",
+        "README.md",
+        "azure-pipelines.yml"
+      ],
+      "ocr_sensitive_screen_marker_found": false,
+      "human_visual_review_verified": false,
+      "limitations": "Repository/source evidence only; no application deployment is claimed.",
+      "path": "screenshots/assignment-02-screenshot-01-azure-repos.png",
+      "brief": "assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md"
+    }
+  ]
+}
