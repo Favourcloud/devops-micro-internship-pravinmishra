@@ -1,8 +1,19 @@
 # Week 10 — Azure DevOps
 
-Learner: **Eze Favour**. Status: **A1 live technical trial verified; A2's Azure repository imported, personalized and supplied with tested pipeline source; restricted AWS session verified; A3–A4 source preparation delivered; deployments and submission evidence remain pending and no assignment is complete**.
+Learner: **Eze Favour**. Status: **A1's historical technical trial and A2's repository/source handoff are verified; A3–A4 source preparation is available. Live deployments and submission evidence remain pending. No assignment is submission-complete.**
 
-## Recorded progress — 18 September 2026
+> **Submitting now:** use the [19 September submission handoff](SUBMISSION.md) for the actual A1 run, deliverable links, current local validation and explicit unmet requirements. It is a **partial submission**, not completion evidence for all five assignments.
+
+## Submission checkpoint — 19 September 2026
+
+- The [machine-readable snapshot](submission/status.json) preserves all five brief hashes, pending screenshot counts and actual local source-test results. No fresh cloud inventory, application build, GUI capture or social post was performed for this package.
+- Later, separately authorized IAM bootstrap established the persistent non-root `dmi-week10-operator` with MFA and no long-lived API keys. CLI identity, protected IAM reads and a four-data-source Terraform probe through the private credential-process bridge were verified on 19 September; see [the provider checkpoint, #32](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/32) and [operator source](application-pipelines/cloud-cleanup/operator/README.md). This is read acceptance, not proof of full deployment permission. The original policy expiry remains **19 September, 18:18:03 UTC**.
+- [Recovery/state-custody design and a read-only structural reviewer](application-pipelines/cloud-cleanup/recovery/README.md) were tested and merged through [#33](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/33). No recovery executor, independent state custody/restore, cleanup schedule or canary was installed or armed. Workload creation remains gated.
+- The earlier one-hour root-issued STS session is expired. Later approvals did not create permanent root authorization. Submission urgency, source publication and existing credentials do not authorize new runtime operations.
+
+## Historical checkpoints — 18 September 2026
+
+The following records describe observations at their stated times. Their earlier access approach and test counts are historical; use the submission handoff for this package's validation totals.
 
 - **A1 source:** [manual verification YAML and runbook](self-hosted-agent/README.md), [key-only Azure Terraform adaptation](self-hosted-agent/azure-vm/README.md), read-only checks and offline tests.
 - **A1 setup:** private Azure DevOps project `DMI-Week10`, dedicated pool `DMI-Week10-A1`, and an imported assessment repository exist. Read-backs at **08:48 UTC on 18 September** verified definition **1**, `DMI-Week10-A1-VerifyLinuxAgent`, revision **4**, using `main`, the exact A1 YAML path and the dedicated default queue. Queue and pool detail responses explicitly identified a self-hosted pool with **zero agents**; run history contained **zero runs**. The imported 679-byte YAML matched the local source. The YAML still requires the runtime `poolName` selection; GitHub main updates do not automatically synchronize the imported Azure repository.
@@ -23,29 +34,30 @@ These are recorded operational facts and source-validation results, **not submis
 | Assignment | Source status | Live gate / next dependency | Numbered screenshots |
 | --- | --- | --- | --- |
 | [1 — Self-hosted Linux agent](assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md) | [Foundation and verified live trial](self-hosted-agent/README.md); non-root Online agent and manual run 1 succeeded, then cleaned up | PAT revocation, genuine screenshots and learner notes; fresh bounded authorization/runtime for further live use | 0/7 |
-| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization/pipeline-source upload and restricted AWS session](application-pipelines/README.md); [unarmed cleanup-canary source](application-pipelines/cloud-cleanup/README.md) | Fresh agent using the explicitly approved saved PAT, subject to registration/scope/expiry checks; independently proven workload cleanup, full deployment permissions, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 0/5 |
+| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization/pipeline-source upload](application-pipelines/README.md); [restricted operator and unarmed cleanup source](application-pipelines/cloud-cleanup/README.md) | Freshly authorized agent/target and authentication; independently proven workload cleanup, full deployment permissions, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 0/5 |
 | [3 — React CI/CD](assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md) | [Build/Test/Publish/Deploy template](application-pipelines/README.md) | Authorized app personalization/stale-test correction; separate Terraform/Ansible target; actual build/test, artifact deployment and automatic run | 0/6 |
 | [4 — EpicBook dual pipelines](assignment-04-automate-epicbook-deployment-with-dual-pipelines.md) | [Handoff checks, source constraints and tested workload Terraform](epicbook/README.md) | Two repositories, protected-state bootstrap, exact approved live plan for two Azure VMs/private MySQL, runtime/TLS/schema review, idempotent Ansible, both pipelines and live handoff | 0/6 |
 | [5 — Read-only failure triage](assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md) | Brief only; no substitute kit | A4's two healthy pipelines, actual instructor-supplied files, separately authorized Claude use, genuine controlled failure/recovery | 0/12 |
 
 There are **36 numbered screenshot slots**, plus A2's separate unnumbered LinkedIn image. All remain pending. Submission capture and social publication still need separate approval. The [A1 evidence manifest](self-hosted-agent/evidence/manifest.json) records seven empty slots, not substitute evidence; its pending flags describe unsubmitted captures, separately from the verified technical trial. Learner reflections and original completion checklists remain unanswered/unchecked.
 
-## Current resource-window decision
+## Runtime authorization remains separate
 
-The user subsequently requested **24-hour resource-approval windows**, replacing
-the proposed four-hour A2 window. The current A2 scope is one fresh Azure agent
-and one AWS web target, with the existing **US$10 combined planning allowance**
-(not an enforced cap). Its clock starts with first provisioning, not source tests;
-no new resource or active deadline is claimed here. Record one fixed UTC expiry
-and begin cleanup at least 45 minutes before it. Non-root AWS deployment/cleanup
-access, exact plans, costs, authentic host keys and a cleanup safeguard remain
-required. Credential renewal does not extend that deadline. The later explicit
-root-use permission was implemented only as controller-side STS issuance of
-restricted non-root sessions, not root Terraform/pipeline access or permanent IAM
-changes. Root-issued sessions last at most one hour and need separate renewal;
-resource approval cannot lengthen their service-enforced lifetime. Instructor-
-JavaScript changes, screenshots, social posts and paid AI activity remain outside
-this scope.
+The earlier A2 proposal used a **24-hour maximum resource window** for one fresh
+Azure agent and one AWS web target, with a **US$10 planning allowance**, not an
+enforced cap or a verified total cost. That proposal is not a new active runtime
+authorization. The original fixed IAM policy expiry above must not be extended
+by credential renewal, a new source commit or a submission deadline.
+
+Subsequent, separately authorized root bootstrap created the restricted
+persistent IAM identity; that root authorization is now retired. Non-root login
+and provider read acceptance do not resolve independent recovery/state custody,
+creator authority, fresh Azure authorization, actual federation, hosted controls,
+complete costs or workload-specific cleanup. Exact scopes, inputs, plans, host
+trust and bounded cleanup must be approved before further provisioning. No new
+resource window was started by preparing this submission. Instructor-JavaScript
+changes, screenshots, social posts and paid AI activity remain outside this
+packaging task.
 
 ## Delivery / run sequence
 
