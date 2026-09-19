@@ -1,0 +1,53 @@
+# Inert preparation: outside .github/workflows and disabled if copied unchanged.
+name: Week10 recovery fixtures only - not live recovery
+
+"on":
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  fixture_review:
+    name: Synthetic structural tests - not recovery acceptance
+    if: >-
+      ${{ false &&
+      github.event_name == 'workflow_dispatch' &&
+      github.ref == 'refs/heads/main' &&
+      github.event.repository.private == true &&
+      github.repository == 'REPLACE_WITH_APPROVED_OWNER/REPLACE_WITH_APPROVED_PRIVATE_RECOVERY_REPOSITORY' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Read only the frozen public fixture source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: Favourcloud/devops-micro-internship-pravinmishra
+          ref: e027755ef2d33e0145dd1476d48201da4aa4f4cb
+          path: reviewed-source
+          fetch-depth: 1
+          persist-credentials: false
+          set-safe-directory: false
+          submodules: false
+          lfs: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            week-10-azure-devops/application-pipelines/cloud-cleanup/recovery/review.py
+            week-10-azure-devops/application-pipelines/cloud-cleanup/recovery/request.example.json
+            week-10-azure-devops/application-pipelines/cloud-cleanup/tests/test_recovery.py
+            week-10-azure-devops/application-pipelines/cloud-cleanup/bootstrap/aws/main.tf
+            week-10-azure-devops/application-pipelines/cloud-cleanup/bootstrap/azure/main.tf
+      - name: Run only synthetic fixtures with a cleared environment
+        working-directory: reviewed-source
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s\n' 'SYNTHETIC FIXTURES ONLY: not state custody, cloud access, teardown or deployment evidence.'
+          test "$(git -c core.fsmonitor=false rev-parse HEAD)" = e027755ef2d33e0145dd1476d48201da4aa4f4cb
+          /usr/bin/env -i PATH=/usr/bin:/bin HOME=/nonexistent /usr/bin/python3 -I -B \
+            -m unittest discover -q \
+            -s week-10-azure-devops/application-pipelines/cloud-cleanup/tests -p test_recovery.py
+          /usr/bin/env -i PATH=/usr/bin:/bin HOME=/nonexistent /usr/bin/python3 -I -B -O \
+            -m unittest discover -q \
+            -s week-10-azure-devops/application-pipelines/cloud-cleanup/tests -p test_recovery.py
