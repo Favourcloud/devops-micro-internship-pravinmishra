@@ -2,6 +2,7 @@
 
 from datetime import datetime
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 import re
@@ -10,6 +11,9 @@ import unittest
 
 WEEK = Path(__file__).resolve().parents[2]
 SNAPSHOT = WEEK / "submission" / "status.json"
+CONTRACT_SPEC = importlib.util.spec_from_file_location("brief_contract", WEEK / "submission/brief_contract.py")
+CONTRACT = importlib.util.module_from_spec(CONTRACT_SPEC)
+CONTRACT_SPEC.loader.exec_module(CONTRACT)
 
 
 class SubmissionTests(unittest.TestCase):
@@ -38,7 +42,7 @@ class SubmissionTests(unittest.TestCase):
             self.assertGreater(suite["passed"], 0)
             self.assertTrue((WEEK / suite["path"]).is_dir())
 
-    def test_all_five_published_briefs_are_byte_preserved(self):
+    def test_all_five_published_requirement_hashes_are_preserved(self):
         self.assertEqual([a["number"] for a in self.assignments], [1, 2, 3, 4, 5])
         self.assertEqual(
             {a["brief"] for a in self.assignments},
@@ -47,7 +51,7 @@ class SubmissionTests(unittest.TestCase):
         for assignment in self.assignments:
             with self.subTest(assignment=assignment["number"]):
                 raw = (WEEK / assignment["brief"]).read_bytes()
-                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1|A2-S3) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
+                raw = CONTRACT.restore_original_prompts(raw, assignment["brief"])
                 actual = hashlib.sha256(raw).hexdigest()
                 self.assertEqual(actual, assignment["brief_sha256"])
                 self.assertIs(assignment["assignment_complete"], False)

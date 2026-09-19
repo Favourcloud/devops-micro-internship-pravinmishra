@@ -116,7 +116,7 @@ class EvidenceTests(unittest.TestCase):
                 section = re.search(r"^#{3,4} Screenshot " + str(item["slot"]) + r" — [^\n]+\n(.*?)(?=\n---)", text, re.M | re.S)
                 self.assertIsNotNone(section)
                 block = section.group(1)
-                self.assertIn("Add your screenshot here.", block)
+                self.assertNotIn("Add your screenshot here.", block)
                 self.assertIn("<!-- BEGIN WEEK10 CAPTURE " + marker + " -->", block)
                 self.assertIn("<!-- END WEEK10 CAPTURE " + marker + " -->", block)
                 self.assertEqual(re.findall(r"!\[[^\]]*\]\(([^)]+)\)", block), [item["path"]])

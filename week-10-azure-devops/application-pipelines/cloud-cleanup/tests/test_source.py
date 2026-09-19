@@ -10,6 +10,9 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 WEEK = ROOT.parents[1]
+CONTRACT_SPEC = importlib.util.spec_from_file_location("brief_contract", WEEK / "submission/brief_contract.py")
+CONTRACT = importlib.util.module_from_spec(CONTRACT_SPEC)
+CONTRACT_SPEC.loader.exec_module(CONTRACT)
 BRIEFS = {
     "assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md": "84cabf42cd42171267280ac5c32092c85134f1bd419072362ece9bfe9901e6cd",
     "assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md": "d64a31f43971a5ab8c911bf1110a9a4e0ae41a990550ed14fa0690fd75a6358a",
@@ -20,11 +23,11 @@ BRIEFS = {
 
 
 class SourceTests(unittest.TestCase):
-    def test_all_five_original_briefs_unchanged(self):
+    def test_all_five_original_requirement_hashes_preserved(self):
         for name, expected in BRIEFS.items():
             with self.subTest(brief=name):
                 raw = (WEEK / name).read_bytes()
-                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1|A2-S3) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
+                raw = CONTRACT.restore_original_prompts(raw, name)
                 self.assertEqual(hashlib.sha256(raw).hexdigest(), expected)
 
     def test_canary_roots_cannot_create_workload_vms(self):

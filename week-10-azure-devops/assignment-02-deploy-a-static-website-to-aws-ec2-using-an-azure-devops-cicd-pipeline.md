@@ -40,8 +40,6 @@ Add a screenshot of Azure Repos showing:
 * Project files
 * `index.html`
 
-Add your screenshot here.
-
 <!-- BEGIN WEEK10 CAPTURE A2-S1 -->
 ![A2 screenshot 1: Azure Static Website repository and project files](screenshots/assignment-02-screenshot-01-azure-repos.png)
 
@@ -100,8 +98,6 @@ Add a screenshot of `azure-pipelines.yml` open in the Azure Repos editor showing
 * Pipeline information step
 * `CopyFilesOverSSH@0` task
 * `SSH@0` verification task
-
-Add your screenshot here.
 
 <!-- BEGIN WEEK10 CAPTURE A2-S3 -->
 ![A2 screenshot 3 part 1: push trigger, pool declaration and variables](screenshots/assignment-02-screenshot-03-part-01-trigger-pool-variables.png)
