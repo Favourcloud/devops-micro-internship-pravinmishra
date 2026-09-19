@@ -1,6 +1,6 @@
 # Genuine screenshot attachments — 19 September 2026
 
-**Four numbered slots have captures (six original PNGs); 32 numbered slots and A2's separate LinkedIn image remain missing. No assignment is complete. Human visual/privacy review remains pending.** See the [current machine-readable totals](current.json).
+**Six numbered slots have captures (eight original PNGs); 30 numbered slots and A2's separate LinkedIn image remain missing. No assignment is complete. Human visual/privacy review remains pending.** See the [current machine-readable totals](current.json).
 
 The original PNG bytes are embedded immediately below the matching screenshot requirements in the briefs. No pixels were synthesized, edited or used as placeholders. Native Chrome URL/focus checks, local OCR markers, SHA-256 and PNG chunk checks were verified; archive verification is recorded in separate publication receipts. OCR is not exhaustive human visual/privacy review: open each full-size image before submission.
 
@@ -36,11 +36,19 @@ On 19 September at **09:01:18 UTC**, **331 local checks passed**: A1 43, Azure a
 
 The later YAML integration passed **338 local checks at 09:30:25 UTC** on the same date, under the same empty-environment/network/write-denied conditions: 43 A1, 21 Azure adaptation, 145 application/source, 51 EpicBook, 58 cleanup/operator/recovery and 20 submission/evidence. Seven added checks cover the new original PNGs, source-only claims, placement and cumulative counts; the earlier 331-test result remains historical. These are not CI or live acceptance results.
 
+## Later A1 VM/SSH capture — two slots
+
+The separately authorized, assistant-operated lab produced original [running Ubuntu VM/public-IP evidence](../screenshots/assignment-01-screenshot-02-running-ubuntu-vm.png) at **19:48 UTC** and [fresh trusted SSH/Ubuntu output](../screenshots/assignment-01-screenshot-03-ssh-ubuntu-details.png) at **19:49 UTC**. They replace only A1-S2 and A1-S3's redundant prompts. [Separate capture provenance](a1-vm-ssh-2026-09-19.json) and the [actual operational receipt](../self-hosted-agent/runtime-2026-09-19.json) record hashes, timing and limits. Native local CPU-only OCR verified the required context and found no sensitive-screen marker; this is not exhaustive human review.
+
+The package passed digest/version/library checks, but registration timed out at the optional TFVC licence prompt **before the PAT was sent**. No new service, Online agent or pipeline run resulted. A corrected attempt was not authorized. The runbook now explains answering **N** for Git-only work, but successful registration recovery is not claimed.
+
+Terraform destruction completed at **20:04:40 UTC**. A strict verifier initially rejected the disk's `ResourceNotFound` wording. After eight network/write-denied parser tests, a read-only recheck verified empty state, exact resource-group/VM/disk/IP absence and zero agents at **20:07:17 UTC**, before expiry. The existing PAT was not changed or revoked; observed Full access metadata is not a least-privilege compliance claim. The 81 prior controller tests and eight parser tests are local invocation checks, not CI or assignment acceptance.
+
 ## Still required
 
-- A1 slots **2–6**: running VM, SSH/Ubuntu details, successful configuration, running service and Online agent. These require a freshly verified and bounded lab. PAT scope/expiry/revocation confirmation and the learner's own issue/resolution reflection remain pending. The brief now contains attributed factual technical notes from the historical trial, not a learner reflection.
+- A1 slots **4–6**: successful configuration, running service and Online agent. These require fresh bounded authorization; the VM used for slots 2–3 no longer exists. Least-privilege PAT compliance, private expiry/revocation handling and the learner's own issue/resolution reflection remain pending. Attributed technical notes describe actual trials, not learner reflection.
 - A2 slots **2, 4 and 5**, plus its separate LinkedIn image and actual live deployment requirements. Slot 3's source capture does not resolve its unset connection or runtime gates.
 - All A3 **6**, A4 **6** and A5 **12** numbered slots and their live prerequisites.
-- Human review of all six images, the original checklists and the learner's own reflections. No checklist item or reflection was completed by attaching images.
+- Human review of all eight images, the original checklists and the learner's own reflections. No checklist item or reflection was completed by attaching images.
 
-All original requirement text is preserved. The four captured slots now replace their redundant screenshot prompts rather than appearing beneath unanswered placeholders. A1's attributed technical notes replace its generic answer prompt while explicitly retaining the missing learner-reflection requirement. The [shared preservation contract](../submission/brief_contract.py) reverses only these allowlisted substitutions and the historical preparation-notice correction to compare against unchanged original hashes. Image bytes, provenance, historical receipts and all unmet requirements remain unchanged. Passing these checks is not an assignment-completion or human-review claim.
+All original requirement text is preserved. The six captured slots now replace their redundant screenshot prompts rather than appearing beneath unanswered placeholders. A1's attributed technical notes replace its generic answer prompt while explicitly retaining the missing learner-reflection requirement. The [shared preservation contract](../submission/brief_contract.py) reverses only these allowlisted substitutions and the historical preparation-notice correction to compare against unchanged original hashes. Image bytes, provenance, historical receipts and all unmet requirements remain unchanged. Passing these checks is not an assignment-completion or human-review claim.

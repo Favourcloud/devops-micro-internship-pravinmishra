@@ -111,7 +111,7 @@ class SubmissionTests(unittest.TestCase):
         self.assertEqual(len(evidence["screenshots"]), 7)
         self.assertIs(evidence["live_verified"], False)
         captured = [slot for slot in evidence["screenshots"] if slot["captured"]]
-        self.assertEqual([slot["slot"] for slot in captured], [1, 7])
+        self.assertEqual([slot["slot"] for slot in captured], [1, 2, 3, 7])
         for slot in captured:
             self.assertEqual(slot["status"], "captured_review_pending")
             self.assertGreater(datetime.fromisoformat(slot["captured_at"]), datetime.fromisoformat("2026-09-19T08:15:30+00:00"))

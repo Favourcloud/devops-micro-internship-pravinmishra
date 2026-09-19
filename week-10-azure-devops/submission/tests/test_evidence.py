@@ -41,7 +41,8 @@ class EvidenceTests(unittest.TestCase):
     def test_exact_captures_titles_and_files(self):
         self.assertEqual([(i["assignment"], i["slot"]) for i in self.captures], list(EXPECTED))
         later = json.loads((WEEK / "evidence/static-yaml-2026-09-19.json").read_text())
-        expected_files = {v[0] for v in EXPECTED.values()} | {Path(i["path"]).name for i in later["images"]}
+        fresh = json.loads((WEEK / "evidence/a1-vm-ssh-2026-09-19.json").read_text())
+        expected_files = {v[0] for v in EXPECTED.values()} | {Path(i["path"]).name for i in later["images"]} | {Path(i["path"]).name for i in fresh["captures"]}
         self.assertEqual({p.name for p in (WEEK / "screenshots").glob("*.png")}, expected_files)
         for item in self.captures:
             name, digest = EXPECTED[(item["assignment"], item["slot"])]
@@ -86,7 +87,7 @@ class EvidenceTests(unittest.TestCase):
     def test_manifest_matches_index_without_current_online_claim(self):
         manifest = json.loads((WEEK / "self-hosted-agent/evidence/manifest.json").read_text())
         self.assertIs(manifest["live_verified"], False)
-        self.assertEqual([s["slot"] for s in manifest["screenshots"] if s["captured"]], [1, 7])
+        self.assertEqual([s["slot"] for s in manifest["screenshots"] if s["captured"]], [1, 2, 3, 7])
         for item in self.captures:
             if item["assignment"] == 1:
                 slot = manifest["screenshots"][item["slot"] - 1]
@@ -108,7 +109,7 @@ class EvidenceTests(unittest.TestCase):
         for brief in WEEK.glob("assignment-*.md"):
             expected = [i for i in self.captures if i["brief"] == brief.name]
             text = brief.read_text()
-            later_slot = int(brief.name.startswith("assignment-02-"))
+            later_slot = int(brief.name.startswith("assignment-02-")) + 2 * int(brief.name.startswith("assignment-01-"))
             self.assertEqual(text.count("<!-- BEGIN WEEK10 CAPTURE "), len(expected) + later_slot)
             self.assertEqual(text.count("<!-- END WEEK10 CAPTURE "), len(expected) + later_slot)
             for item in expected:

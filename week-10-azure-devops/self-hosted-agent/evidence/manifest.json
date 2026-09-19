@@ -17,21 +17,21 @@
     {
       "slot": 2,
       "title": "Screenshot 2 — Cloud console showing the running Ubuntu VM and its public IP or DNS name",
-      "status": "pending",
-      "captured": false,
-      "path": null,
-      "sha256": null,
-      "captured_at": null,
-      "run_url": null
+      "status": "captured_review_pending",
+      "captured": true,
+      "path": "screenshots/assignment-01-screenshot-02-running-ubuntu-vm.png",
+      "sha256": "1a99f6ce0bfda368b96730b409ca71200d95e0745cf6d83d13976d1da07b97d8",
+      "captured_at": "2026-09-19T19:48:08.107367+00:00",
+      "run_url": "https://portal.azure.com/#@aneneeze2021gmail.onmicrosoft.com/resource/subscriptions/486c4eff-4dd2-4d1b-b81b-0b71f0b79e95/resourceGroups/dmi-w10-a1-0919-4ffacc-rg/providers/Microsoft.Compute/virtualMachines/dmi-w10-a1-0919-4ffacc-vm/overview"
     },
     {
       "slot": 3,
       "title": "Screenshot 3 — Terminal showing a successful SSH login and Ubuntu version details",
-      "status": "pending",
-      "captured": false,
-      "path": null,
-      "sha256": null,
-      "captured_at": null,
+      "status": "captured_review_pending",
+      "captured": true,
+      "path": "screenshots/assignment-01-screenshot-03-ssh-ubuntu-details.png",
+      "sha256": "f1b0ff69561d13dd0881c04aef3a0c7bb56a1aef04f72530b63b3ff930a5283b",
+      "captured_at": "2026-09-19T19:49:52.120394+00:00",
       "run_url": null
     },
     {
