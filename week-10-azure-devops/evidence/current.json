@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "partial_captures_review_pending",
+  "numbered_required": 36,
+  "numbered_captured": 4,
+  "numbered_missing": 32,
+  "raw_images": 6,
+  "separate_linkedin_image_captured": false,
+  "assignment_completion_claimed": false,
+  "human_visual_review_verified": false,
+  "captured_slots": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "bundles": [
+    "captures-2026-09-19.json",
+    "static-yaml-2026-09-19.json"
+  ]
+}

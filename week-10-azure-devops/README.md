@@ -2,11 +2,11 @@
 
 Learner: **Eze Favour**. Status: **A1's historical technical trial and A2's repository/source handoff are verified; A3–A4 source preparation is available. Live deployments and submission evidence remain pending. No assignment is submission-complete.**
 
-> **Submitting now:** the [three genuine screenshot attachments](evidence/README.md) are embedded under A1 slots **1 and 7** and A2 slot **1**. Human visual/privacy review is pending. The [original submission handoff](SUBMISSION.md) is the earlier zero-image snapshot; this is still a **partial submission**, not completion of all five assignments.
+> **Submitting now:** [four numbered slots have genuine screenshot attachments](evidence/README.md): A1 **1 and 7**, and A2 **1 and 3**. A2 slot 3 uses three original source views, not deployment output. Human visual/privacy review is pending. The [original submission handoff](SUBMISSION.md) is the earlier zero-image snapshot; this is still a **partial submission**, not completion of all five assignments.
 
 ## Submission checkpoint — 19 September 2026
 
-- The [machine-readable snapshot](submission/status.json) preserves all five brief hashes, pending screenshot counts and actual local source-test results. No fresh cloud inventory, application build, GUI capture or social post was performed for this package.
+- The [machine-readable snapshot](submission/status.json) preserves all five brief hashes, pending screenshot counts and actual local source-test results. No fresh cloud inventory, application build, GUI capture or social post was performed for that original zero-image snapshot; later capture passes are documented separately below.
 - Later, separately authorized IAM bootstrap established the persistent non-root `dmi-week10-operator` with MFA and no long-lived API keys. CLI identity, protected IAM reads and a four-data-source Terraform probe through the private credential-process bridge were verified on 19 September; see [the provider checkpoint, #32](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/32) and [operator source](application-pipelines/cloud-cleanup/operator/README.md). This is read acceptance, not proof of full deployment permission. The original policy expiry remains **19 September, 18:18:03 UTC**.
 - [Recovery/state-custody design and a read-only structural reviewer](application-pipelines/cloud-cleanup/recovery/README.md) were tested and merged through [#33](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/33). No recovery executor, independent state custody/restore, cleanup schedule or canary was installed or armed. Workload creation remains gated.
 - The earlier one-hour root-issued STS session is expired. Later approvals did not create permanent root authorization. Submission urgency, source publication and existing credentials do not authorize new runtime operations.
@@ -34,12 +34,12 @@ These are recorded operational facts and source-validation results, **not submis
 | Assignment | Source status | Live gate / next dependency | Numbered screenshots |
 | --- | --- | --- | --- |
 | [1 — Self-hosted Linux agent](assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md) | [Foundation and verified live trial](self-hosted-agent/README.md); non-root Online agent and manual run 1 succeeded, then cleaned up | PAT revocation, genuine screenshots and learner notes; fresh bounded authorization/runtime for further live use | 2/7 captured; review pending |
-| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization/pipeline-source upload](application-pipelines/README.md); [restricted operator and unarmed cleanup source](application-pipelines/cloud-cleanup/README.md) | Freshly authorized agent/target and authentication; independently proven workload cleanup, full deployment permissions, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 1/5 captured; review pending |
+| [2 — Static website](assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) | [Verified Azure Repos import/personalization/pipeline-source upload](application-pipelines/README.md); [restricted operator and unarmed cleanup source](application-pipelines/cloud-cleanup/README.md) | Freshly authorized agent/target and authentication; independently proven workload cleanup, full deployment permissions, approved Terraform/Ansible target, authenticated native-task transport and restricted SSH connection; manual/automatic deployment and grading retention | 2/5 captured; review pending |
 | [3 — React CI/CD](assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md) | [Build/Test/Publish/Deploy template](application-pipelines/README.md) | Authorized app personalization/stale-test correction; separate Terraform/Ansible target; actual build/test, artifact deployment and automatic run | 0/6 |
 | [4 — EpicBook dual pipelines](assignment-04-automate-epicbook-deployment-with-dual-pipelines.md) | [Handoff checks, source constraints and tested workload Terraform](epicbook/README.md) | Two repositories, protected-state bootstrap, exact approved live plan for two Azure VMs/private MySQL, runtime/TLS/schema review, idempotent Ansible, both pipelines and live handoff | 0/6 |
 | [5 — Read-only failure triage](assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md) | Brief only; no substitute kit | A4's two healthy pipelines, actual instructor-supplied files, separately authorized Claude use, genuine controlled failure/recovery | 0/12 |
 
-There are **36 numbered screenshot slots**, plus A2's separate unnumbered LinkedIn image. **Three genuine captures are attached; 33 numbered slots and the LinkedIn image remain missing.** See the [capture provenance and exact placements](evidence/README.md). The [A1 evidence manifest](self-hosted-agent/evidence/manifest.json) records two captures and five pending slots, without claiming a currently Online agent. Human visual/privacy review, learner reflections and original completion checklists remain pending. Social publication is not authorized by attaching evidence.
+There are **36 numbered screenshot slots**, plus A2's separate unnumbered LinkedIn image. **Four numbered slots have captures (six original PNGs); 32 numbered slots and the separate LinkedIn image remain missing.** The [current evidence index](evidence/current.json) distinguishes numbered slots from image files. See the [capture provenance and exact placements](evidence/README.md). The [A1 evidence manifest](self-hosted-agent/evidence/manifest.json) records two captures and five pending slots, without claiming a currently Online agent. Human visual/privacy review, learner reflections and original completion checklists remain pending. Social publication is not authorized by attaching evidence.
 
 ## Runtime authorization remains separate
 
@@ -56,8 +56,8 @@ creator authority, fresh Azure authorization, actual federation, hosted controls
 complete costs or workload-specific cleanup. Exact scopes, inputs, plans, host
 trust and bounded cleanup must be approved before further provisioning. No new
 resource window was started by preparing this submission. Instructor-JavaScript
-changes, screenshots, social posts and paid AI activity remain outside this
-packaging task.
+changes, social posts and paid AI activity remain outside this packaging task.
+The separately requested screenshot captures do not expand runtime authorization.
 
 ## Delivery / run sequence
 

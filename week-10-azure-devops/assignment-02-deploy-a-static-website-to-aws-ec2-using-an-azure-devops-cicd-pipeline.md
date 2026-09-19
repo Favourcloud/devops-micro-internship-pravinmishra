@@ -103,6 +103,16 @@ Add a screenshot of `azure-pipelines.yml` open in the Azure Repos editor showing
 
 Add your screenshot here.
 
+<!-- BEGIN WEEK10 CAPTURE A2-S3 -->
+![A2 screenshot 3 part 1: push trigger, pool declaration and variables](screenshots/assignment-02-screenshot-03-part-01-trigger-pool-variables.png)
+
+![A2 screenshot 3 part 2: repository checkout and pipeline information](screenshots/assignment-02-screenshot-03-part-02-pipeline-information.png)
+
+![A2 screenshot 3 part 3: CopyFilesOverSSH and SSH verification task definitions](screenshots/assignment-02-screenshot-03-part-03-ssh-tasks.png)
+
+Captured 19 September 2026 from the existing Azure Repos source revision `6b38993a18f75c2588803a42b6e7790c95e95b81`. These are three original viewport images for **one numbered slot**, not stitched or simulated output. The pool declaration/default is not Online-agent proof, and the SSH connection remains an unset placeholder. **This is source evidence, not a configured or successful deployment.** Human visual/privacy review is pending. [Provenance and remaining gates](evidence/README.md).
+<!-- END WEEK10 CAPTURE A2-S3 -->
+
 > Ensure that no password, SSH private key, PAT, or AWS credential is visible.
 
 ---
