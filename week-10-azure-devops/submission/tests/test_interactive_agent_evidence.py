@@ -105,11 +105,12 @@ class InteractiveAgentEvidenceTests(unittest.TestCase):
             section = re.search(r"^#### Screenshot " + str(slot) + r" — [^\n]+\n(.*?)(?=\n---)", self.brief, re.M | re.S).group(1)
             self.assertEqual(re.findall(r"!\[[^\]]*\]\(([^)]+)\)", section), [capture["path"]])
             self.assertIn(f"<!-- BEGIN WEEK10 CAPTURE A1-S{slot} -->", section)
-            self.assertIn("Human visual/privacy review is pending.", section)
+            self.assertIn("Full-size content/privacy review is user-attested", section)
+            self.assertIn("(evidence/a1-human-review-2026-09-19.json)", section)
             self.assertIn("subsequently", section)
             entry = manifest["screenshots"][slot - 1]
             self.assertIs(entry["captured"], True)
-            self.assertEqual(entry["status"], "captured_review_pending")
+            self.assertEqual(entry["status"], "captured_user_review_attested")
             for key in ("path", "sha256", "captured_at"):
                 self.assertEqual(entry[key], capture[key])
             self.assertEqual(entry["run_url"], capture["source_url"])

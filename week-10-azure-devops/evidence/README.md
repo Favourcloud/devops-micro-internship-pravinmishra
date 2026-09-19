@@ -1,6 +1,6 @@
 # Genuine screenshot attachments — 19 September 2026
 
-**Nine numbered slots have captures (eleven original PNGs); 27 numbered slots and A2's separate LinkedIn image remain missing. A1 has all seven numbered slots, from separate trials—not one continuous recording. No assignment is complete. Human visual/privacy review remains pending.** See the [current machine-readable totals](current.json).
+**Nine numbered slots have captures (eleven original PNGs); 27 numbered slots and A2's separate LinkedIn image remain missing. A1 has all seven numbered slots, from separate trials—not one continuous recording. No assignment is complete. A1 image review is user-attested; the four A2 images still need review.** See the [current machine-readable totals](current.json).
 
 The original PNG bytes are embedded immediately below the matching screenshot requirements in the briefs. No pixels were synthesized, edited or used as placeholders. Native Chrome URL/focus checks, local OCR markers, SHA-256 and PNG chunk checks were verified. Earlier archive verification is historical; the three new registration/service/Online PNGs have not been added to a rebuilt submission ZIP. OCR is not exhaustive human visual/privacy review: open each full-size image before submission.
 
@@ -54,7 +54,7 @@ A distinct, explicitly approved lab established agent **18** through the real ve
 | [A1 screenshot 5](../assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md#screenshot-5--terminal-showing-the-agent-service-running-successfully) | [Running non-root service](../screenshots/assignment-01-screenshot-05-running-agent-service.png) | Fresh trusted SSH at **21:51 UTC**; active/running, `User=azdoagent`, MainPID 2221. |
 | [A1 screenshot 6](../assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md#screenshot-6--agent-pool-listing-showing-the-registered-agent-online) | [Online agent](../screenshots/assignment-01-screenshot-06-online-agent.png) | Guarded native pool page at **21:53 UTC**, independently API-verified; agent 18 Online/Idle on version 5.279.0. |
 
-[Capture provenance](a1-interactive-2026-09-19.json) binds original bytes, times and dimensions. CPU-only Apple Vision OCR passed under network/unrelated-write denial using the installed native compiler and canonical invocation-owned scratch paths. Earlier OCR tool failures were preserved and are not evidence. No pixels were changed, and no registration terminal was captured. Human visual/privacy review remains pending.
+[Capture provenance](a1-interactive-2026-09-19.json) binds original bytes, times and dimensions. CPU-only Apple Vision OCR passed under network/unrelated-write denial using the installed native compiler and canonical invocation-owned scratch paths. Earlier OCR tool failures were preserved and are not evidence. No pixels were changed, and no registration terminal was captured. Human visual/privacy review was pending at capture time; the later A1 user attestation is recorded separately below.
 
 The service was uninstalled at **21:56:09 UTC**, agent 18 removed at **21:56:13 UTC**, and exact cloud absence/empty Terraform state verified at **21:59:38 UTC**, before the fixed expiry. No current Online agent or retained VM is claimed. All seven A1 images are now attached, but they span separate trials: **screenshot 7 remains historical run 1**, not run 2. Earlier receipts and images remain unchanged.
 
@@ -75,11 +75,19 @@ done
 
 These are local source/consistency checks, **not CI, a replay of live work, a new archive verification or human visual review**. The separate 106 normal/optimized private controller tests in the runtime receipt predate operation; they are not included in this integration count. Unrelated infrastructure/application suites were not rerun.
 
+## Later A1 user-attested image review — 19 September 2026
+
+The user answered **“yes”** to personally inspecting **all seven published A1 screenshots at full size** and confirming accurate, suitable-to-share visible content. The [separate attestation](a1-human-review-2026-09-19.json) binds that confirmation to the seven exact PNG hashes from published source `f5d5d2ebcb66ded3d12a5e1ce80b9dfd420bb2a9`. It records the confirmation date, not an invented time of inspection or independently verified reviewer identity. No pixels changed.
+
+The A1 manifest now uses `captures_user_review_attested` / `captured_user_review_attested`. Earlier capture/runtime receipts remain unchanged historical snapshots, including their then-pending review flags. The aggregate `current.json` review flag remains false: **the four A2 images are not covered**. User attestation is not independent observation or a secret-absence certification. No learner reflection, PAT compliance, completed checklist, new runtime authorization or social-publication consent is inferred.
+
+This status update passed **111 local tests per mode** (43 foundation and 68 submission/evidence) in normal and optimized Python, with zero failures/skips. The same isolated commands above used an empty environment, `HOME=/nonexistent`, no bytecode, and network/ordinary-write denial. Seven added tests cover the allowlisted attestation, negative scope/metadata mutations, exact seven-image hashes, unchanged historical receipts, current versus aggregate status, and brief/documentation boundaries. These are local source checks, not CI, independently observed human review or a new live trial.
+
 ## Still required
 
-- A1: least-privilege PAT compliance, private expiry/revocation handling, human review of all seven images and the learner's own issue/resolution reflection. Attributed technical notes describe actual trials, not learner reflection. Any new runtime work requires fresh authorization.
+- A1: least-privilege PAT compliance, private expiry/revocation handling and the learner's own issue/resolution reflection. Attributed technical notes describe actual trials, not learner reflection. Any new runtime work requires fresh authorization.
 - A2 slots **2, 4 and 5**, plus its separate LinkedIn image and actual live deployment requirements. Slot 3's source capture does not resolve its unset connection or runtime gates.
 - All A3 **6**, A4 **6** and A5 **12** numbered slots and their live prerequisites.
-- Human review of all eleven images, the original checklists and the learner's own reflections. No checklist item or reflection was completed by attaching images.
+- Human review of the four A2 images, the original checklists and the learner's own reflections. A1's seven-image review is user-attested; no checklist item or reflection was completed by attaching or approving images.
 
 All original requirement text is preserved. The nine captured slots now replace their redundant screenshot prompts rather than appearing beneath unanswered placeholders. A1's attributed technical notes replace its generic answer prompt while explicitly retaining the missing learner-reflection requirement. The [shared preservation contract](../submission/brief_contract.py) reverses only these allowlisted substitutions and the historical preparation-notice correction to compare against unchanged original hashes. Image bytes, provenance, historical receipts and all unmet requirements remain unchanged. Passing these checks is not an assignment-completion or human-review claim.

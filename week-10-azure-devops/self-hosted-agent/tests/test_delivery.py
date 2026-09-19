@@ -64,10 +64,11 @@ class PreservationTests(unittest.TestCase):
 
     def test_manifest_is_allowlisted_and_only_real_captures_are_attached(self):
         manifest = json.loads((PROJECT / "evidence/manifest.json").read_text())
-        self.assertEqual(set(manifest), {"schema_version", "assignment", "status", "live_verified", "screenshots"})
+        self.assertEqual(set(manifest), {"schema_version", "assignment", "status", "live_verified", "human_review_receipt", "screenshots"})
+        self.assertEqual(manifest["human_review_receipt"], "evidence/a1-human-review-2026-09-19.json")
         self.assertEqual(manifest["schema_version"], 1)
         self.assertEqual(manifest["assignment"], "week-10-assignment-01")
-        self.assertEqual(manifest["status"], "partial_captures_review_pending")
+        self.assertEqual(manifest["status"], "captures_user_review_attested")
         self.assertIs(manifest["live_verified"], False)
         self.assertEqual(len(manifest["screenshots"]), 7)
         captures = {item["slot"]: item for item in json.loads((WEEK / "evidence/captures-2026-09-19.json").read_text())["captures"] if item["assignment"] == 1}
@@ -78,7 +79,7 @@ class PreservationTests(unittest.TestCase):
             self.assertEqual(set(item), {"slot", "title", "status", "captured", "path", "sha256", "captured_at", "run_url"})
             self.assertEqual(item["slot"], number)
             self.assertEqual(item["title"], BASELINE["a1_screenshot_titles"][number - 1])
-            self.assertEqual(item["status"], "captured_review_pending")
+            self.assertEqual(item["status"], "captured_user_review_attested")
             self.assertIs(item["captured"], True)
             for key in ("path", "sha256", "captured_at"):
                 self.assertEqual(item[key], captures[number][key])

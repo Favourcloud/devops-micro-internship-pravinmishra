@@ -113,7 +113,8 @@ class BriefContractTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 CONTRACT.restore_original_prompts(self.raw.replace(current.encode(), b"Assignment complete."), self.a1)
         self.assertIn(b"seven genuine captures from separate trials", self.raw)
-        self.assertIn(b"human visual/privacy review is still pending", self.raw)
+        self.assertIn(b"the user has attested full-size content/privacy review of all seven A1 screenshots", self.raw)
+        self.assertIn(b"Other assignment requirements remain pending", self.raw)
 
     def test_notes_reference_actual_historical_receipt_without_impersonation(self):
         receipt = json.loads((WEEK / "self-hosted-agent/runtime-2026-09-18.json").read_text())

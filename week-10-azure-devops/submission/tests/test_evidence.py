@@ -122,7 +122,11 @@ class EvidenceTests(unittest.TestCase):
                 self.assertIn("<!-- BEGIN WEEK10 CAPTURE " + marker + " -->", block)
                 self.assertIn("<!-- END WEEK10 CAPTURE " + marker + " -->", block)
                 self.assertEqual(re.findall(r"!\[[^\]]*\]\(([^)]+)\)", block), [item["path"]])
-                self.assertIn("Human visual/privacy review is pending.", block)
+                if item["assignment"] == 1:
+                    self.assertIn("Full-size content/privacy review is user-attested", block)
+                    self.assertIn("(evidence/a1-human-review-2026-09-19.json)", block)
+                else:
+                    self.assertIn("Human visual/privacy review is pending.", block)
 
     def test_safe_paths_source_urls_and_gallery_links(self):
         for item in self.captures:

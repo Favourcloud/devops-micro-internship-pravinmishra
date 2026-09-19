@@ -95,7 +95,8 @@ class VmSshEvidenceTests(unittest.TestCase):
             section = re.search(r"^#### Screenshot " + str(item["slot"]) + r" — [^\n]+\n(.*?)(?=\n---)", self.brief, re.M | re.S).group(1)
             self.assertNotIn("Add your screenshot here.", section)
             self.assertEqual(re.findall(r"!\[[^\]]*\]\(([^)]+)\)", section), [item["path"]])
-            self.assertIn("Human visual/privacy review is pending.", section)
+            self.assertIn("Full-size content/privacy review is user-attested", section)
+            self.assertIn("(evidence/a1-human-review-2026-09-19.json)", section)
             self.assertIn("subsequently destroyed", section)
         self.assertEqual(self.brief.count("- [ ]"), 8)
 

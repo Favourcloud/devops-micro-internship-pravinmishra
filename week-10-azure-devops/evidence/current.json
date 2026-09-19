@@ -8,6 +8,9 @@
   "separate_linkedin_image_captured": false,
   "assignment_completion_claimed": false,
   "human_visual_review_verified": false,
+  "human_review_receipts": [
+    "a1-human-review-2026-09-19.json"
+  ],
   "captured_slots": [
     [
       1,
