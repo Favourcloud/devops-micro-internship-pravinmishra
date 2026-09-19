@@ -113,7 +113,7 @@ class SubmissionTests(unittest.TestCase):
         captured = [slot for slot in evidence["screenshots"] if slot["captured"]]
         self.assertEqual([slot["slot"] for slot in captured], list(range(1, 8)))
         for slot in captured:
-            self.assertEqual(slot["status"], "captured_review_pending")
+            self.assertEqual(slot["status"], "captured_user_review_attested")
             self.assertGreater(datetime.fromisoformat(slot["captured_at"]), datetime.fromisoformat("2026-09-19T08:15:30+00:00"))
 
     def test_deliverable_paths_and_report_links_are_local_and_exist(self):

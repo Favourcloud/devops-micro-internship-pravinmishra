@@ -25,7 +25,7 @@ PREPARATION_EDITS = (
     ),
     (
         "The [seven-slot manifest](self-hosted-agent/evidence/manifest.json) is entirely pending; no live resource, agent, pipeline success, or screenshot is claimed.",
-        "At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record seven genuine captures from separate trials; human visual/privacy review is still pending.",
+        "At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record seven genuine captures from separate trials; the user has attested full-size content/privacy review of all seven A1 screenshots. Other assignment requirements remain pending.",
     ),
     (
         "The original tasks, evidence slots, checklist, and unanswered notes below are unchanged.",

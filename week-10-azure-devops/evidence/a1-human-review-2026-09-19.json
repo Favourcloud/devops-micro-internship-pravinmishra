@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "assignment": 1,
+  "status": "user_attested",
+  "recorded_on": "2026-09-19",
+  "reviewed_source_commit": "f5d5d2ebcb66ded3d12a5e1ce80b9dfd420bb2a9",
+  "source": "direct_user_confirmation_in_session",
+  "question": "Have you personally inspected all seven published A1 screenshots at full size and confirmed that their visible content is accurate and suitable to share?",
+  "response": "yes",
+  "full_size_inspection_attested": true,
+  "visible_content_accuracy_and_suitability_attested": true,
+  "review_performed_at": null,
+  "review_independently_observed": false,
+  "reviewer_identity_independently_verified": false,
+  "images": [
+    {
+      "slot": 1,
+      "path": "screenshots/assignment-01-screenshot-01-agent-pool.png",
+      "sha256": "f2a7640a96c5d3a2136ed1ee3882c762863ea189e1063253345552ebada9a128"
+    },
+    {
+      "slot": 2,
+      "path": "screenshots/assignment-01-screenshot-02-running-ubuntu-vm.png",
+      "sha256": "1a99f6ce0bfda368b96730b409ca71200d95e0745cf6d83d13976d1da07b97d8"
+    },
+    {
+      "slot": 3,
+      "path": "screenshots/assignment-01-screenshot-03-ssh-ubuntu-details.png",
+      "sha256": "f1b0ff69561d13dd0881c04aef3a0c7bb56a1aef04f72530b63b3ff930a5283b"
+    },
+    {
+      "slot": 4,
+      "path": "screenshots/assignment-01-screenshot-04-registered-agent-configuration.png",
+      "sha256": "35f89125ca6ad904f5ddba714fef23fcf2894e06f504d51cb68bf63c84749830"
+    },
+    {
+      "slot": 5,
+      "path": "screenshots/assignment-01-screenshot-05-running-agent-service.png",
+      "sha256": "a73869bbce92a2d7df251a57bf26d653915f958d7417ae39da6914ed6bcc33fe"
+    },
+    {
+      "slot": 6,
+      "path": "screenshots/assignment-01-screenshot-06-online-agent.png",
+      "sha256": "f7a9da72b5f0e67f2f3004c2b0f005117b6b0b795b42e3d8436c721f11546d14"
+    },
+    {
+      "slot": 7,
+      "path": "screenshots/assignment-01-screenshot-07-linux-pipeline-output.png",
+      "sha256": "956e610d09f104a667dd5e7dad3d41ea09db8d7334d725339df6f63fd8480496"
+    }
+  ],
+  "boundaries": {
+    "other_assignments_reviewed": false,
+    "independent_secret_absence_certification": false,
+    "learner_reflection_supplied": false,
+    "pat_compliance_attested": false,
+    "assignment_completion_claimed": false,
+    "new_runtime_authorization": false,
+    "social_publication_authorized": false
+  }
+}

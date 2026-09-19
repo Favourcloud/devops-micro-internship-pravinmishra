@@ -118,7 +118,8 @@ class StaticYamlEvidenceTests(unittest.TestCase):
                 self.assertNotIn(marker, brief.read_text())
 
     def test_cumulative_counts_preserve_original_bundle_and_snapshot(self):
-        self.assertEqual(set(self.current), {"schema_version", "status", "numbered_required", "numbered_captured", "numbered_missing", "raw_images", "separate_linkedin_image_captured", "assignment_completion_claimed", "human_visual_review_verified", "captured_slots", "bundles"})
+        self.assertEqual(set(self.current), {"schema_version", "status", "numbered_required", "numbered_captured", "numbered_missing", "raw_images", "separate_linkedin_image_captured", "assignment_completion_claimed", "human_visual_review_verified", "human_review_receipts", "captured_slots", "bundles"})
+        self.assertEqual(self.current["human_review_receipts"], ["a1-human-review-2026-09-19.json"])
         self.assertEqual((self.current["schema_version"], self.current["status"]), (1, "partial_captures_review_pending"))
         self.assertEqual((self.current["numbered_required"], self.current["numbered_captured"], self.current["numbered_missing"], self.current["raw_images"]), (36, 9, 27, 11))
         self.assertEqual(self.current["captured_slots"], [[1, s] for s in range(1, 8)] + [[2, 1], [2, 3]])

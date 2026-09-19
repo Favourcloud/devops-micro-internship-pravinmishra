@@ -109,7 +109,7 @@ class RuntimeReceiptTests(unittest.TestCase):
             "pat_expiry_verified": None, "pat_revocation_verified": None, "assignment_complete": False,
         })
         manifest = json.loads((PROJECT / "evidence/manifest.json").read_text())
-        self.assertEqual(manifest["status"], "partial_captures_review_pending")
+        self.assertEqual(manifest["status"], "captures_user_review_attested")
         self.assertIs(manifest["live_verified"], False)
         captured = [slot for slot in manifest["screenshots"] if slot["captured"]]
         self.assertEqual([slot["slot"] for slot in captured], list(range(1, 8)))
