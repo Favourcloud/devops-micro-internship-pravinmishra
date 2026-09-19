@@ -55,7 +55,7 @@ class BriefContractTests(unittest.TestCase):
             restored = CONTRACT.restore_original_prompts(raw, name)
             approved_count = len(CONTRACT.CAPTURE_SLOTS.get(name.split("-")[1], ()))
             self.assertEqual(raw.count(b"Add your screenshot here."), restored.count(b"Add your screenshot here.") - approved_count)
-        self.assertEqual(current["numbered_missing"], 30)
+        self.assertEqual(current["numbered_missing"], 27)
         self.assertFalse(current["assignment_completion_claimed"])
         self.assertFalse(current["human_visual_review_verified"])
 
@@ -66,7 +66,7 @@ class BriefContractTests(unittest.TestCase):
 
     def test_unapproved_capture_and_wrong_assignment_are_rejected(self):
         with self.assertRaises(ValueError):
-            CONTRACT.restore_original_prompts(self.raw.replace(b"A1-S1", b"A1-S4"), self.a1)
+            CONTRACT.restore_original_prompts(self.raw.replace(b"A1-S1", b"A1-S8"), self.a1)
         with self.assertRaises(ValueError):
             CONTRACT.restore_original_prompts(self.raw, self.assignments[1]["brief"])
         with self.assertRaises(ValueError):
@@ -90,7 +90,9 @@ class BriefContractTests(unittest.TestCase):
 
     def test_requirement_edits_and_unfulfilled_prompt_removal_are_detected(self):
         self.assert_not_preserved(b"Changed task instructions.\n" + self.raw)
-        self.assert_not_preserved(self.raw.replace(b"Add your screenshot here.\n\n", b"", 1))
+        a2 = self.assignments[1]["brief"]
+        raw_a2 = (WEEK / a2).read_bytes()
+        self.assert_not_preserved(raw_a2.replace(b"Add your screenshot here.\n\n", b"", 1), a2)
         self.assert_not_preserved(self.raw.replace(b"- [ ]", b"- [x]", 1))
         self.assert_not_preserved(self.raw.replace(b"#### Screenshot 2", b"#### Screenshot 22", 1))
 
@@ -110,7 +112,8 @@ class BriefContractTests(unittest.TestCase):
             self.assertEqual(self.raw.count(current.encode()), 1)
             with self.assertRaises(ValueError):
                 CONTRACT.restore_original_prompts(self.raw.replace(current.encode(), b"Assignment complete."), self.a1)
-        self.assertIn(b"three slots still pending", self.raw)
+        self.assertIn(b"seven genuine captures from separate trials", self.raw)
+        self.assertIn(b"human visual/privacy review is still pending", self.raw)
 
     def test_notes_reference_actual_historical_receipt_without_impersonation(self):
         receipt = json.loads((WEEK / "self-hosted-agent/runtime-2026-09-18.json").read_text())
@@ -125,10 +128,11 @@ class BriefContractTests(unittest.TestCase):
         self.assertIn("not learner-performed actions", notes)
         self.assertIn("Learner input still required", notes)
         self.assertIn("has not been supplied", notes)
-        self.assertIn("Screenshots 4–6 still require a freshly authorized lab", notes)
+        self.assertIn("Screenshots **4–6** were captured", notes)
+        self.assertIn("input itself was not observed or recorded", notes)
         self.assertIn("PAT scope, server expiry and revocation were not independently verified", notes)
         self.assertIn("metadata row showed **Full access**", notes)
-        self.assertIn("no token was sent to the new agent", notes)
+        self.assertIn("No token was sent during the first 19 September registration attempt", notes)
         self.assertNotRegex(notes, r"(?i)\b(I|my|we|our)\b")
         self.assertEqual(receipt["submission"]["learner_notes"], "pending")
         self.assertFalse(receipt["submission"]["assignment_complete"])

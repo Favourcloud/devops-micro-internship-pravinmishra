@@ -14,7 +14,10 @@ ASSIGNMENTS = {
     "assignment-04-automate-epicbook-deployment-with-dual-pipelines.md": "04",
     "assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md": "05",
 }
-CAPTURE_SLOTS = {"01": ("A1-S1", "A1-S2", "A1-S3", "A1-S7"), "02": ("A2-S1", "A2-S3")}
+CAPTURE_SLOTS = {
+    "01": ("A1-S1", "A1-S2", "A1-S3", "A1-S4", "A1-S5", "A1-S6", "A1-S7"),
+    "02": ("A2-S1", "A2-S3"),
+}
 PREPARATION_EDITS = (
     (
         "## Source preparation — not a completed assignment",
@@ -22,7 +25,7 @@ PREPARATION_EDITS = (
     ),
     (
         "The [seven-slot manifest](self-hosted-agent/evidence/manifest.json) is entirely pending; no live resource, agent, pipeline success, or screenshot is claimed.",
-        "At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record four genuine captures, with three slots still pending.",
+        "At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record seven genuine captures from separate trials; human visual/privacy review is still pending.",
     ),
     (
         "The original tasks, evidence slots, checklist, and unanswered notes below are unchanged.",
@@ -34,7 +37,7 @@ PREPARATION_EDITS = (
 def restore_original_prompts(raw, name):
     """Return original published brief bytes except for still-verifiable requirements.
 
-    Only the six evidenced image placeholders and A1's attributed technical notes
+    Only the nine evidenced image placeholders and A1's attributed technical notes
     may be replaced. Unknown, duplicated or malformed answer markers fail closed.
     Existing baseline hashes then catch any other change to a brief.
     """

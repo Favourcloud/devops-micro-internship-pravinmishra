@@ -5,7 +5,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 <!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->
 ## Historical source preparation — not a completed assignment
 
-Eze Favour's [offline A1 project](self-hosted-agent/README.md) provides a manual-only verification pipeline, a human-operated runbook, and credential-free local tests. At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record four genuine captures, with three slots still pending.
+Eze Favour's [offline A1 project](self-hosted-agent/README.md) provides a manual-only verification pipeline, a human-operated runbook, and credential-free local tests. At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record seven genuine captures from separate trials; human visual/privacy review is still pending.
 
 Fresh authorization is required before any cloud, PAT, SSH, agent registration, service, or pipeline operation. Screenshot capture and publication remain separately gated. The original task instructions, evidence requirements and unchecked checklist remain intact; current captures and attributed technical notes appear below. See the [Week 10 sequence](README.md) for the remaining assignments.
 <!-- END WEEK10 A1 OFFLINE PREPARATION -->
@@ -84,13 +84,21 @@ Download the Linux agent package, register it with your organization/pool/PAT vi
 
 #### Screenshot 4 — Terminal showing successful agent configuration without exposing the PAT
 
-Add your screenshot here.
+<!-- BEGIN WEEK10 CAPTURE A1-S4 -->
+![A1 screenshot 4: fresh SSH read-back of registered agent 18 configuration](screenshots/assignment-01-screenshot-04-registered-agent-configuration.png)
+
+Captured 19 September 2026 at 21:51 UTC from a separate native proof terminal after successful registration. Fresh trusted SSH read back allowlisted configuration for agent `dmi-w10-a1-0919-8b281c`, pool `DMI-Week10-A1` and the organization; this is not a PAT-entry or `config.sh` transcript. Assistant-operated; the host was subsequently destroyed and the agent removed. Human visual/privacy review is pending. [Separate runtime and capture provenance](evidence/a1-interactive-2026-09-19.json).
+<!-- END WEEK10 CAPTURE A1-S4 -->
 
 ---
 
 #### Screenshot 5 — Terminal showing the agent service running successfully
 
-Add your screenshot here.
+<!-- BEGIN WEEK10 CAPTURE A1-S5 -->
+![A1 screenshot 5: active non-root azdoagent service from fresh trusted SSH](screenshots/assignment-01-screenshot-05-running-agent-service.png)
+
+Captured 19 September 2026 at 21:51 UTC from native Terminal executing fresh trusted SSH. The service was active/running as `azdoagent`, with MainPID 2221; no saved log output was replayed. Assistant-operated; the service was subsequently uninstalled, the host destroyed and the agent removed. Human visual/privacy review is pending. [Separate runtime and capture provenance](evidence/a1-interactive-2026-09-19.json).
+<!-- END WEEK10 CAPTURE A1-S5 -->
 
 ---
 
@@ -104,7 +112,11 @@ Confirm the agent service is running and the agent shows as Online in the Azure 
 
 #### Screenshot 6 — Agent Pool listing showing the registered agent online
 
-Add your screenshot here.
+<!-- BEGIN WEEK10 CAPTURE A1-S6 -->
+![A1 screenshot 6: agent dmi-w10-a1-0919-8b281c Online in its dedicated pool](screenshots/assignment-01-screenshot-06-online-agent.png)
+
+Captured 19 September 2026 at 21:53 UTC from guarded native Chrome Favour, with independent API verification. Agent 18 was Online/Idle on version `5.279.0` after successful manual run 2. Assistant-operated; the agent was subsequently removed and the host destroyed. This is not current Online status. Human visual/privacy review is pending. [Separate runtime and capture provenance](evidence/a1-interactive-2026-09-19.json).
+<!-- END WEEK10 CAPTURE A1-S6 -->
 
 ---
 
@@ -137,9 +149,12 @@ Note the cloud platform used, your Azure DevOps organization/project name, and t
 - **Actual verification:** [Manual run 1](https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=1&view=results) succeeded on 18 September 2026 at 10:30:20 UTC. Its output contained `uname -a`, `whoami` and `df -h`; `whoami` returned `azdoagent`. Screenshot 7 shows that historical output, not a new run or a currently running host.
 - **Cleanup:** the service was stopped, disabled and uninstalled. Terraform cleanup verified empty state and the resource group, VM, OS disk and public IP absent at 10:41:37 UTC. Removal of the registered agent was verified at 10:53:08 UTC. No A1 VM or agent was left running by this trial; its authorization is retired.
 - **19 September VM/SSH evidence:** a separately authorized, assistant-operated Ubuntu 22.04.5 LTS/x86_64 lab produced screenshots 2 and 3. Trusted SSH and the isolated `azdoagent` account were verified; its sudo probe was denied. Microsoft agent `5.279.0` matched the published digest and passed runtime-library checks. The [separate operational receipt](self-hosted-agent/runtime-2026-09-19.json) preserves this later trial without rewriting the earlier success.
-- **Actual registration issue:** `config.sh` stopped at the optional Team Explorer Everywhere/TFVC licence question before the hidden PAT prompt. The controller timed out without sending an answer or the PAT; no agent configuration, service, Online agent or new pipeline run resulted. Git-only verification does not require that licence: the corrected [human-operated runbook](self-hosted-agent/README.md#4-interactive-registration-and-service-setup-human-only) says to answer **N**. A zero-sized PTY was also observed. A corrected registration was not retried because fresh retry approval was unavailable; successful resolution is not claimed.
+- **Actual registration issue:** `config.sh` stopped at the optional Team Explorer Everywhere/TFVC licence question before the hidden PAT prompt. The controller timed out without sending an answer or the PAT; no agent configuration, service, Online agent or new pipeline run resulted. Git-only verification does not require that licence: the corrected [human-operated runbook](self-hosted-agent/README.md#4-interactive-registration-and-service-setup-human-only) says to answer **N**. A zero-sized PTY was also observed. A corrected registration was not retried under that retired authorization; successful resolution is not claimed for that attempt.
 - **19 September cleanup:** saved-plan Terraform destruction completed at 20:04:40 UTC. The first verifier rejected the disk's explicit `ResourceNotFound` wording instead of `ResourceGroupNotFound`. Eight isolated parser tests passed, then a read-only recheck verified empty state, the exact resource group/VM/disk/public IP absent, and zero pool agents at **20:07:17 UTC**, before expiry. Destruction was not repeated.
-- **PAT limits and remaining evidence:** in the 18 September trial, PAT scope, server expiry and revocation were not independently verified. On 19 September, the native metadata row showed **Full access** and expiry **18 December 2026**, but that row was not cryptographically matched to the protected value. The user explicitly authorized unchanged existing-PAT reuse for scoped API checks; no narrowing, extension or revocation was performed, and no token was sent to the new agent. Least-privilege PAT compliance is not claimed. Screenshots 4–6 still require a freshly authorized lab. Human visual/privacy review of all four A1 images and the learner reflection remain pending. No token, private key, raw state or private log is included here.
+- **Fresh human-direct resolution:** a new authorization activated at **21:37:12 UTC on 19 September**. The corrected, independently reviewed path used a real terminal and the vendor's hidden prompt, not automatic stored-PAT forwarding. The user reported “done”; the input itself was not observed or recorded. Vendor exit 0 and independent configuration/API checks verified agent **18**, `dmi-w10-a1-0919-8b281c`, in pool **11**. Its service ran as `azdoagent`, and Online status was verified. The [distinct interactive-trial receipt](self-hosted-agent/runtime-2026-09-19-interactive.json) records this success without rewriting the earlier failure or claiming to have observed a licence answer or token value.
+- **New verification and captures:** exactly one [manual run 2](https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=2&view=results) succeeded at **21:49:48 UTC**, with actual `uname -a`, `whoami` → `azdoagent`, and `df -h` output. Screenshots **4–6** were captured at **21:51–21:53 UTC** from fresh-proof terminals and the live pool page; screenshot 4 is a post-registration configuration read-back, not a PAT-entry transcript. The seven A1 images span separate trials: screenshot 7 remains historical run 1. Azure DevOps run links require authorized access to the private project.
+- **Fresh-trial cleanup:** the service was uninstalled at **21:56:09 UTC**, agent 18 removal was independently verified at **21:56:13 UTC**, and Terraform destruction completed at **21:59:25 UTC**. Empty state and exact resource-group/VM/OS-disk/public-IP absence were verified at **21:59:38 UTC**, before expiry. No A1 agent or VM was left running by this retry; its authorization is retired.
+- **PAT limits and remaining review:** in the 18 September trial, PAT scope, server expiry and revocation were not independently verified. On 19 September, the native metadata row showed **Full access** and expiry **18 December 2026**, but that row was not cryptographically matched to the protected value. No token was sent during the first 19 September registration attempt. The fresh retry explicitly authorized unchanged existing-PAT use for scoped API checks, human-direct registration, one manual run and owned-agent cleanup; no narrowing, extension or revocation was performed. Least-privilege PAT compliance is not claimed. Human visual/privacy review of all seven A1 images and the learner reflection remain pending. No token, private key, raw state or private log is included here.
 
 **Learner input still required:** Eze Favour's own account of an issue encountered and how it was resolved has not been supplied. These factual technical notes do not replace that personal reflection or complete the assignment.
 <!-- END WEEK10 ANSWER A1-NOTES -->

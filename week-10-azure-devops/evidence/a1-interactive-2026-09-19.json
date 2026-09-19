@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "partial_captures_review_pending",
+  "runtime_receipt": "self-hosted-agent/runtime-2026-09-19-interactive.json",
+  "new_numbered_slots": 3,
+  "assistant_operated": true,
+  "assignment_completion_claimed": false,
+  "human_visual_review_verified": false,
+  "captures": [
+    {
+      "assignment": 1,
+      "slot": 4,
+      "path": "screenshots/assignment-01-screenshot-04-registered-agent-configuration.png",
+      "sha256": "35f89125ca6ad904f5ddba714fef23fcf2894e06f504d51cb68bf63c84749830",
+      "bytes": 822929,
+      "dimensions": [
+        2800,
+        1800
+      ],
+      "captured_at": "2026-09-19T21:51:24.003806+00:00",
+      "source_kind": "native_terminal",
+      "source_url": null,
+      "method": "macOS screencapture of owned native Terminal executing fresh trusted SSH",
+      "pixels_edited_or_synthesized": false,
+      "local_ocr_markers_checked": true,
+      "ocr_sensitive_screen_marker_found": false,
+      "human_visual_review_verified": false,
+      "saved_output_replayed": false,
+      "brief": "assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md",
+      "limitations": "Post-registration allowlisted configuration read-back, not a PAT-entry or config.sh transcript. Assistant-operated historical evidence; host subsequently destroyed and agent removed. OCR is not exhaustive human visual/privacy review. Screenshot 7 remains historical run 1, not this trial’s run 2."
+    },
+    {
+      "assignment": 1,
+      "slot": 5,
+      "path": "screenshots/assignment-01-screenshot-05-running-agent-service.png",
+      "sha256": "a73869bbce92a2d7df251a57bf26d653915f958d7417ae39da6914ed6bcc33fe",
+      "bytes": 1023446,
+      "dimensions": [
+        2800,
+        1800
+      ],
+      "captured_at": "2026-09-19T21:51:37.489031+00:00",
+      "source_kind": "native_terminal",
+      "source_url": null,
+      "method": "macOS screencapture of owned native Terminal executing fresh trusted SSH",
+      "pixels_edited_or_synthesized": false,
+      "local_ocr_markers_checked": true,
+      "ocr_sensitive_screen_marker_found": false,
+      "human_visual_review_verified": false,
+      "saved_output_replayed": false,
+      "brief": "assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md",
+      "limitations": "Assistant-operated historical evidence; host subsequently destroyed and agent removed. OCR is not exhaustive human visual/privacy review. Screenshot 7 remains historical run 1, not this trial’s run 2."
+    },
+    {
+      "assignment": 1,
+      "slot": 6,
+      "path": "screenshots/assignment-01-screenshot-06-online-agent.png",
+      "sha256": "f7a9da72b5f0e67f2f3004c2b0f005117b6b0b795b42e3d8436c721f11546d14",
+      "bytes": 365083,
+      "dimensions": [
+        3584,
+        2064
+      ],
+      "captured_at": "2026-09-19T21:53:03.700803+00:00",
+      "source_kind": "native_browser",
+      "source_url": "https://dev.azure.com/aneneeze2021/_settings/agentpools?poolId=11&view=agents",
+      "method": "macOS screencapture of guarded native Chrome Favour",
+      "pixels_edited_or_synthesized": false,
+      "local_ocr_markers_checked": true,
+      "ocr_sensitive_screen_marker_found": false,
+      "human_visual_review_verified": false,
+      "saved_output_replayed": false,
+      "brief": "assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md",
+      "limitations": "Assistant-operated historical evidence; host subsequently destroyed and agent removed. OCR is not exhaustive human visual/privacy review. Screenshot 7 remains historical run 1, not this trial’s run 2."
+    }
+  ]
+}

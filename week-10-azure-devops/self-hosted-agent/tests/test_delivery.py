@@ -40,7 +40,7 @@ class PreservationTests(unittest.TestCase):
         self.assertEqual(len(BASELINE["a1_screenshot_titles"]), 7)
         self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), BASELINE["a1_unchecked_checklist"])
         self.assertEqual(len(BASELINE["a1_unchecked_checklist"]), 8)
-        self.assertEqual(text.count("Add your screenshot here."), 3)
+        self.assertEqual(text.count("Add your screenshot here."), 0)
         self.assertNotIn("Write your answer here.", text)
         self.assertIn("**Learner input still required:**", text)
         self.assertNotRegex(text, r"(?m)^- \[[xX]\]")
@@ -72,27 +72,29 @@ class PreservationTests(unittest.TestCase):
         self.assertEqual(len(manifest["screenshots"]), 7)
         captures = {item["slot"]: item for item in json.loads((WEEK / "evidence/captures-2026-09-19.json").read_text())["captures"] if item["assignment"] == 1}
         captures.update({item["slot"]: item for item in json.loads((WEEK / "evidence/a1-vm-ssh-2026-09-19.json").read_text())["captures"]})
-        self.assertEqual(set(captures), {1, 2, 3, 7})
+        captures.update({item["slot"]: item for item in json.loads((WEEK / "evidence/a1-interactive-2026-09-19.json").read_text())["captures"]})
+        self.assertEqual(set(captures), set(range(1, 8)))
         for number, item in enumerate(manifest["screenshots"], 1):
             self.assertEqual(set(item), {"slot", "title", "status", "captured", "path", "sha256", "captured_at", "run_url"})
             self.assertEqual(item["slot"], number)
             self.assertEqual(item["title"], BASELINE["a1_screenshot_titles"][number - 1])
-            if number in captures:
-                self.assertEqual(item["status"], "captured_review_pending")
-                self.assertIs(item["captured"], True)
-                for key in ("path", "sha256", "captured_at"):
-                    self.assertEqual(item[key], captures[number][key])
-                self.assertEqual(item["run_url"], captures[number]["source_url"])
-                self.assertEqual(hashlib.sha256((WEEK / item["path"]).read_bytes()).hexdigest(), item["sha256"])
-            else:
-                self.assertEqual(item["status"], "pending")
-                self.assertIs(item["captured"], False)
-                for key in ("path", "sha256", "captured_at", "run_url"):
-                    self.assertIsNone(item[key])
+            self.assertEqual(item["status"], "captured_review_pending")
+            self.assertIs(item["captured"], True)
+            for key in ("path", "sha256", "captured_at"):
+                self.assertEqual(item[key], captures[number][key])
+            self.assertEqual(item["run_url"], captures[number]["source_url"])
+            self.assertEqual(hashlib.sha256((WEEK / item["path"]).read_bytes()).hexdigest(), item["sha256"])
 
-    def test_no_new_images_or_javascript(self):
+    def test_no_images_or_javascript_outside_private_custody(self):
         prohibited = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".js", ".jsx", ".ts", ".tsx"}
-        self.assertFalse([p for p in PROJECT.rglob("*") if p.suffix.lower() in prohibited])
+        directories = [PROJECT]
+        while directories:
+            for path in directories.pop().iterdir():
+                if path.name == ".private":
+                    continue
+                self.assertNotIn(path.suffix.lower(), prohibited)
+                if path.is_dir() and not path.is_symlink():
+                    directories.append(path)
 
     def test_local_delivery_links_resolve(self):
         for path in (WEEK / "README.md", PROJECT / "README.md"):
