@@ -7,7 +7,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 Eze Favour's [offline A1 project](self-hosted-agent/README.md) provides a manual-only verification pipeline, a human-operated runbook, and credential-free local tests. At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record seven genuine captures from separate trials; the user has attested full-size content/privacy review of all seven A1 screenshots. Other assignment requirements remain pending.
 
-Fresh authorization is required before any cloud, PAT, SSH, agent registration, service, or pipeline operation. Screenshot capture and publication remain separately gated. The original task instructions, evidence requirements and unchecked checklist remain intact; current captures and attributed technical notes appear below. See the [Week 10 sequence](README.md) for the remaining assignments.
+Fresh authorization is required before any cloud, PAT, SSH, agent registration, service, or pipeline operation. Screenshot capture and publication remain separately gated. The original task instructions, evidence requirements and checklist wording remain intact; current captures, attributed technical notes and evidence-backed historical checklist answers appear below. See the [Week 10 sequence](README.md) for the remaining assignments.
 <!-- END WEEK10 A1 OFFLINE PREPARATION -->
 
 ---
@@ -171,12 +171,18 @@ Note the cloud platform used, your Azure DevOps organization/project name, and t
 
 # Completion Checklist
 
+<!-- BEGIN WEEK10 ANSWER A1-CHECKLIST -->
+**Historical task credit — assistant reconciliation, not current health or assignment completion.** Tasks 2–6 are checked against the existing captures and verified operations: pool/run 1 in the [18 September receipt](self-hosted-agent/runtime-2026-09-18.json), Ubuntu/SSH in the [earlier 19 September receipt](self-hosted-agent/runtime-2026-09-19.json), and registration/non-root service/Online status in the [fresh interactive-trial receipt](self-hosted-agent/runtime-2026-09-19-interactive.json). Screenshot 7 still shows run 1; the later run 2 is separately recorded. These were separate authorized trials, not a new run or a claim that the learner performed every step. Their temporary agents and VMs were removed.
+
+The three unchecked items remain unresolved: PAT compliance, the learner's own issue/resolution reflection, and the universal “No secrets exposed” assertion. The seven-image user attestation does not establish those claims. The shared PAT is left unchanged as requested; no new use or runtime operation is authorized. Historical receipts retain their original then-unchecked counts.
+<!-- END WEEK10 ANSWER A1-CHECKLIST -->
+
 - [ ] Task 1: PAT created with required scopes and stored securely
-- [ ] Task 2: Self-hosted agent pool created (Screenshot 1)
-- [ ] Task 3: Ubuntu VM provisioned and SSH verified (Screenshots 2–3)
-- [ ] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)
-- [ ] Task 5: Agent verified Online (Screenshot 6)
-- [ ] Task 6: Test pipeline run successfully (Screenshot 7)
+- [x] Task 2: Self-hosted agent pool created (Screenshot 1)
+- [x] Task 3: Ubuntu VM provisioned and SSH verified (Screenshots 2–3)
+- [x] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)
+- [x] Task 5: Agent verified Online (Screenshot 6)
+- [x] Task 6: Test pipeline run successfully (Screenshot 7)
 - [ ] Platform/org/pool details and issue notes written (Notes)
 - [ ] No secrets exposed
 

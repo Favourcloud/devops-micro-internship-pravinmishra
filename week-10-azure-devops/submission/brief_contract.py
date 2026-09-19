@@ -1,7 +1,7 @@
 """Restore reviewed answers to prompts when checking unchanged requirement hashes.
 
 This checks worksheet structure, not grading eligibility, human review or live facts.
-New completed slots require an explicit allowlist update and evidence tests.
+New completed slots or checklist answers require explicit allowlists and evidence tests.
 """
 
 import re
@@ -18,6 +18,21 @@ CAPTURE_SLOTS = {
     "01": ("A1-S1", "A1-S2", "A1-S3", "A1-S4", "A1-S5", "A1-S6", "A1-S7"),
     "02": ("A2-S1", "A2-S3"),
 }
+CHECKLIST_COMPLETIONS = {
+    "01": (
+        "- [x] Task 2: Self-hosted agent pool created (Screenshot 1)",
+        "- [x] Task 3: Ubuntu VM provisioned and SSH verified (Screenshots 2–3)",
+        "- [x] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)",
+        "- [x] Task 5: Agent verified Online (Screenshot 6)",
+        "- [x] Task 6: Test pipeline run successfully (Screenshot 7)",
+    ),
+    "02": (
+        "* [x] The correct Azure Static Website repository was imported into Azure Repos",
+        "* [x] `index.html` is visible in Azure Repos",
+        "* [x] Your Full Name was added to the website",
+        "* [x] The YAML trigger includes all branches",
+    ),
+}
 PREPARATION_EDITS = (
     (
         "## Source preparation — not a completed assignment",
@@ -29,7 +44,7 @@ PREPARATION_EDITS = (
     ),
     (
         "The original tasks, evidence slots, checklist, and unanswered notes below are unchanged.",
-        "The original task instructions, evidence requirements and unchecked checklist remain intact; current captures and attributed technical notes appear below.",
+        "The original task instructions, evidence requirements and checklist wording remain intact; current captures, attributed technical notes and evidence-backed historical checklist answers appear below.",
     ),
 )
 
@@ -37,9 +52,9 @@ PREPARATION_EDITS = (
 def restore_original_prompts(raw, name):
     """Return original published brief bytes except for still-verifiable requirements.
 
-    Only the nine evidenced image placeholders and A1's attributed technical notes
-    may be replaced. Unknown, duplicated or malformed answer markers fail closed.
-    Existing baseline hashes then catch any other change to a brief.
+    Normalize nine capture blocks, A1's technical notes, two checklist scope notes
+    and exactly nine evidence-backed checkbox answers. Unknown, duplicated or
+    malformed substitutions fail closed; baseline hashes catch other changes.
     """
     if name not in ASSIGNMENTS:
         raise ValueError("Unknown assignment filename")
@@ -70,6 +85,21 @@ def restore_original_prompts(raw, name):
             if raw.count(current.encode()) != 1:
                 raise ValueError("Unexpected preparation notice")
             raw = raw.replace(current.encode(), original.encode(), 1)
+    if assignment in CHECKLIST_COMPLETIONS:
+        marker = ("A" + str(int(assignment)) + "-CHECKLIST").encode()
+        pattern = (
+            rb"(^# Completion Checklist\n\n)<!-- BEGIN WEEK10 ANSWER " + marker + rb" -->\n"
+            rb"(?:(?!<!--).)*?<!-- END WEEK10 ANSWER " + marker + rb" -->\n\n"
+        )
+        raw, count = re.subn(pattern, rb"\1", raw, flags=re.S | re.M)
+        if count != 1:
+            raise ValueError("Missing, misplaced or duplicated checklist scope note")
     if b"WEEK10 ANSWER" in raw:
         raise ValueError("Unmatched or unapproved answer marker")
+    completed = tuple(line.encode() for line in CHECKLIST_COMPLETIONS.get(assignment, ()))
+    found = tuple(re.findall(rb"(?m)^[ \t]*[-*+] \[[xX]\] .+$", raw))
+    if found != completed:
+        raise ValueError("Unexpected completed checklist answers")
+    for line in completed:
+        raw = raw.replace(line + b"\n", line.replace(b"[x]", b"[ ]", 1) + b"\n", 1)
     return raw

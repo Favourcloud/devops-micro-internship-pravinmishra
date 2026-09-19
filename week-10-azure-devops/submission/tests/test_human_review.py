@@ -130,7 +130,7 @@ class HumanReviewTests(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertEqual(hashlib.sha256((WEEK / path).read_bytes()).hexdigest(), expected)
 
-    def test_brief_placement_does_not_complete_checklists_or_reflection(self):
+    def test_brief_placement_leaves_human_claims_and_reflection_pending(self):
         text = (WEEK / A1).read_text()
         blocks = re.findall(r"<!-- BEGIN WEEK10 CAPTURE A1-S([1-7]) -->\n(.*?)<!-- END WEEK10 CAPTURE A1-S\1 -->", text, re.S)
         self.assertEqual([number for number, _ in blocks], list("1234567"))
@@ -141,8 +141,12 @@ class HumanReviewTests(unittest.TestCase):
         self.assertIn("has not been supplied", text)
         self.assertIn("not a PAT-entry or `config.sh` transcript", text)
         self.assertIn("screenshot 7 remains historical run 1", text)
-        self.assertEqual(len(re.findall(r"^- \[ \] ", text, re.M)), 8)
-        self.assertNotRegex(text, r"(?m)^- \[[xX]\]")
+        self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), [
+            "Task 1: PAT created with required scopes and stored securely",
+            "Platform/org/pool details and issue notes written (Notes)",
+            "No secrets exposed",
+        ])
+        self.assertEqual(re.findall(r"^- \[x\] Task ([2-6]):", text, re.M), list("23456"))
 
     def test_current_documentation_distinguishes_attestation_and_remaining_scope(self):
         for path in ("README.md", "self-hosted-agent/README.md", "evidence/README.md", A1):

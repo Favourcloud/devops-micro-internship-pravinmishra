@@ -98,7 +98,8 @@ class InteractiveAgentEvidenceTests(unittest.TestCase):
     def test_exact_placement_and_manifest_do_not_claim_current_health(self):
         manifest = json.loads((WEEK / "self-hosted-agent/evidence/manifest.json").read_text())
         self.assertIs(manifest["live_verified"], False)
-        self.assertEqual(self.brief.count("- [ ]"), 8)
+        self.assertEqual(self.brief.count("- [ ]"), 3)
+        self.assertEqual(self.brief.count("- [x]"), 5)
         self.assertNotIn("Add your screenshot here.", self.brief)
         for capture in self.bundle["captures"]:
             slot = capture["slot"]

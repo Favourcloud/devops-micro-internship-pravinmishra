@@ -34,16 +34,17 @@ class PreservationTests(unittest.TestCase):
                 self.assertEqual(len(raw), expected["bytes"])
                 self.assertEqual(hashlib.sha256(raw).hexdigest(), expected["sha256"])
 
-    def test_seven_exact_screenshot_titles_and_eight_unchecked_items(self):
+    def test_seven_exact_screenshot_titles_and_eight_original_requirements(self):
         text = A1.read_text()
         self.assertEqual(re.findall(r"^#### (Screenshot [0-9]+ .+)$", text, re.M), BASELINE["a1_screenshot_titles"])
         self.assertEqual(len(BASELINE["a1_screenshot_titles"]), 7)
-        self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), BASELINE["a1_unchecked_checklist"])
+        self.assertEqual(re.findall(r"^- \[[ x]\] (.+)$", text, re.M), BASELINE["a1_unchecked_checklist"])
         self.assertEqual(len(BASELINE["a1_unchecked_checklist"]), 8)
         self.assertEqual(text.count("Add your screenshot here."), 0)
         self.assertNotIn("Write your answer here.", text)
         self.assertIn("**Learner input still required:**", text)
-        self.assertNotRegex(text, r"(?m)^- \[[xX]\]")
+        self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), [BASELINE["a1_unchecked_checklist"][i] for i in (0, 6, 7)])
+        self.assertEqual(re.findall(r"^- \[x\] (.+)$", text, re.M), BASELINE["a1_unchecked_checklist"][1:6])
 
     def test_week_index_counts_match_all_five_briefs(self):
         counts = []
@@ -51,7 +52,7 @@ class PreservationTests(unittest.TestCase):
         for name in BASELINE["briefs"]:
             text = (WEEK / name).read_text()
             counts.append(len(re.findall(r"^#{2,6} Screenshot [0-9]+ — ", text, re.M)))
-            checklists.append(len(re.findall(r"^[*-] \[ \] ", text, re.M)))
+            checklists.append(len(re.findall(r"^[*-] \[[ x]\] ", text, re.M)))
         self.assertEqual(counts, [7, 5, 6, 6, 12])
         self.assertEqual(checklists, [8, 22, 21, 40, 33])
         self.assertEqual(sum(counts), 36)
