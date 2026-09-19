@@ -103,4 +103,4 @@ Use only this invocation's state and approved resource ownership. Never delete t
 - [Azure boot diagnostics and managed storage](https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics)
 - [Pinned AzureRM Linux VM resource](https://registry.terraform.io/providers/hashicorp/azurerm/4.47.0/docs/resources/linux_virtual_machine)
 - [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
-- [Original seven-slot evidence manifest](../evidence/manifest.json): unchanged and entirely pending.
+- [Seven-slot evidence manifest](../evidence/manifest.json): later captures for slots 1 and 7; five missing slots and human review remain pending. These images do not establish a current VM or Online agent.

@@ -109,8 +109,12 @@ class RuntimeReceiptTests(unittest.TestCase):
             "pat_expiry_verified": None, "pat_revocation_verified": None, "assignment_complete": False,
         })
         manifest = json.loads((PROJECT / "evidence/manifest.json").read_text())
-        self.assertEqual(manifest["status"], "pending")
-        self.assertFalse(any(slot["captured"] for slot in manifest["screenshots"]))
+        self.assertEqual(manifest["status"], "partial_captures_review_pending")
+        self.assertIs(manifest["live_verified"], False)
+        captured = [slot for slot in manifest["screenshots"] if slot["captured"]]
+        self.assertEqual([slot["slot"] for slot in captured], [1, 7])
+        for slot in captured:
+            self.assertGreater(datetime.fromisoformat(slot["captured_at"]), datetime.fromisoformat("2026-09-19T08:15:30+00:00"))
 
 
 if __name__ == "__main__":

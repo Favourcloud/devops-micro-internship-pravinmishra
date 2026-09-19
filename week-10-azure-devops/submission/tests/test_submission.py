@@ -1,5 +1,6 @@
 """Read-only consistency checks for the dated, explicitly partial submission."""
 
+from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
@@ -45,7 +46,9 @@ class SubmissionTests(unittest.TestCase):
         )
         for assignment in self.assignments:
             with self.subTest(assignment=assignment["number"]):
-                actual = hashlib.sha256((WEEK / assignment["brief"]).read_bytes()).hexdigest()
+                raw = (WEEK / assignment["brief"]).read_bytes()
+                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
+                actual = hashlib.sha256(raw).hexdigest()
                 self.assertEqual(actual, assignment["brief_sha256"])
                 self.assertIs(assignment["assignment_complete"], False)
                 self.assertEqual(assignment["learner_notes"], "pending")
@@ -90,7 +93,7 @@ class SubmissionTests(unittest.TestCase):
         self.assertIn(imported["static_repository"]["personalized_commit"], report)
         self.assertIn(uploaded["repository"]["prepared_commit"], report)
 
-    def test_every_screenshot_remains_pending_without_substitute_evidence(self):
+    def test_zero_image_snapshot_precedes_later_genuine_captures(self):
         self.assertEqual([a["numbered_screenshots_required"] for a in self.assignments], [7, 5, 6, 6, 12])
         summary = self.snapshot["screenshots"]
         self.assertEqual(summary["numbered_required"], sum(a["numbered_screenshots_required"] for a in self.assignments))
@@ -103,11 +106,11 @@ class SubmissionTests(unittest.TestCase):
         evidence = json.loads((WEEK / "self-hosted-agent/evidence/manifest.json").read_text(encoding="utf-8"))
         self.assertEqual(len(evidence["screenshots"]), 7)
         self.assertIs(evidence["live_verified"], False)
-        for slot in evidence["screenshots"]:
-            self.assertEqual(slot["status"], "pending")
-            self.assertIs(slot["captured"], False)
-            for field in ("path", "sha256", "captured_at", "run_url"):
-                self.assertIsNone(slot[field])
+        captured = [slot for slot in evidence["screenshots"] if slot["captured"]]
+        self.assertEqual([slot["slot"] for slot in captured], [1, 7])
+        for slot in captured:
+            self.assertEqual(slot["status"], "captured_review_pending")
+            self.assertGreater(datetime.fromisoformat(slot["captured_at"]), datetime.fromisoformat("2026-09-19T08:15:30+00:00"))
 
     def test_deliverable_paths_and_report_links_are_local_and_exist(self):
         for assignment in self.assignments:

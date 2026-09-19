@@ -446,6 +446,7 @@ class PreservationAndPolicyTests(unittest.TestCase):
         baseline = json.loads((WEEK / "self-hosted-agent/tests/source-baseline.json").read_text())
         for name, expected in baseline["briefs"].items():
             raw = (WEEK / name).read_bytes()
+            raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
             if name.startswith("assignment-01-"):
                 raw, count = re.subn(rb"<!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->\n.*?<!-- END WEEK10 A1 OFFLINE PREPARATION -->\n\n", b"", raw, flags=re.S)
                 self.assertEqual(count, 1)
