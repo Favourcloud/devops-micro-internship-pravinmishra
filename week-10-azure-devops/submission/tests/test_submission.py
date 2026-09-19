@@ -47,7 +47,7 @@ class SubmissionTests(unittest.TestCase):
         for assignment in self.assignments:
             with self.subTest(assignment=assignment["number"]):
                 raw = (WEEK / assignment["brief"]).read_bytes()
-                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
+                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1|A2-S3) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
                 actual = hashlib.sha256(raw).hexdigest()
                 self.assertEqual(actual, assignment["brief_sha256"])
                 self.assertIs(assignment["assignment_complete"], False)

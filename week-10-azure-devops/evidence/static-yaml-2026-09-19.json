@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "assignment": 2,
+  "slot": 3,
+  "title": "Azure Pipelines YAML",
+  "status": "captured_review_pending",
+  "brief": "assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md",
+  "source_revision": "6b38993a18f75c2588803a42b6e7790c95e95b81",
+  "evidence_scope": "source_only_incomplete_configuration",
+  "method": "Native macOS content-region screenshots of the guarded Favour Chrome Azure Repos view; no post-processing or stitching.",
+  "pixels_edited_or_synthesized": false,
+  "human_visual_review_verified": false,
+  "sensitive_screen_marker_found": false,
+  "live_deployment_verified": false,
+  "assignment_completion_claimed": false,
+  "limitations": [
+    "Three viewport images jointly cover one numbered slot, not three slots.",
+    "The pool parameter/default is source, not current Online-agent or runtime-selection proof.",
+    "The SSH service connection remains an unset placeholder; no working deployment configuration is claimed.",
+    "Task definitions are not evidence that a pipeline ran or deployed a website.",
+    "Human visual/privacy review remains pending."
+  ],
+  "images": [
+    {
+      "part": 1,
+      "path": "screenshots/assignment-02-screenshot-03-part-01-trigger-pool-variables.png",
+      "captured_at": "2026-09-19T09:19:20.508834+00:00",
+      "sha256": "cf6af1a769c277b996d4bd433fe0d8afe3cd8840bcdd48ef7420f5329fbbb047",
+      "bytes": 1026424,
+      "dimensions": [
+        3584,
+        1884
+      ],
+      "source_url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_git/Azure-Static-Website?path=%2Fazure-pipelines.yml&version=GC6b38993a18f75c2588803a42b6e7790c95e95b81&_a=contents",
+      "ocr_markers_checked": [
+        "trigger",
+        "variables",
+        "poolName",
+        "checkout"
+      ]
+    },
+    {
+      "part": 2,
+      "path": "screenshots/assignment-02-screenshot-03-part-02-pipeline-information.png",
+      "captured_at": "2026-09-19T09:22:01.394904+00:00",
+      "sha256": "26c88232e068b19c63296e4074e20eae420ae4cf941ebfc5a5934007b05ba922",
+      "bytes": 1166683,
+      "dimensions": [
+        3584,
+        1884
+      ],
+      "source_url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_git/Azure-Static-Website?path=/azure-pipelines.yml&version=GC6b38993a18f75c2588803a42b6e7790c95e95b81&_a=contents",
+      "ocr_markers_checked": [
+        "Pipeline information",
+        "persistCredentials"
+      ]
+    },
+    {
+      "part": 3,
+      "path": "screenshots/assignment-02-screenshot-03-part-03-ssh-tasks.png",
+      "captured_at": "2026-09-19T09:26:10.823907+00:00",
+      "sha256": "2261932f69f87e2da777e3f724d0c49f02830572dfa2a781db79add9f4a25f25",
+      "bytes": 707248,
+      "dimensions": [
+        3584,
+        1884
+      ],
+      "source_url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_git/Azure-Static-Website?path=/azure-pipelines.yml&version=GC6b38993a18f75c2588803a42b6e7790c95e95b81&_a=contents",
+      "ocr_markers_checked": [
+        "CopyFilesOverSSH",
+        "SSH@",
+        "Verify checksums",
+        "static verify"
+      ]
+    }
+  ]
+}

@@ -20,7 +20,7 @@ class PreservationTests(unittest.TestCase):
         for name, expected in BASELINE["briefs"].items():
             with self.subTest(brief=name):
                 raw = (WEEK / name).read_bytes()
-                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
+                raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1|A2-S3) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
                 if name.startswith("assignment-01-"):
                     raw, count = re.subn(
                         rb"<!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->\n.*?<!-- END WEEK10 A1 OFFLINE PREPARATION -->\n\n",

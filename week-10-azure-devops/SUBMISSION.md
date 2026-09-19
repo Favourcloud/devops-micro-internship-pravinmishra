@@ -2,7 +2,7 @@
 
 **Prepared 19 September 2026 · Partial submission, not a claim that Week 10 is complete.**
 
-> **Later screenshot supplement:** [three genuine captures are now attached to the matching A1/A2 requirements](evidence/README.md). Human visual/privacy review is pending. The zero-image counts and test results below describe the original **08:15:30 UTC** snapshot, before those captures; use the supplement for current image availability.
+> **Later screenshot supplements:** [four numbered A1/A2 slots now have genuine attachments](evidence/README.md), using six original PNGs. A2 slot 3 is source-only YAML evidence in three views; its SSH connection remains unset. Human visual/privacy review is pending. The zero-image counts and test results below describe the original **08:15:30 UTC** snapshot, before those captures; use the supplement for current image availability.
 
 This handoff collects genuine recorded progress and tested source. A1 had a
 successful authorized technical trial; A2 reached the Azure Repos/source-handoff

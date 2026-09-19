@@ -40,7 +40,9 @@ class EvidenceTests(unittest.TestCase):
 
     def test_exact_captures_titles_and_files(self):
         self.assertEqual([(i["assignment"], i["slot"]) for i in self.captures], list(EXPECTED))
-        self.assertEqual({p.name for p in (WEEK / "screenshots").glob("*.png")}, {v[0] for v in EXPECTED.values()})
+        later = json.loads((WEEK / "evidence/static-yaml-2026-09-19.json").read_text())
+        expected_files = {v[0] for v in EXPECTED.values()} | {Path(i["path"]).name for i in later["images"]}
+        self.assertEqual({p.name for p in (WEEK / "screenshots").glob("*.png")}, expected_files)
         for item in self.captures:
             name, digest = EXPECTED[(item["assignment"], item["slot"])]
             self.assertEqual(item["path"], "screenshots/" + name)
@@ -106,8 +108,9 @@ class EvidenceTests(unittest.TestCase):
         for brief in WEEK.glob("assignment-*.md"):
             expected = [i for i in self.captures if i["brief"] == brief.name]
             text = brief.read_text()
-            self.assertEqual(text.count("<!-- BEGIN WEEK10 CAPTURE "), len(expected))
-            self.assertEqual(text.count("<!-- END WEEK10 CAPTURE "), len(expected))
+            later_slot = int(brief.name.startswith("assignment-02-"))
+            self.assertEqual(text.count("<!-- BEGIN WEEK10 CAPTURE "), len(expected) + later_slot)
+            self.assertEqual(text.count("<!-- END WEEK10 CAPTURE "), len(expected) + later_slot)
             for item in expected:
                 marker = f"A{item['assignment']}-S{item['slot']}"
                 section = re.search(r"^#{3,4} Screenshot " + str(item["slot"]) + r" — [^\n]+\n(.*?)(?=\n---)", text, re.M | re.S)
