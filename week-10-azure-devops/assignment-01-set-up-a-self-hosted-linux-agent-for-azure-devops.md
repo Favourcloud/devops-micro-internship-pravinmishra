@@ -3,11 +3,11 @@
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 <!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->
-## Source preparation — not a completed assignment
+## Historical source preparation — not a completed assignment
 
-Eze Favour's [offline A1 project](self-hosted-agent/README.md) provides a manual-only verification pipeline, a human-operated runbook, and credential-free local tests. The [seven-slot manifest](self-hosted-agent/evidence/manifest.json) is entirely pending; no live resource, agent, pipeline success, or screenshot is claimed.
+Eze Favour's [offline A1 project](self-hosted-agent/README.md) provides a manual-only verification pipeline, a human-operated runbook, and credential-free local tests. At the source-preparation checkpoint, the [seven-slot manifest](self-hosted-agent/evidence/manifest.json) was entirely pending; no live resource, agent, pipeline success, or screenshot was claimed. The current manifest and attachments below now record two genuine captures, with five slots still pending.
 
-Fresh authorization is required before any cloud, PAT, SSH, agent registration, service, or pipeline operation. Screenshot capture and publication remain separately gated. The original tasks, evidence slots, checklist, and unanswered notes below are unchanged. See the [Week 10 sequence](README.md) for the remaining assignments.
+Fresh authorization is required before any cloud, PAT, SSH, agent registration, service, or pipeline operation. Screenshot capture and publication remain separately gated. The original task instructions, evidence requirements and unchecked checklist remain intact; current captures and attributed technical notes appear below. See the [Week 10 sequence](README.md) for the remaining assignments.
 <!-- END WEEK10 A1 OFFLINE PREPARATION -->
 
 ---
@@ -37,8 +37,6 @@ Create a self-hosted agent pool (e.g. `SelfHostedPool`) in Azure DevOps Organiza
 ### Evidence
 
 #### Screenshot 1 — Azure DevOps Agent Pools page showing the newly created pool
-
-Add your screenshot here.
 
 <!-- BEGIN WEEK10 CAPTURE A1-S1 -->
 ![A1 screenshot 1: dedicated DMI-Week10-A1 pool](screenshots/assignment-01-screenshot-01-agent-pool.png)
@@ -112,8 +110,6 @@ Create and run a YAML pipeline targeting the self-hosted pool, running `uname -a
 
 #### Screenshot 7 — Successful test pipeline run output in Azure DevOps showing the Linux commands
 
-Add your screenshot here.
-
 <!-- BEGIN WEEK10 CAPTURE A1-S7 -->
 ![A1 screenshot 7: successful Linux verification command output](screenshots/assignment-01-screenshot-07-linux-pipeline-output.png)
 
@@ -126,7 +122,16 @@ Captured 19 September 2026 from **historical run 1 on 18 September**. The host w
 
 Note the cloud platform used, your Azure DevOps organization/project name, and the agent pool name. Describe any issue you faced and how you resolved it.
 
-Write your answer here.
+<!-- BEGIN WEEK10 ANSWER A1-NOTES -->
+**Recorded technical notes — personal reflection pending.** These notes summarize the [18 September operational receipt](self-hosted-agent/runtime-2026-09-18.json), not learner-performed actions. The trial was assistant-operated under the user's authorization.
+
+- **Platform and registration:** Azure hosted Ubuntu 22.04 on x86_64. The Azure DevOps organization was `aneneeze2021`, the project was `DMI-Week10`, and the dedicated pool was `DMI-Week10-A1`. The verified Microsoft agent package was version `5.279.0`. Its service ran as the non-root account `azdoagent`; Online status was verified during that trial.
+- **Actual verification:** [Manual run 1](https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=1&view=results) succeeded on 18 September 2026 at 10:30:20 UTC. Its output contained `uname -a`, `whoami` and `df -h`; `whoami` returned `azdoagent`. Screenshot 7 shows that historical output, not a new run or a currently running host.
+- **Cleanup:** the service was stopped, disabled and uninstalled. Terraform cleanup verified empty state and the resource group, VM, OS disk and public IP absent at 10:41:37 UTC. Removal of the registered agent was verified at 10:53:08 UTC. No A1 VM or agent was left running by this trial; its authorization is retired.
+- **Still unresolved:** PAT scope, server expiry and revocation were not independently verified. Screenshots 2–6 require a freshly authorized lab; visual/privacy review of the two attached images is pending. No token, private key, raw state or private log is included here.
+
+**Learner input still required:** Eze Favour's own account of an issue encountered and how it was resolved has not been supplied. These factual technical notes do not replace that personal reflection or complete the assignment.
+<!-- END WEEK10 ANSWER A1-NOTES -->
 
 ---
 

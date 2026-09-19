@@ -25,6 +25,14 @@ learner reflection and mandatory LinkedIn publication remain pending behind fres
 The pinned instructor app supports a cart path, but its checkout click deletes carts rather than
 creating an order; see the runbook's source-derived limitation. The checkout/order checklist is not waived.
 
+## Evidence-backed technical notes — 19 September 2026
+
+These are factual Copilot-operated source/local-check notes, not firsthand learner reflection or new execution. Generic empty-image prompts are replaced only where the original local captures already follow; screenshot requirements, partial-view limitations and unmet live slots remain.
+
+- The [network source](terraform-aws-epicbook/modules/network/main.tf) separates the public application subnet from two database subnets. Its security-group references limit MySQL ingress to the EC2 group; this explains the design, not a live firewall test.
+- The [root source](terraform-aws-epicbook/main.tf) passes network outputs into the EC2 and RDS modules. Endpoint output expressions are configuration, not deployed addresses. The missing private input file and excerpt-only script view remain explicit in slots 4 and 10.
+- The [recorded local checks](terraform-aws-epicbook/evidence/local-validation.md) and unchanged slots 18–19 establish local initialization and validation only. No real plan, application/database transaction, order workflow, destroy run, learner reflection or publication is added by this reconciliation.
+
 ---
 
 ## Purpose
@@ -47,8 +55,6 @@ Prepare your local environment by installing Terraform, AWS CLI, and the HashiCo
 
 Add a screenshot of the terminal showing successful `terraform version` output.
 
-Add your screenshot here.
-
 ![Screenshot 1 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-01-terraform-version.png)
 
 **Captured local evidence only:** Existing Terraform 1.13.5 on darwin_amd64, checked locally by Copilot; not a learner installation record.
@@ -59,8 +65,6 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing successful `aws --version` output.
 
-Add your screenshot here.
-
 ![Screenshot 2 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-02-aws-cli-version.png)
 
 **Captured local evidence only:** Existing AWS CLI 2.26.1 version output only; no AWS configuration, authentication, account or Region verification.
@@ -70,8 +74,6 @@ Add your screenshot here.
 ### Screenshot 3 — HashiCorp Terraform Extension
 
 Add a screenshot of VS Code showing the HashiCorp Terraform extension installed and enabled.
-
-Add your screenshot here.
 
 ![Screenshot 3 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-03-terraform-extension.png)
 
@@ -115,7 +117,7 @@ terraform-aws-epicbook/
 
 Add a screenshot of the VS Code Explorer showing the complete root project and the `network`, `ec2`, and `rds` module directory structure.
 
-Add your screenshot here.
+Partial source evidence is supplied below; the required private input file remains pending.
 
 ![Screenshot 4 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-04-modular-project-explorer.png)
 
@@ -148,8 +150,6 @@ The network module must include:
 
 Add a screenshot of VS Code showing the VPC, public subnet, and two private database subnet configurations.
 
-Add your screenshot here.
-
 ![Screenshot 5 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-05-vpc-subnets-source.png)
 
 **Captured local evidence only:** VPC and public/private subnet source configuration only; no deployed VPC or subnets.
@@ -159,8 +159,6 @@ Add your screenshot here.
 ### Screenshot 6 — Internet Gateway and Public Routing
 
 Add a screenshot of VS Code showing the Internet Gateway, public route table, and route table association.
-
-Add your screenshot here.
 
 ![Screenshot 6 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-06-internet-gateway-routing-source.png)
 
@@ -172,8 +170,6 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing the EC2 and RDS Security Groups, including MySQL access from the EC2 Security Group only.
 
-Add your screenshot here.
-
 ![Screenshot 7 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-07-security-groups-source.png)
 
 **Captured local evidence only:** EC2/RDS security-group source, including EC2-referenced MySQL ingress; no live security-group verification.
@@ -183,8 +179,6 @@ Add your screenshot here.
 ### Screenshot 8 — Network Module Outputs
 
 Add a screenshot of VS Code showing the network module outputs.
-
-Add your screenshot here.
 
 ![Screenshot 8 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-08-network-outputs-source.png)
 
@@ -216,8 +210,6 @@ The `user_data.sh` script must install the required software without storing dat
 
 Add a screenshot of VS Code showing the EC2 resource and `user_data` configuration.
 
-Add your screenshot here.
-
 ![Screenshot 9 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-09-ec2-user-data-source.png)
 
 **Captured local evidence only:** EC2 resource and user_data template connection source only; no instance launch or executed bootstrap.
@@ -230,7 +222,7 @@ Add a screenshot of VS Code showing `user_data.sh`.
 
 Ensure that no credentials, passwords, private keys, access tokens, or application secrets are visible.
 
-Add your screenshot here.
+Source excerpts are supplied below; they do not show the entire script or a bootstrap run.
 
 ![Screenshot 10 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-10-user-data-script-source.png)
 
@@ -241,8 +233,6 @@ Add your screenshot here.
 ### Screenshot 11 — EC2 Module Variables and Outputs
 
 Add a screenshot of VS Code showing the EC2 module variables and outputs.
-
-Add your screenshot here.
 
 ![Screenshot 11 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-11-ec2-variables-outputs-source.png)
 
@@ -272,8 +262,6 @@ The RDS module must include:
 
 Add a screenshot of VS Code showing the DB subnet group and RDS MySQL configuration.
 
-Add your screenshot here.
-
 ![Screenshot 12 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-12-rds-subnet-group-source.png)
 
 **Captured local evidence only:** DB subnet group and MySQL resource source only; no provisioned RDS instance.
@@ -286,8 +274,6 @@ Add a screenshot of VS Code showing `publicly_accessible = false`, the RDS Secur
 
 Ensure that the database password and other sensitive values are hidden.
 
-Add your screenshot here.
-
 ![Screenshot 13 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-13-private-rds-sensitive-inputs-source.png)
 
 **Captured local evidence only:** Native split-editor private-RDS/SG and sensitive-variable declarations, not secret values, a running database or a synthetic composite.
@@ -297,8 +283,6 @@ Add your screenshot here.
 ### Screenshot 14 — RDS Endpoint Output
 
 Add a screenshot of VS Code showing the RDS endpoint output.
-
-Add your screenshot here.
 
 ![Screenshot 14 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-14-rds-endpoint-output-source.png)
 
@@ -318,8 +302,6 @@ Use the root Terraform configuration to call the Network, EC2, and RDS modules a
 
 Add a screenshot of VS Code showing the root `main.tf` with the Network, EC2, and RDS module blocks.
 
-Add your screenshot here.
-
 ![Screenshot 15 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-15-root-module-blocks-source.png)
 
 **Captured local evidence only:** Native split-editor root Network/EC2/RDS module blocks, not applied modules or a synthetic composite.
@@ -330,8 +312,6 @@ Add your screenshot here.
 
 Add a screenshot of VS Code showing values passed from the Network module to the EC2 and RDS modules.
 
-Add your screenshot here.
-
 ![Screenshot 16 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-16-module-value-wiring-source.png)
 
 **Captured local evidence only:** Cross-module subnet/SG input source wiring, not values returned by deployed resources.
@@ -341,8 +321,6 @@ Add your screenshot here.
 ### Screenshot 17 — Root Outputs
 
 Add a screenshot of VS Code showing the root EC2 public IP and RDS endpoint outputs.
-
-Add your screenshot here.
 
 ![Screenshot 17 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-17-root-outputs-source.png)
 
@@ -362,8 +340,6 @@ Initialize the modular Terraform project, validate the configuration, review the
 
 Add a screenshot of the terminal showing successful `terraform init` output.
 
-Add your screenshot here.
-
 ![Screenshot 18 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-18-terraform-init.png)
 
 **Captured local evidence only:** Successful local terraform init -input=false -lockfile=readonly, credential-free with the existing filesystem-only provider mirror. Implicit default local backend; no backend metadata .tfstate or managed state at the root/default or .private path was created. TF_DATA_DIR is metadata-only, not a state-path override. This was not backend-disabled init or a cloud operation.
@@ -373,8 +349,6 @@ Add your screenshot here.
 ### Screenshot 19 — Terraform Validation
 
 Add a screenshot of the terminal showing successful `terraform validate` output.
-
-Add your screenshot here.
 
 ![Screenshot 19 — Eze Favour — original local capture](terraform-aws-epicbook/evidence/screenshots/screenshot-19-terraform-validate.png)
 

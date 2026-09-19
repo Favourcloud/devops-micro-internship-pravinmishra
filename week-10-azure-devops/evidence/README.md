@@ -38,9 +38,9 @@ The later YAML integration passed **338 local checks at 09:30:25 UTC** on the sa
 
 ## Still required
 
-- A1 slots **2–6**: running VM, SSH/Ubuntu details, successful configuration, running service and Online agent. These require a freshly verified and bounded lab. PAT scope/expiry/revocation confirmation and learner notes remain pending.
+- A1 slots **2–6**: running VM, SSH/Ubuntu details, successful configuration, running service and Online agent. These require a freshly verified and bounded lab. PAT scope/expiry/revocation confirmation and the learner's own issue/resolution reflection remain pending. The brief now contains attributed factual technical notes from the historical trial, not a learner reflection.
 - A2 slots **2, 4 and 5**, plus its separate LinkedIn image and actual live deployment requirements. Slot 3's source capture does not resolve its unset connection or runtime gates.
 - All A3 **6**, A4 **6** and A5 **12** numbered slots and their live prerequisites.
 - Human review of all six images, the original checklists and the learner's own reflections. No checklist item or reflection was completed by attaching images.
 
-All original requirement text is preserved. Added image blocks are explicitly delimited so preservation tests can remove only those additions and compare the original bytes.
+All original requirement text is preserved. The four captured slots now replace their redundant screenshot prompts rather than appearing beneath unanswered placeholders. A1's attributed technical notes replace its generic answer prompt while explicitly retaining the missing learner-reflection requirement. The [shared preservation contract](../submission/brief_contract.py) reverses only these allowlisted substitutions and the historical preparation-notice correction to compare against unchanged original hashes. Image bytes, provenance, historical receipts and all unmet requirements remain unchanged. Passing these checks is not an assignment-completion or human-review claim.

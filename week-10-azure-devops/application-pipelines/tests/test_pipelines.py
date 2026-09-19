@@ -11,6 +11,9 @@ from unittest.mock import Mock, mock_open, patch
 
 ROOT = Path(__file__).resolve().parents[1]
 WEEK = ROOT.parent
+CONTRACT_SPEC = importlib.util.spec_from_file_location("brief_contract", WEEK / "submission/brief_contract.py")
+CONTRACT = importlib.util.module_from_spec(CONTRACT_SPEC)
+CONTRACT_SPEC.loader.exec_module(CONTRACT)
 spec = importlib.util.spec_from_file_location("site_contract", ROOT / "ci/validate_site.py")
 site = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(site)
@@ -442,11 +445,11 @@ class RemoteVerifierStubTests(unittest.TestCase):
 
 
 class PreservationAndPolicyTests(unittest.TestCase):
-    def test_all_original_brief_bytes_remain_unchanged(self):
+    def test_original_requirement_bytes_survive_reviewed_answers(self):
         baseline = json.loads((WEEK / "self-hosted-agent/tests/source-baseline.json").read_text())
         for name, expected in baseline["briefs"].items():
             raw = (WEEK / name).read_bytes()
-            raw = re.sub(rb"<!-- BEGIN WEEK10 CAPTURE (A1-S1|A1-S7|A2-S1|A2-S3) -->\n.*?<!-- END WEEK10 CAPTURE \1 -->\n\n", b"", raw, flags=re.S)
+            raw = CONTRACT.restore_original_prompts(raw, name)
             if name.startswith("assignment-01-"):
                 raw, count = re.subn(rb"<!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->\n.*?<!-- END WEEK10 A1 OFFLINE PREPARATION -->\n\n", b"", raw, flags=re.S)
                 self.assertEqual(count, 1)

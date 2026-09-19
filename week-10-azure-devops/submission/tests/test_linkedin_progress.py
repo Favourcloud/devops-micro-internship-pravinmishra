@@ -110,7 +110,7 @@ class LinkedInProgressTests(unittest.TestCase):
             self.assertIn("does not satisfy A2", document)
         readme = (WEEK / "README.md").read_text()
         self.assertIn("## Assignment status", readme)
-        self.assertIn("four clearly delimited image additions", readme)
+        self.assertIn("four explicitly allowlisted image substitutions", readme)
         blocks = sum(len(re.findall(rb"<!-- BEGIN WEEK10 CAPTURE ", path.read_bytes()))
                      for path in WEEK.glob("assignment-*.md"))
         self.assertEqual(blocks, 4)

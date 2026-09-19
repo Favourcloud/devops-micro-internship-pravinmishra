@@ -108,7 +108,7 @@ class StaticYamlEvidenceTests(unittest.TestCase):
         self.assertEqual(text.count("<!-- END WEEK10 CAPTURE " + marker + " -->"), 1)
         section = re.search(r"^### Screenshot 3 — Azure Pipelines YAML\n(.*?)(?=\n---)", text, re.M | re.S)
         self.assertIsNotNone(section)
-        self.assertIn("Add your screenshot here.", section.group(1))
+        self.assertNotIn("Add your screenshot here.", section.group(1))
         self.assertEqual(re.findall(r"!\[[^\]]*\]\(([^)]+)\)", section.group(1)), [i["path"] for i in self.record["images"]])
         self.assertIn("one numbered slot", section.group(1))
         self.assertIn("unset placeholder", section.group(1))
