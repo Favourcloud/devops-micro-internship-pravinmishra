@@ -4,6 +4,14 @@ Learner: **Eze Favour**. Status: **A1's historical technical trial and A2's repo
 
 > **Submitting now:** [four numbered slots have genuine screenshot attachments](evidence/README.md): A1 **1 and 7**, and A2 **1 and 3**. A2 slot 3 uses three original source views, not deployment output. Human visual/privacy review is pending. The [original submission handoff](SUBMISSION.md) is the earlier zero-image snapshot; this is still a **partial submission**, not completion of all five assignments.
 
+## Checker entry points — current partial submission
+
+1. Review the [original assignment requirements and status table](#assignment-status), then the [capture gallery and exact placements](evidence/README.md). Four numbered slots have captures; six PNGs do not mean six completed slots. Human visual/privacy review remains pending.
+2. Use the [submission handoff](SUBMISSION.md) for the retained A1 run, cleanup and A2 source receipts. Its original zero-image snapshot is historical; the callout above and [current index](evidence/current.json) give current availability. No A1 host was left running, and an AWS website available for grading has not been established.
+3. The separately requested [LinkedIn progress draft](submission/linkedin-progress-draft.txt) is **not published**. The existing Chrome tab redirected to LinkedIn sign-in; private sign-in and account verification are required before posting. [Publication status](evidence/linkedin-progress.json) records no public post URL or screenshot. A draft does not satisfy A2's requirement for a post describing its actual Terraform/Ansible/CI/CD workflow with a successful pipeline or deployed-site image.
+
+All 124 original checklist entries remain unchecked. Source validation, a public draft and historical receipts are not substitutes for missing live work or learner reflections. Private token entry must be separate from browser posting; never paste credentials into LinkedIn, chat or the repository.
+
 ## Submission checkpoint — 19 September 2026
 
 - The [machine-readable snapshot](submission/status.json) preserves all five brief hashes, pending screenshot counts and actual local source-test results. No fresh cloud inventory, application build, GUI capture or social post was performed for that original zero-image snapshot; later capture passes are documented separately below.
@@ -30,6 +38,8 @@ The following records describe observations at their stated times. Their earlier
 - **Independent cleanup source:** the user selected cloud-hosted cleanup. The [unarmed canary project](application-pipelines/cloud-cleanup/README.md) prepares protected state, narrow federation, hosted scheduling and saved-plan deletion for one empty Azure group/AWS VPC. **34 local tests, 22 native Terraform mock cases and two built-in-only cleanup-guard regressions passed**; all four roots validated without warnings. No cleanup identity, connection, schedule, storage or canary was created/armed. Separately authorized non-root IAM bootstrap and independent control-plane teardown remain prerequisites, followed by real canary acceptance and a separate A2 workload-cleanup implementation. The existing STS-only broker cannot bootstrap IAM. No new resource window has started.
 
 These are recorded operational facts and source-validation results, **not submission screenshots or assignment completion**. Private authentication, keys, state, plans and raw execution records are not published. No new cloud operation is authorized by publishing this source.
+
+## Assignment status
 
 | Assignment | Source status | Live gate / next dependency | Numbered screenshots |
 | --- | --- | --- | --- |
@@ -68,4 +78,4 @@ The separately requested screenshot captures do not expand runtime authorization
 5. Implement and verify A4's infrastructure and application pipelines, protected state, database and manual handoff before attempting A5 with the real supplied kit. Do not fabricate incidents, reports or recovery.
 6. Capture genuine, readable evidence only after approval; review it for secrets, match every original slot, and complete human reflections/publication only when actually performed.
 
-The original briefs remain the source of requirements. A1 retains its preparation notice; three clearly delimited image additions now attach evidence to the matching A1/A2 slots. Removing only those additions restores every original brief byte. Screenshot requirements, all 124 unchecked checklist entries and unanswered learner notes are preserved.
+The original briefs remain the source of requirements. A1 retains its preparation notice; four clearly delimited image additions now attach evidence to the matching A1/A2 slots. Removing only those additions restores every original brief byte. Screenshot requirements, all 124 unchecked checklist entries and unanswered learner notes are preserved.

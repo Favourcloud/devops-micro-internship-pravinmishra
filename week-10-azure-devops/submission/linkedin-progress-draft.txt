@@ -1,0 +1,16 @@
+Week 10 progress update | Azure DevOps
+
+Verified project milestones:
+- A temporary Ubuntu 22.04 self-hosted agent completed a manual pipeline running uname -a, whoami and df -h.
+- The VM and agent were removed after verification. This is historical evidence, not a currently running lab.
+- Static-site source was imported to Azure Repos, followed by a reviewed deployment-YAML upload.
+- The 19 September checkpoint recorded 338 passing local validation checks. These are not live deployment acceptance tests.
+
+The full static-site workflow is planned as Terraform provisioning, Ansible server configuration and Azure Pipelines orchestration. Its SSH connection and live AWS deployment, plus the remaining application pipelines, are still pending. Week 10 is not complete.
+
+Reviewed source and current status:
+https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/main/week-10-azure-devops
+
+Credit: Pravin Mishra and CloudAdvisory's DevOps Micro Internship.
+
+#AzureDevOps #Terraform #DevOps #LearningInPublic
