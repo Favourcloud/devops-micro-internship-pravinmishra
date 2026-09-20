@@ -130,20 +130,20 @@ class HumanReviewTests(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertEqual(hashlib.sha256((WEEK / path).read_bytes()).hexdigest(), expected)
 
-    def test_brief_placement_leaves_human_claims_and_reflection_pending(self):
+    def test_brief_placement_distinguishes_reflection_approval_from_image_review(self):
         text = (WEEK / A1).read_text()
         blocks = re.findall(r"<!-- BEGIN WEEK10 CAPTURE A1-S([1-7]) -->\n(.*?)<!-- END WEEK10 CAPTURE A1-S\1 -->", text, re.S)
         self.assertEqual([number for number, _ in blocks], list("1234567"))
         for _, block in blocks:
             self.assertIn("Full-size content/privacy review is user-attested", block)
             self.assertIn("(evidence/" + RECEIPT + ")", block)
-        self.assertIn("the learner reflection and PAT requirements remain pending", text)
-        self.assertIn("has not been supplied", text)
+        self.assertIn("PAT requirements remain pending", text)
+        self.assertIn("User-approved reflection — assistant-drafted", text)
+        self.assertIn("a1-reflection-approval-2026-09-20.json", text)
         self.assertIn("not a PAT-entry or `config.sh` transcript", text)
         self.assertIn("screenshot 7 remains historical run 1", text)
         self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), [
             "Task 1: PAT created with required scopes and stored securely",
-            "Platform/org/pool details and issue notes written (Notes)",
             "No secrets exposed",
         ])
         self.assertEqual(re.findall(r"^- \[x\] Task ([2-6]):", text, re.M), list("23456"))

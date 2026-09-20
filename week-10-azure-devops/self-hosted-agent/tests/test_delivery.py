@@ -42,9 +42,9 @@ class PreservationTests(unittest.TestCase):
         self.assertEqual(len(BASELINE["a1_unchecked_checklist"]), 8)
         self.assertEqual(text.count("Add your screenshot here."), 0)
         self.assertNotIn("Write your answer here.", text)
-        self.assertIn("**Learner input still required:**", text)
-        self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), [BASELINE["a1_unchecked_checklist"][i] for i in (0, 6, 7)])
-        self.assertEqual(re.findall(r"^- \[x\] (.+)$", text, re.M), BASELINE["a1_unchecked_checklist"][1:6])
+        self.assertIn("**User-approved reflection — assistant-drafted, approved 20 September 2026:**", text)
+        self.assertEqual(re.findall(r"^- \[ \] (.+)$", text, re.M), [BASELINE["a1_unchecked_checklist"][i] for i in (0, 7)])
+        self.assertEqual(re.findall(r"^- \[x\] (.+)$", text, re.M), BASELINE["a1_unchecked_checklist"][1:7])
 
     def test_week_index_counts_match_all_five_briefs(self):
         counts = []
