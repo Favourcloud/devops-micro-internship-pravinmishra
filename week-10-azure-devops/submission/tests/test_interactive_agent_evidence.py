@@ -98,8 +98,8 @@ class InteractiveAgentEvidenceTests(unittest.TestCase):
     def test_exact_placement_and_manifest_do_not_claim_current_health(self):
         manifest = json.loads((WEEK / "self-hosted-agent/evidence/manifest.json").read_text())
         self.assertIs(manifest["live_verified"], False)
-        self.assertEqual(self.brief.count("- [ ]"), 3)
-        self.assertEqual(self.brief.count("- [x]"), 5)
+        self.assertEqual(self.brief.count("- [ ]"), 2)
+        self.assertEqual(self.brief.count("- [x]"), 6)
         self.assertNotIn("Add your screenshot here.", self.brief)
         for capture in self.bundle["captures"]:
             slot = capture["slot"]
@@ -206,7 +206,7 @@ class InteractiveAgentEvidenceTests(unittest.TestCase):
             self.assertIs(submission[key], True)
         for key in ("registration_terminal_captured", "human_visual_privacy_reviewed", "learner_reflection_supplied", "assignment_complete"):
             self.assertIs(submission[key], False)
-        self.assertIn("Learner input still required", self.brief)
+        self.assertIn("User-approved reflection — assistant-drafted", self.brief)
         self.assertIn("Least-privilege PAT compliance is not claimed", self.brief)
 
     def test_prior_attempt_receipts_are_byte_immutable(self):

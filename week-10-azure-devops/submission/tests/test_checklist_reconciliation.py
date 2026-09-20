@@ -19,7 +19,7 @@ def receipt(path):
 
 
 class ChecklistReconciliationTests(unittest.TestCase):
-    def test_exact_nine_answers_and_all_124_requirements(self):
+    def test_exact_ten_answers_and_all_124_requirements(self):
         self.assertEqual(CONTRACT.CHECKLIST_COMPLETIONS, {
             "01": (
                 "- [x] Task 2: Self-hosted agent pool created (Screenshot 1)",
@@ -27,6 +27,7 @@ class ChecklistReconciliationTests(unittest.TestCase):
                 "- [x] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)",
                 "- [x] Task 5: Agent verified Online (Screenshot 6)",
                 "- [x] Task 6: Test pipeline run successfully (Screenshot 7)",
+                "- [x] Platform/org/pool details and issue notes written (Notes)",
             ),
             "02": (
                 "* [x] The correct Azure Static Website repository was imported into Azure Repos",
@@ -44,9 +45,9 @@ class ChecklistReconciliationTests(unittest.TestCase):
             completed.append(len(checked))
             pending.append(len(re.findall(r"^[*-] \[ \] ", text, re.M)))
         self.assertEqual(totals, [8, 22, 21, 40, 33])
-        self.assertEqual(completed, [5, 4, 0, 0, 0])
-        self.assertEqual(pending, [3, 18, 21, 40, 33])
-        self.assertEqual((sum(totals), sum(completed), sum(pending)), (124, 9, 115))
+        self.assertEqual(completed, [6, 4, 0, 0, 0])
+        self.assertEqual(pending, [2, 18, 21, 40, 33])
+        self.assertEqual((sum(totals), sum(completed), sum(pending)), (124, 10, 114))
 
     def test_a1_credit_is_bound_to_separate_trials_and_retired_resources(self):
         first = receipt("self-hosted-agent/runtime-2026-09-18.json")
@@ -131,7 +132,8 @@ class ChecklistReconciliationTests(unittest.TestCase):
             if assignment == "01":
                 self.assertIn("temporary agents and VMs were removed", note)
                 self.assertIn("shared PAT is left unchanged", note)
-                self.assertIn("three unchecked items remain unresolved", note)
+                self.assertIn("two unchecked items remain unresolved", note)
+                self.assertIn("a1-reflection-approval-2026-09-20.json", note)
             else:
                 self.assertIn("Eze Favour", note)
                 self.assertIn("remaining 18 checks stay open", note)

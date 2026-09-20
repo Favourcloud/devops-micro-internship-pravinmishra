@@ -25,6 +25,7 @@ CHECKLIST_COMPLETIONS = {
         "- [x] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)",
         "- [x] Task 5: Agent verified Online (Screenshot 6)",
         "- [x] Task 6: Test pipeline run successfully (Screenshot 7)",
+        "- [x] Platform/org/pool details and issue notes written (Notes)",
     ),
     "02": (
         "* [x] The correct Azure Static Website repository was imported into Azure Repos",
@@ -53,7 +54,7 @@ def restore_original_prompts(raw, name):
     """Return original published brief bytes except for still-verifiable requirements.
 
     Normalize nine capture blocks, A1's technical notes, two checklist scope notes
-    and exactly nine evidence-backed checkbox answers. Unknown, duplicated or
+    and exactly ten evidence/approval-backed checkbox answers. Unknown, duplicated or
     malformed substitutions fail closed; baseline hashes catch other changes.
     """
     if name not in ASSIGNMENTS:

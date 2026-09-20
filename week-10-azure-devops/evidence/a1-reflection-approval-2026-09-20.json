@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "assignment": "week-10-assignment-01",
+  "status": "assistant_draft_user_approved",
+  "learner_name": "Eze Favour",
+  "authorship": "assistant_drafted_user_approved",
+  "approval": {
+    "date_utc": "2026-09-20",
+    "response": "approved",
+    "context": "Explicit reply to the immediately preceding reflection draft for review, after the user requested: write for me",
+    "scope": "Adopt this exact reflection in A1 Notes and complete the notes checklist item; not independent verification of learner-performed actions"
+  },
+  "reflection": {
+    "text": "During the lab, agent registration stalled at the optional TFVC licence prompt before PAT entry. The runbook was clarified for Git-only use, and a separate authorized interactive attempt subsequently succeeded. The agent ran as the non-root `azdoagent` account, and a manual pipeline verified `uname -a`, `whoami`, and `df -h`. The temporary agent and VM were removed afterward. This highlights the importance of checking interactive prompts, using non-root service accounts, and verifying cleanup.",
+    "sha256": "4ae3aebf648094f77034e48b4d659b43710f7ec0ab49bfa22766efcc780bfb2a"
+  },
+  "source_receipts": [
+    "self-hosted-agent/runtime-2026-09-19.json",
+    "self-hosted-agent/runtime-2026-09-19-interactive.json"
+  ],
+  "boundaries": {
+    "learner_performed_all_steps_claimed": false,
+    "independent_learning_verification_claimed": false,
+    "pat_compliance_attested": false,
+    "pat_change_or_use_authorized": false,
+    "secret_absence_certified": false,
+    "a2_image_review_attested": false,
+    "new_runtime_authorization": false,
+    "assignment_completion_claimed": false,
+    "social_publication_authorized": false
+  }
+}

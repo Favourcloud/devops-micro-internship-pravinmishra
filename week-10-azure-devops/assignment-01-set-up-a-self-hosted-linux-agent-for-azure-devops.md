@@ -143,7 +143,7 @@ Captured 19 September 2026 from **historical run 1 on 18 September**. The host w
 Note the cloud platform used, your Azure DevOps organization/project name, and the agent pool name. Describe any issue you faced and how you resolved it.
 
 <!-- BEGIN WEEK10 ANSWER A1-NOTES -->
-**Recorded technical notes — personal reflection pending.** These notes summarize the [18 September operational receipt](self-hosted-agent/runtime-2026-09-18.json), not learner-performed actions. The trial was assistant-operated under the user's authorization.
+**Recorded technical notes — assistant-attributed; approved reflection below.** These notes summarize the [18 September operational receipt](self-hosted-agent/runtime-2026-09-18.json), not learner-performed actions. The trial was assistant-operated under the user's authorization.
 
 - **Platform and registration:** Azure hosted Ubuntu 22.04 on x86_64. The Azure DevOps organization was `aneneeze2021`, the project was `DMI-Week10`, and the dedicated pool was `DMI-Week10-A1`. The verified Microsoft agent package was version `5.279.0`. Its service ran as the non-root account `azdoagent`; Online status was verified during that trial.
 - **Actual verification:** [Manual run 1](https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=1&view=results) succeeded on 18 September 2026 at 10:30:20 UTC. Its output contained `uname -a`, `whoami` and `df -h`; `whoami` returned `azdoagent`. Screenshot 7 shows that historical output, not a new run or a currently running host.
@@ -155,9 +155,13 @@ Note the cloud platform used, your Azure DevOps organization/project name, and t
 - **New verification and captures:** exactly one [manual run 2](https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=2&view=results) succeeded at **21:49:48 UTC**, with actual `uname -a`, `whoami` → `azdoagent`, and `df -h` output. Screenshots **4–6** were captured at **21:51–21:53 UTC** from fresh-proof terminals and the live pool page; screenshot 4 is a post-registration configuration read-back, not a PAT-entry transcript. The seven A1 images span separate trials: screenshot 7 remains historical run 1. Azure DevOps run links require authorized access to the private project.
 - **Fresh-trial cleanup:** the service was uninstalled at **21:56:09 UTC**, agent 18 removal was independently verified at **21:56:13 UTC**, and Terraform destruction completed at **21:59:25 UTC**. Empty state and exact resource-group/VM/OS-disk/public-IP absence were verified at **21:59:38 UTC**, before expiry. No A1 agent or VM was left running by this retry; its authorization is retired.
 - **User-attested image review:** on 19 September, the user answered “yes” to personally inspecting all seven published A1 screenshots at full size and confirming accurate, suitable-to-share visible content. The [separate hash-bound attestation](evidence/a1-human-review-2026-09-19.json) applies only to these seven images. The review itself was not independently observed; this is not an independent secret-absence certification, A2 approval, learner reflection or renewed runtime authorization.
-- **PAT limits and remaining work:** in the 18 September trial, PAT scope, server expiry and revocation were not independently verified. On 19 September, the native metadata row showed **Full access** and expiry **18 December 2026**, but that row was not cryptographically matched to the protected value. No token was sent during the first 19 September registration attempt. The fresh retry explicitly authorized unchanged existing-PAT use for scoped API checks, human-direct registration, one manual run and owned-agent cleanup; no narrowing, extension or revocation was performed. Least-privilege PAT compliance is not claimed. A1 image review is now user-attested; the learner reflection and PAT requirements remain pending. No token, private key, raw state or private log is included here.
+- **PAT limits and remaining work:** in the 18 September trial, PAT scope, server expiry and revocation were not independently verified. On 19 September, the native metadata row showed **Full access** and expiry **18 December 2026**, but that row was not cryptographically matched to the protected value. No token was sent during the first 19 September registration attempt. The fresh retry explicitly authorized unchanged existing-PAT use for scoped API checks, human-direct registration, one manual run and owned-agent cleanup; no narrowing, extension or revocation was performed. Least-privilege PAT compliance is not claimed. A1 image review is user-attested; the separately approved reflection follows below. PAT requirements remain pending. No token, private key, raw state or private log is included here.
 
-**Learner input still required:** Eze Favour's own account of an issue encountered and how it was resolved has not been supplied. These factual technical notes do not replace that personal reflection or complete the assignment.
+**User-approved reflection — assistant-drafted, approved 20 September 2026:**
+
+During the lab, agent registration stalled at the optional TFVC licence prompt before PAT entry. The runbook was clarified for Git-only use, and a separate authorized interactive attempt subsequently succeeded. The agent ran as the non-root `azdoagent` account, and a manual pipeline verified `uname -a`, `whoami`, and `df -h`. The temporary agent and VM were removed afterward. This highlights the importance of checking interactive prompts, using non-root service accounts, and verifying cleanup.
+
+The user requested this draft and explicitly approved it. The [text-bound approval record](evidence/a1-reflection-approval-2026-09-20.json) records adoption of these notes, not a claim that the learner personally performed every step, independent verification of learning, PAT compliance, A2 image review or new runtime authorization.
 <!-- END WEEK10 ANSWER A1-NOTES -->
 
 ---
@@ -174,7 +178,7 @@ Note the cloud platform used, your Azure DevOps organization/project name, and t
 <!-- BEGIN WEEK10 ANSWER A1-CHECKLIST -->
 **Historical task credit — assistant reconciliation, not current health or assignment completion.** Tasks 2–6 are checked against the existing captures and verified operations: pool/run 1 in the [18 September receipt](self-hosted-agent/runtime-2026-09-18.json), Ubuntu/SSH in the [earlier 19 September receipt](self-hosted-agent/runtime-2026-09-19.json), and registration/non-root service/Online status in the [fresh interactive-trial receipt](self-hosted-agent/runtime-2026-09-19-interactive.json). Screenshot 7 still shows run 1; the later run 2 is separately recorded. These were separate authorized trials, not a new run or a claim that the learner performed every step. Their temporary agents and VMs were removed.
 
-The three unchecked items remain unresolved: PAT compliance, the learner's own issue/resolution reflection, and the universal “No secrets exposed” assertion. The seven-image user attestation does not establish those claims. The shared PAT is left unchanged as requested; no new use or runtime operation is authorized. Historical receipts retain their original then-unchecked counts.
+The notes item is also checked following [explicit user approval of the assistant-drafted reflection](evidence/a1-reflection-approval-2026-09-20.json). The two unchecked items remain unresolved: PAT compliance and the universal “No secrets exposed” assertion. Neither image review nor reflection approval establishes those claims. The shared PAT is left unchanged as requested; no new use or runtime operation is authorized. Historical receipts retain their original then-unchecked counts.
 <!-- END WEEK10 ANSWER A1-CHECKLIST -->
 
 - [ ] Task 1: PAT created with required scopes and stored securely
@@ -183,7 +187,7 @@ The three unchecked items remain unresolved: PAT compliance, the learner's own i
 - [x] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)
 - [x] Task 5: Agent verified Online (Screenshot 6)
 - [x] Task 6: Test pipeline run successfully (Screenshot 7)
-- [ ] Platform/org/pool details and issue notes written (Notes)
+- [x] Platform/org/pool details and issue notes written (Notes)
 - [ ] No secrets exposed
 
 ---
