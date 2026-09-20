@@ -85,7 +85,15 @@ Add a screenshot of the Azure Pipeline YAML open in the editor showing:
 * Publish stage
 * Deploy stage
 
-Add your screenshot here.
+<!-- BEGIN WEEK10 CAPTURE A3-S2 -->
+![A3 screenshot 2 part 1: prepared YAML trigger and Build stage in the native editor](screenshots/assignment-03-screenshot-02-part-01-trigger-build.png)
+
+![A3 screenshot 2 part 2: prepared Test, Publish and Deploy stage definitions](screenshots/assignment-03-screenshot-02-part-02-test-publish-deploy.png)
+
+Captured 20 September 2026 at **00:56 and 01:01 UTC**. These two original native TextEdit views cover **one numbered source slot**, not two slots. The editor displayed a byte-identical, read-only copy of [the published YAML at `b84d90e`](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/b84d90ef20b525ce23440796166aeb2bf1f7b2b1/week-10-azure-devops/application-pipelines/react.azure-pipelines.yml). [Capture provenance](evidence/react-yaml-2026-09-20.json) binds the original PNG hashes, source hash, times and offline OCR checks.
+
+**Source only, incomplete configuration:** the deployment date and SSH connection remain unset placeholders. The pool default is not an Online-agent check, and stage definitions are not successful stage results. This is not evidence of an Azure Repos application import, a created Azure DevOps pipeline, an application build or a live deployment. Human visual/privacy review is pending. No checklist item is completed by these images.
+<!-- END WEEK10 CAPTURE A3-S2 -->
 
 > Do not expose passwords, private keys, tokens, or cloud credentials.
 

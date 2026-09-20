@@ -1,8 +1,8 @@
-# Genuine screenshot attachments — 19 September 2026
+# Genuine screenshot attachments — 19–20 September 2026
 
-**Nine numbered slots have captures (eleven original PNGs); 27 numbered slots and A2's separate LinkedIn image remain missing. A1 has all seven numbered slots, from separate trials—not one continuous recording. No assignment is complete. A1 image review is user-attested; the four A2 images still need review.** See the [current machine-readable totals](current.json).
+**Ten numbered slots have captures (thirteen original PNGs); 26 numbered slots and A2's separate LinkedIn image remain missing. A1 has all seven numbered slots, from separate trials—not one continuous recording. No assignment is complete. A1 image review is user-attested; the four A2 images and two A3 images still need review.** See the [current machine-readable totals](current.json).
 
-The original PNG bytes are embedded immediately below the matching screenshot requirements in the briefs. No pixels were synthesized, edited or used as placeholders. Native Chrome URL/focus checks, local OCR markers, SHA-256 and PNG chunk checks were verified. Earlier archive verification is historical; the three new registration/service/Online PNGs have not been added to a rebuilt submission ZIP. OCR is not exhaustive human visual/privacy review: open each full-size image before submission.
+The original PNG bytes are embedded immediately below the matching screenshot requirements in the briefs. No pixels were synthesized, edited or used as placeholders. Capture-time native Chrome URL/focus or TextEdit window/source binding, local OCR markers, SHA-256 and PNG chunk checks were verified. Earlier archive verification is historical; the three registration/service/Online PNGs and two A3 source PNGs have not been added to a rebuilt submission ZIP. OCR is not exhaustive human visual/privacy review: open each full-size image before submission.
 
 | Assignment and exact slot | Original capture | What it establishes / limitation |
 | --- | --- | --- |
@@ -103,11 +103,27 @@ The user requested “write for me” and explicitly answered “approved” to 
 
 Local source validation for this approval increment passed **128 tests in normal and optimized modes** (43 foundation, 83 submission/evidence, one application preservation and one cleanup preservation test). Six new approval tests bind the exact text/hash, attribution and metadata, check only the notes credit and preserve historical flags and remaining gates. Reconciliation tests reject all 114 unsupported remaining checkbox mutations. Tests used an empty environment, `HOME=/nonexistent`, no bytecode and macOS network/write denial. This is local source validation, not live lab evidence or an independent review of the learner's experience.
 
+## A3 YAML source — 20 September 2026
+
+[A3 screenshot 2](../assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md#screenshot-2--multi-stage-pipeline-yaml) now contains two original native TextEdit window captures:
+
+1. [Trigger and Build](../screenshots/assignment-03-screenshot-02-part-01-trigger-build.png), captured at **00:56 UTC**.
+2. [Test, Publish and Deploy](../screenshots/assignment-03-screenshot-02-part-02-test-publish-deploy.png), captured at **01:01 UTC**.
+
+The editor displayed a byte-identical, read-only copy of the prepared YAML from published source `b84d90ef20b525ce23440796166aeb2bf1f7b2b1`. The [separate provenance](react-yaml-2026-09-20.json) records its source hash, exact capture times, original PNG hashes/dimensions and local OCR markers. Only native scrolling selected the second viewport; no pixels were edited, stitched or synthesized. The invocation-owned editor window was closed without saving.
+
+These are **source-only, incomplete-configuration evidence**: the deployment date and SSH connection remain unset, the pool default does not establish an Online agent, and stage headings are not successful stage results. This is not an Azure Repos import or a created/run Azure DevOps pipeline. No application build, cloud operation, PAT-value access or social publication was performed by this capture pass.
+
+Offline Apple Vision OCR recognized all five required headings with confidence 1, using requested CPU-only recognition under network/file-write denial. This is a recorded OCR check, not independent full-size visual review or secret-absence certification. **The two A3 images still need human content/privacy review.** They fill one numbered source slot and add no checklist credit: A3 remains 0/21 and the week remains 10 checked / 114 pending.
+
+Local integration passed **104 source checks**: 91 submission/evidence tests and 13 targeted cross-project preservation/runtime-gate tests. Eight new contracts cover the two PNGs, allowlisted provenance, exact source binding, OCR/timing, one-slot placement, pending human claims and rejection of unsupported completions. Tests used isolated Python, an empty environment, `HOME=/nonexistent`, no bytecode, denied networking and denied ordinary-file writes (`/dev/null` discard exception only). All five original brief hashes and the historical records remain unchanged. These are local consistency checks, not CI, application tests, live acceptance or a rebuilt submission archive.
+
 ## Still required
 
 - A1: PAT scope/storage requirements and the universal secrecy assertion remain unchecked. The assistant-drafted reflection is now user-approved as recorded above. The shared PAT is left unchanged; any new runtime work requires fresh authorization.
 - A2 slots **2, 4 and 5**, plus its separate LinkedIn image and actual live deployment requirements. Slot 3's source capture does not resolve its unset connection or runtime gates.
-- All A3 **6**, A4 **6** and A5 **12** numbered slots and their live prerequisites.
-- Human review of the four A2 images, the unmet checklist requirements and other assignments' reflections. A1's seven-image review is user-attested; its reflection approval is separate. No checklist item or reflection was completed merely by attaching or approving images.
+- A3 slots **1, 3, 4, 5 and 6**, all A4 **6** and all A5 **12** numbered slots and their real prerequisites. A5 still needs the actual instructor-supplied kit; no replacement kit, incident or report is fabricated.
+- The numbered LinkedIn slots A3-S6, A4-S6 and A5-S12, in addition to A2's separate image, need genuine published posts and authorized social activity.
+- Human review of the four A2 images and two A3 images, the unmet checklist requirements and other assignments' reflections. A1's seven-image review is user-attested; its reflection approval is separate. No checklist item or reflection was completed merely by attaching or approving images.
 
-All original requirement text is preserved. The nine captured slots replace their redundant screenshot prompts, and A1's answer separates attributed technical notes from the exact user-approved reflection. The [shared preservation contract](../submission/brief_contract.py) reverses only those substitutions, the historical preparation-notice correction, the two adjacent checklist-scope notes and exactly ten allowlisted checkbox answers to compare against unchanged original hashes. It rejects unsupported, duplicate, altered, reordered or missing completions rather than treating every checked box as acceptable. Image bytes, provenance, historical receipts and all unmet requirements remain unchanged. Passing these checks is not an assignment-completion or independent human-review claim.
+All original requirement text is preserved. The ten captured slots replace their redundant screenshot prompts, and A1's answer separates attributed technical notes from the exact user-approved reflection. The [shared preservation contract](../submission/brief_contract.py) reverses only those substitutions, the historical preparation-notice correction, the two adjacent checklist-scope notes and exactly ten allowlisted checkbox answers to compare against unchanged original hashes. It rejects unsupported, duplicate, altered, reordered or missing completions rather than treating every checked box as acceptable. Existing image bytes, provenance, historical receipts and all unmet requirements remain unchanged. Passing these checks is not an assignment-completion or independent human-review claim.

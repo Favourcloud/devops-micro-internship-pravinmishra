@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "assignment": 3,
+  "slot": 2,
+  "title": "Multi-Stage Pipeline YAML",
+  "status": "captured_review_pending",
+  "brief": "assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md",
+  "source_revision": "b84d90ef20b525ce23440796166aeb2bf1f7b2b1",
+  "source_path": "application-pipelines/react.azure-pipelines.yml",
+  "source_sha256": "76d71dfba4b9f5772d652722fce9eb9582a724e55490df79d7350c7417fdeb47",
+  "source_url": "https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/b84d90ef20b525ce23440796166aeb2bf1f7b2b1/week-10-azure-devops/application-pipelines/react.azure-pipelines.yml",
+  "evidence_scope": "source_only_incomplete_configuration",
+  "method": "Native macOS TextEdit window screenshots of a byte-identical read-only source copy; Page Down selected the second viewport. No stitching or pixel edits.",
+  "pixels_edited_or_synthesized": false,
+  "pipeline_source_edited": false,
+  "human_visual_review_verified": false,
+  "independent_secret_absence_certification": false,
+  "azure_repos_import_verified": false,
+  "pipeline_definition_created": false,
+  "live_pipeline_run_verified": false,
+  "live_deployment_verified": false,
+  "assignment_completion_claimed": false,
+  "pat_value_accessed": false,
+  "cloud_operations_performed": false,
+  "local_ocr": {
+    "engine": "Apple Vision",
+    "cpu_only_requested": true,
+    "network_denied": true,
+    "file_writes_denied": true
+  },
+  "limitations": [
+    "Two original viewport images jointly cover one numbered source slot, not two slots.",
+    "The pictured editor contains local prepared YAML, not an imported Azure Repos application or a created Azure DevOps pipeline definition.",
+    "The deployment date and SSH service connection are unset placeholders; no working deployment configuration is claimed.",
+    "The pool default is not proof of an Online agent.",
+    "Build, Test, Publish and Deploy are source headings, not successful stage results.",
+    "Local OCR checks are not exhaustive privacy review; human full-size review remains pending.",
+    "No other missing screenshot, social post, runtime permission or completed checklist item is supplied by these images."
+  ],
+  "images": [
+    {
+      "part": 1,
+      "path": "screenshots/assignment-03-screenshot-02-part-01-trigger-build.png",
+      "captured_at": "2026-09-20T00:56:04.737094+00:00",
+      "sha256": "0c743760609e71d4dfc3a6da6ae663dcec25c4fa0f213ac33aeead050a617db9",
+      "bytes": 489868,
+      "dimensions": [
+        2800,
+        1840
+      ],
+      "ocr_markers_checked": [
+        "trigger:",
+        "- stage: Build"
+      ],
+      "minimum_marker_confidence": 1.0
+    },
+    {
+      "part": 2,
+      "path": "screenshots/assignment-03-screenshot-02-part-02-test-publish-deploy.png",
+      "captured_at": "2026-09-20T01:01:23.633829+00:00",
+      "sha256": "2bde56853df7a73ab8879199741d0c68e8d26315d54b8c6966118789e18aaa49",
+      "bytes": 471675,
+      "dimensions": [
+        2800,
+        1840
+      ],
+      "ocr_markers_checked": [
+        "- stage: Test",
+        "- stage: Publish",
+        "- stage: Deploy"
+      ],
+      "minimum_marker_confidence": 1.0
+    }
+  ]
+}

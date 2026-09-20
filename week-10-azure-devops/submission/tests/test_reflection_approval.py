@@ -94,7 +94,7 @@ class ReflectionApprovalTests(unittest.TestCase):
 
     def test_approval_does_not_complete_image_review_or_authorize_runtime(self):
         current = load("evidence/current.json")
-        self.assertEqual([current[k] for k in ("numbered_required", "numbered_captured", "numbered_missing", "raw_images")], [36, 9, 27, 11])
+        self.assertEqual([current[k] for k in ("numbered_required", "numbered_captured", "numbered_missing", "raw_images")], [36, 10, 26, 13])
         self.assertEqual(current["human_review_receipts"], ["a1-human-review-2026-09-19.json"])
         for key in ("human_visual_review_verified", "assignment_completion_claimed", "separate_linkedin_image_captured"):
             self.assertIs(current[key], False)

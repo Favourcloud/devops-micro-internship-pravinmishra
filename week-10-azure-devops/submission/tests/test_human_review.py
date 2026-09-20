@@ -114,7 +114,7 @@ class HumanReviewTests(unittest.TestCase):
         current = json.loads((WEEK / "evidence/current.json").read_text())
         self.assertEqual(current["human_review_receipts"], [RECEIPT])
         self.assertEqual(current["status"], "partial_captures_review_pending")
-        self.assertEqual([current[key] for key in ("numbered_required", "numbered_captured", "numbered_missing", "raw_images")], [36, 9, 27, 11])
+        self.assertEqual([current[key] for key in ("numbered_required", "numbered_captured", "numbered_missing", "raw_images")], [36, 10, 26, 13])
         for key in ("human_visual_review_verified", "assignment_completion_claimed", "separate_linkedin_image_captured"):
             self.assertIs(current[key], False)
         original = json.loads((WEEK / "evidence/captures-2026-09-19.json").read_text())

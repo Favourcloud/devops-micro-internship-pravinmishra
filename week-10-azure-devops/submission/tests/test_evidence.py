@@ -43,7 +43,8 @@ class EvidenceTests(unittest.TestCase):
         later = json.loads((WEEK / "evidence/static-yaml-2026-09-19.json").read_text())
         fresh = json.loads((WEEK / "evidence/a1-vm-ssh-2026-09-19.json").read_text())
         interactive = json.loads((WEEK / "evidence/a1-interactive-2026-09-19.json").read_text())
-        expected_files = {v[0] for v in EXPECTED.values()} | {Path(i["path"]).name for i in later["images"]} | {Path(i["path"]).name for i in fresh["captures"]} | {Path(i["path"]).name for i in interactive["captures"]}
+        react = json.loads((WEEK / "evidence/react-yaml-2026-09-20.json").read_text())
+        expected_files = {v[0] for v in EXPECTED.values()} | {Path(i["path"]).name for i in later["images"]} | {Path(i["path"]).name for i in fresh["captures"]} | {Path(i["path"]).name for i in interactive["captures"]} | {Path(i["path"]).name for i in react["images"]}
         self.assertEqual({p.name for p in (WEEK / "screenshots").glob("*.png")}, expected_files)
         for item in self.captures:
             name, digest = EXPECTED[(item["assignment"], item["slot"])]
@@ -110,7 +111,7 @@ class EvidenceTests(unittest.TestCase):
         for brief in WEEK.glob("assignment-*.md"):
             expected = [i for i in self.captures if i["brief"] == brief.name]
             text = brief.read_text()
-            later_slot = int(brief.name.startswith("assignment-02-")) + 5 * int(brief.name.startswith("assignment-01-"))
+            later_slot = int(brief.name.startswith("assignment-02-")) + 5 * int(brief.name.startswith("assignment-01-")) + int(brief.name.startswith("assignment-03-"))
             self.assertEqual(text.count("<!-- BEGIN WEEK10 CAPTURE "), len(expected) + later_slot)
             self.assertEqual(text.count("<!-- END WEEK10 CAPTURE "), len(expected) + later_slot)
             for item in expected:
