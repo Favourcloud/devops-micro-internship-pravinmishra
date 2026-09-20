@@ -187,7 +187,7 @@ class ChecklistReconciliationTests(unittest.TestCase):
 
     def test_checklist_credit_does_not_expand_capture_or_human_review_claims(self):
         current = receipt("evidence/current.json")
-        self.assertEqual([current[key] for key in ("numbered_captured", "numbered_missing", "raw_images")], [9, 27, 11])
+        self.assertEqual([current[key] for key in ("numbered_captured", "numbered_missing", "raw_images")], [10, 26, 13])
         for key in ("assignment_completion_claimed", "human_visual_review_verified", "separate_linkedin_image_captured"):
             self.assertIs(current[key], False)
         self.assertIs(receipt("self-hosted-agent/evidence/manifest.json")["live_verified"], False)

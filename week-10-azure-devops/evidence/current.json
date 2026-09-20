@@ -2,9 +2,9 @@
   "schema_version": 1,
   "status": "partial_captures_review_pending",
   "numbered_required": 36,
-  "numbered_captured": 9,
-  "numbered_missing": 27,
-  "raw_images": 11,
+  "numbered_captured": 10,
+  "numbered_missing": 26,
+  "raw_images": 13,
   "separate_linkedin_image_captured": false,
   "assignment_completion_claimed": false,
   "human_visual_review_verified": false,
@@ -47,12 +47,17 @@
     [
       2,
       3
+    ],
+    [
+      3,
+      2
     ]
   ],
   "bundles": [
     "captures-2026-09-19.json",
     "static-yaml-2026-09-19.json",
     "a1-vm-ssh-2026-09-19.json",
-    "a1-interactive-2026-09-19.json"
+    "a1-interactive-2026-09-19.json",
+    "react-yaml-2026-09-20.json"
   ]
 }

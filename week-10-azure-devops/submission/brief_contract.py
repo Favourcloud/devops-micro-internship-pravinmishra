@@ -17,6 +17,7 @@ ASSIGNMENTS = {
 CAPTURE_SLOTS = {
     "01": ("A1-S1", "A1-S2", "A1-S3", "A1-S4", "A1-S5", "A1-S6", "A1-S7"),
     "02": ("A2-S1", "A2-S3"),
+    "03": ("A3-S2",),
 }
 CHECKLIST_COMPLETIONS = {
     "01": (
@@ -53,7 +54,7 @@ PREPARATION_EDITS = (
 def restore_original_prompts(raw, name):
     """Return original published brief bytes except for still-verifiable requirements.
 
-    Normalize nine capture blocks, A1's technical notes, two checklist scope notes
+    Normalize ten capture blocks, A1's technical notes, two checklist scope notes
     and exactly ten evidence/approval-backed checkbox answers. Unknown, duplicated or
     malformed substitutions fail closed; baseline hashes catch other changes.
     """

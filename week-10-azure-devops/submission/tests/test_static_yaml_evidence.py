@@ -121,9 +121,9 @@ class StaticYamlEvidenceTests(unittest.TestCase):
         self.assertEqual(set(self.current), {"schema_version", "status", "numbered_required", "numbered_captured", "numbered_missing", "raw_images", "separate_linkedin_image_captured", "assignment_completion_claimed", "human_visual_review_verified", "human_review_receipts", "captured_slots", "bundles"})
         self.assertEqual(self.current["human_review_receipts"], ["a1-human-review-2026-09-19.json"])
         self.assertEqual((self.current["schema_version"], self.current["status"]), (1, "partial_captures_review_pending"))
-        self.assertEqual((self.current["numbered_required"], self.current["numbered_captured"], self.current["numbered_missing"], self.current["raw_images"]), (36, 9, 27, 11))
-        self.assertEqual(self.current["captured_slots"], [[1, s] for s in range(1, 8)] + [[2, 1], [2, 3]])
-        self.assertEqual(self.current["bundles"], ["captures-2026-09-19.json", "static-yaml-2026-09-19.json", "a1-vm-ssh-2026-09-19.json", "a1-interactive-2026-09-19.json"])
+        self.assertEqual((self.current["numbered_required"], self.current["numbered_captured"], self.current["numbered_missing"], self.current["raw_images"]), (36, 10, 26, 13))
+        self.assertEqual(self.current["captured_slots"], [[1, s] for s in range(1, 8)] + [[2, 1], [2, 3], [3, 2]])
+        self.assertEqual(self.current["bundles"], ["captures-2026-09-19.json", "static-yaml-2026-09-19.json", "a1-vm-ssh-2026-09-19.json", "a1-interactive-2026-09-19.json", "react-yaml-2026-09-20.json"])
         for key in ("separate_linkedin_image_captured", "assignment_completion_claimed", "human_visual_review_verified"):
             self.assertIs(self.current[key], False)
         original = json.loads((WEEK / "evidence/captures-2026-09-19.json").read_text())
@@ -134,8 +134,10 @@ class StaticYamlEvidenceTests(unittest.TestCase):
         fresh = json.loads((WEEK / "evidence/a1-vm-ssh-2026-09-19.json").read_text())
         interactive = json.loads((WEEK / "evidence/a1-interactive-2026-09-19.json").read_text())
         slots.update((i["assignment"], i["slot"]) for i in fresh["captures"] + interactive["captures"])
+        react = json.loads((WEEK / "evidence/react-yaml-2026-09-20.json").read_text())
+        slots.add((react["assignment"], react["slot"]))
         self.assertEqual(slots, {tuple(s) for s in self.current["captured_slots"]})
-        self.assertEqual(len(original["captures"]) + len(self.record["images"]) + len(fresh["captures"]) + len(interactive["captures"]), self.current["raw_images"])
+        self.assertEqual(len(original["captures"]) + len(self.record["images"]) + len(fresh["captures"]) + len(interactive["captures"]) + len(react["images"]), self.current["raw_images"])
 
 
 if __name__ == "__main__":

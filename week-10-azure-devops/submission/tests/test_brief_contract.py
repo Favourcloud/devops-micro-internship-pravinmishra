@@ -55,7 +55,7 @@ class BriefContractTests(unittest.TestCase):
             restored = CONTRACT.restore_original_prompts(raw, name)
             approved_count = len(CONTRACT.CAPTURE_SLOTS.get(name.split("-")[1], ()))
             self.assertEqual(raw.count(b"Add your screenshot here."), restored.count(b"Add your screenshot here.") - approved_count)
-        self.assertEqual(current["numbered_missing"], 27)
+        self.assertEqual(current["numbered_missing"], 26)
         self.assertFalse(current["assignment_completion_claimed"])
         self.assertFalse(current["human_visual_review_verified"])
 
