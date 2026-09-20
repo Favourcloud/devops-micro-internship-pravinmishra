@@ -168,11 +168,14 @@ registration credential. For any fresh handoff use a hidden local input channel,
 **never chat, arguments, environment exports or screenshots**. A2/A3 write-scoped
 cloud access, complete cost review, authenticated pipeline transport, exact live
 inputs/plan and an independent cleanup safeguard remain separate gates. The
-original **12:15–16:15 UTC** window has ended. A subsequent [24-hour A2 resource
-approval](../../../README.md#current-resource-window-decision) is recorded but not
-activated. Use that fresh scope and one fixed deadline; do not roll retired windows
-forward or increase the US$10 combined allowance. No agent or deployed application
-is inferred from successful read requests.
+original **12:15–16:15 UTC** window has ended. The later 24-hour A2 window is a
+**historical proposal**, not permission to start a fresh clock. It does not authorize
+provisioning. Follow the [runtime authorization gate](../../../README.md#runtime-authorization-remains-separate):
+the subsequent fixed IAM privilege deadline, **19 September 2026, 18:18:03 UTC**,
+has also passed. Obtain fresh, separately reviewed identity, scope, one fixed deadline,
+exact inputs/plans, cost and cleanup approval; do not roll retired windows forward or
+increase the US$10 combined planning allowance. No agent or deployed application is
+inferred from successful read requests.
 
 ## Protected input, plan and state workflow
 

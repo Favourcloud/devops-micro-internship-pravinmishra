@@ -45,14 +45,16 @@ Azure task -> agent 127.0.0.1:22222 (A2) or :22223 (A3)
 These steps are prospective. A timestamp or successful input check is not consent.
 The old lab window and A1 resources/keys/state are retired.
 
-1. Use fresh scoped lifetime/budget authorization. The [current A2 approval](../../README.md#current-resource-window-decision)
-   already permits 24 hours from first provisioning within the unchanged US$10
-   combined planning allowance; it has not started. Obtain verified non-root AWS
-   apply/**cleanup** access and a working independent cloud cleanup safeguard.
-   Review the exact Terraform plans, identities, images, prices and controller/
-   agent egress IPs. Prepare a fresh A1 agent and distinct A2/A3 targets through
-   reviewed Terraform; never edit cloud resources manually. A2 grading retention
-   needs its own agreement. All live operations below also require this scope.
+1. Obtain fresh scoped lifetime/budget authorization through the [runtime authorization gate](../../README.md#runtime-authorization-remains-separate).
+   The earlier 24-hour/US$10 window is a **historical proposal**. It does not authorize
+   provisioning, start a new clock or renew expired identity permissions. Keep the
+   source's maximum 24-hour lifetime and US$10 combined planning allowance; these
+   limits are not an active grant. Obtain verified non-root AWS apply/**cleanup**
+   access and a working independent cloud cleanup safeguard. Review the exact
+   Terraform plans, identities, images, prices and controller/agent egress IPs.
+   Only after fresh approval, prepare a new A1 agent and distinct A2/A3 targets
+   through reviewed Terraform; never edit cloud resources manually. A2 grading
+   retention needs its own agreement. All live operations below require this scope.
 2. Verify agent and target host keys through trusted console/cloud channels.
    `ssh-keyscan` alone, TOFU, or accepting a changed key is insufficient. Review
    Ubuntu 22.04 agent/OpenSSH/systemd compatibility; these tests do not prove it.
