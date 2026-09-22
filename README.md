@@ -149,6 +149,8 @@ Week 04 → Git & GitHub
 
 ### Week 08 deliverable locations
 
+**22 September 2026 audit:** DMI currently reports **70/190 points**, with assignments 02–05 and both publication links outstanding. See the [rubric and completion audit](./week-08-terraform/completion-audit.md) and [week-level screenshot index](./week-08-terraform/screenshots/README.md). The 60 existing numbered captures remain partial evidence; the index adds no new completed slots.
+
 **17 September 2026 snapshot — partial completion, not an A-grade claim.** Following explicit merge approval, Assignments 1–5's verified preparation and original evidence were merged through PRs #9–#13. All **60 accepted numbered images**, including Assignment 6's 19, are byte-verified on inspected `main` commit `376f7a9305884494a7efc36b8f2b22fe1c02348d`. The merged PR links below preserve their implementation and review history. This publishes the existing preparation; it does not complete the remaining live or human requirements.
 
 | Assignment | Prepared work and location | Genuine numbered images | Remaining boundary |
