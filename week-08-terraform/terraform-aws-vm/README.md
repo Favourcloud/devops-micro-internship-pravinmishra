@@ -2,9 +2,9 @@
 
 **Learner:** Eze Favour · **Fork:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
 
-**OFFLINE PREPARATION ONLY — 4 of 10 genuine local captures included.** This is a Copilot-assisted configuration and runbook, not a claim of manual learner execution, cloud success, submission completion, or grades. The coordinating session supplied four unmodified local screenshots; no AWS API, real plan/apply/destroy, SSH, or browser runtime verification was performed. Slots **5–10 remain pending** in the [original assignment](../assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md) and [manifest](evidence/manifest.json). No personal reflection has been invented.
+**Live AWS lifecycle completed and cleaned up — 10 of 10 genuine captures included.** On 23 September 2026, the approved lab created 11 resources, passed AWS/SSH/HTTP/browser verification, and destroyed all 11. Exact-ID checks also confirmed the root EBS volume and primary ENI were gone; Terraform state was empty. The [run summary](evidence/live-run-summary.md) and [live provenance](evidence/live-capture-provenance.json) record the results. Codex operated the live run under user delegation, not manual learner execution. No new grade or personal reflection is claimed.
 
-## Local evidence now available
+## Evidence available
 
 | Slot | Genuine original | What it establishes |
 | --- | --- | --- |
@@ -12,12 +12,18 @@
 | 2 | [AWS provider and VPC source](evidence/screenshot-02-aws-provider-vpc-source.png) | Actual `main.tf` in VS Code; AMI block folded in the editor without changing HCL |
 | 3 | [EC2 and public-IP output source](evidence/screenshot-03-ec2-public-ip-source.png) | Configuration source, not a real instance or public-IP result |
 | 4 | [Normal local-backend Terraform init](evidence/screenshot-04-terraform-init.png) | Successful local initialization, not an AWS plan/deployment |
+| 5 | [real Terraform plan](evidence/screenshot-05-terraform-plan.png) | Real saved plan: 11 add |
+| 6 | [successful Terraform apply](evidence/screenshot-06-terraform-apply.png) | Real apply: 11 added |
+| 7 | [actual EC2 public IP output](evidence/screenshot-07-public-ip-output.png) | Actual temporary public IP, now retired |
+| 8 | [running EC2 instance and matching public IP](evidence/screenshot-08-ec2-running.png) | Running instance, healthy checks and matching IP |
+| 9 | [live Nginx page in the browser](evidence/screenshot-09-nginx-browser.png) | Actual Nginx page loaded during the run |
+| 10 | [Terraform destroy and exact cleanup checks](evidence/screenshot-10-terraform-destroy.png) | 11 destroyed, 13 exact-ID cleanup checks, empty state |
 
-The [sanitized provenance](evidence/capture-provenance.json) records capture times, original SHA-256 hashes, operator and scope. All four original PNG byte streams are unchanged. The operator was **GitHub Copilot under user delegation, not manual learner execution**. All seven source/runtime/provider-lock/runner/mock files remain frozen at source head `ded8bf1b44fe0e76fb0d9a36b40d795aab46e4b4`.
+The [sanitized provenance](evidence/capture-provenance.json) records capture times, original SHA-256 hashes, operator and scope. All four original PNG byte streams are unchanged. The operator was **GitHub Copilot under user delegation, not manual learner execution**. Their seven recorded source hashes describe capture head `ded8bf1b44fe0e76fb0d9a36b40d795aab46e4b4`. For the live run, only the provider lock gained the verified Linux package checksum; the other six files remain unchanged.
 
 Screenshot 4 records actual `terraform init -input=false -lockfile=readonly`, including successful **local** backend configuration targeting `.private/terraform.tfstate`, using only the existing AWS 6.64.0 filesystem provider mirror. The capture session verified the `env -i` startup guard, empty authentication files, metadata disabled, and no managed resource state. This is different from the earlier runner's `init -backend=false`; neither is cloud execution or permission to deploy. The private receipt, raw logs, OCR, workstation tool paths and provider data are not submission artifacts.
 
-Historical configuration validation remains **25 native mock runs and 28 Python tests** at the source head. Evidence-only delivery checks are recorded separately in [local validation](evidence/local-validation.json); native mock tests were not re-executed merely to integrate images. To repeat only the focused delivery tests from this project directory, without Terraform/provider execution:
+Current delivery validation passed **46 Python tests and 25 Terraform mock runs**, plus formatting, initialization, validation and shell syntax checks; see [live validation](evidence/live-validation.json). Historical configuration validation remains **25 native mock runs and 28 Python tests** at the source head. The earlier evidence-only delivery checks remain recorded in [historical local validation](evidence/local-validation.json); its native mock tests were not re-executed at that September 17 integration. The current September 23 run also checks the Linux lock addition without cloud access. To repeat only the focused delivery tests from this project directory, without Terraform/provider execution:
 
 ```bash
 python3 -B -m unittest discover -s tests -p 'test_evidence_delivery.py' -v
@@ -75,9 +81,9 @@ Commands inside the runner: `fmt -check -recursive`, `init -backend=false -lockf
 
 Rubric protection compares ordered requirements and source metadata, not a permanent document prefix: genuine answers, checkbox updates and future images remain possible. Do not edit protected source requirements merely to make a test pass.
 
-## Live runbook — STOP until newly authorized
+## Runbook for future authorized lab runs
 
-**Nothing below is authorized by this draft.** Historical budgets/approvals have expired. Previous AWS identity checks elsewhere lacked EC2 permissions; this is a known gate, not permission to change IAM or escalate. The coordinating owner must first approve the account and Region, existing least-privilege access, resource scope, current prices, spending ceiling, maximum runtime, and cleanup window. Separately approve the reviewed saved plan before apply. Confirm the learner's Terraform/AWS CLI/VS Code extension readiness and a usable existing SSH key. Stop on denied permissions rather than modifying account configuration.
+The September 23 approval was used for the completed, cleaned lab recorded above: one hour maximum, $1 ceiling, 11 resources in the replacement account and `us-east-1`. The instructions below remain a reusable runbook for a future run. Any new deployment needs its own account/Region, access, reviewed plan, budget and cleanup window; do not replay the retired plan. Existing CloudShell temporary credentials were sufficient for the completed run, with no new IAM identity or access keys.
 
 Costs may include EC2 time, EBS, public IPv4 and data transfer. `standard` CPU credits avoids opting into unlimited-credit billing, but this lab is **not guaranteed free**. Do not deploy if cleanup cannot be authorized and performed within the approved window. Genuine screenshots are owned by the coordinating capture session, not synthesized by this code.
 
@@ -210,7 +216,7 @@ If any check fails, preserve private state/inventory and escalate to the coordin
 
 The [manifest](evidence/manifest.json) maps exactly ten numbered slots to the original rubric. Each capture must be genuine, readable, current, and show Eze Favour/name or username. Screen only the necessary output; exclude credentials, account IDs, private keys and controller identity details. Authorized instance public-IP evidence is required by the assignment; no real IP is fabricated here.
 
-The parent capture session supplied the four local originals now linked in slots 1–4. Slots 5–10, the actual EC2 public-IP field and all runtime checks remain pending behind fresh approval. Add future authorized originals under `evidence/`, update their provenance/manifest and existing numbered slots, and check runtime items only after real verification. Preserve every original heading, task, question and checklist item. A local syntax/test/init result is not a deployment screenshot or proof of manual learner work. This draft does not update the root README, A1, other assignments, LinkedIn, blog, grades or publication status.
+All ten slots are linked in the assignment and manifest. The first four originals and their September 16–17 provenance are preserved. Slots 5–10 record the approved September 23 live run and teardown, with separate provenance documenting the crops and JPEG-to-PNG conversion. The actual public-IP field and runtime checks now reflect genuine verification. Every original heading, task, question and checklist item is preserved. Week 08 remains in progress because the other assignments and publications have outstanding requirements; see the [completion audit](../completion-audit.md).
 
 ## Official references
 
