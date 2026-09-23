@@ -6,9 +6,11 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 **Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
 
-**Preparation status — assignment incomplete:** The [Terraform project and prospective runbook](terraform-react-azure/README.md) provide the eight-resource Azure topology, SSH-key authentication, restricted ingress and a pinned application bootstrap. **Eight genuine local screenshots fill slots 1–8; slots 9–15 and the VM public IP remain pending**, tracked in the [evidence manifest](terraform-react-azure/evidence/manifest.json). These original, unaltered VS Code window captures are labelled Eze Favour and were **operated by GitHub Copilot under user delegation, not manually by the learner**. The [sanitized provenance](terraform-react-azure/evidence/provenance.json) records capture times, hashes and frozen source commit `3a0eea8f2dc9c62d28e511155065e6e145a3555b`.
+**Status — live deployment verified and destroyed:** All **15 required screenshots** are linked below. The approved Azure run created eight Terraform resources, passed strict SSH, cloud-init, Nginx, public HTTP/SPA/assets and browser checks, then destroyed all eight. Independent Azure checks confirmed the resource group, VM, OS disk and networking were absent and Terraform state was empty. The public IP was `4.225.168.0` and is now retired.
 
-Local evidence is separate from cloud execution: source views, Terraform mocks and shell stubs cannot establish a live deployment. Slot 8 records successful normal **local-backend** initialization with existing tools and a filesystem-only provider mirror, not cloud provisioning or a new provider download. A genuine isolated **macOS** build of the unchanged instructor application succeeded with supported Node 22; no JavaScript was authored or modified in this submission. Ubuntu/cloud-init/Nginx behavior and public access still require an authorized run. No Azure authentication, real plan/apply/destroy, SSH or public browser verification was performed. Fresh identity, permission and budget consent remain gates; previous approvals are not reused. Local/source checklist marks do not certify runtime completion.
+The [live run summary](terraform-react-azure/evidence/live-run-summary.md) and [live provenance](terraform-react-azure/evidence/live-provenance.json) record the 24 September 2026 local-date run (23 September UTC), authorized with a $1 ceiling and one-hour window. Cleanup finished in 19.11 minutes; the actual bill has not been verified. Slots 9–15 were **operated by Codex under user delegation, not manually by the learner**. The original eight local captures, their [historical provenance](terraform-react-azure/evidence/provenance.json) and frozen source commit `3a0eea8f2dc9c62d28e511155065e6e145a3555b` remain unchanged. The [manifest](terraform-react-azure/evidence/manifest.json) preserves historical validation separately from this live completion.
+
+The instructor application was deployed unchanged, including its name/date placeholders; Eze Favour attribution is visible in the genuine Terminal alongside the browser. No JavaScript changes or personalized application content are claimed. This technical completion does not claim a new DMI grade or whole-week completion.
 
 ---
 
@@ -162,37 +164,37 @@ Review the Terraform execution plan and provision the Azure infrastructure.
 
 ### Screenshot 9 — Terraform Plan
 
-**Evidence status:** Pending — no real Azure plan authorized or executed.
+**Evidence status:** Captured — actual saved plan with eight proposed resource addresses and summary: 8 add, 0 change, 0 destroy. Recaptured from the same reviewed plan after apply; no second deployment.
 
 Add a screenshot showing the Terraform plan summary and the proposed resources.
 
-Add your screenshot here.
+![Screenshot 9 — Eze Favour-labelled verified live result; Codex-operated](terraform-react-azure/evidence/screenshots/screenshot-09-terraform-plan.png)
 
 ---
 
 ### Screenshot 10 — Terraform Apply
 
-**Evidence status:** Pending — no Azure deployment authorized or executed.
+**Evidence status:** Captured — recorded genuine Terraform apply completion: 8 added, 0 changed, 0 destroyed.
 
 Add a screenshot showing successful `terraform apply` completion.
 
-Add your screenshot here.
+![Screenshot 10 — Eze Favour-labelled verified live result; Codex-operated](terraform-react-azure/evidence/screenshots/screenshot-10-terraform-apply.png)
 
 ---
 
 ### Screenshot 11 — VM Public IP Output
 
-**Evidence status:** Pending — no live public IP output exists; mock addresses are not evidence.
+**Evidence status:** Captured — genuine Terraform output showing `4.225.168.0`; this address was retired after verified cleanup.
 
 Add a screenshot showing the VM public IP address returned by `terraform output`.
 
-Add your screenshot here.
+![Screenshot 11 — Eze Favour-labelled verified live result; Codex-operated](terraform-react-azure/evidence/screenshots/screenshot-11-public-ip-output.png)
 
 ## VM Public IP Address
 
 Record the public IP address displayed by `terraform output`.
 
-**VM Public IP Address:** Pending — no authorized Azure deployment or real Terraform output exists.
+**VM Public IP Address:** `4.225.168.0` — retired after verified cleanup on 23 September 2026 UTC; historical evidence, not a current endpoint.
 
 ---
 
@@ -206,21 +208,21 @@ Connect to the Azure Linux virtual machine and confirm that the cloud-init/user 
 
 ### Screenshot 12 — SSH Connection and Completed React Deployment
 
-**Evidence status:** Pending — no SSH/cloud-init runtime verification performed.
+**Evidence status:** Captured — recorded genuine strict-host-key SSH connection, completed cloud-init, matching readiness marker and local HTTP verification.
 
 Add a screenshot of the SSH terminal showing a successful connection to the Azure VM and evidence that the React application deployment completed.
 
-Add your screenshot here.
+![Screenshot 12 — Eze Favour-labelled verified live result; Codex-operated](terraform-react-azure/evidence/screenshots/screenshot-12-ssh-cloud-init.png)
 
 ---
 
 ### Screenshot 13 — Nginx Service Status
 
-**Evidence status:** Pending — stubs do not verify a real Nginx service.
+**Evidence status:** Captured — recorded genuine SSH output showing active/enabled Nginx and a successful configuration test.
 
 Add a screenshot of the terminal showing that the Nginx service is running successfully.
 
-Add your screenshot here.
+![Screenshot 13 — Eze Favour-labelled verified live result; Codex-operated](terraform-react-azure/evidence/screenshots/screenshot-13-nginx-service.png)
 
 ---
 
@@ -234,13 +236,13 @@ Confirm that the automatically deployed React application is publicly accessible
 
 ### Screenshot 14 — React Application in the Browser
 
-**Evidence status:** Pending — no public browser verification or GUI capture performed.
+**Evidence status:** Captured — live React page in Chrome Guest, with `4.225.168.0` in the actual browser address bar. Eze Favour attribution is in the visible native Terminal. This is one native screen-region capture, not a composite; instructor name/date placeholders remain unchanged.
 
 Add a screenshot of the browser showing the deployed React application successfully loaded using the Azure VM public IP.
 
 Ensure that the Azure VM public IP is visible in the browser address bar.
 
-Add your screenshot here.
+![Screenshot 14 — Eze Favour-labelled verified live result; Codex-operated](terraform-react-azure/evidence/screenshots/screenshot-14-browser-application.png)
 
 ---
 
@@ -254,11 +256,11 @@ Remove all Azure resources created by Terraform after completing the application
 
 ### Screenshot 15 — Terraform Destroy
 
-**Evidence status:** Pending — no cloud destroy or inventory cleanup verification performed.
+**Evidence status:** Captured — actual Terraform destroy completed with 8 destroyed; empty state, absent resource group and eight exact Azure IDs verified, including the OS disk. NIC absence proves association removal.
 
 Add a screenshot of the terminal showing successful `terraform destroy` completion.
 
-Add your screenshot here.
+![Screenshot 15 — Eze Favour-labelled verified live result; Codex-operated](terraform-react-azure/evidence/screenshots/screenshot-15-terraform-destroy.png)
 
 ---
 
@@ -278,11 +280,11 @@ Add your screenshot here.
 
 # Completion Checklist
 
-Checked local-tool items refer to verification of existing installations, not a new installation or manual learner execution. Initialization is local only. Eight privacy-reviewed local captures do not complete the remaining cloud or all-screenshot checklist items.
+Checked local-tool items refer to verification of existing installations. The live tasks were completed by Codex under user delegation; manual learner execution is not claimed. All 15 captures were reviewed for the required outputs, visible learner attribution and sensitive information. The instructor application remains unchanged, and the deployed endpoint has been retired after cleanup.
 
 - [x] Installed Terraform and verified it using `terraform version`
 - [x] Installed Azure CLI and verified it using `az version`
-- [ ] Signed in to Azure and confirmed the correct subscription
+- [x] Signed in to Azure and confirmed the correct subscription
 - [x] Installed and enabled the HashiCorp Terraform extension in VS Code
 - [x] Created the `terraform-react-azure` project
 - [x] Created `main.tf`
@@ -300,17 +302,17 @@ Checked local-tool items refer to verification of existing installations, not a 
 - [x] Used `file()` and `base64encode()` correctly
 - [x] Added the Terraform public IP output
 - [x] Completed `terraform init` successfully
-- [ ] Reviewed the Terraform execution plan
-- [ ] Completed `terraform apply` successfully
-- [ ] Recorded the VM public IP
-- [ ] Connected to the VM through SSH
-- [ ] Verified that the automated deployment completed successfully
-- [ ] Verified that Nginx is running
-- [ ] Verified the React application through the browser
-- [ ] Completed `terraform destroy` successfully
-- [ ] Captured all 15 required screenshots
-- [ ] Confirmed that my full name is visible in the required screenshots
-- [ ] Checked that no passwords, keys, account IDs, access tokens, or other sensitive information are exposed
+- [x] Reviewed the Terraform execution plan
+- [x] Completed `terraform apply` successfully
+- [x] Recorded the VM public IP
+- [x] Connected to the VM through SSH
+- [x] Verified that the automated deployment completed successfully
+- [x] Verified that Nginx is running
+- [x] Verified the React application through the browser
+- [x] Completed `terraform destroy` successfully
+- [x] Captured all 15 required screenshots
+- [x] Confirmed that my full name is visible in the required screenshots
+- [x] Checked that no passwords, keys, account IDs, access tokens, or other sensitive information are exposed
 
 ---
 

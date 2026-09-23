@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "learner": "Eze Favour",
+  "repository": "Favourcloud/devops-micro-internship-pravinmishra",
+  "assignment": "week-08-assignment-03",
+  "operator": "Codex under user delegation; not manual learner execution",
+  "source_commit": "980a14131d5f911061ad36356638dfd19500d941",
+  "source_hashes": {
+    "main.tf": "8c0e1da381dcfe054478bb3635dedf10d1386198f8f63fed8c2d7014deac6984",
+    "variables.tf": "8a635a1054598ea2b2a8cb3e3a7eb422f08b062fe4de64f83343a962ca704c96",
+    "cloud-init.sh": "e20f13c232b0d1d94e4aae5301d9c77d9a2d2b63b19d9f660d467ac4cf5ba3ef",
+    ".terraform.lock.hcl": "1f5467f97786038441e615734d0c88f4a0fd6f41c3e4511ce64951b2c0f75c9e"
+  },
+  "source_changed": false,
+  "historical_provenance": "provenance.json",
+  "historical_provenance_unchanged": true,
+  "approval": {
+    "maximum_usd": 1,
+    "maximum_minutes": 60,
+    "scope": "Reviewed saved plan in Azure subscription 1 / Sweden Central; public HTTP, controller-only SSH, runtime verification, native macOS evidence capture and complete teardown",
+    "new_deployment_authorized": false
+  },
+  "plan": {
+    "sha256": "4d5b6a0c4ddce31d8f384b1057eaa9d7734133a692e14c6e38cd6ff409647363",
+    "create": 8,
+    "update": 0,
+    "delete": 0
+  },
+  "environment": {
+    "subscription_alias": "Azure subscription 1",
+    "identity_verified_privately": true,
+    "region": "swedencentral",
+    "vm_size": "Standard_D2als_v6",
+    "cpu": 2,
+    "memory_gib": 4,
+    "resolved_ubuntu_image": "24.04.202609040",
+    "terraform_version": "1.13.5",
+    "azurerm_version": "4.47.0",
+    "provider_signature": "HashiCorp verified during live initialization",
+    "os_disk_gib": 32,
+    "os_disk_tier": "Standard_LRS",
+    "ingress": "TCP 80 public; TCP 22 current controller IPv4 /32; all other inbound denied",
+    "iam_or_new_keys_created": false
+  },
+  "lifecycle": {
+    "started_at_utc": "2026-09-23T23:28:20.682110+00:00",
+    "apply_completed_at_utc": "2026-09-23T23:31:25.014012+00:00",
+    "cleanup_completed_at_utc": "2026-09-23T23:47:27.581636+00:00",
+    "elapsed_seconds": 1146.9,
+    "resources_added": 8,
+    "resources_destroyed": 8,
+    "destroy_command": "terraform destroy -input=true -no-color -var-file=.private/run.tfvars.json",
+    "public_ip_status": "retired-after-verified-cleanup"
+  },
+  "runtime": {
+    "verified_at_utc": "2026-09-23T23:33:11.571823+00:00",
+    "azure_running": true,
+    "azure_ip_matches_terraform": true,
+    "public_ip": "4.225.168.0",
+    "host_fingerprint": "SHA256:uTWUuy+3iLY9QphcmIeWzWdw86dj00vk8vbV8gYh4qs",
+    "host_key_verified_via": "Authenticated Azure VM Run Command read",
+    "ssh_strict_host_checking": true,
+    "ssh_exit_code": 0,
+    "cloud_init_succeeded": true,
+    "readiness_marker_verified": true,
+    "nginx_active": true,
+    "nginx_config_valid": true,
+    "public_http_status": 200,
+    "spa_fallback_matches_index": true,
+    "assets": {
+      "javascript": {
+        "path": "/static/js/main.b4f77641.js",
+        "bytes": 186362,
+        "sha256": "a1ffe76f8385623500f79dc43c64acd32a8f089d395d3e5ff11919c15953f2ea"
+      },
+      "css": {
+        "path": "/static/css/main.e6c13ad2.css",
+        "bytes": 337,
+        "sha256": "439b3301299d2f3614d9ede61bceaeb7d023f5975147e08f33d6e4ca82cfed56"
+      }
+    },
+    "browser_verified": true,
+    "browser_verified_at_utc": "2026-09-23T23:42:02.983884+00:00",
+    "browser": "Chrome Guest; also rendered in Codex in-app browser",
+    "browser_address_bar_verified": true,
+    "application_personalized": false
+  },
+  "cleanup": {
+    "completed_at_utc": "2026-09-23T23:47:27.581636+00:00",
+    "exact_ids_checked": 8,
+    "absent": [
+      "azurerm_linux_virtual_machine.app",
+      "azurerm_network_interface.app",
+      "azurerm_network_security_group.app",
+      "azurerm_public_ip.app",
+      "azurerm_resource_group.app",
+      "azurerm_subnet.app",
+      "azurerm_virtual_network.app",
+      "os_disk"
+    ],
+    "nic_nsg_association_removed": true,
+    "resource_group_exists": false,
+    "remaining_state": 0
+  },
+  "cost": {
+    "base_estimate_usd_per_hour": 0.0931041095890411,
+    "estimated_base_for_entire_run_usd": 0.029661,
+    "estimate_scope": "Conservatively charges the published base rate from apply start through cleanup verification; disk operations, bandwidth and taxes additional",
+    "actual_bill_verified": false
+  },
+  "screenshots": [
+    {
+      "number": 9,
+      "file": "screenshots/screenshot-09-terraform-plan.png",
+      "captured_at_utc": "2026-09-23T23:43:47.855724+00:00",
+      "sha256": "1cc2b48321bf88fd5d2c0aa916f36d72a979010fbd28c7f0f07843eff54aa516",
+      "bytes": 850966,
+      "width_px": 2400,
+      "height_px": 1820,
+      "capture_method": "Native macOS Terminal window screenshot via screencapture; no shadow, no pixel edits",
+      "operator": "Codex under user delegation; not manual learner execution",
+      "image_modified": false,
+      "scope": "Actual saved plan/output or recorded real CLI/SSH result displayed in native Terminal; labelled as delegated execution",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 10,
+      "file": "screenshots/screenshot-10-terraform-apply.png",
+      "captured_at_utc": "2026-09-23T23:32:03.003808+00:00",
+      "sha256": "bd210b7ee32258d906e0ff9111f94f9b70010b1ff204bf0744c56b0b11ef5f96",
+      "bytes": 583798,
+      "width_px": 2400,
+      "height_px": 1480,
+      "capture_method": "Native macOS Terminal window screenshot via screencapture; no shadow, no pixel edits",
+      "operator": "Codex under user delegation; not manual learner execution",
+      "image_modified": false,
+      "scope": "Actual saved plan/output or recorded real CLI/SSH result displayed in native Terminal; labelled as delegated execution",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 11,
+      "file": "screenshots/screenshot-11-public-ip-output.png",
+      "captured_at_utc": "2026-09-23T23:32:05.652761+00:00",
+      "sha256": "5191b88afdce897f77319e3ac860f50aee37fef11fb06bfc1119a36ea2bfe0f0",
+      "bytes": 530324,
+      "width_px": 2400,
+      "height_px": 1480,
+      "capture_method": "Native macOS Terminal window screenshot via screencapture; no shadow, no pixel edits",
+      "operator": "Codex under user delegation; not manual learner execution",
+      "image_modified": false,
+      "scope": "Actual saved plan/output or recorded real CLI/SSH result displayed in native Terminal; labelled as delegated execution",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 12,
+      "file": "screenshots/screenshot-12-ssh-cloud-init.png",
+      "captured_at_utc": "2026-09-23T23:36:34.064377+00:00",
+      "sha256": "2f254d539908ba7668b151398f5528cc698d2e5b595e524d8f40dbe2e89b594c",
+      "bytes": 710249,
+      "width_px": 2164,
+      "height_px": 1578,
+      "capture_method": "Native macOS Terminal window screenshot via screencapture; no shadow, no pixel edits",
+      "operator": "Codex under user delegation; not manual learner execution",
+      "image_modified": false,
+      "scope": "Actual saved plan/output or recorded real CLI/SSH result displayed in native Terminal; labelled as delegated execution",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 13,
+      "file": "screenshots/screenshot-13-nginx-service.png",
+      "captured_at_utc": "2026-09-23T23:36:35.818297+00:00",
+      "sha256": "8041ea02d5955564f37a13ffdd3522f7842fe5363339854b6603236ff985ff93",
+      "bytes": 1017983,
+      "width_px": 2164,
+      "height_px": 1578,
+      "capture_method": "Native macOS Terminal window screenshot via screencapture; no shadow, no pixel edits",
+      "operator": "Codex under user delegation; not manual learner execution",
+      "image_modified": false,
+      "scope": "Actual saved plan/output or recorded real CLI/SSH result displayed in native Terminal; labelled as delegated execution",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 14,
+      "file": "screenshots/screenshot-14-browser-application.png",
+      "captured_at_utc": "2026-09-23T23:42:02.983884+00:00",
+      "sha256": "ac699bafd818944d1a29a44813757e7534915db8ce2b5c0c8f4c0226c1a2c4f2",
+      "bytes": 741179,
+      "width_px": 2400,
+      "height_px": 1934,
+      "capture_method": "Single native macOS screen-region screenshot of Chrome Guest and attribution Terminal together; no pixel edits or compositing",
+      "operator": "Codex under user delegation; not manual learner execution",
+      "image_modified": false,
+      "scope": "Live public React page with the VM IP visible in the actual browser address bar. Eze Favour attribution is in the adjacent native Terminal. Instructor name/date placeholders unchanged.",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 15,
+      "file": "screenshots/screenshot-15-terraform-destroy.png",
+      "captured_at_utc": "2026-09-23T23:48:16.118831+00:00",
+      "sha256": "715f1a232ee4b87da69ce0724f41dd7b38381c2a7573382118b8a7356850e6af",
+      "bytes": 760589,
+      "width_px": 2400,
+      "height_px": 1820,
+      "capture_method": "Native macOS Terminal window screenshot via screencapture; no shadow, no pixel edits",
+      "operator": "Codex under user delegation; not manual learner execution",
+      "image_modified": false,
+      "scope": "Actual saved plan/output or recorded real CLI/SSH result displayed in native Terminal; labelled as delegated execution",
+      "privacy_checked": true,
+      "visually_verified": true
+    }
+  ],
+  "capture_notes": [
+    "Slots 9\u201313 and 15 are genuine native Terminal captures of selected real saved-plan, CLI or recorded SSH output. They are explicitly labelled as Codex-operated.",
+    "Slot 9 was recaptured from the original saved plan after apply to include all proposed resource addresses. It is not a second plan or deployment.",
+    "Slot 14 is one native screen-region capture of the live Chrome Guest page and an attribution Terminal placed over unused lower-page space. The real browser address bar remains visible. No pixels were edited and no images were composited.",
+    "The unchanged instructor app retains Your Full Name and DD/MM/YYYY. Eze Favour is visible in the real Terminal; application personalization is not claimed.",
+    "Private identifiers, keys, controller address, raw logs, binary plans and Terraform state remain outside the public repository."
+  ],
+  "limits": [
+    "DMI has not regraded this result.",
+    "A new deployment requires its own reviewed plan and scoped approval; this completed run does not extend the spending window."
+  ]
+}

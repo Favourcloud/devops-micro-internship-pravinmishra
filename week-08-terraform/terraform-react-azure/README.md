@@ -1,12 +1,12 @@
-# Week 08 Assignment 3 — Azure React preparation
+# Week 08 Assignment 3 — Azure React deployment and evidence
 
 **Learner:** Eze Favour
 
 **Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
 
-**Status:** offline preparation with eight genuine local captures, not a completed assignment or an authorized deployment.
+**Status:** live deployment, runtime verification and teardown completed; **15/15 screenshots** captured. The [live run summary](evidence/live-run-summary.md) records the approved 24 September 2026 local-date run (23 September UTC), and [live provenance](evidence/live-provenance.json) preserves its timings, original image hashes and cleanup results.
 
-The [original assignment](../assignment-03-deploy-a-react-application-on-azure-virtual-machine-using-terraform.md) retains every rubric heading, requirement and checklist item. Screenshot slots **1–8 contain local evidence; 9–15 and the VM public IP remain pending** in the [evidence manifest](evidence/manifest.json). No manual learner execution, Azure success, SSH session, browser check, cleanup result or reflection is invented. Local tool/source/initialization captures are not cloud screenshots. No new permission follows from previous sessions; earlier authorizations are retired.
+The [original assignment](../assignment-03-deploy-a-react-application-on-azure-virtual-machine-using-terraform.md) retains every rubric heading, requirement and checklist item. The [manifest](evidence/manifest.json) records current completion separately from the unchanged historical local evidence and validation below. Codex performed the live work under user delegation. Public IP `4.225.168.0` is **retired after verified cleanup**. The instructor application's name/date placeholders remain unchanged; learner identity appears in the authentic Terminal alongside the browser. No new DMI grade is claimed.
 
 ## Genuine local evidence — slots 1–8
 
@@ -64,7 +64,7 @@ Reviewed public upstream at commit [`f1b1aff14fe15c5bde092067c93a307fa3d97982`](
 - Node **22.23.2 LTS**, bundled npm **10.9.8**, is supported at preparation time. See the [official release schedule](https://nodejs.org/en/about/previous-releases) before a future deployment; do not blindly use Node 17, the workstation's unsupported Node 23, or Ubuntu's older default Node package.
 - The VM's official `node-v22.23.2-linux-x64.tar.xz` SHA-256 is `d60acfe00a2932254bb0ad20e01b0d74397a0875595de719654b214f4b03f307`. The separate local-build `darwin-x64` archive SHA-256 is `96dff79f4e19a78715da559ec7cac2028f4985a175ea0c3454625a269c21deb7`. Both pins were read from the release's [official HTTPS checksums](https://nodejs.org/dist/v22.23.2/SHASUMS256.txt). Checksums are verified before extraction. This is pinned HTTPS/checksum provenance, **not** a claim that a release signature was independently verified.
 
-The instructor README requests changing `src/App.js` for name/date. This preparation deliberately does **not** do so: the repository's no-JavaScript-change constraint takes precedence. Upstream is fetched unchanged only into the future VM (and an isolated temporary local validation directory); no application JS is copied into this Git submission. Future evidence must show Eze Favour in an authentic terminal/editor title or visible desktop caption. The page's existing instructor/template text is not represented as personalized learner content. Do not edit pixels or invent a browser screenshot to resolve this limitation.
+The instructor README requests changing `src/App.js` for name/date. This submission deliberately does **not** do so: the repository's no-JavaScript-change constraint takes precedence. Upstream was fetched unchanged into the temporary VM (and an isolated temporary local validation directory); no application JS is copied into this Git submission. The live browser evidence shows Eze Favour in an authentic Terminal alongside Chrome; the actual address bar is visible. The page's existing instructor/template text is not represented as personalized learner content. Do not edit pixels or invent a browser screenshot to resolve this limitation.
 
 ### Bootstrap behavior
 
@@ -110,11 +110,13 @@ From this directory, run only the delivery and capture checks without Terraform,
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_[de]*.py'
 ```
 
-**Evidence integration result: 25 focused Python tests passed** — 15 delivery checks and 10 capture/provenance checks, with per-image/file subcases. These checks cover the ordered original rubric and all 15 titles, eight original PNG hashes/structure and relative links, sanitized metadata, UTC times and operator attribution, frozen source hashes, local initialization limits, pending cloud evidence and retained ignored private artifacts. The command was run with an empty inherited environment and bytecode writes disabled. Historical 46-Python/35-mock/build results are kept separate; the mock suite and application build were not rerun for this evidence-only update.
+**Historical local evidence integration result: 25 focused Python tests passed** — 15 delivery checks and 10 capture/provenance checks, with per-image/file subcases. These checks cover the ordered original rubric and all 15 titles, eight original PNG hashes/structure and relative links, sanitized metadata, UTC times and operator attribution, frozen source hashes, local initialization limits, pending cloud evidence and retained ignored private artifacts. The command was run with an empty inherited environment and bytecode writes disabled. Historical 46-Python/35-mock/build results are kept separate; the mock suite and application build were not rerun for this evidence-only update.
 
-## Prospective authorized runbook — DO NOT execute now
+The current live evidence update passed **28 focused Python checks** (15 delivery and 13 capture/provenance tests), recorded separately in [live-validation.json](evidence/live-validation.json). All 15 PNGs, eight frozen source files, original provenance and historical manifest sections were verified; the new Markdown links resolve. Historical validation records above are unchanged.
 
-The following commands are future instructions, not execution evidence. **Stop at any unavailable budget, identity, permission, capacity or approval gate.** A prior approval or an unavailable user is not consent. The parent session owns fresh cloud consent and serialized GUI evidence; do not independently use browsers, SSH or cloud APIs from this preparation session.
+## Runbook for future deployments
+
+The following commands are for future deployments, not additional execution evidence. The completed run above used its own explicit approval. A new lab needs a fresh reviewed plan, current identity/permission checks, a budget and a cleanup deadline; the completed one-hour window does not carry forward. **Stop at any unavailable budget, identity, permission, capacity or approval gate.**
 
 ### 1. Obtain fresh permission, identity and cost approval
 
