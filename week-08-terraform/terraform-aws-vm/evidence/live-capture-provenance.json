@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "assignment": "Week 08 Assignment 2",
+  "learner": "Eze Favour",
+  "operator": "Codex under user delegation; not manual learner execution",
+  "source_commit": "40771b24f19ea79a0fe5061790f2c0836e71d770",
+  "source_changes_before_execution": "Only the verified linux_amd64 provider checksum was added; Terraform resources and bootstrap unchanged.",
+  "source_hashes": {
+    "main.tf": "01b6a3b86b030aa1e34a5cddf8748b1b65131cd73e8a75e63ed7a67e42c1754a",
+    ".terraform.lock.hcl": "919f3110edff0ae2e4a553abf21adb4b2d855d170067f54c48df2008dbf9f8a0",
+    "terraform.tfvars.example": "bb244b436be0ea8815e1f46feb989e5418bcc28966a1f09cb4354ae916a9b796",
+    "scripts/cloud-init.sh": "a4238889345828c1fb0abf132c6fb66ea188744f628f11eccbc0f7c159de62fb",
+    "scripts/check-offline.sh": "710953ee004f6cb9d64676849eba3eb1c349a992154d2417cc6c688a14057fbe",
+    "scripts/check-cleanup.py": "299df5a08e6d26ec228763dc84528df9d61437fb8b5250f53f59043667916caa",
+    "tests/offline.tftest.hcl": "191db019082d8ba5f62f37b9820c92f5da149623b52b357a4e7371b16c0b3377"
+  },
+  "terraform_version": "1.13.5",
+  "terraform_platform": "linux_amd64",
+  "aws_provider_version": "6.64.0",
+  "linux_provider_hash_added": "h1:2fTLxzUDmp/KVIHbIeLTB4bIzWHx8E6Dw+1ALLUi+Yw=",
+  "provider_signature_verified": "HashiCorp",
+  "region": "us-east-1",
+  "authorization": {
+    "user_approved": true,
+    "maximum_minutes": 60,
+    "maximum_usd": 1,
+    "scope": "Assignment 2 only: 11 resources, public HTTP, controller IPv4 /32 SSH, verification, screenshots and Terraform teardown"
+  },
+  "authentication": "Existing root console CloudShell temporary session; same replacement account checked privately before plan/apply/teardown; no IAM users or AWS access keys created",
+  "account_identity_reverified": true,
+  "controller_ip_reverified": true,
+  "saved_plan_sha256": "65a81b06c932337011f49d2d76166ccc8848ede9a40232881e5dc112ce658999",
+  "plan": {
+    "add": 11,
+    "change": 0,
+    "destroy": 0
+  },
+  "apply": {
+    "started_at_utc": "2026-09-23T22:41:43Z",
+    "inventory_completed_at_utc": "2026-09-23T22:42:20Z",
+    "added": 11,
+    "changed": 0,
+    "destroyed": 0
+  },
+  "outputs": {
+    "instance_id": "i-05972a6598e2eb990",
+    "public_ip": "3.80.169.89",
+    "ami_id": "ami-0045d7fc2ad003464",
+    "website_url": "http://3.80.169.89/",
+    "address_retired_after_teardown": true
+  },
+  "verification": {
+    "aws_matches_terraform_instance_and_ip": true,
+    "instance_state": "running",
+    "system_health": "ok",
+    "instance_health": "ok",
+    "browser_tab_url": "http://3.80.169.89/",
+    "browser_content": "Nginx — Week 08 Assignment 2; Eze Favour · DevOps Micro Internship; Ubuntu on EC2, provisioned with Terraform.",
+    "public_http_verified": true,
+    "ssh_succeeded": true,
+    "ssh_strict_host_checking": true,
+    "ssh_host_fingerprint_source": "Matched to the independently retrieved AWS EC2 system console log",
+    "cloud_init": "done",
+    "nginx_configuration": "valid",
+    "nginx_service": "active",
+    "localhost_http_verified": true,
+    "vscode_terraform_extension": "hashicorp.terraform@2.40.0 installed in Visual Studio Code; enabled by default"
+  },
+  "cleanup": {
+    "destroyed_resources": 11,
+    "exact_id_checks_passed": 13,
+    "exact_id_checks_exit_code": 0,
+    "checked_addresses": [
+      "aws_instance.web",
+      "aws_internet_gateway.lab",
+      "aws_key_pair.lab",
+      "aws_route_table.private",
+      "aws_route_table.public",
+      "aws_route_table_association.private",
+      "aws_route_table_association.public",
+      "aws_security_group.web",
+      "aws_subnet.private",
+      "aws_subnet.public",
+      "aws_vpc.lab",
+      "primary_eni",
+      "root_volume"
+    ],
+    "result": "All exact IDs absent or EC2 terminated; root EBS volume and primary ENI absent",
+    "remaining_state_resources": 0,
+    "completed_at_utc": "2026-09-23T22:50:11.300624+00:00",
+    "fallback_timer_stopped": true
+  },
+  "cost": {
+    "base_estimate_usd_per_hour": 0.0163,
+    "base_run_estimate_usd_less_than": 0.01,
+    "actual_bill_verified": false,
+    "note": "Base estimate before credits includes EC2, public IPv4 and 8 GiB gp3; data transfer additional. Cleanup is not a zero-bill claim."
+  },
+  "cloud_execution_verified": true,
+  "pending_slots": [],
+  "screenshots": [
+    {
+      "number": 5,
+      "file": "evidence/screenshot-05-terraform-plan.png",
+      "label": "Eze Favour — Screenshot 5: real Terraform plan",
+      "captured_at_utc": "2026-09-23T22:37:54.896Z",
+      "sha256": "f464c75d0e1c6bd68d086482e320fb89835115de9001e477ccc5664ece35de00",
+      "original_sha256": "34e6db7b1fee951d23f2f9c046f43d33b1d20be22977dc663767336bfdcc2991",
+      "width_px": 1280,
+      "height_px": 630,
+      "original_dimensions_px": [
+        1280,
+        720
+      ],
+      "original_format": "JPEG",
+      "published_format": "PNG",
+      "crop_box_xywh": [
+        0,
+        55,
+        1280,
+        630
+      ],
+      "processing": "Crop to CloudShell terminal and Region, excluding account navigation/footer; JPEG-to-PNG conversion; no output text edited",
+      "privacy_checked": true,
+      "scope": "The saved real plan proposed 11 additions, no changes and no deletions. This exact reviewed plan was subsequently applied under the user’s approval."
+    },
+    {
+      "number": 6,
+      "file": "evidence/screenshot-06-terraform-apply.png",
+      "label": "Eze Favour — Screenshot 6: successful Terraform apply",
+      "captured_at_utc": "2026-09-23T22:43:10.154Z",
+      "sha256": "802b3248cb564f5fa2a223af25c65c285ba173bff24de70fed6c8085dabef7d7",
+      "original_sha256": "e050b2821aab3d14da5a4620724859d797c619e57a720af0c52fd60d388ff349",
+      "width_px": 1280,
+      "height_px": 630,
+      "original_dimensions_px": [
+        1280,
+        720
+      ],
+      "original_format": "JPEG",
+      "published_format": "PNG",
+      "crop_box_xywh": [
+        0,
+        55,
+        1280,
+        630
+      ],
+      "processing": "Crop to CloudShell terminal and Region, excluding account navigation/footer; JPEG-to-PNG conversion; no output text edited",
+      "privacy_checked": true,
+      "scope": "Actual Terraform apply completed: 11 resources added, 0 changed, 0 destroyed. This output was followed by independent application and AWS checks."
+    },
+    {
+      "number": 7,
+      "file": "evidence/screenshot-07-public-ip-output.png",
+      "label": "Eze Favour — Screenshot 7: actual EC2 public IP output",
+      "captured_at_utc": "2026-09-23T22:43:53.879Z",
+      "sha256": "9969377f7a9398207181b80f153780cf41ce053a983f653ff29178192c456aca",
+      "original_sha256": "ba3801262a309dc520e0994f3663232a2a3e796002ddf4c054d87924db5eb57a",
+      "width_px": 1280,
+      "height_px": 630,
+      "original_dimensions_px": [
+        1280,
+        720
+      ],
+      "original_format": "JPEG",
+      "published_format": "PNG",
+      "crop_box_xywh": [
+        0,
+        55,
+        1280,
+        630
+      ],
+      "processing": "Crop to CloudShell terminal and Region, excluding account navigation/footer; JPEG-to-PNG conversion; no output text edited",
+      "privacy_checked": true,
+      "scope": "Terraform returned the actual public IP 3.80.169.89 for instance i-05972a6598e2eb990. This address was retired after the lab was destroyed; it is historical evidence, not a current endpoint."
+    },
+    {
+      "number": 8,
+      "file": "evidence/screenshot-08-ec2-running.png",
+      "label": "Eze Favour — Screenshot 8: running EC2 instance and matching public IP",
+      "captured_at_utc": "2026-09-23T22:46:05.025Z",
+      "sha256": "84f7a7aa9e1bb17c35485a9a3ca62af88035c87600b76430ad310e00db0ef17a",
+      "original_sha256": "4c390eb68469127b21be1f8238323792bce424e5740379c10f411dd43789d1a2",
+      "width_px": 1280,
+      "height_px": 630,
+      "original_dimensions_px": [
+        1280,
+        720
+      ],
+      "original_format": "JPEG",
+      "published_format": "PNG",
+      "crop_box_xywh": [
+        0,
+        55,
+        1280,
+        630
+      ],
+      "processing": "Crop to CloudShell terminal and Region, excluding account navigation/footer; JPEG-to-PNG conversion; no output text edited",
+      "privacy_checked": true,
+      "scope": "AWS CLI showed instance i-05972a6598e2eb990 running at 3.80.169.89. Both identifiers matched Terraform outputs; EC2 system and instance health were ok."
+    },
+    {
+      "number": 9,
+      "file": "evidence/screenshot-09-nginx-browser.png",
+      "label": "Eze Favour — Screenshot 9: live Nginx page in the browser",
+      "captured_at_utc": "2026-09-23T22:45:55.454Z",
+      "sha256": "e244b0cb623db7aab6d09e05eee956b6161824cad64ed190cace4e5d37b95bd9",
+      "original_sha256": "f4e95b8c1d0873be5619092de70f31be7ee45142032f28c8ed6b35e0eb596021",
+      "width_px": 1280,
+      "height_px": 720,
+      "original_dimensions_px": [
+        1280,
+        720
+      ],
+      "original_format": "JPEG",
+      "published_format": "PNG",
+      "crop_box_xywh": null,
+      "processing": "JPEG-to-PNG conversion; no content edits",
+      "privacy_checked": true,
+      "scope": "The browser loaded the Nginx page from `http://3.80.169.89/` during the live run. The content capture excludes the address bar; the selected tab URL and independent HTTP/SSH checks are recorded in the live provenance. The address was retired after teardown."
+    },
+    {
+      "number": 10,
+      "file": "evidence/screenshot-10-terraform-destroy.png",
+      "label": "Eze Favour — Screenshot 10: Terraform destroy and exact cleanup checks",
+      "captured_at_utc": "2026-09-23T22:50:24.540Z",
+      "sha256": "2eb05124c86335415d1c26f0a5932086c721407684b335b4b53f355aab45c6e0",
+      "original_sha256": "379702bfa6180d0310cffb4fc16016fd965428f5dda939c8eb62b0c7246f72df",
+      "width_px": 1280,
+      "height_px": 630,
+      "original_dimensions_px": [
+        1280,
+        720
+      ],
+      "original_format": "JPEG",
+      "published_format": "PNG",
+      "crop_box_xywh": [
+        0,
+        55,
+        1280,
+        630
+      ],
+      "processing": "Crop to CloudShell terminal and Region, excluding account navigation/footer; JPEG-to-PNG conversion; no output text edited",
+      "privacy_checked": true,
+      "scope": "Terraform destroyed all 11 managed resources. The exact-ID cleanup helper passed all 13 checks, including the root EBS volume and primary network interface; Terraform state was empty."
+    }
+  ],
+  "privacy": "No account ID, controller IP, credentials, private key, raw plan/state/identity or unfiltered console logs published. Original captures and private state retained outside public evidence.",
+  "historical_provenance": "evidence/capture-provenance.json"
+}

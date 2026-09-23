@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "validated_at_utc": "2026-09-23T22:57:42.838836+00:00",
+  "scope": "September 23 A2 delivery; separate from preserved September 16\u201317 local-validation.json",
+  "operator": "Codex under user delegation",
+  "checks": [
+    {
+      "command": "python3 -B -m unittest discover -s tests -p 'test_*.py' -v",
+      "tests_passed": 46,
+      "tests_failed": 0,
+      "scope": "13 contract, 15 cleanup and 18 evidence-delivery tests; historical image hashes, current 10/10 manifest, PNG hashes/CRC/dimensions, original rubric, retired IP, lifecycle timing, exact cleanup coverage, Linux-only lock addition, links and private-artifact checks"
+    },
+    {
+      "command": "bash scripts/check-offline.sh",
+      "terraform_version": "1.13.5",
+      "platform": "darwin_amd64",
+      "aws_provider_version": "6.64.0",
+      "mock_runs_passed": 25,
+      "mock_runs_failed": 0,
+      "fmt": "passed",
+      "init_readonly": "passed",
+      "validate": "passed",
+      "shell_syntax": "passed",
+      "scope": "Isolated environment, trusted existing filesystem mirror, no AWS calls; the real Linux execution is recorded separately"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "historical_records_modified": false,
+  "live_evidence": "evidence/live-capture-provenance.json",
+  "limitations": [
+    "Local tests do not replay the AWS lab. Live results are supported by the captured September 23 execution and cleanup evidence.",
+    "Actual billing has not been verified. DMI review still reports 70/190 as of its September 23 review, before this delivery."
+  ]
+}

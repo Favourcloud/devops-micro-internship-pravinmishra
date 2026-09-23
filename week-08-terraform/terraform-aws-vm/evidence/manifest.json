@@ -1,14 +1,14 @@
 {
   "assignment": "Week 08 Assignment 2",
   "learner": "Eze Favour",
-  "status": "offline-only; 4 of 10 genuine local captures integrated; slots 5–10 pending",
+  "status": "Live AWS lifecycle completed and cleaned up; 10 of 10 genuine captures integrated",
   "brief": "../assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md",
-  "capture_owner": "Coordinating parent session; GitHub Copilot under user delegation, not manual learner execution",
+  "capture_owner": "Historical local captures: GitHub Copilot; live captures: Codex; both under user delegation, not manual learner execution",
   "provenance": "evidence/capture-provenance.json",
-  "captured_count": 4,
+  "captured_count": 10,
   "required_count": 10,
-  "pending_slots": [5, 6, 7, 8, 9, 10],
-  "cloud_execution_verified": false,
+  "pending_slots": [],
+  "cloud_execution_verified": true,
   "privacy": "Show Eze Favour/name or username. Exclude credentials, account IDs, private keys and controller identity details. Genuine approved EC2 public IP evidence is required for slots 7–9.",
   "screenshots": [
     {
@@ -50,44 +50,63 @@
     {
       "number": 5,
       "requirement": "Screenshot 5 — Terraform plan summary showing the proposed resources",
-      "status": "pending",
-      "file": null,
-      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+      "status": "captured",
+      "file": "evidence/screenshot-05-terraform-plan.png",
+      "note": "The saved real plan proposed 11 additions, no changes and no deletions. This exact reviewed plan was subsequently applied under the user’s approval.",
+      "captured_at_utc": "2026-09-23T22:37:54.896Z",
+      "sha256": "f464c75d0e1c6bd68d086482e320fb89835115de9001e477ccc5664ece35de00",
+      "provenance": "evidence/live-capture-provenance.json"
     },
     {
       "number": 6,
       "requirement": "Screenshot 6 — Terraform apply output showing successful completion",
-      "status": "pending",
-      "file": null,
-      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+      "status": "captured",
+      "file": "evidence/screenshot-06-terraform-apply.png",
+      "note": "Actual Terraform apply completed: 11 resources added, 0 changed, 0 destroyed. This output was followed by independent application and AWS checks.",
+      "captured_at_utc": "2026-09-23T22:43:10.154Z",
+      "sha256": "802b3248cb564f5fa2a223af25c65c285ba173bff24de70fed6c8085dabef7d7",
+      "provenance": "evidence/live-capture-provenance.json"
     },
     {
       "number": 7,
       "requirement": "Screenshot 7 — Terraform output showing the public IP address of the EC2 instance",
-      "status": "pending",
-      "file": null,
-      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+      "status": "captured",
+      "file": "evidence/screenshot-07-public-ip-output.png",
+      "note": "Terraform returned the actual public IP 3.80.169.89 for instance i-05972a6598e2eb990. This address was retired after the lab was destroyed; it is historical evidence, not a current endpoint.",
+      "captured_at_utc": "2026-09-23T22:43:53.879Z",
+      "sha256": "9969377f7a9398207181b80f153780cf41ce053a983f653ff29178192c456aca",
+      "provenance": "evidence/live-capture-provenance.json"
     },
     {
       "number": 8,
       "requirement": "Screenshot 8 — AWS CLI output showing the EC2 instance ID, `running` state, and public IP address",
-      "status": "pending",
-      "file": null,
-      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+      "status": "captured",
+      "file": "evidence/screenshot-08-ec2-running.png",
+      "note": "AWS CLI showed instance i-05972a6598e2eb990 running at 3.80.169.89. Both identifiers matched Terraform outputs; EC2 system and instance health were ok.",
+      "captured_at_utc": "2026-09-23T22:46:05.025Z",
+      "sha256": "84f7a7aa9e1bb17c35485a9a3ca62af88035c87600b76430ad310e00db0ef17a",
+      "provenance": "evidence/live-capture-provenance.json"
     },
     {
       "number": 9,
       "requirement": "Screenshot 9 — Browser showing the Nginx page successfully loaded using the EC2 instance public IP",
-      "status": "pending",
-      "file": null,
-      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+      "status": "captured",
+      "file": "evidence/screenshot-09-nginx-browser.png",
+      "note": "The browser loaded the Nginx page from `http://3.80.169.89/` during the live run. The content capture excludes the address bar; the selected tab URL and independent HTTP/SSH checks are recorded in the live provenance. The address was retired after teardown.",
+      "captured_at_utc": "2026-09-23T22:45:55.454Z",
+      "sha256": "e244b0cb623db7aab6d09e05eee956b6161824cad64ed190cace4e5d37b95bd9",
+      "provenance": "evidence/live-capture-provenance.json"
     },
     {
       "number": 10,
       "requirement": "Screenshot 10 — Terminal showing successful `terraform destroy` completion",
-      "status": "pending",
-      "file": null,
-      "note": "Requires newly authorized execution and genuine capture; no runtime claim."
+      "status": "captured",
+      "file": "evidence/screenshot-10-terraform-destroy.png",
+      "note": "Terraform destroyed all 11 managed resources. The exact-ID cleanup helper passed all 13 checks, including the root EBS volume and primary network interface; Terraform state was empty.",
+      "captured_at_utc": "2026-09-23T22:50:24.540Z",
+      "sha256": "2eb05124c86335415d1c26f0a5932086c721407684b335b4b53f355aab45c6e0",
+      "provenance": "evidence/live-capture-provenance.json"
     }
-  ]
+  ],
+  "live_provenance": "evidence/live-capture-provenance.json"
 }

@@ -6,11 +6,11 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 **Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
 
-**Status: offline preparation only — not a completed cloud deployment or submission.**
+**Status: live AWS lab completed and cleaned up — 10 of 10 genuine captures included.**
 
-The [Terraform project and gated runbook](terraform-aws-vm/README.md) implement this assignment's public EC2 topology with an isolated private subnet, controller-only SSH, public HTTP, and a real Ubuntu Nginx bootstrap. Local mock tests check the configuration without contacting AWS. These are Copilot-assisted preparation checks, not evidence that the learner manually executed the tasks. No live account access, deployment, public IP, Nginx runtime verification, or cleanup has been established for this assignment. No personal reflection or grade outcome is claimed.
+On 23 September 2026, the approved [Terraform project](terraform-aws-vm/README.md) created a custom VPC, public and private subnets, Internet Gateway, route tables, security group, SSH key import and Ubuntu EC2 instance in `us-east-1`. The actual apply added 11 resources. AWS CLI confirmed the running instance and matching public IP; SSH verified cloud-init completion and active Nginx, and the browser loaded the named page. Terraform subsequently destroyed all 11 resources. Exact-ID AWS checks confirmed cleanup of the managed objects, root disk and network interface, and the state was empty.
 
-**4 of 10 genuine local captures are included below; slots 5–10 remain pending.** Screenshots 1–4 show the local AWS CLI version, provider/VPC source, EC2/public-IP output source, and successful normal local-backend initialization. They were captured by GitHub Copilot under user delegation, not through manual learner execution. See the [evidence manifest](terraform-aws-vm/evidence/manifest.json) and [sanitized capture provenance](terraform-aws-vm/evidence/capture-provenance.json) for timestamps, original-byte hashes and scope. A fresh approved account/Region, sufficient existing EC2 permissions, a budget and cleanup window, and genuine runtime captures are still required. Historical approval and local initialization do not authorize an AWS deployment.
+Screenshots 1–4 are the unchanged earlier local captures, operated by GitHub Copilot. Screenshots 5–10 are the new live captures, operated by Codex under user delegation, not manual learner execution. The original rubric remains intact, and checkmarks below record verified delegated work. The local HashiCorp Terraform extension is installed in Visual Studio Code as version 2.40.0. See the [manifest](terraform-aws-vm/evidence/manifest.json), [historical capture provenance](terraform-aws-vm/evidence/capture-provenance.json), [live provenance](terraform-aws-vm/evidence/live-capture-provenance.json) and [run summary](terraform-aws-vm/evidence/live-run-summary.md). No personal reflection or new grade is claimed.
 
 ---
 
@@ -108,19 +108,25 @@ Review the Terraform execution plan, provision the AWS resources, and record the
 
 #### Screenshot 5 — Terraform plan summary showing the proposed resources
 
-**Pending — Screenshot 5 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 5: real Terraform plan](terraform-aws-vm/evidence/screenshot-05-terraform-plan.png)
+
+The saved real plan proposed 11 additions, no changes and no deletions. This exact reviewed plan was subsequently applied under the user’s approval.
 
 ---
 
 #### Screenshot 6 — Terraform apply output showing successful completion
 
-**Pending — Screenshot 6 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 6: successful Terraform apply](terraform-aws-vm/evidence/screenshot-06-terraform-apply.png)
+
+Actual Terraform apply completed: 11 resources added, 0 changed, 0 destroyed. This output was followed by independent application and AWS checks.
 
 ---
 
 #### Screenshot 7 — Terraform output showing the public IP address of the EC2 instance
 
-**Pending — Screenshot 7 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 7: actual EC2 public IP output](terraform-aws-vm/evidence/screenshot-07-public-ip-output.png)
+
+Terraform returned the actual public IP 3.80.169.89 for instance i-05972a6598e2eb990. This address was retired after the lab was destroyed; it is historical evidence, not a current endpoint.
 
 ---
 
@@ -128,7 +134,7 @@ Review the Terraform execution plan, provision the AWS resources, and record the
 
 Record the public IP address displayed by `terraform output`.
 
-**EC2 Public IP Address:** `Pending — no authorized live deployment`
+**EC2 Public IP Address:** `3.80.169.89` — retired after verified teardown on 23 September 2026; not a current endpoint.
 
 ---
 
@@ -150,13 +156,17 @@ Confirm that:
 
 #### Screenshot 8 — AWS CLI output showing the EC2 instance ID, `running` state, and public IP address
 
-**Pending — Screenshot 8 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 8: running EC2 instance and matching public IP](terraform-aws-vm/evidence/screenshot-08-ec2-running.png)
+
+AWS CLI showed instance i-05972a6598e2eb990 running at 3.80.169.89. Both identifiers matched Terraform outputs; EC2 system and instance health were ok.
 
 ---
 
 #### Screenshot 9 — Browser showing the Nginx page successfully loaded using the EC2 instance public IP
 
-**Pending — Screenshot 9 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 9: live Nginx page in the browser](terraform-aws-vm/evidence/screenshot-09-nginx-browser.png)
+
+The browser loaded the Nginx page from `http://3.80.169.89/` during the live run. The content capture excludes the address bar; the selected tab URL and independent HTTP/SSH checks are recorded in the live provenance. The address was retired after teardown.
 
 ---
 
@@ -170,7 +180,9 @@ Remove all AWS resources created by Terraform after completing the deployment an
 
 #### Screenshot 10 — Terminal showing successful `terraform destroy` completion
 
-**Pending — Screenshot 10 has not been captured.** Add your screenshot here.
+![Eze Favour — Screenshot 10: Terraform destroy and exact cleanup checks](terraform-aws-vm/evidence/screenshot-10-terraform-destroy.png)
+
+Terraform destroyed all 11 managed resources. The exact-ID cleanup helper passed all 13 checks, including the root EBS volume and primary network interface; Terraform state was empty.
 
 ---
 
@@ -190,35 +202,35 @@ Remove all AWS resources created by Terraform after completing the deployment an
 
 # Completion Checklist
 
-Checked items below refer to repository preparation and the captured Copilot-operated local AWS CLI/normal-init verification, not manual learner execution. Account access, Region confirmation and runtime tasks remain unverified. The local-backend init satisfies only the local initialization step; no real plan/apply, public IP, Nginx runtime or destroy result is claimed.
+Checked items below record the earlier local preparation and the approved September 23 live run. Codex verified account access and Region through the existing CloudShell session, completed the real plan/apply, checked EC2 and Nginx through AWS CLI/SSH/HTTP/browser, and verified Terraform teardown. These are verified delegated operations, not manual learner execution.
 
-* [ ] Installed Terraform and verified it using `terraform version`
+* [x] Installed Terraform and verified it using `terraform version`
 * [x] Installed AWS CLI and verified it using `aws --version`
-* [ ] Configured AWS CLI and verified account access
-* [ ] Confirmed the correct AWS Region
-* [ ] Installed and enabled the HashiCorp Terraform extension in VS Code
+* [x] Configured AWS CLI and verified account access
+* [x] Confirmed the correct AWS Region
+* [x] Installed and enabled the HashiCorp Terraform extension in VS Code
 * [x] Created the `terraform-aws-vm` project directory and `main.tf`
 * [x] Added the Terraform and AWS provider configuration
 * [x] Defined the custom VPC, public subnet, and private subnet
 * [x] Configured the Internet Gateway and public route table
 * [x] Associated the public route table with the public subnet
 * [x] Defined the security group for SSH and HTTP access
-* [ ] Restricted SSH access to my public IP whenever possible
+* [x] Restricted SSH access to my public IP whenever possible
 * [x] Defined the EC2 instance inside the public subnet
-* [ ] Configured SSH authentication without exposing the private key
+* [x] Configured SSH authentication without exposing the private key
 * [x] Added the Terraform output for the EC2 public IP address
 * [x] Completed `terraform init` successfully
-* [ ] Reviewed the Terraform execution plan using `terraform plan`
-* [ ] Completed `terraform apply` successfully
-* [ ] Captured and recorded the EC2 public IP using `terraform output`
-* [ ] Verified that the EC2 instance is running using AWS CLI
-* [ ] Verified that the AWS public IP matches the Terraform output
-* [ ] Verified Nginx access through the EC2 public IP
-* [ ] Completed `terraform destroy` successfully
-* [ ] Captured all 10 required screenshots
-* [ ] Confirmed that my full name is visible in the required screenshots
-* [ ] Checked that no AWS credentials, private keys, passwords, account IDs, or other sensitive information are visible
-* [ ] Confirmed that no `.pem` private key file has been uploaded to the GitHub repository
+* [x] Reviewed the Terraform execution plan using `terraform plan`
+* [x] Completed `terraform apply` successfully
+* [x] Captured and recorded the EC2 public IP using `terraform output`
+* [x] Verified that the EC2 instance is running using AWS CLI
+* [x] Verified that the AWS public IP matches the Terraform output
+* [x] Verified Nginx access through the EC2 public IP
+* [x] Completed `terraform destroy` successfully
+* [x] Captured all 10 required screenshots
+* [x] Confirmed that my full name is visible in the required screenshots
+* [x] Checked that no AWS credentials, private keys, passwords, account IDs, or other sensitive information are visible
+* [x] Confirmed that no `.pem` private key file has been uploaded to the GitHub repository
 
 ---
 
