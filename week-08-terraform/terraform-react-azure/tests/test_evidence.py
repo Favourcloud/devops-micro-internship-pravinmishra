@@ -19,6 +19,7 @@ FROZEN_FILES = {
 }
 MANIFEST = json.loads((EVIDENCE / 'manifest.json').read_text())
 PROVENANCE = json.loads((EVIDENCE / 'provenance.json').read_text())
+LIVE = json.loads((EVIDENCE / 'live-provenance.json').read_text())
 
 
 def png_chunks(data):
@@ -57,11 +58,11 @@ class EvidenceTests(unittest.TestCase):
                 self.assertEqual(height, 2006 if item['number'] in (4, 6, 7) else 2010)
 
     def test_exact_capture_inventory_and_mapping(self):
-        items = PROVENANCE['screenshots']
-        self.assertEqual([s['number'] for s in items], list(range(1, 9)))
-        self.assertEqual(len({s['sha256'] for s in items}), 8)
+        items = PROVENANCE['screenshots'] + LIVE['screenshots']
+        self.assertEqual([s['number'] for s in items], list(range(1, 16)))
+        self.assertEqual(len({s['sha256'] for s in items}), 15)
         expected = set()
-        for item, slot in zip(items, MANIFEST['screenshots'][:8]):
+        for item, slot in zip(items, MANIFEST['screenshots']):
             path = Path(item['file'])
             self.assertFalse(path.is_absolute())
             self.assertNotIn('..', path.parts)
@@ -72,6 +73,7 @@ class EvidenceTests(unittest.TestCase):
         self.assertFalse((EVIDENCE / 'screenshots').is_symlink())
         self.assertEqual(set(EVIDENCE.rglob('*.png')), expected)
         self.assertEqual(MANIFEST['provenance'], 'provenance.json')
+        self.assertEqual(MANIFEST['live_provenance'], 'live-provenance.json')
 
     def test_sanitized_provenance_schema(self):
         self.assertEqual(set(PROVENANCE), {
@@ -169,22 +171,80 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(len(sections), 15)
         for slot, section in zip(MANIFEST['screenshots'], sections):
             images = re.findall(r'!\[([^\]]+)\]\(([^)]+)\)', section)
-            if slot['number'] <= 8:
-                self.assertEqual(len(images), 1)
-                self.assertIn('Eze Favour', images[0][0])
-                self.assertIn('Copilot-operated', images[0][0])
-                self.assertEqual(images[0][1], 'terraform-react-azure/evidence/' + slot['file'])
-                self.assertIn('**Evidence status:** Captured', section)
-            else:
-                self.assertEqual(images, [])
-                self.assertIn('**Evidence status:** Pending', section)
+            self.assertEqual(len(images), 1)
+            self.assertIn('Eze Favour', images[0][0])
+            self.assertIn('Copilot-operated' if slot['number'] <= 8 else 'Codex-operated', images[0][0])
+            self.assertEqual(images[0][1], 'terraform-react-azure/evidence/' + slot['file'])
+            self.assertIn('**Evidence status:** Captured', section)
         self.assertIn('whole file is not visible', sections[5])
         self.assertIn('not runtime', sections[5])
         self.assertIn('/tmp/dmi-react.XXXXXXXX', sections[5])
         self.assertIn('not a real public IP', sections[6])
         self.assertIn('normal **local backend**', sections[7])
-        self.assertIn('- [ ] Signed in to Azure and confirmed the correct subscription', brief)
-        self.assertIn('- [ ] Captured all 15 required screenshots', brief)
+        self.assertIn('- [x] Signed in to Azure and confirmed the correct subscription', brief)
+        self.assertIn('- [x] Captured all 15 required screenshots', brief)
+        self.assertIn('placeholders remain unchanged', sections[13])
+        self.assertIn('actual browser address bar', sections[13])
+
+    def test_live_capture_integrity_and_attribution(self):
+        self.assertEqual([s['number'] for s in LIVE['screenshots']], list(range(9, 16)))
+        for item in LIVE['screenshots']:
+            with self.subTest(slot=item['number']):
+                data = (EVIDENCE / item['file']).read_bytes()
+                self.assertEqual(hashlib.sha256(data).hexdigest(), item['sha256'])
+                self.assertEqual(len(data), item['bytes'])
+                chunks = list(png_chunks(data))
+                self.assertEqual(chunks[-1], (b'IEND', b''))
+                self.assertEqual(struct.unpack('>II', chunks[0][1][:8]), (item['width_px'], item['height_px']))
+                captured = datetime.datetime.fromisoformat(item['captured_at_utc'])
+                self.assertEqual(captured.utcoffset(), datetime.timedelta(0))
+                self.assertFalse(item['image_modified'])
+                self.assertTrue(item['privacy_checked'])
+                self.assertTrue(item['visually_verified'])
+                self.assertEqual(item['operator'], 'Codex under user delegation; not manual learner execution')
+        self.assertIn('screen-region', LIVE['screenshots'][5]['capture_method'])
+        self.assertFalse(LIVE['runtime']['application_personalized'])
+
+    def test_live_lifecycle_and_cleanup_record(self):
+        lifecycle = LIVE['lifecycle']
+        start = datetime.datetime.fromisoformat(lifecycle['started_at_utc'])
+        applied = datetime.datetime.fromisoformat(lifecycle['apply_completed_at_utc'])
+        browser = datetime.datetime.fromisoformat(LIVE['runtime']['browser_verified_at_utc'])
+        end = datetime.datetime.fromisoformat(lifecycle['cleanup_completed_at_utc'])
+        self.assertLess(start, applied)
+        self.assertLess(applied, browser)
+        self.assertLess(browser, end)
+        self.assertLess((end - start).total_seconds(), 3600)
+        self.assertEqual(lifecycle['resources_added'], 8)
+        self.assertEqual(lifecycle['resources_destroyed'], 8)
+        cleanup = LIVE['cleanup']
+        self.assertEqual(cleanup['exact_ids_checked'], 8)
+        self.assertEqual(len(set(cleanup['absent'])), 8)
+        self.assertIn('os_disk', cleanup['absent'])
+        self.assertNotIn('azurerm_network_interface_security_group_association.app', cleanup['absent'])
+        self.assertTrue(cleanup['nic_nsg_association_removed'])
+        self.assertFalse(cleanup['resource_group_exists'])
+        self.assertEqual(cleanup['remaining_state'], 0)
+        runtime = LIVE['runtime']
+        self.assertEqual(runtime['public_http_status'], 200)
+        self.assertEqual(runtime['ssh_exit_code'], 0)
+        for key in ('azure_running', 'azure_ip_matches_terraform', 'ssh_strict_host_checking',
+                    'cloud_init_succeeded', 'readiness_marker_verified', 'nginx_active',
+                    'nginx_config_valid', 'spa_fallback_matches_index', 'browser_verified',
+                    'browser_address_bar_verified'):
+            self.assertIs(runtime[key], True, key)
+        self.assertEqual(MANIFEST['public_ip_address'], runtime['public_ip'])
+        self.assertEqual(LIVE['approval']['maximum_usd'], 1)
+        self.assertEqual(LIVE['approval']['maximum_minutes'], 60)
+        self.assertFalse(LIVE['cost']['actual_bill_verified'])
+
+    def test_live_source_and_historical_provenance_unchanged(self):
+        for name, digest in LIVE['source_hashes'].items():
+            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest)
+        original = subprocess.check_output([
+            'git', 'show', f"{LIVE['source_commit']}:week-08-terraform/terraform-react-azure/evidence/provenance.json",
+        ], cwd=ROOT)
+        self.assertEqual((EVIDENCE / 'provenance.json').read_bytes(), original)
 
     def test_existing_private_capture_artifacts_remain_ignored(self):
         private = ROOT / '.private'
@@ -211,7 +271,7 @@ class EvidenceTests(unittest.TestCase):
         ]
         texts = [BRIEF.read_text(), (ROOT / 'README.md').read_text()]
         texts.extend(p.read_text() for p in EVIDENCE.glob('*.json'))
-        for item in PROVENANCE['screenshots']:
+        for item in PROVENANCE['screenshots'] + LIVE['screenshots']:
             for kind, payload in png_chunks((EVIDENCE / item['file']).read_bytes()):
                 if kind == b'IDAT':
                     continue

@@ -75,14 +75,15 @@ class DeliveryTests(unittest.TestCase):
             self.assertLess(index, len(actual), f'Missing/reordered rubric line: {line}')
             index += 1
 
-    def test_fifteen_slots_with_eight_local_captures(self):
+    def test_fifteen_slots_with_local_and_live_captures(self):
         data = json.loads((ROOT / 'evidence/manifest.json').read_text())
-        self.assertFalse(data['assignment_complete'])
-        self.assertFalse(data['cloud_authorized'])
-        self.assertFalse(data['cloud_deployment_verified'])
-        self.assertIsNone(data['public_ip_address'])
-        self.assertEqual(data['captured_slots'], list(range(1, 9)))
-        self.assertEqual(data['pending_slots'], list(range(9, 16)))
+        self.assertTrue(data['assignment_complete'])
+        self.assertTrue(data['cloud_authorized'])
+        self.assertTrue(data['cloud_deployment_verified'])
+        self.assertTrue(data['cleanup_verified'])
+        self.assertEqual(data['public_ip_status'], 'retired-after-verified-cleanup')
+        self.assertEqual(data['captured_slots'], list(range(1, 16)))
+        self.assertEqual(data['pending_slots'], [])
         self.assertEqual([s['number'] for s in data['screenshots']], list(range(1, 16)))
         headings = re.findall(r'^### Screenshot .+$', BRIEF.read_text(), re.M)
         self.assertEqual([s['rubric_heading'] for s in data['screenshots']], headings)
@@ -90,18 +91,18 @@ class DeliveryTests(unittest.TestCase):
         for slot in data['screenshots']:
             if slot['number'] <= 8:
                 self.assertEqual(slot['status'], 'captured-local-only')
-                self.assertTrue((ROOT / 'evidence' / slot['file']).is_file())
             else:
-                self.assertEqual(slot['status'], 'pending')
-                self.assertIsNone(slot['file'])
-        self.assertEqual(BRIEF.read_text().count('Add your screenshot here.'), 7)
-        self.assertEqual(len(re.findall(r'!\[[^\]]*\]\(', BRIEF.read_text())), 8)
+                self.assertEqual(slot['status'], 'captured-live-run')
+            self.assertTrue((ROOT / 'evidence' / slot['file']).is_file())
+        self.assertEqual(BRIEF.read_text().count('Add your screenshot here.'), 0)
+        self.assertEqual(len(re.findall(r'!\[[^\]]*\]\(', BRIEF.read_text())), 15)
 
-    def test_known_identity_and_pending_ip(self):
+    def test_known_identity_and_retired_ip(self):
         brief = BRIEF.read_text()
         self.assertIn('Eze Favour', brief)
         self.assertIn('Favourcloud/devops-micro-internship-pravinmishra', brief)
-        self.assertIn('**VM Public IP Address:** Pending', brief)
+        self.assertIn('**VM Public IP Address:** `4.225.168.0`', brief)
+        self.assertIn('retired after verified cleanup', brief)
 
     def test_public_files_do_not_include_private_material(self):
         patterns = [r'-----BEGIN (?:OPENSSH |RSA |EC )?PRIVATE KEY-----', r'AKIA[0-9A-Z]{16}',
@@ -147,7 +148,7 @@ class DeliveryTests(unittest.TestCase):
 
     def test_truthful_runbook_and_no_cloud_commands_in_runner(self):
         readme = (ROOT / 'README.md').read_text()
-        for gate in ('fresh', 'budget', 'permission', 'pending', 'cloud-init status --wait', 'terraform destroy', '8 managed resources'):
+        for gate in ('fresh', 'budget', 'permission', 'future deployments', 'cloud-init status --wait', 'terraform destroy', '8 managed resources'):
             self.assertIn(gate, readme)
         runner = (ROOT / 'tests/run_offline.py').read_text()
         self.assertNotRegex(runner, r'\[terraform, "(?:plan|apply|destroy)"')

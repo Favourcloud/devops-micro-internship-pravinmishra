@@ -3,119 +3,135 @@
   "learner": "Eze Favour",
   "repository": "Favourcloud/devops-micro-internship-pravinmishra",
   "assignment": "week-08-assignment-03",
-  "assignment_complete": false,
-  "status": "offline-preparation-with-local-evidence",
+  "assignment_complete": true,
+  "status": "live-verified-and-destroyed",
   "provenance": "provenance.json",
-  "captured_slots": [1, 2, 3, 4, 5, 6, 7, 8],
-  "pending_slots": [9, 10, 11, 12, 13, 14, 15],
-  "cloud_authorized": false,
-  "cloud_deployment_verified": false,
-  "public_ip_address": null,
+  "captured_slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "pending_slots": [],
+  "cloud_authorized": true,
+  "cloud_deployment_verified": true,
+  "public_ip_address": "4.225.168.0",
   "screenshots": [
     {
       "number": 1,
       "task": 0,
-      "rubric_heading": "### Screenshot 1 — Terraform Version",
+      "rubric_heading": "### Screenshot 1 \u2014 Terraform Version",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-01-terraform-version.png"
     },
     {
       "number": 2,
       "task": 0,
-      "rubric_heading": "### Screenshot 2 — Azure CLI Version",
+      "rubric_heading": "### Screenshot 2 \u2014 Azure CLI Version",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-02-azure-cli-version.png"
     },
     {
       "number": 3,
       "task": 0,
-      "rubric_heading": "### Screenshot 3 — HashiCorp Terraform Extension",
+      "rubric_heading": "### Screenshot 3 \u2014 HashiCorp Terraform Extension",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-03-vscode-terraform-extension.png"
     },
     {
       "number": 4,
       "task": 1,
-      "rubric_heading": "### Screenshot 4 — Provider, Resource Group, and Network Security Group",
+      "rubric_heading": "### Screenshot 4 \u2014 Provider, Resource Group, and Network Security Group",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-04-provider-resource-group-nsg-source.png"
     },
     {
       "number": 5,
       "task": 1,
-      "rubric_heading": "### Screenshot 5 — Linux Virtual Machine and `custom_data`",
+      "rubric_heading": "### Screenshot 5 \u2014 Linux Virtual Machine and `custom_data`",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-05-linux-vm-custom-data-source.png"
     },
     {
       "number": 6,
       "task": 1,
-      "rubric_heading": "### Screenshot 6 — Completed `cloud-init.sh`",
+      "rubric_heading": "### Screenshot 6 \u2014 Completed `cloud-init.sh`",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-06-completed-cloud-init-source.png"
     },
     {
       "number": 7,
       "task": 1,
-      "rubric_heading": "### Screenshot 7 — Public IP Output Block",
+      "rubric_heading": "### Screenshot 7 \u2014 Public IP Output Block",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-07-public-ip-output-source.png"
     },
     {
       "number": 8,
       "task": 2,
-      "rubric_heading": "### Screenshot 8 — Terraform Initialization",
+      "rubric_heading": "### Screenshot 8 \u2014 Terraform Initialization",
       "status": "captured-local-only",
       "file": "screenshots/screenshot-08-terraform-init.png"
     },
     {
       "number": 9,
       "task": 3,
-      "rubric_heading": "### Screenshot 9 — Terraform Plan",
-      "status": "pending",
-      "file": null
+      "rubric_heading": "### Screenshot 9 \u2014 Terraform Plan",
+      "status": "captured-live-run",
+      "file": "screenshots/screenshot-09-terraform-plan.png"
     },
     {
       "number": 10,
       "task": 3,
-      "rubric_heading": "### Screenshot 10 — Terraform Apply",
-      "status": "pending",
-      "file": null
+      "rubric_heading": "### Screenshot 10 \u2014 Terraform Apply",
+      "status": "captured-live-run",
+      "file": "screenshots/screenshot-10-terraform-apply.png"
     },
     {
       "number": 11,
       "task": 3,
-      "rubric_heading": "### Screenshot 11 — VM Public IP Output",
-      "status": "pending",
-      "file": null
+      "rubric_heading": "### Screenshot 11 \u2014 VM Public IP Output",
+      "status": "captured-live-run",
+      "file": "screenshots/screenshot-11-public-ip-output.png"
     },
     {
       "number": 12,
       "task": 4,
-      "rubric_heading": "### Screenshot 12 — SSH Connection and Completed React Deployment",
-      "status": "pending",
-      "file": null
+      "rubric_heading": "### Screenshot 12 \u2014 SSH Connection and Completed React Deployment",
+      "status": "captured-live-run",
+      "file": "screenshots/screenshot-12-ssh-cloud-init.png"
     },
     {
       "number": 13,
       "task": 4,
-      "rubric_heading": "### Screenshot 13 — Nginx Service Status",
-      "status": "pending",
-      "file": null
+      "rubric_heading": "### Screenshot 13 \u2014 Nginx Service Status",
+      "status": "captured-live-run",
+      "file": "screenshots/screenshot-13-nginx-service.png"
     },
     {
       "number": 14,
       "task": 5,
-      "rubric_heading": "### Screenshot 14 — React Application in the Browser",
-      "status": "pending",
-      "file": null
+      "rubric_heading": "### Screenshot 14 \u2014 React Application in the Browser",
+      "status": "captured-live-run",
+      "file": "screenshots/screenshot-14-browser-application.png"
     },
     {
       "number": 15,
       "task": 6,
-      "rubric_heading": "### Screenshot 15 — Terraform Destroy",
-      "status": "pending",
-      "file": null
+      "rubric_heading": "### Screenshot 15 \u2014 Terraform Destroy",
+      "status": "captured-live-run",
+      "file": "screenshots/screenshot-15-terraform-destroy.png"
     }
   ],
   "upstream": {
@@ -172,11 +188,15 @@
     "cloud_commands_executed": false,
     "private_artifacts": "Existing ignored/untracked capture artifacts retained untouched; directories 0700 and files 0600."
   },
-  "blockers": [
-    "Fresh identity, permission and budget approval unavailable; old approvals are retired.",
-    "No Azure plan/apply/output, SSH, Nginx, browser or destroy verification; recorded normal initialization is local only.",
-    "Seven cloud/runtime screenshot slots (9–15) remain pending; eight genuine Copilot-operated local captures do not establish deployment.",
-    "Region, x86-64 VM SKU, capacity, quota and price must be approved before deployment.",
-    "Existing private SSH key stays outside this project; only its matching public key is supplied."
-  ]
+  "blockers": [],
+  "live_provenance": "live-provenance.json",
+  "live_run_summary": "live-run-summary.md",
+  "cleanup_verified": true,
+  "public_ip_status": "retired-after-verified-cleanup",
+  "limitations": [
+    "Instructor application name/date placeholders remain unchanged; learner attribution is in the genuine native Terminal.",
+    "Execution was delegated to Codex, not performed manually by the learner.",
+    "Official DMI regrade and delivery to main are not established by this manifest."
+  ],
+  "live_validation": "live-validation.json"
 }
