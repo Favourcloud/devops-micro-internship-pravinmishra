@@ -4,6 +4,8 @@ Rubric reviewed on 22 September 2026; Assignment 04 live and Assignment 05 local
 
 ## Current score and remaining points
 
+**25 September setup follow-up:** the private A5 integration now has a verified Claude Sonnet 4.6 response through Amazon Bedrock and a seven-tool Terraform MCP connection. The intended model-selected MCP lookup and remaining workflow/screenshots are still pending. See the [setup report](terraform-book-review/evidence/bedrock-setup-20260925.md); this adds no screenshot credit or observed DMI regrade.
+
 | Component | Awarded | Available | What remains |
 |---|---:|---:|---|
 | Six assignment files | 40 | 120 | Last review credited 01 and 06 only. Assignments 02 and 03 now have complete evidence and await review; 04–05 still have placeholders. 80 points remain unawarded. |

@@ -121,9 +121,9 @@ Terraform selects the common plus tier-specific import/template closure from `ru
 
 ## Agentic starter-kit status
 
-The official **`book-review-agentic-ai.zip` was received and reviewed from Udemy Assignment 37 on 24 September 2026**. See the [six-file comparison and remaining integration work](evidence/starter-kit-review-20260924.md) and [archive/file hashes](evidence/starter-kit-review-20260924.json). The original course files and an adapted inactive candidate are retained privately; they are not redistributed here. The pinned application tree still contains no kit, but kit discovery is no longer a blocker.
+The official **`book-review-agentic-ai.zip` was received and reviewed from Udemy Assignment 37 on 24 September 2026**. See the [six-file comparison](evidence/starter-kit-review-20260924.md) and [archive/file hashes](evidence/starter-kit-review-20260924.json). The original course files, review candidate and subsequent active integration are retained privately; they are not redistributed here. The pinned application tree still contains no kit, but kit discovery is no longer a blocker.
 
-Project-local protected templates remain the earlier Copilot-authored drafts. Their original text and screenshots are preserved; the current receipt/review status is recorded here. No genuine Claude generation/review/troubleshooting, MCP connection or hook activation is established by obtaining the ZIP. Integrating the candidate, reviewing effective settings and trust files, and verifying the installed tools remain necessary before activation. Model selection stays inherited in the candidate.
+Project-local protected templates remain the earlier Copilot-authored drafts, with original source and screenshot anchors preserved. The [25 September setup report](evidence/bedrock-setup-20260925.md) records a genuine Sonnet 4.6 response through Amazon Bedrock, a seven-tool Terraform MCP connection, actual pre-tool guard denials and fixes in the separate private integration. The intended model-selected MCP lookup, agent reviews, post-edit validation and screenshots remain pending. Obtaining or activating the kit alone does not complete those requirements.
 
 ## Secrets and human-controlled operation
 
