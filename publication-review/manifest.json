@@ -50,18 +50,18 @@
     {
       "file": "drafts/week-08-blog.md",
       "status": "UNPUBLISHED_DRAFT",
-      "sha256": "93b1864d3f579f84caeb6e26015ebb2708d310e0fe921a9f8a18b73856dad82f",
-      "words_excluding_urls": 681,
-      "characters": 5145,
+      "sha256": "1559a0ebba71f7e5583297a80b154e7c6632c4a24f504f6bee71741d49774bf2",
+      "words_excluding_urls": 838,
+      "characters": 6760,
       "badge_target_occurrences": 1,
       "minimum_200_words": true
     },
     {
       "file": "drafts/week-08-linkedin.md",
       "status": "UNPUBLISHED_DRAFT",
-      "sha256": "018479f08c0842305bcb5591704afdb6374cbed3c5b17908b44edf1dcf7c27e7",
-      "words_excluding_urls": 307,
-      "characters": 2212,
+      "sha256": "83154bf92198c71a0769e9f36d2bee0b5905d96734735c32b8d93bdfc3b5d5b1",
+      "words_excluding_urls": 282,
+      "characters": 2073,
       "badge_target_occurrences": 1,
       "within_3000_characters": true
     },
@@ -93,5 +93,38 @@
     "Plugin search returned no suitable organic LinkedIn/Medium publishing capability.",
     "Existing private drafts and LinkedIn activity were not accessible; deduplication is required before publication.",
     "User review of first-person draft wording and actual public publication remain pending."
+  ],
+  "draft_updates": [
+    {
+      "updated_at_utc": "2026-09-24T02:53:30.256994+00:00",
+      "source_commit": "3029c3664ba94874abf040379afa866ca2f67300",
+      "scope": "Week 08 drafts refreshed with merged A1\u2013A3 deployment/cleanup evidence, existing A6 review and remaining A4/A5/manual-work limits",
+      "status": "UNPUBLISHED_DRAFT",
+      "human_wording_review_recorded": false,
+      "new_social_publications": 0,
+      "drafts": [
+        {
+          "file": "drafts/week-08-blog.md",
+          "previous_sha256": "93b1864d3f579f84caeb6e26015ebb2708d310e0fe921a9f8a18b73856dad82f",
+          "sha256": "1559a0ebba71f7e5583297a80b154e7c6632c4a24f504f6bee71741d49774bf2",
+          "words_excluding_urls": 838,
+          "characters": 6760
+        },
+        {
+          "file": "drafts/week-08-linkedin.md",
+          "previous_sha256": "018479f08c0842305bcb5591704afdb6374cbed3c5b17908b44edf1dcf7c27e7",
+          "sha256": "83154bf92198c71a0769e9f36d2bee0b5905d96734735c32b8d93bdfc3b5d5b1",
+          "words_excluding_urls": 282,
+          "characters": 2073
+        }
+      ],
+      "public_recheck": {
+        "checked_at_utc": "2026-09-24T02:54:09.181962+00:00",
+        "dmi_week08_score": "70/190",
+        "dmi_displayed_review_date": "2026-09-23",
+        "medium_feed_http_status": 403,
+        "existing_post_deduplication": "still_pending; feed failure does not establish absence"
+      }
+    }
   ]
 }
