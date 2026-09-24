@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "learner": "Eze Favour",
+  "assignment": "week-08-assignment-01",
+  "operator": "Codex under user delegation; not manual learner execution",
+  "source_commit": "eae19baa64d8734c7629a201eb52a8150a2df30e",
+  "source_hashes": {
+    "main.tf": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
+    "variables.tf": "5f409ba25f3543eab1722e0c3c8fbc9e024f08adc948a5c44498b0f54a80cf8a",
+    ".terraform.lock.hcl": "1f5467f97786038441e615734d0c88f4a0fd6f41c3e4511ce64951b2c0f75c9e"
+  },
+  "source_changed": false,
+  "approval": {
+    "maximum_usd": 1,
+    "maximum_minutes": 60,
+    "scope": "User approved proceeding with Assignment 01; established spending/time limits retained for this separate VM, current-controller-only SSH, native evidence capture, verification and complete teardown",
+    "another_run_authorized_by_this_record": false
+  },
+  "plan": {
+    "sha256": "5ae93aeb56e10bb6b41fa5155fa00a391c23e2d9420b4e09089114312ca41e42",
+    "create": 8,
+    "update": 0,
+    "delete": 0
+  },
+  "environment": {
+    "subscription_alias": "Azure subscription 1",
+    "region": "swedencentral",
+    "vm_size": "Standard_D2als_v6",
+    "cpu": 2,
+    "memory_gib": 4,
+    "terraform_version": "1.13.5",
+    "azurerm_version": "4.47.0",
+    "password_authentication": true,
+    "ingress": "TCP22 from current controller IPv4 /32 only; all other inbound denied",
+    "provider_source": "Previously HashiCorp-signed package reused read-only; A1 lock checksum verified by init"
+  },
+  "lifecycle": {
+    "started_at_utc": "2026-09-24T00:34:03.972223+00:00",
+    "apply_completed_at_utc": "2026-09-24T00:38:07.204342+00:00",
+    "cleanup_completed_at_utc": "2026-09-24T00:48:37.287720+00:00",
+    "elapsed_seconds": 873.315,
+    "resources_added": 8,
+    "resources_destroyed": 8,
+    "destroy_command": "terraform destroy -input=true -no-color -var-file=.private/run.tfvars.json",
+    "public_ip_status": "retired-after-verified-cleanup"
+  },
+  "runtime": {
+    "verified_at_utc": "2026-09-24T00:42:09.951187+00:00",
+    "vm_name": "dmi-w08-a1-20260924-vm",
+    "power_state": "VM running",
+    "provisioning_state": "Succeeded",
+    "location": "swedencentral",
+    "vm_size": "Standard_D2als_v6",
+    "ubuntu_image": "22.04.202608060",
+    "password_authentication": true,
+    "public_ip": "135.116.195.137",
+    "public_ip_matches_terraform": true,
+    "os_disk_size_gib": 30,
+    "os_disk_tier": "Standard_LRS",
+    "ssh_or_application_run": false
+  },
+  "cleanup": {
+    "completed_at_utc": "2026-09-24T00:48:37.287720+00:00",
+    "exact_ids_checked": 8,
+    "absent": [
+      "azurerm_linux_virtual_machine.vm",
+      "azurerm_network_interface.vm",
+      "azurerm_network_security_group.vm",
+      "azurerm_public_ip.vm",
+      "azurerm_resource_group.vm",
+      "azurerm_subnet.vm",
+      "azurerm_virtual_network.vm",
+      "os_disk"
+    ],
+    "nic_nsg_association_removed": true,
+    "resource_group_exists": false,
+    "remaining_state": 0
+  },
+  "cost": {
+    "base_estimate_usd_per_hour": 0.0931041095890411,
+    "estimated_base_for_entire_run_usd": 0.022586,
+    "price_basis": "Official Sweden Central Azure Retail Prices responses retrieved earlier in this session; new price query rate-limited (HTTP 429). No price change observed.",
+    "extras": "Disk operations, bandwidth and taxes; no credit discount assumed",
+    "actual_bill_verified": false
+  },
+  "screenshots": [
+    {
+      "number": 7,
+      "captured_at_utc": "2026-09-24T00:41:43.490583+00:00",
+      "sha256": "40fb43d702616778b407b58b81e366061f52419cafb006ae542373c1186cc14f",
+      "bytes": 537619,
+      "width_px": 1800,
+      "height_px": 1300,
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "method": "Native macOS Terminal window capture of selected actual saved-plan/CLI results; no pixel edits or composites",
+      "artifact": "screenshots/screenshot-07-terraform-plan.png",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 8,
+      "captured_at_utc": "2026-09-24T00:41:44.873383+00:00",
+      "sha256": "1413365af758ea2f1694f7469d446adc3c7cff617d1fd989f0a214bf085a4e7d",
+      "bytes": 396629,
+      "width_px": 1800,
+      "height_px": 1300,
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "method": "Native macOS Terminal window capture of selected actual saved-plan/CLI results; no pixel edits or composites",
+      "artifact": "screenshots/screenshot-08-terraform-apply.png",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 9,
+      "captured_at_utc": "2026-09-24T00:41:47.425097+00:00",
+      "sha256": "d202b8f7fecd707aeb4cbdc4d817fbbdc65008fca3c52cf4193f6c416f68b6ae",
+      "bytes": 363932,
+      "width_px": 1800,
+      "height_px": 1300,
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "method": "Native macOS Terminal window capture of selected actual saved-plan/CLI results; no pixel edits or composites",
+      "artifact": "screenshots/screenshot-09-public-ip-output.png",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 10,
+      "captured_at_utc": "2026-09-24T00:42:25.826938+00:00",
+      "sha256": "d35d7a057b40b34c2b3bc47ed47e4e413bf6485dc3c3a3b17ae17cc45993e941",
+      "bytes": 447191,
+      "width_px": 1800,
+      "height_px": 1300,
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "method": "Native macOS Terminal window capture of selected actual saved-plan/CLI results; no pixel edits or composites",
+      "artifact": "screenshots/screenshot-10-azure-vm-running.png",
+      "privacy_checked": true,
+      "visually_verified": true
+    },
+    {
+      "number": 11,
+      "captured_at_utc": "2026-09-24T00:49:33.496161+00:00",
+      "sha256": "6839d0f72274d26e80cb1606189fd77d00cac14a5b84a7caeeef179e1dfb8f7f",
+      "bytes": 489507,
+      "width_px": 1800,
+      "height_px": 1300,
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "method": "Native macOS Terminal window capture of selected actual saved-plan/CLI results; no pixel edits or composites",
+      "artifact": "screenshots/screenshot-11-terraform-destroy.png",
+      "privacy_checked": true,
+      "visually_verified": true
+    }
+  ],
+  "credential_handling": {
+    "generated_password_printed_or_published": false,
+    "user_password_reused": false,
+    "private_password_artifacts_removed_after_cleanup": true,
+    "final_empty_state_retained": true
+  },
+  "notes": [
+    "Six historical local PNGs and the historical manifest sections are unchanged.",
+    "Native Terminal screenshots show selected actual saved-plan/CLI output, labelled as Codex-operated. Slots 7\u20139 were recaptured in a smaller window for readability after apply; slot 7 still shows the original reviewed plan. No pixels were edited and no screenshots composited.",
+    "The existing authorized Azure CLI sign-in was reused; identity and the exact subscription were rechecked. No new az login command is claimed.",
+    "Assignment 01 requires Azure CLI running-state verification; no SSH session or application deployment was performed.",
+    "Official DMI credit already included A1, but that did not prove technical completion. This run closes its recorded runtime gaps; no new grade is claimed."
+  ]
+}

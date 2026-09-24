@@ -2,14 +2,14 @@
   "schema_version": 2,
   "assignment": "week-08-assignment-01",
   "learner": "Eze Favour",
-  "phase": "offline-ready-partial-evidence-runtime-pending",
-  "cloud_authorization": "not-granted-for-this-run",
-  "live_deployment_performed": false,
-  "vm_public_ip": null,
-  "assignment_complete": false,
+  "phase": "live-verified-and-destroyed",
+  "cloud_authorization": "approved-scoped-run-completed",
+  "live_deployment_performed": true,
+  "vm_public_ip": "135.116.195.137",
+  "assignment_complete": true,
   "evidence_summary": {
-    "verified": 6,
-    "pending": 5,
+    "verified": 11,
+    "pending": 0,
     "required": 11
   },
   "capture_provenance": {
@@ -23,7 +23,11 @@
     "path": "../main.tf",
     "commit": "dbdab95b21f517cfe0751d07e667001c0fb6a775",
     "sha256": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
-    "bound_screenshot_numbers": [4, 5, 6]
+    "bound_screenshot_numbers": [
+      4,
+      5,
+      6
+    ]
   },
   "original_rubric": {
     "path": "../../assignment-01-create-an-azure-virtual-machine-using-terraform.md",
@@ -71,7 +75,10 @@
       "captured_at": "2026-09-16T23:16:55.898946+00:00",
       "sha256": "74b9d503afc2358ed99bf744e6ad85bdc96e7b201402e350e62f8599a8828302",
       "image_modified": false,
-      "tools": {"terraform": "1.13.5", "platform": "darwin_amd64"},
+      "tools": {
+        "terraform": "1.13.5",
+        "platform": "darwin_amd64"
+      },
       "boundary": "Installed-tool version evidence only; not Terraform deployment evidence."
     },
     {
@@ -82,7 +89,9 @@
       "captured_at": "2026-09-16T23:17:27.854821+00:00",
       "sha256": "eab34f1d807225ad3d708ae879c22dc2854e5de7b696affbf8cb717fdec057e4",
       "image_modified": false,
-      "tools": {"azure_cli": "2.89.1"},
+      "tools": {
+        "azure_cli": "2.89.1"
+      },
       "boundary": "Installed-tool version evidence only; not Azure sign-in, subscription selection or API activity."
     },
     {
@@ -93,7 +102,10 @@
       "captured_at": "2026-09-16T23:17:43.782880+00:00",
       "sha256": "e28bef4bb2c24b3c848f8eb8d18709c275707444efb0a6933987a495b90fa316",
       "image_modified": false,
-      "tools": {"extension_id": "hashicorp.terraform", "extension_version": "2.40.0"},
+      "tools": {
+        "extension_id": "hashicorp.terraform",
+        "extension_version": "2.40.0"
+      },
       "extension_installed_and_enabled": true,
       "boundary": "The actual extension page shows Disable/Uninstall controls; no manual learner installation is claimed."
     },
@@ -133,7 +145,10 @@
       "method": "Native macOS screenshot after the exact assignment editor was verified by the capture helper",
       "operator": "GitHub Copilot under user delegation; not manual learner execution",
       "privacy_checked": true,
-      "tools": {"terraform": "1.13.5", "azurerm": "4.47.0"},
+      "tools": {
+        "terraform": "1.13.5",
+        "azurerm": "4.47.0"
+      },
       "source_commit": "dbdab95b21f517cfe0751d07e667001c0fb6a775",
       "source_sha256": "53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db",
       "command": "terraform init -input=false -lockfile=readonly -plugin-dir=\"$PROVIDER_MIRROR\"",
@@ -142,37 +157,67 @@
     {
       "number": 7,
       "requirement": "Actual Terraform plan summary showing proposed resources",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-07-terraform-plan.png",
+      "captured_at": "2026-09-24T00:41:43.490583+00:00",
+      "sha256": "40fb43d702616778b407b58b81e366061f52419cafb006ae542373c1186cc14f",
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "privacy_checked": true,
+      "boundary": "Actual approved Assignment 01 live result; Codex-operated; see separate live provenance."
     },
     {
       "number": 8,
       "requirement": "Actual Terraform apply output showing successful completion",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-08-terraform-apply.png",
+      "captured_at": "2026-09-24T00:41:44.873383+00:00",
+      "sha256": "1413365af758ea2f1694f7469d446adc3c7cff617d1fd989f0a214bf085a4e7d",
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "privacy_checked": true,
+      "boundary": "Actual approved Assignment 01 live result; Codex-operated; see separate live provenance."
     },
     {
       "number": 9,
       "requirement": "Actual Terraform output showing the VM public IP",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-09-public-ip-output.png",
+      "captured_at": "2026-09-24T00:41:47.425097+00:00",
+      "sha256": "d202b8f7fecd707aeb4cbdc4d817fbbdc65008fca3c52cf4193f6c416f68b6ae",
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "privacy_checked": true,
+      "boundary": "Actual approved Assignment 01 live result; Codex-operated; see separate live provenance."
     },
     {
       "number": 10,
       "requirement": "Azure CLI showing the deployed VM name and VM running status",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-10-azure-vm-running.png",
+      "captured_at": "2026-09-24T00:42:25.826938+00:00",
+      "sha256": "d35d7a057b40b34c2b3bc47ed47e4e413bf6485dc3c3a3b17ae17cc45993e941",
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "privacy_checked": true,
+      "boundary": "Actual approved Assignment 01 live result; Codex-operated; see separate live provenance."
     },
     {
       "number": 11,
       "requirement": "Actual successful Terraform destroy completion",
-      "status": "pending",
-      "artifact": null,
-      "captured_at": null
+      "status": "verified",
+      "artifact": "screenshots/screenshot-11-terraform-destroy.png",
+      "captured_at": "2026-09-24T00:49:33.496161+00:00",
+      "sha256": "6839d0f72274d26e80cb1606189fd77d00cac14a5b84a7caeeef179e1dfb8f7f",
+      "image_modified": false,
+      "operator": "Codex under user delegation; not manual learner execution",
+      "privacy_checked": true,
+      "boundary": "Actual approved Assignment 01 live result; Codex-operated; see separate live provenance."
     }
-  ]
+  ],
+  "public_ip_status": "retired-after-verified-cleanup",
+  "cleanup_verified": true,
+  "live_provenance": "live-provenance.json",
+  "live_validation": "live-validation.json",
+  "live_run_summary": "live-run-summary.md"
 }

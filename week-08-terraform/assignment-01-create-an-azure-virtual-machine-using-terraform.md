@@ -7,10 +7,10 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 - **Learner:** Eze Favour
 - **Project:** [terraform-azure-vm on the assignment branch](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/favourcloud-week-08-azure-vm/week-08-terraform/terraform-azure-vm)
 - **Branch:** `favourcloud-week-08-azure-vm`
-- **Review:** [Draft PR #9](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/9)
-- **Partial evidence status: 6/11 verified.** Screenshots 1–5 provide genuine local tool/source evidence; screenshot 6 proves normal local-backend initialization. Screenshots 7–11 remain pending. The assignment is incomplete.
-- **Evidence operator:** GitHub Copilot under user delegation, not manual learner execution.
-- **Runtime boundary:** No fresh cloud/spending authorization, Azure sign-in, live deployment, allocated VM public IP, running-state verification or teardown is claimed.
+- **Review:** [Original preparation PR #9, merged](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/9)
+- **Evidence status: 11/11 verified.** All required local and live captures are present; the approved VM deployment and teardown are complete.
+- **Evidence operators:** Six historical local captures by GitHub Copilot; five new live captures by Codex under user delegation, not manual learner execution.
+- **Live result:** Eight Terraform resources created and destroyed; Azure CLI confirmed the VM running. Exact Azure absence checks and empty Terraform state verified cleanup. The public IP is retired.
 
 The original requirements, headings, questions and checklist item text are
 retained below. Evidence responses and checklist markers identify only what is
@@ -133,25 +133,29 @@ Review the Terraform execution plan and provision the Azure resources.
 
 #### Screenshot 7 — Terraform plan summary showing the proposed resources
 
-**Pending:** A real plan and its screenshot require fresh authorization. Mock
-plans are not runtime evidence.
+![Screenshot 7 — Eze Favour-labelled actual Azure result; Codex-operated](terraform-azure-vm/evidence/screenshots/screenshot-07-terraform-plan.png)
+
+**Verified live evidence:** The actual saved plan proposed eight new resources, with no changes or deletes. It was reviewed before apply. Codex operated the run under user delegation; no manual learner execution is claimed.
 
 ---
 
 #### Screenshot 8 — Terraform apply output showing successful completion
 
-**Pending:** No live apply has been performed or authorized for this submission.
+![Screenshot 8 — Eze Favour-labelled actual Azure result; Codex-operated](terraform-azure-vm/evidence/screenshots/screenshot-08-terraform-apply.png)
+
+**Verified live evidence:** Actual Terraform apply completed with 8 added, 0 changed and 0 destroyed. Codex operated the run under user delegation; no manual learner execution is claimed.
 
 ---
 
 #### Screenshot 9 — Terraform output showing the public IP address of the VM
 
-**Pending:** No VM public IP has been allocated for this submission; the output
-source in screenshot 5 is not an actual IP result.
+![Screenshot 9 — Eze Favour-labelled actual Azure result; Codex-operated](terraform-azure-vm/evidence/screenshots/screenshot-09-public-ip-output.png)
+
+**Verified live evidence:** Actual Terraform output returned `135.116.195.137`. This address was retired after verified cleanup. Codex operated the run under user delegation; no manual learner execution is claimed.
 
 ### Question
 
-VM Public IP Address: Pending — no authorized deployment has been performed and no VM public IP has been allocated for this submission.
+VM Public IP Address: `135.116.195.137` — retired after verified cleanup on 24 September 2026 UTC; historical evidence only.
 
 ---
 
@@ -165,8 +169,9 @@ Confirm through Azure CLI that the virtual machine was created successfully and 
 
 #### Screenshot 10 — Azure CLI output showing the deployed VM name and `VM running` status
 
-**Pending:** No VM-running verification has occurred. Azure CLI version evidence
-in screenshot 2 does not establish authentication or a running VM.
+![Screenshot 10 — Eze Favour-labelled actual Azure result; Codex-operated](terraform-azure-vm/evidence/screenshots/screenshot-10-azure-vm-running.png)
+
+**Verified live evidence:** The actual Azure CLI command reported the deployed VM name and VM running; provisioning, image, disk and public IP were also verified. Codex operated the run under user delegation; no manual learner execution is claimed.
 
 ---
 
@@ -180,8 +185,9 @@ Remove all Azure resources created by Terraform after completing the deployment 
 
 #### Screenshot 11 — Terminal showing successful `terraform destroy` completion
 
-**Pending:** No live deployment or teardown has occurred for this submission.
-Cleanup evidence must come from the future authorized run.
+![Screenshot 11 — Eze Favour-labelled actual Azure result; Codex-operated](terraform-azure-vm/evidence/screenshots/screenshot-11-terraform-destroy.png)
+
+**Verified live evidence:** Actual Terraform destroy completed with 8 resources destroyed. Terraform state is empty, the resource group is absent, and all eight independently addressable Azure objects were verified absent, including the OS disk. Codex operated the run under user delegation; no manual learner execution is claimed.
 
 ---
 
@@ -194,15 +200,12 @@ Cleanup evidence must come from the future authorized run.
 
 # Completion Checklist
 
-Checked items below indicate verified local environment, source and initialization
-deliverables, not manual learner actions. Azure runtime and full-submission checks
-remain unchecked. The six published images passed the parent's privacy review; the final review
-of all eleven images is still pending.
+Checked items reflect the verified local setup and the approved live run. The existing Azure CLI sign-in was reused and its identity/subscription reconfirmed; no new `az login` command or manual learner execution is claimed. All eleven images were reviewed for the required outputs and sensitive information.
 
 - [x] Installed Terraform and verified it using `terraform version`
 - [x] Installed Azure CLI and verified it using `az version`
-- [ ] Signed in to Azure using `az login`
-- [ ] Confirmed the correct Azure subscription
+- [x] Signed in to Azure using `az login`
+- [x] Confirmed the correct Azure subscription
 - [x] Installed and enabled the HashiCorp Terraform extension in VS Code
 - [x] Created the `terraform-azure-vm` project directory and `main.tf`
 - [x] Added the Terraform and AzureRM provider configuration
@@ -210,13 +213,13 @@ of all eleven images is still pending.
 - [x] Defined the Linux virtual machine with username and password-based authentication
 - [x] Added the Terraform output for the VM public IP address
 - [x] Completed `terraform init` successfully
-- [ ] Reviewed the Terraform execution plan using `terraform plan`
-- [ ] Completed `terraform apply` successfully
-- [ ] Captured and recorded the VM public IP using `terraform output`
-- [ ] Verified that the VM is running using Azure CLI
-- [ ] Completed `terraform destroy` successfully
-- [ ] Captured all required screenshots
-- [ ] Checked that no passwords, keys, account IDs, or other sensitive information are visible in the screenshots
+- [x] Reviewed the Terraform execution plan using `terraform plan`
+- [x] Completed `terraform apply` successfully
+- [x] Captured and recorded the VM public IP using `terraform output`
+- [x] Verified that the VM is running using Azure CLI
+- [x] Completed `terraform destroy` successfully
+- [x] Captured all required screenshots
+- [x] Checked that no passwords, keys, account IDs, or other sensitive information are visible in the screenshots
 
 ---
 
@@ -242,25 +245,8 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
 
-## Eze Favour — Assignment 1 Offline Deliverables
+## Eze Favour — Assignment 1 verified deliverables
 
-All original requirements above are retained; the actual evidence responses
-and checklist markers have been filled without changing the rubric. The runnable
-Terraform source, safe input interface, private-state handling, offline tests
-and prospective authorized execution steps are in
-[terraform-azure-vm/README.md](terraform-azure-vm/README.md).
+All original requirements are retained. The [project README](terraform-azure-vm/README.md), [live summary](terraform-azure-vm/evidence/live-run-summary.md) and [manifest](terraform-azure-vm/evidence/manifest.json) document **11/11** captures, real Azure verification and complete teardown. The source and six earlier captures remain unchanged. The public IP `135.116.195.137` is retired after verified cleanup. The new run was Codex-operated under user delegation, not manual learner execution.
 
-**Status: 6/11 genuine screenshots verified; Azure runtime and screenshots 7–11 pending.**
-There is no fresh cloud/spending authorization for this run. No live deployment,
-VM public IP, Azure CLI running-state verification or destroy is claimed.
-
-The [Assignment 1 evidence manifest](terraform-azure-vm/evidence/manifest.json)
-records the original PNG hashes, exact capture timestamps and source provenance.
-The source behind screenshots 4–5 and the configuration initialized in screenshot
-6 are unchanged from `dbdab95`; `main.tf` SHA-256:
-`53a5a0f92c56d81437a66210af7cc4ed9f362604cca90b6ebf22b22f756405db`.
-
-Local validation and mock-provider tests do not satisfy remaining screenshot or
-cloud execution requirements. The parent/controller owns fresh authorization
-and the remaining genuine execution/capture sequence. No learner reflection,
-manual learner execution, grade or runtime success is invented.
+The original preparation branch and merged PR #9 links remain as historical source references. No new DMI grade or whole-week completion is claimed. The current live evidence is provided for review alongside the unchanged rubric.

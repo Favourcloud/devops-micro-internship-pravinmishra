@@ -1,6 +1,8 @@
 """Small offline regression checks for the rubric, evidence and private input contract."""
 
 import hashlib
+import datetime
+import struct
 import json
 from pathlib import Path
 import re
@@ -59,10 +61,10 @@ class DeliveryTests(unittest.TestCase):
         self.assertNotIn("Add your screenshot here.", current)
         self.assertNotIn("[Enter the public IP", current)
 
-    def test_six_original_images_verified_and_five_slots_pending(self):
+    def test_six_original_images_and_five_live_captures(self):
         slots = self.manifest["screenshots"]
         self.assertEqual([slot["number"] for slot in slots], list(range(1, 12)))
-        self.assertEqual(self.manifest["evidence_summary"], {"verified": 6, "pending": 5, "required": 11})
+        self.assertEqual(self.manifest["evidence_summary"], {"verified": 11, "pending": 0, "required": 11})
         for slot in slots:
             number = slot["number"]
             if number in EVIDENCE:
@@ -76,18 +78,21 @@ class DeliveryTests(unittest.TestCase):
                 self.assertTrue(data.startswith(b"\x89PNG\r\n\x1a\n"))
                 self.assertEqual(hashlib.sha256(data).hexdigest(), digest)
             else:
-                self.assertEqual(slot["status"], "pending")
-                self.assertIsNone(slot["artifact"])
-                self.assertIsNone(slot["captured_at"])
-                self.assertIsNone(slot.get("sha256"))
+                self.assertEqual(slot["status"], "verified")
+                data = (ROOT / "evidence" / slot["artifact"]).read_bytes()
+                self.assertTrue(data.startswith(b"\x89PNG\r\n\x1a\n"))
+                self.assertEqual(hashlib.sha256(data).hexdigest(), slot["sha256"])
+                self.assertFalse(slot["image_modified"])
 
-    def test_no_runtime_or_approval_claim(self):
-        self.assertEqual(self.manifest["phase"], "offline-ready-partial-evidence-runtime-pending")
-        self.assertEqual(self.manifest["cloud_authorization"], "not-granted-for-this-run")
-        self.assertFalse(self.manifest["live_deployment_performed"])
-        self.assertIsNone(self.manifest["vm_public_ip"])
-        self.assertFalse(self.manifest["assignment_complete"])
-        self.assertIn("VM Public IP Address: Pending", BRIEF.read_text())
+    def test_verified_lifecycle_and_retired_ip(self):
+        self.assertEqual(self.manifest["phase"], "live-verified-and-destroyed")
+        self.assertEqual(self.manifest["cloud_authorization"], "approved-scoped-run-completed")
+        self.assertTrue(self.manifest["live_deployment_performed"])
+        self.assertTrue(self.manifest["assignment_complete"])
+        self.assertTrue(self.manifest["cleanup_verified"])
+        self.assertEqual(self.manifest["public_ip_status"], "retired-after-verified-cleanup")
+        self.assertIn("VM Public IP Address: `" + self.manifest["vm_public_ip"] + "`", BRIEF.read_text())
+        self.assertIn("retired after verified cleanup", BRIEF.read_text())
 
     def test_state_and_secret_paths_are_ignored(self):
         paths = [".private/terraform.tfstate", ".private/approved.tfvars", ".private/azure/token", ".terraform/plugins/cache", "terraform.tfstate.backup", "review.tfplan", "local.auto.tfvars", ".env", "private.key", "crash.log"]
@@ -154,17 +159,17 @@ class DeliveryTests(unittest.TestCase):
                 self.assertEqual(images, [f"terraform-azure-vm/evidence/screenshots/{EVIDENCE[number][0]}"])
                 self.assertIn("**Verified", section)
             else:
-                self.assertEqual(images, [])
-                self.assertIn("**Pending:", section)
+                self.assertEqual(images, ["terraform-azure-vm/evidence/" + self.manifest["screenshots"][number-1]["artifact"]])
+                self.assertIn("**Verified live evidence:", section)
         for file in (BRIEF, ROOT / "README.md"):
             text = file.read_text()
             self.assertIn("**Learner:** Eze Favour", text)
-            self.assertIn("6/11", text)
+            self.assertIn("11/11", text)
             self.assertIn("https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/favourcloud-week-08-azure-vm/week-08-terraform/terraform-azure-vm", text)
             self.assertIn("https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/9", text)
             self.assertIn("not manual learner execution", text)
 
-    def test_only_verified_local_checklist_items_checked(self):
+    def test_completed_checklist_preserves_every_requirement(self):
         def checklist(text):
             return text.split("# Completion Checklist\n", 1)[1].split("\n---", 1)[0]
 
@@ -172,7 +177,7 @@ class DeliveryTests(unittest.TestCase):
         current_items = re.findall(r"^- \[([ x])\] (.+)$", checklist(BRIEF.read_text()), re.M)
         self.assertEqual([text for _, text in current_items], original_items)
         checked = [index for index, (marker, _) in enumerate(current_items, 1) if marker == "x"]
-        self.assertEqual(checked, [1, 2, 5, 6, 7, 8, 9, 10, 11])
+        self.assertEqual(checked, list(range(1, 19)))
 
     def test_public_provenance_excludes_private_capture_material(self):
         self.assertEqual(self.manifest["schema_version"], 2)
@@ -200,12 +205,71 @@ class DeliveryTests(unittest.TestCase):
         serialized = json.dumps(self.manifest)
         self.assertNotRegex(serialized, r"/(Users|home)/|\.ocr\.txt|integration-input\.json")
         self.assertNotRegex(serialized, r'"(window|pid|window_id|bounds|raw_ocr|private_path|capture_path)"\s*:')
-        expected = {"manifest.json"} | {f"screenshots/{record[0]}" for record in EVIDENCE.values()}
+        expected = {"manifest.json", "live-provenance.json", "live-validation.json", "live-run-summary.md"} | {slot["artifact"] for slot in slots}
         actual = {path.relative_to(ROOT / "evidence").as_posix() for path in (ROOT / "evidence").rglob("*") if path.is_file()}
         self.assertEqual(actual, expected)
 
+    def test_live_capture_provenance_integrity(self):
+        live = json.loads((ROOT / "evidence/live-provenance.json").read_text())
+        self.assertEqual([r["number"] for r in live["screenshots"]], list(range(7, 12)))
+        for record, slot in zip(live["screenshots"], self.manifest["screenshots"][6:]):
+            self.assertEqual(record["artifact"], slot["artifact"])
+            data = (ROOT / "evidence" / record["artifact"]).read_bytes()
+            self.assertEqual(hashlib.sha256(data).hexdigest(), record["sha256"])
+            self.assertEqual(len(data), record["bytes"])
+            self.assertEqual(struct.unpack(">II", data[16:24]), (record["width_px"], record["height_px"]))
+            self.assertEqual(datetime.datetime.fromisoformat(record["captured_at_utc"]).utcoffset(), datetime.timedelta(0))
+            self.assertTrue(record["privacy_checked"])
+            self.assertTrue(record["visually_verified"])
+            self.assertFalse(record["image_modified"])
+            self.assertEqual(record["operator"], "Codex under user delegation; not manual learner execution")
+
+    def test_live_verification_and_exact_cleanup(self):
+        live = json.loads((ROOT / "evidence/live-provenance.json").read_text())
+        lifecycle = live["lifecycle"]
+        start = datetime.datetime.fromisoformat(lifecycle["started_at_utc"])
+        applied = datetime.datetime.fromisoformat(lifecycle["apply_completed_at_utc"])
+        verified = datetime.datetime.fromisoformat(live["runtime"]["verified_at_utc"])
+        end = datetime.datetime.fromisoformat(lifecycle["cleanup_completed_at_utc"])
+        self.assertLess(start, applied)
+        self.assertLess(applied, verified)
+        self.assertLess(verified, end)
+        self.assertLess((end-start).total_seconds(), 3600)
+        self.assertEqual(lifecycle["resources_added"], 8)
+        self.assertEqual(lifecycle["resources_destroyed"], 8)
+        self.assertEqual(live["runtime"]["power_state"], "VM running")
+        self.assertEqual(live["runtime"]["provisioning_state"], "Succeeded")
+        self.assertTrue(live["runtime"]["public_ip_matches_terraform"])
+        self.assertEqual(live["runtime"]["public_ip"], self.manifest["vm_public_ip"])
+        self.assertFalse(live["runtime"]["ssh_or_application_run"])
+        cleanup = live["cleanup"]
+        self.assertEqual(cleanup["exact_ids_checked"], 8)
+        self.assertEqual(len(set(cleanup["absent"])), 8)
+        self.assertIn("os_disk", cleanup["absent"])
+        self.assertTrue(cleanup["nic_nsg_association_removed"])
+        self.assertFalse(cleanup["resource_group_exists"])
+        self.assertEqual(cleanup["remaining_state"], 0)
+        self.assertEqual(live["approval"]["maximum_usd"], 1)
+        self.assertEqual(live["approval"]["maximum_minutes"], 60)
+        self.assertFalse(live["cost"]["actual_bill_verified"])
+
+    def test_historical_records_preserved_and_live_metadata_private(self):
+        live = json.loads((ROOT / "evidence/live-provenance.json").read_text())
+        previous = json.loads(subprocess.check_output([
+            "git", "show", f"{live['source_commit']}:week-08-terraform/terraform-azure-vm/evidence/manifest.json"
+        ], cwd=ROOT))
+        for key in ("capture_provenance", "source_provenance", "original_rubric", "offline_validation", "evidence_validation"):
+            self.assertEqual(self.manifest[key], previous[key], key)
+        self.assertEqual(self.manifest["screenshots"][:6], previous["screenshots"][:6])
+        for name, digest in live["source_hashes"].items():
+            self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(), digest)
+        for path in (ROOT / "evidence").glob("*.json"):
+            serialized = path.read_text()
+            self.assertNotRegex(serialized, r"/(Users|home)/|/subscriptions/[0-9a-f-]{36}")
+            self.assertNotRegex(serialized, r'"(window_id|pid|private_path|admin_password|controller_ipv4_cidr)"\s*:')
+
     def test_relative_markdown_links_resolve(self):
-        for file in (ROOT / "README.md", BRIEF):
+        for file in (ROOT / "README.md", BRIEF, ROOT / "evidence/live-run-summary.md"):
             for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", file.read_text()):
                 if "://" not in target and not target.startswith("#"):
                     self.assertTrue((file.parent / target.split("#", 1)[0]).exists(), f"Broken link in {file.name}: {target}")

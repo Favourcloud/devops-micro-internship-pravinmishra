@@ -1,6 +1,6 @@
 # Week 08 Terraform — completion audit
 
-Rubric reviewed on 22 September 2026; Assignment 03 progress updated on 24 September 2026 (Africa/Lagos). Checked against the [published DMI rubric](https://dmi.pravinmishra.com/how-it-works.html#rubric), the [Favourcloud feedback page](https://dmi.pravinmishra.com/s/Favourcloud.html), and the current assignment files. The feedback page was rechecked on 23 September: its displayed review date is 2026-09-23, and Week 08 remains 70/190 with 2/6 assignment files passing. The A2/A3 live deliveries have no observed regrade.
+Rubric reviewed on 22 September 2026; Assignment 01 progress updated on 24 September 2026 (Africa/Lagos). Checked against the [published DMI rubric](https://dmi.pravinmishra.com/how-it-works.html#rubric), the [Favourcloud feedback page](https://dmi.pravinmishra.com/s/Favourcloud.html), and the current assignment files. The feedback page was rechecked on 24 September: its displayed review date is 2026-09-23, and Week 08 remains 70/190 with 2/6 assignment files passing. The A2/A3 live deliveries have no observed regrade.
 
 ## Current score and remaining points
 
@@ -30,13 +30,13 @@ These counts come from the numbered screenshot sections in the assignment files,
 
 | Assignment | Existing numbered captures | Missing numbered captures | Work still needed |
 |---|---:|---|---|
-| 01 — Azure VM | 6 / 11 | 7–11 | Real plan/apply, allocated IP, Azure verification and teardown. Already credited by the automated file check. |
+| 01 — Azure VM | 11 / 11 | None | Approved live plan/apply, public IP, Azure CLI VM-running verification and complete teardown captured. Already had automated file credit; technical evidence is now complete. |
 | 02 — AWS VM | 10 / 10 | None | Live plan/apply, EC2/SSH/HTTP/browser checks and complete teardown verified on September 23; delegated execution disclosed. Delivered to main in PR #50; awaiting DMI review. |
-| 03 — Azure React | 15 / 15 | None | Approved live plan/apply, strict SSH, cloud-init, Nginx, public HTTP/SPA/assets/browser and complete teardown verified. Delegated execution and unchanged app placeholders disclosed; deliver for review. |
+| 03 — Azure React | 15 / 15 | None | Approved live plan/apply, strict SSH, cloud-init, Nginx, public HTTP/SPA/assets/browser and complete teardown verified. Delegated execution and unchanged app placeholders disclosed; merged in PR #51. |
 | 04 — AWS EpicBook | 19 / 35 | 20–35 | Plan/apply/outputs, EC2/RDS checks, database initialization, application/cart-to-database evidence, teardown and publication. |
 | 05 — Book Review capstone | 4 / 28 | 4–5 and 7–28 | Remaining architecture/validation images, actual Claude/MCP workflow, deployment and application evidence; 15 personal reflections remain unanswered. |
 | 06 — Drift and policy review | 19 / 19 | None | Existing evidence describes delegated Terraform execution; the manual-execution requirement and publication remain open. Already credited by the automated file check. |
-| **Total** | **73 / 118** | **45 missing** | An occupied image slot is not necessarily a completed task. |
+| **Total** | **78 / 118** | **40 missing** | An occupied image slot is not necessarily a completed task. |
 
 The [screenshots index](screenshots/README.md) points to each assignment's original images and manifests. Its included Assignment 06 image is a byte-identical copy of an existing capture, not a new result or an additional completed screenshot slot.
 
@@ -51,7 +51,7 @@ The [screenshots index](screenshots/README.md) points to each assignment's origi
 ## Finish in this order
 
 1. **Assignment 02: AWS VM — live work completed.** The approved September 23 run added 11 resources, passed real EC2/SSH/HTTP/browser checks and destroyed all 11. All 13 exact-ID cleanup checks passed, including the root disk and network interface; state is empty. All ten captures and the [run summary](terraform-aws-vm/evidence/live-run-summary.md) are included. PR #50 is merged to the default branch; await DMI’s next grading run. The operator was Codex under user delegation, not manual learner execution.
-2. **Assignment 03: Azure React — live work completed.** All 15 captures are present. The [live run](terraform-react-azure/evidence/live-run-summary.md) added and destroyed eight resources, verified application readiness and browser rendering, and confirmed all eight independently addressable Azure objects absent, including the OS disk. Deliver the evidence for review. **Assignment 01 is the next distinct Azure exercise:** prepare its own current plan, capture the five missing live slots, then verify teardown.
+2. **Assignment 03: Azure React — live work completed.** All 15 captures are present. The [live run](terraform-react-azure/evidence/live-run-summary.md) added and destroyed eight resources, verified application readiness and browser rendering, and confirmed all eight independently addressable Azure objects absent, including the OS disk. PR #51 is merged. **Assignment 01 is also complete:** all 11 captures, actual VM-running verification, eight resources destroyed and exact Azure cleanup checks are now recorded in its [live summary](terraform-azure-vm/evidence/live-run-summary.md).
 3. **Assignment 04: EpicBook.** Follow the [runbook](terraform-aws-epicbook/README.md). The prepared design includes 28 managed resource instances and an RDS database. Resolve the documented upstream checkout/order limitation before marking that checklist item complete; the current upstream supports cart evidence but not a completed checkout/order record.
 4. **Assignment 05: Book Review.** Obtain or identify the required instructor starter kit, complete the actual Claude/MCP workflow, verify the source/runtime release blockers in the [project README](terraform-book-review/README.md), and run the three-tier lab. Its two NAT gateways, load balancers and multiple database/compute instances require a costed plan before deployment. Drafted technical explanations can support learning, but the personal reflections should describe the learner's actual decisions and experience.
 5. **Publish and link the weekly posts.** Review the existing drafts, publish the blog with the correct badge-page backlink and the LinkedIn post with relevant evidence, then enter the final public URLs in the root README's Week 08 row. Posting is a separate external action; a local draft is not a public URL.
@@ -81,4 +81,12 @@ The approved Azure React run created eight Terraform resources in Sweden Central
 
 The seven new PNGs fill slots 9–15. The original eight images and historical provenance remain byte-for-byte unchanged. Browser evidence is a single native capture with the actual address bar and an adjacent Eze Favour attribution Terminal; the instructor app's name/date placeholders remain unchanged. Codex operated the live run under user delegation. No manual learner execution, new grade or social publication is claimed.
 
-Current image accounting is **54/99** for assignments 01–05 plus 19 for assignment 06, totaling **73/118**, with **45 missing**. Week 08 remains In Progress. Assignment 01's live work, assignments 04–05, Assignment 06's manual-execution requirement and both weekly publication links remain open. DMI's last observed score is **70/190**; no A2/A3 regrade has been observed.
+The A3-only snapshot had **54/99** for assignments 01–05 and **73/118** overall, with **45 missing**. Current accounting after A1 is below.
+
+## Assignment 01 completion on 24 September
+
+The separate approved Azure VM exercise now has **11/11** screenshots. Its real plan created eight resources, Azure CLI reported the VM running, and image, disk and public-IP checks passed. Terraform destroyed all eight resources. Eight independent Azure IDs were verified absent (seven direct Terraform ARM objects plus the OS disk), and NIC absence proves association removal. The resource group is absent and state is empty. The [live summary](terraform-azure-vm/evidence/live-run-summary.md) records timing, the retired IP and estimated base usage; the actual bill is unverified.
+
+The six original PNGs and frozen source remain unchanged. Five new native Terminal captures show the actual approved A1 results under Codex delegation. Generated password-bearing private artifacts were removed only after verified teardown; no user credentials were changed or published. A1 already had DMI file credit, so this closes technical evidence gaps without promising additional points.
+
+**Current inventory: 59/99 for assignments 01–05, plus 19 for Assignment 06 = 78/118 occupied slots, with 40 missing.** Assignments 01–03 now have all required captures and verified cleanup. Assignments 04–05, Assignment 06's manual-execution requirement and both weekly publication links remain open. Last observed DMI score: **70/190**; no new grading result is claimed.
