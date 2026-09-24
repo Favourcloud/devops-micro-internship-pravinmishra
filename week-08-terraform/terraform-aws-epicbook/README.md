@@ -1,5 +1,12 @@
 # Week 08 Assignment 4 — EpicBook on modular AWS infrastructure
 
+**Current live result —24 September2026:** the approved AWS deployment, real browser/cart-to-RDS test and complete teardown succeeded. **34/35 numbered screenshot slots have captures**, including 15 new images. The required checkout/order behavior, learner reflection and LinkedIn publication remain incomplete; screenshot 22's RDS hostname is deliberately redacted and historical partial views remain. See [live run summary](evidence/live-run-summary.md), [new provenance](evidence/live-provenance.json) and [current manifest](evidence/screenshot-manifest.json). All 29 resources (28 application plus1 separate AWS public key) were destroyed and checked independently. The instructor source and original 19 images remain unchanged.
+
+## Historical offline preparation and runbook
+
+The original offline assessment below is retained as historical context. Its “unexecuted/pending” statements describe that earlier phase and are superseded by the live summary. This completed approval does not authorize another deployment. The former pre-existing-key cleanup assumption was replaced for this run by a separately managed, lab-owned AWS key resource, also destroyed.
+
+
 **Learner:** Eze Favour · **Repository:** Favourcloud/devops-micro-internship-pravinmishra
 
 **OFFLINE PREPARATION ONLY. No AWS resources, live URL or LinkedIn post were created.**

@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-09-24T07:52:12.379175+00:00",
+  "status": "passed",
+  "python_tests": 66,
+  "evidence_tests_included": 23,
+  "terraform_mock_rerun": false,
+  "reason_no_terraform_rerun": "Infrastructure source and lock unchanged; prior 22 mock runs retained; real plan/apply/runtime/cleanup separately verified.",
+  "original_images_preserved": 19,
+  "new_images_hashes_and_png_integrity_checked": 15,
+  "private_text_scan_passed": true,
+  "reviewed_managed_resources_absent_or_terminated": 29,
+  "child_identifier_checks": 10,
+  "both_terraform_state_lists_empty": true,
+  "cleanup_ledger_check": "passed for 28 application addresses; public key separately verified",
+  "image_review": "All 15 new captures visually reviewed; AWS account header excluded; explicit RDS hostname redaction and browser annotation limits retained.",
+  "historical_provenance_unchanged": true,
+  "actual_bill_verified": false
+}

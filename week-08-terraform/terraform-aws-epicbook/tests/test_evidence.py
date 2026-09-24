@@ -52,19 +52,22 @@ class EvidenceTests(unittest.TestCase):
         self.manifest = json.loads((EVIDENCE / 'screenshot-manifest.json').read_text())
         self.provenance = json.loads((EVIDENCE / 'provenance.json').read_text())
         self.captures = self.provenance['screenshots']
+        self.live = json.loads((EVIDENCE / 'live-provenance.json').read_text())
+        self.live_captures = self.live['screenshots']
 
     def assert_original_requirements(self, text):
         notices = {
             4: 'Partial source evidence is supplied below; the required private input file remains pending.',
             10: 'Source excerpts are supplied below; they do not show the entire script or a bootstrap run.',
         }
-        for capture in self.captures:
+        for capture in self.captures + self.live_captures:
             number = capture['number']
             heading = f"### Screenshot {number} — {self.manifest['slots'][number - 1]['title']}\n"
             self.assertEqual(text.count(heading), 1)
             section = text.split(heading, 1)[1].split('\n### Screenshot ', 1)[0]
             self.assertNotIn('Add your screenshot here.', section)
-            image = f"![Screenshot {number} — Eze Favour — original local capture](terraform-aws-epicbook/evidence/{capture['file']})"
+            label = "original local capture" if number <= 19 else "verified live run"
+            image = f"![Screenshot {number} — Eze Favour — {label}](terraform-aws-epicbook/evidence/{capture['file']})"
             self.assertEqual(section.count(image), 1)
             if number in notices:
                 self.assertEqual(section.count(notices[number]), 1)
@@ -72,6 +75,7 @@ class EvidenceTests(unittest.TestCase):
             else:
                 restored = section.replace(image, 'Add your screenshot here.\n\n' + image)
             text = text.replace(heading + section, heading + restored, 1)
+        text = text.replace('**EC2 Public IP URL:** `http://3.234.183.199/` — retired after verified cleanup.', '**EC2 Public IP URL:** Add the working EpicBook EC2 public IP URL here')
         current = iter(text.replace('- [x]', '- [ ]').splitlines())
         for required in self.baseline['lines']:
             self.assertTrue(any(line == required for line in current), 'Lost or reordered original line: ' + required)
@@ -92,7 +96,7 @@ class EvidenceTests(unittest.TestCase):
         text = BRIEF.read_text()
         for changed in (text.replace('Add your screenshot here.\n', '', 1),
                         text.replace('### Screenshot 20 — Terraform Plan\n', '', 1),
-                        text.replace('- [ ] Created VPC `10.0.0.0/16`\n', '', 1)):
+                        text.replace('- [x] Created VPC `10.0.0.0/16`\n', '', 1)):
             with self.subTest(changed=changed[:30]), self.assertRaises(AssertionError):
                 self.assert_original_requirements(changed)
 
@@ -107,14 +111,15 @@ class EvidenceTests(unittest.TestCase):
         text = BRIEF.read_text()
         self.assertIn('factual Copilot-operated source/local-check notes, not firsthand learner reflection', text)
         self.assertIn('No real plan, application/database transaction, order workflow, destroy run', text)
-        self.assertEqual(text.count('Add your screenshot here.'), 16)
+        self.assertEqual(text.count('Add your screenshot here.'), 1)
+        self.assertIn('Historical preparation record', text)
 
     def test_manifest_exact_original_titles(self):
         titles = re.findall(r'^### Screenshot (\d+) — (.+)$', '\n'.join(self.baseline['lines']), re.M)
         self.assertEqual([(slot['number'], slot['title']) for slot in self.manifest['slots']], [(int(n), title) for n, title in titles])
         self.assertEqual(re.findall(r'^### Screenshot (\d+) — (.+)$', BRIEF.read_text(), re.M), titles)
 
-    def test_nineteen_local_captures_and_sixteen_pending_slots(self):
+    def test_original_local_captures_and_fifteen_new_live_slots(self):
         slots = self.manifest['slots']
         self.assertEqual([slot['number'] for slot in slots], list(range(1, 36)))
         self.assertEqual([capture['number'] for capture in self.captures], list(range(1, 20)))
@@ -123,13 +128,30 @@ class EvidenceTests(unittest.TestCase):
             self.assertEqual(slot['file'], capture['file'])
             self.assertEqual(slot['sha256'], capture['sha256'])
             self.assertEqual(slot['reason'], capture['scope'])
-        self.assertTrue(all(slot['status'] == 'pending' and slot['file'] is None for slot in slots[19:]))
+        self.assertEqual([c['number'] for c in self.live_captures], list(range(20, 35)))
+        for slot, capture in zip(slots[19:34], self.live_captures):
+            self.assertEqual(slot['status'], 'captured_live')
+            self.assertEqual(slot['file'], capture['file'])
+            self.assertEqual(slot['sha256'], capture['sha256'])
+        self.assertEqual(slots[34]['status'], 'pending')
+        self.assertIsNone(slots[34]['file'])
+        self.assertEqual(self.manifest['captured_count'], 34)
         self.assertEqual(self.provenance['pending_slots'], list(range(20, 36)))
 
-    def test_only_source_and_local_init_validate_checkmarks(self):
-        checked = re.findall(r'^- \[x\] (.+)$', BRIEF.read_text(), re.M)
-        self.assertEqual(checked, ['Created the modular Terraform project', 'Created the root `main.tf`, `variables.tf`, and `outputs.tf`', 'Created the Network module', 'Created the EC2 module', 'Created the RDS module', 'Created the EC2 `user_data.sh`', 'Completed `terraform init`', 'Completed `terraform validate`'])
-        self.assertIn('six source deliverables and successful local init/validate, not AWS resources', BRIEF.read_text())
+    def test_checkmarks_follow_live_evidence_without_claiming_unfinished_work(self):
+        text = BRIEF.read_text()
+        checked = set(re.findall(r'^- \[x\] (.+)$', text, re.M))
+        for required in ('Created VPC `10.0.0.0/16`', 'Reviewed `terraform plan`', 'Completed `terraform apply`',
+                         'Connected to EC2 using SSH', 'Verified Add to Cart', 'Confirmed application actions in Amazon RDS',
+                         'Completed `terraform destroy`', 'Configured AWS CLI', 'Confirmed the AWS Region'):
+            self.assertIn(required, checked)
+        for pending in ('Verified the checkout or order workflow', 'Published the required LinkedIn post',
+                        'Added the LinkedIn post URL', 'Captured all 35 required screenshots',
+                        'Installed and verified Terraform', 'Installed and verified AWS CLI', 'Installed the HashiCorp Terraform extension'):
+            self.assertNotIn(pending, checked)
+        self.assertTrue(self.live['completion']['cleanup'])
+        self.assertFalse(self.live['completion']['order_workflow'])
+        self.assertFalse(self.live['completion']['all_screenshot_requirements_fully_satisfied'])
 
     def test_local_markdown_links_exist(self):
         for path in [BRIEF, ROOT / 'README.md', EVIDENCE / 'local-validation.md', EVIDENCE / 'preflight-20260924.md']:
@@ -145,6 +167,9 @@ class EvidenceTests(unittest.TestCase):
                 capture = self.captures[number - 1]
                 self.assertEqual(images, ['terraform-aws-epicbook/evidence/' + capture['file']])
                 self.assertIn('**Captured local evidence only:** ' + capture['scope'], section)
+            elif number <= 34:
+                self.assertEqual(images, ['terraform-aws-epicbook/evidence/' + self.live_captures[number - 20]['file']])
+                self.assertIn('**Recorded live-run evidence:**', section)
             else:
                 self.assertEqual(images, [])
 
@@ -205,6 +230,33 @@ class EvidenceTests(unittest.TestCase):
         self.assertNotIn('tests/test_evidence.py', sources)
         self.assertEqual(self.provenance['evidence_test_base_sha256'], '7698b6a38fe2800aa2683cbdfeebb927dc9e84e73275548a5a862c53ca86427a')
 
+    def test_live_capture_integrity_and_reported_limits(self):
+        for capture in self.live_captures:
+            raw = (EVIDENCE / capture['file']).read_bytes()
+            self.assertEqual(len(raw), capture['bytes'])
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), capture['sha256'])
+            chunks = png_chunks(raw)
+            self.assertEqual(struct.unpack('>II', chunks[0][1][:8]), (capture['width'], capture['height']))
+            self.assertFalse(capture['image_modified'])
+        self.assertFalse(self.live['source_modified'])
+        for name, digest in self.live['source_hashes'].items():
+            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest)
+        self.assertIn('redacted', self.manifest['slots'][21]['reason'])
+        self.assertIn('temporary', self.live_captures[11]['method'])
+        self.assertFalse(self.live['cart']['post_response_body_retained'])
+        self.assertTrue(self.live['cart']['cart_empty_before_action'])
+        self.assertEqual(self.live['cart']['cart_id'], 1)
+        self.assertEqual(self.live['cart']['cartbook_book_id'], 1)
+        self.assertLess(self.live['cart']['request_to_record_seconds'], 10)
+        self.assertTrue(self.live['cleanup']['both_states_empty'])
+        self.assertEqual(self.live['cleanup']['managed_resources_checked'], 29)
+        self.assertLess(self.live['total_minutes'], self.live['approved_minutes'])
+        self.assertFalse(self.live['actual_bill_verified'])
+        summary = (EVIDENCE / 'live-run-summary.md').read_text()
+        self.assertIn('some route-table/security-group IDs overlap', summary)
+        self.assertIn('POST response body', summary)
+        self.assertIn('DBInstanceAutomatedBackupNotFound', summary)
+
     def test_proposed_source_resource_counts(self):
         sources = list(ROOT.glob('*.tf')) + list((ROOT / 'modules').glob('*/*.tf'))
         self.assertEqual(len(sources), 12)
@@ -216,7 +268,7 @@ class EvidenceTests(unittest.TestCase):
         self.assertIn('toset(["80", "443"])', text)
 
     def test_only_allowlisted_public_artifacts_and_provenance_fields(self):
-        expected = {'local-validation.md', 'screenshot-manifest.json', 'provenance.json', 'runtime-update-20260924.json', 'preflight-20260924.md'} | {c['file'] for c in self.captures}
+        expected = {'local-validation.md', 'screenshot-manifest.json', 'provenance.json', 'runtime-update-20260924.json', 'preflight-20260924.md', 'live-provenance.json', 'live-run-summary.md', 'live-validation.json'} | {c['file'] for c in self.captures + self.live_captures}
         actual = set()
         for path in EVIDENCE.rglob('*'):
             self.assertFalse(path.is_symlink())
@@ -233,7 +285,7 @@ class EvidenceTests(unittest.TestCase):
         for path in EVIDENCE.iterdir():
             if path.is_file():
                 self.assertIsNone(re.search(PRIVATE_MARKERS, path.read_bytes(), re.I), path.name)
-        for capture in self.captures:
+        for capture in self.captures + self.live_captures:
             for kind, data in png_chunks((EVIDENCE / capture['file']).read_bytes()):
                 if kind == b'iTXt':
                     _, rest = data.split(b'\0', 1)

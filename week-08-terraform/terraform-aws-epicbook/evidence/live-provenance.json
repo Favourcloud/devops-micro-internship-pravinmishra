@@ -1,0 +1,414 @@
+{
+  "learner": "Eze Favour",
+  "assignment": "Week 08 Assignment4",
+  "operator": "Codex under explicit user delegation; not manual learner execution",
+  "verified_at_utc": "2026-09-24T07:44:51.747094+00:00",
+  "source_commit": "3bb863a56ceaadb2eacdbef35a25c340b3aa0c57",
+  "source_hashes": {
+    ".terraform.lock.hcl": "c90b0c192926e5f3ac9b3d5ecb988be686de52a1554225529779c33b77295af6",
+    "main.tf": "ef35e64bfca1539df207514ae20aca53ac5202a13f17085f9a48a22d7b286aab",
+    "modules/ec2/main.tf": "1941684514f1531de643db9072be05d028b2ca1b187210196bdf8393fd071cb9",
+    "modules/ec2/outputs.tf": "31ee4ae19477175261998b36e2023530eca59c6f1ddb821a3ab8250b7f42a0ef",
+    "modules/ec2/runtime.py": "a4e907e9d7ec10de60d4a25b03341fe6dfd54373a152d3e7f6f194eb9098e316",
+    "modules/ec2/user_data.sh": "9d2d01714998b830d8d8fb3983589537081f0ddd680d1d75cbd7babbfb5e6160",
+    "modules/ec2/variables.tf": "185f2f5d692cc20176c0422f9b42b2443dbd6333c7a203c400c435516d7750b0",
+    "modules/network/main.tf": "947b6aba51f0b999f98d6a8829ab82c215fec7b7a6bc11d8e10ea0f71dee965f",
+    "modules/network/outputs.tf": "fb45e70e459953cd4840b41581bc926f13b3350191dc27201c84f1562a6c2d37",
+    "modules/network/variables.tf": "87133fe430c164758aed007c92154089872868ac3db205203a5ccda9babad099",
+    "modules/rds/main.tf": "22165220ec67d329dd6b804bc5fbd82b27ba3fe91f5380d19d2f49b42257a11e",
+    "modules/rds/outputs.tf": "8bd375b904b92355c1fb505e3f7c0b179367b215c71f05ff9ac796aa3b4f565f",
+    "modules/rds/variables.tf": "7a97a6a7c5cf8bc7f4dfb49d90268f58f32d14ae4ec2949b867e3b9fc65394a6",
+    "outputs.tf": "e608fc79242e0b29f96698bdf02b8447bbdb206ba5d2985f414043dba747802d",
+    "variables.tf": "ec6fb19bafd7e22ef1799715cbb2313b5f0f4f1db6c20b7ce640150adfdefd41"
+  },
+  "source_modified": false,
+  "terraform_version": "1.13.5",
+  "aws_provider_version": "6.64.0",
+  "region": "us-east-1",
+  "plan_hashes": {
+    "a4": "2e1e92caaa283da99b34fd06c113e513c5b3d265726cc2b13b3bd74e7f4089da",
+    "key": "ec42869d16934579023adcd790cf5e6d2cadcc2acbe371cc3a9a7838b56868b2"
+  },
+  "plan_actions": {
+    "application": {
+      "create": 28,
+      "update": 0,
+      "delete": 0
+    },
+    "public_key": {
+      "create": 1,
+      "update": 0,
+      "delete": 0
+    }
+  },
+  "approved_budget_usd": 1,
+  "approved_minutes": 60,
+  "apply_started_at": "2026-09-24T07:06:00.631780+00:00",
+  "apply_completed_at": "2026-09-24T07:14:54.337933+00:00",
+  "cleanup_completed_at": "2026-09-24T07:38:57.790892+00:00",
+  "total_minutes": 32.953,
+  "retired_public_ip": "3.234.183.199",
+  "base_estimate_usd_per_hour": 0.037413698630136986,
+  "base_estimate_for_entire_window_usd": 0.020548,
+  "actual_bill_verified": false,
+  "completion": {
+    "live_deployment": true,
+    "application_runtime": true,
+    "cart_database_workflow": true,
+    "cleanup": true,
+    "private_tfvars_created": true,
+    "order_workflow": false,
+    "linkedin_publication": false,
+    "learner_reflection": false,
+    "manual_learner_execution": false,
+    "all_screenshot_requirements_fully_satisfied": false
+  },
+  "cleanup": {
+    "completed_at": "2026-09-24T07:38:57.790892+00:00",
+    "managed_resources_checked": 29,
+    "child_identifiers_checked": 10,
+    "both_states_empty": true,
+    "snapshots_and_backups_absent": true
+  },
+  "cart": {
+    "verified_at": "2026-09-24T07:25:22.036839+00:00",
+    "browser_post_status": 200,
+    "request_time": "2026-09-24T07:23:31.588509+00:00",
+    "request_book_id": 1,
+    "product": "28 Summers",
+    "cart_id": 1,
+    "quantity": 1,
+    "price": 28,
+    "db_created_at": "2026-09-24T07:23:32+00:00",
+    "request_to_record_seconds": 0.411491,
+    "cartbook_book_id": 1,
+    "cart_empty_before_action": true,
+    "one_browser_post_observed": true,
+    "post_response_body_retained": false,
+    "response_body_limitation": "Instructor app immediately reloads after POST; CDP response body was evicted. Captured request/HTTP200 and empty-before/one-after Cart and Cartbook, matched by book, price, quantity and server creation time. No repeated POST or inserted evidence row.",
+    "checkout_order_created": false
+  },
+  "limitations": [
+    "The pinned instructor app has no order-creation endpoint; cart evidence does not complete the checkout/order checklist.",
+    "Screenshot35 and the required LinkedIn URL remain pending; learner reflection remains personal work.",
+    "Screenshot22 displays the public IP and an explicitly redacted RDS hostname, so the literal full-endpoint screenshot requirement is only partially shown.",
+    "Browser screenshots31\u201332 have a clearly labelled temporary DOM attribution banner and current location.href; browser chrome is not captured. Original unannotated images are retained privately. The banner was removed, and no instructor application source changed.",
+    "The app immediately reloads after POST; its HTTP200 and bookId1 request were captured, but the response body was evicted. Correlation uses the empty-before/single-after Cart and Cartbook records, matching product, quantity, price and server timestamp.",
+    "Historical screenshots4/10 retain their original Explorer/input and partial-script-view limitations. Private tfvars was created for this run, but no new VS Code Explorer image is claimed.",
+    "All new operations were performed by Codex under user delegation, not manual learner execution. Runtime success is not a dependency vulnerability audit."
+  ],
+  "screenshots": [
+    {
+      "number": 20,
+      "file": "screenshots/screenshot-20-terraform-plan.png",
+      "captured_at_utc": "2026-09-24T07:11:16.553Z",
+      "sha256": "a7c310b0f124e727a1c7a1c2b80acabbba8fd7e7aed242ff0a9d1a7b851bcfcf",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Selected genuine local Terraform plan output replayed with explicit delegation label; full private logs retained",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 450
+      },
+      "bytes": 136056,
+      "width": 1340,
+      "height": 900,
+      "image_modified": false,
+      "source_log_sha256": {
+        "a4-plan.log": "876f31d8f4a6cb09d11e3191f578032c0f2024643dce002e492b359eb6b7aecc",
+        "key-plan.log": "e9415cb6bdb0f3a4088cf539b26cc8945a2b90e008e99b6f963a0e3174eed409"
+      }
+    },
+    {
+      "number": 21,
+      "file": "screenshots/screenshot-21-terraform-apply.png",
+      "captured_at_utc": "2026-09-24T07:15:44.712Z",
+      "sha256": "8d5fff17243e7de1ada263fb61264617e141b71f9ac27f906eb8dcf31b20b44e",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 390
+      },
+      "bytes": 96770,
+      "width": 1340,
+      "height": 780,
+      "image_modified": false,
+      "source_log_sha256": {
+        "a4-apply.log": "1ceaa7007df09adad846773a2b0089025aaec4c47b2337e8264027e9f3a82429",
+        "key-apply.log": "e3989ce852d831bc5ee4daa95f95a4c61c0763f5a00eb4d56d7b70e0bc264d79"
+      }
+    },
+    {
+      "number": 22,
+      "file": "screenshots/screenshot-22-terraform-outputs.png",
+      "captured_at_utc": "2026-09-24T07:17:41.902Z",
+      "sha256": "4f5e5d24d256920d6e2ca6ced663543de127c746c0c675f2d21dfc4bb3a5bd4c",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 370
+      },
+      "bytes": 92557,
+      "width": 1340,
+      "height": 740,
+      "image_modified": false,
+      "source_log_sha256": {
+        "outputs.json": "ef11edab04511f7c12446073b839af3558701713296095080866c3e7759463a4"
+      }
+    },
+    {
+      "number": 23,
+      "file": "screenshots/screenshot-23-ec2-running.png",
+      "captured_at_utc": "2026-09-24T07:20:01.989Z",
+      "sha256": "c457b434787530496c94912312e730560e123379f74c94df676270795f79aa3f",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Live AWS CLI query executed in CloudShell, showing the EC2 running state",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 400
+      },
+      "bytes": 76498,
+      "width": 1340,
+      "height": 800,
+      "image_modified": false,
+      "source_log_sha256": {
+        "cloudshell-23-command.txt": "d13a80dd189bf0b63f71b825e241ac884361b1f4a2508d25e577e7817c31afb2",
+        "ec2-live.raw": "83bc98fa8172cf733b71e43388ef93419bd488d94424c36f09a27c9ff15bacb1"
+      }
+    },
+    {
+      "number": 24,
+      "file": "screenshots/screenshot-24-private-rds-available.png",
+      "captured_at_utc": "2026-09-24T07:21:32.303Z",
+      "sha256": "b9d14c7009a707bd5ff10f61376ee5dc2797f38916529a6b951681671fa9c709",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Live AWS CLI query executed in CloudShell; RDS available, private, encrypted and single-AZ",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 400
+      },
+      "bytes": 75199,
+      "width": 1340,
+      "height": 800,
+      "image_modified": false,
+      "source_log_sha256": {
+        "cloudshell-24-command.txt": "c504bc36383c94e4e05a497dd1429455352a3c79ffc79aa27b0a23b84be0857a",
+        "rds-live.raw": "2ae3a0668d15c80722a5a051b802f2399ad7c1f9fa540fd62c214e0b5fedb89b"
+      }
+    },
+    {
+      "number": 25,
+      "file": "screenshots/screenshot-25-installed-software.png",
+      "captured_at_utc": "2026-09-24T07:29:18.275Z",
+      "sha256": "6a8c298aeef2d56e158d8bc7dc79ffbc3126bcb5333a271d6dbd9a1ca42f5965",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 410
+      },
+      "bytes": 112591,
+      "width": 1340,
+      "height": 820,
+      "image_modified": false,
+      "source_log_sha256": {
+        "software.stdout": "57974b87271aac27e0c47a163da649af0abe0f04162da56f4dd913ac89eefba1",
+        "services.stdout": "6684f4985e5606c04e71ae17b0536d693121cfa2473af15775fe0ac8909c1f9f"
+      }
+    },
+    {
+      "number": 26,
+      "file": "screenshots/screenshot-26-ec2-rds-tls.png",
+      "captured_at_utc": "2026-09-24T07:29:53.057Z",
+      "sha256": "34f38107aea9afc762063096afb7b134a9a11b0f5b605b3ebe6e165bd7aa2324",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 500
+      },
+      "bytes": 107899,
+      "width": 1340,
+      "height": 1000,
+      "image_modified": false,
+      "source_log_sha256": {
+        "database.stdout": "02467218dd5d9134726a1dc341250a5d086d35abef6ac90511e8c7adf06437d8",
+        "database.record.json": "d019bc560d160f13cd7b396052667ccadf11cc466b566f42c12c438009281691"
+      }
+    },
+    {
+      "number": 27,
+      "file": "screenshots/screenshot-27-tables-and-seed-data.png",
+      "captured_at_utc": "2026-09-24T07:30:34.113Z",
+      "sha256": "3a3e619fc87e1d6ebe96abc271eafe68dc003d762d2c977a082d715bdfe32ead",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 500
+      },
+      "bytes": 107559,
+      "width": 1340,
+      "height": 1000,
+      "image_modified": false,
+      "source_log_sha256": {
+        "database.stdout": "02467218dd5d9134726a1dc341250a5d086d35abef6ac90511e8c7adf06437d8"
+      }
+    },
+    {
+      "number": 28,
+      "file": "screenshots/screenshot-28-installed-dependencies.png",
+      "captured_at_utc": "2026-09-24T07:31:25.360Z",
+      "sha256": "743296ad5bcb44d13150bed20d63aad7ff9e025e34633082bb9cb41a2ef7d704",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 440
+      },
+      "bytes": 108324,
+      "width": 1340,
+      "height": 880,
+      "image_modified": false,
+      "source_log_sha256": {
+        "dependencies.stdout": "8753ea423f28c49b7d5515f286094bfd883ed3bf584d2033953a019df3f99375"
+      }
+    },
+    {
+      "number": 29,
+      "file": "screenshots/screenshot-29-nginx-configuration.png",
+      "captured_at_utc": "2026-09-24T07:33:08.594Z",
+      "sha256": "561cf0a7e2d8b2666f9cd0462c960ca55a899e6dffb829204287a5316ca050cd",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 590
+      },
+      "bytes": 151552,
+      "width": 1340,
+      "height": 1180,
+      "image_modified": false,
+      "source_log_sha256": {
+        "services.stdout": "6684f4985e5606c04e71ae17b0536d693121cfa2473af15775fe0ac8909c1f9f"
+      }
+    },
+    {
+      "number": 30,
+      "file": "screenshots/screenshot-30-epicbook-port-8080.png",
+      "captured_at_utc": "2026-09-24T07:34:05.448Z",
+      "sha256": "bc67fcb5853b910e936eb71faedeb395781e8d4e172260c627bbbe74bdae2416",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 420
+      },
+      "bytes": 95024,
+      "width": 1340,
+      "height": 840,
+      "image_modified": false,
+      "source_log_sha256": {
+        "services.stdout": "6684f4985e5606c04e71ae17b0536d693121cfa2473af15775fe0ac8909c1f9f",
+        "http.stdout": "b5817a2492d55437d7169542ecfa1cdc44f5ce52bf741fc15d995fb5c9561f32"
+      }
+    },
+    {
+      "number": 31,
+      "file": "screenshots/screenshot-31-epicbook-browser.png",
+      "captured_at_utc": "2026-09-24T07:23:09.203Z",
+      "sha256": "3683241ff9f6fd32964fbdd85422e5cb95d84e0956fe29196e569f84d40d4524",
+      "method": "Unedited browser CDP PNG screenshot; temporary clearly labelled DOM attribution banner",
+      "scope": "Real EpicBook page at live EC2 IP; banner contains learner/operator and current location.href, not application functionality. Browser chrome is not captured. Original unannotated capture retained privately.",
+      "bytes": 1414420,
+      "width": 2560,
+      "height": 1440,
+      "image_modified": false,
+      "source_log_sha256": {}
+    },
+    {
+      "number": 32,
+      "file": "screenshots/screenshot-32-browser-cart.png",
+      "captured_at_utc": "2026-09-24T07:26:39.039Z",
+      "sha256": "e4567b0af96452af0270a4112b93b949e7d045a8ed1ebfea047155fd3fd744dc",
+      "method": "Unedited browser CDP PNG screenshot; temporary clearly labelled DOM attribution banner",
+      "scope": "Actual cart after one browser Add to Cart action: 28 Summers, quantity1, total$28. Annotation supplies learner/operator and current location.href; not instructor-app functionality. No checkout/order claimed.",
+      "bytes": 1132545,
+      "width": 2560,
+      "height": 1440,
+      "image_modified": false,
+      "source_log_sha256": {}
+    },
+    {
+      "number": 33,
+      "file": "screenshots/screenshot-33-matching-cart-rds-record.png",
+      "captured_at_utc": "2026-09-24T07:36:04.446Z",
+      "sha256": "8eb58e35dd394689f3609a3bbee8627075d9aef4d5a35f7523e67a3b6b2055c1",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 640
+      },
+      "bytes": 165762,
+      "width": 1340,
+      "height": 1280,
+      "image_modified": false,
+      "source_log_sha256": {
+        "cart-database.stdout": "71e389ad6834d76c2346aa914b5bb61527d39575bdc7578384bb54cd33b7b716",
+        "browser-cart-events.json": "49293eac2fdf3ef7286f750bd01a17310e5592e3ad2d5d844996ee3113e16dcb",
+        "cart-verification.json": "f41332c5db4c0d84ba019e5fa1812d05b8caa7d7bab92199f1875c4ba33775aa"
+      }
+    },
+    {
+      "number": 34,
+      "file": "screenshots/screenshot-34-terraform-destroy.png",
+      "captured_at_utc": "2026-09-24T07:41:52.993Z",
+      "sha256": "f21f489586fd753451af374e15609701829a94dbaa0711984fbda1262841dfb8",
+      "method": "Browser CDP screenshot of CloudShell; capture clipped to exclude account header; no pixel edits",
+      "scope": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "clip_css": {
+        "x": 0,
+        "y": 55,
+        "width": 670,
+        "height": 540
+      },
+      "bytes": 151816,
+      "width": 1340,
+      "height": 1080,
+      "image_modified": false,
+      "source_log_sha256": {
+        "a4-destroy.log": "6b10cbf4b78472806c38d340129cad647ac7935b010175eaf86d6b1cd25f2255",
+        "key-destroy.log": "686a1106ddfcc4d5ab00f34e6c5870d9609fb8ceee2ea05708a7ab8929a311c1",
+        "cleanup-complete.json": "ec6622f297c5d2f07b44d2e2eb4e2f7a6047989dc1b7bcaddd41847230454181",
+        "a4-empty-state.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "key-empty-state.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ]
+}
