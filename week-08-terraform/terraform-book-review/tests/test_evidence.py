@@ -232,9 +232,33 @@ class EvidenceContract(unittest.TestCase):
     def test_publication_is_required_and_pending(self):
         self.assertEqual({"required": True, "status": "pending", "url": None}, self.manifest["linkedin_publication"])
 
-    def test_missing_kit_and_unexecuted_workflow_are_honest(self):
+    def test_partial_bedrock_workflow_keeps_unfinished_requirements(self):
         self.assertFalse(self.manifest["instructor_starter_kit"]["found_in_pinned_upstream"])
-        self.assertEqual("pending_not_executed", self.manifest["claude_mcp_workflow"])
+        self.assertEqual("partial_lookup_and_offline_validation_verified", self.manifest["claude_mcp_workflow"])
+        setup = self.manifest["claude_bedrock_setup"]
+        for field in ("report", "workflow_record"):
+            data = (ROOT / "evidence" / setup[field]).read_bytes()
+            self.assertEqual(setup[field + "_sha256"], hashlib.sha256(data).hexdigest())
+        workflow = json.loads((ROOT / "evidence" / setup["workflow_record"]).read_text())
+        self.assertTrue(setup["model_selected_mcp_lookup_verified"])
+        self.assertTrue(setup["model_invoked_offline_validation_verified"])
+        lookup = workflow["model_selected_mcp_lookup"]
+        self.assertTrue(lookup["verified"])
+        self.assertFalse(lookup["workspace_provider_changed"])
+        validation = workflow["model_invoked_offline_validation"]
+        self.assertTrue(validation["verified"])
+        self.assertFalse(validation["tool_result_error"])
+        self.assertFalse(validation["real_cloud_plan_or_apply"])
+        self.assertEqual(["version", "fmt", "init", "validate", "provider-schema", "mock-plan-tests"], validation["passed_stages"])
+        self.assertEqual(["PASS " + stage for stage in validation["passed_stages"]], validation["output"].splitlines()[:6])
+        self.assertEqual(validation["output_sha256"], hashlib.sha256(validation["output"].encode()).hexdigest())
+        for field in ("workflow_complete", "post_edit_validation_verified", "agent_workflows_verified",
+                      "infrastructure_deployed", "manual_learner_execution"):
+            self.assertFalse(workflow[field])
+        self.assertEqual(0, workflow["screenshots_added"])
+        cost = workflow["cost"]
+        self.assertAlmostEqual(sum(run["aws_regional_estimate_usd"] for run in cost["runs"]), cost["additional_usage_estimate_usd"])
+        self.assertLess(cost["additional_usage_estimate_usd"], cost["additional_authorized_usd"])
 
     def test_policy_contains_concrete_screenshot_one_architecture_context(self):
         policy = (ROOT / "CLAUDE.md").read_text()

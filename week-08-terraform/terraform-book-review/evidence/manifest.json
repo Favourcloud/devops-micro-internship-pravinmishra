@@ -63,11 +63,12 @@
     "source": "authenticated_udemy_assignment_37",
     "review_record": "starter-kit-review-20260924.json",
     "review_summary": "starter-kit-review-20260924.md",
-    "candidate": "private_inert_not_installed",
-    "workflow_evidence_added": false,
-    "integration_report": "bedrock-setup-20260925.md"
+    "candidate": "private_integrated",
+    "workflow_evidence_added": true,
+    "integration_report": "bedrock-setup-20260925.md",
+    "workflow_evidence_scope": "Sanitized Bedrock MCP lookup and offline validation record; required workflow screenshots remain pending."
   },
-  "claude_mcp_workflow": "pending_not_executed",
+  "claude_mcp_workflow": "partial_lookup_and_offline_validation_verified",
   "screenshots": [
     {
       "slot": 1,
@@ -331,20 +332,23 @@
     17
   ],
   "new_capture_provenance": "local-capture-provenance-20260924.json",
-  "claude_mcp_workflow_scope": "Required capstone model-selected MCP lookup, agent workflows and post-edit validation remain unexecuted; partial setup is recorded separately.",
+  "claude_mcp_workflow_scope": "Bedrock model-selected public registry lookup and model-invoked offline validation verified; agent workflows, post-edit validation and required screenshots remain pending.",
   "claude_bedrock_setup": {
     "report": "bedrock-setup-20260925.md",
-    "report_sha256": "9318d67d7b5269e9952b90272981c14b2623d6c1c97f356ca25da13023a6fb05",
+    "report_sha256": "b8eda376e45b07bdc8c314179fc19aef35d56460f347d60fc6e7a5424d64ac0b",
     "provider": "Amazon Bedrock",
     "model": "us.anthropic.claude-sonnet-4-6",
     "model_response_verified": true,
     "claude_mcp_connection_verified": true,
     "mcp_tool_count": 7,
-    "model_selected_mcp_lookup_verified": false,
+    "model_selected_mcp_lookup_verified": true,
     "pretool_denials_observed": true,
     "post_edit_validation_verified": false,
     "screenshots_added": 0,
     "infrastructure_deployed": false,
-    "manual_learner_execution": false
+    "manual_learner_execution": false,
+    "workflow_record": "bedrock-workflow-20260925.json",
+    "workflow_record_sha256": "02b632d48b8d0b8098180899c7b366fe092cf9e587e6341d3a51b20706bc8d40",
+    "model_invoked_offline_validation_verified": true
   }
 }

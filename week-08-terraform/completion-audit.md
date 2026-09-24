@@ -4,7 +4,7 @@ Rubric reviewed on 22 September 2026; Assignment 04 live and Assignment 05 local
 
 ## Current score and remaining points
 
-**25 September setup follow-up:** the private A5 integration now has a verified Claude Sonnet 4.6 response through Amazon Bedrock and a seven-tool Terraform MCP connection. The intended model-selected MCP lookup and remaining workflow/screenshots are still pending. See the [setup report](terraform-book-review/evidence/bedrock-setup-20260925.md); this adds no screenshot credit or observed DMI regrade.
+**25 September workflow follow-up:** the private A5 integration now has a verified Claude Sonnet 4.6 response through Amazon Bedrock, a seven-tool Terraform MCP connection, a model-selected provider lookup and a model-invoked six-stage offline validation pass. Agent workflows, post-edit validation and screenshots remain pending. See the [setup report](terraform-book-review/evidence/bedrock-setup-20260925.md); this adds no screenshot credit or observed DMI regrade.
 
 | Component | Awarded | Available | What remains |
 |---|---:|---:|---|
@@ -124,4 +124,4 @@ The unchanged protected runner again passed all six stages, including validate/p
 
 The enrolled Udemy course provides `book-review-agentic-ai.zip` under **Section 8 → Assignment 37 → Instructions → Download resource files**. The archive passed integrity checks and its six files were compared with the existing A5 setup. The [review](terraform-book-review/evidence/starter-kit-review-20260924.md) records the official source, file hashes, configuration differences and a private inactive candidate. No course files are redistributed, protected project configuration changed, or Claude/MCP/cloud operations performed. The assignment explicitly offers no complete step-by-step implementation; its Instructor example is `N/A`.
 
-Kit discovery is complete. Candidate integration, actual workflow, dependency/runtime resolution, the costed deployment, learner work and publication remain pending. Screenshot counts remain **A5 9/28; Week 08 98/118**. No new grade is claimed.
+Kit discovery and private integration are complete. The 25 September follow-up above verifies the bounded MCP lookup and offline validation through Bedrock. Agent workflows, post-edit validation, dependency/runtime resolution, the costed deployment, learner work and publication remain pending. Screenshot counts remain **A5 9/28; Week 08 98/118**. No new grade is claimed.
