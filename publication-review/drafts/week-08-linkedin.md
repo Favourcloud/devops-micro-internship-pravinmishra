@@ -5,13 +5,13 @@ Week 08 Terraform progress: four cloud runs now have verified deployments, appli
 • React on Azure: 15/15 screenshots; application, assets and routing checked, followed by verified teardown.
 • EpicBook on AWS/RDS: 34/35 captures; a real browser cart matched its database record, followed by verified removal of all 29 lab resources.
 
-Codex performed these approved runs under delegation. The recorded public addresses are retired. A1–A3 evidence is merged; the new A4 live evidence is prepared for review.
+Codex performed these approved runs under delegation. The recorded public addresses are retired. A1–A4 evidence is merged.
 
 Assignment 6 adds a different lesson: a valid Terraform plan can still describe an unsafe change. A planning-only input proposed public SSH, the checker returned FAIL, and Claude Code recommended rejecting it. A native PreToolUse hook blocked an actual apply request before Terraform ran. AWS read-back confirmed the public SSH rule was never deployed.
 
 The recorded human decision retained the closed configuration. Copilot performed the final checks and cleanup. Its Terraform execution was delegated; the separate manual learner execution requirement remains open.
 
-The repository includes the detected-change report and final recorded Claude review. Across Week 08, 93/118 screenshot slots are filled. A4 still needs its separate checkout/order requirement and publication; A5's starter kit, genuine Claude workflow, deployment and personal reflections remain open. A4 capture limitations are documented. This is a progress update, not a whole-week completion claim.
+The repository includes the detected-change report and final recorded Claude review. Across Week 08, 98/118 screenshot slots are filled. A4 still needs its separate checkout/order requirement and publication; A5's starter kit, genuine Claude workflow, deployment and personal reflections remain open. A4 capture limitations are documented. This is a progress update, not a whole-week completion claim.
 
 The takeaway: connect each claim to its evidence—plan, review, decision, runtime result and cleanup.
 

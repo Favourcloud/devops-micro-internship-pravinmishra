@@ -1,6 +1,6 @@
 # Week 08 Terraform — completion audit
 
-Rubric reviewed on 22 September 2026; Assignment 04 live progress updated on 24 September 2026 (Africa/Lagos). Checked against the [published DMI rubric](https://dmi.pravinmishra.com/how-it-works.html#rubric), the [Favourcloud feedback page](https://dmi.pravinmishra.com/s/Favourcloud.html), and the current assignment files. The feedback page was rechecked on 24 September: its displayed review date is 2026-09-23, and Week 08 remains 70/190 with 2/6 assignment files passing. The A2/A3 live deliveries have no observed regrade.
+Rubric reviewed on 22 September 2026; Assignment 04 live and Assignment 05 local-source progress updated on 24 September 2026 (Africa/Lagos). Checked against the [published DMI rubric](https://dmi.pravinmishra.com/how-it-works.html#rubric), the [Favourcloud feedback page](https://dmi.pravinmishra.com/s/Favourcloud.html), and the current assignment files. The feedback page was rechecked on 24 September: its displayed review date is 2026-09-23, and Week 08 remains 70/190 with 2/6 assignment files passing. The A2/A3 live deliveries have no observed regrade.
 
 ## Current score and remaining points
 
@@ -34,9 +34,9 @@ These counts come from the numbered screenshot sections in the assignment files,
 | 02 — AWS VM | 10 / 10 | None | Live plan/apply, EC2/SSH/HTTP/browser checks and complete teardown verified on September 23; delegated execution disclosed. Delivered to main in PR #50; awaiting DMI review. |
 | 03 — Azure React | 15 / 15 | None | Approved live plan/apply, strict SSH, cloud-init, Nginx, public HTTP/SPA/assets/browser and complete teardown verified. Delegated execution and unchanged app placeholders disclosed; merged in PR #51. |
 | 04 — AWS EpicBook | 34 / 35 | 35 | Deployment, browser/cart-to-RDS checks and full teardown verified. Checkout/order, learner reflection, mandatory publication and disclosed partial screenshot requirements remain. |
-| 05 — Book Review capstone | 4 / 28 | 4–5 and 7–28 | Remaining architecture/validation images, actual Claude/MCP workflow, deployment and application evidence; 15 personal reflections remain unanswered. |
+| 05 — Book Review capstone | 9 / 28 | 4–5, 9–13 and 17–28 | Literal Terraform validation output, actual Claude/MCP workflow, deployment and application evidence; 15 personal reflections remain unanswered. |
 | 06 — Drift and policy review | 19 / 19 | None | Existing evidence describes delegated Terraform execution; the manual-execution requirement and publication remain open. Already credited by the automated file check. |
-| **Total** | **93 / 118** | **25 missing** | An occupied image slot is not necessarily a completed task. |
+| **Total** | **98 / 118** | **20 missing** | An occupied image slot is not necessarily a completed task. |
 
 The [screenshots index](screenshots/README.md) points to each assignment's original images and manifests. Its included Assignment 06 image is a byte-identical copy of an existing capture, not a new result or an additional completed screenshot slot.
 
@@ -105,6 +105,15 @@ A5's [instructor application](https://github.com/pravinmishraaws/book-review-app
 
 The approved A4 AWS deployment and real application/cart-to-RDS verification succeeded. All 29 resources were destroyed; both Terraform states are empty. Exact AWS checks covered every managed resource, the root disk, recorded network children and retained-backup absence. The 32.95-minute window was within the approved $1/60-minute limit. Estimated base usage for the whole window is $0.0205 before extras; the actual bill is unverified. No cloud resources from this lab remain.
 
-**Current inventory: 74/99 for assignments 01–05 plus 19 for Assignment 06 = 93/118 occupied slots, with 25 missing.** A4 now has 34/35 captures; its checkout/order, personal reflection and publication requirements remain unfinished. A5 still has 24 missing captures plus its starter-kit/dependency/Claude workflow and personal work. A6's manual learner requirement and both weekly publication URLs remain open. No new DMI grade is claimed.
+**A4-completion snapshot: 74/99 for assignments 01–05 plus 19 for Assignment 06 = 93/118 occupied slots, with 25 missing.** A4 now has 34/35 captures; its checkout/order, personal reflection and publication requirements remain unfinished. A5 still has 24 missing captures plus its starter-kit/dependency/Claude workflow and personal work. A6's manual learner requirement and both weekly publication URLs remain open. No new DMI grade is claimed.
 
 The [new A4 provenance](terraform-aws-epicbook/evidence/live-provenance.json) explicitly records CloudShell replay of genuine local/SSH output, two live AWS CLI views, browser attribution annotations, the redacted RDS hostname, and correlation of the actual single cart request with its unique database row. These capture limitations do not waive the original rubric.
+
+
+## Assignment 05 local evidence on 24 September
+
+Five new original browser captures show the unchanged six-subnet source, tier routes/security, Multi-AZ primary, separate read replica and private database configuration. They occupy slots 7, 8, 14, 15 and 16, bringing A5 to **9/28** and the week to **98/118**, with **20 missing**. The original four A5 images and all 59 protected/source files remain byte-identical to the frozen baseline. See [new provenance](terraform-book-review/evidence/local-capture-provenance-20260924.json).
+
+The unchanged protected runner again passed all six stages, including validate/provider-schema and 43 explicit mock plans, using the locked local provider with IP networking denied. The separately captured stage summary is supporting evidence only: Screenshot17's literal Terraform output remains missing. No cloud resources, Claude/MCP workflow, release approval or learner answers were produced. The original 28 screenshot requirements, 15 reflection questions and 55 unchecked checklist entries remain preserved.
+
+[PR #56](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/56) merged the A4 evidence at `74645e14d0c72616b494bdea1a1e29065fdad253`. DMI was refreshed again and still reports **70/190**, last reviewed **2026-09-23**. The instructor university Login link opens a Payhip sign-in form; the starter-kit course resource cannot be inspected until the user signs in or supplies its link. A5's vulnerable upstream release and unprepared runtime/AMI also remain blockers. No new A5 spending is authorized by the completed A4 budget.

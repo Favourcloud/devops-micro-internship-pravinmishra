@@ -1,0 +1,230 @@
+{
+  "recorded_at_utc": "2026-09-24T08:51:31.739326+00:00",
+  "scope": "Five original browser captures of unchanged source plus one uncounted guarded-validation summary",
+  "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+  "learner": "Eze Favour",
+  "operator": "Codex under user delegation",
+  "provided_kit_demonstrated": false,
+  "claude_execution_demonstrated": false,
+  "cloud_operations": false,
+  "manual_learner_execution": false,
+  "image_pixels_modified": false,
+  "capture_surface": "Locally prepared read-only HTML file viewer served on loopback. It displays exact source excerpts with line numbers and file hashes; no terminal or cloud-console interface is imitated. Original CDP full-page PNGs, browser chrome absent; viewport unchanged.",
+  "counted_slots": [
+    7,
+    8,
+    14,
+    15,
+    16
+  ],
+  "uncounted_supporting_slot": 17,
+  "screenshots": [
+    {
+      "slot": 7,
+      "sha256": "3c3ecc38fc3179047ff24f931b853a06f1585453a5ab90f9759e7d4ad4925a8d",
+      "bytes": 306890,
+      "dimensions": [
+        2560,
+        2082
+      ],
+      "captured_at_utc": "2026-09-24T08:49:16.730Z",
+      "method": "Browser CDP original full-page PNG; no pixel edits; actual local source/output viewer",
+      "title": "Six-subnet architecture",
+      "sources": [
+        {
+          "file": "terraform/variables.tf",
+          "start_line": 9,
+          "end_line": 15,
+          "file_sha256": "f0513e5df04904922f4b73e502a7f9d5a5af0913e8548b573dbed477377ddccf",
+          "excerpt_sha256": "845f7aa902c2a9d1d85a4366b33439bf1bc3a52f1b9df03f23d9cd2c41916a81"
+        },
+        {
+          "file": "terraform/modules/network/main.tf",
+          "start_line": 1,
+          "end_line": 16,
+          "file_sha256": "cc1118d65a6c72a5a391235dea37cfdd69622b788846b4b4a7b828236a61baf1",
+          "excerpt_sha256": "83c3526200bf3597d1a517bd9cefb907fe97ac1cf6367a0c17fcb86cbb74ff45"
+        },
+        {
+          "file": "terraform/modules/network/main.tf",
+          "start_line": 31,
+          "end_line": 38,
+          "file_sha256": "cc1118d65a6c72a5a391235dea37cfdd69622b788846b4b4a7b828236a61baf1",
+          "excerpt_sha256": "44c014b1396bf3676ec1017964ed371f762cdc633dc254689427d7b5466ed9d9"
+        }
+      ],
+      "view_sha256": "b653d2c56c31b93988a79f0ebf91e929b3e6c89ec05ff8b2c95e5e8dd11b6a4c",
+      "scope": "Two validated availability zones and three tiers produce six subnets. This source has not been deployed.",
+      "path": "screenshots/screenshot-07-local-evidence.png",
+      "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+      "pixels_modified": false,
+      "manual_learner_execution": false,
+      "operator": "Codex under user delegation"
+    },
+    {
+      "slot": 8,
+      "sha256": "00312980103caa57f5c3dcc619c2aba4964b2e2f33d4706c06c192051c177475",
+      "bytes": 678828,
+      "dimensions": [
+        2560,
+        3458
+      ],
+      "captured_at_utc": "2026-09-24T08:49:35.142Z",
+      "method": "Browser CDP original full-page PNG; no pixel edits; actual local source/output viewer",
+      "title": "Public and private tier separation",
+      "sources": [
+        {
+          "file": "terraform/modules/network/main.tf",
+          "start_line": 51,
+          "end_line": 85,
+          "file_sha256": "cc1118d65a6c72a5a391235dea37cfdd69622b788846b4b4a7b828236a61baf1",
+          "excerpt_sha256": "284965b26744400a6587152ae96796c9bcc91e392cfdc81a9c639c5a89dbcc0f"
+        },
+        {
+          "file": "terraform/modules/security/main.tf",
+          "start_line": 1,
+          "end_line": 42,
+          "file_sha256": "7245011ca0f416bdfa48fdd36ca0eaaf615686104c4f07efa2bc68c82c1ea907",
+          "excerpt_sha256": "3e93548a7a62e42ed472699a432c64ddcdab75d9ad969e93ba45933a15ec9224"
+        }
+      ],
+      "view_sha256": "9a9f1cd6dc252c390154b6854e1609381a4acbcf50ebe20e969fa9cbbc2edcbc",
+      "scope": "Source routing: Web uses the internet gateway; App uses its same-AZ NAT; DB has local routes only. The security-group chain restricts traffic to the preceding tier. These are configuration views.",
+      "path": "screenshots/screenshot-08-local-evidence.png",
+      "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+      "pixels_modified": false,
+      "manual_learner_execution": false,
+      "operator": "Codex under user delegation"
+    },
+    {
+      "slot": 14,
+      "sha256": "b13c889270cd71d847222038e787537f066fa47f6c7637453e314d5ee3f14efb",
+      "bytes": 320233,
+      "dimensions": [
+        2560,
+        1762
+      ],
+      "captured_at_utc": "2026-09-24T08:49:52.671Z",
+      "method": "Browser CDP original full-page PNG; no pixel edits; actual local source/output viewer",
+      "title": "High-availability configuration",
+      "sources": [
+        {
+          "file": "terraform/modules/database/main.tf",
+          "start_line": 30,
+          "end_line": 60,
+          "file_sha256": "028fbfe6db64980fe0e6e43194a3455de617963621129ae27350902bf06bbf1d",
+          "excerpt_sha256": "e00a819b3f29519ede0e685da4e3baab29cce24b0e4f527d104d19601a6c2083"
+        }
+      ],
+      "view_sha256": "3e81d9c1ecbc306bd9ac2736d76dfd6db93a1462c0f6ba1a89f318e5fe2ddf2d",
+      "scope": "The primary database is configured with multi_az = true. This shows the configured intent, not a provisioned standby or failover test.",
+      "path": "screenshots/screenshot-14-local-evidence.png",
+      "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+      "pixels_modified": false,
+      "manual_learner_execution": false,
+      "operator": "Codex under user delegation"
+    },
+    {
+      "slot": 15,
+      "sha256": "b34a0d42a4e579f2816fa837a5e3e38bc7a0caa42c4d63e485033e378f3aaf0d",
+      "bytes": 280436,
+      "dimensions": [
+        2560,
+        1530
+      ],
+      "captured_at_utc": "2026-09-24T08:49:53.183Z",
+      "method": "Browser CDP original full-page PNG; no pixel edits; actual local source/output viewer",
+      "title": "Read-replica configuration",
+      "sources": [
+        {
+          "file": "terraform/modules/database/main.tf",
+          "start_line": 61,
+          "end_line": 84,
+          "file_sha256": "028fbfe6db64980fe0e6e43194a3455de617963621129ae27350902bf06bbf1d",
+          "excerpt_sha256": "1b124942c717674550ad932684d1f8d2202bbd345748047af20e02ae4bbb4855"
+        }
+      ],
+      "view_sha256": "4c923cccd5cedf76d5e846fdf33652518813cf79ebe7508f23508771cb555706",
+      "scope": "The separate replica points to the primary ARN. Its multi_az = false is distinct from the primary standby. No replication or live database connection is demonstrated.",
+      "path": "screenshots/screenshot-15-local-evidence.png",
+      "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+      "pixels_modified": false,
+      "manual_learner_execution": false,
+      "operator": "Codex under user delegation"
+    },
+    {
+      "slot": 16,
+      "sha256": "77ef4c08663828a9484f4f8d0ab8d2746e5efa4edbc7a3d7bc79cb03a0ad43cb",
+      "bytes": 547261,
+      "dimensions": [
+        2560,
+        2984
+      ],
+      "captured_at_utc": "2026-09-24T08:50:15.671Z",
+      "method": "Browser CDP original full-page PNG; no pixel edits; actual local source/output viewer",
+      "title": "Private database access configuration",
+      "sources": [
+        {
+          "file": "terraform/modules/security/main.tf",
+          "start_line": 1,
+          "end_line": 18,
+          "file_sha256": "7245011ca0f416bdfa48fdd36ca0eaaf615686104c4f07efa2bc68c82c1ea907",
+          "excerpt_sha256": "5c50f3c36f7d4eb36ce08ce0bb7d9b9ede015a039603f2740b796bbd4b8f7987"
+        },
+        {
+          "file": "terraform/modules/security/main.tf",
+          "start_line": 27,
+          "end_line": 34,
+          "file_sha256": "7245011ca0f416bdfa48fdd36ca0eaaf615686104c4f07efa2bc68c82c1ea907",
+          "excerpt_sha256": "5236710015e7413e8369ed0f98381598ec968bd1cb09869fcc8b797f5102763a"
+        },
+        {
+          "file": "terraform/modules/database/main.tf",
+          "start_line": 30,
+          "end_line": 46,
+          "file_sha256": "028fbfe6db64980fe0e6e43194a3455de617963621129ae27350902bf06bbf1d",
+          "excerpt_sha256": "00d5b12e76321bf6e27d34c2758ee4d1f8f1f4a56b0593f6752dc365725f7db5"
+        },
+        {
+          "file": "terraform/modules/database/main.tf",
+          "start_line": 61,
+          "end_line": 72,
+          "file_sha256": "028fbfe6db64980fe0e6e43194a3455de617963621129ae27350902bf06bbf1d",
+          "excerpt_sha256": "4b73b9bf2eb64ba8816d7a2c9a9c2ce61138ddd2ad7cf2b68d411df5adb2bf4d"
+        }
+      ],
+      "view_sha256": "0ac1af8761c32b30d331ba7bb2f0b6caee44830046e2a731abebf4787d7a5ac0",
+      "scope": "The only database ingress edge uses the App security group on TCP 3306. Both database instances are private. Live connectivity remains unverified.",
+      "path": "screenshots/screenshot-16-local-evidence.png",
+      "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+      "pixels_modified": false,
+      "manual_learner_execution": false,
+      "operator": "Codex under user delegation"
+    },
+    {
+      "slot": 17,
+      "sha256": "d59577f0a3ae83c010e02e3a7e2599ce07e26e21836f7835875b647fcd53f756",
+      "bytes": 186954,
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "captured_at_utc": "2026-09-24T08:50:16.092Z",
+      "method": "Browser CDP original full-page PNG; no pixel edits; actual local source/output viewer",
+      "title": "Offline Terraform validation result",
+      "sources": [],
+      "view_sha256": "997209ebbf28905b976f9e8674921914cee41cef02a3d36c5daf708509626715",
+      "scope": "Partial Screenshot 17 evidence: the unchanged protected runner reports PASS validate. It suppresses raw Terraform diagnostics; this is not the literal terraform validate success output requested by the rubric. No real cloud plan or apply was run.",
+      "validation_record": "local-validation-20260924.json",
+      "path": "supplemental/offline-validation-stage-results.png",
+      "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+      "pixels_modified": false,
+      "manual_learner_execution": false,
+      "operator": "Codex under user delegation"
+    }
+  ],
+  "course_access_check": {
+    "url": "https://payhip.com/pravinmishra/users/login",
+    "result": "Instructor university Login link opened Payhip sign-in; enrolled materials unavailable until user signs in. No new kit located."
+  }
+}
