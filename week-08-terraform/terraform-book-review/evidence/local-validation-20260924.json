@@ -1,0 +1,20 @@
+{
+  "started_at_utc": "2026-09-24T08:47:20.520819+00:00",
+  "completed_at_utc": "2026-09-24T08:47:57.197782+00:00",
+  "exit_code": 0,
+  "output": "PASS version\nPASS fmt\nPASS init\nPASS validate\nPASS provider-schema\nPASS mock-plan-tests\nOffline validation passed; no real plan/apply, cloud, runtime or Claude evidence.\n",
+  "output_sha256": "bd638ee90249da561783e7429ff2a80a78b73b135ca40e870e9dd42a21647994",
+  "source_commit": "23748110108196f26c1394830a48af5317f7ca22",
+  "terraform_sha256": "f9ebc400e229738b593bb4691263c0a55f6e4ba420199571a25f204db85281db",
+  "network": "IP denied; private Unix sockets allowed",
+  "credential_free_environment": true,
+  "source_and_trust_manifest_unchanged": true,
+  "cloud_operations": false,
+  "claude_execution": false,
+  "raw_terraform_diagnostics": "suppressed by unchanged protected runner; only real stage results displayed",
+  "terraform_version": "1.13.5",
+  "aws_provider_version": "6.64.0",
+  "mock_plan_runs": 43,
+  "screenshot_counted": false,
+  "supplemental_image": "supplemental/offline-validation-stage-results.png"
+}

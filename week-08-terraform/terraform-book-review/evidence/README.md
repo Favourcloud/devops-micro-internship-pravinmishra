@@ -1,8 +1,8 @@
-# Genuine local-source evidence — 4 of 28 slots
+# Genuine local-source evidence — 9 of 28 slots
 
-These four **original, unmodified PNGs** show reviewed source at commit **`23748110108196f26c1394830a48af5317f7ca22`**. They do not show the later evidence/documentation commit, deployed infrastructure, a running application, active Claude agents, a provided starter kit, or manual learner execution. The operator was GitHub Copilot under user delegation.
+The original four **unmodified PNGs** show reviewed source at commit **`23748110108196f26c1394830a48af5317f7ca22`**. They do not show the later evidence/documentation commit, deployed infrastructure, a running application, active Claude agents, a provided starter kit, or manual learner execution. The operator was GitHub Copilot under user delegation.
 
-The coordinator accepted these isolated read-only editor views. Native GUI navigation was **not OS-network-sandboxed**; command-line validation used a separate IP-denied environment. No terminal-validation screenshot was produced. GUI work is stopped; this delivery only copies accepted originals and does not launch a GUI, Claude, MCP or cloud operation.
+The coordinator accepted these isolated read-only editor views. Native GUI navigation was **not OS-network-sandboxed**; command-line validation used a separate IP-denied environment. At the original delivery, no terminal-validation screenshot was produced. That delivery copied accepted originals and did not launch a GUI, Claude, MCP or cloud operation.
 
 ## Original-image provenance
 
@@ -41,10 +41,48 @@ This original native window frame was initially captured while framing network s
 
 ![Slot 6: Explorer with nine module directories](screenshots/screenshot-06-modular-project-structure.png)
 
-## Twenty-four images remain missing
+## Five additional source captures — 24 September 2026
 
-- **Six local capture-blocked candidates:** 7, 8, 14, 15, 16, 17. New native window and exact-window-region captures became unreadable; display wake and a clean isolated software-renderer restart did not restore useful frames. These local views do not inherently require cloud authorization. No failed/rejected frame is counted, and no image is invented.
-- **Eighteen separately gated slots:** 4, 5, 9, 10, 11, 12, 13, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28. Their required MCP/hook, runtime/cloud, plan/apply or genuine agentic evidence has not been produced. They are not supplied by the inactive definitions above.
+Five original full-page browser PNGs now show the unchanged source for slots 7, 8, 14, 15 and 16. The locally prepared read-only viewer displays exact file excerpts and line numbers, Eze Favour attribution and the Codex operator label. It does not imitate a cloud console or terminal. No pixels were edited. [New provenance](local-capture-provenance-20260924.json) records every file/excerpt/image hash, dimensions and timestamp separately from the original four editor captures.
+
+The [delivery checks](local-delivery-checks-20260924.json) record 27 passing evidence/integration tests with networking denied, preservation of the original images and 59 frozen files, valid links, privacy review and the reconciled 98/118 weekly inventory.
+
+### Slot 7 — Six-subnet architecture
+
+Two validated availability zones and three tiers produce six subnets. This source has not been deployed.
+
+![Original source view for slot 7](screenshots/screenshot-07-local-evidence.png)
+
+### Slot 8 — Public and private tier separation
+
+Source routing: Web uses the internet gateway; App uses its same-AZ NAT; DB has local routes only. The security-group chain restricts traffic to the preceding tier. These are configuration views.
+
+![Original source view for slot 8](screenshots/screenshot-08-local-evidence.png)
+
+### Slot 14 — High-availability configuration
+
+The primary database is configured with multi_az = true. This shows the configured intent, not a provisioned standby or failover test.
+
+![Original source view for slot 14](screenshots/screenshot-14-local-evidence.png)
+
+### Slot 15 — Read-replica configuration
+
+The separate replica points to the primary ARN. Its multi_az = false is distinct from the primary standby. No replication or live database connection is demonstrated.
+
+![Original source view for slot 15](screenshots/screenshot-15-local-evidence.png)
+
+### Slot 16 — Private database access configuration
+
+The only database ingress edge uses the App security group on TCP 3306. Both database instances are private. Live connectivity remains unverified.
+
+![Original source view for slot 16](screenshots/screenshot-16-local-evidence.png)
+
+## Nineteen required images remain missing
+
+- Screenshot 17 still requires the literal successful `terraform validate` output. The unchanged guarded runner passed all six stages and its 43 explicit mock plans on 24 September, with IP networking denied and credentials absent. The [actual recorded output](local-validation-20260924.json) and [supporting browser capture](supplemental/offline-validation-stage-results.png) show `PASS validate`; raw Terraform diagnostics remain suppressed. This supplemental image is **not counted** as Screenshot 17.
+- Eighteen other slots remain gated: 4, 5, 9–13 and 18–28. The instructor starter kit, genuine Claude/MCP activity, cloud/runtime proof, public URL, 15 learner reflections and mandatory publication are still outstanding. The instructor's university Login link opens a Payhip sign-in form; enrolled resources could not be checked without user sign-in.
+
+## Historical independent validation
 
 Independent CLI validation of the captured source passed **12 targeted tests, 149 normal +149 optimized tests with zero skips, and all six protected Terraform stages including 43 explicit mock-plan runs**. Actual PyMySQL1.1.1 executes in those tests, but TLS transport is fake, not cryptographic/live proof. Those command results are not a substitute for Screenshot17. See [offline-validation.json](offline-validation.json) for the separately scoped source-validation and evidence-integration records.
 

@@ -1,0 +1,53 @@
+{
+  "checked_at_utc": "2026-09-24T08:57:48.461557+00:00",
+  "focused_evidence_and_integration_tests": 27,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "test_network": "all networking denied",
+  "test_interpreter": "system Python 3.9.6",
+  "source_preservation": "59 of 63 frozen files unchanged; four existing documentation/evidence-test exceptions only",
+  "original_a5_captures_unchanged": 4,
+  "new_counted_source_captures": 5,
+  "new_uncounted_validation_capture": 1,
+  "week_inventory": [
+    {
+      "assignment": "assignment-01",
+      "captures": 11,
+      "slots": 11
+    },
+    {
+      "assignment": "assignment-02",
+      "captures": 10,
+      "slots": 10
+    },
+    {
+      "assignment": "assignment-03",
+      "captures": 15,
+      "slots": 15
+    },
+    {
+      "assignment": "assignment-04",
+      "captures": 34,
+      "slots": 35
+    },
+    {
+      "assignment": "assignment-05",
+      "captures": 9,
+      "slots": 28
+    },
+    {
+      "assignment": "assignment-06",
+      "captures": 19,
+      "slots": 19
+    }
+  ],
+  "week_capture_total": 98,
+  "week_missing": 20,
+  "local_links_valid": true,
+  "new_public_text_privacy_scan_passed": true,
+  "new_images_visually_reviewed": 6,
+  "weekly_publication_url_cells_unchanged": true,
+  "cloud_operations": false,
+  "claude_execution": false,
+  "social_publications": 0
+}

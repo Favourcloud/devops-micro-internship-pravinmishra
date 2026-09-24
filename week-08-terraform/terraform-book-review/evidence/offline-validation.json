@@ -5,7 +5,12 @@
   "source_validation_recorded_at_utc": "2026-09-17T02:19:18Z",
   "evidence_integration": {
     "captured_source_commit": "23748110108196f26c1394830a48af5317f7ca22",
-    "accepted_original_slots": [1, 2, 3, 6],
+    "accepted_original_slots": [
+      1,
+      2,
+      3,
+      6
+    ],
     "original_png_bytes": 3176915,
     "reviewed_source_record": "reviewed-source.json",
     "image_pixels_modified": false,
@@ -34,7 +39,14 @@
       "command_wrapper": "macOS sandbox-exec denies all network and writes to the reused dependency directory; env -i supplies only trusted PATH, fresh private HOME, disabled AWS metadata and disabled checkpoint",
       "protected_terraform_runner": {
         "rerun_after_image_integration": true,
-        "stages_passed": ["version", "fmt", "init_backend_false", "validate", "provider_schema", "mock_plan_tests"],
+        "stages_passed": [
+          "version",
+          "fmt",
+          "init_backend_false",
+          "validate",
+          "provider_schema",
+          "mock_plan_tests"
+        ],
         "mock_tests_passed": 43,
         "mock_tests_failed": 0,
         "every_run_explicitly_plan": true,
@@ -45,7 +57,12 @@
       "source_preservation": {
         "reviewed_project_files": 63,
         "byte_identical_project_files": 59,
-        "exceptions": ["README.md", "evidence/manifest.json", "evidence/offline-validation.json", "tests/test_evidence.py"],
+        "exceptions": [
+          "README.md",
+          "evidence/manifest.json",
+          "evidence/offline-validation.json",
+          "tests/test_evidence.py"
+        ],
         "original_brief_requirements_restored_sha256": "086e7fbc6c5dceaa07312b02b19e7ef1c1849d4d04dcc0c41ed9634faacb285b"
       }
     }
@@ -68,14 +85,28 @@
     "installation": "approved_read_only_filesystem_mirror",
     "backend_initialized": false,
     "lockfile_mode": "readonly",
-    "stages_passed": ["version", "fmt", "init_backend_false", "validate", "provider_schema", "mock_plan_tests"],
+    "stages_passed": [
+      "version",
+      "fmt",
+      "init_backend_false",
+      "validate",
+      "provider_schema",
+      "mock_plan_tests"
+    ],
     "mock_tests_passed": 43,
     "mock_tests_failed": 0,
     "every_run_explicitly_plan": true,
     "process_network_isolation": "ip_denied_private_unix_sockets_allowed",
-    "sensitive_write_only_fields_verified": ["aws_db_instance.password_wo", "aws_secretsmanager_secret_version.secret_string_wo"],
+    "sensitive_write_only_fields_verified": [
+      "aws_db_instance.password_wo",
+      "aws_secretsmanager_secret_version.secret_string_wo"
+    ],
     "all_three_complete_userdata_payloads_within_16384_compressed_bytes": true,
-    "reference_stdlib_gzip_level_6_payload_bytes": {"web": 13743, "app": 15249, "initializer": 15420},
+    "reference_stdlib_gzip_level_6_payload_bytes": {
+      "web": 13743,
+      "app": 15249,
+      "initializer": 15420
+    },
     "temporary_venv_symlink_preflight_refusal": "correctly_refused_before_any_stage_then_owned_venv_removed_and_all_six_stages_passed_without_guard_changes",
     "real_plan_apply_or_state_inspection_performed": false
   },
@@ -124,13 +155,35 @@
   },
   "preserved_requirements": {
     "total_screenshot_slots": 28,
-    "pending_screenshot_slots": 24,
-    "captures": 4,
+    "pending_screenshot_slots": 19,
+    "captures": 9,
     "capture_scope": "original_local_source_views_only",
-    "local_capture_blocked_slots": [7, 8, 14, 15, 16, 17],
-    "separately_gated_slots": [4, 5, 9, 10, 11, 12, 13, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+    "local_capture_blocked_slots": [],
+    "separately_gated_slots": [
+      4,
+      5,
+      9,
+      10,
+      11,
+      12,
+      13,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
     "unanswered_reflections": 15,
-    "unchecked_final_requirements": 55
+    "unchecked_final_requirements": 55,
+    "pending_local_evidence_slots": [
+      17
+    ]
   },
   "not_performed": [
     "upstream_application_build",
@@ -144,5 +197,17 @@
     "learner_reflection_answers",
     "linkedin_publication"
   ],
-  "limitations": "Actual pinned-driver execution with memory transports is not a real certificate, encrypted network session, RDS or Linux runtime test. The captured source passed independent coordinator/reviewer checks, not a Claude or manual-human review. Four unmodified editor screenshots depict only source237481101, not this later evidence revision or a validation terminal. Six other local captures are blocked by unreadable frames, not inherently cloud-gated; eighteen slots remain separately gated. Missing provided kit, vulnerable upstream release and all human/live acceptance gates remain pending. No deployed state, public URL, successful application authentication or assignment completion is evidenced."
+  "limitations": "Historical validation/capture records above retain their original scope. Five additional original browser-source views are recorded separately on 24 September; Screenshot17 still needs literal Terraform validation output. No deployed state, public URL, application authentication, genuine Claude/MCP workflow or assignment completion is evidenced. Missing provided kit, upstream release blockers and learner work remain open.",
+  "local_evidence_update_20260924": {
+    "provenance": "local-capture-provenance-20260924.json",
+    "validation": "local-validation-20260924.json",
+    "new_counted_source_slots": [
+      7,
+      8,
+      14,
+      15,
+      16
+    ],
+    "uncounted_validation_summary": true
+  }
 }

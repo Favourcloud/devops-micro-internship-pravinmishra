@@ -15,7 +15,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 ## Purpose
 
-> **Preparation status — not a completed submission:** [Project source and architecture](terraform-book-review/README.md) were prepared offline by Copilot. Four genuine original local-source captures for slots 1, 2, 3 and 6 are attached below and in the [evidence gallery](terraform-book-review/evidence/README.md), anchored to reviewed source `23748110108196f26c1394830a48af5317f7ca22`, not this later documentation revision. Of 24 missing images, six local candidates (7, 8, 14, 15, 16, 17) are capture-blocked by unreadable frames; eighteen other slots remain separately gated. No cloud deployment, working public URL, manual learner execution, Claude/MCP activity, learner reflection, or LinkedIn publication is claimed. The provided kit remains missing; inactive draft definitions are not that kit or executed agents. All original Tasks 0–10, Screenshots 1–28, 15 unanswered reflections and 55 unchecked requirements remain preserved. See the [28-slot evidence manifest](terraform-book-review/evidence/manifest.json) and project runbook for provenance, release blockers and human gates.
+> **Preparation status — not a completed submission:** Nine genuine source captures occupy slots 1, 2, 3, 6, 7, 8, 14, 15 and 16; **19 of 28 slots remain missing**. The five new captures show exact unchanged configuration in a clearly attributed local browser viewer. A separate [guarded-validation result](terraform-book-review/evidence/local-validation-20260924.json) and [supporting image](terraform-book-review/evidence/supplemental/offline-validation-stage-results.png) record PASS validate, but do not replace Screenshot17's literal Terraform output. Source remains anchored to `23748110108196f26c1394830a48af5317f7ca22`. No deployment, public application, learner execution, Claude/MCP workflow, reflection or publication is claimed. The instructor kit remains missing; the course portal requires sign-in. All Tasks 0–10, screenshot requirements, 15 reflection questions and 55 unchecked requirements remain preserved. See the [evidence gallery](terraform-book-review/evidence/README.md).
 
 Deploy the Book Review App using Terraform on AWS or Azure in a secure, highly available, production-style three-tier architecture. Use Claude Code, specialized subagents, Terraform MCP, and validation hooks to support the engineering workflow while keeping all infrastructure-changing operations under human control.
 
@@ -134,7 +134,11 @@ Original native window frame initially captured while framing network source. Ac
 
 Add a screenshot showing the six-subnet architecture across two availability locations.
 
-Add your screenshot here.
+<!-- A5 source capture 7 -->
+![Screenshot 7: original browser source view](terraform-book-review/evidence/screenshots/screenshot-07-local-evidence.png)
+
+**Source-only evidence:** Two validated availability zones and three tiers produce six subnets. This source has not been deployed. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
 
 ---
 
@@ -142,7 +146,11 @@ Add your screenshot here.
 
 Add a screenshot showing the public and private tier separation, including routing and security boundaries.
 
-Add your screenshot here.
+<!-- A5 source capture 8 -->
+![Screenshot 8: original browser source view](terraform-book-review/evidence/screenshots/screenshot-08-local-evidence.png)
+
+**Source-only evidence:** Source routing: Web uses the internet gateway; App uses its same-AZ NAT; DB has local routes only. The security-group chain restricts traffic to the preceding tier. These are configuration views. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
 
 ---
 
@@ -206,7 +214,11 @@ Add your screenshot here.
 
 Add a screenshot showing the Multi-AZ or high-availability configuration.
 
-Add your screenshot here.
+<!-- A5 source capture 14 -->
+![Screenshot 14: original browser source view](terraform-book-review/evidence/screenshots/screenshot-14-local-evidence.png)
+
+**Source-only evidence:** The primary database is configured with multi_az = true. This shows the configured intent, not a provisioned standby or failover test. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
 
 ---
 
@@ -214,7 +226,11 @@ Add your screenshot here.
 
 Add a screenshot showing the read replica configuration.
 
-Add your screenshot here.
+<!-- A5 source capture 15 -->
+![Screenshot 15: original browser source view](terraform-book-review/evidence/screenshots/screenshot-15-local-evidence.png)
+
+**Source-only evidence:** The separate replica points to the primary ARN. Its multi_az = false is distinct from the primary standby. No replication or live database connection is demonstrated. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
 
 ---
 
@@ -222,7 +238,11 @@ Add your screenshot here.
 
 Add a screenshot showing that the database is private and accepts MySQL traffic only from the Application Tier.
 
-Add your screenshot here.
+<!-- A5 source capture 16 -->
+![Screenshot 16: original browser source view](terraform-book-review/evidence/screenshots/screenshot-16-local-evidence.png)
+
+**Source-only evidence:** The only database ingress edge uses the App security group on TCP 3306. Both database instances are private. Live connectivity remains unverified. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
 
 ---
 

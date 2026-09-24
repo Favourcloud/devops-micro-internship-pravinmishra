@@ -17,7 +17,7 @@ ORIGINALS = {
     3: ("0f9638042f33e67f06a91606b8553c150504a37cff07add4cbc67d98ec8ee646", 696174, "2026-09-17T03:09:58.865036+00:00"),
     6: ("eb9928185dbb1923ecb88f54b2687e4993abfcdf62c12cb9b5e88a108711f026", 789571, "2026-09-17T03:10:54.828839+00:00"),
 }
-CAPTURE_BLOCK = re.compile(r"\n<!-- A5 source capture (1|2|3|6) -->\n.*?\n<!-- /A5 source capture -->\n", re.S)
+CAPTURE_BLOCK = re.compile(r"\n<!-- A5 source capture (1|2|3|6|7|8|14|15|16) -->\n.*?\n<!-- /A5 source capture -->\n", re.S)
 
 
 class EvidenceContract(unittest.TestCase):
@@ -33,19 +33,21 @@ class EvidenceContract(unittest.TestCase):
         self.assertEqual(list(range(1, 29)), [slot for slot, _ in actual])
         self.assertEqual(expected, actual)
 
-    def test_only_four_accepted_original_captures(self):
-        self.assertEqual([1, 2, 3, 6], [item["slot"] for item in self.captures])
-        self.assertEqual({"accepted_source_only": 4, "missing": 24, "total": 28}, self.manifest["screenshot_progress"])
-        self.assertEqual(4, len({item["path"] for item in self.captures}))
-        self.assertEqual(4, len({item["sha256"] for item in self.captures}))
+    def test_nine_source_captures_and_nineteen_pending_slots(self):
+        self.assertEqual([1, 2, 3, 6, 7, 8, 14, 15, 16], [item["slot"] for item in self.captures])
+        self.assertEqual({"accepted_source_only": 9, "missing": 19, "total": 28}, self.manifest["screenshot_progress"])
+        self.assertEqual(9, len({item["path"] for item in self.captures}))
+        self.assertEqual(9, len({item["sha256"] for item in self.captures}))
         for item in self.manifest["screenshots"]:
-            if item["slot"] not in ORIGINALS:
+            if item["slot"] not in {1, 2, 3, 6, 7, 8, 14, 15, 16}:
                 self.assertEqual("pending", item["status"])
                 self.assertIsNone(item["path"])
 
     def test_original_png_integrity_dimensions_and_timestamps(self):
         expected_paths = set()
         for item in self.captures:
+            if item["slot"] not in ORIGINALS:
+                continue
             with self.subTest(slot=item["slot"]):
                 relative = Path(item["path"])
                 self.assertEqual("screenshots", relative.parent.as_posix())
@@ -76,8 +78,8 @@ class EvidenceContract(unittest.TestCase):
                 self.assertEqual(timezone.utc.utcoffset(captured), captured.utcoffset())
                 self.assertEqual("2026-09-17", captured.date().isoformat())
                 expected_paths.add(path)
-        self.assertEqual(expected_paths, set((ROOT / "evidence/screenshots").iterdir()))
-        self.assertEqual(3176915, sum(item["bytes"] for item in self.captures))
+        self.assertEqual(expected_paths, {ROOT / "evidence" / item["path"] for item in self.captures if item["slot"] in ORIGINALS})
+        self.assertEqual(3176915, sum(item["bytes"] for item in self.captures if item["slot"] in ORIGINALS))
 
     def test_reviewed_source_anchor_and_only_four_source_exceptions(self):
         self.assertEqual(SOURCE_COMMIT, self.manifest["captured_source_commit"])
@@ -104,13 +106,14 @@ class EvidenceContract(unittest.TestCase):
             self.assertEqual(SOURCE_COMMIT, item["source_commit"])
 
     def test_pending_local_capture_and_separate_gates_are_disjoint(self):
-        local = self.manifest["local_capture_blocked_slots"]
+        local = self.manifest["pending_local_evidence_slots"]
+        self.assertEqual([], self.manifest["local_capture_blocked_slots"])
         gated = self.manifest["separately_gated_slots"]
-        self.assertEqual([7, 8, 14, 15, 16, 17], local)
+        self.assertEqual([17], local)
         self.assertEqual([4, 5, 9, 10, 11, 12, 13, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], gated)
-        self.assertEqual(list(range(1, 29)), sorted(list(ORIGINALS) + local + gated))
+        self.assertEqual(list(range(1, 29)), sorted([item["slot"] for item in self.captures] + local + gated))
         self.assertIn("unreadable", self.manifest["capture_blocker"])
-        self.assertIn("not inherently cloud", self.manifest["capture_blocker"])
+        self.assertIn("suppresses raw terraform validate output", self.manifest["capture_blocker"])
 
     def test_capture_provenance_and_slot_six_are_not_runtime_or_agent_proof(self):
         provenance = self.manifest["capture_provenance"]
@@ -128,8 +131,8 @@ class EvidenceContract(unittest.TestCase):
         self.assertIn("NOT counted as slot 7", structure["acceptance_note"])
         self.assertIn("initially captured while framing network source", structure["acceptance_note"])
 
-    def test_four_brief_embeds_preserve_snapshot_and_captions(self):
-        self.assertEqual(["1", "2", "3", "6"], CAPTURE_BLOCK.findall(self.brief))
+    def test_nine_brief_embeds_preserve_snapshot_and_captions(self):
+        self.assertEqual(["1", "2", "3", "6", "7", "8", "14", "15", "16"], CAPTURE_BLOCK.findall(self.brief))
         for item in self.captures:
             block = next(match.group(0) for match in CAPTURE_BLOCK.finditer(self.brief) if int(match.group(1)) == item["slot"])
             section = self.brief.split(f'### Screenshot {item["slot"]} — ', 1)[1].split("\n---", 1)[0]
@@ -160,10 +163,57 @@ class EvidenceContract(unittest.TestCase):
         self.assertTrue(validation["protected_terraform_runner"]["source_and_trust_manifest_unchanged"])
         self.assertEqual((63, 59), (validation["source_preservation"]["reviewed_project_files"],
                                   validation["source_preservation"]["byte_identical_project_files"]))
-        self.assertEqual(4, record["preserved_requirements"]["captures"])
-        self.assertEqual(24, record["preserved_requirements"]["pending_screenshot_slots"])
+        self.assertEqual(9, record["preserved_requirements"]["captures"])
+        self.assertEqual(19, record["preserved_requirements"]["pending_screenshot_slots"])
         self.assertEqual(15, record["preserved_requirements"]["unanswered_reflections"])
         self.assertEqual(55, record["preserved_requirements"]["unchecked_final_requirements"])
+
+    def test_new_browser_capture_integrity_and_exact_source_excerpts(self):
+        record = json.loads((ROOT / "evidence/local-capture-provenance-20260924.json").read_text())
+        self.assertEqual([7, 8, 14, 15, 16], record["counted_slots"])
+        self.assertEqual(17, record["uncounted_supporting_slot"])
+        self.assertFalse(record["cloud_operations"])
+        self.assertFalse(record["claude_execution_demonstrated"])
+        self.assertFalse(record["manual_learner_execution"])
+        self.assertFalse(record["image_pixels_modified"])
+        self.assertEqual(6, len(record["screenshots"]))
+        for item in record["screenshots"]:
+            data = (ROOT / "evidence" / item["path"]).read_bytes()
+            self.assertEqual(item["sha256"], hashlib.sha256(data).hexdigest())
+            self.assertEqual(item["bytes"], len(data))
+            self.assertEqual(b"\x89PNG\r\n\x1a\n", data[:8])
+            self.assertEqual(item["dimensions"], list(struct.unpack(">II", data[16:24])))
+            self.assertEqual("2026-09-24", datetime.fromisoformat(item["captured_at_utc"].replace("Z", "+00:00")).date().isoformat())
+            self.assertEqual(SOURCE_COMMIT, item["source_commit"])
+            self.assertFalse(item["pixels_modified"])
+            for source in item["sources"]:
+                data = (ROOT / source["file"]).read_bytes()
+                self.assertEqual(source["file_sha256"], hashlib.sha256(data).hexdigest())
+                excerpt = "\n".join(data.decode().splitlines()[source["start_line"] - 1:source["end_line"]]) + "\n"
+                self.assertEqual(source["excerpt_sha256"], hashlib.sha256(excerpt.encode()).hexdigest())
+            if item["slot"] != 17:
+                capture = next(c for c in self.captures if c["slot"] == item["slot"])
+                for key in ("path", "sha256", "bytes", "dimensions", "captured_at_utc"):
+                    self.assertEqual(item[key], capture[key])
+        self.assertEqual({ROOT / "evidence" / c["path"] for c in self.captures}, set((ROOT / "evidence/screenshots").iterdir()))
+
+    def test_guarded_validation_summary_does_not_replace_raw_output_requirement(self):
+        record = json.loads((ROOT / "evidence/local-validation-20260924.json").read_text())
+        self.assertEqual(0, record["exit_code"])
+        self.assertEqual(43, record["mock_plan_runs"])
+        self.assertFalse(record["cloud_operations"])
+        self.assertFalse(record["screenshot_counted"])
+        self.assertTrue(record["credential_free_environment"])
+        self.assertTrue(record["source_and_trust_manifest_unchanged"])
+        self.assertEqual(record["output_sha256"], hashlib.sha256(record["output"].encode()).hexdigest())
+        self.assertEqual(["PASS version", "PASS fmt", "PASS init", "PASS validate", "PASS provider-schema", "PASS mock-plan-tests"], record["output"].splitlines()[:6])
+        slot = self.manifest["screenshots"][16]
+        self.assertEqual("pending", slot["status"])
+        self.assertIsNone(slot["path"])
+        self.assertEqual(record["supplemental_image"], slot["supporting_evidence"])
+        section = self.brief.split("### Screenshot 17 —", 1)[1].split("\n---", 1)[0]
+        self.assertIn("Add your screenshot here.", section)
+        self.assertNotIn("![", section)
 
     def test_no_completion_or_cloud_claim(self):
         self.assertIs(self.manifest["assignment_complete"], False)
@@ -231,7 +281,7 @@ class EvidenceContract(unittest.TestCase):
         restored = restored.replace("The [completed source architecture diagram](terraform-book-review/README.md#architecture-created-before-infrastructure-source) was written before infrastructure source. It shows the two-AZ/six-subnet VPC, IGW and per-AZ NAT, public and internal load balancers, Web/App tiers, Multi-AZ MySQL and a separate read replica. It is a design artifact, **not evidence of deployed resources**.", "Add the completed architecture diagram here.")
         self.assertEqual("086e7fbc6c5dceaa07312b02b19e7ef1c1849d4d04dcc0c41ed9634faacb285b", hashlib.sha256(restored.encode()).hexdigest())
 
-    def test_original_brief_preserved_with_four_evidenced_prompt_replacements(self):
+    def test_original_brief_preserved_with_nine_evidenced_prompt_replacements(self):
         self.assert_original_brief(self.brief)
 
     def test_unmet_prompt_question_and_checklist_removal_is_rejected(self):
@@ -254,7 +304,7 @@ class EvidenceContract(unittest.TestCase):
         self.assertIn('not a real cloud plan or deployment', notes)
         self.assertIn('All fifteen own-words reflection prompts below remain unanswered', notes)
         self.assertEqual(15, self.brief.count('Write your answer here.'))
-        self.assertEqual(24, self.brief.count('Add your screenshot here.'))
+        self.assertEqual(19, self.brief.count('Add your screenshot here.'))
 
     def test_notes_marker_cannot_hide_an_original_requirement(self):
         notes = re.search(r'\n<!-- A5 factual source notes -->\n.*?\n<!-- /A5 factual source notes -->\n', self.brief, re.S).group()

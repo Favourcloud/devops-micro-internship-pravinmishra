@@ -18,7 +18,7 @@ Codex performed the approved A1–A4 cloud operations under delegation. GitHub C
 
 **Assignment 4: EpicBook on AWS with private RDS.** The approved run created 28 application resources and one separately managed public-key resource. EC2 ran Node 22.23.3, and RDS ran MySQL 8.4.11 with encrypted storage and TLS. The database contained 53 authors and 54 books. A real browser added “28 Summers” to the cart; its book ID, quantity, $28 price and request time matched the new Cart and Cartbook records. All 29 resources were destroyed and independently checked in a 32.95-minute window. There are 34/35 captures, with the private RDS hostname redacted and other capture limitations documented. The separate checkout/order requirement remains incomplete.
 
-The public addresses in these records are historical: the labs were removed after verification. A1–A3 are documented in merged GitHub deliveries; the new A4 evidence is prepared for review. Their evidence supports the completed runs, rather than a claim that the applications remain online.
+The public addresses in these records are historical: the labs were removed after verification. A1–A4 are documented in merged GitHub deliveries. Their evidence supports the completed runs, rather than a claim that the applications remain online.
 
 ## A plan can describe a change that should be rejected
 
@@ -34,7 +34,7 @@ All 19 numbered Assignment 6 images are recorded with provenance. The assignment
 
 ## What remains before Week 08 is complete
 
-The repository currently contains **93 of 118 numbered screenshot slots**, with 25 missing across Assignments 4 and 5. Screenshot coverage is an inventory measure; it does not replace the underlying tasks.
+The repository currently contains **98 of 118 numbered screenshot slots**, with 20 missing across Assignments 4 and 5. Five later A5 source captures document configuration only. Its separate guarded-validation summary is uncounted because the required literal Terraform output remains missing. Screenshot coverage is an inventory measure; it does not replace the underlying tasks.
 
 Assignment 4's deployment and cart/database test are verified, but the pinned instructor app lacks an order-creation endpoint. A successful cart action cannot be described as completed checkout. Its learner reflection, mandatory LinkedIn publication and disclosed visual-evidence limits remain open. The new delivery passed 66 Python checks; the prior 22 Terraform mock runs remain supplementary to the actual cloud results.
 
