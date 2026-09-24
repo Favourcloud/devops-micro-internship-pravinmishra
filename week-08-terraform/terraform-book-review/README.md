@@ -121,7 +121,9 @@ Terraform selects the common plus tier-specific import/template closure from `ru
 
 ## Agentic starter-kit status
 
-The complete pinned upstream tree contains **no provided Claude Code starter kit**, CLAUDE.md, .claude directory or .mcp.json. Project-local templates are clearly labeled Copilot-authored drafts pending receipt/reconciliation of the provided kit. They do not constitute genuine Claude generation/review/troubleshooting or MCP connection evidence. Inactive settings/MCP examples must be reviewed before human activation; inherited model selection avoids choosing a paid model here.
+The official **`book-review-agentic-ai.zip` was received and reviewed from Udemy Assignment 37 on 24 September 2026**. See the [six-file comparison and remaining integration work](evidence/starter-kit-review-20260924.md) and [archive/file hashes](evidence/starter-kit-review-20260924.json). The original course files and an adapted inactive candidate are retained privately; they are not redistributed here. The pinned application tree still contains no kit, but kit discovery is no longer a blocker.
+
+Project-local protected templates remain the earlier Copilot-authored drafts. Their original text and screenshots are preserved; the current receipt/review status is recorded here. No genuine Claude generation/review/troubleshooting, MCP connection or hook activation is established by obtaining the ZIP. Integrating the candidate, reviewing effective settings and trust files, and verifying the installed tools remain necessary before activation. Model selection stays inherited in the candidate.
 
 ## Secrets and human-controlled operation
 

@@ -38,7 +38,7 @@ The repository currently contains **98 of 118 numbered screenshot slots**, with 
 
 Assignment 4's deployment and cart/database test are verified, but the pinned instructor app lacks an order-creation endpoint. A successful cart action cannot be described as completed checkout. Its learner reflection, mandatory LinkedIn publication and disclosed visual-evidence limits remain open. The new delivery passed 66 Python checks; the prior 22 Terraform mock runs remain supplementary to the actual cloud results.
 
-Assignment 5 still needs the provided Claude starter kit, a reviewed dependency update, genuine Claude/MCP workflow evidence, deployment verification and the learner's own reflections. The earlier source captures do not establish those results.
+The official Assignment 5 starter kit has now been received from Udemy and compared with the existing setup. Its inactive adaptation still needs integration, a reviewed dependency update, genuine Claude/MCP workflow evidence, deployment verification and the learner's own reflections. The earlier source captures do not establish those results.
 
 The practical lesson from the completed work is to maintain a clear chain from configuration to plan, deployment, application verification and cleanup. Automated checks and AI explanations help review that chain. Precise records make it possible to identify what succeeded, what remains unverified and what must happen next.
 

@@ -59,7 +59,12 @@
   },
   "instructor_starter_kit": {
     "found_in_pinned_upstream": false,
-    "status": "pending_instructor_input"
+    "status": "received_static_review_complete_activation_pending",
+    "source": "authenticated_udemy_assignment_37",
+    "review_record": "starter-kit-review-20260924.json",
+    "review_summary": "starter-kit-review-20260924.md",
+    "candidate": "private_inert_not_installed",
+    "workflow_evidence_added": false
   },
   "claude_mcp_workflow": "pending_not_executed",
   "screenshots": [

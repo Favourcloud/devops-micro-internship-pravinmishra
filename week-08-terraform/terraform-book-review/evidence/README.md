@@ -80,7 +80,7 @@ The only database ingress edge uses the App security group on TCP 3306. Both dat
 ## Nineteen required images remain missing
 
 - Screenshot 17 still requires the literal successful `terraform validate` output. The unchanged guarded runner passed all six stages and its 43 explicit mock plans on 24 September, with IP networking denied and credentials absent. The [actual recorded output](local-validation-20260924.json) and [supporting browser capture](supplemental/offline-validation-stage-results.png) show `PASS validate`; raw Terraform diagnostics remain suppressed. This supplemental image is **not counted** as Screenshot 17.
-- Eighteen other slots remain gated: 4, 5, 9–13 and 18–28. The instructor starter kit, genuine Claude/MCP activity, cloud/runtime proof, public URL, 15 learner reflections and mandatory publication are still outstanding. The instructor's university Login link opens a Payhip sign-in form; enrolled resources could not be checked without user sign-in.
+- Eighteen other slots remain gated: 4, 5, 9–13 and 18–28. The official starter kit has now been received from Udemy and [statically reviewed](starter-kit-review-20260924.md). Candidate integration, genuine Claude/MCP activity, cloud/runtime proof, public URL, 15 learner reflections and mandatory publication remain outstanding. The earlier Payhip sign-in observation did not establish a kit prerequisite. Receipt of the archive adds no screenshot or workflow evidence.
 
 ## Historical independent validation
 
