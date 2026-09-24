@@ -1,27 +1,18 @@
 # Week 08 Assignment 1 — Azure VM (Eze Favour)
 
-**Partial submission: 6/11 genuine screenshots verified; the assignment is not
-complete.** Screenshots 1–5 document local installed tools and frozen source;
-screenshot 6 records successful normal initialization of the local backend.
-Screenshots 7–11 remain pending in the [evidence manifest](evidence/manifest.json).
-No fresh cloud/spending authorization exists for this run. No Azure login, live
-plan, apply, VM verification, public IP allocation or destroy was performed.
-Local validation and mock resources are not deployment evidence or proof of a
-grade.
+**Completed technical submission: 11/11 screenshots verified.** The approved Azure run created eight resources, verified the VM running through Azure CLI, captured its public IP and destroyed all eight. Exact Azure checks confirmed the resource group, VM, OS disk and networking absent; Terraform state is empty. IP `135.116.195.137` is retired after verified cleanup. See the [live summary](evidence/live-run-summary.md) and [live provenance](evidence/live-provenance.json).
 
 - **Learner:** Eze Favour
 - **Project:** [assignment branch](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/tree/favourcloud-week-08-azure-vm/week-08-terraform/terraform-azure-vm)
-- **Branch/review:** `favourcloud-week-08-azure-vm` · [Draft PR #9](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/9)
-- **Evidence operator:** GitHub Copilot under user delegation, not manual learner execution.
+- **Branch/review:** `favourcloud-week-08-azure-vm` · [Original preparation PR #9, merged](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/9)
+- **Evidence operators:** Historical local captures by GitHub Copilot; new live captures by Codex under user delegation, not manual learner execution.
 
 The [submission](../assignment-01-create-an-azure-virtual-machine-using-terraform.md)
-presents the six original, unmodified native VS Code PNGs in their correct
-numbered slots. Every original requirement, heading, question and checklist item
+presents the six original, unmodified native VS Code PNGs and five new native Terminal PNGs in their correct numbered slots. Every original requirement, heading, question and checklist item
 text is retained; only responses, insertions and checkbox markers are updated.
 The manifest's original byte-count/hash describe the reference rubric, not an
 unchanged prefix of the current submission. This project owns only Assignment
-1; it does not reuse another assignment's state, plans, credentials, approvals
-or resources.
+1; it uses its own state, plans and resources. The existing authorized Azure CLI account session was rechecked for this separately approved run; no VM password was reused.
 
 ## Infrastructure
 
@@ -101,9 +92,7 @@ separate from the live backend.
 
 The runner performs these local checks, stopping on the first failure:
 
-1. Fifteen Python delivery safeguards: reference-rubric fingerprint and ordered
-   requirement parity, six exact PNG hashes/timestamps and five pending slots,
-   absent authorization/runtime claims, ignore rules, sensitive external input
+1. Python delivery safeguards: reference-rubric fingerprint and ordered requirement parity, six historical captures and five live PNGs, verified lifecycle/cleanup records, ignore rules, sensitive external input
    contract, disabled registration/no live helpers, private backend/NSG ordering,
    safe outputs/eight resources, mock-only tests, publishable-file exclusions,
    local links, frozen-source bytes, numbered image mappings, truthful checklist
@@ -162,13 +151,9 @@ Before any authorized execution:
 - Retain state securely after any partial failure. Do **not** delete state to
   “reset” Terraform: that loses the resource inventory needed for cleanup.
 
-## Prospective authorized runbook — NOT executed
+## Runbook for future deployments
 
-**Stop here until the parent/controller obtains fresh, explicit authorization.**
-It must cover the actual subscription, region/SKU, budget, time limit, credentials,
-controller `/32`, provider/API access, GUI evidence and teardown. The earlier
-unavailable approval response is not permission. Existing historical budgets,
-keys, inventories and successful runs are not authorization.
+The completed run above used its own scoped approval and has been fully torn down. These commands are retained for future deployments. A new run requires a current reviewed plan and approval covering the subscription, region/SKU, spending limit, time limit, credentials, controller `/32`, native capture and teardown. The completed window is not authorization for another deployment.
 
 The subscription must already allow the required Compute/Network providers,
 permissions, quota and chosen SKU/Gen2 image. This project never auto-registers
@@ -272,9 +257,9 @@ provider caches or old assignment artifacts. Until then keep all private files
 restricted and ignored. Destroying the VM does not itself erase plaintext state
 backups or saved plan files.
 
-## Evidence handoff and status transitions
+## Historical local evidence and current live captures
 
-**6/11 verified.** The parent captured images 1–5 on 2026-09-16 at 23:16–23:19
+**11/11 verified overall.** The six original local captures remain historical evidence: the parent captured images 1–5 on 2026-09-16 at 23:16–23:19
 UTC and image 6 at `2026-09-16T23:29:53.340580+00:00`, and verified privacy and
 visible requirements. Image 6's timestamp is based explicitly on the original
 macOS PNG filesystem creation time. All six images retain their original bytes.
@@ -290,11 +275,11 @@ configuration/diagnostic receipts and local capture paths are excluded.
 | 4 | VS Code `main.tf`: AzureRM provider and resource group | [Verified: frozen source](evidence/screenshots/screenshot-04-provider-resource-group.png) |
 | 5 | VS Code `main.tf`: VM and public-IP output; password hidden | [Verified: variable reference, no password value](evidence/screenshots/screenshot-05-vm-public-ip-source.png) |
 | 6 | Terminal: successful actual `terraform init` | [Verified: normal local-backend init, locked AzureRM 4.47.0](evidence/screenshots/screenshot-06-terraform-init.png) |
-| 7 | Actual Terraform plan summary | Pending authorized run/capture |
-| 8 | Actual successful Terraform apply | Pending authorized run/capture |
-| 9 | Actual `terraform output` public IP | Pending authorized run/capture |
-| 10 | Azure CLI VM name and `VM running` | Pending authorized run/capture |
-| 11 | Actual successful Terraform destroy | Pending authorized run/capture |
+| 7 | Actual Terraform plan summary | [Verified live run](evidence/screenshots/screenshot-07-terraform-plan.png) |
+| 8 | Actual successful Terraform apply | [Verified live run](evidence/screenshots/screenshot-08-terraform-apply.png) |
+| 9 | Actual `terraform output` public IP | [Verified live run](evidence/screenshots/screenshot-09-public-ip-output.png) |
+| 10 | Azure CLI VM name and `VM running` | [Verified live run](evidence/screenshots/screenshot-10-azure-vm-running.png) |
+| 11 | Actual successful Terraform destroy | [Verified live run](evidence/screenshots/screenshot-11-terraform-destroy.png) |
 
 Screenshot 6 shows **normal** `terraform init -input=false -lockfile=readonly
 -plugin-dir="$PROVIDER_MIRROR"`: the configured `local` backend initialized,
@@ -312,16 +297,4 @@ unchanged by this evidence integration. Screenshot 5 shows
 `admin_password = var.admin_password` and the complete public-IP output source,
 not a secret or allocated IP. No manual learner execution is claimed.
 
-For each remaining real capture, the parent must verify correspondence to this
-A1 run and inspect privacy before publication. Record any necessary redaction
-honestly rather than describing an edited image as original. Only after genuine
-evidence exists should its slot become `verified`, with a relative artifact
-path, timestamp and SHA-256, and an image/caption in the matching numbered slot.
-Update evidence-test expectations alongside verified transitions while retaining
-all rubric requirements. Never substitute mock outputs, generated images, another
-assignment's logs or a local check for a required screenshot.
-
-Deployment/authorization fields change only when supported by an actual newly
-authorized run. The VM public IP remains null and the assignment remains
-incomplete; completion requires every task and all eleven images, including
-teardown evidence. No grade is asserted.
+The five new captures document the separately approved A1 lifecycle and were visually reviewed for correctness and privacy. Their timestamps, hashes and scope are in [live-provenance.json](evidence/live-provenance.json); historical manifest sections and six PNGs remain unchanged. The final integration passed **18 focused Python checks**. The [current validation record](evidence/live-validation.json) supplements the retained historical tests above with source/image preservation and independent week-wide slot/link checks. There are no pending A1 screenshot slots. The public IP is retired after verified cleanup. No manual learner execution or new DMI grade is claimed.

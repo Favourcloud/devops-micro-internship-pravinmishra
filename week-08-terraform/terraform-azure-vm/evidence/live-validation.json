@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "recorded_at_utc": "2026-09-24T00:53:35.053776+00:00",
+  "source_commit": "eae19baa64d8734c7629a201eb52a8150a2df30e",
+  "scope": "Current live-evidence integration; historical validation records unchanged",
+  "focused_validation": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py'",
+    "tests_passed": 18,
+    "tests_failed": 0,
+    "duration_seconds": 0.434
+  },
+  "evidence": {
+    "required_pngs_verified": 11,
+    "original_png_hashes_unchanged": 6,
+    "new_native_pngs_verified": 5,
+    "new_png_hashes_dimensions_timestamps": "passed; all five captures",
+    "visual_privacy_review": "passed during original capture review; no image edits"
+  },
+  "preservation": {
+    "frozen_source_files_unchanged": 6,
+    "original_rubric_requirements_and_order": "passed",
+    "original_manifest_sections_unchanged": [
+      "capture_provenance",
+      "source_provenance",
+      "original_rubric",
+      "offline_validation",
+      "evidence_validation"
+    ],
+    "original_screenshot_entries_unchanged": 6
+  },
+  "independent_delivery_checks": {
+    "numbered_slots": [
+      {
+        "assignment": "01",
+        "occupied": 11,
+        "required": 11
+      },
+      {
+        "assignment": "02",
+        "occupied": 10,
+        "required": 10
+      },
+      {
+        "assignment": "03",
+        "occupied": 15,
+        "required": 15
+      },
+      {
+        "assignment": "04",
+        "occupied": 19,
+        "required": 35
+      },
+      {
+        "assignment": "05",
+        "occupied": 4,
+        "required": 28
+      },
+      {
+        "assignment": "06",
+        "occupied": 19,
+        "required": 19
+      }
+    ],
+    "occupied": 78,
+    "required": 118,
+    "missing": 40,
+    "new_relative_markdown_links_checked": 20,
+    "new_relative_markdown_links": "passed",
+    "publishable_file_count": 15,
+    "private_artifact_paths": "none",
+    "public_text_privacy_patterns": "passed",
+    "git_diff_check": "passed"
+  },
+  "terraform_rerun_for_evidence_integration": false,
+  "preflight_results": "15 Python checks, 31 Terraform mock runs, fmt/init/validate passed before deployment; retained separately",
+  "cloud_runtime_and_cleanup_record": "live-provenance.json",
+  "limitations": [
+    "Slot occupancy alone is not whole-week completion.",
+    "No new DMI grade or manual learner execution is claimed.",
+    "Actual cloud bill remains unverified."
+  ]
+}
