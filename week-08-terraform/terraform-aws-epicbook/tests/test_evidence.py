@@ -132,7 +132,7 @@ class EvidenceTests(unittest.TestCase):
         self.assertIn('six source deliverables and successful local init/validate, not AWS resources', BRIEF.read_text())
 
     def test_local_markdown_links_exist(self):
-        for path in [BRIEF, ROOT / 'README.md', EVIDENCE / 'local-validation.md']:
+        for path in [BRIEF, ROOT / 'README.md', EVIDENCE / 'local-validation.md', EVIDENCE / 'preflight-20260924.md']:
             for target in re.findall(r'\]\(([^)]+)\)', path.read_text()):
                 if '://' not in target and not target.startswith('#'):
                     self.assertTrue((path.parent / unquote(target.split('#')[0])).exists(), str(path) + ': ' + target)
@@ -181,13 +181,27 @@ class EvidenceTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 png_chunks(bad)
 
-    def test_frozen_implementation_hashes_and_delivery_exception(self):
+    def test_historical_source_hashes_and_exact_node_update(self):
         self.assertEqual(self.provenance['source_head'], SOURCE_HEAD)
         sources = self.provenance['source_hashes']
         self.assertEqual(len(sources), 22)
         self.assertEqual(canonical_digest(sources), SOURCE_HASHES_DIGEST)
+        update = json.loads((EVIDENCE / 'runtime-update-20260924.json').read_text())
+        self.assertEqual(update['changed_file'], 'modules/ec2/user_data.sh')
+        self.assertEqual(update['historical_source_commit'], SOURCE_HEAD)
+        self.assertEqual(update['previous_node_version'], '22.22.0')
+        self.assertEqual(update['node_version'], '22.23.3')
+        self.assertEqual(update['linux_x64_archive_sha256'], 'df450af89261115ef9f9e3830c3eeb2cc9213b63c720b1af623cb5dcbe2e02de')
         for name, expected in sources.items():
-            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected, name)
+            raw = (ROOT / name).read_bytes()
+            if name == update['changed_file']:
+                self.assertEqual(hashlib.sha256(raw).hexdigest(), update['after_sha256'])
+                self.assertEqual(update['before_sha256'], expected)
+                self.assertEqual(raw.count(update['node_version'].encode()), 2)
+                self.assertEqual(raw.count(update['linux_x64_archive_sha256'].encode()), 1)
+                raw = raw.replace(update['node_version'].encode(), update['previous_node_version'].encode())
+                raw = raw.replace(update['linux_x64_archive_sha256'].encode(), update['previous_linux_x64_archive_sha256'].encode())
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), expected, name)
         self.assertNotIn('tests/test_evidence.py', sources)
         self.assertEqual(self.provenance['evidence_test_base_sha256'], '7698b6a38fe2800aa2683cbdfeebb927dc9e84e73275548a5a862c53ca86427a')
 
@@ -202,7 +216,7 @@ class EvidenceTests(unittest.TestCase):
         self.assertIn('toset(["80", "443"])', text)
 
     def test_only_allowlisted_public_artifacts_and_provenance_fields(self):
-        expected = {'local-validation.md', 'screenshot-manifest.json', 'provenance.json'} | {c['file'] for c in self.captures}
+        expected = {'local-validation.md', 'screenshot-manifest.json', 'provenance.json', 'runtime-update-20260924.json', 'preflight-20260924.md'} | {c['file'] for c in self.captures}
         actual = set()
         for path in EVIDENCE.rglob('*'):
             self.assertFalse(path.is_symlink())

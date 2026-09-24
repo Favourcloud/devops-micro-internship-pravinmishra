@@ -218,6 +218,8 @@ Add a screenshot of VS Code showing the EC2 resource and `user_data` configurati
 
 ### Screenshot 10 — `user_data.sh`
 
+**24 September source update:** The current bootstrap uses Node 22.23.3 with its official archive checksum. The original image below retains the earlier script; it does not prove the updated bootstrap ran. See the [current preflight](terraform-aws-epicbook/evidence/preflight-20260924.md).
+
 Add a screenshot of VS Code showing `user_data.sh`.
 
 Ensure that no credentials, passwords, private keys, access tokens, or application secrets are visible.
