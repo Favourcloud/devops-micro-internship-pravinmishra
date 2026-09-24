@@ -5,13 +5,13 @@
   "reviewed_source_record": "reviewed-source.json",
   "screenshot_progress": {
     "accepted_source_only": 9,
-    "missing": 19,
+    "accepted_workflow_configuration": 2,
+    "accepted_offline_validation": 1,
+    "missing": 16,
     "total": 28
   },
   "local_capture_blocked_slots": [],
   "separately_gated_slots": [
-    4,
-    5,
     9,
     10,
     11,
@@ -29,7 +29,7 @@
     27,
     28
   ],
-  "capture_blocker": "The earlier unreadable native captures were replaced by genuine browser views of unchanged source for slots 7, 8, 14, 15 and 16. Screenshot 17 remains pending because the fixed runner suppresses raw terraform validate output. Its actual stage-result capture is supplemental and is not counted.",
+  "capture_blocker": "The earlier unreadable captures and missing literal validation output have been resolved. Sixteen slots still require actual AI workflow or deployment/runtime evidence.",
   "capture_provenance": {
     "operator": "GitHub Copilot under user delegation",
     "environment": "Native isolated read-only editor; native navigation was not OS-network-sandboxed. CLI validation ran separately with IP egress denied.",
@@ -66,7 +66,7 @@
     "candidate": "private_integrated",
     "workflow_evidence_added": true,
     "integration_report": "bedrock-setup-20260925.md",
-    "workflow_evidence_scope": "Sanitized Bedrock MCP lookup and offline validation record; required workflow screenshots remain pending."
+    "workflow_evidence_scope": "Sanitized Bedrock MCP lookup and offline validation record, plus live MCP/hook configuration and literal Terraform validation screenshots. AI generation, agent review and troubleshooting screenshots remain pending."
   },
   "claude_mcp_workflow": "partial_lookup_and_offline_validation_verified",
   "screenshots": [
@@ -118,14 +118,36 @@
     {
       "slot": 4,
       "title": "Terraform MCP Connection",
-      "status": "pending",
-      "path": null
+      "status": "captured_workflow_configuration",
+      "path": "screenshots/screenshot-04-terraform-mcp.jpg",
+      "sha256": "0c258f1734a680abbdd4f8636d1d079cd0b73b945b93bd8f363ed3e4f362e7a2",
+      "bytes": 64629,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:56.944402+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Claude Code /mcp view shows Terraform connected with seven tools. This is configuration evidence from a live local PTY; AWS credentials were disabled and no model call was made.",
+      "capture_record": "workflow-capture-provenance-20260925.json"
     },
     {
       "slot": 5,
       "title": "Validation Hooks",
-      "status": "pending",
-      "path": null
+      "status": "captured_workflow_configuration",
+      "path": "screenshots/screenshot-05-validation-hooks.jpg",
+      "sha256": "3868f1c80998fc6eea545ea13ecefbdf08e50063d7490b4edfd33f752d91a7b3",
+      "bytes": 73712,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:18.398210+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Claude Code hook details show PostToolUse for Edit|Write invoking the protected post_tool_validate.py command. This proves configuration, not an executed post-edit validation event.",
+      "capture_record": "workflow-capture-provenance-20260925.json"
     },
     {
       "slot": 6,
@@ -256,10 +278,21 @@
     {
       "slot": 17,
       "title": "Terraform Validation",
-      "status": "pending",
-      "path": null,
+      "status": "captured_offline_validation",
+      "path": "screenshots/screenshot-17-terraform-validation.jpg",
       "supporting_evidence": "supplemental/offline-validation-stage-results.png",
-      "limitation": "Partial Screenshot 17 evidence: the unchanged protected runner reports PASS validate. It suppresses raw Terraform diagnostics; this is not the literal terraform validate success output requested by the rubric. No real cloud plan or apply was run."
+      "limitation": "Offline validation only. The earlier stage-summary image remains supplemental; this new live PTY capture includes the exact successful Terraform stdout.",
+      "sha256": "48a5014793f2681ecaf8bb63d32065164a81b1505669f11e8c5e51ad4117f888",
+      "bytes": 70092,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:18.501131+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Terraform validate stdout reads \u201cSuccess! The configuration is valid.\u201d All six offline stages passed with IP networking denied, empty cloud credential files and the locked local provider. No real cloud plan or apply occurred.",
+      "capture_record": "workflow-capture-provenance-20260925.json"
     },
     {
       "slot": 18,
@@ -328,14 +361,12 @@
       "path": null
     }
   ],
-  "pending_local_evidence_slots": [
-    17
-  ],
+  "pending_local_evidence_slots": [],
   "new_capture_provenance": "local-capture-provenance-20260924.json",
   "claude_mcp_workflow_scope": "Bedrock model-selected public registry lookup and model-invoked offline validation verified; agent workflows, post-edit validation and required screenshots remain pending.",
   "claude_bedrock_setup": {
     "report": "bedrock-setup-20260925.md",
-    "report_sha256": "b8eda376e45b07bdc8c314179fc19aef35d56460f347d60fc6e7a5424d64ac0b",
+    "report_sha256": "666a7fa15252fc5cdb999b48f0453b5d722d47242d1cae2f6ffdc298d3c64955",
     "provider": "Amazon Bedrock",
     "model": "us.anthropic.claude-sonnet-4-6",
     "model_response_verified": true,
@@ -350,5 +381,6 @@
     "workflow_record": "bedrock-workflow-20260925.json",
     "workflow_record_sha256": "02b632d48b8d0b8098180899c7b366fe092cf9e587e6341d3a51b20706bc8d40",
     "model_invoked_offline_validation_verified": true
-  }
+  },
+  "workflow_capture_provenance": "workflow-capture-provenance-20260925.json"
 }

@@ -1,6 +1,6 @@
 # Terraform Across AWS and Azure: What the Deployment Evidence Shows
 
-**Week 08 — Terraform | Eze Favour | 24 September 2026**
+**Week 08 — Terraform | Eze Favour | 25 September 2026**
 
 Week 08 of the DevOps Micro Internship brings together infrastructure as code, application deployment and AI-assisted change review. The repository now includes four verified deployment-and-cleanup runs across AWS and Azure, plus a separate Terraform policy-review experiment. The remaining capstone work is still in progress.
 
@@ -34,11 +34,11 @@ All 19 numbered Assignment 6 images are recorded with provenance. The assignment
 
 ## What remains before Week 08 is complete
 
-The repository currently contains **98 of 118 numbered screenshot slots**, with 20 missing across Assignments 4 and 5. Five later A5 source captures document configuration only. Its separate guarded-validation summary is uncounted because the required literal Terraform output remains missing. Screenshot coverage is an inventory measure; it does not replace the underlying tasks.
+The repository currently contains **101 of 118 numbered screenshot slots**, with 17 missing across Assignments 4 and 5. Five later A5 source captures document configuration only. Three new live terminal captures show MCP connected, the configured validation hook and exact successful Terraform validate output. Screenshot coverage is an inventory measure; it does not replace the underlying tasks.
 
 Assignment 4's deployment and cart/database test are verified, but the pinned instructor app lacks an order-creation endpoint. A successful cart action cannot be described as completed checkout. Its learner reflection, mandatory LinkedIn publication and disclosed visual-evidence limits remain open. The new delivery passed 66 Python checks; the prior 22 Terraform mock runs remain supplementary to the actual cloud results.
 
-The official Assignment 5 starter kit has now been received from Udemy and compared with the existing setup. Its inactive adaptation still needs integration, a reviewed dependency update, genuine Claude/MCP workflow evidence, deployment verification and the learner's own reflections. The earlier source captures do not establish those results.
+The official Assignment 5 starter kit has now been received from Udemy and compared with the existing setup. Its private integration now has a verified Bedrock-driven MCP lookup and six-stage offline validation, plus the new configuration/validation captures. A reviewed dependency release, agent workflows, post-edit execution, deployment verification and the learner's own reflections remain required. The earlier source captures do not establish those results.
 
 The practical lesson from the completed work is to maintain a clear chain from configuration to plan, deployment, application verification and cleanup. Automated checks and AI explanations help review that chain. Precise records make it possible to identify what succeeded, what remains unverified and what must happen next.
 

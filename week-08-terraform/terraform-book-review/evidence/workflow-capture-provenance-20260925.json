@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "operator": "Codex under user delegation",
+  "counted_slots": [
+    4,
+    5,
+    17
+  ],
+  "image_pixels_modified": false,
+  "manual_learner_execution": false,
+  "cloud_operations": false,
+  "model_calls_for_capture": 0,
+  "screenshots": [
+    {
+      "slot": 4,
+      "path": "screenshots/screenshot-04-terraform-mcp.jpg",
+      "sha256": "0c258f1734a680abbdd4f8636d1d079cd0b73b945b93bd8f363ed3e4f362e7a2",
+      "bytes": 64629,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:56.944402+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Claude Code /mcp view shows Terraform connected with seven tools. This is configuration evidence from a live local PTY; AWS credentials were disabled and no model call was made."
+    },
+    {
+      "slot": 5,
+      "path": "screenshots/screenshot-05-validation-hooks.jpg",
+      "sha256": "3868f1c80998fc6eea545ea13ecefbdf08e50063d7490b4edfd33f752d91a7b3",
+      "bytes": 73712,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:18.398210+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Claude Code hook details show PostToolUse for Edit|Write invoking the protected post_tool_validate.py command. This proves configuration, not an executed post-edit validation event."
+    },
+    {
+      "slot": 17,
+      "path": "screenshots/screenshot-17-terraform-validation.jpg",
+      "sha256": "48a5014793f2681ecaf8bb63d32065164a81b1505669f11e8c5e51ad4117f888",
+      "bytes": 70092,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:18.501131+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Terraform validate stdout reads \u201cSuccess! The configuration is valid.\u201d All six offline stages passed with IP networking denied, empty cloud credential files and the locked local provider. No real cloud plan or apply occurred."
+    }
+  ],
+  "capture_method": "Original browser viewport JPEGs of an actual running local PTY, displayed via pyte 0.8.2 terminal emulation. No fabricated terminal responses, transcript reconstruction, re-encoding, pixel edits or composites.",
+  "configuration_session": {
+    "claude_version": "2.1.220",
+    "bedrock_model_label": "Sonnet 4.6",
+    "AWS_credential_files": "disabled for configuration-only session",
+    "MCP_status": "connected",
+    "MCP_tool_count": 7,
+    "private_settings_sha256": "3cddcebcfda64babbbc03674b07b992098e63307d8364a8b688766217288c543",
+    "private_trust_manifest_sha256": "c72946af458424c8e079b8766951f6cce1a23d503ea3cf03cb61fe1caafbf5d6",
+    "post_edit_hook_executed": false
+  },
+  "offline_validation": {
+    "started_at_utc": "2026-09-24T23:51:00.761359+00:00",
+    "ended_at_utc": "2026-09-24T23:51:31.851440+00:00",
+    "operator": "Codex under user delegation",
+    "runner_sha256": "5b9a3d61e756a0f1a480df8ba3ecffbe1dde150f828b7f8c615dc59b6c9ab367",
+    "runner_file_unchanged": true,
+    "stages": {
+      "version": {
+        "exit_code": 0,
+        "stdout_sha256": "3f3a163c1bc9831bb0e4ad47aaefa3c7002697af234ec63f840a7468c1f1d6a5"
+      },
+      "fmt": {
+        "exit_code": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "init": {
+        "exit_code": 0,
+        "stdout_sha256": "3c100008896d1df5e75b6056bb957943cef9f40728b71b68c58e41cdb187bb69"
+      },
+      "validate": {
+        "exit_code": 0,
+        "stdout_sha256": "f7997225125835fdd14060ac776d273f394b874f9a481b9e2122c83dc8adc5c1",
+        "stdout": "Success! The configuration is valid.\n\n"
+      },
+      "provider-schema": {
+        "exit_code": 0,
+        "stdout_sha256": "75d83f2330041f0d15a47f868cafc4e7d084bad457eff42ac070b41ca357c3c2"
+      },
+      "mock-plan-tests": {
+        "exit_code": 0,
+        "stdout_sha256": "604db1060b3c7de903b2d1d5d03ca40e149a60459a7c8b071f413f7e2eb31648"
+      }
+    },
+    "IP_network": "denied",
+    "cloud_operations": false,
+    "model_calls": 0,
+    "manual_learner_execution": false,
+    "capture_method": "Operator wrapper observes successful stdout returned by the unchanged protected runner in a real PTY; only exact Terraform validate success text is displayed."
+  },
+  "scope": "Screenshots 4 and 5 show installed configuration. Screenshot 17 shows operator-run offline validation, separate from the previously recorded Bedrock-invoked run. No AI code generation, agent review, deployment, application or learner-reflection credit is claimed."
+}

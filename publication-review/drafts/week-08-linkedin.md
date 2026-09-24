@@ -11,7 +11,7 @@ Assignment 6 adds a different lesson: a valid Terraform plan can still describe 
 
 The recorded human decision retained the closed configuration. Copilot performed the final checks and cleanup. Its Terraform execution was delegated; the separate manual learner execution requirement remains open.
 
-The repository includes the detected-change report and final recorded Claude review. Across Week 08, 98/118 screenshot slots are filled. A4 still needs its separate checkout/order requirement and publication; A5's official kit is received and reviewed; kit integration, genuine Claude workflow, deployment and personal reflections remain open. A4 capture limitations are documented. This is a progress update, not a whole-week completion claim.
+The repository includes the detected-change report and final recorded Claude review. Across Week 08, 101/118 screenshot slots are filled. A4 still needs its separate checkout/order requirement and publication; A5 now has a Bedrock-driven MCP lookup, six-stage offline validation and live configuration/validation captures. Agent workflows, deployment and personal reflections remain open. A4 capture limitations are documented. This is a progress update, not a whole-week completion claim.
 
 The takeaway: connect each claim to its evidence—plan, review, decision, runtime result and cleanup.
 

@@ -1,4 +1,4 @@
-# Genuine local-source evidence — 9 of 28 slots
+# Genuine source and workflow evidence — 12 of 28 slots
 
 The original four **unmodified PNGs** show reviewed source at commit **`23748110108196f26c1394830a48af5317f7ca22`**. They do not show the later evidence/documentation commit, deployed infrastructure, a running application, active Claude agents, a provided starter kit, or manual learner execution. The operator was GitHub Copilot under user delegation.
 
@@ -77,10 +77,31 @@ The only database ingress edge uses the App security group on TCP 3306. Both dat
 
 ![Original source view for slot 16](screenshots/screenshot-16-local-evidence.png)
 
-## Nineteen required images remain missing
+## Three live terminal captures — 25 September 2026
 
-- Screenshot 17 still requires the literal successful `terraform validate` output. The unchanged guarded runner passed all six stages and its 43 explicit mock plans on 24 September, with IP networking denied and credentials absent. The [actual recorded output](local-validation-20260924.json) and [supporting browser capture](supplemental/offline-validation-stage-results.png) show `PASS validate`; raw Terraform diagnostics remain suppressed. This supplemental image is **not counted** as Screenshot 17.
-- Eighteen other slots remain gated: 4, 5, 9–13 and 18–28. The official starter kit has now been received from Udemy and [statically reviewed](starter-kit-review-20260924.md). Candidate integration, genuine Claude/MCP activity, cloud/runtime proof, public URL, 15 learner reflections and mandatory publication remain outstanding. The earlier Payhip sign-in observation did not establish a kit prerequisite. Receipt of the archive adds no screenshot or workflow evidence.
+These original browser JPEGs show a real local PTY through a terminal emulator. They were captured by Codex under delegation, without re-encoding, pixel edits, composites or fabricated command output. The Claude configuration session had AWS credential files disabled and made no model calls. [Provenance](workflow-capture-provenance-20260925.json) records each image hash and the exact validation result.
+
+### Slot 4 — Terraform MCP connected
+
+Claude Code's actual `/mcp` screen reports Terraform connected with seven tools.
+
+![Live MCP connection](screenshots/screenshot-04-terraform-mcp.jpg)
+
+### Slot 5 — Configured validation hook
+
+Claude Code's actual hook details show `PostToolUse`, matcher `Edit|Write`, and the protected validation-hook command. Configuration does not establish that a post-edit event ran.
+
+![Configured post-edit validation hook](screenshots/screenshot-05-validation-hooks.jpg)
+
+### Slot 17 — Successful Terraform validation
+
+An operator wrapper observes the unchanged protected runner's returned stdout and displays only the exact success message. Actual output reads `Success! The configuration is valid.` All six stages passed with IP networking denied, empty credential files, the locked local provider and explicit mocked plan tests. The earlier stage-only image remains supplemental and uncounted.
+
+![Successful offline Terraform validation](screenshots/screenshot-17-terraform-validation.jpg)
+
+## Sixteen required images remain missing
+
+Slots 9–13 and 18–28 still require deployment/runtime or AI generation, review and troubleshooting evidence. The configured agent workflows, post-edit execution, public URL, 15 learner reflections and mandatory publication remain unfinished. The [Bedrock workflow report](bedrock-setup-20260925.md) separately verifies a model-selected MCP lookup and model-invoked offline validation. The [runtime readiness check](runtime-readiness-20260925.json) found the upstream head still matches the existing vulnerable pin.
 
 ## Historical independent validation
 
@@ -88,4 +109,4 @@ Independent CLI validation of the captured source passed **12 targeted tests, 14
 
 After integrating the originals, **21 focused evidence/integration tests and 155 normal +155 optimized tests passed with zero skips**, reusing the existing external Python3.11.7/PyMySQL1.1.1 environment read-only under deny-all-network. All six protected Terraform stages and **43 explicit mock plans** were rerun successfully, including the three compressed-payload limits; IP was denied and private Unix sockets allowed. No new dependency installation or trust-manifest reseal was needed. Of the63 reviewed project files,59 remain byte-identical; only the four documented README/metadata/evidence-test exceptions changed. No implementation or security behavior changed.
 
-All original 28 screenshot requirements, 15 unanswered own-words reflection questions and 55 unchecked checklist entries remain preserved. Deployment, assignment completion, manual-human execution, provided-kit provenance, Claude/MCP activity, public URL and mandatory LinkedIn publication remain false or pending. No cloud-change approval is implied by acceptance of these four source images.
+All original 28 screenshot requirements, 15 unanswered own-words reflection questions and 55 unchecked checklist entries remain preserved. Deployment, assignment completion, manual learner execution, public URL and mandatory LinkedIn publication remain unfinished. Kit provenance, the bounded Bedrock workflow and the new configuration/validation captures are recorded separately above. No cloud-change approval is implied by the evidence.

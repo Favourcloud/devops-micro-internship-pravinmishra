@@ -4,7 +4,7 @@ Rubric reviewed on 22 September 2026; Assignment 04 live and Assignment 05 local
 
 ## Current score and remaining points
 
-**25 September workflow follow-up:** the private A5 integration now has a verified Claude Sonnet 4.6 response through Amazon Bedrock, a seven-tool Terraform MCP connection, a model-selected provider lookup and a model-invoked six-stage offline validation pass. Agent workflows, post-edit validation and screenshots remain pending. See the [setup report](terraform-book-review/evidence/bedrock-setup-20260925.md); this adds no screenshot credit or observed DMI regrade.
+**25 September workflow follow-up:** the private A5 integration now has a verified Claude Sonnet 4.6 response through Amazon Bedrock, a seven-tool Terraform MCP connection, a model-selected provider lookup and a model-invoked six-stage offline validation pass. Three live terminal captures now fill slots 4, 5 and 17. Agent workflows, post-edit execution and deployment/runtime screenshots remain pending. See the [setup report](terraform-book-review/evidence/bedrock-setup-20260925.md); this fills three screenshot slots and makes no DMI regrade claim.
 
 | Component | Awarded | Available | What remains |
 |---|---:|---:|---|
@@ -36,9 +36,9 @@ These counts come from the numbered screenshot sections in the assignment files,
 | 02 — AWS VM | 10 / 10 | None | Live plan/apply, EC2/SSH/HTTP/browser checks and complete teardown verified on September 23; delegated execution disclosed. Delivered to main in PR #50; awaiting DMI review. |
 | 03 — Azure React | 15 / 15 | None | Approved live plan/apply, strict SSH, cloud-init, Nginx, public HTTP/SPA/assets/browser and complete teardown verified. Delegated execution and unchanged app placeholders disclosed; merged in PR #51. |
 | 04 — AWS EpicBook | 34 / 35 | 35 | Deployment, browser/cart-to-RDS checks and full teardown verified. Checkout/order, learner reflection, mandatory publication and disclosed partial screenshot requirements remain. |
-| 05 — Book Review capstone | 9 / 28 | 4–5, 9–13 and 17–28 | Literal Terraform validation output, actual Claude/MCP workflow, deployment and application evidence; 15 personal reflections remain unanswered. |
+| 05 — Book Review capstone | 12 / 28 | 9–13 and 18–28 | AI generation/review/troubleshooting, post-edit execution, deployment and application evidence; 15 personal reflections remain unanswered. |
 | 06 — Drift and policy review | 19 / 19 | None | Existing evidence describes delegated Terraform execution; the manual-execution requirement and publication remain open. Already credited by the automated file check. |
-| **Total** | **98 / 118** | **20 missing** | An occupied image slot is not necessarily a completed task. |
+| **Total** | **101 / 118** | **17 missing** | An occupied image slot is not necessarily a completed task. |
 
 The [screenshots index](screenshots/README.md) points to each assignment's original images and manifests. Its included Assignment 06 image is a byte-identical copy of an existing capture, not a new result or an additional completed screenshot slot.
 
@@ -124,4 +124,4 @@ The unchanged protected runner again passed all six stages, including validate/p
 
 The enrolled Udemy course provides `book-review-agentic-ai.zip` under **Section 8 → Assignment 37 → Instructions → Download resource files**. The archive passed integrity checks and its six files were compared with the existing A5 setup. The [review](terraform-book-review/evidence/starter-kit-review-20260924.md) records the official source, file hashes, configuration differences and a private inactive candidate. No course files are redistributed, protected project configuration changed, or Claude/MCP/cloud operations performed. The assignment explicitly offers no complete step-by-step implementation; its Instructor example is `N/A`.
 
-Kit discovery and private integration are complete. The 25 September follow-up above verifies the bounded MCP lookup and offline validation through Bedrock. Agent workflows, post-edit validation, dependency/runtime resolution, the costed deployment, learner work and publication remain pending. Screenshot counts remain **A5 9/28; Week 08 98/118**. No new grade is claimed.
+Kit discovery and private integration are complete. The 25 September follow-up above verifies the bounded MCP lookup and offline validation through Bedrock. Agent workflows, post-edit validation, dependency/runtime resolution, the costed deployment, learner work and publication remain pending. New live terminal captures show MCP connected, the configured post-edit hook and exact successful Terraform validation output. Screenshot counts are now **A5 12/28; Week 08 101/118**, with **17 missing**. The latest instructor app commit still matches the vulnerable pinned revision; [runtime readiness](terraform-book-review/evidence/runtime-readiness-20260925.json) records the remaining release and deployment inputs. No new grade is claimed.

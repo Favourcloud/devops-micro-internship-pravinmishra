@@ -50,18 +50,18 @@
     {
       "file": "drafts/week-08-blog.md",
       "status": "UNPUBLISHED_DRAFT",
-      "sha256": "0981047018b226b97889245d1ea67d787386aed3b74ee0173bc0db20c3ac27c0",
-      "words_excluding_urls": 992,
-      "characters": 7956,
+      "sha256": "6d1ca105cc8e1329246154c1bf338bf20629d5f9289d1f110d2e775f04a0b1ff",
+      "words_excluding_urls": 1011,
+      "characters": 8092,
       "badge_target_occurrences": 1,
       "minimum_200_words": true
     },
     {
       "file": "drafts/week-08-linkedin.md",
       "status": "UNPUBLISHED_DRAFT",
-      "sha256": "dac9e0b64cbb31d47a003f77ca243f2666d35f966d5af712b6ffc7d2a86ab90e",
-      "words_excluding_urls": 315,
-      "characters": 2316,
+      "sha256": "83eb307a76d1d3ed17c1e233370010a79ec84b2f73bd7975df167572900a6824",
+      "words_excluding_urls": 319,
+      "characters": 2361,
       "badge_target_occurrences": 1,
       "within_3000_characters": true
     },

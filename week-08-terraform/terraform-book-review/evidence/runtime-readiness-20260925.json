@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-09-24T23:55:01.131984+00:00",
+  "repository": "https://github.com/pravinmishraaws/book-review-app",
+  "latest_upstream_commit": "84280063bea7ccd5144dafa2b969ec4e2e69ffbb",
+  "latest_commit_date": "2026-08-12T14:03:09Z",
+  "matches_current_pin": true,
+  "fixed_upstream_revision_found": false,
+  "runtime_release_authorized": false,
+  "source_or_dependencies_modified": false,
+  "cloud_resources_created": false,
+  "remaining": [
+    "Reviewed fixed dependency/source release and compatibility checks",
+    "Reviewed Linux artifact and AMI",
+    "Authorized HTTPS hostname and matching ACM certificate",
+    "Database, CA and secret-version inputs",
+    "Costed infrastructure plan and deployment approval"
+  ],
+  "account_domain_inventory": {
+    "route53_hosted_zones": 0,
+    "issued_acm_certificates_us_east_1": 0,
+    "scope": "Read-only inventory in the previously selected AWS account; no identifiers or domains published."
+  }
+}

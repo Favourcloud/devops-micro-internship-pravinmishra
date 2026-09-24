@@ -69,7 +69,11 @@ Add a screenshot showing the Architecture and Security Reviewer subagent configu
 
 Add a screenshot showing Terraform MCP connected and available.
 
-Add your screenshot here.
+<!-- A5 workflow capture 4 -->
+![Screenshot 4: genuine live terminal evidence](terraform-book-review/evidence/screenshots/screenshot-04-terraform-mcp.jpg)
+
+**Verified scope:** Actual Claude Code /mcp view shows Terraform connected with seven tools. This is configuration evidence from a live local PTY; AWS credentials were disabled and no model call was made. Operator: Codex under user delegation; no manual learner execution claimed. [Capture provenance](terraform-book-review/evidence/workflow-capture-provenance-20260925.json).
+<!-- /A5 workflow capture -->
 
 ---
 
@@ -77,7 +81,11 @@ Add your screenshot here.
 
 Add a screenshot showing the configured Claude Code validation hooks.
 
-Add your screenshot here.
+<!-- A5 workflow capture 5 -->
+![Screenshot 5: genuine live terminal evidence](terraform-book-review/evidence/screenshots/screenshot-05-validation-hooks.jpg)
+
+**Verified scope:** Actual Claude Code hook details show PostToolUse for Edit|Write invoking the protected post_tool_validate.py command. This proves configuration, not an executed post-edit validation event. Operator: Codex under user delegation; no manual learner execution claimed. [Capture provenance](terraform-book-review/evidence/workflow-capture-provenance-20260925.json).
+<!-- /A5 workflow capture -->
 
 ---
 
@@ -258,7 +266,11 @@ Validate the Terraform configuration, review the execution plan using both Agent
 
 Add a screenshot showing successful `terraform validate` output.
 
-Add your screenshot here.
+<!-- A5 workflow capture 17 -->
+![Screenshot 17: genuine live terminal evidence](terraform-book-review/evidence/screenshots/screenshot-17-terraform-validation.jpg)
+
+**Verified scope:** Actual Terraform validate stdout reads “Success! The configuration is valid.” All six offline stages passed with IP networking denied, empty cloud credential files and the locked local provider. No real cloud plan or apply occurred. Operator: Codex under user delegation; no manual learner execution claimed. [Capture provenance](terraform-book-review/evidence/workflow-capture-provenance-20260925.json).
+<!-- /A5 workflow capture -->
 
 ---
 

@@ -2,7 +2,7 @@
 
 Claude Code 2.1.220 used **Amazon Bedrock, `us.anthropic.claude-sonnet-4-6`, in us-east-1** to complete a public Terraform MCP lookup and invoke the fixed offline Terraform validation runner. The lookup returned AWS provider **6.66.0**; the workspace remains pinned to **6.64.0**. All six validation stages passed. The [sanitized workflow record](bedrock-workflow-20260925.json) includes actual tool results, usage estimates and private transcript hashes. The separate, isolated Claude configuration does not use the existing local Kimi bridge.
 
-The operator was Codex under user delegation. This report records setup verification, not completed capstone implementation or manual learner execution. The paid starter kit, account identifiers, credentials, machine paths, and full private transcripts are not published.
+The operator was Codex under user delegation. This report records setup verification, not completed capstone implementation or manual learner execution. The paid starter kit, account identifiers, credentials, absolute machine paths, and full private transcripts are not published.
 
 ## Verified
 
@@ -25,6 +25,6 @@ The private guard also recognizes the current CLI's `manual` permission-mode nam
 
 The initial setup used an estimated **$0.4364**, with a conservative interrupted-response estimate of **$0.4449**, against the original $0.50 approval. The user then explicitly approved **another $0.50** for the MCP lookup and guarded validation. The denied attempt used an estimated **$0.09641412** and the successful retry **$0.043767075**, totaling **$0.140181195** of that additional budget, leaving approximately **$0.36**. No further paid calls were made after the bounded test. These use the AWS offer's regional token rates before final billing/taxes; they are not a reconciled invoice or an account-level billing cap.
 
-Still unverified: the two configured agent workflows, post-edit validation, and the required screenshots. Passing the pre-tool guard and running the validation command does not demonstrate the post-edit hook. No Terraform or application deployment occurred. A5 remains **9/28 screenshot slots** and Week 08 remains **98/118**; this report adds no screenshot credit or new DMI grade. Runtime/dependency remediation, deployment inputs and cost approval, learner reflections, publication and remaining evidence are still required.
+The [later live terminal captures](workflow-capture-provenance-20260925.json) fill MCP connection, configured hooks and literal Terraform validation slots without further model calls. Still unverified: the two configured agent workflows, post-edit execution and the remaining AI/deployment/runtime screenshots. Passing the pre-tool guard and running the validation command does not demonstrate the post-edit hook. No Terraform or application deployment occurred. A5 now has **12/28 screenshot slots** and Week 08 **101/118** after those three captures. No new DMI grade is claimed. Runtime/dependency remediation, deployment inputs and cost approval, learner reflections, publication and remaining evidence are still required.
 
 The [starter-kit review](starter-kit-review-20260924.md) describes the earlier receipt-only stage. Original course files remain private.
