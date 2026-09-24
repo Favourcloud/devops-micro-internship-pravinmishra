@@ -80,7 +80,7 @@
       "title": "`user_data.sh`",
       "status": "captured_local",
       "file": "screenshots/screenshot-10-user-data-script-source.png",
-      "reason": "Native split-editor source excerpts at lines 21–47 and 83–117, with editor word-wrap. Not the whole script visible, an executed script, or a synthetic composite.",
+      "reason": "Native split-editor source excerpts at lines 21\u201347 and 83\u2013117, with editor word-wrap. Not the whole script visible, an executed script, or a synthetic composite.",
       "sha256": "5b693296505f2524876a59ddb504d08fdc2da11b08a09d13c8f9860b90a9bd5d"
     },
     {
@@ -158,107 +158,122 @@
     {
       "number": 20,
       "title": "Terraform Plan",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-20-terraform-plan.png",
+      "reason": "Selected genuine local Terraform plan output replayed with explicit delegation label; full private logs retained",
+      "sha256": "a7c310b0f124e727a1c7a1c2b80acabbba8fd7e7aed242ff0a9d1a7b851bcfcf"
     },
     {
       "number": 21,
       "title": "Terraform Apply",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-21-terraform-apply.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "8d5fff17243e7de1ada263fb61264617e141b71f9ac27f906eb8dcf31b20b44e"
     },
     {
       "number": 22,
       "title": "Terraform Outputs",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-22-terraform-outputs.png",
+      "reason": "Actual Terraform public IP output; private RDS hostname explicitly redacted. Full-endpoint display is a documented partial requirement.",
+      "sha256": "4f5e5d24d256920d6e2ca6ced663543de127c746c0c675f2d21dfc4bb3a5bd4c"
     },
     {
       "number": 23,
       "title": "EC2 Running",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-23-ec2-running.png",
+      "reason": "Live AWS CLI query executed in CloudShell, showing the EC2 running state",
+      "sha256": "c457b434787530496c94912312e730560e123379f74c94df676270795f79aa3f"
     },
     {
       "number": 24,
       "title": "Private RDS Available",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-24-private-rds-available.png",
+      "reason": "Live AWS CLI query executed in CloudShell; RDS available, private, encrypted and single-AZ",
+      "sha256": "b9d14c7009a707bd5ff10f61376ee5dc2797f38916529a6b951681671fa9c709"
     },
     {
       "number": 25,
       "title": "Installed Software and Nginx",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-25-installed-software.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "6a8c298aeef2d56e158d8bc7dc79ffbc3126bcb5333a271d6dbd9a1ca42f5965"
     },
     {
       "number": 26,
       "title": "EC2-to-RDS Connection",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-26-ec2-rds-tls.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "34f38107aea9afc762063096afb7b134a9a11b0f5b605b3ebe6e165bd7aa2324"
     },
     {
       "number": 27,
       "title": "EpicBook Tables and Imported Data",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-27-tables-and-seed-data.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "3a3e619fc87e1d6ebe96abc271eafe68dc003d762d2c977a082d715bdfe32ead"
     },
     {
       "number": 28,
       "title": "Dependencies and `node_modules`",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-28-installed-dependencies.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "743296ad5bcb44d13150bed20d63aad7ff9e025e34633082bb9cb41a2ef7d704"
     },
     {
       "number": 29,
       "title": "Nginx Configuration and Service",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-29-nginx-configuration.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "561cf0a7e2d8b2666f9cd0462c960ca55a899e6dffb829204287a5316ca050cd"
     },
     {
       "number": 30,
       "title": "EpicBook on Port `8080`",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-30-epicbook-port-8080.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "bc67fcb5853b910e936eb71faedeb395781e8d4e172260c627bbbe74bdae2416"
     },
     {
       "number": 31,
       "title": "EpicBook Through the EC2 Public IP",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-31-epicbook-browser.png",
+      "reason": "Real EpicBook page at live EC2 IP; banner contains learner/operator and current location.href, not application functionality. Browser chrome is not captured. Original unannotated capture retained privately.",
+      "sha256": "3683241ff9f6fd32964fbdd85422e5cb95d84e0956fe29196e569f84d40d4524"
     },
     {
       "number": 32,
       "title": "Cart or Checkout Action",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-32-browser-cart.png",
+      "reason": "Actual cart after one browser Add to Cart action: 28 Summers, quantity1, total$28. Annotation supplies learner/operator and current location.href; not instructor-app functionality. No checkout/order claimed.",
+      "sha256": "e4567b0af96452af0270a4112b93b949e7d045a8ed1ebfea047155fd3fd744dc"
     },
     {
       "number": 33,
       "title": "Corresponding RDS Record",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-33-matching-cart-rds-record.png",
+      "reason": "Genuine recorded command results replayed with explicit source/delegation attribution",
+      "sha256": "8eb58e35dd394689f3609a3bbee8627075d9aef4d5a35f7523e67a3b6b2055c1"
     },
     {
       "number": 34,
       "title": "Terraform Destroy",
-      "status": "pending",
-      "file": null,
-      "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
+      "status": "captured_live",
+      "file": "screenshots/screenshot-34-terraform-destroy.png",
+      "reason": "Real saved Terraform destruction plans applied:28 application and1 key resource destroyed; both states empty and independent exact-ID checks passed. Command form is plan -destroy then apply saved plan, not literal terraform destroy.",
+      "sha256": "f21f489586fd753451af374e15609701829a94dbaa0711984fbda1262841dfb8"
     },
     {
       "number": 35,
@@ -268,5 +283,20 @@
       "reason": "Not captured; real plan/deployment/runtime/cleanup and mandatory publication remain gated. Local source/tests do not satisfy this slot."
     }
   ],
-  "provenance": "provenance.json"
+  "provenance": "provenance.json",
+  "live_provenance": "live-provenance.json",
+  "captured_count": 34,
+  "pending_count": 1,
+  "completion": {
+    "live_deployment": true,
+    "application_runtime": true,
+    "cart_database_workflow": true,
+    "cleanup": true,
+    "private_tfvars_created": true,
+    "order_workflow": false,
+    "linkedin_publication": false,
+    "learner_reflection": false,
+    "manual_learner_execution": false,
+    "all_screenshot_requirements_fully_satisfied": false
+  }
 }

@@ -5,7 +5,13 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 **Learner:** Eze Favour
 
 **Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
-**Status:** OFFLINE PREPARATION ONLY — not deployed, not a completed live submission.
+**Current status —24 September2026:** Deployment, real browser/cart-to-RDS verification and teardown succeeded. **34/35 screenshot slots have captures**; checkout/order behavior, learner reflection and mandatory LinkedIn publication remain unfinished. See the [live run summary](terraform-aws-epicbook/evidence/live-run-summary.md) and [new capture provenance](terraform-aws-epicbook/evidence/live-provenance.json). Private RDS output and specific historical screenshot limitations remain disclosed. The former EC2 URL is retired. Codex performed the run under user delegation.
+
+## Historical preparation record — superseded by the live update
+
+The following preparation notes and original screenshot captions describe their capture-time state; they do not override the current results above.
+
+**Historical status:** OFFLINE PREPARATION ONLY — not deployed, not a completed live submission.
 
 The [modular source and runbook](terraform-aws-epicbook/README.md) and
 [sanitized local validation record](terraform-aws-epicbook/evidence/local-validation.md)
@@ -25,7 +31,7 @@ learner reflection and mandatory LinkedIn publication remain pending behind fres
 The pinned instructor app supports a cart path, but its checkout click deletes carts rather than
 creating an order; see the runbook's source-derived limitation. The checkout/order checklist is not waived.
 
-## Evidence-backed technical notes — 19 September 2026
+## Historical evidence-backed technical notes —19 September2026
 
 These are factual Copilot-operated source/local-check notes, not firsthand learner reflection or new execution. Generic empty-image prompts are replaced only where the original local captures already follow; screenshot requirements, partial-view limitations and unmet live slots remain.
 
@@ -362,7 +368,9 @@ Add a screenshot of the terminal showing successful `terraform validate` output.
 
 Add a screenshot showing the Terraform plan summary and proposed resources.
 
-Add your screenshot here.
+![Screenshot 20 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-20-terraform-plan.png)
+
+**Recorded live-run evidence:** Selected genuine local Terraform plan output replayed with explicit delegation label; full private logs retained
 
 ---
 
@@ -370,7 +378,9 @@ Add your screenshot here.
 
 Add a screenshot showing successful `terraform apply` completion.
 
-Add your screenshot here.
+![Screenshot 21 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-21-terraform-apply.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -378,7 +388,9 @@ Add your screenshot here.
 
 Add a screenshot showing the EC2 public IP and RDS endpoint returned by `terraform output`.
 
-Add your screenshot here.
+![Screenshot 22 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-22-terraform-outputs.png)
+
+**Recorded live-run evidence:** Actual Terraform public IP output; private RDS hostname explicitly redacted. Full-endpoint display is a documented partial requirement.
 
 ---
 
@@ -394,7 +406,9 @@ Verify that the EC2 and RDS resources were successfully provisioned and confirm 
 
 Add a screenshot of AWS CLI showing the EC2 instance running.
 
-Add your screenshot here.
+![Screenshot 23 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-23-ec2-running.png)
+
+**Recorded live-run evidence:** Live AWS CLI query executed in CloudShell, showing the EC2 running state
 
 ---
 
@@ -402,7 +416,9 @@ Add your screenshot here.
 
 Add a screenshot of AWS CLI showing that RDS is available and not publicly accessible.
 
-Add your screenshot here.
+![Screenshot 24 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-24-private-rds-available.png)
+
+**Recorded live-run evidence:** Live AWS CLI query executed in CloudShell; RDS available, private, encrypted and single-AZ
 
 ---
 
@@ -410,7 +426,9 @@ Add your screenshot here.
 
 Add a screenshot of the EC2 terminal showing the required software version checks and the active Nginx service.
 
-Add your screenshot here.
+![Screenshot 25 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-25-installed-software.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -428,7 +446,9 @@ Add a screenshot of the terminal showing a successful connection from EC2 to Ama
 
 Ensure that the database password is not visible.
 
-Add your screenshot here.
+![Screenshot 26 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-26-ec2-rds-tls.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -436,7 +456,9 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing the EpicBook tables and imported data.
 
-Add your screenshot here.
+![Screenshot 27 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-27-tables-and-seed-data.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -452,7 +474,9 @@ Install EpicBook dependencies, configure the application to use Amazon RDS, conf
 
 Add a screenshot of the terminal showing successful dependency installation and the `node_modules` directory.
 
-Add your screenshot here.
+![Screenshot 28 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-28-installed-dependencies.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -460,7 +484,9 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing a successful Nginx configuration test and active service status.
 
-Add your screenshot here.
+![Screenshot 29 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-29-nginx-configuration.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -468,7 +494,9 @@ Add your screenshot here.
 
 Add a screenshot of the terminal showing EpicBook running or listening on port `8080`.
 
-Add your screenshot here.
+![Screenshot 30 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-30-epicbook-port-8080.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -480,9 +508,9 @@ Verify that EpicBook, EC2, Nginx, and Amazon RDS work together successfully.
 
 ## EC2 Public IP URL
 
-**EC2 Public IP URL:** Add the working EpicBook EC2 public IP URL here
+**EC2 Public IP URL:** `http://3.234.183.199/` — retired after verified cleanup.
 
-**Status:** PENDING — no EC2 instance or live URL was created during offline preparation.
+**Status:** Verified during the approved run; the instance is now terminated. See the live summary and screenshots 31–34.
 
 ## Evidence
 
@@ -490,7 +518,9 @@ Verify that EpicBook, EC2, Nginx, and Amazon RDS work together successfully.
 
 Add a screenshot of the browser showing EpicBook using the EC2 public IP.
 
-Add your screenshot here.
+![Screenshot 31 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-31-epicbook-browser.png)
+
+**Recorded live-run evidence:** Real EpicBook page at live EC2 IP; banner contains learner/operator and current location.href, not application functionality. Browser chrome is not captured. Original unannotated capture retained privately.
 
 ---
 
@@ -498,7 +528,9 @@ Add your screenshot here.
 
 Add a screenshot of the browser showing a successful cart or checkout action.
 
-Add your screenshot here.
+![Screenshot 32 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-32-browser-cart.png)
+
+**Recorded live-run evidence:** Actual cart after one browser Add to Cart action: 28 Summers, quantity1, total$28. Annotation supplies learner/operator and current location.href; not instructor-app functionality. No checkout/order claimed.
 
 ---
 
@@ -508,7 +540,9 @@ Add a screenshot of the terminal showing the corresponding RDS database record c
 
 Ensure that database credentials and other sensitive values are not visible.
 
-Add your screenshot here.
+![Screenshot 33 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-33-matching-cart-rds-record.png)
+
+**Recorded live-run evidence:** Genuine recorded command results replayed with explicit source/delegation attribution
 
 ---
 
@@ -524,7 +558,9 @@ Remove all AWS resources created by the modular Terraform configuration.
 
 Add a screenshot of the terminal showing successful `terraform destroy` completion.
 
-Add your screenshot here.
+![Screenshot 34 — Eze Favour — verified live run](terraform-aws-epicbook/evidence/screenshots/screenshot-34-terraform-destroy.png)
+
+**Recorded live-run evidence:** Real saved Terraform destruction plans applied:28 application and1 key resource destroyed; both states empty and independent exact-ID checks passed. Command form is plan -destroy then apply saved plan, not literal terraform destroy.
 
 ---
 
@@ -571,8 +607,8 @@ Add your screenshot here.
 
 - [ ] Installed and verified Terraform
 - [ ] Installed and verified AWS CLI
-- [ ] Configured AWS CLI
-- [ ] Confirmed the AWS Region
+- [x] Configured AWS CLI
+- [x] Confirmed the AWS Region
 - [ ] Installed the HashiCorp Terraform extension
 - [x] Created the modular Terraform project
 - [x] Created the root `main.tf`, `variables.tf`, and `outputs.tf`
@@ -580,62 +616,62 @@ Add your screenshot here.
 - [x] Created the EC2 module
 - [x] Created the RDS module
 - [x] Created the EC2 `user_data.sh`
-- [ ] Created VPC `10.0.0.0/16`
-- [ ] Created public subnet `10.0.1.0/24`
-- [ ] Created private DB subnet A `10.0.2.0/24`
-- [ ] Created private DB subnet B `10.0.3.0/24`
-- [ ] Used different Availability Zones for the database subnets
-- [ ] Created and attached the Internet Gateway
-- [ ] Created the public route table
-- [ ] Associated the public subnet with the public route table
-- [ ] Created the EC2 Security Group
-- [ ] Allowed HTTP port `80`
-- [ ] Restricted SSH port `22`
-- [ ] Created the RDS Security Group
-- [ ] Allowed MySQL port `3306` from the EC2 Security Group only
-- [ ] Exposed the required Network module outputs
-- [ ] Defined the EC2 instance
-- [ ] Connected `user_data.sh` using the EC2 `user_data` argument
-- [ ] Configured EC2 with a public IP
-- [ ] Installed the required software using user data
-- [ ] Created the RDS DB subnet group
-- [ ] Created Amazon RDS for MySQL
-- [ ] Confirmed RDS is not publicly accessible
-- [ ] Configured sensitive database variables
-- [ ] Exposed the RDS endpoint
-- [ ] Connected all modules through the root module
-- [ ] Passed Network module outputs to EC2 and RDS
-- [ ] Added root EC2 public IP and RDS endpoint outputs
+- [x] Created VPC `10.0.0.0/16`
+- [x] Created public subnet `10.0.1.0/24`
+- [x] Created private DB subnet A `10.0.2.0/24`
+- [x] Created private DB subnet B `10.0.3.0/24`
+- [x] Used different Availability Zones for the database subnets
+- [x] Created and attached the Internet Gateway
+- [x] Created the public route table
+- [x] Associated the public subnet with the public route table
+- [x] Created the EC2 Security Group
+- [x] Allowed HTTP port `80`
+- [x] Restricted SSH port `22`
+- [x] Created the RDS Security Group
+- [x] Allowed MySQL port `3306` from the EC2 Security Group only
+- [x] Exposed the required Network module outputs
+- [x] Defined the EC2 instance
+- [x] Connected `user_data.sh` using the EC2 `user_data` argument
+- [x] Configured EC2 with a public IP
+- [x] Installed the required software using user data
+- [x] Created the RDS DB subnet group
+- [x] Created Amazon RDS for MySQL
+- [x] Confirmed RDS is not publicly accessible
+- [x] Configured sensitive database variables
+- [x] Exposed the RDS endpoint
+- [x] Connected all modules through the root module
+- [x] Passed Network module outputs to EC2 and RDS
+- [x] Added root EC2 public IP and RDS endpoint outputs
 - [x] Completed `terraform init`
 - [x] Completed `terraform validate`
-- [ ] Reviewed `terraform plan`
-- [ ] Completed `terraform apply`
-- [ ] Verified EC2 is running
-- [ ] Verified RDS is available
-- [ ] Verified user data installation
-- [ ] Connected to EC2 using SSH
-- [ ] Cloned EpicBook
-- [ ] Created the `bookstore` database
-- [ ] Imported the database schema
-- [ ] Imported author seed data
-- [ ] Imported book seed data
-- [ ] Verified database records
-- [ ] Installed EpicBook dependencies
-- [ ] Configured EpicBook to use RDS
-- [ ] Configured Nginx
-- [ ] Started EpicBook
-- [ ] Verified port `8080`
-- [ ] Loaded EpicBook through the EC2 public IP
-- [ ] Verified product viewing
-- [ ] Verified Add to Cart
+- [x] Reviewed `terraform plan`
+- [x] Completed `terraform apply`
+- [x] Verified EC2 is running
+- [x] Verified RDS is available
+- [x] Verified user data installation
+- [x] Connected to EC2 using SSH
+- [x] Cloned EpicBook
+- [x] Created the `bookstore` database
+- [x] Imported the database schema
+- [x] Imported author seed data
+- [x] Imported book seed data
+- [x] Verified database records
+- [x] Installed EpicBook dependencies
+- [x] Configured EpicBook to use RDS
+- [x] Configured Nginx
+- [x] Started EpicBook
+- [x] Verified port `8080`
+- [x] Loaded EpicBook through the EC2 public IP
+- [x] Verified product viewing
+- [x] Verified Add to Cart
 - [ ] Verified the checkout or order workflow
-- [ ] Confirmed application actions in Amazon RDS
-- [ ] Completed `terraform destroy`
+- [x] Confirmed application actions in Amazon RDS
+- [x] Completed `terraform destroy`
 - [ ] Published the required LinkedIn post
 - [ ] Added the LinkedIn post URL
 - [ ] Captured all 35 required screenshots
 - [ ] Confirmed that my full name is visible in the required screenshots
-- [ ] Checked that no sensitive information is exposed
+- [x] Checked that no sensitive information is exposed
 
 ---
 
