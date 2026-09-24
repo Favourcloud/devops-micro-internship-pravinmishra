@@ -1,18 +1,18 @@
-A Terraform plan can be accurate and still describe a change that should not be applied.
+Week 08 Terraform progress: three cloud exercises now have verified deployments, application or VM checks, and complete cleanup.
 
-For Week 08 Assignment 6 of DMI, I built a bounded Terraform review workflow with GitHub Copilot assistance: real plan evidence, a Bash/jq policy checker, a Claude Code /tf-drift-review Skill, and a PreToolUse safety gate.
+• Azure VM: 11/11 screenshots; eight resources created and destroyed, with VM-running, image, disk and IP verification.
+• AWS VM: 10/10 screenshots; EC2, SSH, Nginx, public HTTP and browser checks passed before teardown.
+• React on Azure: 15/15 screenshots; application, assets and routing checked, followed by verified teardown.
 
-The isolated lab contained one dedicated VPC and a closed, unattached security group. Copilot performed the separately authorized Terraform operations.
+Codex performed these approved runs under delegation. The recorded public addresses are retired, and the evidence is merged into the repository.
 
-An input supplied only to planning proposed public SSH. The checker returned FAIL with one proposed update and one unsafe ingress finding. AWS read-back still showed zero deployed ingress rules. This was an unapplied configuration change, not out-of-band drift.
+Assignment 6 adds a different lesson: a valid Terraform plan can still describe an unsafe change. A planning-only input proposed public SSH, the checker returned FAIL, and Claude Code recommended rejecting it. A native PreToolUse hook blocked an actual apply request before Terraform ran. AWS read-back confirmed the public SSH rule was never deployed.
 
-The genuine Claude review recommended: “Do not apply this configuration.” A separate native hook test with the fresh FAIL report blocked an actual apply request before Terraform ran.
+The recorded human decision retained the closed configuration. Copilot performed the final checks and cleanup. Its Terraform execution was delegated; the separate manual learner execution requirement remains open.
 
-After reviewing the proposal, I approved rejecting public SSH and keeping the group closed. Copilot ran the final checks: no-change plans, a limited-scope HEALTHY report, and a genuine final Claude review. Authorized cleanup then removed only the new lab, with empty-state and resource-absence checks.
+The repository includes the detected-change report and final recorded Claude review. Across Week 08, 78/118 screenshot slots are filled. A4's live AWS/RDS run, A5's starter kit and release/deployment work, and personal reflections still need completion. This is a progress update, not a whole-week completion claim.
 
-The lesson: keep evidence, recommendations, decisions and execution distinct. A HEALTHY report is not permission to change infrastructure. I owned the resolution decision; I did not manually execute Terraform, so that separate rubric requirement remains open.
-
-The two attached captures show the detected report and the final recorded Claude review before cleanup. All 19 numbered assignment images are recorded with provenance; this post describes Assignment 6 progress, not completion of the whole Terraform week.
+The takeaway: connect each claim to its evidence—plan, review, decision, runtime result and cleanup.
 
 Thank you to Pravin Mishra, Anjana Muthunayake, Tanisha Borana and Anuradha Iyer for the cohort's guidance.
 

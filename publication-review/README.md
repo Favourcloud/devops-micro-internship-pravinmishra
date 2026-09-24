@@ -1,6 +1,6 @@
 # Publication review — Eze Favour
 
-**Checked 16 September 2026. Five unpublished drafts prepared; no social posts were published or edited by this audit.** DMI displays the learner as **Favour Eze**, GitHub username **Favourcloud**. The [manifest](manifest.json) records sources, draft hashes and limitations.
+**Original audit: 16 September 2026. Week 08 drafts updated on 24 September 2026 with the merged A1–A3 evidence and current completion limits. All five drafts remain unpublished; no social posts were published or edited.** DMI displays the learner as **Favour Eze**, GitHub username **Favourcloud**. The [manifest](manifest.json) records sources, draft hashes and limitations.
 
 ## Verified sources and rubric
 
@@ -22,7 +22,7 @@ The published rules also say previously completed assignment weeks and verified 
 | 00–05 | Credited | Credited | Preserve existing links and articles | Already credited |
 | 06 — AWS | Credited | Missing | Review and publish the prepared AWS blog after checking for an existing draft/article | 30 |
 | 07 — Azure | Missing | Missing | Review Azure evidence first; do not claim complete deployments from locked dashboard credit | 40 |
-| 08 — Terraform | Missing | Missing | Review prepared Assignment 6 progress posts, preserving the manual-execution limitation | 40 |
+| 08 — Terraform | Missing | Missing | Review the updated A1–A3 and Assignment 6 progress posts, preserving the outstanding work and manual-execution limitation | 40 |
 | 09 — Ansible | Missing | Missing | Review prepared Assignment 1 workstation posts; later cloud labs remain pending | 40 |
 | 10 — Azure DevOps | Missing | Missing | Complete and verify actual pipeline work before writing a success post | 40 |
 
@@ -35,12 +35,12 @@ Every file below is an **unpublished, AI-assisted draft** requiring Eze Favour's
 | Copy | Scope and evidence | Images / publication handling |
 | --- | --- | --- |
 | [Week 06 blog](drafts/week-06-blog.md) | Existing [AWS reflection](../week-06-aws-cloud/reflection-week-06.md), preserved unchanged at its original path; four failed probes and unfinished capstone work remain explicit | Publish only article copy; check Medium Stories first. No duplicate LinkedIn post is needed. |
-| [Week 08 LinkedIn](drafts/week-08-linkedin.md) | [Current review summary](../week-08-terraform/drift-review/drift-review-summary.md): real clean/risk/final reviews, hook denial, human decision and cleanup; Copilot operated Terraform | Attach both required originals: [detected report, screenshot 13](../week-08-terraform/drift-review/screenshots/screenshot-13-live-detected-report.png) and [final recorded Claude review, screenshot 17](../week-08-terraform/drift-review/screenshots/screenshot-17-final-healthy-review.png). The draft's “attached” sentence applies only once both are attached. |
-| [Week 08 blog](drafts/week-08-blog.md) | Same current-cycle evidence; proposed public SSH was never deployed and was not refresh drift | Retain source links, human/Copilot distinction, cleanup and exact badge link. |
+| [Week 08 LinkedIn](drafts/week-08-linkedin.md) | Merged A1–A3 deployments and cleanup plus the [review experiment](../week-08-terraform/drift-review/drift-review-summary.md); Codex/Copilot execution is attributed and A4/A5/manual requirements remain open | Attach both required originals: [detected report, screenshot 13](../week-08-terraform/drift-review/screenshots/screenshot-13-live-detected-report.png) and [final recorded Claude review, screenshot 17](../week-08-terraform/drift-review/screenshots/screenshot-17-final-healthy-review.png). The draft refers to repository evidence without claiming images are already attached; both originals must still accompany publication. |
+| [Week 08 blog](drafts/week-08-blog.md) | Verified A1–A3 runs, original A6 review and current 78/118 screenshot inventory; proposed public SSH was never deployed and was not refresh drift | Retain the pinned source links, delegated-execution attribution, cleanup, remaining-work limits and exact badge link. |
 | [Week 09 LinkedIn](drafts/week-09-linkedin.md) | [Completed workstation assignment](../week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md), local validation and merged PR #4 | Suggested originals: [actual hook result](../week-09-ansible/screenshots/assignment-01-09-pre-commit-checks.png), [README preview](../week-09-ansible/screenshots/assignment-01-12-readme-preview.png). No remote/cloud deployment claim. |
 | [Week 09 blog](drafts/week-09-blog.md) | Existing controller, SSH preparation, real VS Code captures and local checks | Retain the boundary between local readiness and future remote connectivity. |
 
-All three article drafts exceed 200 words excluding URLs. Both LinkedIn copies are below 3,000 characters before UI mention substitution. The [manifest](manifest.json) contains exact counts and SHA256 hashes. Readability and personal accuracy still require review; length checks do not establish technical completeness.
+All three article drafts exceed 200 words excluding URLs. Both LinkedIn copies are below 3,000 characters before UI mention substitution. The [manifest](manifest.json) contains current counts and SHA256 hashes, with the Week 08 revision recorded separately from the original audit. Readability and personal accuracy still require review; length checks do not establish technical completeness.
 
 ## Publication procedure for an authorized operator
 
