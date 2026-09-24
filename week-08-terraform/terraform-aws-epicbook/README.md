@@ -9,7 +9,10 @@
 [Original hashes and sanitized provenance](evidence/provenance.json) · [Local validation record](evidence/local-validation.md)
 
 Slots 1–19 contain original, unchanged PNGs captured by Copilot under delegation against
-`7c0005592f167730edb0ec3f56bf29324af6a031`; all 22 frozen implementation/test files still match.
+`7c0005592f167730edb0ec3f56bf29324af6a031`. The 24 September maintenance update changes only
+the Node version/archive checksum in `modules/ec2/user_data.sh`; the other 21 historical source files still match.
+[Current preflight](evidence/preflight-20260924.md) and [exact source change](evidence/runtime-update-20260924.json)
+preserve the earlier provenance. Screenshot 10 shows the earlier script, not the updated Node pin.
 They show local tools, source and credential-free init/validate, not manual learner execution,
 cloud deployment or runtime results. Slots 20–35 remain pending. The parent reports no significant
 issues in independent review of the credential fixes/regressions from `86210c7` to `7c000559`;
@@ -81,7 +84,7 @@ A bounded public lookup found current instructor `main` still at this exact comm
 | `routes/cart-api-routes.js`, `routes/html-routes.js` | POST `/api/cart` creates Cart and adds Book; catalogue GET `/` queries DB; there is **no checkout/order creation endpoint** |
 | `public/assets/js/book.js` | Checkout click only issues DELETE `/api/cart/delete`; the server deletes carts and does not send a response. It does **not** create a Checkout record |
 
-The [pinned instructor guide](https://github.com/pravinmishraaws/theepicbook/blob/763becebb8d3f5663a76bb30facddc25be63cfd5/Installation%20%26%20Configuration%20Guide.md) uses obsolete Node 17/MySQL 5.7 and local database commands. This runbook instead targets Ubuntu 24.04 LTS, **Node 22.22.0** (supported 22 LTS line) and **RDS MySQL 8.4 LTS**. Node's Linux x64 tarball is fixed to its published SHA-256 in user data. `npm ci --omit=dev --ignore-scripts --no-audit --no-fund` honors the upstream lock without arbitrary lifecycle scripts. Engine ranges in the inspected packages allow Node 22; that is a source check, **not verified Node 22/MySQL 8.4 runtime compatibility or a vulnerability audit**. Recheck patch/security support, regional MySQL minor availability and exact class orderability at the future gate. No automatic dependency upgrades are claimed.
+The [pinned instructor guide](https://github.com/pravinmishraaws/theepicbook/blob/763becebb8d3f5663a76bb30facddc25be63cfd5/Installation%20%26%20Configuration%20Guide.md) uses obsolete Node 17/MySQL 5.7 and local database commands. This runbook instead targets Ubuntu 24.04 LTS, **Node 22.23.3** (supported 22 LTS line) and **RDS MySQL 8.4 LTS**. Node's Linux x64 tarball is fixed to its published SHA-256 in user data. `npm ci --omit=dev --ignore-scripts --no-audit --no-fund` honors the upstream lock without arbitrary lifecycle scripts. Engine ranges in the inspected packages allow Node 22; that is a source check, **not verified Node 22/MySQL 8.4 runtime compatibility or a vulnerability audit**. The Node 22 pin and Linux x64 archive checksum were refreshed against the official release index and checksum file on 24 September 2026; the prior pin predates three releases flagged as security releases. Regional MySQL minor availability and exact class orderability still need an authenticated check. No automatic dependency upgrades are claimed.
 
 **Rubric distinction:** screenshots 32–33 allow a cart action and its real Cart/Cartbook records, so that narrower evidence is feasible subject to genuine runtime tests. The separate "checkout or order workflow" checklist remains **pending/blocking**. Do not fabricate an order, manually insert one as browser evidence, call cart deletion a completed checkout, or check the whole assignment complete. A verified instructor fix or explicitly authorized separate upstream work is needed; this repository's no-JavaScript-authoring constraint remains intact.
 
@@ -104,7 +107,7 @@ Mock tests cover topology, private routing/SGs, module wiring, write-only unread
 ### Captured local commands and evidence-only checks
 
 The historical frozen-source runner passed **22 native mocks and 52 Python checks**;
-that result is separate from this evidence-only integration, which does not rerun unchanged mock suites.
+that historical result remains separate from the [24 September preflight](evidence/preflight-20260924.md), which records a new local validation run.
 For slots 18–19, the parent separately ran `terraform init -input=false -lockfile=readonly`
 and `terraform validate` successfully, credential-free with the existing filesystem-only mirror.
 This was **normal init**, not the runner's `-backend=false` invocation. The source has an
@@ -121,7 +124,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_evidence
 ```
 
 These check the ordered rubric, links, honest scope, original PNG hashes/structure/metadata and
-22 frozen source hashes without Terraform/AWS execution, network, GUI or private-workspace cleanup.
+the 22 historical source hashes, accepting only the recorded Node version/checksum replacement in one file,
+without Terraform/AWS execution, network, GUI or private-workspace cleanup.
 They do not certify pixels independently of the parent's capture/privacy review.
 
 ## Future authorized runbook — STOP until fresh approval

@@ -22,8 +22,8 @@ install -d -m 0755 /opt/epicbook /usr/local/lib/epicbook
 work=$(mktemp -d)
 trap 'rm -rf -- "$work"' EXIT
 curl --fail --silent --show-error --location --retry 3 --connect-timeout 10 --max-time 180 \
-  https://nodejs.org/dist/v22.22.0/node-v22.22.0-linux-x64.tar.xz -o "$work/node.tar.xz"
-printf '%s  %s\n' '9aa8e9d2298ab68c600bd6fb86a6c13bce11a4eca1ba9b39d79fa021755d7c37' "$work/node.tar.xz" | sha256sum -c -
+  https://nodejs.org/dist/v22.23.3/node-v22.23.3-linux-x64.tar.xz -o "$work/node.tar.xz"
+printf '%s  %s\n' 'df450af89261115ef9f9e3830c3eeb2cc9213b63c720b1af623cb5dcbe2e02de' "$work/node.tar.xz" | sha256sum -c -
 tar -xJf "$work/node.tar.xz" --strip-components=1 -C /usr/local
 curl --fail --silent --show-error --location --retry 3 --connect-timeout 10 --max-time 60 \
   https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -o /etc/ssl/certs/rds-global-bundle.pem
