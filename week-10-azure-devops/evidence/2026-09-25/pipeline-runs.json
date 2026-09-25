@@ -1,0 +1,79 @@
+[
+  {
+    "id": null,
+    "buildNumber": null,
+    "status": "completed",
+    "result": "succeeded",
+    "reason": "manual",
+    "sourceBranch": null,
+    "sourceVersion": null,
+    "startTime": null,
+    "finishTime": null
+  },
+  {
+    "id": null,
+    "buildNumber": null,
+    "status": "completed",
+    "result": "succeeded",
+    "reason": "manual",
+    "sourceBranch": null,
+    "sourceVersion": null,
+    "startTime": null,
+    "finishTime": null
+  },
+  {
+    "id": null,
+    "buildNumber": null,
+    "status": "completed",
+    "result": "succeeded",
+    "reason": "manual",
+    "sourceBranch": null,
+    "sourceVersion": null,
+    "startTime": null,
+    "finishTime": null
+  },
+  {
+    "id": 16,
+    "buildNumber": "20260925.4",
+    "status": "completed",
+    "result": "succeeded",
+    "reason": "batchedCI",
+    "sourceBranch": "refs/heads/main",
+    "sourceVersion": "2e234a530dc39440de58879cd16cc7b760544cb6",
+    "startTime": "2026-09-25T17:32:17.003408Z",
+    "finishTime": "2026-09-25T17:36:06.2945498Z"
+  },
+  {
+    "id": 17,
+    "buildNumber": "20260925.5",
+    "status": "completed",
+    "result": "succeeded",
+    "reason": "batchedCI",
+    "sourceBranch": "refs/heads/main",
+    "sourceVersion": "d2f67909f36aaaab1204d8a1e5b1415de0ed6522",
+    "startTime": "2026-09-25T17:33:07.1658895Z",
+    "finishTime": "2026-09-25T17:34:02.9707751Z"
+  },
+  {
+    "id": 18,
+    "buildNumber": "20260925.2",
+    "status": "completed",
+    "result": "failed",
+    "reason": "manual",
+    "sourceBranch": "refs/heads/triage-safe-drill",
+    "sourceVersion": "d77e1b202e8bab284084eddf2d40f08dd7fbb01f",
+    "startTime": "2026-09-25T17:37:09.1765446Z",
+    "finishTime": "2026-09-25T17:37:26.7207623Z"
+  },
+  {
+    "id": 19,
+    "buildNumber": "20260925.3",
+    "status": "completed",
+    "result": "succeeded",
+    "reason": "manual",
+    "sourceBranch": "refs/heads/triage-safe-drill",
+    "sourceVersion": "78bee7d36a44a49550259e6deee0ce4cc1de4977",
+    "startTime": "2026-09-25T18:14:37.2561637Z",
+    "finishTime": "2026-09-25T18:15:13.1322585Z"
+  }
+]

@@ -22,9 +22,15 @@ variable "operator_arn" {
   nullable  = false
   sensitive = true
   validation {
-    condition     = can(regex("^arn:aws:(iam::[0-9]{12}:user/[A-Za-z0-9+=,.@_/-]+|sts::[0-9]{12}:assumed-role/[A-Za-z0-9+=,.@_/-]+|sts::[0-9]{12}:federated-user/[A-Za-z0-9+=,.@_-]{2,32})$", var.operator_arn))
-    error_message = "Supply the exact approved non-root IAM user, assumed-role or restricted federated-user session ARN; root cannot operate this target."
+    condition     = can(regex("^arn:aws:(iam::[0-9]{12}:user/[A-Za-z0-9+=,.@_/-]+|iam::[0-9]{12}:root|sts::[0-9]{12}:assumed-role/[A-Za-z0-9+=,.@_/-]+|sts::[0-9]{12}:federated-user/[A-Za-z0-9+=,.@_-]{2,32})$", var.operator_arn))
+    error_message = "Supply the exact approved principal ARN privately; root also requires allow_root_operator."
   }
+}
+
+variable "allow_root_operator" {
+  type        = bool
+  default     = false
+  description = "Explicit exception for owner-authorized local provisioning in the replacement lab account; never supply cloud credentials to the deployment pipeline."
 }
 
 variable "ami_id" {
@@ -72,4 +78,9 @@ variable "approval" {
     planning_allowance_usd  = number
   })
   nullable = false
+}
+variable "availability_zone" {
+  type        = string
+  default     = null
+  description = "Pin a zone that offers t3.micro; us-east-1e does not offer this instance type."
 }

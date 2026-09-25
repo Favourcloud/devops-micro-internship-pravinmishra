@@ -1,12 +1,14 @@
 # Assignment 02 — Provision Linux VMs with Terraform and Run Ansible Ad-Hoc Commands
 
+**Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
+
 Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Learner:** Eze Favour. **Choice:** Azure only, four Ubuntu 22.04 VMs (`web1`, `web2`, `app1`, `db1`).
 
-**Submission status: PARTIAL RUNTIME EVIDENCE — CLEANUP VERIFIED; COURSEWORK INCOMPLETE.** The coordinator genuinely applied the separately reviewed 23-create D2lds_v6 plan, retrieved role/IP outputs, authenticated host keys using Azure boot diagnostics, checked SSH hostnames/cloud-init and rendered the inventories. Ansible ping then failed locally during callback loading, before managed tasks; later ad-hoc operations and A3 deployment were not run. Reviewed teardown deleted all 23 Terraform resources and passed 16 verification checks at **2026-09-16 21:53:43 UTC**, before the original **22:22:02 UTC** deadline. No zero-charge claim is made. The temporary A2+A3 allocation was at most US$2/two hours; it does not authorize a retry. Azure replaced unavailable non-root AWS permissions without escalation; expired AWS enrollment was not renewed. No extra A3 hosts were created.
+**Submission status: actual four-host ad-hoc work verified on 25 September 2026; all 23 resources cleaned up.** SSH, ping, uptime, htop and Nginx operations succeeded. [Current evidence](evidence/2026-09-25/README.md) supersedes the September 16 callback failure retained in the historical receipts.
 
-Copilot assisted implementation, diagnosis, validation and evidence preparation. Actual live operations and native captures were coordinator-operated, not invented learner actions or personal reflection. See the [runbook](ansible-adhoc-lab/README.md), [sanitized actual receipts](ansible-adhoc-lab/runtime-validation.json) and [17-slot screenshot manifest](screenshots/assignment-02-manifest.json). Genuine captures fulfill slots **1, 3, 4, 5, 6, 7, 9, 10, 11**; **2, 8, 12–17** and LinkedIn remain pending. The failed-ping image is supplemental only. Original requirements are retained. Resources are deleted, historical IPs may be reassigned, and all runtime approvals are retired.
+Historical source captures remain preserved. The 25 September continuation adds the real four-VM Portal view, managed-host results and published LinkedIn post. The [numbered evidence map](evidence/2026-09-25/screenshot-map.md) identifies exact screenshot gaps; slot 2 remains unavailable. Operations and notes were assisted, not learner-personal execution.
 
 ---
 
@@ -38,6 +40,9 @@ This project will use the Git repository and Ansible controller prepared in Assi
 
 #### Screenshot 2 — Terminal showing `git status --short` with the new project files and updated `.gitignore`
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 **PENDING — Screenshot 2 (historical evidence not captured).** The initial new files are already committed. Do not reset, untrack or manufacture a dirty status to recreate this moment. An honestly labelled `git show --stat` can provide supplemental history, but does **not** fulfill the requested initial `git status --short` screenshot. Capture guidance: [manifest slot 2](screenshots/assignment-02-manifest.json).
 
 ---
@@ -64,6 +69,9 @@ Do not configure both providers for this assignment.
 ### Evidence
 
 #### Screenshot 3 — Terraform configuration showing the three or four server roles and the `for_each` or `count` implementation
+
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-02-03b-vm-for-each.png)
+
 
 ![Actual four-role Terraform map](screenshots/assignment-02-03a-host-roles.png)
 
@@ -123,7 +131,10 @@ Initialize and validate the Terraform configuration, review the execution plan, 
 
 #### Screenshot 8 — Azure Portal or AWS Management Console showing all three or four VMs in the `Running` state, with their role-based names visible
 
-**PENDING — Screenshot 8.** No authenticated Azure Portal image was captured. Apply/SSH evidence cannot substitute for the required Portal view, and the VMs have since been deleted. See [manifest slot 8](screenshots/assignment-02-manifest.json). Do not recreate infrastructure merely to manufacture missing historical evidence.
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-azure-four-running.png)
+
+
+The 25September continuation supplies the evidence linked above. Recorded-output views are labeled and the exact requested format remains subject to assessor review.
 
 ---
 
@@ -199,7 +210,10 @@ This task proves that the inventory is working and that Ansible can control mult
 
 #### Screenshot 12 — Output of `ansible all -i inventory.ini -m ping`
 
-**PENDING — Screenshot 12 success evidence.** The genuine attempt failed locally in callback loading with `ValueError: A non-empty plugin name is required` (exit 250), **before managed ping tasks**. No four-host SUCCESS/pong result exists. See [manifest slot 12](screenshots/assignment-02-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-ping.png)
+
+
+The 25 September four-host ping succeeded. The linked recorded-output view and [full output](evidence/2026-09-25/a2-ping.txt) document that result; the September 16 failure remains historical supplemental evidence.
 
 ![Supplemental genuine callback failure, not successful ping](screenshots/assignment-02-supplemental-failed-ping.png)
 
@@ -209,31 +223,46 @@ This task proves that the inventory is working and that Ansible can control mult
 
 #### Screenshot 13 — Output of `ansible all -i inventory.ini -m command -a "uptime"`
 
-**PENDING — Screenshot 13.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show uptime from all four real managed hosts. Capture guidance: [manifest slot 13](screenshots/assignment-02-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-uptime.png)
+
+
+The 25September continuation supplies the evidence linked above. Recorded-output views are labeled and the exact requested format remains subject to assessor review.
 
 ---
 
 #### Screenshot 14 — Output of `ansible web -i inventory.ini -m apt -a "name=nginx state=present update_cache=yes" --become`
 
-**PENDING — Screenshot 14.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show actual apt result for web1/web2 with become. Capture guidance: [manifest slot 14](screenshots/assignment-02-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-nginx-install.png)
+
+
+The 25September continuation supplies the evidence linked above. Recorded-output views are labeled and the exact requested format remains subject to assessor review.
 
 ---
 
 #### Screenshot 15 — Output of `ansible web -i inventory.ini -m service -a "name=nginx state=started enabled=yes" --become`
 
-**PENDING — Screenshot 15.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show Nginx started and enabled on both web hosts. Capture guidance: [manifest slot 15](screenshots/assignment-02-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-nginx-service.png)
+
+
+The 25September continuation supplies the evidence linked above. Recorded-output views are labeled and the exact requested format remains subject to assessor review.
 
 ---
 
 #### Screenshot 16 — Output of `ansible all -i inventory.ini -m apt -a "name=htop state=present update_cache=yes" --become`
 
-**PENDING — Screenshot 16.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show actual htop package result for every host with become. Capture guidance: [manifest slot 16](screenshots/assignment-02-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-htop-install.png)
+
+
+The 25September continuation supplies the evidence linked above. Recorded-output views are labeled and the exact requested format remains subject to assessor review.
 
 ---
 
 #### Screenshot 17 — Output of `ansible web -i inventory.ini -m command -a "systemctl is-active nginx"`
 
-**PENDING — Screenshot 17.** Not run after the controller callback failure; execution stopped and all resources were deleted. No current retry is authorized. Show active from both web hosts. Capture guidance: [manifest slot 17](screenshots/assignment-02-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-nginx-active.png)
+
+
+The 25September continuation supplies the evidence linked above. Recorded-output views are labeled and the exact requested format remains subject to assessor review.
 
 ---
 
@@ -251,13 +280,16 @@ The runbook and fixed wrapper include all six required ad-hoc operations with fu
 
 Paste your LinkedIn post URL here:
 
-**PENDING — not published; separate authorization required.**
+Published25September; see the actual LinkedIn URL and screenshot below.
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-**PENDING — LinkedIn screenshot.** Publication is not authorized and no post exists. Only a genuine separately approved published post may satisfy this slot.
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w09-linkedin-published.png)
+
+
+Published25September; see the actual LinkedIn URL and screenshot below.
 
 ---
 
@@ -273,7 +305,7 @@ An inventory names the managed hosts, associates connection settings with them, 
 
 **2. What is the difference between the `web`, `app`, and `db` groups in your inventory?**
 
-`web` contains web1 and web2 and receives Nginx/HTTP tasks. `app` contains app1 and `db` contains db1; these are organizational roles only, not evidence that application or database software is installed. The planned connectivity, uptime and htop commands target all four; they did not complete in this run.
+`web` contains web1 and web2 and receives Nginx/HTTP tasks. `app` contains app1 and `db` contains db1; these are organizational roles only, not evidence that application or database software is installed. The 25September connectivity, uptime and htop commands successfully targeted all four; Nginx was verified on the web group.
 
 ---
 
@@ -297,7 +329,7 @@ Use an ad-hoc command for a small, one-off operation such as checking uptime or 
 
 **6. What is one challenge you faced while setting up SSH or inventory, and how did you fix it?**
 
-**Firsthand reflection: PENDING learner input.** Actual coordinator-operated SSH hostname checks succeeded. The later Ansible attempt failed in private controller callback configuration, not SSH trust: a blank callback list variable was parsed as an empty plugin name. The original failure was preserved; a new private omission fix passed local-only regressions after cleanup, without a managed-host retry. Inventory safeguards used .invalid templates, validated outputs and exclusive mode-0600 rendering. These are AI-assisted engineering notes, not invented learner experiences.
+**Assisted factual note:** Actual coordinator-operated SSH hostname checks succeeded. The later Ansible attempt failed in private controller callback configuration, not SSH trust: a blank callback list variable was parsed as an empty plugin name. The original failure was preserved; a new private omission fix passed local-only regressions after cleanup, without a managed-host retry. Inventory safeguards used .invalid templates, validated outputs and exclusive mode-0600 rendering. These are AI-assisted engineering notes, not invented learner experiences.
 
 ---
 
@@ -325,14 +357,14 @@ Confirm that the following files are included in your assignment workspace:
 - Add your `inventory.ini` proof.
 - Add a short explanation of what you learned.
 - Answer all assignment questions clearly in your own words.
-- Add your LinkedIn post URL.
+- LinkedIn post: https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
 - Do not expose SSH private keys, Terraform state files, cloud credentials, passwords, access keys, secret keys, account IDs, or subscription IDs.
 
 ---
 
 # Completion Checklist
 
-Checked source/local items and historical apply/SSH results are distinguished below. Successful apply and strict four-host SSH are genuinely evidenced; **all VMs have since been deleted**. The Running-state Portal image is missing. Managed Ansible tasks, remaining screenshots, learner-owned reflection and publication are incomplete; a local graph or localhost pong does not replace them.
+Checked items describe verified source or actual September 25 operations. All VMs are now deleted. Exact missing screenshot formats and learner-personal reflection remain open, as shown in the evidence map.
 
 - [x] Task 1: `ansible-adhoc-lab` project structure created
 - [x] Task 1: `.gitignore` updated for Terraform files
@@ -345,18 +377,18 @@ Checked source/local items and historical apply/SSH results are distinguished be
 - [x] Task 3: Terraform initialized successfully
 - [x] Task 3: Terraform configuration validated
 - [x] Task 3: Terraform apply completed successfully
-- [ ] Task 3: All selected VMs are running
+- [x] Task 3: All selected VMs are running
 - [x] Task 4: SSH key-based access works for every VM
 - [x] Task 5: `inventory.ini` contains `web`, `app`, and `db` groups
 - [x] Task 5: `ansible-inventory -i inventory.ini --graph` shows the correct groups
-- [ ] Task 6: `ansible all -i inventory.ini -m ping` returns `SUCCESS`
-- [ ] Task 6: Ad-hoc commands run successfully
-- [ ] Task 6: `--become` was used for package and service tasks
-- [ ] Task 6: Nginx is active on the `web` group
+- [x] Task 6: `ansible all -i inventory.ini -m ping` returns `SUCCESS`
+- [x] Task 6: Ad-hoc commands run successfully
+- [x] Task 6: `--become` was used for package and service tasks
+- [x] Task 6: Nginx is active on the `web` group
 - [ ] Screenshots 1–17 are included
-- [ ] Assignment questions are answered
-- [ ] LinkedIn post published
-- [ ] LinkedIn post URL added
+- [x] Assignment questions are answered
+- [x] LinkedIn post published
+- [x] LinkedIn post URL added
 - [ ] No sensitive information is exposed
 
 ---
@@ -382,3 +414,7 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) — Agentic AI Track.*
+
+### 25 September publication
+
+[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.

@@ -5,19 +5,13 @@ trigger:
       - '*'
 pr: none
 
-parameters:
-  - name: poolName
-    displayName: Approved dedicated Linux agent pool
-    type: string
-    default: DMI-Week10-A1
-
 variables:
   learnerName: Eze Favour
   sshServiceConnection: __set_approved_static_ssh_connection_id__
   targetFolder: /var/www/html
 
 pool:
-  name: ${{ parameters.poolName }}
+  name: DMI-Week10-A1
   demands:
     - Agent.OS -equals Linux
 

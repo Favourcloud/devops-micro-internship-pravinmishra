@@ -5,12 +5,6 @@ trigger:
       - main
 pr: none
 
-parameters:
-  - name: poolName
-    displayName: Approved dedicated Linux agent pool
-    type: string
-    default: DMI-Week10-A1
-
 variables:
   learnerName: Eze Favour
   deploymentDate: __set_actual_deployment_date__
@@ -19,7 +13,7 @@ variables:
   targetFolder: /var/www/html
 
 pool:
-  name: ${{ parameters.poolName }}
+  name: DMI-Week10-A1
   demands:
     - Agent.OS -equals Linux
 

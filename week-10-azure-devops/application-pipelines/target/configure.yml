@@ -251,12 +251,20 @@
       failed_when: false
       no_log: true
 
+    - name: Confirm deployment sudo execution is denied
+      ansible.builtin.command:
+        argv: [/usr/sbin/runuser, -u, week10deploy, --, /usr/bin/sudo, -n, /usr/bin/true]
+      register: week10_sudo_exec
+      changed_when: false
+      failed_when: week10_sudo_exec.rc != 1
+      no_log: true
+
     - name: Reject any privileged deployment identity before authorizing its key
       ansible.builtin.assert:
         that:
           - week10_uid.stdout | int >= 1000
           - week10_groups.stdout == 'week10deploy'
-          - week10_sudo.rc == 1
+          - week10_sudo.rc in [0, 1]
           - "'is not allowed to run sudo on' in (week10_sudo.stdout ~ week10_sudo.stderr)"
         fail_msg: Deployment account privileges are not safely isolated; operator review required.
 
@@ -271,7 +279,8 @@
 
     - name: Allow the deployment key only through the authenticated loopback tunnel
       ansible.builtin.copy:
-        content: 'restrict,from="127.0.0.1/32" {{ week10_target.deployment_public_key }}{{ "\n" }}'
+        content: |
+          restrict,from="127.0.0.1/32" {{ week10_target.deployment_public_key }}
         dest: /home/week10deploy/.ssh/authorized_keys
         owner: week10deploy
         group: week10deploy
@@ -318,7 +327,8 @@
 
     - name: Record the assignment marker only after successful configuration
       ansible.builtin.copy:
-        content: '{{ week10_target.assignment }}{{ "\n" }}'
+        content: |
+          {{ week10_target.assignment }}
         dest: /var/www/.dmi-week10-target
         owner: root
         group: root

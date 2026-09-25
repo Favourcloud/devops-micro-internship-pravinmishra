@@ -47,7 +47,7 @@ class SourceCaptureTests(unittest.TestCase):
                             capture_output=True, check=True, timeout=10).stdout
                     recorded_source = historical_sources[revision_path]
                 else:
-                    recorded_source = source.read_bytes()
+                    recorded_source = subprocess.run(["git", "show", item["source_commit"] + ":" + item["source_file"]], cwd=REPOSITORY, capture_output=True, check=True).stdout
                 self.assertEqual(hashlib.sha256(recorded_source).hexdigest(), item["source_sha256"])
                 self.assertEqual(item["source_commit"], manifest["source_commit"])
                 self.assertTrue(item["source_only"])

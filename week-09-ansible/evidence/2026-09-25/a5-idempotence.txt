@@ -1,0 +1,512 @@
+RECORDED REAL COMMAND OUTPUT — Eze Favour; operator Codex
+
+PLAY [Refuse unconfigured or unapproved execution before any SSH] **************
+
+TASK [Require exactly one explicitly approved SSH target] **********************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Reject local connections and unsupported administrative users] ***********
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Prepare the dedicated Ubuntu EpicBook server] ****************************
+
+TASK [Require approval and a single valid target even when localhost is excluded] ***
+ok: [epicbook -> localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Validate the reviewed source and filesystem boundaries before SSH] *******
+ok: [epicbook -> localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Require a secret-safe database password for opt-in runtime installation] ***
+ok: [epicbook -> localhost]
+
+TASK [Gather target facts only after all controller-side guards pass] **********
+ok: [epicbook]
+
+TASK [Require the reviewed Ubuntu release and CPU architecture] ****************
+ok: [epicbook] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [common : Refresh the APT package index] **********************************
+ok: [epicbook]
+
+TASK [common : Apply available distribution package upgrades] ******************
+ok: [epicbook]
+
+TASK [common : Install baseline controller-managed server packages] ************
+ok: [epicbook]
+
+TASK [common : Check whether package upgrades require a reboot] ****************
+ok: [epicbook]
+
+TASK [common : Report pending reboot without disconnecting the operator] *******
+ok: [epicbook] => {
+    "msg": "A reboot is required; arrange an approved maintenance window and rerun verification afterwards."
+}
+
+TASK [nginx : Install Nginx without auto-starting the distribution default site] ***
+ok: [epicbook]
+
+TASK [nginx : Render the EpicBook virtual host] ********************************
+ok: [epicbook]
+
+TASK [nginx : Enable the EpicBook site] ****************************************
+ok: [epicbook]
+
+TASK [nginx : Remove the enabled distribution default site] ********************
+ok: [epicbook]
+
+TASK [nginx : Validate the assembled configuration before starting Nginx] ******
+ok: [epicbook]
+
+TASK [nginx : Enable and start Nginx] ******************************************
+ok: [epicbook]
+
+TASK [epicbook : Create the private application group] *************************
+ok: [epicbook]
+
+TASK [epicbook : Create separate source-owner and runtime identities] **********
+ok: [epicbook] => (item=epicbook-deploy)
+ok: [epicbook] => (item=epicbook)
+
+TASK [epicbook : Create the private application parent] ************************
+ok: [epicbook]
+
+TASK [epicbook : Create source and private Git metadata parent directories] ****
+ok: [epicbook] => (item={'path': '/opt/epicbook/source', 'mode': '0750'})
+ok: [epicbook] => (item={'path': '/opt/epicbook/git-metadata', 'mode': '0700'})
+
+TASK [epicbook : Clone the reviewed immutable EpicBook source without overwriting local edits] ***
+ok: [epicbook]
+
+TASK [epicbook : Restrict the cloned Git metadata leaf] ************************
+ok: [epicbook]
+
+TASK [epicbook : Confirm the actual application layout rather than assuming a static index] ***
+ok: [epicbook] => (item=server.js)
+ok: [epicbook] => (item=package-lock.json)
+ok: [epicbook] => (item=models/index.js)
+ok: [epicbook] => (item=views/index.handlebars)
+ok: [epicbook] => (item=db/BuyTheBook_Schema.sql)
+
+TASK [epicbook : Refuse incomplete source checkouts] ***************************
+ok: [epicbook] => (item=server.js) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ansible_loop_var": "item",
+        "changed": false,
+        "failed": false,
+        "item": "server.js",
+        "stat": {
+            "atime": 1790330349.7511878,
+            "attr_flags": "e",
+            "attributes": [
+                "extents"
+            ],
+            "block_size": 4096,
+            "blocks": 8,
+            "charset": "us-ascii",
+            "checksum": "e8e758c0bb85d34aea460221f0f7aaf658733ab6",
+            "ctime": 1790330349.3452063,
+            "dev": 66305,
+            "device_type": 0,
+            "disk_usage_bytes": 4096,
+            "executable": false,
+            "exists": true,
+            "gid": 998,
+            "gr_name": "epicbook",
+            "inode": 537174,
+            "isblk": false,
+            "ischr": false,
+            "isdir": false,
+            "isfifo": false,
+            "isgid": false,
+            "islnk": false,
+            "isreg": true,
+            "issock": false,
+            "isuid": false,
+            "mimetype": "text/plain",
+            "mode": "0640",
+            "mtime": 1790330349.3452063,
+            "nlink": 1,
+            "path": "/opt/epicbook/source/server.js",
+            "pw_name": "epicbook-deploy",
+            "readable": true,
+            "rgrp": true,
+            "roth": false,
+            "rusr": true,
+            "size": 926,
+            "uid": 997,
+            "version": "1018195205",
+            "wgrp": false,
+            "woth": false,
+            "writeable": true,
+            "wusr": true,
+            "xgrp": false,
+            "xoth": false,
+            "xusr": false
+        }
+    },
+    "msg": "All assertions passed"
+}
+ok: [epicbook] => (item=package-lock.json) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ansible_loop_var": "item",
+        "changed": false,
+        "failed": false,
+        "item": "package-lock.json",
+        "stat": {
+            "atime": 1790330349.6741915,
+            "attr_flags": "e",
+            "attributes": [
+                "extents"
+            ],
+            "block_size": 4096,
+            "blocks": 264,
+            "charset": "us-ascii",
+            "checksum": "558bac56bf93c6b6091842b74fcb037db0af654d",
+            "ctime": 1790330349.244211,
+            "dev": 66305,
+            "device_type": 0,
+            "disk_usage_bytes": 135168,
+            "executable": false,
+            "exists": true,
+            "gid": 998,
+            "gr_name": "epicbook",
+            "inode": 537112,
+            "isblk": false,
+            "ischr": false,
+            "isdir": false,
+            "isfifo": false,
+            "isgid": false,
+            "islnk": false,
+            "isreg": true,
+            "issock": false,
+            "isuid": false,
+            "mimetype": "application/json",
+            "mode": "0640",
+            "mtime": 1790330349.244211,
+            "nlink": 1,
+            "path": "/opt/epicbook/source/package-lock.json",
+            "pw_name": "epicbook-deploy",
+            "readable": true,
+            "rgrp": true,
+            "roth": false,
+            "rusr": true,
+            "size": 134824,
+            "uid": 997,
+            "version": "691116469",
+            "wgrp": false,
+            "woth": false,
+            "writeable": true,
+            "wusr": true,
+            "xgrp": false,
+            "xoth": false,
+            "xusr": false
+        }
+    },
+    "msg": "All assertions passed"
+}
+ok: [epicbook] => (item=models/index.js) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ansible_loop_var": "item",
+        "changed": false,
+        "failed": false,
+        "item": "models/index.js",
+        "stat": {
+            "atime": 1790330349.6741915,
+            "attr_flags": "e",
+            "attributes": [
+                "extents"
+            ],
+            "block_size": 4096,
+            "blocks": 8,
+            "charset": "us-ascii",
+            "checksum": "eb333a699f8aa623d86b498b4351bcb9cc98355c",
+            "ctime": 1790330349.243211,
+            "dev": 66305,
+            "device_type": 0,
+            "disk_usage_bytes": 4096,
+            "executable": false,
+            "exists": true,
+            "gid": 998,
+            "gr_name": "epicbook",
+            "inode": 537111,
+            "isblk": false,
+            "ischr": false,
+            "isdir": false,
+            "isfifo": false,
+            "isgid": false,
+            "islnk": false,
+            "isreg": true,
+            "issock": false,
+            "isuid": false,
+            "mimetype": "text/plain",
+            "mode": "0640",
+            "mtime": 1790330349.243211,
+            "nlink": 1,
+            "path": "/opt/epicbook/source/models/index.js",
+            "pw_name": "epicbook-deploy",
+            "readable": true,
+            "rgrp": true,
+            "roth": false,
+            "rusr": true,
+            "size": 977,
+            "uid": 997,
+            "version": "4227695378",
+            "wgrp": false,
+            "woth": false,
+            "writeable": true,
+            "wusr": true,
+            "xgrp": false,
+            "xoth": false,
+            "xusr": false
+        }
+    },
+    "msg": "All assertions passed"
+}
+ok: [epicbook] => (item=views/index.handlebars) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ansible_loop_var": "item",
+        "changed": false,
+        "failed": false,
+        "item": "views/index.handlebars",
+        "stat": {
+            "atime": 1790330349.7511878,
+            "attr_flags": "e",
+            "attributes": [
+                "extents"
+            ],
+            "block_size": 4096,
+            "blocks": 8,
+            "charset": "us-ascii",
+            "checksum": "6d1a48837a00ac8167dff500aff586bb7c1ce0c0",
+            "ctime": 1790330349.3452063,
+            "dev": 66305,
+            "device_type": 0,
+            "disk_usage_bytes": 4096,
+            "executable": false,
+            "exists": true,
+            "gid": 998,
+            "gr_name": "epicbook",
+            "inode": 537179,
+            "isblk": false,
+            "ischr": false,
+            "isdir": false,
+            "isfifo": false,
+            "isgid": false,
+            "islnk": false,
+            "isreg": true,
+            "issock": false,
+            "isuid": false,
+            "mimetype": "text/html",
+            "mode": "0640",
+            "mtime": 1790330349.3452063,
+            "nlink": 1,
+            "path": "/opt/epicbook/source/views/index.handlebars",
+            "pw_name": "epicbook-deploy",
+            "readable": true,
+            "rgrp": true,
+            "roth": false,
+            "rusr": true,
+            "size": 2239,
+            "uid": 997,
+            "version": "972531544",
+            "wgrp": false,
+            "woth": false,
+            "writeable": true,
+            "wusr": true,
+            "xgrp": false,
+            "xoth": false,
+            "xusr": false
+        }
+    },
+    "msg": "All assertions passed"
+}
+ok: [epicbook] => (item=db/BuyTheBook_Schema.sql) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ansible_loop_var": "item",
+        "changed": false,
+        "failed": false,
+        "item": "db/BuyTheBook_Schema.sql",
+        "stat": {
+            "atime": 1790330349.6741915,
+            "attr_flags": "e",
+            "attributes": [
+                "extents"
+            ],
+            "block_size": 4096,
+            "blocks": 8,
+            "charset": "us-ascii",
+            "checksum": "2f4e37aaa029ccaa3d2b349032eca2c22adb989e",
+            "ctime": 1790330349.243211,
+            "dev": 66305,
+            "device_type": 0,
+            "disk_usage_bytes": 4096,
+            "executable": false,
+            "exists": true,
+            "gid": 998,
+            "gr_name": "epicbook",
+            "inode": 537101,
+            "isblk": false,
+            "ischr": false,
+            "isdir": false,
+            "isfifo": false,
+            "isgid": false,
+            "islnk": false,
+            "isreg": true,
+            "issock": false,
+            "isuid": false,
+            "mimetype": "text/plain",
+            "mode": "0640",
+            "mtime": 1790330349.243211,
+            "nlink": 1,
+            "path": "/opt/epicbook/source/db/BuyTheBook_Schema.sql",
+            "pw_name": "epicbook-deploy",
+            "readable": true,
+            "rgrp": true,
+            "roth": false,
+            "rusr": true,
+            "size": 1619,
+            "uid": 997,
+            "version": "811402741",
+            "wgrp": false,
+            "woth": false,
+            "writeable": true,
+            "wusr": true,
+            "xgrp": false,
+            "xoth": false,
+            "xusr": false
+        }
+    },
+    "msg": "All assertions passed"
+}
+
+TASK [epicbook : Create the immutable runtime release directory] ***************
+ok: [epicbook]
+
+TASK [epicbook : Install the source-locked demo checkout release without changing the upstream clone] ***
+skipping: [epicbook]
+
+TASK [epicbook : Install the Ubuntu MySQL 8 server and Python database driver without auto-start] ***
+ok: [epicbook]
+
+TASK [epicbook : Bind MySQL and its X protocol to loopback only] ***************
+ok: [epicbook]
+
+TASK [epicbook : Enable and start the local MySQL server] **********************
+ok: [epicbook]
+
+TASK [epicbook : Apply MySQL binding changes before initializing the database] ***
+
+TASK [epicbook : Create root-only bootstrap and download directories] **********
+ok: [epicbook] => (item=/var/lib/epicbook-bootstrap)
+ok: [epicbook] => (item=/var/cache/epicbook)
+ok: [epicbook] => (item=/etc/epicbook)
+
+TASK [epicbook : Create the application database through local socket authentication] ***
+ok: [epicbook]
+
+TASK [epicbook : Inspect the source-revision seed marker] **********************
+ok: [epicbook]
+
+TASK [epicbook : Inspect tables before attempting first initialization] ********
+ok: [epicbook]
+
+TASK [epicbook : Refuse destructive or duplicate imports after a partial or foreign initialization] ***
+ok: [epicbook] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [epicbook : Import the upstream schema and seeds once into an empty database] ***
+skipping: [epicbook] => (item=BuyTheBook_Schema.sql) 
+skipping: [epicbook] => (item=author_seed.sql) 
+skipping: [epicbook] => (item=books_seed.sql) 
+skipping: [epicbook]
+
+TASK [epicbook : Verify real seeded data rather than inferring success from a marker] ***
+ok: [epicbook]
+
+TASK [epicbook : Require authors and books] ************************************
+ok: [epicbook] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [epicbook : Record successful database initialization only after verification] ***
+ok: [epicbook]
+
+TASK [epicbook : Create the application-only database account with no global privileges] ***
+ok: [epicbook]
+
+TASK [epicbook : Download checksum-pinned supported Node LTS without shell installers] ***
+ok: [epicbook]
+
+TASK [epicbook : Extract the pinned Node runtime into a versioned root-owned directory] ***
+skipping: [epicbook]
+
+TASK [epicbook : Create a private npm cache for the source owner] **************
+ok: [epicbook]
+
+TASK [epicbook : Inspect the revision-specific dependency marker] **************
+ok: [epicbook]
+
+TASK [epicbook : Inspect installed dependencies] *******************************
+ok: [epicbook]
+
+TASK [epicbook : Install locked runtime dependencies without lifecycle scripts or a root npm process] ***
+skipping: [epicbook]
+
+TASK [epicbook : Record successful dependency installation] ********************
+ok: [epicbook]
+
+TASK [epicbook : Render the root-readable service environment without modifying upstream config or JS] ***
+ok: [epicbook]
+
+TASK [epicbook : Render the restricted systemd service] ************************
+ok: [epicbook]
+
+TASK [epicbook : Enable and start EpicBook] ************************************
+ok: [epicbook]
+
+TASK [epicbook : Apply pending validated reloads and runtime restarts before probing] ***
+
+TASK [epicbook : Require the real database-backed application response through Nginx] ***
+ok: [epicbook]
+
+TASK [epicbook : Reject a successful status from an unrelated page] ************
+ok: [epicbook] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [epicbook : Explain source-only status without claiming a working application] ***
+skipping: [epicbook]
+
+PLAY RECAP *********************************************************************
+epicbook                   : ok=47   changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

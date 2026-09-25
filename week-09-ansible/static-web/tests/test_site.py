@@ -89,7 +89,7 @@ class SiteTests(unittest.TestCase):
                 cwd=REPO, capture_output=True, check=True,
             ).stdout
             self.assertEqual(hashlib.sha256(original).hexdigest(), digest)
-            expected = original.decode().replace("Favour Eze", "Eze Favour")
+            expected = original.decode().replace("Favour Eze", "Eze Favour").replace("Group 3", "Group 1")
             if filename.endswith(".html"):
                 expected = expected.replace("      <p>© 2026 CodeTrack — DMI Cohort 3</p>", "      <p>© 2026 CodeTrack — DMI Cohort 3</p>\n      <p>Deployed by Eze Favour — Week 09 multi-host lab</p>")
                 StaticHTML().feed((ROOT / "files" / filename).read_text())

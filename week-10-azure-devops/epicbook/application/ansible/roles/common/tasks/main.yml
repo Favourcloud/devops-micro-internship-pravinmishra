@@ -1,0 +1,33 @@
+---
+- name: Refresh the APT package index
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Apply available distribution package upgrades
+  ansible.builtin.apt:
+    upgrade: dist
+    lock_timeout: 120
+
+- name: Install baseline controller-managed server packages
+  ansible.builtin.apt:
+    name:
+      - git
+      - curl
+      - unzip
+      - software-properties-common
+      - ca-certificates
+      - acl
+      - xz-utils
+    state: present
+    lock_timeout: 120
+
+- name: Check whether package upgrades require a reboot
+  ansible.builtin.stat:
+    path: /var/run/reboot-required
+  register: common_reboot_required
+
+- name: Report pending reboot without disconnecting the operator
+  ansible.builtin.debug:
+    msg: A reboot is required; arrange an approved maintenance window and rerun verification afterwards.
+  when: common_reboot_required.stat.exists

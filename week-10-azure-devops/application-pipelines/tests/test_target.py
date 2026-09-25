@@ -220,7 +220,7 @@ class TargetSourceTests(unittest.TestCase):
         self.assertEqual(marker["owner"], "root")
         self.assertEqual(marker["group"], "root")
         self.assertEqual(marker["mode"], "0644")
-        self.assertEqual(marker["content"], '{{ week10_target.assignment }}{{ "\\n" }}')
+        self.assertEqual(marker["content"], '{{ week10_target.assignment }}\n')
 
     def test_template_separates_spa_fallback_from_static_404(self):
         template = (TARGET / "templates/nginx.conf.j2").read_text()

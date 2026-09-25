@@ -1,0 +1,7 @@
+Eze Favour — post-migration Ansible check-mode validation
+Operator: Codex
+Generated: 2026-09-25T17:34:34.317763+00:00
+Status: LOW
+Changed tasks: 0
+Ansible exit code: 0
+No fresh Claude call: AWS CLI session expired after earlier real recovery evidence.

@@ -1,0 +1,9 @@
+{
+  "learner": "Eze Favour",
+  "operator": "Codex",
+  "verified_at": "2026-09-25T10:10:30.752721+00:00",
+  "resources_removed": 23,
+  "terraform_state_empty": true,
+  "exact_resource_group_absent": true,
+  "scope": "Only current Week09 A2/A3 resource group; existing A5 AWS app untouched"
+}

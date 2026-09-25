@@ -1,0 +1,41 @@
+[Unit]
+Description=EpicBook managed by PM2 with a protected runtime
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User={{ app_runtime_user }}
+Group={{ app_group }}
+WorkingDirectory={{ app_runtime_dest }}
+EnvironmentFile=/etc/epicbook/epicbook.env
+Environment=PATH=/opt/node-v{{ node_version }}-linux-x64/bin:/usr/bin:/bin
+ExecStart=/opt/node-v{{ node_version }}-linux-x64/bin/node /opt/epicbook/pm2/node_modules/pm2/bin/pm2-runtime start {{ app_runtime_dest }}/server.js --name epicbook
+RuntimeDirectory=epicbook-pm2
+RuntimeDirectoryMode=0750
+ReadWritePaths=/run/epicbook-pm2
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+# Upstream listens on all interfaces; filter network access without changing application JS.
+IPAddressDeny=any
+IPAddressAllow=localhost
+{% if app_managed_db | default(false) %}
+IPAddressAllow=10.140.3.0/24
+IPAddressAllow=10.140.1.4/32
+{% endif %}
+
+[Install]
+WantedBy=multi-user.target

@@ -37,12 +37,21 @@
   failed_when: false
   no_log: true
 
+- name: Confirm the week10tunnel account cannot execute sudo
+  ansible.builtin.command:
+    argv: [/usr/sbin/runuser, -u, week10tunnel, --, /usr/bin/sudo, -n, /usr/bin/true]
+  become: true
+  register: week10_tunnel_sudo_exec
+  changed_when: false
+  failed_when: week10_tunnel_sudo_exec.rc != 1
+  no_log: true
+
 - name: Refuse privileged forwarding identities
   ansible.builtin.assert:
     that:
       - week10_tunnel_uid.stdout | int >= 1000
       - week10_tunnel_groups.stdout == 'week10tunnel'
-      - week10_tunnel_sudo.rc == 1
+      - week10_tunnel_sudo.rc in [0, 1]
       - "'is not allowed to run sudo on' in (week10_tunnel_sudo.stdout ~ week10_tunnel_sudo.stderr)"
 
 - name: Protect the forwarding home and authorized-key directory
@@ -113,7 +122,8 @@
 
 - name: Authorize only the separate forwarding key from the actual agent source
   ansible.builtin.copy:
-    content: 'restrict,port-forwarding,from="{{ week10_target.agent_ipv4 }}/32",permitopen="127.0.0.1:22" {{ week10_target.tunnel_public_key }}{{ "\n" }}'
+    content: |
+      restrict,port-forwarding,from="{{ week10_target.agent_ipv4 }}/32",permitopen="127.0.0.1:22" {{ week10_target.tunnel_public_key }}
     dest: /home/week10tunnel/.ssh/authorized_keys
     owner: week10tunnel
     group: week10tunnel
@@ -121,7 +131,8 @@
 
 - name: Record forwarding-account ownership after successful restriction setup
   ansible.builtin.copy:
-    content: '{{ week10_target.assignment }}{{ "\n" }}'
+    content: |
+      {{ week10_target.assignment }}
     dest: /etc/ssh/.dmi-week10-tunnel
     owner: root
     group: root

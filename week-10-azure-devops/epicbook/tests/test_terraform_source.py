@@ -32,7 +32,7 @@ class TerraformSourceTests(unittest.TestCase):
         self.assertIn("use_azuread_auth = true", source)
         self.assertRegex(source, r"use_oidc\s*=\s*true")
         self.assertRegex(source, r"use_cli\s*=\s*false")
-        self.assertRegex(source, r"use_msi\s*=\s*false")
+        self.assertRegex(source, r"use_msi\s*=\s*var.use_managed_identity")
         self.assertNotIn('backend "local"', source)
         self.assertNotRegex(source, r"\b(access_key|sas_token|client_secret)\s*=")
         self.assertIn('version = "= 4.47.0"', source)

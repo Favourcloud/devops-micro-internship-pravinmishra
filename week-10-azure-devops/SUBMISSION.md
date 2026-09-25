@@ -1,3 +1,5 @@
+> **25September update:** the current [week evidence index](evidence/2026-09-25/README.md) supersedes historical pending-runtime statements below. Live outcomes, publications and explicit limitations are recorded there.
+
 # Week 10 submission handoff — Eze Favour
 
 **Prepared 19 September 2026 · Partial submission, not a claim that Week 10 is complete.**

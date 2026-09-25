@@ -1,8 +1,10 @@
 # Assignment 3 — Automate React App Deployment Using Azure DevOps CI/CD
 
+**Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
+
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
-> Template aligned to the [official brief at `9b394ef8efecd7db1f582995a03665f6f8afc2a4`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-10-azure-devops/assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md) on 15 September 2026. Tasks and evidence remain incomplete.
+> Template aligned to the [official brief at `9b394ef8efecd7db1f582995a03665f6f8afc2a4`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-10-azure-devops/assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md) on 15 September 2026. The current results and remaining requirements are recorded in the continuation notice and evidence map.
 
 ---
 
@@ -34,6 +36,9 @@ Import the React application into Azure Repos and add your Full Name and the cur
 
 ### Screenshot 1 — Imported React Project in Azure Repos
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 Add a screenshot of Azure Repos showing:
 
 * Imported React project
@@ -41,7 +46,7 @@ Add a screenshot of Azure Repos showing:
 * `main` branch
 * Project files
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
@@ -77,6 +82,9 @@ Create an Azure Pipeline containing Build, Test, Publish, and Deploy stages with
 
 ### Screenshot 2 — Multi-Stage Pipeline YAML
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-03-screenshot-02-part-01-trigger-build.png)
+
+
 Add a screenshot of the Azure Pipeline YAML open in the editor showing:
 
 * Trigger
@@ -109,6 +117,9 @@ Complete a successful end-to-end pipeline run containing all four stages.
 
 ### Screenshot 3 — Successful Multi-Stage Pipeline Run
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-a3-ci16.png)
+
+
 Add a screenshot of one Azure DevOps pipeline run showing all four stages succeeded:
 
 * Build
@@ -116,7 +127,7 @@ Add a screenshot of one Azure DevOps pipeline run showing all four stages succee
 * Publish
 * Deploy
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
@@ -130,11 +141,14 @@ Confirm that the pipeline deployed the production-ready React files to the corre
 
 ### Screenshot 4 — Post-Deployment Contents of /var/www/html
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 Add a screenshot of the pipeline SSH verification log or VM terminal showing the post-deployment contents of:
 
 `/var/www/html`
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
@@ -148,6 +162,9 @@ Confirm that the React application is accessible and that a commit to `main` aut
 
 ### Screenshot 5 — Deployed React Application
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-a3-live.png)
+
+
 Add a browser screenshot showing:
 
 * Deployed React application
@@ -155,7 +172,7 @@ Add a browser screenshot showing:
 * Your Full Name
 * Deployment date
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Final Application URL
 
@@ -163,7 +180,7 @@ Add your screenshot here.
 
 Replace the placeholder and paste your final application URL below:
 
-[Paste your final application URL here.]
+http://20.108.9.183/
 
 ---
 
@@ -171,7 +188,7 @@ Replace the placeholder and paste your final application URL below:
 
 Write a short explanation of the CI/CD workflow you created.
 
-[Write your summary here.]
+Azure Repos main changes trigger Build, Test, Publish and Deploy on the dedicated self-hosted agent. The pipeline builds production React assets, runs actual Jest tests, moves the artifact between stages and uses the native SSH service connection to deploy and verify Nginx content. Manual run12 and automatic run16 succeeded; only production assets are deployed. NodeTool@0 deprecation warnings are retained in evidence.
 
 ---
 
@@ -181,16 +198,19 @@ Write a short explanation of the CI/CD workflow you created.
 
 ### Screenshot 6 — LinkedIn Post
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-linkedin-published.png)
+
+
 Add a screenshot of your LinkedIn post showing:
 
 * Post text
 * At least one image or link
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here.]
+https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
 
 > Do not expose VM passwords, tokens, private keys, cloud credentials, or other sensitive information.
 
@@ -212,26 +232,26 @@ Add your screenshot here.
 # Completion Checklist
 
 * [ ] All tasks were completed in sequence
-* [ ] The correct React repository was imported into Azure Repos
-* [ ] Your Full Name and date were added to the application
-* [ ] The pipeline YAML was authored and committed to the repository
-* [ ] Commits to `main` trigger the pipeline automatically
-* [ ] The pipeline contains Build, Test, Publish, and Deploy stages
-* [ ] All four stages succeeded in the same pipeline run
-* [ ] The production build moved between stages as a pipeline artifact
-* [ ] The Deploy stage used the SSH Service Connection
-* [ ] No password or secret is stored in the YAML
-* [ ] `index.html` is directly inside `/var/www/html`
-* [ ] Raw React source code was not deployed to the Nginx web root
-* [ ] `node_modules/` was not deployed to the Nginx web root
-* [ ] Nginx is active
-* [ ] The application opens through the VM public IP address
+* [x] The correct React repository was imported into Azure Repos
+* [x] Your Full Name and date were added to the application
+* [x] The pipeline YAML was authored and committed to the repository
+* [x] Commits to `main` trigger the pipeline automatically
+* [x] The pipeline contains Build, Test, Publish, and Deploy stages
+* [x] All four stages succeeded in the same pipeline run
+* [x] The production build moved between stages as a pipeline artifact
+* [x] The Deploy stage used the SSH Service Connection
+* [x] No password or secret is stored in the YAML
+* [x] `index.html` is directly inside `/var/www/html`
+* [x] Raw React source code was not deployed to the Nginx web root
+* [x] `node_modules/` was not deployed to the Nginx web root
+* [x] Nginx is active
+* [x] The application opens through the VM public IP address
 * [ ] Your Full Name and date are visible in the browser screenshot
 * [ ] Screenshots 1–6 are included and readable
 * [ ] No password, token, private key, account ID, or other secret is visible
-* [ ] The final application URL is included
-* [ ] The LinkedIn post is published
-* [ ] The LinkedIn post URL is included
+* [x] The final application URL is included
+* [x] The LinkedIn post is published
+* [x] The LinkedIn post URL is included
 
 ---
 
@@ -256,3 +276,7 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+### 25 September publication
+
+[Medium](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/). The public posts describe the verified outcomes and assisted work.

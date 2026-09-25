@@ -1,0 +1,34 @@
+ping — exit 0
+epicbook | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+
+
+nginx — exit 0
+epicbook | CHANGED | rc=0 >>
+active
+
+
+backend-head — exit 0
+epicbook | CHANGED | rc=0 >>
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 25047
+ETag: W/"61d7-LtEn5XMTOM5vzmJlSMPI8kCGEoo"
+Date: Fri, 25 Sep 2026 17:25:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0 25047    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+
+
+pm2 — exit 0
+┌────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ epicbook    │ default     │ 1.0.0   │ fork    │ 33814    │ 6m     │ 0    │ online    │ 0%       │ 92.6mb   │ epicbook │ disabled │
+└────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘

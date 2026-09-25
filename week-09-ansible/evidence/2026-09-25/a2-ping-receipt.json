@@ -1,0 +1,7 @@
+{
+  "time": "20260925T094916742632Z",
+  "label": "a2-ping",
+  "exit_code": 0,
+  "stdout_sha256": "520389e0bc6369cb5c8d3898c746ac5da5ac699795991b1b78cb32a478169658",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

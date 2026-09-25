@@ -1,3 +1,5 @@
+> **Current submission:** [25September results and publications](2026-09-25/README.md) and [numbered evidence map](2026-09-25/screenshot-map.md) supersede the historical checkpoint below.
+
 # Genuine screenshot attachments — 19–20 September 2026
 
 **Ten numbered slots have captures (thirteen original PNGs); 26 numbered slots and A2's separate LinkedIn image remain missing. A1 has all seven numbered slots, from separate trials—not one continuous recording. No assignment is complete. A1 image review is user-attested; the four A2 images and two A3 images still need review.** See the [current machine-readable totals](current.json).

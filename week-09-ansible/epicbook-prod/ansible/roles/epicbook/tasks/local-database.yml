@@ -1,0 +1,124 @@
+---
+- name: Install the Ubuntu MySQL 8 server and Python database driver without auto-start
+  ansible.builtin.apt:
+    name:
+      - mysql-server-8.0
+      - python3-pymysql
+    state: present
+    policy_rc_d: 101
+    lock_timeout: 120
+
+- name: Bind MySQL and its X protocol to loopback only
+  ansible.builtin.copy:
+    dest: /etc/mysql/mysql.conf.d/zz-epicbook.cnf
+    content: |
+      [mysqld]
+      bind-address = 127.0.0.1
+      mysqlx-bind-address = 127.0.0.1
+      local-infile = 0
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart epicbook mysql
+
+- name: Enable and start the local MySQL server
+  ansible.builtin.systemd_service:
+    name: mysql
+    state: started
+    enabled: true
+
+- name: Apply MySQL binding changes before initializing the database
+  ansible.builtin.meta: flush_handlers
+
+- name: Create root-only bootstrap and download directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0700"
+  loop:
+    - /var/lib/epicbook-bootstrap
+    - /var/cache/epicbook
+    - /etc/epicbook
+
+- name: Create the application database through local socket authentication
+  ansible.mysql.mysql_db:
+    name: "{{ app_db_name }}"
+    state: present
+    encoding: utf8mb4
+    collation: utf8mb4_unicode_ci
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+
+- name: Inspect the source-revision seed marker
+  ansible.builtin.stat:
+    path: "/var/lib/epicbook-bootstrap/{{ app_revision }}.seeded"
+  register: epicbook_seed_marker
+
+- name: Inspect tables before attempting first initialization
+  ansible.mysql.mysql_query:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+    query: SELECT COUNT(*) AS table_count FROM information_schema.tables WHERE table_schema = %s
+    positional_args:
+      - "{{ app_db_name }}"
+  register: epicbook_existing_tables
+  changed_when: false
+
+- name: Refuse destructive or duplicate imports after a partial or foreign initialization
+  ansible.builtin.assert:
+    that:
+      - epicbook_seed_marker.stat.exists or epicbook_existing_tables.query_result[0][0].table_count | int == 0
+    fail_msg: >-
+      Database has tables but no matching seed marker. STOP and inspect/backup it;
+      do not drop tables or replay non-idempotent upstream SQL automatically.
+  when: not ansible_check_mode
+
+- name: Import the upstream schema and seeds once into an empty database
+  ansible.mysql.mysql_db:
+    name: "{{ app_db_name }}"
+    state: import
+    target: "{{ app_dest }}/db/{{ item }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+  loop:
+    - BuyTheBook_Schema.sql
+    - author_seed.sql
+    - books_seed.sql
+  when: not epicbook_seed_marker.stat.exists
+
+- name: Verify real seeded data rather than inferring success from a marker
+  ansible.mysql.mysql_query:
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+    login_db: "{{ app_db_name }}"
+    query: SELECT (SELECT COUNT(*) FROM Author) AS authors, (SELECT COUNT(*) FROM Book) AS books
+  register: epicbook_seed_counts
+  changed_when: false
+
+- name: Require authors and books
+  ansible.builtin.assert:
+    that:
+      - epicbook_seed_counts.query_result[0][0].authors | int > 0
+      - epicbook_seed_counts.query_result[0][0].books | int > 0
+  when: not ansible_check_mode
+
+- name: Record successful database initialization only after verification
+  ansible.builtin.copy:
+    dest: "/var/lib/epicbook-bootstrap/{{ app_revision }}.seeded"
+    content: "{{ app_revision }}\n"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Create the application-only database account with no global privileges
+  ansible.mysql.mysql_user:
+    name: "{{ app_db_user }}"
+    host: 127.0.0.1
+    password: "{{ vault_epicbook_db_password }}"
+    priv: "{{ app_db_name }}.*:SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,INDEX,REFERENCES"
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: ""
+  no_log: true

@@ -1,0 +1,76 @@
+---
+- name: Verify the two reviewed hosts before connecting
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Require the isolated two-VM assignment
+      ansible.builtin.assert:
+        that:
+          - groups.frontend | length == 1
+          - groups.backend | length == 1
+          - backend_private_ip == '10.140.2.4'
+          - mysql_fqdn is match('^dmi-w10-a4-[a-z0-9]+-mysql.mysql.database.azure.com$')
+          - app_release_id is match('^[a-f0-9]{64}$')
+          - app_runtime_dest == '/opt/epicbook/releases/' + app_release_id
+          - deployment_approved | bool
+
+- name: Configure the private EpicBook backend
+  hosts: backend
+  become: true
+  gather_facts: true
+  pre_tasks:
+    - name: Require the reviewed Ubuntu platform
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.distribution == 'Ubuntu'
+          - ansible_facts.distribution_version == '22.04'
+          - ansible_facts.architecture == 'x86_64'
+    - name: Install and configure the backend baseline
+      ansible.builtin.include_role:
+        name: common
+    - name: Create root-only bootstrap directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: root
+        group: root
+        mode: '0700'
+      loop: [/var/lib/epicbook-bootstrap, /var/cache/epicbook, /etc/epicbook]
+  roles:
+    - epicbook
+  handlers:
+    - name: Reload nginx
+      ansible.builtin.debug:
+        msg: Source changed on backend; runtime restart is managed by the EpicBook handler.
+
+- name: Configure the frontend reverse proxy
+  hosts: frontend
+  become: true
+  gather_facts: false
+  pre_tasks:
+    - name: Refresh package metadata
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+  roles:
+    - nginx
+  post_tasks:
+    - name: Apply the validated proxy configuration
+      ansible.builtin.meta: flush_handlers
+    - name: Verify database-backed app through the frontend
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        return_content: true
+        use_proxy: false
+        status_code: 200
+      register: frontend_response
+      until: frontend_response.status | default(0) == 200
+      retries: 10
+      delay: 3
+      changed_when: false
+    - name: Require learner and Week10 attribution in the served app
+      ansible.builtin.assert:
+        that:
+          - "'Eze Favour' in frontend_response.content"
+          - "'DMI Week 10' in frontend_response.content"

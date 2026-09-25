@@ -1,18 +1,20 @@
 # Assignment 5 — AI-Assisted Azure DevOps Dual-Pipeline Failure Triage
 
+**Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
+
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
-> Template aligned to the [official brief at `9b394ef8efecd7db1f582995a03665f6f8afc2a4`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-10-azure-devops/assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md) on 15 September 2026. Tasks and evidence remain incomplete.
+> Template aligned to the [official brief at `9b394ef8efecd7db1f582995a03665f6f8afc2a4`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-10-azure-devops/assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md) on 15 September 2026. The current results and remaining requirements are recorded in the continuation notice and evidence map.
 
 ---
 
 ## Student Information
 
-**Full Name:** [Enter your full name]
+**Full Name:** Eze Favour
 
-**GitHub Repository or Fork URL:** [Paste your repository URL]
+**GitHub Repository or Fork URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra
 
-**Public LinkedIn Post URL:** [Paste your LinkedIn post URL]
+**Public LinkedIn Post URL:** https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
 
 ---
 
@@ -42,19 +44,22 @@ Confirm that both EpicBook pipelines are healthy and place the supplied assignme
 
 ### Screenshot 1 — Healthy Baseline for Both Pipelines
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-triage-baseline-report.png)
+
+
 Terminal output showing the latest completed Infrastructure and Application Pipeline runs with successful results.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. What proves that both pipelines were healthy before the drill?
 
-[Write your answer here.]
+The saved read-only baseline identifies infrastructure run11 and application run14, both completed/succeeded, with HEALTHY and exit0.
 
 ### 2. Why is a healthy baseline necessary before introducing a controlled failure?
 
-[Write your answer here.]
+It proves the injected failure is being compared with known working runs rather than an already broken deployment.
 
 ---
 
@@ -68,23 +73,26 @@ Configure the supplied project context and verify the safety boundaries Claude m
 
 ### Screenshot 2 — CLAUDE.md Context and Safety Rules
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 `CLAUDE.md` open in the editor with the Project Overview, Incident Workflow, Safety Rules, and Output Rules visible.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. Why does Claude need project-specific operational context?
 
-[Write your answer here.]
+It defines the organization, project, selected pipeline IDs, branch, bounded wrapper and evidence limits.
 
 ### 2. Which rules keep the human responsible for the recovery action?
 
-[Write your answer here.]
+The context and hook forbid edits, pushes, approvals, deployment and reruns by Claude. Codex separately performed the operator recovery under delegated authorization; learner-personal execution is not claimed.
 
 ### 3. Which rules protect pipeline credentials and application secrets?
 
-[Write your answer here.]
+Credentials are injected only into the read-only gatherer; raw logs remain in memory. Public reports contain sanitized signals, not tokens, connection strings or state.
 
 ---
 
@@ -98,39 +106,45 @@ Configure the supplied Bash script and verify that it retrieves and classifies e
 
 ### Screenshot 3 — Pipeline Triage Script Configuration
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 Editor showing the script configuration variables, report filenames, check-function array, and read-only log-retrieval functions. Ensure that no token is visible.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
 ### Screenshot 4 — Script Validation
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 Terminal showing successful Bash syntax validation and executable file permission.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. Why are pipeline metadata and step console logs handled separately?
 
-[Write your answer here.]
+Metadata identifies the selected run and result; timeline records identify failed steps; step console logs provide the actual failure signal. A green metadata request is not proof of application health.
 
 ### 2. How does the script obtain the actual console logs?
 
-[Write your answer here.]
+fetch.py uses authenticated read-only Azure DevOps GET requests to the selected build timeline and the actual failed task log URLs, with bounded volume and no credentials in reports.
 
 ### 3. How does the check-function array control the classification loop?
 
-[Write your answer here.]
+The Bash array names the auth, Terraform, Ansible and application check functions; the loop executes those checks in order and collects matched categories.
 
 ### 4. What prevents a failed but unmatched run from being reported as healthy?
 
-[Write your answer here.]
+Any failed, canceled or partially succeeded run remains INCIDENT even if no known signal matches; the fallback category is unclassified. Incomplete/invalid evidence returns ERROR.
 
 ### 5. Why are different exit codes useful to another automation tool?
 
-[Write your answer here.]
+Exit0 is HEALTHY, exit1 is INCIDENT and exit2 is ERROR. Another tool can stop on nonzero without interpreting narrative text.
 
 ---
 
@@ -144,19 +158,22 @@ Run the supplied script against the healthy baseline and verify the initial pipe
 
 ### Screenshot 5 — Healthy Pipeline Report
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-triage-baseline-report.png)
+
+
 Healthy pipeline report showing your Full Name, both successful pipelines, Overall Status `HEALTHY`, and captured exit code `0`.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. What evidence proves that both pipelines are healthy?
 
-[Write your answer here.]
+Baseline JSON and text reports record run11 and run14 as completed/succeeded. The genuine infrastructure and application run screenshots corroborate them.
 
 ### 2. Why must the baseline exit code be verified before the incident drill?
 
-[Write your answer here.]
+A nonzero baseline would mean the workflow or existing deployment is not yet known healthy, making the controlled drill ambiguous.
 
 ---
 
@@ -170,35 +187,41 @@ Configure the supplied Claude Code skill and verify that it runs the Bash tool a
 
 ### Screenshot 6 — Pipeline-Triage Skill Definition
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 `SKILL.md` showing the frontmatter, manual-invocation setting, narrowly scoped tools, safety rules, and required output structure.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
 ### Screenshot 7 — Healthy Skill Result
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 Healthy `/pipeline-triage` result showing that both pipelines are healthy and no fix is required.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. Why is `disable-model-invocation: true` appropriate for this skill?
 
-[Write your answer here.]
+It makes the custom skill explicitly invoked rather than automatically selected by the model for unrelated work.
 
 ### 2. Why should the skill avoid broad Bash approval?
 
-[Write your answer here.]
+Broad Bash access would allow writes or secret exposure beyond evidence gathering; the exact wrapper is the only permitted command.
 
 ### 3. What work is performed by Bash, and what work is performed by Claude?
 
-[Write your answer here.]
+Bash/Python gather and classify actual pipeline evidence. Claude is intended to explain the evidence through the skill. The Week10 Claude call did not run because AWS authentication expired, so no deterministic output is presented as Claude output.
 
 ### 4. Why are permission rules required in addition to written safety instructions?
 
-[Write your answer here.]
+Written instructions can be misunderstood. The tested hook enforces the executable command boundary and denies mutation tools.
 
 ---
 
@@ -212,27 +235,30 @@ Create a controlled Application Pipeline failure that can be diagnosed without c
 
 ### Screenshot 8 — Controlled Application Pipeline Failure
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-a5-failure18.png)
+
+
 Failed Application Pipeline run showing the temporary branch, failed status, failed step, and relevant non-sensitive error evidence.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. What exact failure did you introduce?
 
-[Write your answer here.]
+One temporary-branch Build step printed DMI_CONTROLLED_FAILURE: missing demo build input and exited1 before the application build or deployment.
 
 ### 2. Which category should detect it?
 
-[Write your answer here.]
+APPLICATION, because the injected signal represents a missing application build input.
 
 ### 3. Why is the failure safe and easily reversible?
 
-[Write your answer here.]
+It is a single removable step on an isolated temporary branch. It fails before any deployment and the Deploy stage independently requires main.
 
 ### 4. How did you prevent the deliberate failure from reaching `main` or changing the deployed application?
 
-[Write your answer here.]
+The operator created triage-safe-drill from verified main, changed only that branch, and never merged the failing step. Both drill runs skipped Deploy.
 
 ---
 
@@ -246,27 +272,30 @@ Use `/pipeline-triage` to classify the failed Application Pipeline without allow
 
 ### Screenshot 9 — Failed-State Diagnosis and Incident Report
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-triage-incident-failure-report.png)
+
+
 `/pipeline-triage` output and saved incident report showing the affected pipeline, failure category, sanitized evidence, recommendation, and your Full Name.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. Which failure category was identified?
 
-[Write your answer here.]
+APPLICATION; overall INCIDENT, exit1.
 
 ### 2. What exact evidence supported the diagnosis?
 
-[Write your answer here.]
+Application run18 completed/failed. Its timeline identifies Controlled failure before any deployment, and the actual step log matched the documented marker. The saved failure report predates the fix.
 
 ### 3. Did Claude apply the fix or rerun the pipeline? Why is that important?
 
-[Write your answer here.]
+No. Claude was not invoked for Week10 after AWS session expiry. The read-only tool also never edited or reran anything; Codex performed the separately authorized correction.
 
 ### 4. Which part represents Gather, and which part represents Analyze?
 
-[Write your answer here.]
+Gather retrieves selected run/timeline/log evidence. Analyze classifies and explains that evidence. This run used deterministic classification and Codex explanation, not a completed Claude invocation.
 
 ---
 
@@ -280,39 +309,45 @@ Apply the recommended fix manually and verify that the Application Pipeline and 
 
 ### Screenshot 10 — Corrected Application Pipeline Run
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-a5-recovery19.png)
+
+
 Corrected Application Pipeline run showing the temporary branch and successful status.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
 ### Screenshot 11 — Recovery Triage Result
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-triage-recovery-report.png)
+
+
 Recovery `/pipeline-triage` output showing Overall Status `HEALTHY`, exit code `0`, your Full Name, and both saved report filenames.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Notes
 
 ### 1. What exact fix did you apply?
 
-[Write your answer here.]
+Removed exactly the injected failure step from azure-pipelines.yml on triage-safe-drill and queued corrected application run19.
 
 ### 2. Did the fix match Claude’s recommendation? Explain briefly.
 
-[Write your answer here.]
+It matched the deterministic report recommendation. There was no new Claude recommendation for this Week10 drill, and none is fabricated.
 
 ### 3. What evidence proves that the pipeline recovered?
 
-[Write your answer here.]
+Run19 completed/succeeded: Build succeeded and Deploy was skipped by its branch condition. The recovery evidence/report returned HEALTHY and exit0.
 
 ### 4. Why is a second triage run required after the pipeline becomes green?
 
-[Write your answer here.]
+The new triage ties the diagnosis to the corrected run and confirms both selected pipeline results, rather than trusting an old baseline or a green badge alone.
 
 ### 5. What risk would be created if Claude could automatically edit, push, approve, and rerun the pipeline?
 
-[Write your answer here.]
+A mistaken diagnosis could become a live source, infrastructure or credential change without a separate impact review. Narrow tools and explicit operator actions reduce that risk.
 
 ---
 
@@ -320,15 +355,18 @@ Add your screenshot here.
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here.]
+https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
 
 ## Evidence
 
 ### Screenshot 12 — Published LinkedIn Post
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-linkedin-published.png)
+
+
 Published LinkedIn post showing its text and at least one image or link.
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
@@ -336,11 +374,11 @@ Add your screenshot here.
 
 Confirm that the following files are available in your repository:
 
-* [ ] `CLAUDE.md`
-* [ ] `pipeline-triage.sh`
-* [ ] `.claude/skills/pipeline-triage/SKILL.md`
-* [ ] `reports/incident-failure-report.txt`
-* [ ] `reports/recovery-report.txt`
+* [x] `CLAUDE.md`
+* [x] `pipeline-triage.sh`
+* [x] `.claude/skills/pipeline-triage/SKILL.md`
+* [x] `reports/incident-failure-report.txt`
+* [x] `reports/recovery-report.txt`
 
 ---
 
@@ -359,44 +397,44 @@ Confirm that the following files are available in your repository:
 
 # Completion Checklist
 
-* [ ] Both Azure DevOps pipelines were healthy before the drill.
+* [x] Both Azure DevOps pipelines were healthy before the drill.
 * [ ] The supplied files were copied to the correct repository locations.
 * [ ] Only the required student-specific placeholders were updated.
-* [ ] `CLAUDE.md` contains the required context and safety rules.
-* [ ] `pipeline-triage.sh` passed Bash syntax validation.
-* [ ] The script has executable permission.
-* [ ] The script uses read-only Azure DevOps operations.
-* [ ] The script retrieves pipeline metadata and console logs.
-* [ ] No token or password is stored in the script.
-* [ ] The healthy baseline reported `HEALTHY` with exit code `0`.
+* [x] `CLAUDE.md` contains the required context and safety rules.
+* [x] `pipeline-triage.sh` passed Bash syntax validation.
+* [x] The script has executable permission.
+* [x] The script uses read-only Azure DevOps operations.
+* [x] The script retrieves pipeline metadata and console logs.
+* [x] No token or password is stored in the script.
+* [x] The healthy baseline reported `HEALTHY` with exit code `0`.
 * [ ] `/pipeline-triage` was invoked manually.
-* [ ] The skill does not have broad Bash approval.
-* [ ] The controlled failure affected only the Application Pipeline.
-* [ ] The failure occurred before deployment changes were applied.
-* [ ] The deliberate failure was not merged into `main`.
-* [ ] The failed-state report was saved before applying the fix.
+* [x] The skill does not have broad Bash approval.
+* [x] The controlled failure affected only the Application Pipeline.
+* [x] The failure occurred before deployment changes were applied.
+* [x] The deliberate failure was not merged into `main`.
+* [x] The failed-state report was saved before applying the fix.
 * [ ] Claude diagnosed the failure but did not apply the fix.
 * [ ] The fix was reviewed and applied manually.
-* [ ] The corrected Application Pipeline completed successfully.
-* [ ] The recovery triage reported `HEALTHY` with exit code `0`.
-* [ ] `incident-failure-report.txt` exists.
-* [ ] `recovery-report.txt` exists.
-* [ ] All Notes questions have been answered.
+* [x] The corrected Application Pipeline completed successfully.
+* [x] The recovery triage reported `HEALTHY` with exit code `0`.
+* [x] `incident-failure-report.txt` exists.
+* [x] `recovery-report.txt` exists.
+* [x] All Notes questions have been answered.
 * [ ] All 12 screenshots have been added.
-* [ ] The GitHub repository or fork URL has been included.
-* [ ] The LinkedIn post is public.
-* [ ] The LinkedIn post URL has been included.
+* [x] The GitHub repository or fork URL has been included.
+* [x] The LinkedIn post is public.
+* [x] The LinkedIn post URL has been included.
 * [ ] No sensitive information is exposed.
 
 ---
 
 # Final Submission
 
-**Full Name:** [Enter your full name]
+**Full Name:** Eze Favour
 
-**GitHub Repository or Fork URL:** [Paste your repository URL]
+**GitHub Repository or Fork URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra
 
-**LinkedIn Post URL:** [Paste your public LinkedIn post URL]
+**LinkedIn Post URL:** https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
 
 ---
 
@@ -421,3 +459,7 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+### 25 September publication
+
+[Medium](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/). The public posts describe the verified outcomes and assisted work.

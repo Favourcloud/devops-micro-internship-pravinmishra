@@ -1,0 +1,93 @@
+{
+  "learner": "Eze Favour",
+  "operator": "Codex",
+  "verified_at": "2026-09-25T17:34:03.551315+00:00",
+  "url": "http://51.107.188.80",
+  "checks": [
+    {
+      "check": "Homepage and learner attribution",
+      "passed": true
+    },
+    {
+      "check": "Invalid book rejected",
+      "passed": true
+    },
+    {
+      "check": "Browser A cart created",
+      "passed": true
+    },
+    {
+      "check": "Browser B cannot see A cart",
+      "passed": true
+    },
+    {
+      "check": "Browser B independent cart created",
+      "passed": true
+    },
+    {
+      "check": "Demo checkout persisted through API",
+      "passed": true
+    },
+    {
+      "check": "Lost-response replay returns same order",
+      "passed": true
+    },
+    {
+      "check": "A checkout preserves B cart",
+      "passed": true
+    },
+    {
+      "check": "Checked-out browser cart is empty",
+      "passed": true
+    },
+    {
+      "check": "Global deletion route disabled",
+      "passed": true
+    },
+    {
+      "check": "Cross-origin checkout refused",
+      "passed": true
+    },
+    {
+      "check": "Sensitive path blocked: /config/config.json",
+      "passed": true
+    },
+    {
+      "check": "Sensitive path blocked: /.git/config",
+      "passed": true
+    },
+    {
+      "check": "Sensitive path blocked: /lib/cart-session.js",
+      "passed": true
+    },
+    {
+      "check": "Independent managed MySQL matching order row",
+      "passed": true
+    },
+    {
+      "check": "Checkout preserves cents",
+      "passed": true
+    },
+    {
+      "check": "Replay produced exactly one order",
+      "passed": true
+    },
+    {
+      "check": "Money column preserves cents",
+      "passed": true
+    },
+    {
+      "check": "Managed database session uses verified TLS",
+      "passed": true
+    }
+  ],
+  "browser_a_cart_id": 1,
+  "browser_b_cart_id": 2,
+  "order": {
+    "cart_id": 1,
+    "created": "2026-09-25 17:33:55.000000",
+    "order_id": 1,
+    "subtotal": 32.5
+  },
+  "scope": "Synthetic demonstration; no payment, shipment or personal address collected."
+}

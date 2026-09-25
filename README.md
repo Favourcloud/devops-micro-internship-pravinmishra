@@ -138,8 +138,8 @@ Week 04 → Git & GitHub
 | 06 | AWS Cloud | 🔄 In Progress | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-terraform-activity-7505450522540408832-q-je) | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 08 | Terraform | 🔄 Submitted with disclosed rubric limits | [Verified work and remaining learner requirements](#week-08-deliverable-locations) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/) | [Blog Post](https://medium.com/@rosenaefavour/from-terraform-plans-to-a-working-aws-book-review-app-27a81b45dedb) |
-| 09 | Ansible | 🔄 In Progress | [Assignment 1 — workstation and 12 screenshots complete; later assignments pending](./week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md#current-status) | — | — |
-| 10 | Azure DevOps (CI/CD) | 🔄 In Progress | [A1 manual run verified; A2–A4 preparation and submission evidence pending](./week-10-azure-devops/README.md) | — | — |
+| 09 | Ansible | 🔄 Submitted with disclosed rubric limits | [Verified deployments, tests and evidence](./week-09-ansible/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/) | [Blog Post](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) |
+| 10 | Azure DevOps (CI/CD) | 🔄 Submitted with disclosed rubric limits | [Verified deployments, tests and evidence](./week-10-azure-devops/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/) | [Blog Post](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
@@ -216,3 +216,7 @@ If you found this repo useful or want to follow my DevOps journey:
 - 🔗 Connect with me on [LinkedIn](https://www.linkedin.com/in/eze-favour-52732752/)
 - 🌐 Learn more about the program: https://dmi.pravinmishra.com
 - 💬 Join the community: https://discord.pravinmishra.com
+
+### Weeks08–10 continuation
+
+[25September delivery status and unresolved requirements](COMPLETION-STATUS-20260925.md) · [final public HTTP checks](final-http-checks-20260925.json). All six retained demonstration URLs returned HTTP200. The learner’s explicit keep-online instruction remains in force for the Week08 capstone.

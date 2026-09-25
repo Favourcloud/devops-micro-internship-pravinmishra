@@ -85,3 +85,8 @@ variable "live_execution_approved" {
   type    = bool
   default = false
 }
+variable "enable_managed_identity" {
+  type        = bool
+  default     = false
+  description = "Enable a dedicated system identity only when scoped pipeline Azure access is needed."
+}

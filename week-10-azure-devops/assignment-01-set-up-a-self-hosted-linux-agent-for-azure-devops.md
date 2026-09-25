@@ -1,5 +1,7 @@
 # Assignment 1 — Set Up a Self-Hosted Linux Agent for Azure DevOps (Ubuntu + PAT)
 
+**Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
+
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 <!-- BEGIN WEEK10 A1 OFFLINE PREPARATION -->
@@ -38,6 +40,9 @@ Create a self-hosted agent pool (e.g. `SelfHostedPool`) in Azure DevOps Organiza
 
 #### Screenshot 1 — Azure DevOps Agent Pools page showing the newly created pool
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-01-screenshot-01-agent-pool.png)
+
+
 <!-- BEGIN WEEK10 CAPTURE A1-S1 -->
 ![A1 screenshot 1: dedicated DMI-Week10-A1 pool](screenshots/assignment-01-screenshot-01-agent-pool.png)
 
@@ -56,6 +61,9 @@ Create an Ubuntu 22.04 (or latest) VM in AWS or Azure with SSH access, and confi
 
 #### Screenshot 2 — Cloud console showing the running Ubuntu VM and its public IP or DNS name
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-01-screenshot-02-running-ubuntu-vm.png)
+
+
 <!-- BEGIN WEEK10 CAPTURE A1-S2 -->
 ![A1 screenshot 2: running Ubuntu VM and public IP in native Azure console](screenshots/assignment-01-screenshot-02-running-ubuntu-vm.png)
 
@@ -65,6 +73,9 @@ Captured 19 September 2026 at 19:48 UTC in native Chrome Favour during the separ
 ---
 
 #### Screenshot 3 — Terminal showing a successful SSH login and Ubuntu version details
+
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-01-screenshot-03-ssh-ubuntu-details.png)
+
 
 <!-- BEGIN WEEK10 CAPTURE A1-S3 -->
 ![A1 screenshot 3: fresh trusted SSH output and Ubuntu version in native Terminal](screenshots/assignment-01-screenshot-03-ssh-ubuntu-details.png)
@@ -84,6 +95,9 @@ Download the Linux agent package, register it with your organization/pool/PAT vi
 
 #### Screenshot 4 — Terminal showing successful agent configuration without exposing the PAT
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-01-screenshot-04-registered-agent-configuration.png)
+
+
 <!-- BEGIN WEEK10 CAPTURE A1-S4 -->
 ![A1 screenshot 4: fresh SSH read-back of registered agent 18 configuration](screenshots/assignment-01-screenshot-04-registered-agent-configuration.png)
 
@@ -93,6 +107,9 @@ Captured 19 September 2026 at 21:51 UTC from a separate native proof terminal af
 ---
 
 #### Screenshot 5 — Terminal showing the agent service running successfully
+
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-01-screenshot-05-running-agent-service.png)
+
 
 <!-- BEGIN WEEK10 CAPTURE A1-S5 -->
 ![A1 screenshot 5: active non-root azdoagent service from fresh trusted SSH](screenshots/assignment-01-screenshot-05-running-agent-service.png)
@@ -112,6 +129,9 @@ Confirm the agent service is running and the agent shows as Online in the Azure 
 
 #### Screenshot 6 — Agent Pool listing showing the registered agent online
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-01-screenshot-06-online-agent.png)
+
+
 <!-- BEGIN WEEK10 CAPTURE A1-S6 -->
 ![A1 screenshot 6: agent dmi-w10-a1-0919-8b281c Online in its dedicated pool](screenshots/assignment-01-screenshot-06-online-agent.png)
 
@@ -129,6 +149,9 @@ Create and run a YAML pipeline targeting the self-hosted pool, running `uname -a
 ### Evidence
 
 #### Screenshot 7 — Successful test pipeline run output in Azure DevOps showing the Linux commands
+
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-01-screenshot-07-linux-pipeline-output.png)
+
 
 <!-- BEGIN WEEK10 CAPTURE A1-S7 -->
 ![A1 screenshot 7: successful Linux verification command output](screenshots/assignment-01-screenshot-07-linux-pipeline-output.png)
@@ -213,3 +236,7 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+### 25 September publication
+
+[Medium](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/). The public posts describe the verified outcomes and assisted work.

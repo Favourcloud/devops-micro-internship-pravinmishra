@@ -1,0 +1,84 @@
+---
+- name: Install TLS-capable MySQL client and driver
+  ansible.builtin.apt:
+    name: [mysql-client, python3-pymysql]
+    state: present
+    lock_timeout: 120
+
+- name: Check the verified seed marker
+  ansible.builtin.stat:
+    path: /var/lib/epicbook-bootstrap/managed-seed.verified
+  register: seed_marker
+
+- name: Initialize only an empty managed schema and verify encrypted transport
+  no_log: true
+  block:
+    - name: Inspect existing tables over authenticated TLS
+      ansible.mysql.mysql_query:
+        login_host: "{{ app_db_host }}"
+        login_user: epicadmin
+        login_password: "{{ vault_epicbook_mysql_admin_password }}"
+        config_file: ""
+        ca_cert: /etc/ssl/certs/ca-certificates.crt
+        check_hostname: true
+        query: SELECT COUNT(*) AS n FROM information_schema.tables WHERE table_schema = 'bookstore'
+      register: tables
+      changed_when: false
+    - name: Refuse importing into an unrecognized nonempty database
+      ansible.builtin.assert:
+        that:
+          - seed_marker.stat.exists or tables.query_result[0][0].n | int == 0
+    - name: Import the pinned instructor schema and catalogue once
+      ansible.mysql.mysql_db:
+        name: bookstore
+        state: import
+        target: "{{ app_runtime_dest }}/db/{{ item }}"
+        login_host: "{{ app_db_host }}"
+        login_user: epicadmin
+        login_password: "{{ vault_epicbook_mysql_admin_password }}"
+        config_file: ""
+        ca_cert: /etc/ssl/certs/ca-certificates.crt
+        check_hostname: true
+      loop: [BuyTheBook_Schema.sql, author_seed.sql, books_seed.sql]
+      when: not seed_marker.stat.exists
+    - name: Verify seeded rows and TLS cipher
+      ansible.mysql.mysql_query:
+        login_host: "{{ app_db_host }}"
+        login_user: epicadmin
+        login_password: "{{ vault_epicbook_mysql_admin_password }}"
+        config_file: ""
+        ca_cert: /etc/ssl/certs/ca-certificates.crt
+        check_hostname: true
+        login_db: bookstore
+        query:
+          - SELECT (SELECT COUNT(*) FROM Author) AS authors, (SELECT COUNT(*) FROM Book) AS books
+          - SHOW SESSION STATUS LIKE 'Ssl_cipher'
+      register: verified
+      changed_when: false
+    - name: Require real catalogue data and an encrypted database session
+      ansible.builtin.assert:
+        that:
+          - verified.query_result[0][0].authors | int > 0
+          - verified.query_result[0][0].books | int > 0
+          - verified.query_result[1][0].Value | length > 0
+    - name: Record verified bootstrap without secrets
+      ansible.builtin.copy:
+        dest: /var/lib/epicbook-bootstrap/managed-seed.verified
+        content: |
+          Pinned instructor schema and seeds verified with authenticated TLS.
+        owner: root
+        group: root
+        mode: '0600'
+    - name: Grant only application-schema privileges to the runtime user
+      ansible.mysql.mysql_user:
+        name: epicbook
+        host: '%'
+        password: "{{ vault_epicbook_db_password }}"
+        priv: 'bookstore.*:SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,INDEX,REFERENCES'
+        state: present
+        login_host: "{{ app_db_host }}"
+        login_user: epicadmin
+        login_password: "{{ vault_epicbook_mysql_admin_password }}"
+        config_file: ""
+        ca_cert: /etc/ssl/certs/ca-certificates.crt
+        check_hostname: true

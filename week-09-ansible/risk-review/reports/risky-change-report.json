@@ -1,0 +1,68 @@
+{
+  "status": "HOLD",
+  "changed_task_count": 1,
+  "categories": {
+    "service_restarts_handlers": [],
+    "firewall_changes": [],
+    "user_sudo_changes": [],
+    "package_file_removal": [
+      {
+        "task_id": "acde4800-1122-87ef-5757-000000000056",
+        "task": "Remove the explicitly disposable Week09 risk-drill marker",
+        "source": "site.yml:94",
+        "module": "ansible.builtin.file",
+        "categories": [
+          "package_file_removal"
+        ],
+        "hosts": [
+          "epicbook"
+        ],
+        "no_log": false
+      }
+    ]
+  },
+  "unmatched_changes": [],
+  "recap": {
+    "epicbook": {
+      "ok": 41,
+      "failures": 0,
+      "unreachable": 0,
+      "changed": 1,
+      "skipped": 13,
+      "rescued": 0,
+      "ignored": 0
+    },
+    "localhost": {
+      "ok": 2,
+      "failures": 0,
+      "unreachable": 0,
+      "changed": 0,
+      "skipped": 0,
+      "rescued": 0,
+      "ignored": 0
+    }
+  },
+  "errors": [],
+  "exit_code": 2,
+  "learner": "Eze Favour",
+  "operator": "Codex (assisted)",
+  "generated_at": "2026-09-25T10:29:48.840082+00:00",
+  "source_sha256": {
+    "group_vars/web.yml": "96409c38517f46bb4481d4c2d18edb57688d0168a91fc4a38b580ebf70f6886e",
+    "requirements.yml": "85696b1764bbd8d7d49c0d92fd1863557ec276c566a7ea061c0b61cbc21bbe45",
+    "roles/common/tasks/main.yml": "1a7d547670b1cdfcfac9e35fa72d5770dd1a5667d0d4bb3db977f3b2a7ac532a",
+    "roles/epicbook/handlers/main.yml": "defc2ca337cda2e1ff093d74df92dff0aaf63a14efe1ac5fb5876f8d5118debf",
+    "roles/epicbook/tasks/main.yml": "f35f24479485f49a0f62e72d798f3a974d3ec1d68fac2cd38fad06d4608b71e3",
+    "roles/epicbook/tasks/runtime.yml": "6e0e17f1e522003a38133777b5870218f0965baed64cd6a29b0783ea513898d5",
+    "roles/nginx/handlers/main.yml": "72d134f252ae2b746e6bee8375a03a481249458565b74ff5288efc862636500c",
+    "roles/nginx/tasks/main.yml": "481cbcecdfe477b812ac0028ee67bd0c5355ba726839681832a624115e773a7e",
+    "site.yml": "2a81ed37bb00a950e8ce48d188c7a7d95a77739daca1c98e5b37c1310bdc3ac6"
+  },
+  "raw_sha256": {
+    "raw.stdout": "4786f7c3dcc7c9359998b25cc7de19d0215cc68a44273879297c551685a36fe6",
+    "raw.stderr": "dba85e745e0733a4c6ca7ba1723384662a0904781780a23261c64a925b19e374"
+  },
+  "ansible_exit_code": 0,
+  "mode": "ansible-playbook --check --diff",
+  "limitation": "Check mode predicts supported module changes; it is not a security sandbox or manual learner execution."
+}

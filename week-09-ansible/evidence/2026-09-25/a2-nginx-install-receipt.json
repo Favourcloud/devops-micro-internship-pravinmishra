@@ -1,0 +1,7 @@
+{
+  "time": "20260925T094953484457Z",
+  "label": "a2-nginx-install",
+  "exit_code": 0,
+  "stdout_sha256": "168842f14b69c5abe1264ec2e26121ef89aaf8354197509a63a0a7a4a6e8360c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

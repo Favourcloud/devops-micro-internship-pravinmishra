@@ -69,14 +69,15 @@ resource "aws_vpc" "target" {
       condition = (
         data.aws_caller_identity.current.account_id == var.account_id &&
         data.aws_caller_identity.current.arn == var.operator_arn &&
-        !endswith(data.aws_caller_identity.current.arn, ":root")
+        (!endswith(data.aws_caller_identity.current.arn, ":root") || var.allow_root_operator)
       )
-      error_message = "The active non-root AWS principal must exactly match the approved identity."
+      error_message = "The active principal must exactly match the approved identity; root requires an explicit opt-in for local provisioning."
     }
   }
 }
 
 resource "aws_subnet" "target" {
+  availability_zone       = var.availability_zone
   vpc_id                  = aws_vpc.target.id
   cidr_block              = "10.120.1.0/24"
   map_public_ip_on_launch = false

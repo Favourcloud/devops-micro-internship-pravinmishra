@@ -1,0 +1,16 @@
+Eze Favour — Azure DevOps dual-pipeline triage
+Operator: Codex-assisted; read-only evidence gathering
+Generated: 2026-09-25T18:14:19.591786+00:00
+Overall Status: INCIDENT
+Exit code: 1
+infrastructure: pipeline 2, run 11, succeeded
+Branch: refs/heads/main
+Run: https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=11
+application: pipeline 5, run 18, failed
+Branch: refs/heads/triage-safe-drill
+Run: https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=18
+Failed step: Controlled failure before any deployment
+Sanitized signal: controlled application failure or application build error matched.
+Category: APPLICATION
+Recommendation: Review the failed build or test input. For the documented controlled-failure signal, remove that pre-deployment failure only on the temporary branch and rerun it; do not merge the deliberate failure into main.
+No edit, push, approval, deployment, cloud change, or pipeline rerun was performed by this triage tool.

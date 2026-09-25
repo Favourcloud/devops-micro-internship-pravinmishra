@@ -1,7 +1,7 @@
 resource "azurerm_virtual_network" "epicbook" {
   name                = "${var.name_prefix}-vnet"
   resource_group_name = azurerm_resource_group.epicbook.name
-  location            = azurerm_resource_group.epicbook.location
+  location            = var.resource_location
   address_space       = ["10.140.0.0/16"]
   tags                = local.tags
 }
@@ -36,7 +36,7 @@ resource "azurerm_network_security_group" "vm" {
   for_each            = toset(["frontend", "backend"])
   name                = "${var.name_prefix}-${each.key}-nsg"
   resource_group_name = azurerm_resource_group.epicbook.name
-  location            = azurerm_resource_group.epicbook.location
+  location            = var.resource_location
   tags                = local.tags
   security_rule {
     name                       = "SSHFromControllerAndAgent"
@@ -76,7 +76,7 @@ resource "azurerm_network_security_group" "vm" {
 resource "azurerm_network_security_group" "database" {
   name                = "${var.name_prefix}-database-nsg"
   resource_group_name = azurerm_resource_group.epicbook.name
-  location            = azurerm_resource_group.epicbook.location
+  location            = var.resource_location
   tags                = local.tags
   security_rule {
     name                       = "MySQLFromBackendAndDatabaseSubnet"
@@ -117,7 +117,7 @@ resource "azurerm_public_ip" "vm" {
   for_each            = toset(["frontend", "backend"])
   name                = "${var.name_prefix}-${each.key}-ip"
   resource_group_name = azurerm_resource_group.epicbook.name
-  location            = azurerm_resource_group.epicbook.location
+  location            = var.resource_location
   allocation_method   = "Static"
   sku                 = "Standard"
   ip_version          = "IPv4"
@@ -131,7 +131,7 @@ resource "azurerm_network_interface" "vm" {
   }
   name                = "${var.name_prefix}-${each.key}-nic"
   resource_group_name = azurerm_resource_group.epicbook.name
-  location            = azurerm_resource_group.epicbook.location
+  location            = var.resource_location
   tags                = local.tags
   ip_configuration {
     name                          = "primary"
