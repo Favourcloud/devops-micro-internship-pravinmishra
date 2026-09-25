@@ -364,7 +364,13 @@ You do not need to submit your complete Claude Code conversation history. Includ
 
 Add a screenshot showing one useful example of AI-assisted Terraform generation or improvement.
 
-Add your screenshot here.
+<!-- A5 AI capture 26 -->
+Recorded actual Claude Code Read/Edit output improved Terraform hostname limits. PostToolUse passed; 13 independent Terraform boundary tests passed. The session hit its budget limit before a final summary. This is a saved-output view, not a live terminal or deployment.
+
+![Recorded actual AI workflow for slot 26](terraform-book-review/evidence/screenshots/screenshot-26-ai-terraform.jpg)
+
+[Capture provenance](terraform-book-review/evidence/ai-capture-provenance-20260925.json) · [Findings and corrections](terraform-book-review/evidence/ai-workflow-20260925.md)
+<!-- /A5 AI capture -->
 
 ---
 
@@ -372,7 +378,13 @@ Add your screenshot here.
 
 Add a screenshot showing one structured architecture or security review result.
 
-Add your screenshot here.
+<!-- A5 AI capture 27 -->
+Selected exact PASS/WARN/FAIL findings from the recorded Bedrock reviewer response, with operator follow-up. The 1,024-token response was truncated and then stopped at its CLI budget; it is a partial source review, not final architecture approval.
+
+![Recorded actual AI workflow for slot 27](terraform-book-review/evidence/screenshots/screenshot-27-ai-review.jpg)
+
+[Capture provenance](terraform-book-review/evidence/ai-capture-provenance-20260925.json) · [Findings and corrections](terraform-book-review/evidence/ai-workflow-20260925.md)
+<!-- /A5 AI capture -->
 
 ---
 
@@ -380,7 +392,13 @@ Add your screenshot here.
 
 Add a screenshot showing one AI-assisted troubleshooting interaction based on collected evidence.
 
-Add your screenshot here.
+<!-- A5 AI capture 28 -->
+Recorded Claude diagnosis of the verified archive failure and explicit operator correction. The first attempt made no edit; the second model patch failed raw-path tests and rejected the root directory. The corrected candidate passed 12 existing and seven new archive checks. Saved-output view; no deployment.
+
+![Recorded actual AI workflow for slot 28](terraform-book-review/evidence/screenshots/screenshot-28-ai-troubleshooting.jpg)
+
+[Capture provenance](terraform-book-review/evidence/ai-capture-provenance-20260925.json) · [Findings and corrections](terraform-book-review/evidence/ai-workflow-20260925.md)
+<!-- /A5 AI capture -->
 
 ---
 

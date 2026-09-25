@@ -1,0 +1,76 @@
+{
+  "counted_slots": [
+    26,
+    27,
+    28
+  ],
+  "operator": "Codex under user delegation",
+  "capture_method": "Original CUA JPEG captures of localhost saved-output evidence pages. Model text/diff comes from actual private CLI transcripts; operator checks are labeled separately. No terminal impersonation, compositing, re-encoding or pixel editing.",
+  "image_pixels_modified": false,
+  "manual_learner_execution": false,
+  "cloud_operations": false,
+  "model_calls_for_capture": 0,
+  "model": "us.anthropic.claude-sonnet-4-6",
+  "region": "us-east-1",
+  "role_mode": "Named CLI roles as main sessions; no delegated subagents.",
+  "post_edit_hook_executed": true,
+  "review_complete": false,
+  "results_record": "ai-workflow-results-20260925.json",
+  "results_sha256": "c07bb77d9052254d27efa9475bbac25a5261a85fbd2a839273b11f2e7bc7e222",
+  "cost_record": "ai-workflow-cost-20260925.json",
+  "archive_operator_validation": {
+    "existing_tests_passed": 12,
+    "new_tests_passed": 7,
+    "real_pinned_archive_verified": true,
+    "selected_files": 35,
+    "links_followed_or_extracted": false,
+    "bundled_dependencies_extracted": false
+  },
+  "screenshots": [
+    {
+      "slot": 26,
+      "path": "screenshots/screenshot-26-ai-terraform.jpg",
+      "sha256": "334e4d858174e512839cea195cde39e9621a257b76fbce4e982941d2a4a57926",
+      "bytes": 99555,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:19:12.275237+00:00",
+      "pixels_modified": false,
+      "caption": "Recorded actual Claude Code Read/Edit output improved Terraform hostname limits. PostToolUse passed; 13 independent Terraform boundary tests passed. The session hit its budget limit before a final summary. This is a saved-output view, not a live terminal or deployment.",
+      "rendered_page_sha256": "48eda079e3abbb2121f1ae9416832815905ac5ec72d41a094924dea5daec01bb",
+      "rendered_page": "recorded-views/slot-26.html"
+    },
+    {
+      "slot": 27,
+      "path": "screenshots/screenshot-27-ai-review.jpg",
+      "sha256": "a299229a3540fb9e4b6469064b428b8c2e8b01586d2b63386a257eb6e5de3e89",
+      "bytes": 160849,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:20:04.359612+00:00",
+      "pixels_modified": false,
+      "caption": "Selected exact PASS/WARN/FAIL findings from the recorded Bedrock reviewer response, with operator follow-up. The 1,024-token response was truncated and then stopped at its CLI budget; it is a partial source review, not final architecture approval.",
+      "rendered_page_sha256": "35221bd30b5bbafa32561cc6f0942d4f2ef1274c90427b2ba140c1ff5bd45f7c",
+      "rendered_page": "recorded-views/slot-27.html"
+    },
+    {
+      "slot": 28,
+      "path": "screenshots/screenshot-28-ai-troubleshooting.jpg",
+      "sha256": "769104d3ca0cda91a8915bea52683a675c4279e7f69b8e46ac6689033ed07768",
+      "bytes": 129518,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:20:37.511114+00:00",
+      "pixels_modified": false,
+      "caption": "Recorded Claude diagnosis of the verified archive failure and explicit operator correction. The first attempt made no edit; the second model patch failed raw-path tests and rejected the root directory. The corrected candidate passed 12 existing and seven new archive checks. Saved-output view; no deployment.",
+      "rendered_page_sha256": "9067f6d8e6f7d9c31529df8921253486dc36be52faa937356d1c86b09ead7a80",
+      "rendered_page": "recorded-views/slot-28.html"
+    }
+  ]
+}

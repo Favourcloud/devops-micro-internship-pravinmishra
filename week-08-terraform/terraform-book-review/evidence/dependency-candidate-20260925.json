@@ -1,0 +1,2776 @@
+{
+  "recorded_at_utc": "2026-09-25T00:22:31.208538+00:00",
+  "status": "reviewed_local_candidate_not_runtime_release",
+  "source_commit": "84280063bea7ccd5144dafa2b969ec4e2e69ffbb",
+  "archive_sha256": "ad542ddaed5442ad5a88956558d31996d771527d8880d13c7f80181be3599932",
+  "source_files_verified": 35,
+  "application_source_preserved_files": [
+    "backend/src/config/db.js",
+    "backend/src/controllers/bookController.js",
+    "backend/src/controllers/reviewController.js",
+    "backend/src/controllers/userController.js",
+    "backend/src/middleware/authMiddleware.js",
+    "backend/src/models/Book.js",
+    "backend/src/models/Review.js",
+    "backend/src/models/User.js",
+    "backend/src/routes/bookRoutes.js",
+    "backend/src/routes/reviewRoutes.js",
+    "backend/src/routes/userRoutes.js",
+    "backend/src/server.js",
+    "frontend/eslint.config.mjs",
+    "frontend/jsconfig.json",
+    "frontend/next.config.mjs",
+    "frontend/postcss.config.mjs",
+    "frontend/public/file.svg",
+    "frontend/public/globe.svg",
+    "frontend/public/next.svg",
+    "frontend/public/vercel.svg",
+    "frontend/public/window.svg",
+    "frontend/src/app/book/[id]/page.js",
+    "frontend/src/app/favicon.ico",
+    "frontend/src/app/globals.css",
+    "frontend/src/app/layout.js",
+    "frontend/src/app/login/page.js",
+    "frontend/src/app/page.js",
+    "frontend/src/app/register/page.js",
+    "frontend/src/components/Navbar.js",
+    "frontend/src/context/UserContext.js",
+    "frontend/src/services/api.js"
+  ],
+  "changed_files": {
+    "frontend/package.json": {
+      "original_sha256": "f4b62f878a2cbee627dc7bae4c12f660e829a0fd6d5682cc413a932d850c36e3",
+      "candidate_sha256": "86dff8428e5df634434b08d81511b337edac99f0ee93fdfc7e50c2710dd6c74f"
+    },
+    "frontend/package-lock.json": {
+      "original_sha256": "34b1b92ef2c0a0130e33b1af302e22d22b69cb328ba2f5d3ecc1bdf6f6fb6836",
+      "candidate_sha256": "4c3a18e0cbbe003dc4ecc99f96a7afae88c24a5b3c41753fa7ca4543791c1788"
+    },
+    "backend/package.json": {
+      "original_sha256": "dac2ed71980c59569d5d5aeb08353e9d36aad9b11594b886fbe8c4053357225c",
+      "candidate_sha256": "e952a6ea154112e2bc957b6dc80e2099f9a8d5696ed0b7c7ed00ae898ae70824"
+    },
+    "backend/package-lock.json": {
+      "original_sha256": "c3b734664f209e88975bd674efa84939848c333f3276f1acea1e764bf8b9187a",
+      "candidate_sha256": "836a87a8b0b983d8a112b59aa89462d5edf5d4ea68e071ea51a569f61ae21afe"
+    }
+  },
+  "versions": {
+    "frontend": {
+      "next": [
+        {
+          "path": "node_modules/next",
+          "version": "15.5.26"
+        }
+      ],
+      "react": [
+        {
+          "path": "node_modules/react",
+          "version": "19.3.0"
+        }
+      ],
+      "react-dom": [
+        {
+          "path": "node_modules/react-dom",
+          "version": "19.3.0"
+        }
+      ],
+      "axios": [
+        {
+          "path": "node_modules/axios",
+          "version": "1.20.0"
+        }
+      ],
+      "postcss": [
+        {
+          "path": "node_modules/next/node_modules/postcss",
+          "version": "8.5.23"
+        },
+        {
+          "path": "node_modules/postcss",
+          "version": "8.5.28"
+        }
+      ],
+      "eslint": [
+        {
+          "path": "node_modules/eslint",
+          "version": "9.39.5"
+        }
+      ]
+    },
+    "backend": {
+      "sequelize": [
+        {
+          "path": "node_modules/sequelize",
+          "version": "6.37.8"
+        }
+      ],
+      "uuid": [
+        {
+          "path": "node_modules/uuid",
+          "version": "11.1.1"
+        }
+      ],
+      "mysql2": [
+        {
+          "path": "node_modules/mysql2",
+          "version": "3.24.4"
+        }
+      ],
+      "express": [
+        {
+          "path": "node_modules/express",
+          "version": "4.22.3"
+        }
+      ],
+      "jsonwebtoken": [
+        {
+          "path": "node_modules/jsonwebtoken",
+          "version": "9.0.3"
+        }
+      ]
+    }
+  },
+  "audits": {
+    "original": {
+      "frontend": {
+        "execution": {
+          "started_at_utc": "2026-09-25T00:06:02.424127+00:00",
+          "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+          "tree": "original",
+          "tier": "frontend",
+          "action": "audit",
+          "command": [
+            "npm",
+            "audit",
+            "--json",
+            "--package-lock-only"
+          ],
+          "network": "npm registry access",
+          "credentials_forwarded": false,
+          "unprivileged": true,
+          "exit_code": 1,
+          "ended_at_utc": "2026-09-25T00:07:31.168456+00:00"
+        },
+        "audit": {
+          "auditReportVersion": 2,
+          "vulnerabilities": {
+            "@eslint/plugin-kit": {
+              "name": "@eslint/plugin-kit",
+              "severity": "low",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1106734,
+                  "name": "@eslint/plugin-kit",
+                  "dependency": "@eslint/plugin-kit",
+                  "title": "@eslint/plugin-kit is vulnerable to Regular Expression Denial of Service attacks through ConfigCommentParser",
+                  "url": "https://github.com/advisories/GHSA-xffm-g5w8-qvg7",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<0.3.4"
+                }
+              ],
+              "effects": [
+                "eslint"
+              ],
+              "range": "<0.3.4",
+              "nodes": [
+                "node_modules/@eslint/plugin-kit"
+              ],
+              "fixAvailable": true
+            },
+            "@humanfs/node": {
+              "name": "@humanfs/node",
+              "severity": "moderate",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1158499,
+                  "name": "@humanfs/node",
+                  "dependency": "@humanfs/node",
+                  "title": "humanfs: Recursive copy follows symlinked files and copies data from outside the source tree",
+                  "url": "https://github.com/advisories/GHSA-p498-v437-472g",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-22"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<0.16.8"
+                }
+              ],
+              "effects": [],
+              "range": "<0.16.8",
+              "nodes": [
+                "node_modules/@humanfs/node"
+              ],
+              "fixAvailable": true
+            },
+            "ajv": {
+              "name": "ajv",
+              "severity": "moderate",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1113714,
+                  "name": "ajv",
+                  "dependency": "ajv",
+                  "title": "ajv has ReDoS when using `$data` option",
+                  "url": "https://github.com/advisories/GHSA-2g4f-4pwh-qvx6",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<6.14.0"
+                }
+              ],
+              "effects": [],
+              "range": "<6.14.0",
+              "nodes": [
+                "node_modules/ajv"
+              ],
+              "fixAvailable": true
+            },
+            "axios": {
+              "name": "axios",
+              "severity": "high",
+              "isDirect": true,
+              "via": [
+                {
+                  "source": 1112195,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios is vulnerable to DoS attack through lack of data size check",
+                  "url": "https://github.com/advisories/GHSA-4hjh-wcwx-xvwj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=1.0.0 <1.12.0"
+                },
+                {
+                  "source": 1116673,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios has a NO_PROXY Hostname Normalization Bypass that Leads to SSRF",
+                  "url": "https://github.com/advisories/GHSA-3p68-rc4w-qgx5",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-441",
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 4.8,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.0"
+                },
+                {
+                  "source": 1117574,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Authentication Bypass via Prototype Pollution Gadget in `validateStatus` Merge Strategy",
+                  "url": "https://github.com/advisories/GHSA-w9j2-pvgh-6h63",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-287",
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 4.8,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117576,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Incomplete Fix for CVE-2025-62718 \u2014 NO_PROXY Protection Bypassed via RFC 1122 Loopback Subnet (127.0.0.0/8) in Axios 1.15.0",
+                  "url": "https://github.com/advisories/GHSA-pmwg-cvhr-8vh7",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-183",
+                    "CWE-441",
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 7.2,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117577,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Invisible JSON Response Tampering via Prototype Pollution Gadget in `parseReviver`",
+                  "url": "https://github.com/advisories/GHSA-3w6x-2g7m-8v23",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-915",
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 6.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.2"
+                },
+                {
+                  "source": 1117580,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Null Byte Injection via Reverse-Encoding in AxiosURLSearchParams",
+                  "url": "https://github.com/advisories/GHSA-xhjh-pmcv-23jw",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-116",
+                    "CWE-626"
+                  ],
+                  "cvss": {
+                    "score": 3.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117581,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: CRLF Injection in multipart/form-data body via unsanitized blob.type in formDataToStream",
+                  "url": "https://github.com/advisories/GHSA-445q-vr5w-6q77",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-93"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117583,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: no_proxy bypass via IP alias allows SSRF",
+                  "url": "https://github.com/advisories/GHSA-m7pr-hjqh-92cm",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 6.8,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:N/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117587,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios' HTTP adapter-streamed uploads bypass maxBodyLength when maxRedirects: 0",
+                  "url": "https://github.com/advisories/GHSA-5c9x-8gcm-mpgx",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117589,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: HTTP adapter streamed responses bypass maxContentLength",
+                  "url": "https://github.com/advisories/GHSA-vf2m-468p-8v99",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117591,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Prototype Pollution Gadgets - Response Tampering, Data Exfiltration, and Request Hijacking",
+                  "url": "https://github.com/advisories/GHSA-pf86-5x62-jrwf",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 7.4,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117593,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Header Injection via Prototype Pollution",
+                  "url": "https://github.com/advisories/GHSA-6chq-wfr3-2hj9",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-113",
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 7.4,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117595,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion",
+                  "url": "https://github.com/advisories/GHSA-xx6v-rp6x-q39c",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-183",
+                    "CWE-201"
+                  ],
+                  "cvss": {
+                    "score": 5.4,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1117858,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios is Vulnerable to Denial of Service via __proto__ Key in mergeConfig",
+                  "url": "https://github.com/advisories/GHSA-43fc-jf86-j433",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-754",
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=1.0.0 <=1.13.4"
+                },
+                {
+                  "source": 1118607,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios has prototype pollution read-side gadgets in HTTP adapter that allow credential injection and request hijacking",
+                  "url": "https://github.com/advisories/GHSA-q8qp-cvcw-x6jj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 7.4,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.2"
+                },
+                {
+                  "source": 1119404,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios has Unrestricted Cloud Metadata Exfiltration via Header Injection Chain",
+                  "url": "https://github.com/advisories/GHSA-fvcv-3m26-pcqx",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-113",
+                    "CWE-444",
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 4.8,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
+                  },
+                  "range": ">=1.0.0 <1.15.0"
+                },
+                {
+                  "source": 1120125,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: unbounded recursion in toFormData causes DoS via deeply nested request data",
+                  "url": "https://github.com/advisories/GHSA-62hf-57xw-28j9",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-674"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=1.0.0 <1.15.1"
+                },
+                {
+                  "source": 1120547,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Regular Expression Denial of Service (ReDoS) via Cookie Name Injection",
+                  "url": "https://github.com/advisories/GHSA-hfxv-24rg-xrqf",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=1.0.0 <1.16.0"
+                },
+                {
+                  "source": 1120643,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Allocation of Resources Without Limits or Throttling in Axios",
+                  "url": "https://github.com/advisories/GHSA-777c-7fjr-54vf",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=1.7.0 <1.16.0"
+                },
+                {
+                  "source": 1120645,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Proxy-Authorization Credential Leak to Origin Server Across HTTP-to-HTTPS Redirect in Axios Node.js HTTP Adapter",
+                  "url": "https://github.com/advisories/GHSA-p92q-9vqr-4j8v",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-201"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=1.0.0 <1.16.0"
+                },
+                {
+                  "source": 1120647,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Proxy-Authorization header leaks to redirect target when proxy is re-evaluated to direct connection",
+                  "url": "https://github.com/advisories/GHSA-j5f8-grm9-p9fc",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-200"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": ">=1.0.0 <1.16.0"
+                },
+                {
+                  "source": 1120649,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "axios Vulnerable to Credential Theft and Response Hijacking via Prototype Pollution Gadget in Config Merge",
+                  "url": "https://github.com/advisories/GHSA-3g43-6gmg-66jw",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-94",
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:L"
+                  },
+                  "range": ">=1.0.0 <1.15.2"
+                },
+                {
+                  "source": 1120650,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "axios Vulnerable to Full Man-in-the-Middle via Prototype Pollution Gadget in `config.proxy`",
+                  "url": "https://github.com/advisories/GHSA-35jp-ww65-95wh",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-441",
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 8.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:N"
+                  },
+                  "range": ">=1.0.0 <1.16.0"
+                },
+                {
+                  "source": 1120652,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "axios has DoS & Header Injection via Prototype Pollution Read-Side Gadgets in axios merge functions",
+                  "url": "https://github.com/advisories/GHSA-898c-q2cr-xwhg",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 4.8,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+                  },
+                  "range": ">=1.0.0 <1.16.0"
+                },
+                {
+                  "source": 1147949,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Prototype pollution gadgets can alter axios request construction",
+                  "url": "https://github.com/advisories/GHSA-mmx7-hfxf-jppx",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=1.0.0 <1.18.0"
+                },
+                {
+                  "source": 1147950,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Deep formToJSON Key Recursion Can Cause Denial of Service",
+                  "url": "https://github.com/advisories/GHSA-pmv8-rq9r-6j72",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=1.0.0 <1.18.0"
+                },
+                {
+                  "source": 1153180,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Nested axios option objects can consume polluted prototype values",
+                  "url": "https://github.com/advisories/GHSA-7q8q-rj6j-mhjq",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=1.0.0 <1.18.0"
+                },
+                {
+                  "source": 1153182,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Fetch adapter `ReadableStream` uploads bypass `maxBodyLength`",
+                  "url": "https://github.com/advisories/GHSA-jqh4-m9w3-8hp9",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=1.7.0 <1.18.0"
+                },
+                {
+                  "source": 1153185,
+                  "name": "axios",
+                  "dependency": "axios",
+                  "title": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+                  "url": "https://github.com/advisories/GHSA-42h9-826w-cgv3",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-674"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=1.0.0 <1.18.0"
+                }
+              ],
+              "effects": [],
+              "range": "1.0.0 - 1.17.0",
+              "nodes": [
+                "node_modules/axios"
+              ],
+              "fixAvailable": true
+            },
+            "brace-expansion": {
+              "name": "brace-expansion",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1105443,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion Regular Expression Denial of Service vulnerability",
+                  "url": "https://github.com/advisories/GHSA-v6h2-p8h4-qcjw",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-400"
+                  ],
+                  "cvss": {
+                    "score": 3.1,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=1.0.0 <=1.1.11"
+                },
+                {
+                  "source": 1105444,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion Regular Expression Denial of Service vulnerability",
+                  "url": "https://github.com/advisories/GHSA-v6h2-p8h4-qcjw",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-400"
+                  ],
+                  "cvss": {
+                    "score": 3.1,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=2.0.0 <=2.0.1"
+                },
+                {
+                  "source": 1115540,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: Zero-step sequence causes process hang and memory exhaustion",
+                  "url": "https://github.com/advisories/GHSA-f886-m6hf-6m8v",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-400"
+                  ],
+                  "cvss": {
+                    "score": 6.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<1.1.13"
+                },
+                {
+                  "source": 1115541,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: Zero-step sequence causes process hang and memory exhaustion",
+                  "url": "https://github.com/advisories/GHSA-f886-m6hf-6m8v",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-400"
+                  ],
+                  "cvss": {
+                    "score": 6.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=2.0.0 <2.0.3"
+                },
+                {
+                  "source": 1123896,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+                  "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=2.0.0 <2.1.2"
+                },
+                {
+                  "source": 1123897,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+                  "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": "<1.1.16"
+                },
+                {
+                  "source": 1130588,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+                  "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<1.1.17"
+                },
+                {
+                  "source": 1130589,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+                  "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=2.0.0 <2.1.3"
+                },
+                {
+                  "source": 1130736,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+                  "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=2.0.0 <2.1.4"
+                },
+                {
+                  "source": 1130737,
+                  "name": "brace-expansion",
+                  "dependency": "brace-expansion",
+                  "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+                  "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<1.1.18"
+                }
+              ],
+              "effects": [],
+              "range": "<=1.1.17 || 2.0.0 - 2.1.3",
+              "nodes": [
+                "node_modules/@typescript-eslint/typescript-estree/node_modules/brace-expansion",
+                "node_modules/brace-expansion"
+              ],
+              "fixAvailable": true
+            },
+            "eslint": {
+              "name": "eslint",
+              "severity": "low",
+              "isDirect": true,
+              "via": [
+                "@eslint/plugin-kit"
+              ],
+              "effects": [],
+              "range": "9.10.0 - 9.26.0",
+              "nodes": [
+                "node_modules/eslint"
+              ],
+              "fixAvailable": true
+            },
+            "flatted": {
+              "name": "flatted",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1114526,
+                  "name": "flatted",
+                  "dependency": "flatted",
+                  "title": "flatted vulnerable to unbounded recursion DoS in parse() revive phase",
+                  "url": "https://github.com/advisories/GHSA-25h7-pfq9-p65f",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-674"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<3.4.0"
+                },
+                {
+                  "source": 1115357,
+                  "name": "flatted",
+                  "dependency": "flatted",
+                  "title": "Prototype Pollution via parse() in NodeJS flatted",
+                  "url": "https://github.com/advisories/GHSA-rf6f-7fwh-wjgh",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<=3.4.1"
+                }
+              ],
+              "effects": [],
+              "range": "<=3.4.1",
+              "nodes": [
+                "node_modules/flatted"
+              ],
+              "fixAvailable": true
+            },
+            "follow-redirects": {
+              "name": "follow-redirects",
+              "severity": "moderate",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1116560,
+                  "name": "follow-redirects",
+                  "dependency": "follow-redirects",
+                  "title": "follow-redirects leaks Custom Authentication Headers to Cross-Domain Redirect Targets",
+                  "url": "https://github.com/advisories/GHSA-r4q5-vmmm-2653",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-200"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<=1.15.11"
+                }
+              ],
+              "effects": [],
+              "range": "<=1.15.11",
+              "nodes": [
+                "node_modules/follow-redirects"
+              ],
+              "fixAvailable": true
+            },
+            "form-data": {
+              "name": "form-data",
+              "severity": "critical",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1109538,
+                  "name": "form-data",
+                  "dependency": "form-data",
+                  "title": "form-data uses unsafe random function in form-data for choosing boundary",
+                  "url": "https://github.com/advisories/GHSA-fjxv-7rqg-78g4",
+                  "severity": "critical",
+                  "cwe": [
+                    "CWE-330"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=4.0.0 <4.0.4"
+                },
+                {
+                  "source": 1120743,
+                  "name": "form-data",
+                  "dependency": "form-data",
+                  "title": "form-data: CRLF injection in form-data via unescaped multipart field names and filenames",
+                  "url": "https://github.com/advisories/GHSA-hmw2-7cc7-3qxx",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-93"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                  },
+                  "range": ">=4.0.0 <4.0.6"
+                }
+              ],
+              "effects": [],
+              "range": "4.0.0 - 4.0.5",
+              "nodes": [
+                "node_modules/form-data"
+              ],
+              "fixAvailable": true
+            },
+            "js-yaml": {
+              "name": "js-yaml",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1112715,
+                  "name": "js-yaml",
+                  "dependency": "js-yaml",
+                  "title": "js-yaml has prototype pollution in merge (<<)",
+                  "url": "https://github.com/advisories/GHSA-mh29-5h37-fv8m",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                  },
+                  "range": ">=4.0.0 <4.1.1"
+                },
+                {
+                  "source": 1121860,
+                  "name": "js-yaml",
+                  "dependency": "js-yaml",
+                  "title": "JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases",
+                  "url": "https://github.com/advisories/GHSA-h67p-54hq-rp68",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=4.0.0 <=4.1.1"
+                },
+                {
+                  "source": 1123911,
+                  "name": "js-yaml",
+                  "dependency": "js-yaml",
+                  "title": "js-yaml: YAML merge-key chains can force quadratic CPU consumption",
+                  "url": "https://github.com/advisories/GHSA-52cp-r559-cp3m",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=4.0.0 <4.3.0"
+                },
+                {
+                  "source": 1138115,
+                  "name": "js-yaml",
+                  "dependency": "js-yaml",
+                  "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) \u2014 CVE-2026-59870 fix not backported",
+                  "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=4.0.0 <4.3.1"
+                },
+                {
+                  "source": 1193727,
+                  "name": "js-yaml",
+                  "dependency": "js-yaml",
+                  "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+                  "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=4.0.0 <4.3.2"
+                }
+              ],
+              "effects": [],
+              "range": "4.0.0 - 4.3.1",
+              "nodes": [
+                "node_modules/js-yaml"
+              ],
+              "fixAvailable": true
+            },
+            "minimatch": {
+              "name": "minimatch",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1113459,
+                  "name": "minimatch",
+                  "dependency": "minimatch",
+                  "title": "minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern",
+                  "url": "https://github.com/advisories/GHSA-3ppc-4f35-3m26",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<3.1.3"
+                },
+                {
+                  "source": 1113465,
+                  "name": "minimatch",
+                  "dependency": "minimatch",
+                  "title": "minimatch has a ReDoS via repeated wildcards with non-matching literal in pattern",
+                  "url": "https://github.com/advisories/GHSA-3ppc-4f35-3m26",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=9.0.0 <9.0.6"
+                },
+                {
+                  "source": 1113538,
+                  "name": "minimatch",
+                  "dependency": "minimatch",
+                  "title": "minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments",
+                  "url": "https://github.com/advisories/GHSA-7r86-cg39-jmmj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<3.1.3"
+                },
+                {
+                  "source": 1113544,
+                  "name": "minimatch",
+                  "dependency": "minimatch",
+                  "title": "minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adjacent GLOBSTAR segments",
+                  "url": "https://github.com/advisories/GHSA-7r86-cg39-jmmj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-407"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=9.0.0 <9.0.7"
+                },
+                {
+                  "source": 1113546,
+                  "name": "minimatch",
+                  "dependency": "minimatch",
+                  "title": "minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions",
+                  "url": "https://github.com/advisories/GHSA-23c5-xmqv-rm74",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<3.1.4"
+                },
+                {
+                  "source": 1113552,
+                  "name": "minimatch",
+                  "dependency": "minimatch",
+                  "title": "minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regular expressions",
+                  "url": "https://github.com/advisories/GHSA-23c5-xmqv-rm74",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=9.0.0 <9.0.7"
+                }
+              ],
+              "effects": [],
+              "range": "<=3.1.3 || 9.0.0 - 9.0.6",
+              "nodes": [
+                "node_modules/@typescript-eslint/typescript-estree/node_modules/minimatch",
+                "node_modules/minimatch"
+              ],
+              "fixAvailable": true
+            },
+            "nanoid": {
+              "name": "nanoid",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1138811,
+                  "name": "nanoid",
+                  "dependency": "nanoid",
+                  "title": "nanoid: non-secure generators can loop indefinitely with negative size",
+                  "url": "https://github.com/advisories/GHSA-28wg-ghj8-5hjv",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-835"
+                  ],
+                  "cvss": {
+                    "score": 5.9,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<3.3.16"
+                },
+                {
+                  "source": 1139427,
+                  "name": "nanoid",
+                  "dependency": "nanoid",
+                  "title": "nanoid: custom generators can loop indefinitely when size is zero",
+                  "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-835"
+                  ],
+                  "cvss": {
+                    "score": 5.9,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<3.3.18"
+                },
+                {
+                  "source": 1153189,
+                  "name": "nanoid",
+                  "dependency": "nanoid",
+                  "title": "nanoid: Integer Overflow or Wraparound",
+                  "url": "https://github.com/advisories/GHSA-xwg4-73v4-xw9w",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-190"
+                  ],
+                  "cvss": {
+                    "score": 7.4,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                  },
+                  "range": "<3.3.12"
+                }
+              ],
+              "effects": [],
+              "range": "<=3.3.17",
+              "nodes": [
+                "node_modules/nanoid"
+              ],
+              "fixAvailable": true
+            },
+            "next": {
+              "name": "next",
+              "severity": "critical",
+              "isDirect": true,
+              "via": [
+                {
+                  "source": 1107228,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js Affected by Cache Key Confusion for Image Optimization API Routes",
+                  "url": "https://github.com/advisories/GHSA-g5qg-72qw-gw5v",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-524"
+                  ],
+                  "cvss": {
+                    "score": 6.2,
+                    "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": ">=15.0.0 <=15.4.4"
+                },
+                {
+                  "source": 1107514,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js Content Injection Vulnerability for Image Optimization",
+                  "url": "https://github.com/advisories/GHSA-xv57-4mr9-wg8v",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-20"
+                  ],
+                  "cvss": {
+                    "score": 4.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
+                  },
+                  "range": ">=15.0.0 <=15.4.4"
+                },
+                {
+                  "source": 1107515,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js Improper Middleware Redirect Handling Leads to SSRF",
+                  "url": "https://github.com/advisories/GHSA-4342-x723-ch2f",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 6.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N"
+                  },
+                  "range": ">=15.0.0-canary.0 <15.4.7"
+                },
+                {
+                  "source": 1108940,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js may leak x-middleware-subrequest-id to external hosts",
+                  "url": "https://github.com/advisories/GHSA-223j-4rm8-mrmf",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-200"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "=15.2.3"
+                },
+                {
+                  "source": 1111371,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js is vulnerable to RCE in React flight protocol",
+                  "url": "https://github.com/advisories/GHSA-9qr9-h5gf-34mp",
+                  "severity": "critical",
+                  "cwe": [
+                    "CWE-502"
+                  ],
+                  "cvss": {
+                    "score": 10,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H"
+                  },
+                  "range": ">=15.2.0-canary.0 <15.2.6"
+                },
+                {
+                  "source": 1111379,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next Server Actions Source Code Exposure ",
+                  "url": "https://github.com/advisories/GHSA-w37m-7fhw-fmv9",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-497",
+                    "CWE-502",
+                    "CWE-1395"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+                  },
+                  "range": ">=15.2.0-canary.0 <15.2.7"
+                },
+                {
+                  "source": 1111388,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next Vulnerable to Denial of Service with Server Components",
+                  "url": "https://github.com/advisories/GHSA-mwv6-3258-q52c",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-502",
+                    "CWE-1395"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=15.2.0-canary.0 <15.2.7"
+                },
+                {
+                  "source": 1112593,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js self-hosted applications vulnerable to DoS via Image Optimizer remotePatterns configuration",
+                  "url": "https://github.com/advisories/GHSA-9g9p-9gw9-jx7f",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 5.9,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=10.0.0 <15.5.10"
+                },
+                {
+                  "source": 1112651,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js HTTP request deserialization can lead to DoS when using insecure React Server Components",
+                  "url": "https://github.com/advisories/GHSA-h25m-26qc-wcjf",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-400",
+                    "CWE-502"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=15.2.0-canary.0 <15.2.9"
+                },
+                {
+                  "source": 1114897,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: HTTP request smuggling in rewrites",
+                  "url": "https://github.com/advisories/GHSA-ggv3-7p47-pfv8",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-444"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=9.5.0 <15.5.13"
+                },
+                {
+                  "source": 1114940,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Unbounded next/image disk cache growth can exhaust storage",
+                  "url": "https://github.com/advisories/GHSA-3x4c-7xq6-9pq8",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-400"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=10.0.0 <15.5.14"
+                },
+                {
+                  "source": 1116376,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js has a Denial of Service with Server Components",
+                  "url": "https://github.com/advisories/GHSA-q4gf-8mx6-v5v3",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=13.0.0 <15.5.15"
+                },
+                {
+                  "source": 1117931,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js Vulnerable to Denial of Service with Server Components",
+                  "url": "https://github.com/advisories/GHSA-8h8q-6873-q5fj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=13.0.0 <15.5.16"
+                },
+                {
+                  "source": 1118939,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js has a Middleware / Proxy bypass in App Router applications via segment-prefetch routes - Incomplete Fix Follow-Up",
+                  "url": "https://github.com/advisories/GHSA-26hh-7cqf-hhc6",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-288"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": ">=15.2.0 <15.5.18"
+                },
+                {
+                  "source": 1118942,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js's Middleware / Proxy redirects can be cache-poisoned",
+                  "url": "https://github.com/advisories/GHSA-3g8h-86w9-wvmq",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-349"
+                  ],
+                  "cvss": {
+                    "score": 3.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=12.2.0 <15.5.16"
+                },
+                {
+                  "source": 1118944,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js vulnerable to cross-site scripting in App Router applications using CSP nonces",
+                  "url": "https://github.com/advisories/GHSA-ffhc-5mcf-pf4q",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-79"
+                  ],
+                  "cvss": {
+                    "score": 4.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:L/A:N"
+                  },
+                  "range": ">=13.4.0 <15.5.16"
+                },
+                {
+                  "source": 1118946,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js vulnerable to cache poisoning via collisions in React Server Component cache-busting",
+                  "url": "https://github.com/advisories/GHSA-vfv6-92ff-j949",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-328"
+                  ],
+                  "cvss": {
+                    "score": 3.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                  },
+                  "range": ">=13.4.6 <15.5.16"
+                },
+                {
+                  "source": 1118948,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js has cross-site scripting in beforeInteractive scripts with untrusted input",
+                  "url": "https://github.com/advisories/GHSA-gx5p-jg67-6x7h",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-79"
+                  ],
+                  "cvss": {
+                    "score": 6.1,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+                  },
+                  "range": ">=13.0.0 <15.5.16"
+                },
+                {
+                  "source": 1118950,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js vulnerable to Denial of Service via connection exhaustion in applications using Cache Components",
+                  "url": "https://github.com/advisories/GHSA-mg66-mrh9-m8jx",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=15.0.0 <15.5.16"
+                },
+                {
+                  "source": 1118952,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js has a Denial of Service in the Image Optimization API",
+                  "url": "https://github.com/advisories/GHSA-h64f-5h5j-jqjh",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 5.9,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=10.0.0 <15.5.16"
+                },
+                {
+                  "source": 1118954,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js vulnerable to server-side request forgery in applications using WebSocket upgrades",
+                  "url": "https://github.com/advisories/GHSA-c4j6-fc7j-m34r",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 8.6,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
+                  },
+                  "range": ">=13.4.13 <15.5.16"
+                },
+                {
+                  "source": 1118958,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js vulnerable to cache poisoning in React Server Component responses",
+                  "url": "https://github.com/advisories/GHSA-wfc6-r584-vfw7",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-436"
+                  ],
+                  "cvss": {
+                    "score": 5.4,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:L"
+                  },
+                  "range": ">=14.2.0 <15.5.16"
+                },
+                {
+                  "source": 1118960,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js has a Middleware / Proxy bypass in App Router applications via segment-prefetch routes",
+                  "url": "https://github.com/advisories/GHSA-267c-6grr-h53f",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-288"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": ">=15.2.0 <15.5.16"
+                },
+                {
+                  "source": 1118962,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js has a Middleware / Proxy bypass in Pages Router applications using i18n",
+                  "url": "https://github.com/advisories/GHSA-36qx-fr4f-26g5",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-863"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": ">=12.2.0 <15.5.16"
+                },
+                {
+                  "source": 1124172,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Denial of Service in App Router using Server Actions",
+                  "url": "https://github.com/advisories/GHSA-m99w-x7hq-7vfj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-834"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=13.0.0 <15.5.21"
+                },
+                {
+                  "source": 1124185,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
+                  "url": "https://github.com/advisories/GHSA-89xv-2m56-2m9x",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=14.1.1 <15.5.21"
+                },
+                {
+                  "source": 1124187,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Cache confusion of response bodies for requests with bodies",
+                  "url": "https://github.com/advisories/GHSA-68g3-v927-f742",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-524"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=13.0.0 <15.5.21"
+                },
+                {
+                  "source": 1124189,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
+                  "url": "https://github.com/advisories/GHSA-4633-3j49-mh5q",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-116"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=13.0.0 <15.5.21"
+                },
+                {
+                  "source": 1124191,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Unbounded Server Action payload in Edge runtime",
+                  "url": "https://github.com/advisories/GHSA-4c39-4ccg-62r3",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=13.0.0 <15.5.21"
+                },
+                {
+                  "source": 1124193,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
+                  "url": "https://github.com/advisories/GHSA-p9j2-gv94-2wf4",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-918"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=12.0.0 <15.5.21"
+                },
+                {
+                  "source": 1124197,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
+                  "url": "https://github.com/advisories/GHSA-955p-x3mx-jcvp",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-201"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=13.0.0 <15.5.21"
+                },
+                {
+                  "source": 1193677,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Unauthenticated Remote Code Execution on windows-hosted servers",
+                  "url": "https://github.com/advisories/GHSA-p293-qw3h-jr36",
+                  "severity": "critical",
+                  "cwe": [
+                    "CWE-22"
+                  ],
+                  "cvss": {
+                    "score": 9,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H"
+                  },
+                  "range": ">=13.4.0 <15.5.24"
+                },
+                {
+                  "source": 1193733,
+                  "name": "next",
+                  "dependency": "next",
+                  "title": "Next.js: Unauthenticated Remote Code Execution in Image Optimization API when AVIF files are used",
+                  "url": "https://github.com/advisories/GHSA-2xp9-vwfh-vxw4",
+                  "severity": "critical",
+                  "cwe": [
+                    "CWE-1395"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": ">=10.0.0 <15.5.24"
+                },
+                "postcss",
+                "sharp"
+              ],
+              "effects": [],
+              "range": "9.3.4-canary.0 - 16.3.0-preview.10",
+              "nodes": [
+                "node_modules/next"
+              ],
+              "fixAvailable": {
+                "name": "next",
+                "version": "15.5.26",
+                "isSemVerMajor": false
+              }
+            },
+            "picomatch": {
+              "name": "picomatch",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1115549,
+                  "name": "picomatch",
+                  "dependency": "picomatch",
+                  "title": "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+                  "url": "https://github.com/advisories/GHSA-3v7f-55p6-f55p",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                  },
+                  "range": "<2.3.2"
+                },
+                {
+                  "source": 1115551,
+                  "name": "picomatch",
+                  "dependency": "picomatch",
+                  "title": "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+                  "url": "https://github.com/advisories/GHSA-3v7f-55p6-f55p",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                  },
+                  "range": ">=4.0.0 <4.0.4"
+                },
+                {
+                  "source": 1115552,
+                  "name": "picomatch",
+                  "dependency": "picomatch",
+                  "title": "Picomatch has a ReDoS vulnerability via extglob quantifiers",
+                  "url": "https://github.com/advisories/GHSA-c2c7-rcm5-vvqj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<2.3.2"
+                },
+                {
+                  "source": 1115554,
+                  "name": "picomatch",
+                  "dependency": "picomatch",
+                  "title": "Picomatch has a ReDoS vulnerability via extglob quantifiers",
+                  "url": "https://github.com/advisories/GHSA-c2c7-rcm5-vvqj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": ">=4.0.0 <4.0.4"
+                }
+              ],
+              "effects": [],
+              "range": "<=2.3.1 || 4.0.0 - 4.0.3",
+              "nodes": [
+                "node_modules/picomatch",
+                "node_modules/tinyglobby/node_modules/picomatch"
+              ],
+              "fixAvailable": true
+            },
+            "postcss": {
+              "name": "postcss",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1117015,
+                  "name": "postcss",
+                  "dependency": "postcss",
+                  "title": "PostCSS has XSS via Unescaped </style> in its CSS Stringify Output",
+                  "url": "https://github.com/advisories/GHSA-qx2v-qp2m-jg93",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-79"
+                  ],
+                  "cvss": {
+                    "score": 6.1,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+                  },
+                  "range": "<8.5.10"
+                },
+                {
+                  "source": 1124252,
+                  "name": "postcss",
+                  "dependency": "postcss",
+                  "title": "PostCSS: Arbitrary file read and information disclosure via attacker-controlled sourceMappingURL in CSS comments",
+                  "url": "https://github.com/advisories/GHSA-6g55-p6wh-862q",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-22",
+                    "CWE-200"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": "<=8.5.11"
+                },
+                {
+                  "source": 1130709,
+                  "name": "postcss",
+                  "dependency": "postcss",
+                  "title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q \u2014 attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+                  "url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-22",
+                    "CWE-200"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<=8.5.22"
+                },
+                {
+                  "source": 1139510,
+                  "name": "postcss",
+                  "dependency": "postcss",
+                  "title": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+                  "url": "https://github.com/advisories/GHSA-r28c-9q8g-f849",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-22"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": "<=8.5.17"
+                }
+              ],
+              "effects": [
+                "next"
+              ],
+              "range": "<=8.5.22",
+              "nodes": [
+                "node_modules/next/node_modules/postcss",
+                "node_modules/postcss"
+              ],
+              "fixAvailable": {
+                "name": "next",
+                "version": "15.5.26",
+                "isSemVerMajor": false
+              }
+            },
+            "sharp": {
+              "name": "sharp",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1124066,
+                  "name": "sharp",
+                  "dependency": "sharp",
+                  "title": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+                  "url": "https://github.com/advisories/GHSA-f88m-g3jw-g9cj",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1395"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<0.35.0"
+                },
+                {
+                  "source": 1193725,
+                  "name": "sharp",
+                  "dependency": "sharp",
+                  "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+                  "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-122"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<0.35.4"
+                }
+              ],
+              "effects": [
+                "next"
+              ],
+              "range": "<=0.35.4-rc.0",
+              "nodes": [
+                "node_modules/sharp"
+              ],
+              "fixAvailable": {
+                "name": "next",
+                "version": "15.5.26",
+                "isSemVerMajor": false
+              }
+            }
+          },
+          "metadata": {
+            "vulnerabilities": {
+              "info": 0,
+              "low": 2,
+              "moderate": 3,
+              "high": 9,
+              "critical": 2,
+              "total": 16
+            },
+            "dependencies": {
+              "prod": 45,
+              "dev": 300,
+              "optional": 69,
+              "peer": 1,
+              "peerOptional": 0,
+              "total": 377
+            }
+          }
+        }
+      },
+      "backend": {
+        "execution": {
+          "started_at_utc": "2026-09-25T00:06:02.424118+00:00",
+          "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+          "tree": "original",
+          "tier": "backend",
+          "action": "audit",
+          "command": [
+            "npm",
+            "audit",
+            "--json",
+            "--package-lock-only"
+          ],
+          "network": "npm registry access",
+          "credentials_forwarded": false,
+          "unprivileged": true,
+          "exit_code": 1,
+          "ended_at_utc": "2026-09-25T00:06:48.424899+00:00"
+        },
+        "audit": {
+          "auditReportVersion": 2,
+          "vulnerabilities": {
+            "body-parser": {
+              "name": "body-parser",
+              "severity": "moderate",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1123977,
+                  "name": "body-parser",
+                  "dependency": "body-parser",
+                  "title": "body-parser vulnerable to denial of service when invalid limit value silently disables size enforcement",
+                  "url": "https://github.com/advisories/GHSA-v422-hmwv-36x6",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-770"
+                  ],
+                  "cvss": {
+                    "score": 3.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": "<1.20.6"
+                },
+                "qs"
+              ],
+              "effects": [
+                "express"
+              ],
+              "range": "<=1.20.6 || 2.0.0-beta.1 - 2.0.2",
+              "nodes": [
+                "node_modules/body-parser"
+              ],
+              "fixAvailable": true
+            },
+            "dottie": {
+              "name": "dottie",
+              "severity": "moderate",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1113536,
+                  "name": "dottie",
+                  "dependency": "dottie",
+                  "title": "dottie is vulnerable to Prototype Pollution bypass via non-first path segments in set() and transform()",
+                  "url": "https://github.com/advisories/GHSA-r5mx-6wc6-7h9w",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 6.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L"
+                  },
+                  "range": ">=2.0.4 <=2.0.6"
+                }
+              ],
+              "effects": [],
+              "range": "2.0.4 - 2.0.6",
+              "nodes": [
+                "node_modules/dottie"
+              ],
+              "fixAvailable": true
+            },
+            "express": {
+              "name": "express",
+              "severity": "high",
+              "isDirect": true,
+              "via": [
+                "body-parser",
+                "path-to-regexp",
+                "qs"
+              ],
+              "effects": [],
+              "range": "4.0.0-rc1 - 4.22.2 || 5.0.0-alpha.1 - 5.0.1",
+              "nodes": [
+                "node_modules/express"
+              ],
+              "fixAvailable": true
+            },
+            "jws": {
+              "name": "jws",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1111244,
+                  "name": "jws",
+                  "dependency": "jws",
+                  "title": "auth0/node-jws Improperly Verifies HMAC Signature",
+                  "url": "https://github.com/advisories/GHSA-869p-cjfg-cm3x",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-347"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                  },
+                  "range": "<3.2.3"
+                }
+              ],
+              "effects": [],
+              "range": "<3.2.3",
+              "nodes": [
+                "node_modules/jws"
+              ],
+              "fixAvailable": true
+            },
+            "lodash": {
+              "name": "lodash",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1115806,
+                  "name": "lodash",
+                  "dependency": "lodash",
+                  "title": "lodash vulnerable to Code Injection via `_.template` imports key names",
+                  "url": "https://github.com/advisories/GHSA-r5fr-rjxr-66jc",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-94"
+                  ],
+                  "cvss": {
+                    "score": 8.1,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                  },
+                  "range": ">=4.0.0 <=4.17.23"
+                },
+                {
+                  "source": 1115810,
+                  "name": "lodash",
+                  "dependency": "lodash",
+                  "title": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+                  "url": "https://github.com/advisories/GHSA-f23m-r3pf-42rh",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 6.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+                  },
+                  "range": "<=4.17.23"
+                },
+                {
+                  "source": 1120370,
+                  "name": "lodash",
+                  "dependency": "lodash",
+                  "title": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+                  "url": "https://github.com/advisories/GHSA-xxjr-mmjv-4gpg",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-1321"
+                  ],
+                  "cvss": {
+                    "score": 6.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+                  },
+                  "range": ">=4.0.0 <=4.17.22"
+                }
+              ],
+              "effects": [],
+              "range": "<=4.17.23",
+              "nodes": [
+                "node_modules/lodash"
+              ],
+              "fixAvailable": true
+            },
+            "mysql2": {
+              "name": "mysql2",
+              "severity": "high",
+              "isDirect": true,
+              "via": [
+                {
+                  "source": 1153173,
+                  "name": "mysql2",
+                  "dependency": "mysql2",
+                  "title": "MySQL2: Auth Plugin Downgrade to mysql_clear_password Leaks Plaintext Credentials",
+                  "url": "https://github.com/advisories/GHSA-3f6p-5ww8-9rcr",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-522"
+                  ],
+                  "cvss": {
+                    "score": 0,
+                    "vectorString": null
+                  },
+                  "range": "<3.22.0"
+                },
+                {
+                  "source": 1158532,
+                  "name": "mysql2",
+                  "dependency": "mysql2",
+                  "title": "MySQL2: Unbounded zlib inflate in compressed MySQL protocol handler allows decompression-bomb DoS",
+                  "url": "https://github.com/advisories/GHSA-rgwj-5xj2-c3m3",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-409"
+                  ],
+                  "cvss": {
+                    "score": 5.9,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<=3.23.0"
+                }
+              ],
+              "effects": [],
+              "range": "<=3.23.0",
+              "nodes": [
+                "node_modules/mysql2"
+              ],
+              "fixAvailable": true
+            },
+            "path-to-regexp": {
+              "name": "path-to-regexp",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1115527,
+                  "name": "path-to-regexp",
+                  "dependency": "path-to-regexp",
+                  "title": "path-to-regexp vulnerable to Regular Expression Denial of Service via multiple route parameters",
+                  "url": "https://github.com/advisories/GHSA-37ch-88jc-xwx2",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-1333"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<0.1.13"
+                }
+              ],
+              "effects": [
+                "express"
+              ],
+              "range": "<0.1.13",
+              "nodes": [
+                "node_modules/path-to-regexp"
+              ],
+              "fixAvailable": true
+            },
+            "qs": {
+              "name": "qs",
+              "severity": "moderate",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1113161,
+                  "name": "qs",
+                  "dependency": "qs",
+                  "title": "qs's arrayLimit bypass in comma parsing allows denial of service",
+                  "url": "https://github.com/advisories/GHSA-w7fw-mjwx-w883",
+                  "severity": "low",
+                  "cwe": [
+                    "CWE-20"
+                  ],
+                  "cvss": {
+                    "score": 3.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=6.7.0 <=6.14.1"
+                },
+                {
+                  "source": 1113719,
+                  "name": "qs",
+                  "dependency": "qs",
+                  "title": "qs's arrayLimit bypass in its bracket notation allows DoS via memory exhaustion",
+                  "url": "https://github.com/advisories/GHSA-6rw7-vpxm-498p",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-20"
+                  ],
+                  "cvss": {
+                    "score": 3.7,
+                    "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": "<6.14.1"
+                },
+                {
+                  "source": 1119502,
+                  "name": "qs",
+                  "dependency": "qs",
+                  "title": "qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in comma-format arrays when encodeValuesOnly is set",
+                  "url": "https://github.com/advisories/GHSA-q8mj-m7cp-5q26",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-476"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=6.11.1 <=6.15.1"
+                },
+                {
+                  "source": 1158507,
+                  "name": "qs",
+                  "dependency": "qs",
+                  "title": "qs: Denial of Service via Attacker Controlled isBuffer",
+                  "url": "https://github.com/advisories/GHSA-4mjr-xmp4-gh2g",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-248",
+                    "CWE-703"
+                  ],
+                  "cvss": {
+                    "score": 5.3,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+                  },
+                  "range": ">=2.2.5 <6.16.0"
+                }
+              ],
+              "effects": [
+                "body-parser",
+                "express"
+              ],
+              "range": "<=6.15.3",
+              "nodes": [
+                "node_modules/qs"
+              ],
+              "fixAvailable": true
+            },
+            "sequelize": {
+              "name": "sequelize",
+              "severity": "high",
+              "isDirect": true,
+              "via": [
+                {
+                  "source": 1114318,
+                  "name": "sequelize",
+                  "dependency": "sequelize",
+                  "title": "Sequelize v6 Vulnerable to SQL Injection via JSON Column Cast Type",
+                  "url": "https://github.com/advisories/GHSA-6457-6jrx-69cr",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-89"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+                  },
+                  "range": ">=6.0.0-beta.1 <=6.37.7"
+                },
+                "uuid"
+              ],
+              "effects": [],
+              "range": "0.0.0-development || >=3.30.1",
+              "nodes": [
+                "node_modules/sequelize"
+              ],
+              "fixAvailable": true
+            },
+            "uuid": {
+              "name": "uuid",
+              "severity": "moderate",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1119441,
+                  "name": "uuid",
+                  "dependency": "uuid",
+                  "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+                  "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-787",
+                    "CWE-1285"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+                  },
+                  "range": "<11.1.1"
+                }
+              ],
+              "effects": [
+                "sequelize"
+              ],
+              "range": "<11.1.1",
+              "nodes": [
+                "node_modules/uuid"
+              ],
+              "fixAvailable": true
+            },
+            "validator": {
+              "name": "validator",
+              "severity": "high",
+              "isDirect": false,
+              "via": [
+                {
+                  "source": 1109241,
+                  "name": "validator",
+                  "dependency": "validator",
+                  "title": "validator.js has a URL validation bypass vulnerability in its isURL function",
+                  "url": "https://github.com/advisories/GHSA-9965-vmph-33xx",
+                  "severity": "moderate",
+                  "cwe": [
+                    "CWE-79"
+                  ],
+                  "cvss": {
+                    "score": 6.1,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+                  },
+                  "range": "<13.15.20"
+                },
+                {
+                  "source": 1112713,
+                  "name": "validator",
+                  "dependency": "validator",
+                  "title": "Validator is Vulnerable to Incomplete Filtering of One or More Instances of Special Elements",
+                  "url": "https://github.com/advisories/GHSA-vghf-hv5q-vc2g",
+                  "severity": "high",
+                  "cwe": [
+                    "CWE-172",
+                    "CWE-792"
+                  ],
+                  "cvss": {
+                    "score": 7.5,
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                  },
+                  "range": "<13.15.22"
+                }
+              ],
+              "effects": [],
+              "range": "<=13.15.20",
+              "nodes": [
+                "node_modules/validator"
+              ],
+              "fixAvailable": true
+            }
+          },
+          "metadata": {
+            "vulnerabilities": {
+              "info": 0,
+              "low": 0,
+              "moderate": 4,
+              "high": 7,
+              "critical": 0,
+              "total": 11
+            },
+            "dependencies": {
+              "prod": 120,
+              "dev": 0,
+              "optional": 0,
+              "peer": 0,
+              "peerOptional": 0,
+              "total": 119
+            }
+          }
+        }
+      }
+    },
+    "candidate": {
+      "frontend": {
+        "execution": {
+          "started_at_utc": "2026-09-25T00:18:05.136554+00:00",
+          "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+          "tree": "candidate",
+          "tier": "frontend",
+          "action": "audit",
+          "command": [
+            "npm",
+            "audit",
+            "--json",
+            "--package-lock-only"
+          ],
+          "network": "npm registry access",
+          "credentials_forwarded": false,
+          "unprivileged": true,
+          "exit_code": 0,
+          "ended_at_utc": "2026-09-25T00:18:08.519586+00:00"
+        },
+        "audit": {
+          "auditReportVersion": 2,
+          "vulnerabilities": {},
+          "metadata": {
+            "vulnerabilities": {
+              "info": 0,
+              "low": 0,
+              "moderate": 0,
+              "high": 0,
+              "critical": 0,
+              "total": 0
+            },
+            "dependencies": {
+              "prod": 44,
+              "dev": 335,
+              "optional": 93,
+              "peer": 1,
+              "peerOptional": 0,
+              "total": 415
+            }
+          }
+        }
+      },
+      "backend": {
+        "execution": {
+          "started_at_utc": "2026-09-25T00:15:53.418390+00:00",
+          "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+          "tree": "candidate",
+          "tier": "backend",
+          "action": "audit",
+          "command": [
+            "npm",
+            "audit",
+            "--json",
+            "--package-lock-only"
+          ],
+          "network": "npm registry access",
+          "credentials_forwarded": false,
+          "unprivileged": true,
+          "exit_code": 0,
+          "ended_at_utc": "2026-09-25T00:15:56.190942+00:00"
+        },
+        "audit": {
+          "auditReportVersion": 2,
+          "vulnerabilities": {},
+          "metadata": {
+            "vulnerabilities": {
+              "info": 0,
+              "low": 0,
+              "moderate": 0,
+              "high": 0,
+              "critical": 0,
+              "total": 0
+            },
+            "dependencies": {
+              "prod": 116,
+              "dev": 0,
+              "optional": 0,
+              "peer": 0,
+              "peerOptional": 0,
+              "total": 115
+            }
+          }
+        }
+      }
+    }
+  },
+  "frontend_build": {
+    "started_at_utc": "2026-09-25T00:19:56.817847+00:00",
+    "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+    "tree": "candidate",
+    "tier": "frontend",
+    "action": "build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "network": "none",
+    "credentials_forwarded": false,
+    "unprivileged": true,
+    "exit_code": 0,
+    "ended_at_utc": "2026-09-25T00:20:59.357653+00:00",
+    "stdout": "\n> frontend@0.1.0 build\n> next build\n\n   \u25b2 Next.js 15.5.26\n\n   Creating an optimized production build ...\n \u2713 Compiled successfully in 15.3s\n   Linting and checking validity of types ...\n   Collecting page data ...\n   Generating static pages (0/7) ...\n   Generating static pages (1/7) \n   Generating static pages (3/7) \n   Generating static pages (5/7) \n \u2713 Generating static pages (7/7)\n   Finalizing page optimization ...\n   Collecting build traces ...\n\nRoute (app)                                 Size  First Load JS\n\u250c \u25cb /                                      742 B         125 kB\n\u251c \u25cb /_not-found                            991 B         104 kB\n\u251c \u0192 /book/[id]                           1.62 kB         123 kB\n\u251c \u25cb /login                               1.34 kB         122 kB\n\u2514 \u25cb /register                            1.19 kB         122 kB\n+ First Load JS shared by all             103 kB\n  \u251c chunks/255-2dbbf79f36f0dfa2.js       46.4 kB\n  \u251c chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB\n  \u2514 other shared chunks (total)          1.92 kB\n\n\n\u25cb  (Static)   prerendered as static content\n\u0192  (Dynamic)  server-rendered on demand\n\n",
+    "stderr": "",
+    "public_api_origin": "https://book-review.invalid",
+    "deployable_artifact": false
+  },
+  "backend_compatibility": {
+    "started_at_utc": "2026-09-25T00:18:05.156640+00:00",
+    "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+    "tree": "candidate",
+    "tier": "backend",
+    "action": "compatibility",
+    "command": [
+      "node",
+      "compatibility-check.cjs"
+    ],
+    "network": "none",
+    "credentials_forwarded": false,
+    "unprivileged": true,
+    "exit_code": 0,
+    "ended_at_utc": "2026-09-25T00:18:09.001569+00:00",
+    "result": {
+      "result": "passed",
+      "node": "v22.23.3",
+      "platform": "linux",
+      "arch": "x64",
+      "checks": [
+        "Sequelize6 CommonJS uuid v1/v4 resolution",
+        "UUIDV4 model default",
+        "MySQL SELECT generation",
+        "mysql2 API load",
+        "bcrypt hash/compare",
+        "JWT HS256 sign/verify",
+        "Express API load"
+      ],
+      "network": "none",
+      "database_connection": false
+    }
+  },
+  "installation": {
+    "frontend": {
+      "started_at_utc": "2026-09-25T00:18:05.137954+00:00",
+      "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+      "tree": "candidate",
+      "tier": "frontend",
+      "action": "install",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "network": "npm registry access",
+      "credentials_forwarded": false,
+      "unprivileged": true,
+      "exit_code": 0,
+      "ended_at_utc": "2026-09-25T00:19:30.693014+00:00"
+    },
+    "backend": {
+      "started_at_utc": "2026-09-25T00:16:58.309258+00:00",
+      "image": "node@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c",
+      "tree": "candidate",
+      "tier": "backend",
+      "action": "install",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "network": "npm registry access",
+      "credentials_forwarded": false,
+      "unprivileged": true,
+      "exit_code": 0,
+      "ended_at_utc": "2026-09-25T00:17:06.370356+00:00"
+    }
+  },
+  "limitations": [
+    "Audit snapshots cover known registry advisories, not all application vulnerabilities.",
+    "Scoped postcss override 8.5.23 remains in major8; Sequelize uuid override11.1.1 crosses a major and requires live regression tests despite passing v1/v4/CommonJS/model tests.",
+    "No lifecycle scripts were run during npm installation. Build ran with network none.",
+    "Linux x64 Node22 Debian container is not a reviewed Ubuntu24.04 AMI or production origin-bound artifact.",
+    "No database connection, deployed application, HA/failover, full browser CRUD/auth or live TLS test was performed.",
+    "Frozen runtime/source locks still require explicit candidate integration and a new reviewed release identity.",
+    "npm warned that eslint9.39.5 and dottie2.0.7 are deprecated/unsupported."
+  ],
+  "runtime_release_authorized": false
+}

@@ -1,0 +1,13 @@
+--- terraform/variables.tf
++++ terraform/variables.tf
+@@ -62,8 +62,8 @@
+   type        = string
+   description = "Existing authorized DNS hostname matching the external ACM certificate."
+   validation {
+-    condition     = can(regex("^([a-z0-9]([a-z0-9-]*[a-z0-9])?\\.)+[a-z]{2,63}$", var.public_hostname))
+-    error_message = "Provide a DNS hostname, not a URL, wildcard, IP, path or shell input."
++    condition     = length(var.public_hostname) <= 253 && can(regex("^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z]{2,63}$", var.public_hostname))
++    error_message = "Provide a valid DNS hostname (max 253 characters, each label max 63 characters); not a URL, wildcard, IP, path or shell input."
+   }
+ }
+ variable "certificate_arn" {

@@ -21,6 +21,9 @@ CAPTURE_BLOCK = re.compile(r"\n<!-- A5 source capture (1|2|3|6|7|8|14|15|16) -->
 WORKFLOW_BLOCK = re.compile(r"\n<!-- A5 workflow capture (4|5|17) -->\n.*?\n<!-- /A5 workflow capture -->\n", re.S)
 
 
+AI_BLOCK = re.compile(r"\n<!-- A5 AI capture (26|27|28) -->\n.*?\n<!-- /A5 AI capture -->\n", re.S)
+
+
 class EvidenceContract(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -28,7 +31,8 @@ class EvidenceContract(unittest.TestCase):
         cls.manifest = json.loads((ROOT / "evidence/manifest.json").read_text())
         cls.captures = [item for item in cls.manifest["screenshots"] if item["status"] == "captured_source_only"]
         cls.workflow_captures = [item for item in cls.manifest["screenshots"] if item["slot"] in {4, 5, 17}]
-        cls.all_captures = cls.captures + cls.workflow_captures
+        cls.ai_captures = [item for item in cls.manifest["screenshots"] if item["slot"] in {26, 27, 28}]
+        cls.all_captures = cls.captures + cls.workflow_captures + cls.ai_captures
 
     def test_all_28_exact_titles_and_order(self):
         expected = [(int(number), title) for number, title in re.findall(r"^### Screenshot (\d+) — (.+)$", self.brief, re.M)]
@@ -36,14 +40,14 @@ class EvidenceContract(unittest.TestCase):
         self.assertEqual(list(range(1, 29)), [slot for slot, _ in actual])
         self.assertEqual(expected, actual)
 
-    def test_nine_source_three_workflow_and_sixteen_pending_slots(self):
+    def test_nine_source_six_workflow_and_thirteen_pending_slots(self):
         self.assertEqual([1, 2, 3, 6, 7, 8, 14, 15, 16], [item["slot"] for item in self.captures])
         self.assertEqual({"accepted_source_only": 9, "accepted_workflow_configuration": 2,
-                          "accepted_offline_validation": 1, "missing": 16, "total": 28}, self.manifest["screenshot_progress"])
+                          "accepted_offline_validation": 1, "accepted_recorded_ai_workflow": 3, "missing": 13, "total": 28}, self.manifest["screenshot_progress"])
         self.assertEqual(9, len({item["path"] for item in self.captures}))
         self.assertEqual(9, len({item["sha256"] for item in self.captures}))
         for item in self.manifest["screenshots"]:
-            if item["slot"] not in {1, 2, 3, 4, 5, 6, 7, 8, 14, 15, 16, 17}:
+            if item["slot"] not in {1, 2, 3, 4, 5, 6, 7, 8, 14, 15, 16, 17, 26, 27, 28}:
                 self.assertEqual("pending", item["status"])
                 self.assertIsNone(item["path"])
 
@@ -114,7 +118,7 @@ class EvidenceContract(unittest.TestCase):
         self.assertEqual([], self.manifest["local_capture_blocked_slots"])
         gated = self.manifest["separately_gated_slots"]
         self.assertEqual([], local)
-        self.assertEqual([9, 10, 11, 12, 13, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], gated)
+        self.assertEqual([9, 10, 11, 12, 13, 18, 19, 20, 21, 22, 23, 24, 25], gated)
         self.assertEqual(list(range(1, 29)), sorted([item["slot"] for item in self.all_captures] + local + gated))
         self.assertIn("have been resolved", self.manifest["capture_blocker"])
 
@@ -253,6 +257,52 @@ class EvidenceContract(unittest.TestCase):
         self.assertEqual(raw["stdout_sha256"], hashlib.sha256(raw["stdout"].encode()).hexdigest())
         self.assertTrue(all(stage["exit_code"] == 0 for stage in validation["stages"].values()))
 
+    def test_recorded_ai_captures_preserve_errors_attribution_and_original_bytes(self):
+        record = json.loads((ROOT / "evidence/ai-capture-provenance-20260925.json").read_text())
+        self.assertEqual([26, 27, 28], record["counted_slots"])
+        self.assertFalse(record["review_complete"])
+        self.assertTrue(record["post_edit_hook_executed"])
+        self.assertFalse(record["manual_learner_execution"])
+        self.assertFalse(record["cloud_operations"])
+        self.assertEqual(0, record["model_calls_for_capture"])
+        self.assertEqual(["26", "27", "28"], AI_BLOCK.findall(self.brief))
+        results_path = ROOT / "evidence" / record["results_record"]
+        self.assertEqual(record["results_sha256"], hashlib.sha256(results_path.read_bytes()).hexdigest())
+        results = json.loads(results_path.read_text())
+        self.assertEqual("error_max_budget_usd", results["review"]["terminal_subtype"])
+        self.assertEqual("max_tokens", results["review"]["stop_reason"])
+        self.assertEqual("error_max_budget_usd", results["hostname-fix"]["terminal_subtype"])
+        self.assertEqual("", results["archive-fix"]["model_diff"])
+        for item, capture in zip(record["screenshots"], self.ai_captures):
+            data = (ROOT / "evidence" / item["path"]).read_bytes()
+            self.assertEqual(item["sha256"], hashlib.sha256(data).hexdigest())
+            self.assertEqual(item["bytes"], len(data))
+            self.assertEqual(b"\xff\xd8", data[:2])
+            self.assertEqual(b"\xff\xd9", data[-2:])
+            self.assertFalse(item["pixels_modified"])
+            self.assertEqual(item["caption"], capture["caption"])
+            view = (ROOT / "evidence" / item["rendered_page"]).read_bytes()
+            self.assertEqual(item["rendered_page_sha256"], hashlib.sha256(view).hexdigest())
+            self.assertIn(b"Saved output view, not a live terminal", view)
+        cost = json.loads((ROOT / "evidence/ai-workflow-cost-20260925.json").read_text())
+        self.assertAlmostEqual(cost["additional_total_estimate_usd"], cost["earlier_workflow_usage_usd"] + sum(r["aws_regional_estimate_usd"] for r in cost["runs"]))
+        self.assertLess(cost["additional_total_estimate_usd"], cost["additional_authorized_usd"])
+
+    def test_dependency_candidate_keeps_release_closed_and_manifest_hashes_exact(self):
+        record = json.loads((ROOT / "evidence/dependency-candidate-20260925.json").read_text())
+        self.assertFalse(record["runtime_release_authorized"])
+        self.assertEqual(31, len(record["application_source_preserved_files"]))
+        self.assertEqual(0, record["frontend_build"]["exit_code"])
+        self.assertEqual("none", record["frontend_build"]["network"])
+        self.assertFalse(record["frontend_build"]["deployable_artifact"])
+        for tier, original_count in [("frontend", 16), ("backend", 11)]:
+            self.assertEqual(original_count, record["audits"]["original"][tier]["audit"]["metadata"]["vulnerabilities"]["total"])
+            self.assertEqual(0, record["audits"]["candidate"][tier]["audit"]["metadata"]["vulnerabilities"]["total"])
+        for name, hashes in record["changed_files"].items():
+            data = (ROOT / "evidence/candidates/dependencies" / name).read_bytes()
+            self.assertEqual(hashes["candidate_sha256"], hashlib.sha256(data).hexdigest())
+            self.assertNotEqual(hashes["original_sha256"], hashes["candidate_sha256"])
+
     def test_no_completion_or_cloud_claim(self):
         self.assertIs(self.manifest["assignment_complete"], False)
         self.assertIs(self.manifest["cloud_verified"], False)
@@ -272,7 +322,7 @@ class EvidenceContract(unittest.TestCase):
 
     def test_partial_bedrock_workflow_keeps_unfinished_requirements(self):
         self.assertFalse(self.manifest["instructor_starter_kit"]["found_in_pinned_upstream"])
-        self.assertEqual("partial_lookup_and_offline_validation_verified", self.manifest["claude_mcp_workflow"])
+        self.assertEqual("lookup_offline_validation_post_edit_and_recorded_ai_evidence_verified_with_disclosed_limits", self.manifest["claude_mcp_workflow"])
         setup = self.manifest["claude_bedrock_setup"]
         for field in ("report", "workflow_record"):
             data = (ROOT / "evidence" / setup[field]).read_bytes()
@@ -320,6 +370,16 @@ class EvidenceContract(unittest.TestCase):
             self.assertFalse(path.name.endswith(".png.json"))
 
     def assert_original_brief(self, text):
+        for item in self.ai_captures:
+            heading = f'### Screenshot {item["slot"]} — {item["title"]}\n'
+            section = text.split(heading, 1)[1].split('\n---', 1)[0]
+            marker = f'<!-- A5 AI capture {item["slot"]} -->'
+            self.assertEqual(section.count(marker), 1)
+            self.assertNotIn('Add your screenshot here.', section)
+            self.assertIn(item['caption'], section)
+            self.assertIn(f'(terraform-book-review/evidence/{item["path"]})', section)
+            text = text.replace(heading + section, heading + section.replace(marker, 'Add your screenshot here.\n\n' + marker), 1)
+        text = AI_BLOCK.sub('', text)
         for item in self.workflow_captures:
             heading = f'### Screenshot {item["slot"]} — {item["title"]}\n'
             section = text.split(heading, 1)[1].split('\n---', 1)[0]
@@ -353,7 +413,7 @@ class EvidenceContract(unittest.TestCase):
         restored = restored.replace("The [completed source architecture diagram](terraform-book-review/README.md#architecture-created-before-infrastructure-source) was written before infrastructure source. It shows the two-AZ/six-subnet VPC, IGW and per-AZ NAT, public and internal load balancers, Web/App tiers, Multi-AZ MySQL and a separate read replica. It is a design artifact, **not evidence of deployed resources**.", "Add the completed architecture diagram here.")
         self.assertEqual("086e7fbc6c5dceaa07312b02b19e7ef1c1849d4d04dcc0c41ed9634faacb285b", hashlib.sha256(restored.encode()).hexdigest())
 
-    def test_original_brief_preserved_with_twelve_evidenced_prompt_replacements(self):
+    def test_original_brief_preserved_with_fifteen_evidenced_prompt_replacements(self):
         self.assert_original_brief(self.brief)
 
     def test_unmet_prompt_question_and_checklist_removal_is_rejected(self):
@@ -376,7 +436,7 @@ class EvidenceContract(unittest.TestCase):
         self.assertIn('not a real cloud plan or deployment', notes)
         self.assertIn('All fifteen own-words reflection prompts below remain unanswered', notes)
         self.assertEqual(15, self.brief.count('Write your answer here.'))
-        self.assertEqual(16, self.brief.count('Add your screenshot here.'))
+        self.assertEqual(13, self.brief.count('Add your screenshot here.'))
 
     def test_notes_marker_cannot_hide_an_original_requirement(self):
         notes = re.search(r'\n<!-- A5 factual source notes -->\n.*?\n<!-- /A5 factual source notes -->\n', self.brief, re.S).group()

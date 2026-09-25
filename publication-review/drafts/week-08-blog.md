@@ -34,7 +34,7 @@ All 19 numbered Assignment 6 images are recorded with provenance. The assignment
 
 ## What remains before Week 08 is complete
 
-The repository currently contains **101 of 118 numbered screenshot slots**, with 17 missing across Assignments 4 and 5. Five later A5 source captures document configuration only. Three new live terminal captures show MCP connected, the configured validation hook and exact successful Terraform validate output. Screenshot coverage is an inventory measure; it does not replace the underlying tasks.
+The repository currently contains **104 of 118 numbered screenshot slots**, with 14 missing across Assignments 4 and 5. Five later A5 source captures document configuration only. Three new live terminal captures show MCP connected, the configured validation hook and exact successful Terraform validate output. Three recorded AI workflow views add a tested hostname improvement, partial review and operator-corrected archive troubleshooting. Separate candidate audits are clean and a Linux build passed; the frozen runtime release remains blocked. Screenshot coverage is an inventory measure; it does not replace the underlying tasks.
 
 Assignment 4's deployment and cart/database test are verified, but the pinned instructor app lacks an order-creation endpoint. A successful cart action cannot be described as completed checkout. Its learner reflection, mandatory LinkedIn publication and disclosed visual-evidence limits remain open. The new delivery passed 66 Python checks; the prior 22 Terraform mock runs remain supplementary to the actual cloud results.
 

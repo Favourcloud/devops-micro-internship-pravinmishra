@@ -99,9 +99,19 @@ An operator wrapper observes the unchanged protected runner's returned stdout an
 
 ![Successful offline Terraform validation](screenshots/screenshot-17-terraform-validation.jpg)
 
-## Sixteen required images remain missing
+## Three recorded AI workflow captures — 25 September 2026
 
-Slots 9–13 and 18–28 still require deployment/runtime or AI generation, review and troubleshooting evidence. The configured agent workflows, post-edit execution, public URL, 15 learner reflections and mandatory publication remain unfinished. The [Bedrock workflow report](bedrock-setup-20260925.md) separately verifies a model-selected MCP lookup and model-invoked offline validation. The [runtime readiness check](runtime-readiness-20260925.json) found the upstream head still matches the existing vulnerable pin.
+Original JPEGs of clearly labeled saved-output views fill slots **26, 27 and 28**. They show a useful Terraform edit, a partial structured review, and evidence-based troubleshooting with operator corrections. The model's errors and session limits are disclosed; this is not final architecture approval. Native post-edit hooks executed successfully. See the [workflow report](ai-workflow-20260925.md) and [capture provenance](ai-capture-provenance-20260925.json).
+
+![Recorded Terraform improvement](screenshots/screenshot-26-ai-terraform.jpg)
+
+![Recorded partial architecture review](screenshots/screenshot-27-ai-review.jpg)
+
+![Recorded troubleshooting and operator correction](screenshots/screenshot-28-ai-troubleshooting.jpg)
+
+## Thirteen required images remain missing
+
+A5 has **15/28** occupied slots. Slots **9–13 and 18–25** need deployment/runtime evidence. A separate [dependency candidate](dependency-candidate-20260925.json) has zero known frontend/backend audit findings and passed a credential-free Linux build; no production artifact or runtime release is authorized. Final architecture review, public URL, 15 learner reflections and publication remain unfinished.
 
 ## Historical independent validation
 

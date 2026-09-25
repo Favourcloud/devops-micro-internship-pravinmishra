@@ -1,0 +1,20 @@
+{
+  "patches_applied_to_fresh_public_copy": true,
+  "results": [
+    {
+      "suite": "new_archive_cases",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.560s\n\nOK\n"
+    },
+    {
+      "suite": "existing_upstream_cases",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.031s\n\nOK\n"
+    }
+  ],
+  "tests_passed": 19,
+  "real_pinned_archive_verified": true,
+  "source_baseline_modified": false
+}

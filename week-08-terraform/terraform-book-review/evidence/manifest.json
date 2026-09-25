@@ -7,8 +7,9 @@
     "accepted_source_only": 9,
     "accepted_workflow_configuration": 2,
     "accepted_offline_validation": 1,
-    "missing": 16,
-    "total": 28
+    "missing": 13,
+    "total": 28,
+    "accepted_recorded_ai_workflow": 3
   },
   "local_capture_blocked_slots": [],
   "separately_gated_slots": [
@@ -24,12 +25,9 @@
     22,
     23,
     24,
-    25,
-    26,
-    27,
-    28
+    25
   ],
-  "capture_blocker": "The earlier unreadable captures and missing literal validation output have been resolved. Sixteen slots still require actual AI workflow or deployment/runtime evidence.",
+  "capture_blocker": "The earlier unreadable captures and missing literal validation output have been resolved. Thirteen slots still require deployment/runtime evidence. The recorded AI review is partial; final architecture review remains open.",
   "capture_provenance": {
     "operator": "GitHub Copilot under user delegation",
     "environment": "Native isolated read-only editor; native navigation was not OS-network-sandboxed. CLI validation ran separately with IP egress denied.",
@@ -66,9 +64,9 @@
     "candidate": "private_integrated",
     "workflow_evidence_added": true,
     "integration_report": "bedrock-setup-20260925.md",
-    "workflow_evidence_scope": "Sanitized Bedrock MCP lookup and offline validation record, plus live MCP/hook configuration and literal Terraform validation screenshots. AI generation, agent review and troubleshooting screenshots remain pending."
+    "workflow_evidence_scope": "Private integration with MCP/offline validation, live configuration captures and recorded AI improvement, partial review and troubleshooting. Native post-edit hooks ran; final review and deployment remain unfinished."
   },
-  "claude_mcp_workflow": "partial_lookup_and_offline_validation_verified",
+  "claude_mcp_workflow": "lookup_offline_validation_post_edit_and_recorded_ai_evidence_verified_with_disclosed_limits",
   "screenshots": [
     {
       "slot": 1,
@@ -345,28 +343,58 @@
     {
       "slot": 26,
       "title": "AI-Assisted Terraform Generation",
-      "status": "pending",
-      "path": null
+      "status": "captured_recorded_ai_workflow",
+      "path": "screenshots/screenshot-26-ai-terraform.jpg",
+      "sha256": "334e4d858174e512839cea195cde39e9621a257b76fbce4e982941d2a4a57926",
+      "bytes": 99555,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:19:12.275237+00:00",
+      "pixels_modified": false,
+      "caption": "Recorded actual Claude Code Read/Edit output improved Terraform hostname limits. PostToolUse passed; 13 independent Terraform boundary tests passed. The session hit its budget limit before a final summary. This is a saved-output view, not a live terminal or deployment.",
+      "rendered_page_sha256": "48eda079e3abbb2121f1ae9416832815905ac5ec72d41a094924dea5daec01bb"
     },
     {
       "slot": 27,
       "title": "Architecture or Security Review",
-      "status": "pending",
-      "path": null
+      "status": "captured_recorded_ai_workflow",
+      "path": "screenshots/screenshot-27-ai-review.jpg",
+      "sha256": "a299229a3540fb9e4b6469064b428b8c2e8b01586d2b63386a257eb6e5de3e89",
+      "bytes": 160849,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:20:04.359612+00:00",
+      "pixels_modified": false,
+      "caption": "Selected exact PASS/WARN/FAIL findings from the recorded Bedrock reviewer response, with operator follow-up. The 1,024-token response was truncated and then stopped at its CLI budget; it is a partial source review, not final architecture approval.",
+      "rendered_page_sha256": "35221bd30b5bbafa32561cc6f0942d4f2ef1274c90427b2ba140c1ff5bd45f7c"
     },
     {
       "slot": 28,
       "title": "AI-Assisted Troubleshooting",
-      "status": "pending",
-      "path": null
+      "status": "captured_recorded_ai_workflow",
+      "path": "screenshots/screenshot-28-ai-troubleshooting.jpg",
+      "sha256": "769104d3ca0cda91a8915bea52683a675c4279e7f69b8e46ac6689033ed07768",
+      "bytes": 129518,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:20:37.511114+00:00",
+      "pixels_modified": false,
+      "caption": "Recorded Claude diagnosis of the verified archive failure and explicit operator correction. The first attempt made no edit; the second model patch failed raw-path tests and rejected the root directory. The corrected candidate passed 12 existing and seven new archive checks. Saved-output view; no deployment.",
+      "rendered_page_sha256": "9067f6d8e6f7d9c31529df8921253486dc36be52faa937356d1c86b09ead7a80"
     }
   ],
   "pending_local_evidence_slots": [],
   "new_capture_provenance": "local-capture-provenance-20260924.json",
-  "claude_mcp_workflow_scope": "Bedrock model-selected public registry lookup and model-invoked offline validation verified; agent workflows, post-edit validation and required screenshots remain pending.",
+  "claude_mcp_workflow_scope": "Bedrock model-selected registry lookup, model-invoked offline validation, actual post-edit hooks and recorded AI improvement/partial-review/troubleshooting are evidenced. Final review and deployment/runtime remain open.",
   "claude_bedrock_setup": {
     "report": "bedrock-setup-20260925.md",
-    "report_sha256": "666a7fa15252fc5cdb999b48f0453b5d722d47242d1cae2f6ffdc298d3c64955",
+    "report_sha256": "898545aa0e4c4d48b3ff7639feac987d29c1aa8dcd9dd1a9641e8b1ed9152e27",
     "provider": "Amazon Bedrock",
     "model": "us.anthropic.claude-sonnet-4-6",
     "model_response_verified": true,
@@ -380,7 +408,9 @@
     "manual_learner_execution": false,
     "workflow_record": "bedrock-workflow-20260925.json",
     "workflow_record_sha256": "02b632d48b8d0b8098180899c7b366fe092cf9e587e6341d3a51b20706bc8d40",
-    "model_invoked_offline_validation_verified": true
+    "model_invoked_offline_validation_verified": true,
+    "scope": "Historical initial setup/MCP/offline run. Later actual post-edit execution and AI captures are in ai_capture_provenance."
   },
-  "workflow_capture_provenance": "workflow-capture-provenance-20260925.json"
+  "workflow_capture_provenance": "workflow-capture-provenance-20260925.json",
+  "ai_capture_provenance": "ai-capture-provenance-20260925.json"
 }

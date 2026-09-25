@@ -28,3 +28,7 @@ The initial setup used an estimated **$0.4364**, with a conservative interrupted
 The [later live terminal captures](workflow-capture-provenance-20260925.json) fill MCP connection, configured hooks and literal Terraform validation slots without further model calls. Still unverified: the two configured agent workflows, post-edit execution and the remaining AI/deployment/runtime screenshots. Passing the pre-tool guard and running the validation command does not demonstrate the post-edit hook. No Terraform or application deployment occurred. A5 now has **12/28 screenshot slots** and Week 08 **101/118** after those three captures. No new DMI grade is claimed. Runtime/dependency remediation, deployment inputs and cost approval, learner reflections, publication and remaining evidence are still required.
 
 The [starter-kit review](starter-kit-review-20260924.md) describes the earlier receipt-only stage. Original course files remain private.
+
+## Later workflow and candidate follow-up
+
+The earlier 12/28 snapshot above is superseded by the [recorded AI workflow report](ai-workflow-20260925.md): A5 now has 15/28 and Week 08 has 104/118. Native post-edit hooks ran, three recorded AI views were added, and a dependency candidate passed audits and a Linux build. The partial review, failed model edits and operator corrections are disclosed. Final review and runtime/deployment gates remain open.
