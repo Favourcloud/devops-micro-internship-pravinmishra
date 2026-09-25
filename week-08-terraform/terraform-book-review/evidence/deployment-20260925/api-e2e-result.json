@@ -1,0 +1,41 @@
+{
+  "started_at_utc": "2026-09-25T07:49:03.694289+00:00",
+  "origin": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com",
+  "operator": "Codex under Eze Favour authorization",
+  "checks": [
+    "HTTPS homepage HTTP200 with TLS certificate validation",
+    "books API returns seeded catalog",
+    "test account registration HTTP201",
+    "real authentication HTTP200",
+    "review POST201 followed by independent GET200 persistence check",
+    "unauthenticated review rejected: 401",
+    "unsafe upstream book-write route blocked:405",
+    "invalid login denied:400"
+  ],
+  "manual_learner_execution": false,
+  "books": [
+    {
+      "id": 1,
+      "title": "The Pragmatic Programmer",
+      "author": "Andrew Hunt",
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "rating": 4.7
+    },
+    {
+      "id": 3,
+      "title": "JavaScript: The Good Parts",
+      "author": "Douglas Crockford",
+      "rating": 4.5
+    }
+  ],
+  "review_id": 3,
+  "review_comment": "A5 verification by Eze Favour: HTTPS authentication, review creation and a subsequent database-backed read were tested.",
+  "book_id": 1,
+  "status": "passed",
+  "finished_at_utc": "2026-09-25T07:49:12.121566+00:00"
+}

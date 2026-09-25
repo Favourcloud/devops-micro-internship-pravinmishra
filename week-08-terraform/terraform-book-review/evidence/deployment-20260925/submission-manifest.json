@@ -1,0 +1,240 @@
+{
+  "verified_at_utc": "2026-09-25T08:32:57.711773+00:00",
+  "status": "submitted_with_disclosed_rubric_limits",
+  "operator": "Codex under Eze Favour authorization",
+  "public_url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com",
+  "manual_learner_execution": false,
+  "delegated_subagents": false,
+  "screenshot_slots": 28,
+  "screenshots": [
+    {
+      "slot": 1,
+      "title": "Project `CLAUDE.md`",
+      "path": "../screenshots/screenshot-01-project-context.png",
+      "sha256": "e52b793ea08e9cbede1948028e4528fb0589b741e5be8e9b4734898b290e88f9",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 2,
+      "title": "Terraform Engineer Subagent",
+      "path": "../screenshots/screenshot-02-terraform-engineer-agent.png",
+      "sha256": "9812b3ec6a95e43ab65819269b1b9da536758a7c75d0614f326214b6e13b62fc",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 3,
+      "title": "Architecture and Security Reviewer Subagent",
+      "path": "../screenshots/screenshot-03-architecture-reviewer-agent.png",
+      "sha256": "0f9638042f33e67f06a91606b8553c150504a37cff07add4cbc67d98ec8ee646",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 4,
+      "title": "Terraform MCP Connection",
+      "path": "../screenshots/screenshot-04-terraform-mcp.jpg",
+      "sha256": "0c258f1734a680abbdd4f8636d1d079cd0b73b945b93bd8f363ed3e4f362e7a2",
+      "evidence_type": "captured_workflow_configuration",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 5,
+      "title": "Validation Hooks",
+      "path": "../screenshots/screenshot-05-validation-hooks.jpg",
+      "sha256": "3868f1c80998fc6eea545ea13ecefbdf08e50063d7490b4edfd33f752d91a7b3",
+      "evidence_type": "captured_workflow_configuration",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 6,
+      "title": "Modular Terraform Project Structure",
+      "path": "../screenshots/screenshot-06-modular-project-structure.png",
+      "sha256": "eb9928185dbb1923ecb88f54b2687e4993abfcdf62c12cb9b5e88a108711f026",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 7,
+      "title": "Six-Subnet Architecture",
+      "path": "../screenshots/screenshot-07-local-evidence.png",
+      "sha256": "3c3ecc38fc3179047ff24f931b853a06f1585453a5ab90f9759e7d4ad4925a8d",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 8,
+      "title": "Public and Private Tier Separation",
+      "path": "../screenshots/screenshot-08-local-evidence.png",
+      "sha256": "00312980103caa57f5c3dcc619c2aba4964b2e2f33d4706c06c192051c177475",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 9,
+      "title": "Web and Application Compute",
+      "path": "screenshots/screenshot-09-recorded-final.png",
+      "sha256": "8a15424a07e5a142cd97b65ab8f6fca654058b4092445335c81faeadf9a9ce42",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 10,
+      "title": "Public Load Balancer",
+      "path": "screenshots/screenshot-10-recorded-final.png",
+      "sha256": "3604d59cd520f2e8d62216af7e9645f13c5625986c4e0bbaa80fe0ea459244cb",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 11,
+      "title": "Internal Load Balancer",
+      "path": "screenshots/screenshot-11-recorded-final.png",
+      "sha256": "9f59065a92e9f00d64f7d4259eabb6799d649c114b31f2bb9d4eab10002d969a",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 12,
+      "title": "Healthy Targets",
+      "path": "screenshots/screenshot-12-recorded-final.png",
+      "sha256": "003e64fe08f45520915eef5b8326e43d2d6821c13652d220883a058c2b8062b6",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 13,
+      "title": "Managed MySQL Database",
+      "path": "screenshots/screenshot-13-recorded-final.png",
+      "sha256": "b8a2cb5de1bd8ef6d1908941ce46561d055cdb10137773509345a41e00bfdbac",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 14,
+      "title": "High Availability",
+      "path": "../screenshots/screenshot-14-local-evidence.png",
+      "sha256": "b13c889270cd71d847222038e787537f066fa47f6c7637453e314d5ee3f14efb",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 15,
+      "title": "Read Replica",
+      "path": "../screenshots/screenshot-15-local-evidence.png",
+      "sha256": "b34a0d42a4e579f2816fa837a5e3e38bc7a0caa42c4d63e485033e378f3aaf0d",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 16,
+      "title": "Private Database Access",
+      "path": "../screenshots/screenshot-16-local-evidence.png",
+      "sha256": "77ef4c08663828a9484f4f8d0ab8d2746e5efa4edbc7a3d7bc79cb03a0ad43cb",
+      "evidence_type": "captured_source_only",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 17,
+      "title": "Terraform Validation",
+      "path": "../screenshots/screenshot-17-terraform-validation.jpg",
+      "sha256": "48a5014793f2681ecaf8bb63d32065164a81b1505669f11e8c5e51ad4117f888",
+      "evidence_type": "captured_offline_validation",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 18,
+      "title": "Terraform Plan",
+      "path": "screenshots/screenshot-18-recorded-evidence.png",
+      "sha256": "12c176f5ef89c832243e2c2018108de0e5fe19890193266f25f2b49fa3abac37",
+      "evidence_type": "original browser screenshot of labeled recorded evidence viewer",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 19,
+      "title": "Terraform Apply",
+      "path": "screenshots/screenshot-19-recorded-final.png",
+      "sha256": "23929d750b675cb87f22c36a564d5d5f725c2ed25e766d840fd7a1b4e1e8095b",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 20,
+      "title": "Homepage",
+      "path": "screenshots/screenshot-20-https-homepage-light-mode.png",
+      "sha256": "a16d999d78d79c83c64aef1438393acd982af4ff47c561598036fa082f12b1b0",
+      "evidence_type": "Original CUA screenshot of deployed application",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 21,
+      "title": "Login or Authentication",
+      "path": "screenshots/screenshot-21-authenticated-light-mode.png",
+      "sha256": "a16d999d78d79c83c64aef1438393acd982af4ff47c561598036fa082f12b1b0",
+      "evidence_type": "Original CUA screenshot of deployed application",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 22,
+      "title": "Book Data",
+      "path": "screenshots/screenshot-22-book-details.png",
+      "sha256": "32bae1e2073bad882132e6c823ab0777740974254898f601a431b4cd63c5f766",
+      "evidence_type": "Original CUA screenshot of deployed application",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 23,
+      "title": "Review Functionality",
+      "path": "screenshots/screenshot-23-review-after-reload.png",
+      "sha256": "443b543baafd2ffca3d4d5d8cd50c5fe2f95ef555cc8ce359dceb0b8cb4c05e1",
+      "evidence_type": "Original CUA screenshot of deployed application",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 24,
+      "title": "Backend or API Evidence",
+      "path": "screenshots/screenshot-24-recorded-final.png",
+      "sha256": "7421ce01450c2c55161dadaae3f6f08475a811fb7f8bec0fcfe33b0db48a8561",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 25,
+      "title": "Database Reads and Writes",
+      "path": "screenshots/screenshot-25-recorded-final.png",
+      "sha256": "d8a16d952259f8c21c8716b7e3840ac1ce84a804d47cd14386bf69d55ad09524",
+      "evidence_type": "Original CUA browser screenshot of labeled recorded evidence",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 26,
+      "title": "AI-Assisted Terraform Generation",
+      "path": "../screenshots/screenshot-26-ai-terraform.jpg",
+      "sha256": "334e4d858174e512839cea195cde39e9621a257b76fbce4e982941d2a4a57926",
+      "evidence_type": "captured_recorded_ai_workflow",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 27,
+      "title": "Architecture or Security Review",
+      "path": "../screenshots/screenshot-27-ai-review.jpg",
+      "sha256": "a299229a3540fb9e4b6469064b428b8c2e8b01586d2b63386a257eb6e5de3e89",
+      "evidence_type": "captured_recorded_ai_workflow",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 28,
+      "title": "AI-Assisted Troubleshooting",
+      "path": "../screenshots/screenshot-28-ai-troubleshooting.jpg",
+      "sha256": "769104d3ca0cda91a8915bea52683a675c4279e7f69b8e46ac6689033ed07768",
+      "evidence_type": "captured_recorded_ai_workflow",
+      "image_pixels_modified": false
+    }
+  ],
+  "reflection_explanations": 15,
+  "reflection_wording": "AI-assisted, requiring learner review",
+  "publications": "../../../publication/publication.json",
+  "last_observed_DMI_score": "110/190",
+  "cleanup": "Keep online until user requests cleanup; no automatic teardown"
+}

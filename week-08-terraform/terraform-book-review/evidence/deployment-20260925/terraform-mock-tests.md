@@ -1,0 +1,50 @@
+tests/architecture.tftest.hcl... in progress
+  run "six_subnets_two_nat"... pass
+  run "db_has_no_default_internet_route"... pass
+  run "az_local_app_routes"... pass
+  run "exclusive_tier_security_chain"... pass
+  run "ha_is_not_read_replication"... pass
+  run "both_databases_private_encrypted"... pass
+  run "per_az_web_app_capacity"... pass
+  run "safe_source_only_defaults"... pass
+  run "initializer_is_explicit"... pass
+  run "https_and_dependency_backed_health"... pass
+  run "hardened_compute_metadata_and_disks"... pass
+  run "replica_stays_in_dedicated_db_subnets"... pass
+  run "bounded_non_secret_user_data"... pass
+  run "scoped_runtime_secret_reads"... pass
+  run "bounded_ssm_permission_actions"... pass
+  run "protected_cleanup_and_replica_snapshot_rule"... pass
+  run "reject_repeated_az"... pass
+  run "reject_foreign_az"... pass
+  run "reject_local_zone"... pass
+  run "reject_vpc_size"... pass
+  run "reject_url_as_hostname"... pass
+  run "reject_foreign_certificate"... pass
+  run "reject_foreign_router_secret"... pass
+  run "reject_dynamic_ami_input"... pass
+  run "reject_master_as_app"... pass
+  run "reject_weak_master"... pass
+  run "reject_weak_app"... pass
+  run "reject_weak_jwt"... pass
+  run "reject_secret_newline"... pass
+  run "reject_missing_ca_digest"... pass
+  run "reject_nonintegral_secret_version"... pass
+  run "reject_zero_master_version"... pass
+  run "reject_mysql_family_mismatch"... pass
+  run "reject_unreviewed_compute_class"... pass
+  run "reject_unreviewed_db_class"... pass
+  run "reject_unsafe_cleanup_name"... pass
+  run "reject_invalid_snapshot_suffix"... pass
+  run "reject_http_runtime_artifact"... pass
+  run "reject_credential_bearing_artifact_url"... pass
+  run "reject_unreviewed_artifact_digest"... pass
+  run "least_data_tier_configuration"... pass
+  run "synthetic_markers_absent_from_ordinary_payloads"... pass
+  run "immutable_artifact_and_exact_master_version"... pass
+  run "reject_gateway_hostname_mismatch"... pass
+  run "aws_managed_https_restricts_alb_to_private_link"... pass
+tests/architecture.tftest.hcl... tearing down
+tests/architecture.tftest.hcl... pass
+
+Success! 45 passed, 0 failed.

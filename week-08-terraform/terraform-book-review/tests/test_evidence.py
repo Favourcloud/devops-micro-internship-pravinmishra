@@ -1,4 +1,7 @@
-"""Offline checks for source and original local-editor evidence, never cloud proof."""
+"""Checks of the preserved predeployment brief and historical capture provenance.
+
+The deployed submission has a separate verify_submission.py in deployment-20260925.
+"""
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -9,7 +12,7 @@ import unittest
 import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSIGNMENT = ROOT.parent / "assignment-05-deploy-book-review-app-in-your-favorite-cloud-agentic-terraform-project.md"
+ASSIGNMENT = ROOT / "evidence/deployment-20260925/historical-predeployment-brief.md"
 SOURCE_COMMIT = "23748110108196f26c1394830a48af5317f7ca22"
 ORIGINALS = {
     1: ("e52b793ea08e9cbede1948028e4528fb0589b741e5be8e9b4734898b290e88f9", 1001847, "2026-09-17T03:02:07.231982+00:00"),

@@ -1,0 +1,10 @@
+[
+  {
+    "log": "database-stage-apply-20260925T055952.stdout.private",
+    "actual_stdout": "Apply complete! Resources: 51 added, 0 changed, 0 destroyed."
+  },
+  {
+    "log": "terraform-apply-20260925T063801.stdout.private",
+    "actual_stdout": "Apply complete! Resources: 35 added, 0 changed, 0 destroyed."
+  }
+]

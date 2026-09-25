@@ -1,0 +1,10 @@
+{
+  "started_at_utc": "2026-09-25T07:33:22.623540+00:00",
+  "origin": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com",
+  "operator": "Codex under Eze Favour authorization",
+  "checks": [],
+  "manual_learner_execution": false,
+  "status": "failed",
+  "error": "Homepage check failed: HTTP 400",
+  "finished_at_utc": "2026-09-25T07:33:23.628982+00:00"
+}

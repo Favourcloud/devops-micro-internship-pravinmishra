@@ -1,0 +1,26 @@
+{
+  "reviewed_at_utc": "2026-09-25T07:54:06.940096+00:00",
+  "status": "approved under existing user authorization",
+  "change": "Strip body and Content-Length on read-only book/review GET/HEAD proxies; preserve explicit safe proxy headers. Same runtime hotfix already passed API E2E.",
+  "resources": [
+    {
+      "address": "module.web.aws_autoscaling_group.az[\"0\"]",
+      "actions": [
+        "update"
+      ]
+    },
+    {
+      "address": "module.web.aws_autoscaling_group.az[\"1\"]",
+      "actions": [
+        "update"
+      ]
+    },
+    {
+      "address": "module.web.aws_launch_template.this",
+      "actions": [
+        "update"
+      ]
+    }
+  ],
+  "plan_sha256": "e0873587b4462f290dca4ebf7e430accd546ff56c52401cb14ab164082ba2049"
+}

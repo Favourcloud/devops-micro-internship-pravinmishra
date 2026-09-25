@@ -1,0 +1,622 @@
+# Capstone Assignment — Deploy the Book Review App Using Terraform and Claude Code Agentic AI
+
+Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
+
+---
+
+## Student Details
+
+**Full Name:** Eze Favour  
+**Cloud Platform:** AWS — coordinator-selected offline architecture assumption; learner confirmation and cloud-change approval remain pending  
+**GitHub Repository URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra  
+**Public Application URL / Load-Balancer DNS:** Add the public URL or DNS here
+
+---
+
+## Purpose
+
+> **Preparation status — not a completed submission:** Nine genuine source captures occupy slots 1, 2, 3, 6, 7, 8, 14, 15 and 16; **19 of 28 slots remain missing**. The five new captures show exact unchanged configuration in a clearly attributed local browser viewer. A separate [guarded-validation result](terraform-book-review/evidence/local-validation-20260924.json) and [supporting image](terraform-book-review/evidence/supplemental/offline-validation-stage-results.png) record PASS validate, but do not replace Screenshot17's literal Terraform output. Source remains anchored to `23748110108196f26c1394830a48af5317f7ca22`. No deployment, public application, learner execution, Claude/MCP workflow, reflection or publication is claimed. The official kit was received from authenticated Udemy Assignment 37 and [statically reviewed](terraform-book-review/evidence/starter-kit-review-20260924.md); a private inactive candidate is prepared, while integration and genuine Claude/MCP execution remain pending. All Tasks 0–10, screenshot requirements, 15 reflection questions and 55 unchecked requirements remain preserved. See the [evidence gallery](terraform-book-review/evidence/README.md).
+
+Deploy the Book Review App using Terraform on AWS or Azure in a secure, highly available, production-style three-tier architecture. Use Claude Code, specialized subagents, Terraform MCP, and validation hooks to support the engineering workflow while keeping all infrastructure-changing operations under human control.
+
+---
+
+# Task 0 — Prepare the Project and Agentic AI Environment
+
+## Goal
+
+Prepare the Book Review App project and configure the provided Claude Code Agentic AI starter kit with project context, specialized subagents, Terraform MCP, validation hooks, and safety guardrails.
+
+## Evidence
+
+### Screenshot 1 — Project `CLAUDE.md`
+
+Add a screenshot of the project `CLAUDE.md` showing the three-tier architecture, security boundaries, Terraform requirements, and human-approval rules.
+
+<!-- A5 source capture 1 -->
+![Screenshot 1: original local source view](terraform-book-review/evidence/screenshots/screenshot-01-project-context.png)
+
+**Source-only evidence:** Actual CLAUDE.md showing three-tier architecture, security boundaries, Terraform requirements and human-approval rules. Visibly Copilot-authored inactive draft, not the provided kit or Claude execution. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+<!-- /A5 source capture -->
+
+---
+
+### Screenshot 2 — Terraform Engineer Subagent
+
+Add a screenshot showing the Terraform Engineer subagent configuration.
+
+<!-- A5 source capture 2 -->
+![Screenshot 2: original local source view](terraform-book-review/evidence/screenshots/screenshot-02-terraform-engineer-agent.png)
+
+**Source-only evidence:** Inactive Terraform Engineer agent source with inherited model selection and bounded tools. This is configuration text, not an executed agent or Claude-generated work. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+<!-- /A5 source capture -->
+
+---
+
+### Screenshot 3 — Architecture and Security Reviewer Subagent
+
+Add a screenshot showing the Architecture and Security Reviewer subagent configuration.
+
+<!-- A5 source capture 3 -->
+![Screenshot 3: original local source view](terraform-book-review/evidence/screenshots/screenshot-03-architecture-reviewer-agent.png)
+
+**Source-only evidence:** Inactive read-only Architecture/Security Reviewer definition. This shows the bounded reviewer configuration, not a performed Claude architecture or security review. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+<!-- /A5 source capture -->
+
+---
+
+### Screenshot 4 — Terraform MCP Connection
+
+Add a screenshot showing Terraform MCP connected and available.
+
+<!-- A5 workflow capture 4 -->
+![Screenshot 4: genuine live terminal evidence](terraform-book-review/evidence/screenshots/screenshot-04-terraform-mcp.jpg)
+
+**Verified scope:** Actual Claude Code /mcp view shows Terraform connected with seven tools. This is configuration evidence from a live local PTY; AWS credentials were disabled and no model call was made. Operator: Codex under user delegation; no manual learner execution claimed. [Capture provenance](terraform-book-review/evidence/workflow-capture-provenance-20260925.json).
+<!-- /A5 workflow capture -->
+
+---
+
+### Screenshot 5 — Validation Hooks
+
+Add a screenshot showing the configured Claude Code validation hooks.
+
+<!-- A5 workflow capture 5 -->
+![Screenshot 5: genuine live terminal evidence](terraform-book-review/evidence/screenshots/screenshot-05-validation-hooks.jpg)
+
+**Verified scope:** Actual Claude Code hook details show PostToolUse for Edit|Write invoking the protected post_tool_validate.py command. This proves configuration, not an executed post-edit validation event. Operator: Codex under user delegation; no manual learner execution claimed. [Capture provenance](terraform-book-review/evidence/workflow-capture-provenance-20260925.json).
+<!-- /A5 workflow capture -->
+
+---
+
+# Task 1 — Design the Three-Tier Architecture
+
+## Goal
+
+Design the required secure, highly available three-tier architecture and create an architecture diagram before building the infrastructure.
+
+The diagram must show:
+
+- VPC or VNet
+- Availability Zones or equivalent availability locations
+- Six subnets
+- Internet connectivity
+- NAT or outbound design
+- Public load balancer
+- Web Tier
+- Internal load balancer
+- Application Tier
+- Managed MySQL
+- Read replica
+- Main traffic flow
+
+## Architecture Diagram
+
+The [completed source architecture diagram](terraform-book-review/README.md#architecture-created-before-infrastructure-source) was written before infrastructure source. It shows the two-AZ/six-subnet VPC, IGW and per-AZ NAT, public and internal load balancers, Web/App tiers, Multi-AZ MySQL and a separate read replica. It is a design artifact, **not evidence of deployed resources**.
+
+---
+
+# Task 2 — Build the Terraform Networking and Security Layers
+
+## Goal
+
+Create the modular Terraform project and implement the network and security layers across the required public and private subnets.
+
+## Evidence
+
+### Screenshot 6 — Modular Terraform Project Structure
+
+Add a screenshot showing the modular Terraform project structure.
+
+<!-- A5 source capture 6 -->
+![Screenshot 6: original local source view](terraform-book-review/evidence/screenshots/screenshot-06-modular-project-structure.png)
+
+**Source-only evidence:** Genuine Explorer view showing all nine actual module directories. Twelve is the root module-call count, not the directory count; this is source structure, not deployed infrastructure. Captured source: `23748110108196f26c1394830a48af5317f7ca22`.
+
+Original native window frame initially captured while framing network source. Accepted once for slot 6 after OCR confirmed all nine module folders. Pixels are unchanged; this frame is NOT counted as slot 7.
+<!-- /A5 source capture -->
+
+---
+
+### Screenshot 7 — Six-Subnet Architecture
+
+Add a screenshot showing the six-subnet architecture across two availability locations.
+
+<!-- A5 source capture 7 -->
+![Screenshot 7: original browser source view](terraform-book-review/evidence/screenshots/screenshot-07-local-evidence.png)
+
+**Source-only evidence:** Two validated availability zones and three tiers produce six subnets. This source has not been deployed. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
+
+---
+
+### Screenshot 8 — Public and Private Tier Separation
+
+Add a screenshot showing the public and private tier separation, including routing and security boundaries.
+
+<!-- A5 source capture 8 -->
+![Screenshot 8: original browser source view](terraform-book-review/evidence/screenshots/screenshot-08-local-evidence.png)
+
+**Source-only evidence:** Source routing: Web uses the internet gateway; App uses its same-AZ NAT; DB has local routes only. The security-group chain restricts traffic to the preceding tier. These are configuration views. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
+
+---
+
+# Task 3 — Build the Load-Balancing and Compute Layers
+
+## Goal
+
+Deploy the public and internal load balancers and the Web and Application compute resources required by the Book Review App.
+
+## Evidence
+
+### Screenshot 9 — Web and Application Compute
+
+Add a screenshot showing the Web and Application compute resources in their required subnets.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 10 — Public Load Balancer
+
+Add a screenshot showing the internet-facing public load balancer.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 11 — Internal Load Balancer
+
+Add a screenshot showing the private internal load balancer.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 12 — Healthy Targets
+
+Add a screenshot showing healthy target groups or backend pools.
+
+Add your screenshot here.
+
+---
+
+# Task 4 — Build the Managed MySQL Database Layer
+
+## Goal
+
+Deploy a private, highly available managed MySQL database with a read replica and restrict database connectivity to the Application Tier.
+
+## Evidence
+
+### Screenshot 13 — Managed MySQL Database
+
+Add a screenshot showing the managed MySQL database deployment.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 14 — High Availability
+
+Add a screenshot showing the Multi-AZ or high-availability configuration.
+
+<!-- A5 source capture 14 -->
+![Screenshot 14: original browser source view](terraform-book-review/evidence/screenshots/screenshot-14-local-evidence.png)
+
+**Source-only evidence:** The primary database is configured with multi_az = true. This shows the configured intent, not a provisioned standby or failover test. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
+
+---
+
+### Screenshot 15 — Read Replica
+
+Add a screenshot showing the read replica configuration.
+
+<!-- A5 source capture 15 -->
+![Screenshot 15: original browser source view](terraform-book-review/evidence/screenshots/screenshot-15-local-evidence.png)
+
+**Source-only evidence:** The separate replica points to the primary ARN. Its multi_az = false is distinct from the primary standby. No replication or live database connection is demonstrated. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
+
+---
+
+### Screenshot 16 — Private Database Access
+
+Add a screenshot showing that the database is private and accepts MySQL traffic only from the Application Tier.
+
+<!-- A5 source capture 16 -->
+![Screenshot 16: original browser source view](terraform-book-review/evidence/screenshots/screenshot-16-local-evidence.png)
+
+**Source-only evidence:** The only database ingress edge uses the App security group on TCP 3306. Both database instances are private. Live connectivity remains unverified. Captured source: `23748110108196f26c1394830a48af5317f7ca22`. Operator: Codex under user delegation. This is an original screenshot of a locally prepared file viewer, not a cloud console or deployed-resource proof.
+<!-- /A5 source capture -->
+
+---
+
+# Task 5 — Validate, Review, and Apply the Terraform Configuration
+
+## Goal
+
+Validate the Terraform configuration, review the execution plan using both Agentic AI and human judgment, and apply the infrastructure changes only after all required checks pass.
+
+## Evidence
+
+### Screenshot 17 — Terraform Validation
+
+Add a screenshot showing successful `terraform validate` output.
+
+<!-- A5 workflow capture 17 -->
+![Screenshot 17: genuine live terminal evidence](terraform-book-review/evidence/screenshots/screenshot-17-terraform-validation.jpg)
+
+**Verified scope:** Actual Terraform validate stdout reads “Success! The configuration is valid.” All six offline stages passed with IP networking denied, empty cloud credential files and the locked local provider. No real cloud plan or apply occurred. Operator: Codex under user delegation; no manual learner execution claimed. [Capture provenance](terraform-book-review/evidence/workflow-capture-provenance-20260925.json).
+<!-- /A5 workflow capture -->
+
+---
+
+### Screenshot 18 — Terraform Plan
+
+Add a screenshot showing the Terraform plan output.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 19 — Terraform Apply
+
+Add a screenshot showing successful `terraform apply` completion.
+
+Add your screenshot here.
+
+---
+
+# Task 6 — Deploy and Configure the Book Review Application
+
+## Goal
+
+Deploy and configure the Book Review App across the Web, Application, and Database tiers and verify the complete application functionality.
+
+## Evidence
+
+### Screenshot 20 — Homepage
+
+Add a screenshot showing the Book Review App homepage through the public endpoint.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 21 — Login or Authentication
+
+Add a screenshot showing successful login or authentication.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 22 — Book Data
+
+Add a screenshot showing the book listing or book details.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 23 — Review Functionality
+
+Add a screenshot showing the review functionality working successfully.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 24 — Backend or API Evidence
+
+Add a screenshot showing that the backend or API is working successfully.
+
+Add your screenshot here.
+
+---
+
+### Screenshot 25 — Database Reads and Writes
+
+Add a screenshot showing successful database reads and writes.
+
+Add your screenshot here.
+
+## Public Application URL
+
+**Public Application URL / DNS:** Add the working public application URL or load-balancer DNS here
+
+---
+
+# Task 7 — Demonstrate the Agentic AI Workflow
+
+## Goal
+
+Demonstrate how Claude Code assisted with Terraform generation, architecture and security review, and evidence-based troubleshooting while infrastructure-changing decisions remained under human control.
+
+You do not need to submit your complete Claude Code conversation history. Include only focused evidence.
+
+## Evidence
+
+### Screenshot 26 — AI-Assisted Terraform Generation
+
+Add a screenshot showing one useful example of AI-assisted Terraform generation or improvement.
+
+<!-- A5 AI capture 26 -->
+Recorded actual Claude Code Read/Edit output improved Terraform hostname limits. PostToolUse passed; 13 independent Terraform boundary tests passed. The session hit its budget limit before a final summary. This is a saved-output view, not a live terminal or deployment.
+
+![Recorded actual AI workflow for slot 26](terraform-book-review/evidence/screenshots/screenshot-26-ai-terraform.jpg)
+
+[Capture provenance](terraform-book-review/evidence/ai-capture-provenance-20260925.json) · [Findings and corrections](terraform-book-review/evidence/ai-workflow-20260925.md)
+<!-- /A5 AI capture -->
+
+---
+
+### Screenshot 27 — Architecture or Security Review
+
+Add a screenshot showing one structured architecture or security review result.
+
+<!-- A5 AI capture 27 -->
+Selected exact PASS/WARN/FAIL findings from the recorded Bedrock reviewer response, with operator follow-up. The 1,024-token response was truncated and then stopped at its CLI budget; it is a partial source review, not final architecture approval.
+
+![Recorded actual AI workflow for slot 27](terraform-book-review/evidence/screenshots/screenshot-27-ai-review.jpg)
+
+[Capture provenance](terraform-book-review/evidence/ai-capture-provenance-20260925.json) · [Findings and corrections](terraform-book-review/evidence/ai-workflow-20260925.md)
+<!-- /A5 AI capture -->
+
+---
+
+### Screenshot 28 — AI-Assisted Troubleshooting
+
+Add a screenshot showing one AI-assisted troubleshooting interaction based on collected evidence.
+
+<!-- A5 AI capture 28 -->
+Recorded Claude diagnosis of the verified archive failure and explicit operator correction. The first attempt made no edit; the second model patch failed raw-path tests and rejected the root directory. The corrected candidate passed 12 existing and seven new archive checks. Saved-output view; no deployment.
+
+![Recorded actual AI workflow for slot 28](terraform-book-review/evidence/screenshots/screenshot-28-ai-troubleshooting.jpg)
+
+[Capture provenance](terraform-book-review/evidence/ai-capture-provenance-20260925.json) · [Findings and corrections](terraform-book-review/evidence/ai-workflow-20260925.md)
+<!-- /A5 AI capture -->
+
+---
+
+# Task 8 — Complete the Final Architecture Review
+
+## Goal
+
+Review the completed infrastructure against the original capstone requirements and resolve significant architecture, security, reliability, and cost issues.
+
+Confirm that the final review covers:
+
+- Tier separation
+- Availability
+- Public exposure
+- Routing
+- Security rules
+- Load balancing
+- Database privacy
+- Secrets
+- Terraform quality
+- Module structure
+- Reliability
+- Obvious cost risks
+
+Use Screenshot 27 as the focused evidence for the structured architecture or security review.
+
+---
+
+# Task 9 — Answer the Reflection Questions
+
+## Goal
+
+Reflect on the architecture, Terraform implementation, and Agentic AI workflow. Answer each question briefly in your own words.
+
+<!-- A5 factual source notes -->
+**Factual source notes — Copilot-assisted, 19 September 2026; not learner answers:** The [existing architecture and tradeoffs](terraform-book-review/README.md#boundaries-and-tradeoffs) separate Web, App and database traffic using tier-specific security groups across six subnets in two AZs. Multi-AZ standby capacity addresses availability; the distinct asynchronous read replica is not that standby, and the unchanged application uses only the primary. The [source layout](terraform-book-review/README.md#source-layout-and-resource-inventory) has nine module directories and twelve root calls connected through inputs/outputs. These are proposed design properties, not live observations.
+
+The four attached source captures show inactive Copilot-authored context/agent definitions and module structure. They do not establish provided-kit provenance, Claude/MCP execution or a learner's decisions. The [recorded offline validation](terraform-book-review/evidence/offline-validation.json) is not a real cloud plan or deployment. All fifteen own-words reflection prompts below remain unanswered; the learner must supply genuine experience rather than adopt these notes as personal testimony.
+<!-- /A5 factual source notes -->
+
+## Architecture
+
+### 1. Why did you separate the Web, Application, and Database tiers?
+
+Write your answer here.
+
+### 2. Why is the Application Tier private?
+
+Write your answer here.
+
+### 3. Why is MySQL private?
+
+Write your answer here.
+
+### 4. Why are multiple Availability Zones used?
+
+Write your answer here.
+
+### 5. What is the difference between Multi-AZ/high availability and a read replica?
+
+Write your answer here.
+
+## Terraform
+
+### 6. How did you divide your Terraform into modules?
+
+Write your answer here.
+
+### 7. How do the modules communicate through variables and outputs?
+
+Write your answer here.
+
+### 8. What did you specifically check in `terraform plan`?
+
+Write your answer here.
+
+## Agentic AI
+
+### 9. What was the purpose of `CLAUDE.md`?
+
+Write your answer here.
+
+### 10. What work did the Terraform Engineer subagent perform?
+
+Write your answer here.
+
+### 11. What did the Architecture and Security Reviewer identify?
+
+Write your answer here.
+
+### 12. Why did you use Terraform MCP instead of relying only on Claude's existing Terraform knowledge?
+
+Write your answer here.
+
+### 13. What was the purpose of your validation hooks?
+
+Write your answer here.
+
+### 14. Describe one real issue Claude helped you troubleshoot.
+
+Write your answer here.
+
+### 15. Describe one recommendation you reviewed, modified, or rejected instead of accepting blindly.
+
+Write your answer here.
+
+---
+
+# Task 10 — Publish the Mandatory LinkedIn Post
+
+## Goal
+
+Publish a LinkedIn post describing the capstone, the technical work completed, the Agentic AI workflow, and the lessons learned.
+
+Write the post in your own words, include at least one project image or other proof, and ensure that it can be viewed by the submission reviewer.
+
+## LinkedIn Post URL
+
+**LinkedIn Post URL:** Add your LinkedIn post URL here
+
+---
+
+# Submission Instructions
+
+- Complete Tasks 0–10 in sequence.
+- Include all Screenshots 1–28 exactly as specified.
+- Ensure that your full name is visible in the required screenshots.
+- Include the selected cloud platform.
+- Include the completed architecture diagram.
+- Include the modular Terraform project structure.
+- Include the working public application URL or public load-balancer DNS.
+- Include all required Agentic AI workflow evidence.
+- Answer all 15 reflection questions briefly in your own words.
+- Include the published LinkedIn post URL.
+- Do not expose cloud credentials, database passwords, SSH private keys, JWT secrets, access tokens, account IDs, Terraform state containing sensitive values, or other confidential information.
+- Review all screenshots and project files carefully before submitting through GitHub.
+
+---
+
+# Completion Checklist
+
+- [ ] Selected AWS or Azure
+- [ ] Added and reviewed the Agentic AI starter files
+- [ ] Configured `CLAUDE.md`
+- [ ] Configured the Terraform Engineer subagent
+- [ ] Configured the Architecture and Security Reviewer subagent
+- [ ] Connected Terraform MCP
+- [ ] Configured validation hooks and safety guardrails
+- [ ] Created the architecture diagram
+- [ ] Created the six-subnet design
+- [ ] Configured public Web Tier routing
+- [ ] Kept the Application Tier private
+- [ ] Kept the Database Tier private
+- [ ] Configured tier-specific Security Groups or NSGs
+- [ ] Restricted backend port `3001`
+- [ ] Restricted MySQL port `3306` to the Application Tier
+- [ ] Created the public load balancer
+- [ ] Created the internal load balancer
+- [ ] Configured listeners and health checks
+- [ ] Deployed the Web Tier compute resources
+- [ ] Deployed the private Application Tier compute resources
+- [ ] Provisioned private managed MySQL
+- [ ] Configured Multi-AZ or high availability
+- [ ] Configured a read replica
+- [ ] Created the modular Terraform project
+- [ ] Used variables, outputs, and module dependencies
+- [ ] Used current Terraform documentation through MCP
+- [ ] Used hooks for deterministic validation
+- [ ] Completed `terraform fmt`
+- [ ] Completed `terraform validate`
+- [ ] Reviewed `terraform plan`
+- [ ] Completed the Terraform Engineer review
+- [ ] Completed the Architecture and Security review
+- [ ] Applied the infrastructure only after human approval
+- [ ] Deployed and configured the backend
+- [ ] Deployed and configured the frontend
+- [ ] Configured Nginx where required
+- [ ] Configured the internal backend endpoint
+- [ ] Configured the public frontend endpoint
+- [ ] Verified the homepage
+- [ ] Verified login or authentication
+- [ ] Verified book data
+- [ ] Verified review functionality
+- [ ] Verified the backend API
+- [ ] Verified database reads and writes
+- [ ] Verified healthy load-balancer targets
+- [ ] Included AI-assisted Terraform generation evidence
+- [ ] Included one architecture or security review
+- [ ] Included one AI-assisted troubleshooting example
+- [ ] Completed the final architecture review
+- [ ] Answered all 15 reflection questions
+- [ ] Published the mandatory LinkedIn post
+- [ ] Added the LinkedIn post URL
+- [ ] Captured all 28 required screenshots
+- [ ] Confirmed that my full name is visible in the required screenshots
+- [ ] Checked that no secrets or sensitive information are exposed
+
+---
+
+## About DMI & CloudAdvisory
+
+DevOps Micro Internship (DMI) is a project-based DevOps program run by Pravin Mishra (The CloudAdvisory), focused on real-world execution, systems thinking, and career readiness.
+
+It helps learners build strong DevOps foundations through hands-on experience.
+
+---
+
+## Resources
+
+- Book Review App Repository: [https://github.com/pravinmishraaws/book-review-app](https://github.com/pravinmishraaws/book-review-app)
+- DMI Official Website: [https://dmi.pravinmishra.com](https://dmi.pravinmishra.com)
+- University: [https://university.pravinmishra.com](https://university.pravinmishra.com)
+- Discord Community: [https://discord.pravinmishra.com](https://discord.pravinmishra.com)
+- Blog: [https://dmi.pravinmishra.com/blog](https://dmi.pravinmishra.com/blog)
+- YouTube Playlist: [https://www.youtube.com/playlist?list=PLFeSNDtI4Cho](https://www.youtube.com/playlist?list=PLFeSNDtI4Cho)
+- Pravin Mishra on LinkedIn: [https://www.linkedin.com/in/pravin-mishra-aws-trainer/](https://www.linkedin.com/in/pravin-mishra-aws-trainer/)
+- CloudAdvisory on LinkedIn: [https://www.linkedin.com/company/thecloudadvisory/](https://www.linkedin.com/company/thecloudadvisory/)
+
+---
+
+*This submission is part of the DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*

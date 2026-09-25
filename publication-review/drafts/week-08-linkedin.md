@@ -1,22 +1,28 @@
-Week 08 Terraform progress: four cloud runs now have verified deployments, application or VM checks, and complete cleanup.
+My DMI Week 08 Terraform capstone now has a working AWS Book Review app with verified HTTPS login, book data and persistent reviews.
 
-• Azure VM: 11/11 screenshots; eight resources created and destroyed, with VM-running, image, disk and IP verification.
-• AWS VM: 10/10 screenshots; EC2, SSH, Nginx, public HTTP and browser checks passed before teardown.
-• React on Azure: 15/15 screenshots; application, assets and routing checked, followed by verified teardown.
-• EpicBook on AWS/RDS: 34/35 captures; a real browser cart matched its database record, followed by verified removal of all 29 lab resources.
+The deployment spans two Availability Zones and six subnets: Web and private App tiers, load balancers, private encrypted Multi-AZ MySQL, and a separate read replica. An AWS-provided HTTPS entry point reaches the application through a restricted VPC path.
 
-Codex performed these approved runs under delegation. The recorded public addresses are retired. A1–A4 evidence is merged.
+What the evidence shows:
+• API registration/login/review tests passed; anonymous reviews and unsafe book writes were rejected.
+• A browser-submitted review survived reload. Independent database checks verified the API review on primary and replica, TLS 1.3 and rejection of incorrect CA/hostname values.
+• AWS confirmed a controlled Multi-AZ failover. The API briefly returned 503, then recovered with both reviews intact. The AZ label did not change, so the report preserves that limitation.
+• 100 Python tests and 45 Terraform mock tests passed, alongside the separate live checks.
 
-Assignment 6 adds a different lesson: a valid Terraform plan can still describe an unsafe change. A planning-only input proposed public SSH, the checker returned FAIL, and Claude Code recommended rejecting it. A native PreToolUse hook blocked an actual apply request before Terraform ran. AWS read-back confirmed the public SSH rule was never deployed.
+The attached proof also covers EpicBook's browser cart matching its RDS record and the policy-review exercise: a proposed public SSH rule failed policy checks, Claude recommended rejecting it, and a native hook blocked apply. The risky rule never reached AWS. Final review and cleanup were recorded.
 
-The recorded human decision retained the closed configuration. Copilot performed the final checks and cleanup. Its Terraform execution was delegated; the separate manual learner execution requirement remains open.
+Codex performed the approved capstone/cloud/browser operations; Claude Code used Amazon Bedrock for improvements, troubleshooting and named-role reviews. Earlier policy-lab Terraform execution was delegated to Copilot. These are assisted results, not a claim of manual learner execution.
 
-The repository includes the detected-change report and final recorded Claude review. Across Week 08, 104/118 screenshot slots are filled. A4 still needs its separate checkout/order requirement and publication; A5 now has a Bedrock-driven MCP lookup, six-stage offline validation and live configuration/validation captures. Recorded AI improvement, troubleshooting and a partial review now have evidence; deployment, final review and personal reflections remain open. A4 capture limitations are documented. This is a progress update, not a whole-week completion claim.
+The practical lesson: a successful apply is not the finish line. Test the real request path, verify persistence and recovery, review AI suggestions, and plan cleanup.
 
-The takeaway: connect each claim to its evidence—plan, review, decision, runtime result and cleanup.
+Limits remain visible: EpicBook's instructor app has no order-creation endpoint; A6's manual-execution requirement remains open. The capstone stays online at my request until cleanup, with ongoing AWS charges. This is not a whole-week completion claim.
 
-Thank you to Pravin Mishra, Anjana Muthunayake, Tanisha Borana and Anuradha Iyer for the cohort's guidance.
+Article: https://medium.com/@rosenaefavour/from-terraform-plans-to-a-working-aws-book-review-app-27a81b45dedb
+Demo: https://xdr0flp20e.execute-api.us-east-1.amazonaws.com
+Evidence: https://github.com/Favourcloud/devops-micro-internship-pravinmishra
 
-P.S. This post is part of the DevOps Micro Internship (DMI) with Agentic AI — Cohort 3 — by Pravin Mishra. My graded progress is public: https://dmi.pravinmishra.com/s/Favourcloud.html · Start your DevOps journey: https://dmi.pravinmishra.com/?utm_source=student&utm_medium=ps-linkedin&utm_campaign=cohort3
+Thank you to Pravin Mishra and the cohort mentors.
 
-#DMIByPravinMishra #DevOps #AgenticAI #Terraform #ClaudeCode
+P.S. This post is part of the DevOps Micro Internship (DMI) with Agentic AI — Cohort 3 by Pravin Mishra. My graded progress: https://dmi.pravinmishra.com/s/Favourcloud.html
+Start your DevOps journey: https://dmi.pravinmishra.com/?utm_source=student&utm_medium=ps-linkedin&utm_campaign=cohort3
+
+#DMIByPravinMishra #DevOps #Terraform #AWS #ClaudeCode #AgenticAI

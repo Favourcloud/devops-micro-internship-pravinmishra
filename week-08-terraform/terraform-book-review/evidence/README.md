@@ -1,3 +1,7 @@
+# A5 evidence — current deployment and historical records
+
+**25 September 2026:** All 28 numbered slots contain original captures. The [deployed release report](deployment-20260925/README.md) adds the actual AWS, API, browser, database, recovery and completed final-review evidence. [Source and architecture](../releases/2026-09-25-aws/README.md) are separated from the preserved captured baseline. Recorded evidence viewers, assisted execution, historical configuration images and rubric limitations are disclosed. The sections below retain earlier capture history; their old pending statements describe those snapshots.
+
 # Genuine source and workflow evidence — 12 of 28 slots
 
 The original four **unmodified PNGs** show reviewed source at commit **`23748110108196f26c1394830a48af5317f7ca22`**. They do not show the later evidence/documentation commit, deployed infrastructure, a running application, active Claude agents, a provided starter kit, or manual learner execution. The operator was GitHub Copilot under user delegation.

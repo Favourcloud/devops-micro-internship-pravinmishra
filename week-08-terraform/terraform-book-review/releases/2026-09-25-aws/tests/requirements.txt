@@ -1,0 +1,3 @@
+# Offline actual-driver regressions only; not an application dependency update.
+# PyPI wheel: PyMySQL-1.1.1-py3-none-any.whl (44,972 bytes).
+PyMySQL==1.1.1 --hash=sha256:4de15da4c61dc132f4fb9ab763063e693d521a80fd0e87943b9a453dd4c19d6c

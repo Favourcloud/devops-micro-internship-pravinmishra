@@ -1,4 +1,4 @@
-"""Focused local evidence checks; no network, GUI, cloud or runtime execution."""
+"""Historical prepublication evidence checks; current publication is verified separately."""
 from datetime import datetime
 import hashlib
 import json
@@ -10,7 +10,7 @@ from urllib.parse import unquote
 import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
-BRIEF = ROOT.parent / 'assignment-04-deploy-epicbook-application-on-aws-using-terraform.md'
+BRIEF = ROOT.parent / 'publication/historical-a4-prepublication-brief.md'
 EVIDENCE = ROOT / 'evidence'
 SOURCE_HEAD = '7c0005592f167730edb0ec3f56bf29324af6a031'
 SOURCE_HASHES_DIGEST = 'e7711fdb2bd13c7283060c1de3860785f451ea4257c6f59d2181173f25c977a2'
@@ -157,7 +157,7 @@ class EvidenceTests(unittest.TestCase):
         for path in [BRIEF, ROOT / 'README.md', EVIDENCE / 'local-validation.md', EVIDENCE / 'preflight-20260924.md']:
             for target in re.findall(r'\]\(([^)]+)\)', path.read_text()):
                 if '://' not in target and not target.startswith('#'):
-                    self.assertTrue((path.parent / unquote(target.split('#')[0])).exists(), str(path) + ': ' + target)
+                    self.assertTrue(((ROOT.parent if path == BRIEF else path.parent) / unquote(target.split('#')[0])).exists(), str(path) + ': ' + target)
 
     def test_brief_images_match_slots_and_qualified_captions(self):
         sections = re.split(r'^### Screenshot \d+ — .+$', BRIEF.read_text(), flags=re.M)[1:]

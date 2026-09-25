@@ -1,3 +1,5 @@
+**Current inventory, 25 September 2026:** 118/118 numbered slots are occupied: A1 11, A2 10, A3 15, A4 35, A5 28, A6 19. [A5 deployment captures](../terraform-book-review/evidence/deployment-20260925/README.md) and [actual published-post captures](../publication/README.md) complete the later additions. Original historical records below remain preserved; image count does not waive manual-execution or capture-scope requirements.
+
 # Week 08 screenshot index
 
 The original evidence remains in each project's directory. Use the assignment documents to match each image to its numbered requirement and read the manifests for capture scope.
