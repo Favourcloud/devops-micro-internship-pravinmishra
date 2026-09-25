@@ -1,0 +1,7 @@
+{
+  "time": "20260925T095144089009Z",
+  "label": "a2-nginx-active",
+  "exit_code": 0,
+  "stdout_sha256": "c0f744a0de4cca92be95e1fbb8683643e04725fd3702abb5657e62cd0460eb08",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

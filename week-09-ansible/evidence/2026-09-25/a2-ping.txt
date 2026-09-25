@@ -1,0 +1,17 @@
+RECORDED REAL COMMAND OUTPUT — Eze Favour; operator Codex
+db1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+web1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+web2 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+app1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}

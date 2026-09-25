@@ -1,0 +1,12 @@
+PLAY RECAP *********************************************************************
+2026-09-25T17:31:12.4839629Z epicbook_backend           : ok=38   changed=0    unreachable=0    failed=0    skipped=19   rescued=0    ignored=0   
+2026-09-25T17:31:12.4839880Z epicbook_frontend          : ok=9    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25T17:31:12.4840110Z localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25T17:31:12.4840200Z 
+2026-09-25T17:31:12.4840254Z 
+2026-09-25T17:31:12.4840414Z [WARNING]: Unable to use /nonexistent/.ansible/tmp as temporary directory,
+2026-09-25T17:31:12.4840613Z failing back to system: [Errno 13] Permission denied: '/nonexistent'
+2026-09-25T17:31:12.4840769Z 
+2026-09-25T17:31:12.4841272Z Eze Favour — both hosts verified; unchanged second run changed=0.
+2026-09-25T17:31:12.4841404Z 
+2026-09-25T17:31:12.4854816Z ##[section]Finishing: Deploy two hosts, verify TLS and repeat for idempotence

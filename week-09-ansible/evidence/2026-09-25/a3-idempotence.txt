@@ -1,0 +1,117 @@
+RECORDED REAL COMMAND OUTPUT — Eze Favour; operator Codex
+
+PLAY [Install and start Nginx on the two web hosts] ****************************
+
+TASK [Require current approval and a configured two-host inventory before SSH] ***
+ok: [web1] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [web2] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Install Nginx with a cached package index] *******************************
+ok: [web2]
+ok: [web1]
+
+TASK [Start and enable Nginx] **************************************************
+ok: [web1]
+ok: [web2]
+
+PLAY [Deploy the personalized static website] **********************************
+
+TASK [Require approval again before deployment] ********************************
+ok: [web1] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [web2] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Copy the website and its local assets] ***********************************
+ok: [web1] => (item=index.html)
+ok: [web2] => (item=index.html)
+ok: [web1] => (item=contact.html)
+ok: [web2] => (item=contact.html)
+ok: [web1] => (item=style.css)
+ok: [web2] => (item=style.css)
+
+PLAY [Verify both websites from the controller] ********************************
+
+TASK [Require approval and complete inventory before controller HTTP requests] ***
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Request each deployed home page without proxying or following redirects] ***
+ok: [localhost] => (item=web1)
+ok: [localhost] => (item=web2)
+
+TASK [Assert HTTP success and personalized content on each server] *************
+ok: [localhost] => (item=web1) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "accept_ranges": "bytes",
+        "ansible_loop_var": "item",
+        "attempts": 1,
+        "changed": false,
+        "connection": "close",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>CodeTrack - DevOps Micro Internship</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <div class=\"container\">\n    <header>\n      <h1>CodeTrack</h1>\n      <p class=\"tagline\">Track Your Code. Track Your Growth.</p>\n    </header>\n\n    <main>\n      <section class=\"hero\">\n        <h2>Welcome to CodeTrack</h2>\n        <p>Student: <strong>Eze Favour</strong></p>\n        <p>Group: <strong>Group 1</strong></p>\n        <p class=\"description\">\n          CodeTrack is a learning project for the DevOps Micro Internship.\n        </p>\n        <a href=\"contact.html\" class=\"cta-button\">Contact Us</a>\n      </section>\n    </main>\n\n    <footer>\n      <p>© 2026 CodeTrack — DMI Cohort 3</p>\n      <p>Deployed by Eze Favour — Week 09 multi-host lab</p>\n    </footer>\n  </div>\n</body>\n</html>\n",
+        "content_length": "948",
+        "content_type": "text/html",
+        "cookies": {},
+        "cookies_string": "",
+        "date": "Fri, 25 Sep 2026 09:59:12 GMT",
+        "elapsed": 0,
+        "etag": "\"6ab6457c-3b4\"",
+        "failed": false,
+        "item": "web1",
+        "last_modified": "Fri, 25 Sep 2026 09:57:16 GMT",
+        "msg": "OK (948 bytes)",
+        "redirected": false,
+        "server": "nginx/1.18.0 (Ubuntu)",
+        "status": 200,
+        "url": "http://20.68.148.122/"
+    },
+    "msg": "web1 returned HTTP 200 with Eze Favour and the lab marker."
+}
+ok: [localhost] => (item=web2) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "accept_ranges": "bytes",
+        "ansible_loop_var": "item",
+        "attempts": 1,
+        "changed": false,
+        "connection": "close",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>CodeTrack - DevOps Micro Internship</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <div class=\"container\">\n    <header>\n      <h1>CodeTrack</h1>\n      <p class=\"tagline\">Track Your Code. Track Your Growth.</p>\n    </header>\n\n    <main>\n      <section class=\"hero\">\n        <h2>Welcome to CodeTrack</h2>\n        <p>Student: <strong>Eze Favour</strong></p>\n        <p>Group: <strong>Group 1</strong></p>\n        <p class=\"description\">\n          CodeTrack is a learning project for the DevOps Micro Internship.\n        </p>\n        <a href=\"contact.html\" class=\"cta-button\">Contact Us</a>\n      </section>\n    </main>\n\n    <footer>\n      <p>© 2026 CodeTrack — DMI Cohort 3</p>\n      <p>Deployed by Eze Favour — Week 09 multi-host lab</p>\n    </footer>\n  </div>\n</body>\n</html>\n",
+        "content_length": "948",
+        "content_type": "text/html",
+        "cookies": {},
+        "cookies_string": "",
+        "date": "Fri, 25 Sep 2026 09:59:14 GMT",
+        "elapsed": 0,
+        "etag": "\"6ab6457a-3b4\"",
+        "failed": false,
+        "item": "web2",
+        "last_modified": "Fri, 25 Sep 2026 09:57:14 GMT",
+        "msg": "OK (948 bytes)",
+        "redirected": false,
+        "server": "nginx/1.18.0 (Ubuntu)",
+        "status": 200,
+        "url": "http://51.132.24.18/"
+    },
+    "msg": "web2 returned HTTP 200 with Eze Favour and the lab marker."
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+web1                       : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+web2                       : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

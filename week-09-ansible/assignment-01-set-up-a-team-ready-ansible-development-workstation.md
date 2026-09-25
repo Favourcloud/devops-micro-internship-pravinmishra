@@ -1,5 +1,7 @@
 # Assignment 01 — Set Up a Team-Ready Ansible Development Workstation
 
+**Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
+
 Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 ---
@@ -63,6 +65,9 @@ Create the assignment workspace, initialize a Git repository, prepare the requir
 
 #### Screenshot 1 — Terminal showing the `ansible-onboarding` path, `ls -la` output, and `git status` confirming the Git repository is on the `main` branch
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 ![Screenshot 1: Actual controller on main: ansible-onboarding path, ls -la, git status](screenshots/assignment-01-01-controller-main.png)
 
 Actual persistent controller on local `main`; its existing staged and unstaged work is preserved. Path prefixes and file ownership are hidden before display.
@@ -78,6 +83,9 @@ Create an isolated Python virtual environment and install Ansible and the requir
 ### Evidence
 
 #### Screenshot 2 — Terminal showing the active `(.venv)` environment, `which ansible`, `ansible --version`, `ansible-lint --version`, `yamllint --version`, and `pre-commit --version`
+
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
 
 ![Screenshot 2: Active virtual environment, which ansible, and all four tool versions](screenshots/assignment-01-02-virtual-environment.png)
 
@@ -95,6 +103,9 @@ Configure Visual Studio Code to use the project’s Python virtual environment a
 
 #### Screenshot 3 — VS Code Extensions panel showing the Ansible, YAML, and Python extensions installed
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 ![Screenshot 3: Genuine VS Code Extensions panel: Ansible, YAML and Python installed](screenshots/assignment-01-03-installed-extensions.png)
 
 Installed Ansible, YAML and Python extensions in genuine Visual Studio Code.
@@ -102,6 +113,9 @@ Installed Ansible, YAML and Python extensions in genuine Visual Studio Code.
 ---
 
 #### Screenshot 4 — VS Code showing `.vscode/settings.json` and `.editorconfig` open side by side, with the required settings clearly visible
+
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
 
 ![Screenshot 4: VS Code settings.json and .editorconfig side by side](screenshots/assignment-01-04-editor-settings.png)
 
@@ -127,6 +141,9 @@ Create a reusable `ansible.cfg` file containing the default settings that will b
 
 #### Screenshot 5 — `ansible.cfg` open in VS Code or another editor, showing the complete configuration
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 ![Screenshot 5: Complete ansible.cfg in the editor](screenshots/assignment-01-05-ansible-configuration.png)
 
 Complete project `ansible.cfg`, including host-key checking, no default escalation and no agent forwarding.
@@ -134,6 +151,9 @@ Complete project `ansible.cfg`, including host-key checking, no default escalati
 ---
 
 #### Screenshot 6 — Terminal showing `ansible --version` with the `ansible.cfg` path and the output of `ansible-config dump --only-changed`
+
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
 
 ![Screenshot 6: Ansible version/config path and ansible-config dump --only-changed](screenshots/assignment-01-06-effective-configuration.png)
 
@@ -151,6 +171,9 @@ Prepare SSH key authentication, load the key into the SSH agent, configure reusa
 
 #### Screenshot 7 — Terminal showing `ssh-add -l` with the ED25519 key loaded and the SSH configuration verification output
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 ![Screenshot 7: Loaded Ed25519 agent identity and verified SSH settings](screenshots/assignment-01-07-ssh-readiness.png)
 
 The existing Ed25519 key is loaded and matches the Week 09 public key. Fingerprint/comment are hidden; `ssh -G` makes no remote connection.
@@ -166,6 +189,9 @@ Configure your Git identity and install pre-commit hooks that validate YAML and 
 ### Evidence
 
 #### Screenshot 8 — Terminal showing your Git full name, Git email, default branch, successful `pre-commit install` output, and `.git/hooks/pre-commit`
+
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
 
 ![Screenshot 8: Git full name/email/default branch, actual hook installation and hook file](screenshots/assignment-01-08-git-and-hooks.png)
 
@@ -183,6 +209,9 @@ Verify that Ansible, the linting tools, Git hooks, SSH agent, and Git ignore rul
 
 #### Screenshot 9 — Terminal showing `pre-commit run --all-files` completing successfully
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 ![Screenshot 9: pre-commit run --all-files succeeds in the actual controller](screenshots/assignment-01-09-pre-commit-checks.png)
 
 Actual `pre-commit run --all-files` in the persistent controller; both project hooks pass.
@@ -190,6 +219,9 @@ Actual `pre-commit run --all-files` in the persistent controller; both project h
 ---
 
 #### Screenshot 10 — Terminal showing `ansible --version` with the project configuration path and `ssh-add -l` with the ED25519 key loaded
+
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
 
 ![Screenshot 10: Ansible project configuration and loaded Ed25519 key together](screenshots/assignment-01-10-combined-readiness.png)
 
@@ -207,6 +239,9 @@ Document the completed Ansible workstation setup and create a reusable checklist
 
 #### Screenshot 11 — Terminal showing the final `ansible-onboarding` project structure
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 ![Screenshot 11: Final ansible-onboarding project structure](screenshots/assignment-01-11-project-structure.png)
 
 Actual final project entries generated from the filesystem. Local-only environment/cache directory contents are excluded and explicitly identified.
@@ -214,6 +249,9 @@ Actual final project entries generated from the filesystem. Local-only environme
 ---
 
 #### Screenshot 12 — VS Code Markdown preview showing your full name, project summary, and part of the “New Machine? Do This” checklist
+
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
 
 ![Screenshot 12: Markdown preview with Eze Favour, summary and onboarding checklist](screenshots/assignment-01-12-readme-preview.png)
 
@@ -336,3 +374,7 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) — Agentic AI Track.*
+
+### 25 September publication
+
+[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.

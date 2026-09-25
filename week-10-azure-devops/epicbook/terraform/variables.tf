@@ -135,3 +135,18 @@ variable "approval" {
     error_message = "Supply a current whole-window estimate within a separately approved positive A4 allowance; neither is a billing cap."
   }
 }
+variable "use_managed_identity" {
+  type        = bool
+  default     = false
+  description = "Use the dedicated Azure agent's scoped managed identity instead of workload federation."
+}
+
+variable "resource_location" {
+  type = string
+  default = "swedencentral"
+  description = "Preflighted deployment region; resource-group metadata remains UK South."
+  validation {
+    condition = contains(["swedencentral", "northeurope", "westeurope", "eastus", "uksouth"], var.resource_location)
+    error_message = "Use a region whose compute and MySQL availability were checked."
+  }
+}

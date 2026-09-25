@@ -1,0 +1,123 @@
+---
+- name: Install MySQL client and Python TLS-capable driver
+  ansible.builtin.apt:
+    name: [mysql-client, python3-pymysql]
+    state: present
+    lock_timeout: 120
+
+- name: Ensure the private migration directory exists
+  ansible.builtin.file:
+    path: /var/lib/epicbook-bootstrap
+    state: directory
+    owner: root
+    group: root
+    mode: "0700"
+
+- name: Inspect the managed database migration marker
+  ansible.builtin.stat:
+    path: /var/lib/epicbook-bootstrap/managed-mysql.migrated
+  register: epicbook_managed_marker
+
+- name: Migrate and verify the managed database using encrypted transport
+  no_log: true
+  when: not ansible_check_mode
+  block:
+    - name: Inspect the target schema before migration
+      ansible.mysql.mysql_query:
+        login_host: "{{ app_db_host }}"
+        login_user: epicadmin
+        login_password: "{{ vault_epicbook_mysql_admin_password }}"
+        config_file: ""
+        ca_cert: /etc/ssl/certs/ca-certificates.crt
+        check_hostname: true
+        query: SELECT COUNT(*) AS n FROM information_schema.tables WHERE table_schema = 'bookstore'
+      register: managed_tables
+      changed_when: false
+
+    - name: Refuse overwriting an unrecognized existing managed database
+      ansible.builtin.assert:
+        that:
+          - epicbook_managed_marker.stat.exists or managed_tables.query_result[0][0].n | int == 0
+
+    - name: Pause the demo during the one-time consistent migration
+      ansible.builtin.systemd_service:
+        name: epicbook
+        state: stopped
+      when: not epicbook_managed_marker.stat.exists
+
+    - name: Preserve the local catalogue and synthetic orders in a private database export
+      ansible.mysql.mysql_db:
+        name: "{{ app_db_name }}"
+        state: dump
+        target: /var/lib/epicbook-bootstrap/managed-migration.sql
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+        config_file: ""
+        single_transaction: true
+        dump_extra_args: --skip-add-drop-table --no-tablespaces --set-gtid-purged=OFF
+      when: not epicbook_managed_marker.stat.exists
+
+    - name: Import preserved records into the empty private managed database
+      ansible.mysql.mysql_db:
+        name: "{{ app_db_name }}"
+        state: import
+        target: /var/lib/epicbook-bootstrap/managed-migration.sql
+        login_host: "{{ app_db_host }}"
+        login_user: epicadmin
+        login_password: "{{ vault_epicbook_mysql_admin_password }}"
+        config_file: ""
+        ca_cert: /etc/ssl/certs/ca-certificates.crt
+        check_hostname: true
+      when: not epicbook_managed_marker.stat.exists
+
+    - name: Verify managed catalogue rows and encrypted connection
+      ansible.mysql.mysql_query:
+        login_host: "{{ app_db_host }}"
+        login_user: epicadmin
+        login_password: "{{ vault_epicbook_mysql_admin_password }}"
+        config_file: ""
+        ca_cert: /etc/ssl/certs/ca-certificates.crt
+        check_hostname: true
+        login_db: "{{ app_db_name }}"
+        query:
+          - SELECT COUNT(*) AS books FROM Book
+          - SHOW SESSION STATUS LIKE 'Ssl_cipher'
+      register: managed_verified
+      changed_when: false
+
+    - name: Require real data and a TLS cipher before recording success
+      ansible.builtin.assert:
+        that:
+          - managed_verified.query_result[0][0].books | int > 0
+          - managed_verified.query_result[1][0].Value | length > 0
+
+    - name: Record the verified migration without storing credentials in the marker
+      ansible.builtin.copy:
+        dest: /var/lib/epicbook-bootstrap/managed-mysql.migrated
+        content: "Managed MySQL migration verified; existing catalogue and synthetic orders preserved.\n"
+        owner: root
+        group: root
+        mode: "0600"
+
+  rescue:
+    - name: Restore the existing demo service after a migration failure
+      ansible.builtin.systemd_service:
+        name: epicbook
+        state: started
+    - name: Stop on an incomplete migration without changing the runtime database
+      ansible.builtin.fail:
+        msg: Managed migration failed; prior demo runtime restored for diagnosis.
+
+- name: Grant the runtime account privileges on only the application database
+  ansible.mysql.mysql_user:
+    name: "{{ app_db_user }}"
+    host: "%"
+    password: "{{ vault_epicbook_db_password }}"
+    priv: "{{ app_db_name }}.*:SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,INDEX,REFERENCES"
+    state: present
+    login_host: "{{ app_db_host }}"
+    login_user: epicadmin
+    login_password: "{{ vault_epicbook_mysql_admin_password }}"
+    config_file: ""
+    ca_cert: /etc/ssl/certs/ca-certificates.crt
+    check_hostname: true
+  no_log: true

@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-09-25T18:41:11.083453+00:00",
+  "method": "Public HTTP GET; no credentials or mutation",
+  "results": [
+    {
+      "name": "w08-book-review",
+      "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/",
+      "status": 200,
+      "body_sha256": "9c770e36277538d2c1ba65891e99902120f17f9a3ceace010bdc1da111b44c6d",
+      "bytes": 6210
+    },
+    {
+      "name": "w09-mini-finance",
+      "url": "http://135.116.197.163/",
+      "status": 200,
+      "body_sha256": "5238efc7eab2fa89ee6fad92a4d6999262260deb1d45038a7ce3fc3a24fc4338",
+      "bytes": 32108
+    },
+    {
+      "name": "w09-epicbook",
+      "url": "http://20.77.180.238/",
+      "status": 200,
+      "body_sha256": "aeac136dff3dc65f4cfa1f0c7ae3055768043aa2a1d8d17b32e486d0af69ae51",
+      "bytes": 25047
+    },
+    {
+      "name": "w10-static",
+      "url": "http://100.54.219.171/",
+      "status": 200,
+      "body_sha256": "f3eb857ae4f6a3778f3e7f135d10baaf64f752076655f92c17354403c2a6682f",
+      "bytes": 15973
+    },
+    {
+      "name": "w10-react",
+      "url": "http://20.108.9.183/",
+      "status": 200,
+      "body_sha256": "c30397890cd5ebfa50232ed3d4971721c6eda822927262b8556be456a3996e2f",
+      "bytes": 644
+    },
+    {
+      "name": "w10-epicbook",
+      "url": "http://51.107.188.80/",
+      "status": 200,
+      "body_sha256": "f5a08fe1150b0d93339815b760c52519556210642eea8cef4003109b59ee2e7f",
+      "bytes": 25047
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+trigger: none
+pr: none
+parameters:
+  - name: mode
+    type: string
+    default: plan
+    values: [plan, apply]
+  - name: planRunId
+    type: number
+    default: 0
+  - name: approvedPlanSha256
+    type: string
+    default: ''
+variables:
+  - group: DMI-EpicBook-Infra
+pool:
+  name: DMI-Week10-A1
+  demands:
+    - Agent.OS -equals Linux
+steps:
+  - checkout: self
+    persistCredentials: false
+    clean: true
+  - ${{ if eq(parameters.mode, 'apply') }}:
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          buildType: specific
+          project: $(System.TeamProject)
+          definition: $(System.DefinitionId)
+          buildVersionToDownload: specific
+          pipelineId: '${{ parameters.planRunId }}'
+          artifactName: reviewed-plan
+          targetPath: $(Pipeline.Workspace)/reviewed-plan
+  - task: AzureCLI@2
+    displayName: Terraform ${{ parameters.mode }} using scoped managed identity
+    inputs:
+      azureSubscription: $(azureServiceConnection)
+      scriptType: bash
+      scriptLocation: inlineScript
+      visibleAzLogin: false
+      inlineScript: |
+        set -euo pipefail
+        python3 ci/infra.py
+    env:
+      DMI_TF_INPUTS: $(terraformInputs)
+      DMI_TF_BACKEND: $(terraformBackend)
+      TF_VAR_mysql_admin_password: $(mysqlAdminPassword)
+      DMI_MODE: ${{ parameters.mode }}
+      DMI_PLAN_SHA256: ${{ parameters.approvedPlanSha256 }}
+      DMI_PLAN_DIR: $(Pipeline.Workspace)/reviewed-plan
+      DMI_ARTIFACT_DIR: $(Build.ArtifactStagingDirectory)/reviewed-plan
+      ARM_USE_MSI: 'true'
+      ARM_USE_OIDC: 'false'
+  - ${{ if eq(parameters.mode, 'plan') }}:
+      - task: PublishPipelineArtifact@1
+        displayName: Save private plan for explicit operator review
+        inputs:
+          targetPath: $(Build.ArtifactStagingDirectory)/reviewed-plan
+          artifact: reviewed-plan

@@ -1,18 +1,16 @@
 # Week 09 Assignment 2 — Azure four-host ad-hoc lab
 
-**Learner:** Eze Favour. **Status:** partial genuine runtime evidence; infrastructure deleted and cleanup verified. Coursework is **not complete**.
+**Learner:** Eze Favour. **Current result, 25 September 2026:** the fresh four-VM lab completed SSH/cloud-init verification, Ansible ping on all four hosts, uptime, htop installation and Nginx installation/service checks. Assignment 3 reused web1/web2. All 23 lab resources were subsequently deleted.
 
-Azure only: four Ubuntu 22.04 hosts named `web1`, `web2`, `app1`, `db1`. Assignment 3 targets **these same two web hosts**; no extra servers were created. The app/db names are inventory roles, not installed application/database services. The coordinator performed the separately approved apply, authenticated host-key trust, existing-key SSH hostname checks, inventory rendering and cloud-init readiness. Ansible ping then failed locally before managed tasks; later ad-hoc commands and A3 deployment were not run. Copilot assisted implementation, diagnosis, validation and evidence preparation; these records do not invent learner-operated actions or firsthand reflection.
+Codex operated under the learner’s explicit delegation. The app1/db1 names are inventory roles, not installed application/database services. [Current evidence](../evidence/2026-09-25/README.md), [ping](../evidence/2026-09-25/a2-ping.txt), [cleanup](../evidence/2026-09-25/a2-cleanup.json), and [numbered capture map](../evidence/2026-09-25/screenshot-map.md). Exact native screenshot requirements are distinguished from labeled recorded-output views; the initial dirty-status moment cannot be recreated.
 
-On **16 September 2026**, the coordinator applied the exact **23-create** plan bound to source `4fa07f3adc0b0a66a50e8148f25c4b5e214e5b08`. The approved runtime stopped after the callback failure. Separately reviewed teardown deleted **23 Terraform resources**; **16 checks** verified resource-group/VM/OS-disk/public-IP absence and empty persistent state/outputs at **21:53:43 UTC**, before the original **22:22:02 UTC** deadline. [runtime-validation.json](runtime-validation.json) binds the actual plan, outcomes, logs, state hashes and private local-only correction. No zero-charge claim is made. All execution approvals are retired: **do not contact former IPs or reuse old plans/inventories**.
+The September 16 callback failure and cleanup remain immutable history in [runtime-validation.json](runtime-validation.json) and the [earlier README](../evidence/before-20260925/ansible-adhoc-lab-README.md). They are not the result of the successful September 25 continuation.
 
-Genuine captures cover A2 slots **1, 3, 4, 5, 6, 7, 9, 10, 11**. Slots **2, 8, 12–17** and LinkedIn remain pending; the failed-ping image is supplemental failure evidence, not slot 12 success. Slot 2's historical dirty status was never captured; slot 8 has no Portal image.
+## Execution boundary
 
-## Approval and safety boundary
+The successful continuation used fresh reviewed outputs and verified host fingerprints. The default `live_execution_approved=false` and `--approved` interlocks prevent accidental execution; they do not replace operator authorization. No retired IP, old plan or historical approval file is a current runtime input. Credentials, private keys, cloud state and private inventories remain excluded from Git. No zero-charge claim is made.
 
-The historical AWS enrollment expired at `2026-09-16T13:30Z`; it is not silently renewed. The coordinator relayed user approval of **US$5 total across temporary Week 09 labs**, allocating **at most US$2 and two hours after apply to A2+A3**, with teardown after evidence. The authorized non-root AWS identity lacks EC2 permissions, so the coordinator selected **Azure only**. Current Azure identity, exact plan, capacity and execution window still require review. An allowance is not a hard billing cap or approval of an unreviewed apply. Never fall back to AWS root/default credentials, change Azure RBAC/provider registrations, IAM/billing, credentials, global SSH/Git settings or other coursework.
-
-`live_execution_approved=false` is the Terraform default. `scripts/lab.py` requires explicit `--approved` for rendering and managed-host operations. A3 has assertions before any remote module. These are accidental-execution interlocks, **not** authorization or a hard spending cap. Do not bypass them for screenshots. No key generation, agent restart, new environment installation or LinkedIn publication is part of this lab.
+The sections below retain the reusable source/runbook, including explicitly historical receipts. Current completion status is the evidence index above.
 
 ## Layout and architecture
 

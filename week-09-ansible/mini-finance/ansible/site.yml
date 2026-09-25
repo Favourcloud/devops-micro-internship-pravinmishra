@@ -98,6 +98,23 @@
         owner: root
         group: root
         mode: 'u=rwX,go=rX'
+        creates: "/opt/mini-finance/{{ mini_finance_revision }}.unpacked"
+      notify: Reload Mini Finance
+
+    - name: Record the completed upstream extraction
+      ansible.builtin.copy:
+        dest: "/opt/mini-finance/{{ mini_finance_revision }}.unpacked"
+        content: "{{ mini_finance_revision }}\n"
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Add learner attribution while preserving the template author credit
+      ansible.builtin.lineinfile:
+        path: "{{ mini_finance_release }}/index.html"
+        insertbefore: '</body>'
+        line: '<footer style="padding:16px;text-align:center">Eze Favour · DMI Week 09 · Assisted deployment · 25 September 2026 · Static demonstration</footer>'
+        state: present
       notify: Reload Mini Finance
 
     - name: Inspect required public release paths without following symlinks

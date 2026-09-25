@@ -6,15 +6,39 @@
   "pilot_capture_manifest": "pilot-captures.json",
   "corrected_source_capture_manifest": "corrected-source-captures.json",
   "source_capture_review": {
-    "historical_epicbook_slots": ["10a", "10b", "10c"],
+    "historical_epicbook_slots": [
+      "10a",
+      "10b",
+      "10c"
+    ],
     "reason": "Original PNGs and source-captures.json remain immutable history. The deployed Git metadata bug was corrected after verified cleanup; these images do not show the corrected role.",
     "corrected_source_file": "week-09-ansible/epicbook-prod/ansible/roles/epicbook/tasks/main.yml",
     "corrected_source_sha256": "f35f24479485f49a0f62e72d798f3a974d3ec1d68fac2cd38fad06d4608b71e3",
-    "replacement_capture_ranges": [[1, 28], [30, 61], [63, 89]],
+    "replacement_capture_ranges": [
+      [
+        1,
+        28
+      ],
+      [
+        30,
+        61
+      ],
+      [
+        63,
+        89
+      ]
+    ],
     "replacement_capture_status": "captured-source-only; exact working-tree snapshot, not the unchanged HEAD at capture",
     "replacement_capture_manifest": "corrected-source-captures.json",
-    "unchanged_source_slots": [3, 6, 7, 8, 11],
-    "tree_scope": "Original slot1 is a genuine historical 43-file tree, not the final corrected project file count."
+    "unchanged_source_slots": [
+      3,
+      6,
+      7,
+      8,
+      11
+    ],
+    "tree_scope": "Original slot1 is a genuine historical 43-file tree, not the final corrected project file count.",
+    "continuation_note": "The25September managed runtime changes site.yml and adds deployment/database tasks. All original captures remain bound to their recorded source_commit; they do not show the new runtime."
   },
   "last_local_validation_utc": "2026-09-16T22:03:03Z",
   "selected_cloud": "Azure only",
@@ -43,7 +67,10 @@
     "ingress": "Controller IPv4 /32 TCP22, Internet TCP80, explicit deny other inbound",
     "boot": "Secure Boot, vTPM and managed boot diagnostics",
     "provider": "hashicorp/azurerm 4.47.0; registration disabled; lockfile retained",
-    "outputs": ["public_ip", "admin_user"],
+    "outputs": [
+      "public_ip",
+      "admin_user"
+    ],
     "pilot_allocation_succeeded": true,
     "future_capacity_guaranteed": false
   },
@@ -75,16 +102,46 @@
       "npm": "10.9.8"
     },
     "commands": [
-      {"command": "terraform -chdir=terraform/azure fmt -check -recursive", "result": "passed"},
-      {"command": "terraform -chdir=terraform/azure init -backend=false -input=false -lockfile=readonly -plugin-dir=<read-only-mirror>", "result": "passed, no cloud authentication"},
-      {"command": "terraform -chdir=terraform/azure validate -no-color", "result": "passed"},
-      {"command": "terraform -chdir=terraform/azure test -no-color", "result": "12 passed, 0 failed; exclusively mocked apply/teardown, including nonzonal NVMe, pinned image, managed disk and rejection of superseded B1ms; not real resources"},
-      {"command": "ansible-playbook -i inventory.ini site.yml --syntax-check", "result": "passed; expected empty-inventory warning"},
-      {"command": "ansible-lint --offline site.yml roles", "result": "production profile passed, 0 failures, 0 lint warnings; dependency installation skipped"},
-      {"command": "python -m unittest discover -s tests -v", "result": "24 passed at 2026-09-16T22:03:03Z after corrected-source capture integration; historical/current source and genuine pilot PNG integrity, exact working-tree capture versus old-HEAD distinction, failure/cleanup chronology, real local Git failure and fixed pinned clone/permissions/unchanged second run, approval/target guards and non-networking OpenSSH regression"},
-      {"command": "bash scripts/verify.sh", "result": "Historical full verifier passed at 2026-09-16T21:54:13Z after checkout correction and actual pilot receipt integration, before the three corrected-source PNGs were added; 12 Terraform mocks, syntax/production lint, 23 then-current local tests. The later complete Python suite passed all24. Terraform, site/common/nginx/group vars unchanged from frozen49; only EpicBook main tasks changed. No cloud/remote commands."},
-      {"command": "node <npm-cli.js> ci --omit=dev --ignore-scripts --no-audit --no-fund", "result": "107 packages installed in disposable pinned upstream checkout; package manifests unchanged"},
-      {"command": "python scripts/verify_upstream.py --source <disposable-pinned-source> --node <verified-node22>", "result": "19 source hashes, server syntax, six imports, Sequelize model construction and real Handlebars fixture render passed; no DB connection or HTTP server"}
+      {
+        "command": "terraform -chdir=terraform/azure fmt -check -recursive",
+        "result": "passed"
+      },
+      {
+        "command": "terraform -chdir=terraform/azure init -backend=false -input=false -lockfile=readonly -plugin-dir=<read-only-mirror>",
+        "result": "passed, no cloud authentication"
+      },
+      {
+        "command": "terraform -chdir=terraform/azure validate -no-color",
+        "result": "passed"
+      },
+      {
+        "command": "terraform -chdir=terraform/azure test -no-color",
+        "result": "12 passed, 0 failed; exclusively mocked apply/teardown, including nonzonal NVMe, pinned image, managed disk and rejection of superseded B1ms; not real resources"
+      },
+      {
+        "command": "ansible-playbook -i inventory.ini site.yml --syntax-check",
+        "result": "passed; expected empty-inventory warning"
+      },
+      {
+        "command": "ansible-lint --offline site.yml roles",
+        "result": "production profile passed, 0 failures, 0 lint warnings; dependency installation skipped"
+      },
+      {
+        "command": "python -m unittest discover -s tests -v",
+        "result": "24 passed at 2026-09-16T22:03:03Z after corrected-source capture integration; historical/current source and genuine pilot PNG integrity, exact working-tree capture versus old-HEAD distinction, failure/cleanup chronology, real local Git failure and fixed pinned clone/permissions/unchanged second run, approval/target guards and non-networking OpenSSH regression"
+      },
+      {
+        "command": "bash scripts/verify.sh",
+        "result": "Historical full verifier passed at 2026-09-16T21:54:13Z after checkout correction and actual pilot receipt integration, before the three corrected-source PNGs were added; 12 Terraform mocks, syntax/production lint, 23 then-current local tests. The later complete Python suite passed all24. Terraform, site/common/nginx/group vars unchanged from frozen49; only EpicBook main tasks changed. No cloud/remote commands."
+      },
+      {
+        "command": "node <npm-cli.js> ci --omit=dev --ignore-scripts --no-audit --no-fund",
+        "result": "107 packages installed in disposable pinned upstream checkout; package manifests unchanged"
+      },
+      {
+        "command": "python scripts/verify_upstream.py --source <disposable-pinned-source> --node <verified-node22>",
+        "result": "19 source hashes, server syntax, six imports, Sequelize model construction and real Handlebars fixture render passed; no DB connection or HTTP server"
+      }
     ],
     "final_python_validation": {
       "completed_utc": "2026-09-16T22:03:03Z",
@@ -109,7 +166,11 @@
     "status": "historical-applied-pilot-cleaned-do-not-reuse",
     "source_commit": "49c70a333b0671f9e75c61363aaab4a580c712ee",
     "plan_sha256": "65d3b78f94b21b93c77eebe8da463f8c00957ef84ee14c44e2906e03d87e1520",
-    "planned_actions": {"create": 11, "update": 0, "delete": 0},
+    "planned_actions": {
+      "create": 11,
+      "update": 0,
+      "delete": 0
+    },
     "applied": true,
     "operator": "Parent coordinator under separate explicit exact-plan approval",
     "report_policy": "Original private plan, inputs, identity, environment and source seals remain unchanged. The post-cleanup Git correction was not re-deployed. No current apply authorization exists.",
@@ -126,7 +187,11 @@
     "zone": null,
     "disk_controller_type": "NVMe",
     "image_version": "22.04.202608060",
-    "planned_actions": {"create": 11, "update": 0, "delete": 0},
+    "planned_actions": {
+      "create": 11,
+      "update": 0,
+      "delete": 0
+    },
     "identity_before_inputs_and_plan": true,
     "identity_input_environment_and_plan_match": true,
     "all_explicit_inputs_match_saved_plan": true,
@@ -147,7 +212,11 @@
     "completed_utc": "2026-09-16T18:24:35Z",
     "source_commit": "a693b8c67741bbad86c9a278101128a73807c702",
     "plan_sha256": "0ee7a26e0d2058ffff04076269ab9229c5cacd5a95cef8c1f4fdc4103fbb48af",
-    "planned_actions": {"create": 11, "update": 0, "delete": 0},
+    "planned_actions": {
+      "create": 11,
+      "update": 0,
+      "delete": 0
+    },
     "resource_group_previously_absent": true,
     "reviewed_resource_contracts_match": true,
     "provider_binary_unchanged": true,
@@ -173,21 +242,126 @@
     "teardown_and_orphan_check": "verified 2026-09-16T21:37:27.485570+00:00: reviewed saved plan11 deletes; apply0; empty state/outputs; authenticated RG and exact VM/OS-disk/IP absent. Structured receipt only, no cleanup PNG or zero-charge claim."
   },
   "numbered_screenshots": [
-    {"number": 1, "subject": "Complete 43-file tracked project tree at a15fc8c before additional evidence files", "status": "captured-source-only", "images": ["images/screenshot-1a.png", "images/screenshot-1b.png", "images/screenshot-1c.png"]},
-    {"number": 2, "subject": "Genuine Terraform apply and separate public_ip/admin_user outputs", "status": "captured-live-pilot", "images": ["images/screenshot-2a.png", "images/screenshot-2b.png"]},
-    {"number": 3, "subject": "Inbound SSH/HTTP rules and validated controller IPv4 /32", "status": "captured-source-only", "images": ["images/screenshot-3a.png", "images/screenshot-3b.png"]},
-    {"number": 4, "subject": "Genuine passwordless SSH hostname check", "status": "captured-live-pilot", "images": ["images/screenshot-04.png"]},
-    {"number": 5, "subject": "Inventory and Ansible ping", "status": "pending", "execution_verified": true, "note": "Actual inventory/pong preserved as structured evidence. Rejected proposed PNG220723 belongs to A2, not A5."},
-    {"number": 6, "subject": "site.yml role order", "status": "captured-source-only", "images": ["images/screenshot-06.png"]},
-    {"number": 7, "subject": "Common role tasks", "status": "captured-source-only", "images": ["images/screenshot-07.png"]},
-    {"number": 8, "subject": "Nginx tasks, handler and template", "status": "captured-source-only", "images": ["images/screenshot-8a.png", "images/screenshot-8b.png", "images/screenshot-8c.png", "images/screenshot-8d.png"]},
-    {"number": 9, "subject": "Live Nginx site and successful configuration test", "status": "pending"},
-    {"number": 10, "subject": "Corrected EpicBook role tasks; exact working-tree snapshot, not a runtime success", "status": "captured-source-only", "images": ["images/screenshot-10a-corrected.png", "images/screenshot-10b-corrected.png", "images/screenshot-10c-corrected.png"], "historical_images": ["images/screenshot-10a.png", "images/screenshot-10b.png", "images/screenshot-10c.png"]},
-    {"number": 11, "subject": "Required group variables", "status": "captured-source-only", "images": ["images/screenshot-11.png"]},
-    {"number": 12, "subject": "Successful role-based run and recap", "status": "pending", "supporting_failure_image": "images/deployment-failure.png", "note": "Actual deployment failed at checkout; supporting failure image is not successful slot12 evidence."},
-    {"number": 13, "subject": "Real EpicBook browser page with public IP", "status": "pending"},
-    {"number": 14, "subject": "HTTP 200 and Nginx site snippet", "status": "pending"},
-    {"number": 15, "subject": "Actual idempotent second run", "status": "pending"}
+    {
+      "number": 1,
+      "subject": "Complete 43-file tracked project tree at a15fc8c before additional evidence files",
+      "status": "captured-source-only",
+      "images": [
+        "images/screenshot-1a.png",
+        "images/screenshot-1b.png",
+        "images/screenshot-1c.png"
+      ]
+    },
+    {
+      "number": 2,
+      "subject": "Genuine Terraform apply and separate public_ip/admin_user outputs",
+      "status": "captured-live-pilot",
+      "images": [
+        "images/screenshot-2a.png",
+        "images/screenshot-2b.png"
+      ]
+    },
+    {
+      "number": 3,
+      "subject": "Inbound SSH/HTTP rules and validated controller IPv4 /32",
+      "status": "captured-source-only",
+      "images": [
+        "images/screenshot-3a.png",
+        "images/screenshot-3b.png"
+      ]
+    },
+    {
+      "number": 4,
+      "subject": "Genuine passwordless SSH hostname check",
+      "status": "captured-live-pilot",
+      "images": [
+        "images/screenshot-04.png"
+      ]
+    },
+    {
+      "number": 5,
+      "subject": "Inventory and Ansible ping",
+      "status": "pending",
+      "execution_verified": true,
+      "note": "Actual inventory/pong preserved as structured evidence. Rejected proposed PNG220723 belongs to A2, not A5."
+    },
+    {
+      "number": 6,
+      "subject": "site.yml role order",
+      "status": "captured-source-only",
+      "images": [
+        "images/screenshot-06.png"
+      ]
+    },
+    {
+      "number": 7,
+      "subject": "Common role tasks",
+      "status": "captured-source-only",
+      "images": [
+        "images/screenshot-07.png"
+      ]
+    },
+    {
+      "number": 8,
+      "subject": "Nginx tasks, handler and template",
+      "status": "captured-source-only",
+      "images": [
+        "images/screenshot-8a.png",
+        "images/screenshot-8b.png",
+        "images/screenshot-8c.png",
+        "images/screenshot-8d.png"
+      ]
+    },
+    {
+      "number": 9,
+      "subject": "Live Nginx site and successful configuration test",
+      "status": "pending"
+    },
+    {
+      "number": 10,
+      "subject": "Corrected EpicBook role tasks; exact working-tree snapshot, not a runtime success",
+      "status": "captured-source-only",
+      "images": [
+        "images/screenshot-10a-corrected.png",
+        "images/screenshot-10b-corrected.png",
+        "images/screenshot-10c-corrected.png"
+      ],
+      "historical_images": [
+        "images/screenshot-10a.png",
+        "images/screenshot-10b.png",
+        "images/screenshot-10c.png"
+      ]
+    },
+    {
+      "number": 11,
+      "subject": "Required group variables",
+      "status": "captured-source-only",
+      "images": [
+        "images/screenshot-11.png"
+      ]
+    },
+    {
+      "number": 12,
+      "subject": "Successful role-based run and recap",
+      "status": "pending",
+      "supporting_failure_image": "images/deployment-failure.png",
+      "note": "Actual deployment failed at checkout; supporting failure image is not successful slot12 evidence."
+    },
+    {
+      "number": 13,
+      "subject": "Real EpicBook browser page with public IP",
+      "status": "pending"
+    },
+    {
+      "number": 14,
+      "subject": "HTTP 200 and Nginx site snippet",
+      "status": "pending"
+    },
+    {
+      "number": 15,
+      "subject": "Actual idempotent second run",
+      "status": "pending"
+    }
   ],
   "human_deliverables": {
     "linkedin_post_url": null,
@@ -218,9 +392,17 @@
     "TLS, aging dependencies, schema DDL privileges, backup/restore, monitoring, egress policy and same-VM failure coupling remain production gaps."
   ],
   "assignment_06_handoff": {
-    "baseline": ["ansible/site.yml", "ansible/group_vars/web.yml", "ansible/roles/common", "ansible/roles/nginx", "ansible/roles/epicbook"],
+    "baseline": [
+      "ansible/site.yml",
+      "ansible/group_vars/web.yml",
+      "ansible/roles/common",
+      "ansible/roles/nginx",
+      "ansible/roles/epicbook"
+    ],
     "required_later": "A fresh authorized lab and successful A5 runtime/recaps are still needed; the cleaned pilot inventory is historical, not reusable. Genuine Claude Code plan BEFORE any risk script; HUMAN ONLY applies the resulting change.",
     "implemented_here": false,
     "retention": "No implicit time/budget extension while awaiting Assignment 6."
-  }
+  },
+  "historical_record": true,
+  "current_evidence": "../../evidence/2026-09-25/README.md"
 }

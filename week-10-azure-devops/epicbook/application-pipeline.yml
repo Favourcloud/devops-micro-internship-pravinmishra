@@ -1,0 +1,59 @@
+trigger:
+  batch: true
+  branches:
+    include: [main]
+pr: none
+variables:
+  - group: DMI-EpicBook-App
+pool:
+  name: DMI-Week10-A1
+stages:
+  - stage: Build
+    jobs:
+      - job: BuildRelease
+        steps:
+          - checkout: self
+            clean: true
+            persistCredentials: false
+          - bash: |
+              set -euo pipefail
+              test "$(id -u)" -ne 0
+              python3 deployment/build.py
+            displayName: Verify pinned source and build immutable release
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)
+              artifact: epicbook-release
+  - stage: Deploy
+    dependsOn: Build
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - job: ConfigureAndVerify
+        timeoutInMinutes: 50
+        steps:
+          - checkout: self
+            clean: true
+            persistCredentials: false
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: current
+              artifactName: epicbook-release
+              targetPath: $(Pipeline.Workspace)/epicbook-release
+          - task: DownloadSecureFile@1
+            name: operatorKey
+            inputs:
+              secureFile: $(sshSecureFile)
+          - bash: |
+              set -euo pipefail
+              python3 -m venv deployment/.venv
+              deployment/.venv/bin/pip install --disable-pip-version-check ansible-core==2.17.14
+              deployment/.venv/bin/ansible-galaxy collection install ansible.mysql:==5.2.0 -p deployment/.venv/collections
+              python3 deployment/deploy.py
+            displayName: Deploy two hosts, verify TLS and repeat for idempotence
+            env:
+              DMI_SSH_KEY: $(operatorKey.secureFilePath)
+              DMI_KNOWN_HOSTS: $(sshKnownHosts)
+              DMI_DATABASE_PASSWORD: $(databasePassword)
+              DMI_MYSQL_ADMIN_PASSWORD: $(mysqlAdminPassword)
+              DMI_SESSION_SECRET: $(sessionSecret)
+              DMI_RELEASE_DIR: $(Pipeline.Workspace)/epicbook-release

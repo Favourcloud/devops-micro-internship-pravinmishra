@@ -104,7 +104,8 @@ resource "azurerm_linux_virtual_machine" "site" {
   name                            = "${var.name_prefix}-vm"
   location                        = azurerm_resource_group.site.location
   resource_group_name             = azurerm_resource_group.site.name
-  size                            = "Standard_B1s"
+  size                            = var.vm_size
+  disk_controller_type            = var.vm_size == "Standard_F1als_v7" ? "NVMe" : "SCSI"
   admin_username                  = var.admin_username
   disable_password_authentication = true
   network_interface_ids           = [azurerm_network_interface.site.id]

@@ -9,6 +9,16 @@ variable "name_prefix" {
   }
 }
 
+variable "vm_size" {
+  description = "B1s is the original lab size. F1als_v7 is the 1-vCPU alternative when legacy B-series capacity is unavailable."
+  type        = string
+  default     = "Standard_B1s"
+  validation {
+    condition     = contains(["Standard_B1s", "Standard_F1als_v7"], var.vm_size)
+    error_message = "Choose the original B1s or reviewed 1-vCPU F1als_v7 alternative."
+  }
+}
+
 variable "location" {
   description = "Azure region explicitly approved for this deployment and its costs. No region is preselected."
   type        = string

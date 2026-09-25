@@ -2,7 +2,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   for_each                        = toset(["frontend", "backend"])
   name                            = "${var.name_prefix}-${each.key}-vm"
   resource_group_name             = azurerm_resource_group.epicbook.name
-  location                        = azurerm_resource_group.epicbook.location
+  location                        = var.resource_location
   size                            = "Standard_D2lds_v6"
   disk_controller_type            = "NVMe"
   secure_boot_enabled             = true

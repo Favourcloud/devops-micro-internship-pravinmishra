@@ -1,0 +1,6 @@
+{
+  "app_public_ip": "51.107.188.80",
+  "backend_ansible_host": "20.240.193.91",
+  "backend_private_ip": "10.140.2.4",
+  "mysql_fqdn": "dmi-w10-a4-20260925-mysql.mysql.database.azure.com"
+}

@@ -1,0 +1,11 @@
+{
+  "source_sha256": "f8cd9eca8c716f581d9ebde433a273a3acfec8956db8d8205d2757143f28bca3",
+  "crop_bounds": [
+    545,
+    350,
+    1280,
+    720
+  ],
+  "output_sha256": "a0840b953eb4e7917c8bf2d252267662188356a8b71e78732536d9ebd88f14bf",
+  "transformation": "Cropping only, to exclude resource identifiers above the apply summary. No content inside the crop altered."
+}

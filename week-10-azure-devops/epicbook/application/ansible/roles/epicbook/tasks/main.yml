@@ -1,0 +1,89 @@
+---
+- name: Create the private application group
+  ansible.builtin.group:
+    name: "{{ app_group }}"
+    system: true
+    state: present
+
+- name: Create separate source-owner and runtime identities
+  ansible.builtin.user:
+    name: "{{ item }}"
+    group: "{{ app_group }}"
+    system: true
+    create_home: false
+    home: /nonexistent
+    shell: /usr/sbin/nologin
+    password_lock: true
+    state: present
+  loop:
+    - "{{ app_user }}"
+    - "{{ app_runtime_user }}"
+
+- name: Create the private application parent
+  ansible.builtin.file:
+    path: /opt/epicbook
+    state: directory
+    owner: root
+    group: "{{ app_group }}"
+    mode: "0750"
+
+- name: Create source and private Git metadata parent directories
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: "{{ item.mode }}"
+  loop:
+    - {path: "{{ app_dest }}", mode: "0750"}
+    - {path: /opt/epicbook/git-metadata, mode: "0700"}
+
+- name: Clone the reviewed immutable EpicBook source without overwriting local edits
+  ansible.builtin.git:
+    repo: "{{ app_repo }}"
+    dest: "{{ app_dest }}"
+    version: "{{ app_revision }}"
+    separate_git_dir: /opt/epicbook/git-metadata/repository.git
+    force: false
+    update: true
+    umask: "0027"
+  become: true
+  become_user: "{{ app_user }}"
+  register: epicbook_checkout
+  notify: Reload nginx
+
+- name: Restrict the cloned Git metadata leaf
+  ansible.builtin.file:
+    path: /opt/epicbook/git-metadata/repository.git
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: "0700"
+
+- name: Confirm the actual application layout rather than assuming a static index
+  ansible.builtin.stat:
+    path: "{{ app_dest }}/{{ item }}"
+  loop:
+    - server.js
+    - package-lock.json
+    - models/index.js
+    - views/index.handlebars
+    - db/BuyTheBook_Schema.sql
+  register: epicbook_source_files
+
+- name: Refuse incomplete source checkouts
+  ansible.builtin.assert:
+    that:
+      - item.stat.isreg | default(false)
+  loop: "{{ epicbook_source_files.results }}"
+  loop_control:
+    label: "{{ item.item }}"
+
+- name: Install the opt-in single-VM runtime
+  ansible.builtin.import_tasks: runtime.yml
+  when: app_runtime_enabled
+
+- name: Explain source-only status without claiming a working application
+  ansible.builtin.debug:
+    msg: Source prepared privately. Nginx intentionally returns 503; Node/MySQL execution and Assignment 5 runtime evidence are pending.
+  when: not app_runtime_enabled

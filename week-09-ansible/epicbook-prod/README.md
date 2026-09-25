@@ -1,3 +1,5 @@
+> **25September update:** the current [week evidence index](../evidence/2026-09-25/README.md) supersedes historical pending-runtime statements below. Live outcomes, publications and explicit limitations are recorded there.
+
 # Assignment 5 — EpicBook Azure pilot and preparation
 
 **Status: genuine VM pilot provisioned, application deployment failed, cleanup

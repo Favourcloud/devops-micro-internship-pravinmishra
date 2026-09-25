@@ -118,6 +118,12 @@ resource "azurerm_network_interface_security_group_association" "agent" {
 }
 
 resource "azurerm_linux_virtual_machine" "agent" {
+  dynamic "identity" {
+    for_each = var.enable_managed_identity ? [1] : []
+    content {
+      type = "SystemAssigned"
+    }
+  }
   name                            = "${var.project_name}-vm"
   resource_group_name             = azurerm_resource_group.agent.name
   location                        = azurerm_resource_group.agent.location

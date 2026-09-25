@@ -1,0 +1,7 @@
+{
+  "time": "20260925T101704672964Z",
+  "label": "a5-idempotence",
+  "exit_code": 0,
+  "stdout_sha256": "63c485564e9c914787d53aa6cdf48922f4445cc2303cb692e923054bf4586b2b",
+  "stderr_sha256": "dba85e745e0733a4c6ca7ba1723384662a0904781780a23261c64a925b19e374"
+}

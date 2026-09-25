@@ -274,7 +274,7 @@ class SourceContractTests(unittest.TestCase):
         )
         for filename, expected, checkboxes, screenshots in cases:
             with self.subTest(filename=filename):
-                raw = (ROOT.parent / filename).read_bytes()
+                raw = (ROOT.parent / "evidence/before-20260925" / filename).read_bytes()
                 self.assertEqual(hashlib.sha256(raw).hexdigest(), expected)
                 self.assertEqual(len(re.findall(rb"^[*-] \[ \] ", raw, re.M)), checkboxes)
                 self.assertEqual([int(x) for x in re.findall(r"^### Screenshot (\d+) —".encode(), raw, re.M)],

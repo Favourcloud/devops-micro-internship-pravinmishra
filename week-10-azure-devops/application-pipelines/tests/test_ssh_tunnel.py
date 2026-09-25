@@ -356,7 +356,7 @@ class TransportSourceTests(unittest.TestCase):
         self.assertFalse(agent['gather_facts'])
         self.assertEqual(agent['pre_tasks'][0]['delegate_to'], 'localhost')
         pre = json.dumps(agent['pre_tasks'])
-        for check in ('not week10_existing_profile.stat.exists', "week10_agent_sudo.rc == 1", "['azdoagent', 'L']", "mode == '0755'"):
+        for check in ('not week10_existing_profile.stat.exists', "week10_agent_sudo_exec.rc != 1", "['azdoagent', 'L']", "mode == '0755'"):
             self.assertIn(check, pre)
         text = (ROOT / 'transport/configure-agent.yml').read_text()
         for forbidden in ('ansible.builtin.user:', 'ansible.builtin.shell:', 'config.sh', 'ssh_tunnel.py start', 'NOPASSWD', 'ansible.builtin.fetch:'):

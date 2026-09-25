@@ -16,7 +16,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "mysql" {
 resource "azurerm_mysql_flexible_server" "mysql" {
   name                              = "${var.name_prefix}-mysql"
   resource_group_name               = azurerm_resource_group.epicbook.name
-  location                          = azurerm_resource_group.epicbook.location
+  location                          = var.resource_location
   administrator_login               = "epicadmin"
   administrator_password_wo         = var.mysql_admin_password
   administrator_password_wo_version = var.mysql_password_version

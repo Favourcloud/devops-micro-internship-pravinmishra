@@ -112,6 +112,15 @@
       register: week10_agent_lock
       no_log: true
 
+    - name: Confirm the azdoagent account cannot execute sudo
+      ansible.builtin.command:
+        argv: [/usr/sbin/runuser, -u, azdoagent, --, /usr/bin/sudo, -n, /usr/bin/true]
+      become: true
+      register: week10_agent_sudo_exec
+      changed_when: false
+      failed_when: week10_agent_sudo_exec.rc != 1
+      no_log: true
+
     - name: Refuse privileged or missing agent accounts
       ansible.builtin.assert:
         that:
@@ -119,7 +128,7 @@
           - week10_agent_groups.stdout == 'azdoagent'
           - week10_agent_lock.stdout.split()[0:2] == ['azdoagent', 'L']
           - ansible_facts.getent_passwd['azdoagent'][4] == '/home/azdoagent'
-          - week10_agent_sudo.rc == 1
+          - week10_agent_sudo.rc in [0, 1]
           - "'is not allowed to run sudo on' in (week10_agent_sudo.stdout ~ week10_agent_sudo.stderr)"
 
     - name: Inspect profile parents without following symlinks
@@ -186,7 +195,8 @@
 
     - name: Install only the independently authenticated target host pin
       ansible.builtin.copy:
-        content: '{{ week10_agent_transport.profile.assignment }} {{ week10_agent_transport.profile.host_public_key }}{{ "\n" }}'
+        content: |
+          {{ week10_agent_transport.profile.assignment }} {{ week10_agent_transport.profile.host_public_key }}
         dest: "{{ week10_profile_dir }}/known_hosts"
         owner: root
         group: root
@@ -209,7 +219,8 @@
 
     - name: Complete the immutable profile after successful preparation
       ansible.builtin.copy:
-        content: '{{ week10_agent_transport.profile | to_nice_json }}{{ "\n" }}'
+        content: |
+          {{ week10_agent_transport.profile | to_nice_json }}
         dest: "{{ week10_profile_dir }}/profile.json"
         owner: root
         group: root

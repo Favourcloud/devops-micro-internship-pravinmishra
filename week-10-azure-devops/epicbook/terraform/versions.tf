@@ -15,11 +15,11 @@ terraform {
 provider "azurerm" {
   subscription_id                 = var.subscription_id
   tenant_id                       = var.tenant_id
-  client_id                       = var.client_id
+  client_id                       = var.use_managed_identity ? null : var.client_id
   resource_provider_registrations = "none"
-  use_oidc                        = true
+  use_oidc                        = !var.use_managed_identity
   use_cli                         = false
-  use_msi                         = false
+  use_msi                         = var.use_managed_identity
   features {
     virtual_machine {
       delete_os_disk_on_deletion = true

@@ -123,6 +123,7 @@ class RoleContractTests(unittest.TestCase):
 
     def test_runtime_secret_and_seed_gates(self):
         tasks = load("roles/epicbook/tasks/runtime.yml")
+        tasks += load("roles/epicbook/tasks/local-database.yml")
         secret = next(t for t in tasks if t.get("ansible.builtin.template", {}).get("dest") == "/etc/epicbook/epicbook.env")
         self.assertTrue(secret["no_log"])
         self.assertFalse(secret["diff"])
@@ -184,6 +185,9 @@ class ExecutionGuardTests(unittest.TestCase):
                     "app_runtime_enabled": runtime,
                     "app_runtime_compatibility_acknowledged": runtime,
                     "vault_epicbook_db_password": "offline_fixture_" * 3,
+                    "vault_epicbook_session_secret": "offline_session_" * 3,
+                    "app_release_id": "a" * 64,
+                    "app_runtime_dest": "/opt/epicbook/releases/" + "a" * 64,
                 }
                 env = dict(os.environ, ANSIBLE_CONFIG=str(ANSIBLE / "ansible.cfg"), ANSIBLE_LOCAL_TEMP=directory,
                            ANSIBLE_SSH_EXECUTABLE=str(stub), A5_STUB_MARKER=str(marker))

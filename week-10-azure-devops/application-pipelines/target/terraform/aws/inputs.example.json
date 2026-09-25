@@ -13,5 +13,7 @@
     "expires_at": null,
     "estimated_total_usd": null,
     "planning_allowance_usd": null
-  }
+  },
+  "availability_zone": null,
+  "allow_root_operator": null
 }

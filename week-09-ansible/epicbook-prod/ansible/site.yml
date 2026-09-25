@@ -67,6 +67,9 @@
       ansible.builtin.assert:
         that:
           - vault_epicbook_db_password | default('') is match('^[A-Za-z0-9_-]{32,128}$')
+          - vault_epicbook_session_secret | default('') is match('^[A-Za-z0-9_-]{32,128}$')
+          - app_release_id | default('') is match('^[a-f0-9]{64}$')
+          - app_runtime_dest == '/opt/epicbook/releases/' + app_release_id
         fail_msg: Supply a 32-128 character URL-safe password using a local encrypted Ansible Vault file.
       delegate_to: localhost
       become: false
@@ -87,3 +90,8 @@
     - common
     - nginx
     - epicbook
+  post_tasks:
+    - name: Remove the explicitly disposable Week09 risk-drill marker
+      ansible.builtin.file:
+        path: /var/tmp/dmi-week09-risk-marker
+        state: absent

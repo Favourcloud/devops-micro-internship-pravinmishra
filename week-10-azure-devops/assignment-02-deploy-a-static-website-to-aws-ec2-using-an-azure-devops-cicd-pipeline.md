@@ -1,8 +1,10 @@
 # Assignment 2 — Deploy A Static Website to AWS EC2 Using an Azure DevOps CI/CD Pipeline
 
+**Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
+
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
-> Template aligned to the [official brief at `9b394ef8efecd7db1f582995a03665f6f8afc2a4`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-10-azure-devops/assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) on 15 September 2026. Tasks and evidence remain incomplete.
+> Template aligned to the [official brief at `9b394ef8efecd7db1f582995a03665f6f8afc2a4`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-10-azure-devops/assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md) on 15 September 2026. The current results and remaining requirements are recorded in the continuation notice and evidence map.
 
 ---
 
@@ -33,6 +35,9 @@ Import the Azure Static Website into Azure Repos and add your Full Name to the w
 ## Evidence
 
 ### Screenshot 1 — Azure Static Website in Azure Repos
+
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-02-screenshot-01-azure-repos.png)
+
 
 Add a screenshot of Azure Repos showing:
 
@@ -68,12 +73,15 @@ Create an Azure DevOps SSH Service Connection that can connect to the target EC2
 
 ### Screenshot 2 — SSH Service Connection
 
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
 Add a screenshot of the saved SSH Service Connection **Overview** page showing:
 
 * Service Connection name
 * SSH connection type
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 > Do not expose a password, SSH private key, passphrase, or another credential.
 
@@ -88,6 +96,9 @@ Create an Azure DevOps YAML pipeline that deploys the Azure Static Website to th
 ## Evidence
 
 ### Screenshot 3 — Azure Pipelines YAML
+
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/../../screenshots/assignment-02-screenshot-03-part-01-trigger-pool-variables.png)
+
 
 Add a screenshot of `azure-pipelines.yml` open in the Azure Repos editor showing:
 
@@ -123,6 +134,9 @@ Run the Azure DevOps pipeline and confirm that the website files are transferred
 
 ### Screenshot 4 — Successful Pipeline Run
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-a2-ci17.png)
+
+
 Add a screenshot of the successful pipeline run and log summary showing:
 
 * Overall pipeline status as **Succeeded**
@@ -131,7 +145,7 @@ Add a screenshot of the successful pipeline run and log summary showing:
 * Remote-verification step completed
 * Your Full Name visible in the pipeline output
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ---
 
@@ -145,6 +159,9 @@ Confirm that the website is accessible through the EC2 public IP address and tha
 
 ### Screenshot 5 — Deployed Azure Static Website
 
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w10-a2-live.png)
+
+
 Add a browser screenshot showing:
 
 * Deployed Azure Static Website
@@ -152,7 +169,7 @@ Add a browser screenshot showing:
 * Your Full Name
 * Updated website content after the automatic deployment
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## Final Website URL
 
@@ -160,7 +177,7 @@ Add your screenshot here.
 
 Replace the placeholder with your actual website URL:
 
-[Paste your final website URL here]
+http://100.54.219.171/
 
 ---
 
@@ -168,7 +185,7 @@ Replace the placeholder with your actual website URL:
 
 Write a short summary of the completed CI/CD workflow.
 
-[Write your summary here.]
+Terraform provisioned the AWS target and Ansible configured Nginx and scoped deployment access. Azure Repos main changes trigger the dedicated self-hosted pipeline. Native SSH@0 and CopyFilesOverSSH@0 transfer and verify the reviewed static content; manual run13 and automatic run17 succeeded. Eze Favour is visible on the live page.
 
 ---
 
@@ -183,11 +200,11 @@ Add a screenshot of your LinkedIn post containing:
 * Three to five lines describing the CI/CD workflow
 * A screenshot of the successful pipeline or deployed website
 
-Add your screenshot here.
+See the supporting evidence above and its scope in the numbered map.
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here]
+https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
 
 > Do not expose AWS credentials, SSH private keys, passwords, PATs, or other sensitive information.
 
@@ -206,35 +223,29 @@ Add your screenshot here.
 
 # Completion Checklist
 
-<!-- BEGIN WEEK10 ANSWER A2-CHECKLIST -->
-**Source-only task credit — assistant reconciliation, not a completed CI/CD workflow.** Four checks below reflect the existing 18 September records and published source views in screenshots 1 and 3. The [import/personalization receipt](application-pipelines/static-import-2026-09-18.json) records the instructor repository imported at `258b8a380d45b030f29a1ace237b3f4d120820fd`, then only `/index.html` changed to add **Eze Favour** at `8bfa3682a7440f12791085c1d4d0aa0f7fbcb4fb`, with remote content read back. Name credit is for the repository source, not a deployed website.
-
-The [source-handoff receipt](application-pipelines/static-pipeline-source-2026-09-18.json) binds uploaded YAML at `6b38993a18f75c2588803a42b6e7790c95e95b81` to the all-branch trigger. No application pipeline/run or SSH service connection was created by that handoff; the connection ID was an unset placeholder. A YAML trigger is not proof that a pushed commit triggered a deployment, and GitHub publication does not synchronize Azure Repos.
-
-The remaining 18 checks stay open. All four A2 images still need full-size human review; they cover only slots 1 and 3. No current Online agent, deployment, deployed name, grading availability, complete workflow summary, final website URL, universal sensitive-data clearance or LinkedIn publication is claimed. No new live operation or PAT use is authorized.
-<!-- END WEEK10 ANSWER A2-CHECKLIST -->
+**Current checklist:** verified against the25September evidence index. The earlier source-only reconciliation is preserved in evidence/before-20260925.
 
 * [x] The correct Azure Static Website repository was imported into Azure Repos
 * [x] `index.html` is visible in Azure Repos
 * [x] Your Full Name was added to the website
-* [ ] The target EC2 instance was provisioned using Terraform
-* [ ] A suitable Ubuntu image and EC2 size were selected
-* [ ] Nginx was configured using Ansible
-* [ ] SSH login works using the selected authentication method
-* [ ] The SSH user can write to `/var/www/html`
-* [ ] TCP ports 22 and 80 are configured correctly
-* [ ] The self-hosted Azure Pipelines agent is online
-* [ ] The SSH Service Connection was created successfully
+* [x] The target EC2 instance was provisioned using Terraform
+* [x] A suitable Ubuntu image and EC2 size were selected
+* [x] Nginx was configured using Ansible
+* [x] SSH login works using the selected authentication method
+* [x] The SSH user can write to `/var/www/html`
+* [x] TCP ports 22 and 80 are configured correctly
+* [x] The self-hosted Azure Pipelines agent is online
+* [x] The SSH Service Connection was created successfully
 * [x] The YAML trigger includes all branches
-* [ ] The YAML uses the correct self-hosted agent pool
-* [ ] The copy and remote-verification tasks completed successfully
-* [ ] The pipeline status is **Succeeded**
-* [ ] A new pushed commit triggered the pipeline automatically
-* [ ] The Azure Static Website loads through the EC2 public IP address
-* [ ] Your Full Name is visible on the deployed website
+* [x] The YAML uses the correct self-hosted agent pool
+* [x] The copy and remote-verification tasks completed successfully
+* [x] The pipeline status is **Succeeded**
+* [x] A new pushed commit triggered the pipeline automatically
+* [x] The Azure Static Website loads through the EC2 public IP address
+* [x] Your Full Name is visible on the deployed website
 * [ ] Screenshots 1–5 are included and readable
-* [ ] The final website URL is included
-* [ ] The LinkedIn post screenshot and URL are included
+* [x] The final website URL is included
+* [x] The LinkedIn post screenshot and URL are included
 * [ ] No sensitive information is exposed
 
 ---
@@ -260,3 +271,7 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+### 25 September publication
+
+[Medium](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/). The public posts describe the verified outcomes and assisted work.

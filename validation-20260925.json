@@ -1,0 +1,64 @@
+{
+  "checked_at": "2026-09-25T18:43:17.104417+00:00",
+  "kind": "Local tests; separate from actual cloud/API/pipeline proof",
+  "suites": [
+    {
+      "name": "Week10 application pipelines and transport",
+      "tests": 149,
+      "result": "passed",
+      "source_log": "final-application-tests-v3.log"
+    },
+    {
+      "name": "Week09 EpicBook preparation, SSH guards and historical evidence",
+      "tests": 24,
+      "result": "passed",
+      "source_log": "final-epicbook-tests-v4.log"
+    },
+    {
+      "name": "Week10 EpicBook handoff and Terraform source",
+      "tests": 51,
+      "result": "passed",
+      "source_log": "final-w10epic-configured.log"
+    },
+    {
+      "name": "Week09 MiniFinance",
+      "tests": 21,
+      "result": "passed",
+      "source_log": "final-finance-configured.log"
+    },
+    {
+      "name": "Week09 static website",
+      "tests": 5,
+      "result": "passed",
+      "source_log": "final-static-tests-passed.log"
+    },
+    {
+      "name": "Ansible risk classifier and guard",
+      "tests": 9,
+      "result": "passed"
+    },
+    {
+      "name": "Pipeline triage and guard",
+      "tests": 6,
+      "result": "passed"
+    },
+    {
+      "name": "Signed cart membership (built source)",
+      "tests": 6,
+      "result": "passed",
+      "note": "Verified earlier in this continuation with DMI_EPICBOOK_SOURCE set; source unchanged since that run."
+    }
+  ],
+  "scan": {
+    "python_and_json_syntax_errors": 0,
+    "missing_local_markdown_links": 0,
+    "credential_findings": 0,
+    "reviewed_fixture": "A private-key BEGIN marker in a rejection test contains no key material.",
+    "staged_files_scanned": 257,
+    "original_manifest_mismatches": 0,
+    "whitespace_check": "Source changes pass git diff --cached --check excluding immutable evidence/reports and patch context. Captured bytes and original archives are preserved."
+  },
+  "limitations": "No test result certifies a perfect grade. Historical evidence tests validate original source revisions; source locks and deploy tests have independent coverage.",
+  "final_staged_review_at": "2026-09-25T21:07:58.694156+00:00",
+  "final_guard_recheck": "9 Ansible risk tests and 6 pipeline triage tests passed again in the configured private venv."
+}

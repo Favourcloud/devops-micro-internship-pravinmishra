@@ -1,0 +1,7 @@
+{
+  "time": "20260925T101434097214Z",
+  "label": "a5-deploy",
+  "exit_code": 0,
+  "stdout_sha256": "ab8cfcbe36c8dc396adaa466cd6e92edc920d776717f8a5a4a1d69d86b818ae5",
+  "stderr_sha256": "dba85e745e0733a4c6ca7ba1723384662a0904781780a23261c64a925b19e374"
+}

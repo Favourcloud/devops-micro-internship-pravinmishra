@@ -1,5 +1,7 @@
 # Assignment 03 — Deploy a Static Website to Multiple Servers Using a Multi-Play Ansible Playbook
 
+**Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
+
 Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 ---
@@ -10,13 +12,13 @@ Part of the DevOps Micro Internship (DMI) with Agentic AI
 
 **Cloud Platform Used:** Azure, reusing Assignment 2's web1/web2 (no extra VMs).
 
-**Server 1 URL:** PENDING — website never deployed; former VM IP retired after cleanup.
+**Server 1 URL (historical, retired):** `http://20.68.148.122/` — verified on 25 September before cleanup; do not contact it now.
 
-**Server 2 URL:** PENDING — website never deployed; former VM IP retired after cleanup.
+**Server 2 URL (historical, retired):** `http://51.132.24.18/` — verified on 25 September before cleanup; do not contact it now.
 
-**Submission status: CODE PREPARATION — NOT DEPLOYMENT-COMPLETE.** Three plays, source provenance, syntax/lint and loopback-only tests are prepared. A2's four D2lds_v6 hosts were genuinely provisioned and SSH-checked under separate approval, but a private controller callback error stopped Ansible before managed ping tasks. **A3 deployment, HTTP checks, remote idempotency and browser evidence never ran.** All infrastructure was deleted; cleanup passed 16 checks at **2026-09-16 21:53:43 UTC**, before the original deadline. No extra A3 VMs were created, zero charges are not claimed, and no former IP may be contacted. The US$2/two-hour temporary A2+A3 approval is retired; no AWS fallback or retry is authorized.
+**Submission status: two-host deployment, HTTP/content verification and changed=0 rerun completed on 25 September.** A3 reused A2’s web1/web2, and the shared 23 resources were removed after evidence collection. The earlier callback failure is preserved in the original historical record.
 
-Copilot assisted implementation, the genuine download, diagnosis, local checks and evidence preparation. Coordinator-operated results are not learner firsthand reflection. The [11-slot screenshot manifest](screenshots/assignment-03-manifest.json) retains every slot plus LinkedIn. **Slots 1, 2, 4 and 5 have genuine local captures**; slot 2 is explicitly **post-cleanup retained-inventory inspection, not connectivity**. Slots **3, 6–11** and LinkedIn remain pending. See [actual A2/cleanup receipts](ansible-adhoc-lab/runtime-validation.json). The learner must review the technical answers and provide their own genuine reflection.
+Source preparation and continuation operations were assisted. Original native captures remain unchanged; current supporting captures and exact remaining format gaps are listed in the [numbered evidence map](evidence/2026-09-25/screenshot-map.md). No learner-personal execution is claimed.
 
 ---
 
@@ -91,7 +93,10 @@ Confirm that the Ansible controller can connect to both servers.
 
 ### Screenshot 3 — Ansible ping output showing `SUCCESS` and `pong` for both servers
 
-**PENDING — Screenshot 3.** A3 managed-host operations were not run after A2's controller callback failure. All resources were deleted; no current retry is authorized. After approval and fingerprint review, show SUCCESS/pong for both real servers. Capture guidance: [manifest slot 3](screenshots/assignment-03-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a2-ping.png)
+
+
+The current evidence linked above records the successful 25 September operation. Recorded-output views are labeled, and browser captures omit the address bar. The numbered map states the exact scope.
 
 ---
 
@@ -260,13 +265,19 @@ Install Nginx, deploy the website, and verify both servers in one playbook run.
 
 ### Screenshot 6 — Play 3 verification showing HTTP `200` for both servers
 
-**PENDING — Screenshot 6.** A3 managed-host operations were not run after A2's controller callback failure. All resources were deleted; no current retry is authorized. Capture Play 3 successful HTTP 200 and personalized-content assertions for both real web hosts, not loopback tests. Capture guidance: [manifest slot 6](screenshots/assignment-03-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a3-deploy.png)
+
+
+The current evidence linked above records the successful 25 September operation. Recorded-output views are labeled, and browser captures omit the address bar. The numbered map states the exact scope.
 
 ---
 
 ### Screenshot 7 — Final play recap showing `unreachable=0` and `failed=0` for `web1`, `web2`, and `localhost`
 
-**PENDING — Screenshot 7.** A3 managed-host operations were not run after A2's controller callback failure. All resources were deleted; no current retry is authorized. Show genuine recap with unreachable=0 and failed=0 for web1, web2 and localhost. Capture guidance: [manifest slot 7](screenshots/assignment-03-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a3-deploy.png)
+
+
+The current evidence linked above records the successful 25 September operation. Recorded-output views are labeled, and browser captures omit the address bar. The numbered map states the exact scope.
 
 ---
 
@@ -280,7 +291,10 @@ Run the playbook again and confirm that it does not make unnecessary changes.
 
 ### Screenshot 8 — Second playbook run showing the play recap with `changed=0`, `unreachable=0`, and `failed=0` for both web servers
 
-**PENDING — Screenshot 8.** A3 managed-host operations were not run after A2's controller callback failure. All resources were deleted; no current retry is authorized. Show genuine changed=0, unreachable=0, failed=0 for both web hosts; do not alter output. Capture guidance: [manifest slot 8](screenshots/assignment-03-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a3-idempotence.png)
+
+
+The 25September continuation supplies the evidence linked above. Recorded-output views are labeled and the exact requested format remains subject to assessor review.
 
 ---
 
@@ -294,19 +308,28 @@ Confirm that the static website is accessible from both public IP addresses.
 
 ### Screenshot 9 — `curl -I` output showing HTTP `200 OK` from both servers
 
-**PENDING — Screenshot 9.** A3 managed-host operations were not run after A2's controller callback failure. All resources were deleted; no current retry is authorized. Show HTTP 200 OK from both real endpoints, not fixture addresses. Capture guidance: [manifest slot 9](screenshots/assignment-03-manifest.json).
+[Evidence/source and exact-capture limitation](evidence/2026-09-25/screenshot-map.md).
+
+
+The exact `curl -I` screenshot was not captured. The saved deployment report proves HTTP 200 and personalized content through Ansible URI GET checks; it is not represented as a HEAD-command screenshot.
 
 ---
 
 ### Screenshot 10 — Browser showing the website from Server 1 with the public IP and your full name visible
 
-**PENDING — Screenshot 10.** A3 managed-host operations were not run after A2's controller callback failure. All resources were deleted; no current retry is authorized. Show public IP and Eze Favour footer; check CSS and contact/back links. No desktop operation is authorized in code preparation. Capture guidance: [manifest slot 10](screenshots/assignment-03-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a3-web1-home.png)
+
+
+The current evidence linked above records the successful 25 September operation. Recorded-output views are labeled, and browser captures omit the address bar. The numbered map states the exact scope.
 
 ---
 
 ### Screenshot 11 — Browser showing the website from Server 2 with the public IP and your full name visible
 
-**PENDING — Screenshot 11.** A3 managed-host operations were not run after A2's controller callback failure. All resources were deleted; no current retry is authorized. Show the second public IP and Eze Favour footer, without broadening controller-only HTTP access. Capture guidance: [manifest slot 11](screenshots/assignment-03-manifest.json).
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/a3-web2-home.png)
+
+
+The current evidence linked above records the successful 25 September operation. Recorded-output views are labeled, and browser captures omit the address bar. The numbered map states the exact scope.
 
 ---
 
@@ -315,8 +338,8 @@ Confirm that the static website is accessible from both public IP addresses.
 Add both deployed website URLs below:
 
 ```text
-Server 1: PENDING — no verified deployment URL.
-Server 2: PENDING — no verified deployment URL.
+Server 1: http://20.68.148.122/ (verified 25 September; now retired)
+Server 2: http://51.132.24.18/ (verified 25 September; now retired)
 ```
 
 ---
@@ -329,14 +352,14 @@ Document how the project works and record what you learned.
 
 ## README Content
 
-Submitted [`README.md`](static-web/README.md) content is reproduced below, including factual Copilot-assisted preparation notes. Firsthand learner reflection and live results remain pending:
+Submitted [`README.md`](static-web/README.md) content is reproduced below. It records assisted technical results and distinguishes retired URLs from live demonstrations:
 
 ````markdown
 # Week 09 Assignment 3 — Multi-play static website
 
-**Learner:** Eze Favour. **Platform:** Azure, targeting Assignment 2's same `web1` and `web2` Ubuntu 22.04 hosts. **Status:** code preparation with genuine local captures for slots **1/2/4/5**; **no A3 deployment, HTTP result, remote idempotency, browser evidence or published post**. A2 was genuinely provisioned, trusted, inventoried and SSH-checked, then stopped after a controller callback error before Ansible managed tasks. All infrastructure was deleted and cleanup verified at **2026-09-16 21:53:43 UTC**. Former IPs are historical, not live website URLs; do not contact them.
+**Learner:** Eze Favour. **Platform:** Azure, reusing Assignment 2’s two web hosts. On 25 September 2026, the real deployment returned HTTP 200 with the learner name and Group 1 content on both hosts. The second playbook run reported changed=0, unreachable=0 and failed=0. All 23 shared lab resources were subsequently removed.
 
-Copilot assisted the code, source download, technical explanations and local checks. These notes are not a record of learner-operated cloud work. The learner must review them and supply firsthand reflection after genuine execution.
+Codex performed the continuation under delegated authorization. These are assisted technical notes, not claims of learner-personal execution. [Current evidence and capture limits](../evidence/2026-09-25/README.md), [deployment](../evidence/2026-09-25/a3-deploy.txt), [idempotence](../evidence/2026-09-25/a3-idempotence.txt), and [historical README](../evidence/before-20260925/static-web-README.md).
 
 ## Files and website source
 
@@ -350,13 +373,13 @@ static-web/
 └── tests/test_site.py
 ```
 
-The existing course `CodeTrack` website was genuinely downloaded from the learner's GitHub repository at a pinned commit. [SOURCE.md](SOURCE.md) records the exact immutable URLs, original SHA-256 values, verification and reproduction command. `index.html` and the linked contact page use `Eze Favour` and add `Deployed by Eze Favour — Week 09 multi-host lab` to the preserved DMI footer. The stylesheet is unchanged and bundled. No JavaScript, build step or external asset dependency is introduced. The footer is desired artifact content, not a claim of deployment.
+The existing course `CodeTrack` website was genuinely downloaded from the learner's GitHub repository at a pinned commit. [SOURCE.md](SOURCE.md) records the exact immutable URLs, original SHA-256 values, verification and reproduction command. `index.html` and the linked contact page use `Eze Favour` and add `Deployed by Eze Favour — Week 09 multi-host lab` to the preserved DMI footer. The stylesheet is unchanged and bundled. No JavaScript, build step or external asset dependency is introduced. The footer was verified in the 25 September deployment. Group 3 was corrected to the learner’s Group 1 in both pages; this documented personalization does not change the upstream attribution.
 
 ## Prerequisites and approval
 
 Use the existing Assignment 1 Ansible controller (validated with Python 3.13.3, Ansible 14.4.0/core 2.21.4 and ansible-lint 26.8.0). Do not recreate its environment, keys or agent. Reuse the four-host [A2 Terraform lab](../ansible-adhoc-lab/README.md); A3 creates **no extra infrastructure**. Standard Ubuntu Nginx's default site serves `/var/www/html`. This playbook is for the dedicated fresh lab, not arbitrary production servers with custom Nginx configuration.
 
-The completed temporary run had a coordinator-approved A2+A3 allocation of at most US$2 and two hours after apply. Azure replaced the initial AWS choice because the non-root AWS identity lacked EC2 permissions. The historical B1s plans were never applied; the later D2lds_v6 plan was separately identity-sealed, reviewed and applied after A5's pilot. Cleanup finished before the original deadline; this is not a claim of zero charges or a finalized invoice. All old approvals are retired. A future attempt requires new identity, budget, plan, capacity and runtime review; **do not reuse historical IPs, state inputs or approval files**. Expired AWS enrollment is not reused. No provisioning, SSH, package/service tasks or managed HTTP requests are currently authorized. Verify both hosts' fingerprints against authenticated Azure boot diagnostics and store matching keys only in A2's `.local/known_hosts`; the configuration preserves strict checking with no global known-hosts fallback. Current `.invalid` inventory names are intentionally not real endpoints.
+The learner explicitly authorized the 25 September continuation. It used a fresh reviewed A2 deployment, authenticated host fingerprints and scoped controller access. The September 16 allocation and receipts remain historical; no old plan or inventory was reused. Both runs have now been cleaned up. Do not contact either run’s retired IPs. Fresh future deployments require current Terraform outputs and host verification.
 
 A2's renderer creates ignored, mode-0600 `inventory.local.ini` explicitly from real Terraform output after approval. Its `--web-only` option selects the same `web1` and `web2`; never invent IPs or replace tracked `inventory.ini`. No private-key path or credentials are committed. The existing SSH key/agent must already be selected. Approval assertions run before remote modules because fact gathering is off. Each play defaults `live_execution_approved` to false; only an authorized operator may explicitly override it. These are workflow safeguards, not a substitute for authorization.
 
@@ -420,15 +443,17 @@ curl --fail --silent --show-error --noproxy '*' --head "http://${WEB2_IP:?set ac
 
 Open each actual URL in the controller's browser; verify the footer, CSS and contact/back links. HTTP access is restricted to the controller /32, so another viewer will not reach the site. Capture the public IP/full name in genuine browser windows only after privacy review. Do not broaden the Terraform-managed NSGs for a screenshot. If the controller IP changes, update it through Terraform after a fresh authorized plan.
 
-The [A3 manifest](../screenshots/assignment-03-manifest.json) preserves all 11 numbered slots plus LinkedIn. Approved genuine native captures cover **1** (tracked filenames), **2** (post-cleanup local retained-inventory graph), **4** (personalized source) and **5** (local syntax). Slot 2 was genuinely executed once locally after cleanup, with SSH/SFTP/SCP disabled, and visibly shows `web1` and `web2`; it is **not connectivity evidence**. An earlier incomplete graph frame was not accepted. Original PNG and source/run hashes are recorded. Slots **3, 6–11** and LinkedIn remain pending. Neither template checks, the retained graph nor localhost tests fulfill ping/deployment evidence. Website URLs and published-post links remain pending. Never publish account IDs, credentials, keys, state or private paths; no LinkedIn publication is authorized.
+The [numbered evidence map](../evidence/2026-09-25/screenshot-map.md) distinguishes original native captures, current browser captures and labeled recorded-output views. Exact address-bar and `curl -I` screenshot slots remain unverified.
+
+Historical URLs from the completed 25 September run: `http://20.68.148.122/` and `http://51.132.24.18/`. These are retired evidence references, not current demo links. [Published LinkedIn post](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/).
 
 ## Troubleshooting, learning and cleanup
 
-A2's actual SSH hostname and cloud-init checks succeeded, but the private runtime environment set `ANSIBLE_CALLBACKS_ENABLED=''`. Ansible core 2.21.4 parsed that as `['']` and raised `ValueError: A non-empty plugin name is required` before its ping tasks (exit 250). The coordinator stopped execution; A3 deployment was never attempted. After verified cleanup, a new private copy omitted that variable, without changing frozen execution history or copying approvals. Five local regressions passed, including reproducing the original callback failure and a genuine **localhost-only** pong. This is not a successful managed-host retry. [The sanitized runtime receipt](../ansible-adhoc-lab/runtime-validation.json) records hashes and limits. During preparation, tests intentionally confirmed that a default Nginx page with HTTP 200 is insufficient: the personalized content assertion rejects it. A shared-disk shortage was resolved by removing only this task's redundant tool/provider copies and reusing verified existing executables; no learner action is invented. These are local engineering notes, not firsthand deployment reflections.
+The September 16 run stopped because `ANSIBLE_CALLBACKS_ENABLED=''` was parsed as an empty plugin name. The 25 September continuation omitted that invalid setting and completed managed-host ping, deployment and idempotence checks. Local tests independently reject HTTP 200 with the wrong/default page; cloud evidence separately proves the two actual hosts served the required content. These are factual assisted engineering notes. The [original receipt](../ansible-adhoc-lab/runtime-validation.json) remains unchanged.
 
 For future authorized runs: SSH denial means review the existing identity, verified fingerprint, controller /32 and instance readiness; do not disable verification. Apt locks can mean Ubuntu initialization is unfinished; wait rather than killing package managers. HTTP failure requires inspecting the Nginx service/default-site configuration, copied files and Terraform-managed web-only rule. If a second run changes files, compare source bytes and destination ownership/mode before claiming idempotency.
 
-Cleanup takes priority over completing screenshots. For the historical run, the coordinator stopped both runtimes and disabled approvals, separately reviewed/applied the exact **23-delete** teardown, and passed **16 absence/empty-state checks** at **21:53:43 UTC**, before the original **22:22:02 UTC** deadline. Persistent empty state advanced to serial **48** with the same lineage. A3 had no separate infrastructure. All historical plans, state backups and inventories remain private evidence, not runnable inputs. No zero-charge claim or cloud retry is authorized. For any future approved run, follow A2's exact-state reviewed cleanup workflow even when evidence is incomplete.
+The 25 September cleanup removed all 23 resources in the shared A2/A3 lab. [Cleanup receipt](../evidence/2026-09-25/a2-cleanup.json). No other demonstration was removed. Retired plans and inventories are evidence only, and zero cost is not claimed.
 ````
 
 ---
@@ -441,13 +466,16 @@ Cleanup takes priority over completing screenshots. For the historical run, the 
 
 Paste your LinkedIn post URL here:
 
-**PENDING — not published; separate authorization required.**
+Published25September; see the actual LinkedIn URL and screenshot below.
 
 ---
 
 ### Screenshot — Published LinkedIn post
 
-**PENDING — LinkedIn screenshot.** Publication is not authorized and no post exists. Only a genuine separately approved published post may satisfy this slot.
+![Supporting evidence; scope explained in the numbered map](evidence/2026-09-25/w09-linkedin-published.png)
+
+
+Published25September; see the actual LinkedIn URL and screenshot below.
 
 ---
 
@@ -457,7 +485,7 @@ Answer the following in your own words:
 
 **1. What issue did you face while completing this assignment, and how did you fix it?**
 
-**Firsthand deployment reflection: PENDING learner input.** No managed deployment has occurred. A real local test issue was distinguishing a successful HTTP status from correct content: loopback tests showed that HTTP 200 with the wrong/default page must fail, so verification requires both Eze Favour and the unique lab marker. Shared disk pressure was handled by removing only task-owned duplicate tool artifacts and reusing verified existing executables. These are AI-assisted preparation notes.
+**Assisted factual note:** The 25September managed deployment and zero-change rerun succeeded. A real local test issue was distinguishing a successful HTTP status from correct content: loopback tests showed that HTTP 200 with the wrong/default page must fail, so verification requires both Eze Favour and the unique lab marker. Shared disk pressure was handled by removing only task-owned duplicate tool artifacts and reusing verified existing executables. These are AI-assisted preparation notes.
 
 ---
 
@@ -481,7 +509,7 @@ Separate install, deploy and verify plays make target hosts, escalation and fail
 
 **5. What does idempotency mean in this assignment?**
 
-Idempotency means rerunning the same playbook against already-correct hosts makes no unnecessary changes. An immediate unchanged second run should show changed=0, unreachable=0 and failed=0 for web1/web2, with no reload handler. apt cache refreshes after the cache window or real source changes can legitimately report changes. Actual remote confirmation is pending, not inferred from syntax/mock tests.
+Idempotency means rerunning the same playbook against already-correct hosts makes no unnecessary changes. An immediate unchanged second run should show changed=0, unreachable=0 and failed=0 for web1/web2, with no reload handler. apt cache refreshes after the cache window or real source changes can legitimately report changes. The actual 25September rerun returned changed=0 for both web hosts; this is recorded rather than inferred from syntax/mock tests.
 
 ---
 
@@ -509,19 +537,19 @@ Confirm that the following files are included in your assignment folder:
 - Include both deployed website URLs.
 - Paste `inventory.ini`, `site.yml`, and `README.md` as editable text.
 - Answer all assignment questions clearly in your own words.
-- Add your LinkedIn post URL.
+- LinkedIn post: https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
 - Do not expose SSH private keys, passwords, cloud account IDs, or other sensitive information.
 
 ---
 
 # Completion Checklist
 
-Checked items below describe **source implementation/local validation only**, not deployed state. Template inventory checks are not SSH proof. Remote execution, screenshots, learner-owned answers and publication remain incomplete.
+Checked items describe verified source and actual September 25 results. Exact unavailable screenshot formats and learner-personal actions remain open.
 
 - [x] Task 1: `static-web` folder structure is complete
 - [x] Task 2: Both servers are listed under the `[web]` group in `inventory.ini`
 - [x] Task 2: Inventory graph shows `web1` and `web2`
-- [ ] Task 3: Ansible ping returns `SUCCESS` and `pong` for both servers
+- [x] Task 3: Ansible ping returns `SUCCESS` and `pong` for both servers
 - [x] Task 4: `files/index.html` contains your full name
 - [x] Task 5: `site.yml` contains three separate plays
 - [x] Task 5: Play 1 installs, starts, and enables Nginx
@@ -529,21 +557,21 @@ Checked items below describe **source implementation/local validation only**, no
 - [x] Task 5: Nginx reload handler is included
 - [x] Task 5: Play 3 verifies both web servers from the controller
 - [x] Task 6: Playbook syntax check passes
-- [ ] Task 7: First playbook run completes with `unreachable=0` and `failed=0`
-- [ ] Task 7: URI verification returns HTTP `200` for both servers
-- [ ] Task 8: Second playbook run demonstrates idempotency
-- [ ] Task 8: Second run shows `changed=0` for both web servers
-- [ ] Task 9: Both `curl -I` commands return HTTP `200 OK`
-- [ ] Task 9: Website loads from Server 1
-- [ ] Task 9: Website loads from Server 2
-- [ ] Task 9: Full name is visible on both deployed websites
+- [x] Task 7: First playbook run completes with `unreachable=0` and `failed=0`
+- [x] Task 7: URI verification returns HTTP `200` for both servers
+- [x] Task 8: Second playbook run demonstrates idempotency
+- [x] Task 8: Second run shows `changed=0` for both web servers
+- [ ] Task 9: Both `curl -I` commands return HTTP `200 OK` (saved proof is URI GET, not an exact HEAD capture)
+- [x] Task 9: Website loads from Server 1
+- [x] Task 9: Website loads from Server 2
+- [x] Task 9: Full name is visible on both deployed websites
 - [x] Task 10: `README.md` contains all required explanations
 - [ ] Screenshots 1–11 are included
 - [x] `inventory.ini`, `site.yml`, and `README.md` are pasted as editable text
-- [ ] Both website URLs are included
-- [ ] Assignment questions are answered
-- [ ] LinkedIn post published
-- [ ] LinkedIn post URL added
+- [x] Both website URLs are included
+- [x] Assignment questions are answered
+- [x] LinkedIn post published
+- [x] LinkedIn post URL added
 - [ ] No sensitive information is exposed
 
 ---
@@ -569,3 +597,7 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) — Agentic AI Track.*
+
+### 25 September publication
+
+[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.
