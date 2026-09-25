@@ -1,0 +1,31 @@
+# Official A5 starter kit — source comparison
+
+The official `book-review-agentic-ai.zip` was received from the authenticated Udemy course on 24 September 2026. Its six files have been reviewed against the existing A5 source. **At this receipt-only stage, kit discovery was complete and configuration activation and genuine Claude/MCP execution remained pending.** The original archive and adapted review candidate are retained privately. Paid course files are not included in this repository. See the [25 September Bedrock setup report](bedrock-setup-20260925.md) for the subsequent model response, MCP connection, integration fixes and remaining evidence gaps.
+
+Source: [DevOps for beginners — Assignment 37](https://www.udemy.com/course/devops-for-beginners-docker-k8s-cloud-cicd-4-projects/learn/practice/1657905/introduction), under **Section 8 → Instructions → Download resource files**. This is the verified location; Payhip was not established as a prerequisite or kit source. [Archive and file hashes](starter-kit-review-20260924.json) record the received bytes. ZIP integrity passed; all entries were inspected before writing inert copies. No file from the archive was executed.
+
+The assignment explicitly provides no complete step-by-step Terraform implementation. Its Instructor example is `N/A`. Videos 166–174 in Section 8 cover the remaining infrastructure, variable and module material; the enrolled Claude course covers project context, subagents, MCP and hooks.
+
+## Comparison and prepared adaptations
+
+| Area | Official kit | Existing A5 setup and review result |
+| --- | --- | --- |
+| Architecture | Six subnets, two availability locations, public Web/private App/private DB, public and internal load balancers, backend 3001, MySQL 3306, HA and replica | The source already represents these requirements. No Terraform rewrite is warranted by this comparison. Runtime and deployed topology are still unverified. |
+| Project context | General AWS/Azure capstone policy and phased workflow | The private candidate retains the supplied requirements and adds the existing AWS-specific offline restrictions. It does not replace the current protected policy. |
+| Terraform Engineer | Sonnet, Bash, broad Terraform MCP tools, validation and plan guidance | The candidate inherits model selection and uses the existing bounded tool list and fixed offline runner. Live plan/state/cloud operations remain outside this preparation. |
+| Architecture reviewer | Read-only prose, but Bash and wildcard MCP tools are exposed in front matter | The candidate retains the review areas and PASS/WARN/FAIL format while using the existing native read-only tool list, explicit denied mutation/delegation tools and inherited model. Read-only prose alone is not a tool boundary. |
+| MCP | Official Docker image, no pinned tag/digest, `ENABLE_TF_OPERATIONS=false` | The current inactive example instead specifies a versioned local executable and seven public documentation tools. The candidate retains that narrower example. Its executable path remains a placeholder; it is not ready to activate. A reviewed installed release/checksum and effective environment are still needed. |
+| Post-edit hook | Formatting after Edit/Write; validation deliberately runs at logical checkpoints | The candidate retains the existing fixed guarded runner, adding the supplied native secret-read denies and apply/destroy prompts to the existing permissions. It does not install the supplied formatting command over the current guard. |
+| Hook syntax | `command` plus `args`, with a project-directory placeholder | Current [Claude hook documentation](https://code.claude.com/docs/en/hooks#exec-form-and-shell-form) supports exec form and path substitution, and the published settings schema includes `args`. No syntax defect is asserted. Compatibility with the installed host is not yet tested. |
+| Files included | README lists a Terraform working directory | The archive contains six files and the agent directories, but no Terraform implementation or `terraform/` directory. Our existing Terraform source supplies the implementation. |
+
+The private candidate consists only of `.txt` review files outside the runnable project. Its settings preserve the existing hooks and add the starter kit's permission rules; its original and candidate hashes and exact diff are retained privately. These are Codex-prepared adaptations, not instructor-authored replacements or evidence of an executed Claude review. The existing project policy, agents, hooks, runner, locks, trust manifest, application and Terraform source remain unchanged. Historical source screenshots therefore retain their original meaning; they do not become screenshots of the supplied kit.
+
+## What remains before execution
+
+1. Review and integrate the candidate as a distinct configuration change, updating the protected-file trust records only after reviewing the actual diff. Check the installed Claude version, effective settings, inherited hooks, agent identity and source permissions before launch. Receipt of the archive does not satisfy these checks.
+2. Resolve and verify the MCP executable, checksum and public-documentation-only tool surface. Check the effective credential-free launch environment. The inherited model and current authentication must be inspected before a model session; no paid usage has been initiated by this review.
+3. Produce genuine Claude/MCP/hook evidence. Current screenshots 1–3 describe the earlier Copilot draft; slots 4–5 and 26–28 still require actual workflow evidence. The existing raw-validation screenshot gap also remains.
+4. Resolve the pinned application's dependency release gate and reviewed Linux artifact/AMI requirements. Prepare the real costed cloud plan and required HTTPS/secret/CA inputs before an authorized deployment. No existing A4 budget carries over to this A5 architecture.
+
+The review adds **zero screenshots and zero completed assignment tasks**. A5 remains **9/28** occupied screenshot slots and Week 08 remains **98/118**. The 15 personal reflections, publication requirements and runtime checks remain open. This is a source comparison, not a deployment, independent Claude review, manual learner execution or new DMI grade.

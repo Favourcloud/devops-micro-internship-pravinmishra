@@ -1,0 +1,150 @@
+[
+  {
+    "slot": 12,
+    "path": "screenshots/screenshot-12-recorded-final.png",
+    "sha256": "003e64fe08f45520915eef5b8326e43d2d6821c13652d220883a058c2b8062b6",
+    "captured_at_utc": "2026-09-25T07:39:43.879Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-12-live.html",
+    "source": "live-evidence.json",
+    "snapshot": "sources/db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385.json",
+    "source_sha256": "db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385"
+  },
+  {
+    "slot": 9,
+    "path": "screenshots/screenshot-09-recorded-final.png",
+    "sha256": "8a15424a07e5a142cd97b65ab8f6fca654058b4092445335c81faeadf9a9ce42",
+    "captured_at_utc": "2026-09-25T07:41:35.259Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-9-live.html",
+    "source": "live-evidence.json",
+    "snapshot": "sources/db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385.json",
+    "source_sha256": "db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385"
+  },
+  {
+    "slot": 13,
+    "path": "screenshots/screenshot-13-recorded-final.png",
+    "sha256": "b8a2cb5de1bd8ef6d1908941ce46561d055cdb10137773509345a41e00bfdbac",
+    "captured_at_utc": "2026-09-25T07:41:35.760Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-13-live.html",
+    "source": "live-evidence.json",
+    "snapshot": "sources/db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385.json",
+    "source_sha256": "db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385"
+  },
+  {
+    "slot": 10,
+    "path": "screenshots/screenshot-10-recorded-final.png",
+    "sha256": "3604d59cd520f2e8d62216af7e9645f13c5625986c4e0bbaa80fe0ea459244cb",
+    "captured_at_utc": "2026-09-25T07:41:51.412Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-10-live.html",
+    "source": "live-evidence.json",
+    "snapshot": "sources/db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385.json",
+    "source_sha256": "db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385"
+  },
+  {
+    "slot": 11,
+    "path": "screenshots/screenshot-11-recorded-final.png",
+    "sha256": "9f59065a92e9f00d64f7d4259eabb6799d649c114b31f2bb9d4eab10002d969a",
+    "captured_at_utc": "2026-09-25T07:41:51.738Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-11-live.html",
+    "source": "live-evidence.json",
+    "snapshot": "sources/db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385.json",
+    "source_sha256": "db2e77a844d8a6b21f6ac25534f539f36a1b57e3ee49b099612ddf69ce125385"
+  },
+  {
+    "slot": 19,
+    "path": "screenshots/screenshot-19-recorded-final.png",
+    "sha256": "23929d750b675cb87f22c36a564d5d5f725c2ed25e766d840fd7a1b4e1e8095b",
+    "captured_at_utc": "2026-09-25T07:41:52.039Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-19-live.html",
+    "source": "apply-summary.json",
+    "snapshot": "sources/c8d40debc0af8335cf09958785985dc8fde92491981039d2a50886fd6083f6bb.json",
+    "source_sha256": "c8d40debc0af8335cf09958785985dc8fde92491981039d2a50886fd6083f6bb"
+  },
+  {
+    "slot": 24,
+    "path": "screenshots/screenshot-24-recorded-final.png",
+    "sha256": "7421ce01450c2c55161dadaae3f6f08475a811fb7f8bec0fcfe33b0db48a8561",
+    "captured_at_utc": "2026-09-25T07:57:35.129Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-24-live.html",
+    "source": "api-e2e-result.json",
+    "snapshot": "sources/9b504abd124a8744175598a20a5087dd77a05f61fb859cc58ebae4ed9316468f.json",
+    "source_sha256": "9b504abd124a8744175598a20a5087dd77a05f61fb859cc58ebae4ed9316468f"
+  },
+  {
+    "slot": 25,
+    "path": "screenshots/screenshot-25-recorded-final.png",
+    "sha256": "d8a16d952259f8c21c8716b7e3840ac1ce84a804d47cd14386bf69d55ad09524",
+    "captured_at_utc": "2026-09-25T07:57:35.544Z",
+    "image_pixels_modified": false,
+    "type": "Original CUA browser screenshot of labeled recorded evidence",
+    "page": "slot-25-live.html",
+    "source": "database-evidence.json",
+    "snapshot": "sources/cfaa7119c71210f830e54f7dd5474e4db3f30f94a68bb170da5eed7586ec8232.json",
+    "source_sha256": "cfaa7119c71210f830e54f7dd5474e4db3f30f94a68bb170da5eed7586ec8232"
+  },
+  {
+    "slot": 18,
+    "path": "screenshots/screenshot-18-recorded-evidence.png",
+    "bytes": 235252,
+    "sha256": "12c176f5ef89c832243e2c2018108de0e5fe19890193266f25f2b49fa3abac37",
+    "captured_at_utc": "2026-09-25T05:55:15.584Z",
+    "source_html_sha256": "1294ef8bca1bdfb1cd9d7771c5b81fbc6af7648e66b5140693d017dbb7cb0fe0",
+    "type": "original browser screenshot of labeled recorded evidence viewer",
+    "image_pixels_modified": false
+  },
+  {
+    "slot": 21,
+    "file": "screenshot-21-authenticated-light-mode.png",
+    "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/",
+    "sha256": "a16d999d78d79c83c64aef1438393acd982af4ff47c561598036fa082f12b1b0",
+    "captured_at_utc": "2026-09-25T07:55:57.841Z",
+    "image_pixels_modified": false,
+    "browser_test_setting": "prefers-color-scheme: light",
+    "path": "screenshots/screenshot-21-authenticated-light-mode.png",
+    "type": "Original CUA screenshot of deployed application"
+  },
+  {
+    "slot": 22,
+    "file": "screenshot-22-book-details.png",
+    "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/book/1",
+    "sha256": "32bae1e2073bad882132e6c823ab0777740974254898f601a431b4cd63c5f766",
+    "captured_at_utc": "2026-09-25T07:54:18.556Z",
+    "image_pixels_modified": false,
+    "path": "screenshots/screenshot-22-book-details.png",
+    "type": "Original CUA screenshot of deployed application"
+  },
+  {
+    "slot": 23,
+    "file": "screenshot-23-review-after-reload.png",
+    "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/book/1",
+    "sha256": "443b543baafd2ffca3d4d5d8cd50c5fe2f95ef555cc8ce359dceb0b8cb4c05e1",
+    "captured_at_utc": "2026-09-25T07:55:16.467Z",
+    "image_pixels_modified": false,
+    "path": "screenshots/screenshot-23-review-after-reload.png",
+    "type": "Original CUA screenshot of deployed application"
+  },
+  {
+    "slot": 20,
+    "file": "screenshot-20-https-homepage-light-mode.png",
+    "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/",
+    "sha256": "a16d999d78d79c83c64aef1438393acd982af4ff47c561598036fa082f12b1b0",
+    "captured_at_utc": "2026-09-25T07:55:57.740Z",
+    "image_pixels_modified": false,
+    "browser_test_setting": "prefers-color-scheme: light",
+    "path": "screenshots/screenshot-20-https-homepage-light-mode.png",
+    "type": "Original CUA screenshot of deployed application"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Non-secret Book Review runtime configuration",
+  "type": "object",
+  "required": ["tier", "region", "public_origin", "internal_url", "db_host", "replica_host", "db_name"],
+  "properties": {
+    "release_authorized": {"type": "boolean", "default": false, "description": "Fail-closed runtime interlock. True does not remediate dependencies or authorize deploying the current vulnerable pin; a reviewed fixed upstream pin/security review is a separate release gate."},
+    "tier": {"enum": ["web", "app", "initializer"]},
+    "region": {"type": "string", "pattern": "^[a-z]{2}-[a-z]+-[0-9]$"},
+    "public_origin": {"type": "string", "pattern": "^https://[a-z0-9.-]+$"},
+    "internal_url": {"type": "string", "pattern": "^http://[a-z0-9.-]+$"},
+    "db_host": {"type": "string", "format": "hostname"},
+    "replica_host": {"type": "string", "format": "hostname"},
+    "db_name": {"type": "string", "pattern": "^[a-z][a-z0-9_]{0,47}$"},
+    "runtime_artifact_url": {"type": "string", "format": "uri"},
+    "runtime_artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "rds_ca_path": {"const": "/etc/book-review/rds-ca.pem", "description": "Preinstalled root-owned, non-writable-by-group/other CA bundle in the approved AMI; digest verified before use."},
+    "rds_ca_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "app_secret_arn": {"type": "string"},
+    "app_secret_version": {"type": "string", "pattern": "^[A-Za-z0-9-]{32,64}$"},
+    "master_secret_arn": {"type": "string"},
+    "master_secret_version": {"type": "string", "pattern": "^[A-Za-z0-9-]{32,64}$"},
+    "router_secret_arn": {"type": "string"}
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {"if": {"properties": {"tier": {"const": "web"}}}, "then": {"required": ["runtime_artifact_url", "runtime_artifact_sha256"], "not": {"anyOf": [{"required": ["app_secret_arn"]}, {"required": ["app_secret_version"]}, {"required": ["master_secret_arn"]}, {"required": ["master_secret_version"]}, {"required": ["router_secret_arn"]}, {"required": ["rds_ca_path"]}, {"required": ["rds_ca_sha256"]}]}}},
+    {"if": {"properties": {"tier": {"const": "app"}}}, "then": {"required": ["app_secret_arn", "app_secret_version", "router_secret_arn", "rds_ca_path", "rds_ca_sha256", "runtime_artifact_url", "runtime_artifact_sha256"], "not": {"anyOf": [{"required": ["master_secret_arn"]}, {"required": ["master_secret_version"]}]}}},
+    {"if": {"properties": {"tier": {"const": "initializer"}}}, "then": {"required": ["app_secret_arn", "app_secret_version", "master_secret_arn", "master_secret_version", "rds_ca_path", "rds_ca_sha256"], "not": {"anyOf": [{"required": ["router_secret_arn"]}, {"required": ["runtime_artifact_url"]}, {"required": ["runtime_artifact_sha256"]}]}}}
+  ],
+  "$comment": "common.validate_config additionally enforces exact region-matching ARNs, distinct identities/DB endpoints, strict host syntax and HTTPS download URLs with no auth/query/redirect. Version selectors are VersionId, not Terraform counters."
+}

@@ -5,7 +5,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 **Learner:** Eze Favour
 
 **Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
-**Current status —24 September2026:** Deployment, real browser/cart-to-RDS verification and teardown succeeded. **34/35 screenshot slots have captures**; checkout/order behavior, learner reflection and mandatory LinkedIn publication remain unfinished. See the [live run summary](terraform-aws-epicbook/evidence/live-run-summary.md) and [new capture provenance](terraform-aws-epicbook/evidence/live-provenance.json). Private RDS output and specific historical screenshot limitations remain disclosed. The former EC2 URL is retired. Codex performed the run under user delegation.
+**Current status —25 September2026:** Deployment, real browser/cart-to-RDS verification, teardown and mandatory LinkedIn publication are verified. **35/35 screenshot slots have captures**. The pinned instructor app has no order-creation endpoint, so checkout/order completion remains unsupported. Published reflections are explicitly assisted; historical visual limitations remain disclosed. See the [live run summary](terraform-aws-epicbook/evidence/live-run-summary.md) and [new capture provenance](terraform-aws-epicbook/evidence/live-provenance.json). Private RDS output and specific historical screenshot limitations remain disclosed. The former EC2 URL is retired. Codex performed the run under user delegation.
 
 ## Historical preparation record — superseded by the live update
 
@@ -578,13 +578,15 @@ Write the post in your own words and include at least one deployment screenshot 
 
 Add a screenshot of the published LinkedIn post showing the post and at least one deployment image or other proof.
 
-Add your screenshot here.
+![Screenshot 35 — Published LinkedIn post with EpicBook proof](publication/linkedin-published-epicbook-cart.png)
+
+Actual published post gallery showing EZE FAVOUR, post text and the original EpicBook cart proof. [Database image and provenance](publication/README.md) accompany this capture. The original app endpoint is retired; publication does not imply completed checkout.
 
 ## LinkedIn Post URL
 
-**LinkedIn Post URL:** Add your LinkedIn post URL here
+**LinkedIn Post URL:** https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/
 
-**Status:** PENDING — mandatory publication requires genuine evidence, the learner's own words and explicit human approval.
+**Status:** Published under explicit completion authorization, with five proof images and disclosed AI-assisted wording. This does not establish manual learner execution or completed checkout.
 
 ---
 
@@ -667,9 +669,9 @@ Add your screenshot here.
 - [ ] Verified the checkout or order workflow
 - [x] Confirmed application actions in Amazon RDS
 - [x] Completed `terraform destroy`
-- [ ] Published the required LinkedIn post
-- [ ] Added the LinkedIn post URL
-- [ ] Captured all 35 required screenshots
+- [x] Published the required LinkedIn post
+- [x] Added the LinkedIn post URL
+- [x] Captured all 35 required screenshots
 - [ ] Confirmed that my full name is visible in the required screenshots
 - [x] Checked that no sensitive information is exposed
 

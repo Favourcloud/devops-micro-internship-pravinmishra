@@ -1,0 +1,36 @@
+{
+  "operator": "Codex under Eze Favour authorization",
+  "checks": {
+    "read_only_replica_probe": true,
+    "untrusted_CA_rejected": true,
+    "wrong_hostname_rejected": true
+  },
+  "primary": {
+    "tls_version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "hostname_verified": true,
+    "read_only": false,
+    "secure_transport_required": true,
+    "row_counts": {
+      "Users": 3,
+      "Books": 3,
+      "Reviews": 3
+    },
+    "verified_api_review_rows": 1
+  },
+  "replica": {
+    "tls_version": "TLSv1.3",
+    "cipher": "TLS_AES_256_GCM_SHA384",
+    "hostname_verified": true,
+    "read_only": true,
+    "secure_transport_required": true,
+    "row_counts": {
+      "Users": 3,
+      "Books": 3,
+      "Reviews": 3
+    },
+    "verified_api_review_rows": 1
+  },
+  "status": "passed",
+  "recorded_at_utc": "2026-09-25T07:54:06.942503+00:00"
+}

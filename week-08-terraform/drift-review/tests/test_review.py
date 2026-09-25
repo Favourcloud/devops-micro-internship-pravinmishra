@@ -452,7 +452,7 @@ class SubmissionTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r"^### Screenshot \d+ —", submission, re.M)), 19)
         self.assertEqual(submission.count("Add your screenshot here."), 19 - len(self.captures))
         sections = {int(number): body for number, body in re.findall(
-            r"^### Screenshot (\d+) — [^\n]+\n(.*?)(?=^### Screenshot \d+ —|\Z)", submission, re.M | re.S)}
+            r"^### Screenshot (\d+) — [^\n]+\n(.*?)(?=^### Screenshot \d+ —|^#{1,2} |\Z)", submission, re.M | re.S)}
         self.assertEqual(set(sections), set(range(1, 20)))
         for number, body in sections.items():
             with self.subTest(screenshot=number):
@@ -463,10 +463,12 @@ class SubmissionTests(unittest.TestCase):
                 else:
                     self.assertEqual(images, [])
                     self.assertEqual(body.count("Add your screenshot here."), 1)
-        self.assertIn("Add a screenshot of the published LinkedIn post here.", submission)
+        self.assertIn("publication/linkedin-published-detected-change.png", submission)
+        self.assertIn("publication/linkedin-published-final-review.png", submission)
+        self.assertIn("https://www.linkedin.com/posts/eze-favour-52732752_", submission)
         self.assertIn("- [x] Included all 19 numbered screenshots", submission)
         self.assertIn("- [ ] Performed any infrastructure-changing action manually", submission)
-        self.assertIn("- [ ] Published the required LinkedIn post", submission)
+        self.assertIn("- [x] Published the required LinkedIn post", submission)
 
     def test_enrollment_continuation_boundaries(self):
         self.assertIn("!reports/continuation-20260916.json", (ROOT / ".gitignore").read_text().splitlines())

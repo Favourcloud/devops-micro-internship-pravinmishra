@@ -5,13 +5,14 @@
   "reviewed_source_record": "reviewed-source.json",
   "screenshot_progress": {
     "accepted_source_only": 9,
-    "missing": 19,
-    "total": 28
+    "accepted_workflow_configuration": 2,
+    "accepted_offline_validation": 1,
+    "missing": 13,
+    "total": 28,
+    "accepted_recorded_ai_workflow": 3
   },
   "local_capture_blocked_slots": [],
   "separately_gated_slots": [
-    4,
-    5,
     9,
     10,
     11,
@@ -24,12 +25,9 @@
     22,
     23,
     24,
-    25,
-    26,
-    27,
-    28
+    25
   ],
-  "capture_blocker": "The earlier unreadable native captures were replaced by genuine browser views of unchanged source for slots 7, 8, 14, 15 and 16. Screenshot 17 remains pending because the fixed runner suppresses raw terraform validate output. Its actual stage-result capture is supplemental and is not counted.",
+  "capture_blocker": "The earlier unreadable captures and missing literal validation output have been resolved. Thirteen slots still require deployment/runtime evidence. The recorded AI review is partial; final architecture review remains open.",
   "capture_provenance": {
     "operator": "GitHub Copilot under user delegation",
     "environment": "Native isolated read-only editor; native navigation was not OS-network-sandboxed. CLI validation ran separately with IP egress denied.",
@@ -59,9 +57,16 @@
   },
   "instructor_starter_kit": {
     "found_in_pinned_upstream": false,
-    "status": "pending_instructor_input"
+    "status": "received_reviewed_private_integration_active",
+    "source": "authenticated_udemy_assignment_37",
+    "review_record": "starter-kit-review-20260924.json",
+    "review_summary": "starter-kit-review-20260924.md",
+    "candidate": "private_integrated",
+    "workflow_evidence_added": true,
+    "integration_report": "bedrock-setup-20260925.md",
+    "workflow_evidence_scope": "Private integration with MCP/offline validation, live configuration captures and recorded AI improvement, partial review and troubleshooting. Native post-edit hooks ran; final review and deployment remain unfinished."
   },
-  "claude_mcp_workflow": "pending_not_executed",
+  "claude_mcp_workflow": "lookup_offline_validation_post_edit_and_recorded_ai_evidence_verified_with_disclosed_limits",
   "screenshots": [
     {
       "slot": 1,
@@ -111,14 +116,36 @@
     {
       "slot": 4,
       "title": "Terraform MCP Connection",
-      "status": "pending",
-      "path": null
+      "status": "captured_workflow_configuration",
+      "path": "screenshots/screenshot-04-terraform-mcp.jpg",
+      "sha256": "0c258f1734a680abbdd4f8636d1d079cd0b73b945b93bd8f363ed3e4f362e7a2",
+      "bytes": 64629,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:56.944402+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Claude Code /mcp view shows Terraform connected with seven tools. This is configuration evidence from a live local PTY; AWS credentials were disabled and no model call was made.",
+      "capture_record": "workflow-capture-provenance-20260925.json"
     },
     {
       "slot": 5,
       "title": "Validation Hooks",
-      "status": "pending",
-      "path": null
+      "status": "captured_workflow_configuration",
+      "path": "screenshots/screenshot-05-validation-hooks.jpg",
+      "sha256": "3868f1c80998fc6eea545ea13ecefbdf08e50063d7490b4edfd33f752d91a7b3",
+      "bytes": 73712,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:18.398210+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Claude Code hook details show PostToolUse for Edit|Write invoking the protected post_tool_validate.py command. This proves configuration, not an executed post-edit validation event.",
+      "capture_record": "workflow-capture-provenance-20260925.json"
     },
     {
       "slot": 6,
@@ -249,10 +276,21 @@
     {
       "slot": 17,
       "title": "Terraform Validation",
-      "status": "pending",
-      "path": null,
+      "status": "captured_offline_validation",
+      "path": "screenshots/screenshot-17-terraform-validation.jpg",
       "supporting_evidence": "supplemental/offline-validation-stage-results.png",
-      "limitation": "Partial Screenshot 17 evidence: the unchanged protected runner reports PASS validate. It suppresses raw Terraform diagnostics; this is not the literal terraform validate success output requested by the rubric. No real cloud plan or apply was run."
+      "limitation": "Offline validation only. The earlier stage-summary image remains supplemental; this new live PTY capture includes the exact successful Terraform stdout.",
+      "sha256": "48a5014793f2681ecaf8bb63d32065164a81b1505669f11e8c5e51ad4117f888",
+      "bytes": 70092,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-24T23:52:18.501131+00:00",
+      "format": "JPEG returned by browser screenshot API",
+      "pixels_modified": false,
+      "caption": "Actual Terraform validate stdout reads \u201cSuccess! The configuration is valid.\u201d All six offline stages passed with IP networking denied, empty cloud credential files and the locked local provider. No real cloud plan or apply occurred.",
+      "capture_record": "workflow-capture-provenance-20260925.json"
     },
     {
       "slot": 18,
@@ -305,24 +343,74 @@
     {
       "slot": 26,
       "title": "AI-Assisted Terraform Generation",
-      "status": "pending",
-      "path": null
+      "status": "captured_recorded_ai_workflow",
+      "path": "screenshots/screenshot-26-ai-terraform.jpg",
+      "sha256": "334e4d858174e512839cea195cde39e9621a257b76fbce4e982941d2a4a57926",
+      "bytes": 99555,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:19:12.275237+00:00",
+      "pixels_modified": false,
+      "caption": "Recorded actual Claude Code Read/Edit output improved Terraform hostname limits. PostToolUse passed; 13 independent Terraform boundary tests passed. The session hit its budget limit before a final summary. This is a saved-output view, not a live terminal or deployment.",
+      "rendered_page_sha256": "48eda079e3abbb2121f1ae9416832815905ac5ec72d41a094924dea5daec01bb"
     },
     {
       "slot": 27,
       "title": "Architecture or Security Review",
-      "status": "pending",
-      "path": null
+      "status": "captured_recorded_ai_workflow",
+      "path": "screenshots/screenshot-27-ai-review.jpg",
+      "sha256": "a299229a3540fb9e4b6469064b428b8c2e8b01586d2b63386a257eb6e5de3e89",
+      "bytes": 160849,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:20:04.359612+00:00",
+      "pixels_modified": false,
+      "caption": "Selected exact PASS/WARN/FAIL findings from the recorded Bedrock reviewer response, with operator follow-up. The 1,024-token response was truncated and then stopped at its CLI budget; it is a partial source review, not final architecture approval.",
+      "rendered_page_sha256": "35221bd30b5bbafa32561cc6f0942d4f2ef1274c90427b2ba140c1ff5bd45f7c"
     },
     {
       "slot": 28,
       "title": "AI-Assisted Troubleshooting",
-      "status": "pending",
-      "path": null
+      "status": "captured_recorded_ai_workflow",
+      "path": "screenshots/screenshot-28-ai-troubleshooting.jpg",
+      "sha256": "769104d3ca0cda91a8915bea52683a675c4279e7f69b8e46ac6689033ed07768",
+      "bytes": 129518,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "captured_at_utc": "2026-09-25T00:20:37.511114+00:00",
+      "pixels_modified": false,
+      "caption": "Recorded Claude diagnosis of the verified archive failure and explicit operator correction. The first attempt made no edit; the second model patch failed raw-path tests and rejected the root directory. The corrected candidate passed 12 existing and seven new archive checks. Saved-output view; no deployment.",
+      "rendered_page_sha256": "9067f6d8e6f7d9c31529df8921253486dc36be52faa937356d1c86b09ead7a80"
     }
   ],
-  "pending_local_evidence_slots": [
-    17
-  ],
-  "new_capture_provenance": "local-capture-provenance-20260924.json"
+  "pending_local_evidence_slots": [],
+  "new_capture_provenance": "local-capture-provenance-20260924.json",
+  "claude_mcp_workflow_scope": "Bedrock model-selected registry lookup, model-invoked offline validation, actual post-edit hooks and recorded AI improvement/partial-review/troubleshooting are evidenced. Final review and deployment/runtime remain open.",
+  "claude_bedrock_setup": {
+    "report": "bedrock-setup-20260925.md",
+    "report_sha256": "898545aa0e4c4d48b3ff7639feac987d29c1aa8dcd9dd1a9641e8b1ed9152e27",
+    "provider": "Amazon Bedrock",
+    "model": "us.anthropic.claude-sonnet-4-6",
+    "model_response_verified": true,
+    "claude_mcp_connection_verified": true,
+    "mcp_tool_count": 7,
+    "model_selected_mcp_lookup_verified": true,
+    "pretool_denials_observed": true,
+    "post_edit_validation_verified": false,
+    "screenshots_added": 0,
+    "infrastructure_deployed": false,
+    "manual_learner_execution": false,
+    "workflow_record": "bedrock-workflow-20260925.json",
+    "workflow_record_sha256": "02b632d48b8d0b8098180899c7b366fe092cf9e587e6341d3a51b20706bc8d40",
+    "model_invoked_offline_validation_verified": true,
+    "scope": "Historical initial setup/MCP/offline run. Later actual post-edit execution and AI captures are in ai_capture_provenance."
+  },
+  "workflow_capture_provenance": "workflow-capture-provenance-20260925.json",
+  "ai_capture_provenance": "ai-capture-provenance-20260925.json"
 }

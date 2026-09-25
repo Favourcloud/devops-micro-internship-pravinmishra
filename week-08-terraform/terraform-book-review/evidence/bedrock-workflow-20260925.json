@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "operator": "Codex under user delegation",
+  "provider": "Amazon Bedrock",
+  "model": "us.anthropic.claude-sonnet-4-6",
+  "claude_version": "2.1.220",
+  "region": "us-east-1",
+  "workflow_complete": false,
+  "model_selected_mcp_lookup": {
+    "verified": true,
+    "tool": "mcp__terraform__get_latest_provider_version",
+    "arguments": {
+      "namespace": "hashicorp",
+      "name": "aws"
+    },
+    "result": "6.66.0",
+    "workspace_provider_version": "6.64.0",
+    "workspace_provider_changed": false
+  },
+  "model_invoked_offline_validation": {
+    "verified": true,
+    "command": "/usr/bin/python3 -I scripts/validate_offline.py",
+    "tool_result_error": false,
+    "passed_stages": [
+      "version",
+      "fmt",
+      "init",
+      "validate",
+      "provider-schema",
+      "mock-plan-tests"
+    ],
+    "output": "PASS version\nPASS fmt\nPASS init\nPASS validate\nPASS provider-schema\nPASS mock-plan-tests\nOffline validation passed; no real plan/apply, cloud, runtime or Claude evidence.",
+    "output_sha256": "290e4566b3b75f2bb9eae63378e340d9db23c892f4b0aaa57b485c3c456db206",
+    "terraform_version": "1.13.5",
+    "credential_free_terraform_environment": true,
+    "provider_installation": "locked local filesystem mirror",
+    "tests_use_mock_provider_and_explicit_plan": true,
+    "real_cloud_plan_or_apply": false
+  },
+  "guard_fix": {
+    "scope": "Private integration only",
+    "cause": "Claude Code 2.1.220 common hook metadata was absent from the strict event allowlist.",
+    "validated_metadata": [
+      "prompt_id",
+      "effort.level",
+      "PostToolUse.duration_ms"
+    ],
+    "unknown_metadata_denied": true,
+    "guard_tests_passed": 17,
+    "offline_runner_contract_tests_passed": 27,
+    "unit_test_network": "denied",
+    "standalone_operator_preflight_ip_network": "denied",
+    "live_model_run_ip_network": "enabled for Bedrock and public Terraform Registry; runner uses isolated credentials and local provider mirror"
+  },
+  "cost": {
+    "additional_authorized_usd": 0.5,
+    "additional_usage_estimate_usd": 0.140181195,
+    "remaining_additional_estimate_usd": 0.359818805,
+    "rates_usd_per_million_tokens": {
+      "input": 3.3,
+      "output": 16.5,
+      "cache_write_5m": 4.125,
+      "cache_read": 0.33
+    },
+    "billing_scope": "Regional token estimate before taxes and final AWS billing; separate from initial approximately $0.44 setup budget.",
+    "runs": [
+      {
+        "attempt": "initial_guard_rejection",
+        "started_at_utc": "2026-09-24T23:37:54.771974+00:00",
+        "ended_at_utc": "2026-09-24T23:38:14.664705+00:00",
+        "private_transcript_sha256": "0a34dfc728311a290196fb84d3bea99587bb667fdb9509a34be3087cc9242780",
+        "cli_cost_estimate_usd": 0.08764920000000001,
+        "aws_regional_estimate_usd": 0.09641412,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 296,
+          "cache_creation_input_tokens": 20564,
+          "cache_read_input_tokens": 20274
+        },
+        "permission_denials": 2
+      },
+      {
+        "attempt": "successful_retry",
+        "started_at_utc": "2026-09-24T23:42:35.812528+00:00",
+        "ended_at_utc": "2026-09-24T23:43:24.226124+00:00",
+        "private_transcript_sha256": "60812da1976a0df229755903544556432930c4496651c8a348ef35a17f832918",
+        "cli_cost_estimate_usd": 0.03978825,
+        "aws_regional_estimate_usd": 0.043767075,
+        "usage": {
+          "input_tokens": 4,
+          "output_tokens": 261,
+          "cache_creation_input_tokens": 6841,
+          "cache_read_input_tokens": 34025
+        },
+        "permission_denials": 0
+      }
+    ]
+  },
+  "post_edit_validation_verified": false,
+  "agent_workflows_verified": false,
+  "screenshots_added": 0,
+  "infrastructure_deployed": false,
+  "manual_learner_execution": false
+}

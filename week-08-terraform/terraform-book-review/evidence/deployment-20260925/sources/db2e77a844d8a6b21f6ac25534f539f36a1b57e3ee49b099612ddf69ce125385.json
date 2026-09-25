@@ -1,0 +1,178 @@
+{
+  "captured_at_utc": "2026-09-25T07:30:24.564902+00:00",
+  "operator": "Codex under Eze Favour authorization",
+  "source": "Authenticated AWS CLI read-only API responses",
+  "manual_learner_execution": false,
+  "compute": [
+    {
+      "name": "dmi-a5-260925-app-0",
+      "role": "app",
+      "instance_type": "t3.large",
+      "state": "running",
+      "availability_zone": "us-east-1a",
+      "subnet": "dmi-a5-260925-app-0",
+      "public_ip_assigned": false,
+      "IMDSv2_required": true
+    },
+    {
+      "name": "dmi-a5-260925-web-0",
+      "role": "web",
+      "instance_type": "t3.large",
+      "state": "running",
+      "availability_zone": "us-east-1a",
+      "subnet": "dmi-a5-260925-web-0",
+      "public_ip_assigned": true,
+      "IMDSv2_required": true
+    },
+    {
+      "name": "dmi-a5-260925-web-1",
+      "role": "web",
+      "instance_type": "t3.large",
+      "state": "running",
+      "availability_zone": "us-east-1b",
+      "subnet": "dmi-a5-260925-web-1",
+      "public_ip_assigned": true,
+      "IMDSv2_required": true
+    },
+    {
+      "name": "dmi-a5-260925-app-1",
+      "role": "app",
+      "instance_type": "t3.large",
+      "state": "running",
+      "availability_zone": "us-east-1b",
+      "subnet": "dmi-a5-260925-app-1",
+      "public_ip_assigned": false,
+      "IMDSv2_required": true
+    }
+  ],
+  "load_balancers": [
+    {
+      "name": "dmi-a5-260925-entry",
+      "scheme": "internal",
+      "state": "active",
+      "availability_zones": [
+        "us-east-1a",
+        "us-east-1b"
+      ],
+      "security_groups": [
+        "dmi-a5-260925-entry-783839b6181fb4e5e0ca13a6d8"
+      ]
+    },
+    {
+      "name": "dmi-a5-260925-public",
+      "scheme": "internet-facing",
+      "state": "active",
+      "availability_zones": [
+        "us-east-1a",
+        "us-east-1b"
+      ],
+      "security_groups": [
+        "dmi-a5-260925-public_lb-f4c4c67346380ec0eb5e17a9d5"
+      ]
+    },
+    {
+      "name": "dmi-a5-260925-internal",
+      "scheme": "internal",
+      "state": "active",
+      "availability_zones": [
+        "us-east-1b",
+        "us-east-1a"
+      ],
+      "security_groups": [
+        "dmi-a5-260925-internal_lb-0ad438a1cf14b290187d2610d6"
+      ]
+    }
+  ],
+  "databases": [
+    {
+      "name": "dmi-a5-260925-primary",
+      "status": "available",
+      "engine": "mysql",
+      "version": "8.4.11",
+      "class": "db.t4g.small",
+      "multi_az": true,
+      "publicly_accessible": false,
+      "encrypted": true,
+      "backup_retention_days": 7,
+      "deletion_protection": true,
+      "source_is_primary": false,
+      "availability_zone": "us-east-1b",
+      "secondary_availability_zone": "us-east-1a"
+    },
+    {
+      "name": "dmi-a5-260925-replica",
+      "status": "available",
+      "engine": "mysql",
+      "version": "8.4.11",
+      "class": "db.t4g.small",
+      "multi_az": false,
+      "publicly_accessible": false,
+      "encrypted": true,
+      "backup_retention_days": 1,
+      "deletion_protection": true,
+      "source_is_primary": true,
+      "availability_zone": "us-east-1b",
+      "secondary_availability_zone": null
+    }
+  ],
+  "target_groups": [
+    {
+      "name": "brent-b7d4601432779ea4d970739fc6",
+      "port": 80,
+      "target_type": "alb",
+      "health_path": "/healthz",
+      "targets": [
+        {
+          "target_name": "dmi-a5-260925-public",
+          "state": "healthy",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "name": "brweb-74d4eb628e35630a15306bbc3f",
+      "port": 80,
+      "target_type": "instance",
+      "health_path": "/healthz",
+      "targets": [
+        {
+          "target_name": "dmi-a5-260925-web-1",
+          "state": "healthy",
+          "reason": null
+        },
+        {
+          "target_name": "dmi-a5-260925-web-0",
+          "state": "healthy",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "name": "brapp-9fd2b4e0f48da7c2bf14925f16",
+      "port": 3001,
+      "target_type": "instance",
+      "health_path": "/api/books",
+      "targets": [
+        {
+          "target_name": "dmi-a5-260925-app-1",
+          "state": "healthy",
+          "reason": null
+        },
+        {
+          "target_name": "dmi-a5-260925-app-0",
+          "state": "healthy",
+          "reason": null
+        }
+      ]
+    }
+  ],
+  "gateway_link_interfaces": {
+    "count": 2,
+    "none_has_public_ip": true,
+    "availability_zones": [
+      "us-east-1b",
+      "us-east-1a"
+    ]
+  },
+  "database_only_app_ingress": true
+}

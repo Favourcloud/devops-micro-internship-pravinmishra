@@ -1,0 +1,75 @@
+{
+  "reviewed_at_utc": "2026-09-24T09:32:29.216080+00:00",
+  "source_url": "https://www.udemy.com/course/devops-for-beginners-docker-k8s-cloud-cicd-4-projects/learn/practice/1657905/introduction",
+  "source_location": "Section 8 > Assignment 37 > Instructions > Download resource files",
+  "archive_name": "book-review-agentic-ai.zip",
+  "archive_bytes": 7900,
+  "archive_sha256": "126518bf77089e2d13e37cda6f8b23b673edc0ff6103460c08ea372e3c23478c",
+  "zip_crc_check": "pass",
+  "code_executed_from_archive": false,
+  "project_configuration_changed": false,
+  "claude_mcp_started": false,
+  "cloud_changes": false,
+  "paid_course_files_published": false,
+  "original_files": [
+    {
+      "archive_path": ".mcp.json",
+      "bytes": 263,
+      "sha256": "58c205c5d36bd024770d84e375d739894f933bb367726032498b6119d85f60c4"
+    },
+    {
+      "archive_path": "CLAUDE.md",
+      "bytes": 4533,
+      "sha256": "db502035aafb25e99df2c736725a868cf6ac5429d8b1f3a93a547f2c6fc31ae9"
+    },
+    {
+      "archive_path": "README.md",
+      "bytes": 3521,
+      "sha256": "4f19c578f9bf981ef5e6ad9c6712bfcb737dedcba25f18babd8e3b461e93a16f"
+    },
+    {
+      "archive_path": ".claude/agents/architecture-security-reviewer.md",
+      "bytes": 2196,
+      "sha256": "1869c92f0e19f2f3da8756ca918e1042c5af27735ec69fa7b3c020330892fe92"
+    },
+    {
+      "archive_path": ".claude/agents/terraform-engineer.md",
+      "bytes": 2469,
+      "sha256": "b2d48ea84269d48d0a5277279001f1bf03b0f158e73b4b44edca7d82c46b10ac"
+    },
+    {
+      "archive_path": ".claude/settings.json",
+      "bytes": 803,
+      "sha256": "3dcc337c779ec8dd25d52bbc789f23db5d5789c36e5b8ed3be415773c0df3542"
+    }
+  ],
+  "status": "received_static_review_complete_activation_pending",
+  "candidate_status": "private_inert_candidate_prepared_not_installed",
+  "evidence_counts_changed": false,
+  "documentation_checks": [
+    {
+      "url": "https://code.claude.com/docs/en/hooks.md",
+      "sha256": "dc59d7c4fb28b246b15db67fd30819cbc6aca09392be662080b602eeab6d5422",
+      "finding": "Current documentation supports command plus args exec form and CLAUDE_PROJECT_DIR path substitution; no syntax defect asserted."
+    },
+    {
+      "url": "https://www.schemastore.org/claude-code-settings.json",
+      "sha256": "6d4a6e3c7adedffce8079ccaef0a4bab5f5718b054421b4475c788a0ae4bedfe",
+      "finding": "Published command-hook schema includes args."
+    }
+  ],
+  "validation": {
+    "existing_evidence_tests": 23,
+    "existing_integration_tests": 4,
+    "failures": 0,
+    "test_networking": "denied_by_macos_sandbox",
+    "original_and_candidate_hashes_verified": true,
+    "settings_preserve_existing_hooks_and_permissions": true,
+    "candidate_preserves_native_secret_denies_and_apply_destroy_prompts": true,
+    "current_hook_schema_field_check": "pass_not_runtime_verification",
+    "protected_source_and_screenshots_unchanged": true,
+    "unpublished_draft_hashes_and_length_checks": "pass",
+    "live_terraform_rerun": false,
+    "note": "No infrastructure or runtime source changed; prior Terraform results were not relabeled as a new run."
+  }
+}

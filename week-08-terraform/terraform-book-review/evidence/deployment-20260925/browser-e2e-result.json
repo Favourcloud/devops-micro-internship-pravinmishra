@@ -1,0 +1,53 @@
+{
+  "origin": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com",
+  "operator": "Codex under Eze Favour authorization",
+  "manual_learner_execution": false,
+  "started_at_utc": "2026-09-25T07:51:28.935Z",
+  "checks": [
+    "Public HTTPS catalogue loaded",
+    "UI login succeeded and Eze Favour is visible",
+    "Book detail UI loaded with database-backed reviews",
+    "Review submitted through UI persisted after reload",
+    "Authenticated session survived reload",
+    "Homepage catalog and authenticated session verified after navigation"
+  ],
+  "captures": [
+    {
+      "slot": 21,
+      "file": "screenshot-21-authenticated-light-mode.png",
+      "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/",
+      "sha256": "a16d999d78d79c83c64aef1438393acd982af4ff47c561598036fa082f12b1b0",
+      "captured_at_utc": "2026-09-25T07:55:57.841Z",
+      "image_pixels_modified": false,
+      "browser_test_setting": "prefers-color-scheme: light"
+    },
+    {
+      "slot": 22,
+      "file": "screenshot-22-book-details.png",
+      "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/book/1",
+      "sha256": "32bae1e2073bad882132e6c823ab0777740974254898f601a431b4cd63c5f766",
+      "captured_at_utc": "2026-09-25T07:54:18.556Z",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 23,
+      "file": "screenshot-23-review-after-reload.png",
+      "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/book/1",
+      "sha256": "443b543baafd2ffca3d4d5d8cd50c5fe2f95ef555cc8ce359dceb0b8cb4c05e1",
+      "captured_at_utc": "2026-09-25T07:55:16.467Z",
+      "image_pixels_modified": false
+    },
+    {
+      "slot": 20,
+      "file": "screenshot-20-https-homepage-light-mode.png",
+      "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/",
+      "sha256": "a16d999d78d79c83c64aef1438393acd982af4ff47c561598036fa082f12b1b0",
+      "captured_at_utc": "2026-09-25T07:55:57.740Z",
+      "image_pixels_modified": false,
+      "browser_test_setting": "prefers-color-scheme: light"
+    }
+  ],
+  "status": "passed",
+  "known_visual_limitation": "Original upstream dark-mode catalog cards have insufficient title contrast; homepage evidence uses temporary browser light-mode emulation, without source or screenshot modification.",
+  "finished_at_utc": "2026-09-25T07:55:57.842Z"
+}

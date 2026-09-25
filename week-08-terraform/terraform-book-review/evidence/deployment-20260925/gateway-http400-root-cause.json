@@ -1,0 +1,14 @@
+{
+  "observed_error": [
+    {
+      "timestamp": "2026-09-25T07:38:08.936419Z",
+      "status": "400",
+      "target_status": "-",
+      "error_reason": "-",
+      "classification": "Acceptable",
+      "classification_reason": "GetHeadZeroContentLength"
+    }
+  ],
+  "diagnosis": "API Gateway GET with Content-Length: 0 classified Acceptable / GetHeadZeroContentLength; strictest ALB rejects it.",
+  "resolution": "Use AWS standard defensive desync mitigation on the gateway-facing ALB; internal ALB remains strictest; SG ingress remains private-only."
+}

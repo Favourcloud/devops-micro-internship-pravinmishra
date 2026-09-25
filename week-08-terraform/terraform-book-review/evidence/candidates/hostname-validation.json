@@ -1,0 +1,85 @@
+{
+  "tested_at_utc": "2026-09-25T00:16:30.690251+00:00",
+  "tests": 13,
+  "cases": {
+    "ordinary_valid": {
+      "value": "books.example.com",
+      "valid": true
+    },
+    "single_char_label": {
+      "value": "a.io",
+      "valid": true
+    },
+    "label_63": {
+      "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com",
+      "valid": true
+    },
+    "host_253": {
+      "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "valid": true
+    },
+    "label_64": {
+      "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com",
+      "valid": false
+    },
+    "host_254": {
+      "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "valid": false
+    },
+    "leading_hyphen": {
+      "value": "-a.example.com",
+      "valid": false
+    },
+    "trailing_hyphen": {
+      "value": "a-.example.com",
+      "valid": false
+    },
+    "empty_label": {
+      "value": "a..example.com",
+      "valid": false
+    },
+    "url": {
+      "value": "https://example.com",
+      "valid": false
+    },
+    "ip": {
+      "value": "127.0.0.1",
+      "valid": false
+    },
+    "wildcard": {
+      "value": "*.example.com",
+      "valid": false
+    },
+    "uppercase": {
+      "value": "Books.example.com",
+      "valid": false
+    }
+  },
+  "variable_source_sha256": "7f8e350712da2c9aa0d3b25a9f5e8d7dd6972095ecacd3889c1a36528612d28d",
+  "network": "denied",
+  "cloud_operations": false,
+  "results": [
+    {
+      "command": [
+        "terraform",
+        "init",
+        "-backend=false",
+        "-input=false",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "stdout": "Initializing provider plugins...\n\nTerraform has been successfully initialized!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "terraform",
+        "test",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "stdout": "tests/hostname.tftest.hcl... in progress\n  run \"ordinary_valid\"... pass\n  run \"single_char_label\"... pass\n  run \"label_63\"... pass\n  run \"host_253\"... pass\n  run \"label_64\"... pass\n  run \"host_254\"... pass\n  run \"leading_hyphen\"... pass\n  run \"trailing_hyphen\"... pass\n  run \"empty_label\"... pass\n  run \"url\"... pass\n  run \"ip\"... pass\n  run \"wildcard\"... pass\n  run \"uppercase\"... pass\ntests/hostname.tftest.hcl... tearing down\ntests/hostname.tftest.hcl... pass\n\nSuccess! 13 passed, 0 failed.\n",
+      "stderr": ""
+    }
+  ]
+}

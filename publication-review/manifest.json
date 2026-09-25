@@ -50,18 +50,18 @@
     {
       "file": "drafts/week-08-blog.md",
       "status": "UNPUBLISHED_DRAFT",
-      "sha256": "de4a2bcabe596671ad64ec3539e84dcb6f153f7e16b0cf2ba02f7598eaae6d70",
-      "words_excluding_urls": 977,
-      "characters": 7856,
+      "sha256": "3760d014783c37f4a189cba0da1c66b52b08350ef5885ee42a7995570735ecc4",
+      "words_excluding_urls": 1044,
+      "characters": 8329,
       "badge_target_occurrences": 1,
       "minimum_200_words": true
     },
     {
       "file": "drafts/week-08-linkedin.md",
       "status": "UNPUBLISHED_DRAFT",
-      "sha256": "bc4db75fa922b845d41998354155a953f424ed39012ce7c5ebdac8140226fab5",
-      "words_excluding_urls": 309,
-      "characters": 2273,
+      "sha256": "d6d846fe947fbbe4518791ddcbdd601ac7cade51cc6dc6f384b9b5c33268c2f3",
+      "words_excluding_urls": 335,
+      "characters": 2439,
       "badge_target_occurrences": 1,
       "within_3000_characters": true
     },
@@ -156,6 +156,30 @@
         "method": "Actual DMI browser page refreshed and visible result inspected",
         "existing_post_deduplication": "pending"
       }
+    },
+    {
+      "updated_at_utc": "2026-09-24T09:35:26.217669+00:00",
+      "source_commit": "b4ff186d8ecf916b7cbafcafe71dacbc9788a73a",
+      "scope": "Official A5 Udemy kit received and statically reviewed; private inactive candidate prepared; no workflow, deployment, screenshot, grade or publication change",
+      "status": "UNPUBLISHED_DRAFT",
+      "human_wording_review_recorded": false,
+      "new_social_publications": 0,
+      "drafts": [
+        {
+          "file": "drafts/week-08-blog.md",
+          "sha256": "0981047018b226b97889245d1ea67d787386aed3b74ee0173bc0db20c3ac27c0",
+          "words_excluding_urls": 992,
+          "characters": 7956,
+          "previous_sha256": "de4a2bcabe596671ad64ec3539e84dcb6f153f7e16b0cf2ba02f7598eaae6d70"
+        },
+        {
+          "file": "drafts/week-08-linkedin.md",
+          "sha256": "dac9e0b64cbb31d47a003f77ca243f2666d35f966d5af712b6ffc7d2a86ab90e",
+          "words_excluding_urls": 315,
+          "characters": 2316,
+          "previous_sha256": "bc4db75fa922b845d41998354155a953f424ed39012ce7c5ebdac8140226fab5"
+        }
+      ]
     }
   ]
 }

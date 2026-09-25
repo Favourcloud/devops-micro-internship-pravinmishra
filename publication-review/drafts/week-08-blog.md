@@ -1,56 +1,49 @@
-# Terraform Across AWS and Azure: What the Deployment Evidence Shows
+# From Terraform Plans to a Working AWS Book Review App
 
-**Week 08 — Terraform | Eze Favour | 24 September 2026**
+**Eze Favour · DMI Week 08 · 25 September 2026**
 
-Week 08 of the DevOps Micro Internship brings together infrastructure as code, application deployment and AI-assisted change review. The repository now includes four verified deployment-and-cleanup runs across AWS and Azure, plus a separate Terraform policy-review experiment. The remaining capstone work is still in progress.
+A successful Terraform apply is only one part of delivering an application. My Week 08 project now includes a Book Review app on AWS, real login and review tests, private database verification, and a controlled recovery test. The evidence also records where the work falls short of the original rubric.
 
-The useful question throughout this work is simple: what does each piece of evidence actually prove? A valid configuration establishes that Terraform can understand the source. A successful apply shows that resources were created. Application checks establish whether the service works. Cleanup needs its own verification.
+This was an assisted workflow. Codex performed the authorized cloud operations and browser tests. Claude Code used Amazon Bedrock for Terraform improvements, troubleshooting and reviews. The reflections here were drafted with assistance from the recorded results; they do not claim that I manually executed every command. Claude's named engineer and reviewer configurations ran as main sessions, not delegated subagents.
 
-Codex performed the approved A1–A4 cloud operations under delegation. GitHub Copilot performed the earlier Assignment 6 Terraform operations, and Claude Code supplied its recorded reviews. These operator details are retained in the evidence; they do not establish manual learner execution.
+## The architecture behind the working page
 
-## Four deployments with verified cleanup
+The capstone has six subnets across two Availability Zones, two Web instances, two private Application instances, an internal load balancer and a private, encrypted RDS MySQL database. A managed Multi-AZ standby supports availability; a separate read replica provides a read-only copy. The application uses the primary database. The replica was checked independently, so this is not a claim of application read splitting.
 
-**Assignment 1: Azure virtual machine.** Terraform created eight resources, including a dedicated network, public IP, network interface and Ubuntu VM. Azure CLI reported the VM running, and the recorded image, disk and public IP matched the deployment. All 11 required screenshots are present. Terraform then destroyed the eight resources. Independent Azure checks confirmed the resource group and recorded objects were absent, including the VM's OS disk.
+I approved AWS and an AWS-provided HTTPS address. The deployed entry path uses API Gateway, a private VPC link, an internal Network Load Balancer and the assignment's internet-facing Application Load Balancer. Security groups restrict each step to its intended predecessor. The public ALB is not open to arbitrary Internet traffic. Database connections verify the certificate authority and hostname. HTTP between application tiers stays inside the VPC; it is not encrypted on every internal hop.
 
-**Assignment 2: AWS virtual machine.** The AWS exercise created 11 Terraform resources. Verification covered EC2 health, SSH access, cloud-init, Nginx, public HTTP and the browser-rendered page. This made the result more useful than an instance status alone: the service was tested through the path a visitor would use. All 10 screenshots are present. Terraform destroyed the lab, and 13 exact-resource checks covered the managed resources and additional children such as the root volume and network interface.
+[Open the Book Review demo](https://xdr0flp20e.execute-api.us-east-1.amazonaws.com).
 
-**Assignment 3: React on Azure.** The React exercise created eight resources and checked SSH, cloud-init, Nginx, the HTTP response, application assets and single-page application routing. A browser capture recorded the running instructor application. Its original name and date placeholders were retained. All 15 screenshots are present. Terraform destroyed the lab, followed by Azure absence checks that included the OS disk.
+## The checks that made deployment evidence useful
 
-**Assignment 4: EpicBook on AWS with private RDS.** The approved run created 28 application resources and one separately managed public-key resource. EC2 ran Node 22.23.3, and RDS ran MySQL 8.4.11 with encrypted storage and TLS. The database contained 53 authors and 54 books. A real browser added “28 Summers” to the cart; its book ID, quantity, $28 price and request time matched the new Cart and Cartbook records. All 29 resources were destroyed and independently checked in a 32.95-minute window. There are 34/35 captures, with the private RDS hostname redacted and other capture limitations documented. The separate checkout/order requirement remains incomplete.
+API tests verified the HTTPS homepage, three seeded books, new account registration, login, review creation and an independent read of the saved review. Negative checks rejected anonymous review creation, invalid login and an upstream book-write route that should not be exposed.
 
-The public addresses in these records are historical: the labs were removed after verification. A1–A4 are documented in merged GitHub deliveries. Their evidence supports the completed runs, rather than a claim that the applications remain online.
+The browser test then logged in, opened a book, submitted another review and reloaded the page. The review remained visible. Independent database checks found the API review on both primary and replica, confirmed the replica was read-only, and negotiated TLS 1.3. Separate wrong-CA and wrong-hostname tests failed as expected.
 
-## A plan can describe a change that should be rejected
+A controlled RDS reboot with forced failover produced AWS events confirming Multi-AZ failover completion. The API briefly returned 503, then recovered automatically with both test reviews intact. The reported Availability Zone label stayed the same before and after, so the records explicitly avoid claiming an independently observed AZ switch. This was one recovery exercise, not a complete regional resilience or load test.
 
-Assignment 6 examined the decision before deployment. Its isolated AWS lab contained one dedicated VPC and a closed, unattached security group. A clean baseline plan reported no changes.
+## Problems that required evidence, not guesses
 
-A deliberately risky input was supplied only to planning. It proposed opening SSH to the public internet. The policy checker returned FAIL with one unsafe ingress finding, while AWS read-back still showed zero deployed ingress rules. This was a proposed configuration change, not out-of-band drift: the risky rule never reached AWS.
+Several real issues appeared after deployment. Ubuntu's systemd credential files used a protected 0440 mode, while the original guard expected 0600 everywhere. The correction accepts 0440 only in the exact protected systemd credential location; ordinary config files still require 0600. MySQL Router also needed narrowly scoped AppArmor rules for its runtime configuration and RDS CA file. AppArmor remained enforced.
 
-Claude Code performed genuine clean, risk and final reviews using sanitized reports. Its risk review recommended: “Do not apply this configuration.” A separate native PreToolUse hook test used the fresh FAIL report and blocked an actual apply request before Terraform executed.
+The gateway connection initially failed, leading to the internal NLB entry. A later HTTP 400 had a different cause: API Gateway supplied a zero Content-Length on GET, which strict load-balancer desync handling rejected. The public ALB now uses AWS's defensive mode for this integration. Nginx removes request bodies and Content-Length from permitted read-only routes, while the internal ALB retains strictest handling. These fixes were applied through reviewed Terraform changes and verified after rolling replacement.
 
-The recorded human decision rejected public SSH and kept the security group closed. Subsequent plans reported no changes, the checker found no issues within its defined scope, and the final Claude review referenced the updated evidence. Authorized cleanup removed the security group and VPC, followed by independent absence checks.
+The release passed 100 Python tests and 45 Terraform mock tests. Those are useful source checks; the live API, browser and database results establish different facts. Original screenshots and sanitized records are kept with hashes. Some infrastructure screenshots show clearly labeled recorded API/CLI evidence viewers, rather than the AWS Console or a live terminal.
 
-All 19 numbered Assignment 6 images are recorded with provenance. The assignment's separate manual learner execution requirement remains open, even though the delegated review experiment and cleanup are documented.
+## What the other Week 08 assignments show
 
-## What remains before Week 08 is complete
+The Azure VM, AWS VM and Azure React exercises have verified deployment and teardown records. The EpicBook AWS exercise also has a browser cart action correlated with its RDS record and verified removal of all 29 lab resources. Its instructor application has no order-creation endpoint, so a working cart cannot honestly be described as completed checkout.
 
-The repository currently contains **98 of 118 numbered screenshot slots**, with 20 missing across Assignments 4 and 5. Five later A5 source captures document configuration only. Its separate guarded-validation summary is uncounted because the required literal Terraform output remains missing. Screenshot coverage is an inventory measure; it does not replace the underlying tasks.
+The policy-review exercise planned a deliberately unsafe public SSH rule. The checker returned FAIL, Claude recommended rejection, and a native hook blocked the apply attempt. AWS read-back showed that the risky rule was never deployed. Final checks and cleanup were recorded. The rubric's separate manual learner execution requirement remains open.
 
-Assignment 4's deployment and cart/database test are verified, but the pinned instructor app lacks an order-creation endpoint. A successful cart action cannot be described as completed checkout. Its learner reflection, mandatory LinkedIn publication and disclosed visual-evidence limits remain open. The new delivery passed 66 Python checks; the prior 22 Terraform mock runs remain supplementary to the actual cloud results.
+## The lesson and the next boundary
 
-Assignment 5 still needs the provided Claude starter kit, a reviewed dependency update, genuine Claude/MCP workflow evidence, deployment verification and the learner's own reflections. The earlier source captures do not establish those results.
+The most useful lesson from these records is to connect every claim to a specific observation: source validation, reviewed plan, applied infrastructure, application behavior and cleanup are separate steps. AI suggestions also need tests. One earlier archive-handling proposal failed boundary checks and needed an operator correction before it was accepted.
 
-The practical lesson from the completed work is to maintain a clear chain from configuration to plan, deployment, application verification and cleanup. Automated checks and AI explanations help review that chain. Precise records make it possible to identify what succeeded, what remains unverified and what must happen next.
+I asked to keep the capstone online until I request cleanup. Its core resources are estimated at about $0.59 per hour, before storage, public IPv4, traffic, requests and taxes. Temporary builder and initializer resources have already been removed. The teardown plan covers the remaining stack, artifacts, image snapshots, secrets and retained backups. This is a learning deployment, not a claim of production readiness or full rubric completion.
 
-## Evidence and course credit
+[Browse the repository and evidence](https://github.com/Favourcloud/devops-micro-internship-pravinmishra).
 
-- [Azure VM run and cleanup](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/3029c3664ba94874abf040379afa866ca2f67300/week-08-terraform/terraform-azure-vm/evidence/live-run-summary.md)
-- [AWS VM run and cleanup](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/3029c3664ba94874abf040379afa866ca2f67300/week-08-terraform/terraform-aws-vm/evidence/live-run-summary.md)
-- [Azure React run and cleanup](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/3029c3664ba94874abf040379afa866ca2f67300/week-08-terraform/terraform-react-azure/evidence/live-run-summary.md)
-- [EpicBook AWS/RDS run and cleanup](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/cca663ae93202ffb7e7fa3e39122a495b14ff7b0/week-08-terraform/terraform-aws-epicbook/evidence/live-run-summary.md)
-- [Terraform review experiment](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/3029c3664ba94874abf040379afa866ca2f67300/week-08-terraform/drift-review/drift-review-summary.md)
-- [Remaining Week 08 requirements](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/blob/cca663ae93202ffb7e7fa3e39122a495b14ff7b0/week-08-terraform/completion-audit.md)
+This work is part of the [DevOps Micro Internship with Agentic AI — Cohort 3](https://dmi.pravinmishra.com/), led by Pravin Mishra and The CloudAdvisory. Thank you to the cohort mentors for their guidance.
 
-This work is part of the [DevOps Micro Internship with Agentic AI — Cohort 3](https://dmi.pravinmishra.com/), led by [Pravin Mishra](https://www.linkedin.com/in/pravin-mishra-aws-trainer/). Thank you to the cohort mentors for their guidance.
-
-[Follow my graded progress](https://dmi.pravinmishra.com/s/Favourcloud.html).
+[Follow my graded DMI progress](https://dmi.pravinmishra.com/s/Favourcloud.html).

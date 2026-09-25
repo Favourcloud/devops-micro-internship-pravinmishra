@@ -1,0 +1,34 @@
+[
+  {
+    "file": "linkedin-published-epicbook-cart.png",
+    "sha256": "064e58144fa6a1b5c42e5df6e908a948b560561bd24ad3cf1a6966359c387acf",
+    "bytes": 78361,
+    "captured_date_utc": "2026-09-25",
+    "image_pixels_modified": false,
+    "surface": "Actual published LinkedIn post image gallery, with author and post text visible"
+  },
+  {
+    "file": "linkedin-published-epicbook-database.png",
+    "sha256": "e28eeec544ab513c878964e1594eb03d521e64cdd64139155308370de0ad8491",
+    "bytes": 72363,
+    "captured_date_utc": "2026-09-25",
+    "image_pixels_modified": false,
+    "surface": "Actual published LinkedIn post image gallery, with author and post text visible"
+  },
+  {
+    "file": "linkedin-published-detected-change.png",
+    "sha256": "e77837278bb859a30b4ea34399445fc378aa1d9683e67949483812dc7dbb515e",
+    "bytes": 75469,
+    "captured_date_utc": "2026-09-25",
+    "image_pixels_modified": false,
+    "surface": "Actual published LinkedIn post image gallery, with author and post text visible"
+  },
+  {
+    "file": "linkedin-published-final-review.png",
+    "sha256": "2b8398b970453f76b25dd2f473d499364caa3177292d443b1d11e3fe19edcdab",
+    "bytes": 66814,
+    "captured_date_utc": "2026-09-25",
+    "image_pixels_modified": false,
+    "surface": "Actual published LinkedIn post image gallery, with author and post text visible"
+  }
+]

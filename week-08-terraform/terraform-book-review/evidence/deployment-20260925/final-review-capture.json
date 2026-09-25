@@ -1,0 +1,9 @@
+{
+  "image": "screenshots/final-architecture-review.png",
+  "image_sha256": "c6295ec90912cd38a7713b82ac8a1511a643882109207a4b1bbf61f2060690fe",
+  "source": "bedrock-final-architecture-review.result.json",
+  "source_sha256": "1044814e5394008ff472e91945e52e0a28377a23c66bd9c8edb491bd77bafe79",
+  "page_sha256": "a71e56c26d028ecafbec96f169fcda2a08ce912e8399d2f02b5f9108e917a544",
+  "image_pixels_modified": false,
+  "type": "Original CUA screenshot of clearly labeled recorded AI response excerpts and operator corrections"
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "Parent integration adjustment required: do not embed every runtime documentation/build-helper file in EC2 userdata",
+  "common": ["bootstrap.sh", "bootstrap.py", "common.py", "upstream.py", "artifact.py", "services.py", "source-lock.json"],
+  "tiers": {
+    "web": ["web.py", "readiness.py", "probes.py", "nginx.conf.template"],
+    "app": ["supervisor.py", "probes.py", "router.py", "mysqlrouter.conf.template", "report_replica.py"],
+    "initializer": ["initialize.py", "supervisor.py", "probes.py"]
+  },
+  "repository_only": ["OPERATIONS.md", "config.schema.json", "dependencies.json", "package_artifact.py", "deploy-manifest.json"],
+  "contract": "Copy common plus selected tier files, unchanged and root-owned, under /opt/book-review/configuration/. Include the separate /etc/book-review/config.json 0600. Parent must verify actual complete compressed EC2 userdata <=16384 bytes. No runtime network fetch of configuration code."
+}

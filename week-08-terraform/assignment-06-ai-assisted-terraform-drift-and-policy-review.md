@@ -28,7 +28,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 | Claude invocation and actual hook integration | [Clean](drift-review/reports/live/claude-clean-review-20260916.json), [risk](drift-review/reports/live/claude-risk-review-20260916.json), [final](drift-review/reports/live/claude-final-review-20260916.json), [fresh-FAIL native denial](drift-review/reports/live/native-hook-fail-20260916.json) | Each Skill review has three successful full Reads and matching native Read hooks; separate Bash control blocked at exit 2 with `report=FAIL`, no Terraform execution and zero retries |
 | Seven-section summary | [drift-review-summary.md](drift-review/drift-review-summary.md), seven answers below | Records genuine review, human decision and final verification with operator attribution; no full-rubric or manual-execution claim |
 | Screenshot evidence | [Capture provenance](drift-review/screenshots/manifest.json); [all 19 slot statuses](drift-review/README.md#genuine-local-screenshots) | **All 19 genuine images integrated**, verified at 16:19:47Z; seven changed-source recaptures and five new runtime/decision exports, exact original PNG bytes, source hashes and local privacy checks |
-| Publication | Original URL and publication screenshot placeholders below | **Pending; no publication authorized and no URL fabricated** |
+| Publication | Verified weekly URL and original published-post gallery views below | **Published 25 September; detected-change and final-review images included** |
 
 **Evidence boundary:** Public `reports/live/` records distinguish actual Terraform/checker operations, sanitized Claude responses/native events and dated historical attempts. After separate user approval, **GitHub Copilot**, not Claude or a manually operating human, created the exact new VPC at **14:54:54–14:58:07Z** and the closed, unattached security group at **15:06:30–15:07:51Z** on 16 September. No earlier coursework resources were targeted. `TF_VAR_test_public_ssh=true` was supplied only to planning processes: no persistent override existed and public TCP/22 from `0.0.0.0/0` was never deployed. `HEALTHY` covers supported ingress/destructive-action evidence at the recorded time, not global safety or mutation authorization. Final review preceded separately authorized cleanup; the independent **16:01:58Z cleanup receipt**, not the HEALTHY report, verifies the current-cycle lab was deleted. Neither baseline nor final review claims a still-running environment.
 
@@ -562,11 +562,11 @@ Suggested tags:
 
 ### LinkedIn Post URL
 
-Add your LinkedIn post URL here.
+https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/
 
-**Pending — not published; no publication authorized and no URL claimed.** Current-cycle detected-report and final Claude HEALTHY review captures are integrated as screenshots 13 and 17. Neither those images nor this draft fulfills mandatory publication, its URL or a screenshot of the published post.
+**Published, 25 September 2026:** The approved weekly post includes the original detected-change and final HEALTHY-review images, plus A4/A5 proof. [Publication and capture provenance](publication/README.md) verify the actual post. Manual learner execution remains unfulfilled; the post discloses delegated operations.
 
-### Draft Only — Verified Operational Progress, Not an Assignment-Completion Post
+### Historical Draft — Superseded by the Linked Publication
 
 > I built a read-only Terraform drift-and-policy review workflow for my DMI assignment with GitHub Copilot assistance. In the verified 16 September cycle, Copilot performed separately authorized operations for one dedicated VPC and one closed, unattached security group. Both baseline plans had no changes, and the Bash/jq checker returned HEALTHY/0.
 >
@@ -584,7 +584,11 @@ This is draft text only. It does not fulfill the publication or published-post s
 
 ### Published LinkedIn Post Screenshot — Mandatory
 
-Add a screenshot of the published LinkedIn post here.
+![Published LinkedIn post with detected-change evidence](publication/linkedin-published-detected-change.png)
+
+![Published LinkedIn post with final-review evidence](publication/linkedin-published-final-review.png)
+
+Original views of the published post gallery, with author and post text visible. [Capture provenance](publication/capture-provenance.json).
 
 ---
 
@@ -654,12 +658,12 @@ Checked items are bounded by the linked source/tests, actual 16 September plan/c
 - [x] Mapped the workflow to `Gather --> Analyze --> Human Act --> Verify`
 - [x] Included all 19 numbered screenshots
 - [x] Answered all required questions
-- [ ] Published the required LinkedIn post
-- [ ] Added the LinkedIn post URL and screenshot
+- [x] Published the required LinkedIn post
+- [x] Added the LinkedIn post URL and screenshot
 - [x] Included the GitHub repository/folder URL
 - [x] Confirmed that no sensitive information is exposed
 
-Three genuine native Skill runs demonstrate read-only review, and the separate fresh-FAIL control demonstrates the gate; offline tests remain distinct. The mapping distinguishes **human decision ownership from Copilot execution** and leaves manual human action unchecked. **All 19 genuine numbered images are embedded**: seven changed-source recaptures and five new recorded-runtime/decision captures have verified original PNG bytes, source hashes and local OCR/privacy checks. Screenshots 10/12/15/17 are recorded native-output editor views, and 16 is a recorded human decision, not live terminal/chat captures. Screenshot 11 retains the 15 September copied-input example, not a persistent 16 September override. The privacy check covers the present public evidence and images, not private raw artifacts or any future publication. Mandatory LinkedIn URL and published-post screenshot remain unavailable; no publication or complete rubric pass is claimed.
+Three genuine native Skill runs demonstrate read-only review, and the separate fresh-FAIL control demonstrates the gate; offline tests remain distinct. The mapping distinguishes **human decision ownership from Copilot execution** and leaves manual human action unchecked. **All 19 genuine numbered images are embedded**: seven changed-source recaptures and five new recorded-runtime/decision captures have verified original PNG bytes, source hashes and local OCR/privacy checks. Screenshots 10/12/15/17 are recorded native-output editor views, and 16 is a recorded human decision, not live terminal/chat captures. Screenshot 11 retains the 15 September copied-input example, not a persistent 16 September override. The privacy check covers the present public evidence and images, not private raw artifacts or any future publication. The mandatory LinkedIn URL and published-post screenshots are now verified above. The separate manual-execution requirement remains unfulfilled; no complete rubric pass is claimed.
 
 ---
 
