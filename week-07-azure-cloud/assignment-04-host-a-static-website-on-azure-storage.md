@@ -2,6 +2,8 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Verified recovery — 26 September 2026:** this submission now links authentic Azure/app captures and labelled recordings of actual command and Claude results. Codex performed the recovery under Eze Favour’s delegation. [Evidence, limitations and source index](evidence/2026-09-26/README.md).
+
 ---
 
 ## Purpose
@@ -52,13 +54,15 @@ Open the primary endpoint URL and confirm the Mini Finance application, styling,
 
 ![Screenshot 1](screenshots/assignment-04-host-a-static-website-on-azure-storage-screencap-1.png)
 
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
 ---
 
 #### Website URL
 
-Example Azure Storage static website URL:
+[Mini Finance on Azure Storage](https://minifinanceeze20260926.z1.web.core.windows.net/)
 
-`https://<storage-account-name>.z13.web.core.windows.net`
+All 32 published assets returned HTTP 200 and matched the source SHA-256. The template’s Curwen profile and financial figures are fictional sample content. Public blob access is disabled; the static website endpoint is intentionally public.
 
 ---
 
@@ -71,12 +75,12 @@ Example Azure Storage static website URL:
 
 # Completion Checklist
 
-- [ ] Mini Finance project downloaded and extracted
-- [ ] Storage Account created with Static Website Hosting enabled
-- [ ] All website files uploaded to the `$web` container
-- [ ] Website verified through the primary endpoint (Screenshot 1)
-- [ ] Website URL included
-- [ ] No sensitive account information exposed
+- [x] Mini Finance project downloaded and extracted
+- [x] Storage Account created with Static Website Hosting enabled
+- [x] All website files uploaded to the `$web` container
+- [x] Website verified through the primary endpoint (Screenshot 1)
+- [x] Website URL included
+- [x] No sensitive account information exposed
 
 ---
 

@@ -1,0 +1,57 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+Fresh Week 07 build verification — Eze Favour
+Sat Sep 26 12:26:30 UTC 2026
+f1b1aff14fe15c5bde092067c93a307fa3d97982
+ M src/App.js
+v20.20.2
+10.8.2
+
+> my-react-app@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Browserslist: browsers data (caniuse-lite) is 19 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Compiled successfully.
+
+File sizes after gzip:
+
+  59.23 kB  week07-verified-build/static/js/main.9e739a33.js
+  1.77 kB   week07-verified-build/static/js/453.ad6eb26e.chunk.js
+  263 B     week07-verified-build/static/css/main.e6c13ad2.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The ../week07-verified-build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s ../week07-verified-build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+total 52
+drwxrwxr-x 3 azureuser azureuser 4096 Sep 26 12:26 .
+drwxr-xr-x 7 azureuser azureuser 4096 Sep 26 12:26 ..
+-rw-rw-r-- 1 azureuser azureuser  517 Sep 26 12:26 asset-manifest.json
+-rw-rw-r-- 1 azureuser azureuser 3870 Sep 26 12:26 favicon.ico
+-rw-rw-r-- 1 azureuser azureuser  644 Sep 26 12:26 index.html
+-rw-rw-r-- 1 azureuser azureuser 5347 Sep 26 12:26 logo192.png
+-rw-rw-r-- 1 azureuser azureuser 9664 Sep 26 12:26 logo512.png
+-rw-rw-r-- 1 azureuser azureuser  492 Sep 26 12:26 manifest.json
+-rw-rw-r-- 1 azureuser azureuser   67 Sep 26 12:26 robots.txt
+drwxrwxr-x 4 azureuser azureuser 4096 Sep 26 12:26 static
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 12.1.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+npm notice To update run: npm install -g npm@12.1.0
+npm notice
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+active

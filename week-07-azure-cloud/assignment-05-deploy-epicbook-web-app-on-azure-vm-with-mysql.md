@@ -2,6 +2,8 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Verified recovery — 26 September 2026:** this submission now links authentic Azure/app captures and labelled recordings of actual command and Claude results. Codex performed the recovery under Eze Favour’s delegation. [Evidence, limitations and source index](evidence/2026-09-26/README.md).
+
 ---
 
 ## Purpose
@@ -22,17 +24,23 @@ Create a VNet (10.0.0.0/16) with a public subnet (10.0.1.0/24) for the VM and a 
 
 ![Screenshot 1](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-1.png)
 
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
 ---
 
 #### Screenshot 2 — Public and private NSG inbound rules showing ports 80, 22, and restricted 3306 access
 
 ![Screenshot 2](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-2.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [lab-nsg.json](evidence/2026-09-26/lab-nsg.json).*
+
 ---
 
 #### Screenshot 3 — Public IP and Network Interface association for the Virtual Machine
 
 ![Screenshot 3](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-3.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [lab-nics.json](evidence/2026-09-26/lab-nics.json).*
 
 ---
 
@@ -48,11 +56,15 @@ Launch an Ubuntu 22.04 LTS VM (Standard B1s or equivalent) in the public subnet,
 
 ![Screenshot 4](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-4.png)
 
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
 ---
 
 #### Screenshot 5 — Terminal showing successful software installation or installed-version checks
 
 ![Screenshot 5](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-5.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [runtime-epic.json](evidence/2026-09-26/runtime-epic.json).*
 
 ---
 
@@ -68,17 +80,23 @@ Clone the EpicBook repository, install dependencies, build the frontend, configu
 
 ![Screenshot 6](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-6.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [runtime-epic.json](evidence/2026-09-26/runtime-epic.json), [deployed-source-checks.json](evidence/2026-09-26/deployed-source-checks.json), [epic-source-manifest.json](evidence/2026-09-26/epic-source-manifest.json).*
+
 ---
 
 #### Screenshot 7 — Nginx configuration or service status proving the frontend is configured to be served
 
 ![Screenshot 7](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-7.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [runtime-epic.json](evidence/2026-09-26/runtime-epic.json).*
+
 ---
 
 #### Screenshot 8 — Backend process or listening-port evidence (without exposing environment-variable secrets)
 
 ![Screenshot 8](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-8.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [runtime-epic.json](evidence/2026-09-26/runtime-epic.json).*
 
 ---
 
@@ -94,17 +112,23 @@ Create a private Azure Database for MySQL Flexible Server (VNet Integration) in 
 
 ![Screenshot 9](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-9.png)
 
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
 ---
 
 #### Screenshot 10 — Networking configuration showing the private subnet and restricted access
 
 ![Screenshot 10](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-10.png)
 
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
 ---
 
 #### Screenshot 11 — MySQL Client output showing the EpicBook database or imported tables (no password visible)
 
 ![Screenshot 11](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-11.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [schema-epic.json](evidence/2026-09-26/schema-epic.json), [independent-sql.json](evidence/2026-09-26/independent-sql.json).*
 
 ---
 
@@ -120,19 +144,23 @@ Confirm the EpicBook application loads through the VM's public IP and that viewi
 
 ![Screenshot 12](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-12.png)
 
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
 ---
 
 #### Screenshot 13 — Proof of a successful database-backed action (viewing products, adding to cart, or placing an order)
 
 ![Screenshot 13](screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-13.png)
 
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
 ---
 
 #### Public IP URL
 
-Example VM public endpoint:
+[EpicBook — verified live](http://20.240.250.186/)
 
-`http://<vm-public-ip>`
+The application uses server-rendered Handlebars pages with a Node.js backend on localhost:8080 behind Nginx. Its upstream source has no separate frontend build script. The shared A5/A6 VNet includes a third application subnet for Book Review. EpicBook uses its own `bookstore` database and CRUD-only user restricted to 10.0.1.10. The private database, TLS connection, imported tables and browser demo order 2 were independently verified. Orders are synthetic; no payment or shipment occurs.
 
 ---
 
@@ -146,12 +174,12 @@ Example VM public endpoint:
 
 # Completion Checklist
 
-- [ ] Task 1: Network foundation created with public/private subnets and NSGs (Screenshots 1–3)
-- [ ] Task 2: VM provisioned and required software installed (Screenshots 4–5)
-- [ ] Task 3: EpicBook frontend and backend deployed (Screenshots 6–8)
-- [ ] Task 4: Private Azure Database for MySQL created and data imported (Screenshots 9–11)
-- [ ] Task 5: End-to-end functionality validated (Screenshots 12–13, Public IP URL)
-- [ ] No sensitive data exposed
+- [x] Task 1: Network foundation created with public/private subnets and NSGs (Screenshots 1–3)
+- [x] Task 2: VM provisioned and required software installed (Screenshots 4–5)
+- [x] Task 3: EpicBook frontend and backend deployed (Screenshots 6–8)
+- [x] Task 4: Private Azure Database for MySQL created and data imported (Screenshots 9–11)
+- [x] Task 5: End-to-end functionality validated (Screenshots 12–13, Public IP URL)
+- [x] No sensitive data exposed
 
 ---
 

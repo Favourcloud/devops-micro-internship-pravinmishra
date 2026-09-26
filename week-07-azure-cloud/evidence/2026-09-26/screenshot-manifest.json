@@ -1,0 +1,942 @@
+{
+  "date": "2026-09-26",
+  "images": [
+    {
+      "assignment": 1,
+      "slot": 1,
+      "file": "screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-1.png",
+      "source_capture": "a1-portal-home.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1050,
+      "height": 720,
+      "sha256": "1ba4fc2862aae6ce53a56873d9bb6ec9902a1e5a3c1bf03f5cb034bc0490efee",
+      "captured_at": "2026-09-26T12:23:49.751004+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 1,
+      "slot": 2,
+      "file": "screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-2.png",
+      "source_capture": "a1-subscription-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "da906ea66704624d6b6d64ac32032fdbb6e2e5b94a00285b52750b3e64998eb4",
+      "captured_at": "2026-09-26T13:27:54.194666+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 2,
+      "slot": 1,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-1.png",
+      "source_capture": "a2-resource-group-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "ab4388cdff0f23658b595d9b18f5d951521f4d24a67a0e5090987cf156d323c1",
+      "captured_at": "2026-09-26T13:27:54.054104+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 2,
+      "slot": 2,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-2.png",
+      "source_capture": "a2-vm-overview-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "2892f4757aaf8c35fbfbbea9648b272a24f0f490cae3f8e3a986209303017eb5",
+      "captured_at": "2026-09-26T13:27:54.366050+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 2,
+      "slot": 3,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-3.png",
+      "source_capture": "a2-nsg-inbound-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "da453916979492a658df23e35038e56c5c1567d17535d7249ceceb1da61b6eea",
+      "captured_at": "2026-09-26T13:27:54.131005+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 2,
+      "slot": 4,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-4.png",
+      "source_capture": "view-a2-ssh.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "react-ssh-inspection.txt"
+      ],
+      "width": 1280,
+      "height": 796,
+      "sha256": "794727bcb1fe4679a29dd7819292d7b001bc60239e8ca9f43cf93d9ff14f4423",
+      "captured_at": "2026-09-26T13:18:40.940Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 2,
+      "slot": 5,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-5.png",
+      "source_capture": "view-a2-versions.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "react-ssh-inspection.txt"
+      ],
+      "width": 1280,
+      "height": 720,
+      "sha256": "5fcbb3b0d4c8b124a01ef8d4d4dd14dfcfd88bc7088da196678e973f5bc52f25",
+      "captured_at": "2026-09-26T13:18:41.346Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 1
+    },
+    {
+      "assignment": 2,
+      "slot": 6,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-6.png",
+      "source_capture": "view-a2-build.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "react-build.txt"
+      ],
+      "width": 1280,
+      "height": 1651,
+      "sha256": "2ae37eda2ff72246889e927f97236baea05d3ddbdbdf3f614a65060ecd0d7b68",
+      "captured_at": "2026-09-26T13:18:42.628Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 2,
+      "slot": 7,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-7.png",
+      "source_capture": "view-a2-nginx.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "react-nginx-config.txt"
+      ],
+      "width": 1280,
+      "height": 917,
+      "sha256": "66be39a2c9b143235ea98a9f391b3b5c594394793ca63cf50961c00c0e0ff5fd",
+      "captured_at": "2026-09-26T13:26:31.910Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 2,
+      "slot": 8,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-8.png",
+      "source_capture": "view-a2-nginx.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "react-nginx-config.txt"
+      ],
+      "width": 1280,
+      "height": 917,
+      "sha256": "66be39a2c9b143235ea98a9f391b3b5c594394793ca63cf50961c00c0e0ff5fd",
+      "captured_at": "2026-09-26T13:26:31.910Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 2,
+      "slot": 9,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-9.png",
+      "source_capture": "a2-react-home.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "98f5905c73846ce2f47bbabeec22e69d4999722b9a8afa281a4ffd6e46d4025a",
+      "captured_at": "2026-09-26T12:26:11.926245+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 2,
+      "slot": 10,
+      "file": "screenshots/assignment-02-deploy-a-react-app-on-an-azure-vm-screencap-10.png",
+      "source_capture": "a2-nsg-inbound-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "da453916979492a658df23e35038e56c5c1567d17535d7249ceceb1da61b6eea",
+      "captured_at": "2026-09-26T13:27:54.131005+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 3,
+      "slot": 1,
+      "file": "screenshots/assignment-03-design-a-three-tier-network-with-load-balancer-on-azure-screencap-1.png",
+      "source_capture": "a3-three-subnets-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "9cffcc88006659f7c689f6c1299dea3dd5687000941e6c05f17d3e265c8a70c9",
+      "captured_at": "2026-09-26T13:27:54.164990+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 3,
+      "slot": 2,
+      "file": "screenshots/assignment-03-design-a-three-tier-network-with-load-balancer-on-azure-screencap-2.png",
+      "source_capture": "a3-lb-frontend-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "ef3ef537a61090edff8dfdcec467a0fb6a3355098d37398f677b8985d2a367a6",
+      "captured_at": "2026-09-26T13:27:54.400537+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 3,
+      "slot": 3,
+      "file": "screenshots/assignment-03-design-a-three-tier-network-with-load-balancer-on-azure-screencap-3.png",
+      "source_capture": "a3-nginx-lb.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "81192789e8fac91eaa12b86c464a7a4d311db2e60f72d4b65a6b439b7e85bace",
+      "captured_at": "2026-09-26T12:53:58.287841+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 4,
+      "slot": 1,
+      "file": "screenshots/assignment-04-host-a-static-website-on-azure-storage-screencap-1.png",
+      "source_capture": "a4-storage-website.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "2ac1f311dc12e469fd67344ec2a79d133d38a5e6a68b3cb69deabefff59c6daf",
+      "captured_at": "2026-09-26T12:45:46.801131+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 5,
+      "slot": 1,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-1.png",
+      "source_capture": "a6-three-subnets-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "6de807894c266778f8bfa41d36fdb6a121c279f2b98bf519725d6f667fc6c58a",
+      "captured_at": "2026-09-26T13:27:54.437286+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 5,
+      "slot": 2,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-2.png",
+      "source_capture": "view-nsg-rules.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-nsg.json"
+      ],
+      "width": 1280,
+      "height": 3383,
+      "sha256": "c28fff1a59940f51452a68dda5f5d03d6d0a36ef65c7eda91d421002fb1f987c",
+      "captured_at": "2026-09-26T13:18:45.252Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 6
+    },
+    {
+      "assignment": 5,
+      "slot": 3,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-3.png",
+      "source_capture": "view-epic-nic.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-nics.json"
+      ],
+      "width": 1280,
+      "height": 985,
+      "sha256": "85b5247677db9c0bec2cc1d2685d946d22b2dd7709a5afc0bd48bc8b97388c19",
+      "captured_at": "2026-09-26T13:18:46.058Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 5,
+      "slot": 4,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-4.png",
+      "source_capture": "a5-vm-overview-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "8655faac6a7617c444965cee10c0c90d9b4d2f72b4381a796f77d7bcb4c06d99",
+      "captured_at": "2026-09-26T13:27:54.092936+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 5,
+      "slot": 5,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-5.png",
+      "source_capture": "view-epic-software.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "runtime-epic.json"
+      ],
+      "width": 1280,
+      "height": 1210,
+      "sha256": "4574a4d2d72c648a88fd073bf08e98ec048c42420525e3bcd9f469325b0183aa",
+      "captured_at": "2026-09-26T13:18:57.901Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 5,
+      "slot": 6,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-6.png",
+      "source_capture": "view-epic-source.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "runtime-epic.json",
+        "deployed-source-checks.json",
+        "epic-source-manifest.json"
+      ],
+      "width": 1280,
+      "height": 1426,
+      "sha256": "e4368243dabe0f86f1bfad71ca58285a75a9ce49e6cbc2c8399b5883af806791",
+      "captured_at": "2026-09-26T13:19:01.856Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 5,
+      "slot": 7,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-7.png",
+      "source_capture": "view-epic-process.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "runtime-epic.json"
+      ],
+      "width": 1280,
+      "height": 1210,
+      "sha256": "87f79f066a2fdf4330a07ef67260fbb4c8486be538812e49992184c9283d126b",
+      "captured_at": "2026-09-26T13:18:58.507Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 5,
+      "slot": 8,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-8.png",
+      "source_capture": "view-epic-process.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "runtime-epic.json"
+      ],
+      "width": 1280,
+      "height": 1210,
+      "sha256": "87f79f066a2fdf4330a07ef67260fbb4c8486be538812e49992184c9283d126b",
+      "captured_at": "2026-09-26T13:18:58.507Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 5,
+      "slot": 9,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-9.png",
+      "source_capture": "a6-mysql-overview-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "ecbb51f781617b0043c05de8d9549fa7968dd4f30d750dcc0a7bfb6ceddad069",
+      "captured_at": "2026-09-26T13:27:54.479164+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 5,
+      "slot": 10,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-10.png",
+      "source_capture": "a6-mysql-network-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "2866a1da4b78ad7ec25c6dd21737d38bfe2db5c5a820598a5646a849a1822a25",
+      "captured_at": "2026-09-26T13:27:54.013304+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 5,
+      "slot": 11,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-11.png",
+      "source_capture": "view-schema-epic.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "schema-epic.json",
+        "independent-sql.json"
+      ],
+      "width": 1280,
+      "height": 1525,
+      "sha256": "206a125bbb2b30e6aa31109bfb5c8ce306f32706798b1e632d20ed6df5220920",
+      "captured_at": "2026-09-26T13:19:04.999Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 5,
+      "slot": 12,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-12.png",
+      "source_capture": "a5-epic-home.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "32c08df25531e58e380365149c2191085d81d1a370dd7e1549e804bfafa56118",
+      "captured_at": "2026-09-26T13:09:40.014414+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 5,
+      "slot": 13,
+      "file": "screenshots/assignment-05-deploy-epicbook-web-app-on-azure-vm-with-mysql-screencap-13.png",
+      "source_capture": "a5-epic-order.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "70c6c6ca8d42d636e5c3836a17846f20facca227000f80f4ceb9b593c082146e",
+      "captured_at": "2026-09-26T13:11:11.092619+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 6,
+      "slot": 1,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-1.png",
+      "source_capture": "view-architecture.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "recovery/architecture.svg"
+      ],
+      "width": 1280,
+      "height": 966,
+      "sha256": "8b354e2b901a5965cc369dd6cc5ec5c23b3a3784941bfa9c3203efcb5ca20e59",
+      "captured_at": "2026-09-26T13:19:06.823Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 6,
+      "slot": 2,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-2.png",
+      "source_capture": "view-assumptions.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "architecture-assumptions.txt"
+      ],
+      "width": 1280,
+      "height": 720,
+      "sha256": "56489ddebc847f512e8faab696e753f189bfa3cfd5627462c94290b37e22f314",
+      "captured_at": "2026-09-26T13:19:07.227Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 1
+    },
+    {
+      "assignment": 6,
+      "slot": 3,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-3.png",
+      "source_capture": "a6-resource-group-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "7f836ee98bc5b10ff251bd86d61793394de58c0fe8ecd2f302220c7c3a27af8b",
+      "captured_at": "2026-09-26T13:27:54.326920+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 6,
+      "slot": 4,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-4.png",
+      "source_capture": "a6-three-subnets-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "6de807894c266778f8bfa41d36fdb6a121c279f2b98bf519725d6f667fc6c58a",
+      "captured_at": "2026-09-26T13:27:54.437286+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 6,
+      "slot": 5,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-5.png",
+      "source_capture": "view-private-dns.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-dns.json"
+      ],
+      "width": 1280,
+      "height": 1075,
+      "sha256": "899979c1c3eae1010f0cae0a4e19161b658460d95e3a49dd3bc356595058e59a",
+      "captured_at": "2026-09-26T13:19:08.035Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 6,
+      "slot": 6,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-6.png",
+      "source_capture": "view-nsg-rules.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-nsg.json"
+      ],
+      "width": 1280,
+      "height": 3383,
+      "sha256": "c28fff1a59940f51452a68dda5f5d03d6d0a36ef65c7eda91d421002fb1f987c",
+      "captured_at": "2026-09-26T13:18:45.252Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 6
+    },
+    {
+      "assignment": 6,
+      "slot": 7,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-7.png",
+      "source_capture": "view-keyvault.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-keyvault.json"
+      ],
+      "width": 1280,
+      "height": 1696,
+      "sha256": "13f5d6dc379570c3b4bb1890fcdcd879bf45b6fa5456813766adb9ce0af534fd",
+      "captured_at": "2026-09-26T13:19:09.043Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 6,
+      "slot": 8,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-8.png",
+      "source_capture": "view-web-compute.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-vms.json"
+      ],
+      "width": 1280,
+      "height": 1120,
+      "sha256": "63b006d2236f1ffb6ff0f3e522794c4562ea77ef90889aa882f2a84ff7c5a91c",
+      "captured_at": "2026-09-26T13:19:19.246Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 6,
+      "slot": 9,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-9.png",
+      "source_capture": "view-web-process.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "runtime-web1.json",
+        "runtime-web2.json"
+      ],
+      "width": 1280,
+      "height": 2335,
+      "sha256": "9a22c93a2639eb1c26b3146c37e5e4842f7f1c529a38dfe37f23e8098bd81667",
+      "captured_at": "2026-09-26T13:18:59.922Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 4
+    },
+    {
+      "assignment": 6,
+      "slot": 10,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-10.png",
+      "source_capture": "view-app-compute.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-vms.json"
+      ],
+      "width": 1280,
+      "height": 1120,
+      "sha256": "4e80592ef1fd33c378231698ce604c5c368d805c8f99a427b8ffb0fc6971f003",
+      "captured_at": "2026-09-26T13:19:20.066Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 6,
+      "slot": 11,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-11.png",
+      "source_capture": "view-api-process.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "runtime-app1.json",
+        "runtime-app2.json"
+      ],
+      "width": 1280,
+      "height": 1480,
+      "sha256": "dd79c5752aa43e4e2946ebc891a810c30d7a72f096e3927ac58723d691d757c1",
+      "captured_at": "2026-09-26T13:19:00.946Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 6,
+      "slot": 12,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-12.png",
+      "source_capture": "view-api-process.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "runtime-app1.json",
+        "runtime-app2.json"
+      ],
+      "width": 1280,
+      "height": 1480,
+      "sha256": "dd79c5752aa43e4e2946ebc891a810c30d7a72f096e3927ac58723d691d757c1",
+      "captured_at": "2026-09-26T13:19:00.946Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 6,
+      "slot": 13,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-13.png",
+      "source_capture": "a6-mysql-network-redacted.png",
+      "method": "Actual browser/portal screenshot; account identifiers and operator IP masked where present",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "2866a1da4b78ad7ec25c6dd21737d38bfe2db5c5a820598a5646a849a1822a25",
+      "captured_at": "2026-09-26T13:27:54.013304+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 6,
+      "slot": 14,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-14.png",
+      "source_capture": "view-mysql-backup.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-mysql.json"
+      ],
+      "width": 1280,
+      "height": 931,
+      "sha256": "70b76b2873c791801ae11ae59b21b0e3a7b72f06ce094312711c1244195aa0e4",
+      "captured_at": "2026-09-26T13:19:03.777Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 6,
+      "slot": 15,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-15.png",
+      "source_capture": "view-schema-book.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "schema-book.json",
+        "independent-sql.json"
+      ],
+      "width": 1280,
+      "height": 1412,
+      "sha256": "ffa756dec2bf041a542a733a067f1d5cb2f266d9e9079d622147cb21ba81d37f",
+      "captured_at": "2026-09-26T13:19:06.010Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 6,
+      "slot": 16,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-16.png",
+      "source_capture": "view-web-lb.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-load-balancers.json"
+      ],
+      "width": 1280,
+      "height": 3505,
+      "sha256": "02d7baba45b01d12d2cd96475487ba93ac111ac392c18f88874a74bfcbce0dee",
+      "captured_at": "2026-09-26T13:19:22.295Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 6
+    },
+    {
+      "assignment": 6,
+      "slot": 17,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-17.png",
+      "source_capture": "view-app-lb.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-load-balancers.json"
+      ],
+      "width": 1280,
+      "height": 3550,
+      "sha256": "e9118c8fea961502e82ccd52118e67474ef92e40d5a5609f8c8185adb04b3241",
+      "captured_at": "2026-09-26T13:19:24.434Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 6
+    },
+    {
+      "assignment": 6,
+      "slot": 18,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-18.png",
+      "source_capture": "view-monitoring.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "lab-alerts.json",
+        "lb-metrics.json"
+      ],
+      "width": 1280,
+      "height": 2956,
+      "sha256": "88a2e102fd9ee4911a3bc500fa133b2595e2b99fed67b4df80c3494660eb7dea",
+      "captured_at": "2026-09-26T13:19:26.351Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 5
+    },
+    {
+      "assignment": 6,
+      "slot": 19,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-19.png",
+      "source_capture": "a6-book-home.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "d986a8105117fd5b49e8878d3b44cd3d5742f10683d161ed2ed7badfa04c9460",
+      "captured_at": "2026-09-26T13:25:13.680958+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 6,
+      "slot": 20,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-20.png",
+      "source_capture": "a6-book-review.png",
+      "method": "Actual browser/portal screenshot; lossless PNG re-encoding of browser image pixels",
+      "source_records": [],
+      "width": 1280,
+      "height": 720,
+      "sha256": "eee4d1f05172d4ff1e88ab6f77fc76ba9b73cd74fe422ee2d8c791807700d9b9",
+      "captured_at": "2026-09-26T13:24:53.345832+00:00",
+      "operator": "Codex under learner delegation"
+    },
+    {
+      "assignment": 6,
+      "slot": 21,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-21.png",
+      "source_capture": "view-isolation.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "network-isolation.json"
+      ],
+      "width": 1280,
+      "height": 1390,
+      "sha256": "26dfe04c25def9498425c31b377910e749d66540500c6784b4b364f9fd13d5ce",
+      "captured_at": "2026-09-26T13:19:27.364Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 6,
+      "slot": 22,
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-22.png",
+      "source_capture": "view-availability.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "availability-test.json"
+      ],
+      "width": 1280,
+      "height": 5701,
+      "sha256": "85102f797fe150edbc262a349cc765e87c29bdd8d8d486f4bc57739cec8b66f1",
+      "captured_at": "2026-09-26T13:19:31.415Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 10
+    },
+    {
+      "assignment": 7,
+      "slot": 1,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-1.png",
+      "source_capture": "view-audit-resources.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "subscription.json",
+        "lab-vms.json"
+      ],
+      "width": 1280,
+      "height": 2605,
+      "sha256": "e782c1e135b720d8a7ee6a34f39368bec3aae18696ea73b8e0525d07128c66db",
+      "captured_at": "2026-09-26T13:19:33.249Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 5
+    },
+    {
+      "assignment": 7,
+      "slot": 2,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-2.png",
+      "source_capture": "view-audit-context.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "security-audit/CLAUDE.md"
+      ],
+      "width": 1280,
+      "height": 720,
+      "sha256": "522799c058e598cc0d1e0bbb7cbdd5e6f0ddbbd2a8dff259733091f51627415f",
+      "captured_at": "2026-09-26T13:19:33.665Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 1
+    },
+    {
+      "assignment": 7,
+      "slot": 3,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-3.png",
+      "source_capture": "view-audit-plan.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "audit-plan.result.json"
+      ],
+      "width": 1280,
+      "height": 1606,
+      "sha256": "a562be7ae102c6f2a32c3d86aea79891f36304997507d99b1f4242d77855efb6",
+      "captured_at": "2026-09-26T13:19:34.651Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 7,
+      "slot": 4,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-4.png",
+      "source_capture": "view-audit-script.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "security-audit/azure-audit.sh"
+      ],
+      "width": 1280,
+      "height": 872,
+      "sha256": "ff47ebcb144fca3ad89e1199141e3ca8544273e275dab79f146c1f74ddc69eb2",
+      "captured_at": "2026-09-26T13:19:35.444Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 7,
+      "slot": 5,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-5.png",
+      "source_capture": "view-audit-validation.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "audit-source-validation.txt"
+      ],
+      "width": 1280,
+      "height": 737,
+      "sha256": "c65c179515773798dc6a7e24cf3ff1ed4772eee7b10692b252cf704a6c818d88",
+      "captured_at": "2026-09-26T13:19:36.297Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 2
+    },
+    {
+      "assignment": 7,
+      "slot": 6,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-6.png",
+      "source_capture": "view-audit-baseline.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "baseline-azure-audit-report.txt"
+      ],
+      "width": 1280,
+      "height": 1696,
+      "sha256": "ab5111f4bf08589a5b5919b89dbdb3c3b314ca96ba8d298c18e846a304d84b0f",
+      "captured_at": "2026-09-26T13:19:37.304Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 7,
+      "slot": 7,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-7.png",
+      "source_capture": "view-audit-skill.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "security-audit/.claude/skills/azure-audit/SKILL.md"
+      ],
+      "width": 1280,
+      "height": 720,
+      "sha256": "4aa6585d4e6af28b10cd284139c8f6639af5861daf58a0a534e7482e93eeae53",
+      "captured_at": "2026-09-26T13:19:37.745Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 1
+    },
+    {
+      "assignment": 7,
+      "slot": 8,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-8.png",
+      "source_capture": "view-audit-explanation.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "audit-baseline.result.json"
+      ],
+      "width": 1280,
+      "height": 2798,
+      "sha256": "845176a7e1c473b0b799f1fd3d6766039293ba44fb89e730a0401ac50e9c29af",
+      "captured_at": "2026-09-26T13:19:39.763Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 5
+    },
+    {
+      "assignment": 7,
+      "slot": 9,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-9.png",
+      "source_capture": "view-audit-baseline.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "baseline-azure-audit-report.txt"
+      ],
+      "width": 1280,
+      "height": 1696,
+      "sha256": "ab5111f4bf08589a5b5919b89dbdb3c3b314ca96ba8d298c18e846a304d84b0f",
+      "captured_at": "2026-09-26T13:19:37.304Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    },
+    {
+      "assignment": 7,
+      "slot": 10,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-10.png",
+      "source_capture": "view-audit-remediation.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "audit-remediation.json"
+      ],
+      "width": 1280,
+      "height": 720,
+      "sha256": "b367efdc8ebeee3d6a6e555bc722ca10b5afc26c2bf53428057b51690d6f0400",
+      "captured_at": "2026-09-26T13:19:40.063Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 1
+    },
+    {
+      "assignment": 7,
+      "slot": 11,
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-11.png",
+      "source_capture": "view-audit-recovery.png",
+      "method": "Browser screenshot of labelled saved evidence; viewport frames stitched at observed scroll offsets",
+      "source_records": [
+        "recovery-azure-audit-report.txt"
+      ],
+      "width": 1280,
+      "height": 1583,
+      "sha256": "5b1033a5bf9712286adce9b49daa1bf61fa45611650a569b1626c25b512cfce3",
+      "captured_at": "2026-09-26T13:19:41.075Z",
+      "operator": "Codex under learner delegation",
+      "stitched_frames": 3
+    }
+  ],
+  "total": 62,
+  "notes": "62 slots: original 60 references plus two A1 account evidence views. Shared views deliberately reused where they substantiate more than one requirement. Historical signup and personal remediation remain unverified."
+}

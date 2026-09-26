@@ -1,0 +1,260 @@
+{
+  "captured_at": "2026-09-26T12:56:47.913208+00:00",
+  "command": "az network lb list -g dmi-w07-labs-20260926-rg --query [].{name:name,frontends:frontendIPConfigurations,pools:backendAddressPools,probes:probes,rules:loadBalancingRules}",
+  "result": [
+    {
+      "frontends": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/frontendIPConfigurations/frontend",
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/loadBalancingRules/app-http",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "frontend",
+          "privateIPAddress": "10.0.4.100",
+          "privateIPAddressVersion": "IPv4",
+          "privateIPAllocationMethod": "Static",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "subnet": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/app-subnet",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations"
+        }
+      ],
+      "name": "week07-app-lb",
+      "pools": [
+        {
+          "backendIPConfigurations": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-app1-nic/ipConfigurations/primary",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            },
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-app2-nic/ipConfigurations/primary",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/backendAddressPools/app-pool",
+          "loadBalancerBackendAddresses": [
+            {
+              "name": "dmi-w07-labs-20260926-rg_week07-app1-nicprimary",
+              "networkInterfaceIPConfiguration": {
+                "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-app1-nic/ipConfigurations/primary",
+                "resourceGroup": "dmi-w07-labs-20260926-rg"
+              }
+            },
+            {
+              "name": "dmi-w07-labs-20260926-rg_week07-app2-nicprimary",
+              "networkInterfaceIPConfiguration": {
+                "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-app2-nic/ipConfigurations/primary",
+                "resourceGroup": "dmi-w07-labs-20260926-rg"
+              }
+            }
+          ],
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/loadBalancingRules/app-http",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "app-pool",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "type": "Microsoft.Network/loadBalancers/backendAddressPools"
+        }
+      ],
+      "probes": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/probes/app-health",
+          "intervalInSeconds": 5,
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/loadBalancingRules/app-http",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "app-health",
+          "noHealthyBackendsBehavior": "AllProbedDown",
+          "numberOfProbes": 2,
+          "port": 5000,
+          "probeThreshold": 1,
+          "protocol": "Http",
+          "provisioningState": "Succeeded",
+          "requestPath": "/health",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "type": "Microsoft.Network/loadBalancers/probes"
+        }
+      ],
+      "rules": [
+        {
+          "backendAddressPool": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/backendAddressPools/app-pool",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "backendAddressPools": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/backendAddressPools/app-pool",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "backendPort": 5000,
+          "disableOutboundSnat": true,
+          "enableConnectionTracking": false,
+          "enableFloatingIP": false,
+          "enableTcpReset": false,
+          "etag": "W/\"[identifier redacted]\"",
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/frontendIPConfigurations/frontend",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "frontendPort": 5000,
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/loadBalancingRules/app-http",
+          "idleTimeoutInMinutes": 4,
+          "loadDistribution": "Default",
+          "name": "app-http",
+          "probe": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/probes/app-health",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "type": "Microsoft.Network/loadBalancers/loadBalancingRules"
+        }
+      ]
+    },
+    {
+      "frontends": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/frontendIPConfigurations/frontend",
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/loadBalancingRules/web-http",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "frontend",
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/publicIPAddresses/week07-web-ip",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations"
+        }
+      ],
+      "name": "week07-web-lb",
+      "pools": [
+        {
+          "backendIPConfigurations": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-web1-nic/ipConfigurations/primary",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            },
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-web2-nic/ipConfigurations/primary",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/backendAddressPools/web-pool",
+          "loadBalancerBackendAddresses": [
+            {
+              "name": "dmi-w07-labs-20260926-rg_week07-web1-nicprimary",
+              "networkInterfaceIPConfiguration": {
+                "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-web1-nic/ipConfigurations/primary",
+                "resourceGroup": "dmi-w07-labs-20260926-rg"
+              }
+            },
+            {
+              "name": "dmi-w07-labs-20260926-rg_week07-web2-nicprimary",
+              "networkInterfaceIPConfiguration": {
+                "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-web2-nic/ipConfigurations/primary",
+                "resourceGroup": "dmi-w07-labs-20260926-rg"
+              }
+            }
+          ],
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/loadBalancingRules/web-http",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "web-pool",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "type": "Microsoft.Network/loadBalancers/backendAddressPools"
+        }
+      ],
+      "probes": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/probes/web-health",
+          "intervalInSeconds": 5,
+          "loadBalancingRules": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/loadBalancingRules/web-http",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "web-health",
+          "noHealthyBackendsBehavior": "AllProbedDown",
+          "numberOfProbes": 2,
+          "port": 80,
+          "probeThreshold": 1,
+          "protocol": "Http",
+          "provisioningState": "Succeeded",
+          "requestPath": "/health",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "type": "Microsoft.Network/loadBalancers/probes"
+        }
+      ],
+      "rules": [
+        {
+          "backendAddressPool": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/backendAddressPools/web-pool",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "backendAddressPools": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/backendAddressPools/web-pool",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "backendPort": 80,
+          "disableOutboundSnat": true,
+          "enableConnectionTracking": false,
+          "enableFloatingIP": false,
+          "enableTcpReset": false,
+          "etag": "W/\"[identifier redacted]\"",
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/frontendIPConfigurations/frontend",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "frontendPort": 80,
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/loadBalancingRules/web-http",
+          "idleTimeoutInMinutes": 4,
+          "loadDistribution": "Default",
+          "name": "web-http",
+          "probe": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/probes/web-health",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "type": "Microsoft.Network/loadBalancers/loadBalancingRules"
+        }
+      ]
+    }
+  ]
+}

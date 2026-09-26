@@ -2,6 +2,8 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Verified recovery — 26 September 2026:** this submission now links authentic Azure/app captures and labelled recordings of actual command and Claude results. Codex performed the recovery under Eze Favour’s delegation. [Evidence, limitations and source index](evidence/2026-09-26/README.md).
+
 ---
 
 ## Purpose
@@ -30,17 +32,25 @@ Confirm successful Azure Portal access and Locate the required services and subs
 
 #### Screenshot 1 — Azure Portal homepage after successful login
 
-> Personal Azure account screenshots should be saved locally and uploaded to the assignment as privacy-safe evidence. They are intentionally not committed to the repository to avoid exposing account details, phone verification data, or subscription metadata.
+![Current Azure Portal access](screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-1.png)
+
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
 
 ---
 
 #### Screenshot 2 — "Subscriptions" section showing the "Free Trial" subscription
 
-> Keep the submitted screenshots focused on the portal homepage and the free-trial subscription only. Do not include payment details, phone numbers, or any sensitive verification information.
+![Current active subscription](screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-2.png)
+
+*Actual browser capture on 26 September 2026; privacy redactions only where noted in the [manifest](evidence/2026-09-26/screenshot-manifest.json). The browser capture omits address-bar chrome; the verified endpoint is linked in this submission.*
+
+**Observed:** Azure subscription 1 — Active. This does not prove the historical Free Trial offer or signup verification steps.
 
 ---
 
 ### Notes
+
+*Assisted reflection prepared from the assignment; it does not attest to historical personal signup steps.*
 
 I plan to explore Azure Virtual Machines, Virtual Networks, and Azure Storage first because they are the most fundamental services for building a production-style application and understanding how compute, networking, and storage work together in a cloud environment. These services also provide the best hands-on foundation for later assignments involving load balancers, databases, and secure deployment patterns. Establishing this baseline early will make the rest of the Azure track easier to reason about and more practical to apply in real projects.
 
@@ -57,10 +67,10 @@ I plan to explore Azure Virtual Machines, Virtual Networks, and Azure Storage fi
 
 - [ ] Azure Free Account created with identity, phone, and payment verification completed
 - [ ] Microsoft Agreement and Offer Terms accepted
-- [ ] Azure Portal accessed successfully (Screenshot 1)
+- [x] Azure Portal accessed successfully (Screenshot 1)
 - [ ] Free Trial subscription confirmed (Screenshot 2)
-- [ ] Reflection paragraph written (Notes)
-- [ ] No sensitive information exposed
+- [x] Reflection paragraph written (Notes)
+- [x] No sensitive information exposed
 
 ---
 

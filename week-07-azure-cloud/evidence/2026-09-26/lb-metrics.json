@@ -1,0 +1,487 @@
+{
+  "captured_at": "2026-09-26T13:10:45.948456+00:00",
+  "source": "Azure Monitor metrics API",
+  "result": {
+    "cost": 118,
+    "interval": "PT1M",
+    "namespace": "Microsoft.Network/loadBalancers",
+    "resourceregion": "swedencentral",
+    "timespan": "2026-09-26T12:10:44Z/2026-09-26T13:10:44Z",
+    "value": [
+      {
+        "displayDescription": "Average Load Balancer data path availability per time duration",
+        "errorCode": "Success",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/providers/Microsoft.Insights/metrics/VipAvailability",
+        "name": {
+          "localizedValue": "Data Path Availability",
+          "value": "VipAvailability"
+        },
+        "resourceGroup": "dmi-w07-labs-20260926-rg",
+        "timeseries": [
+          {
+            "data": [
+              {
+                "timeStamp": "2026-09-26T12:10:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:11:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:12:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:13:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:14:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:15:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:16:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:17:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:18:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:19:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:20:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:21:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:22:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:23:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:24:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:25:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:26:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:27:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:28:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:29:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:30:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:31:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:32:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:33:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:34:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:35:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:36:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:37:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:38:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:39:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:40:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:41:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:42:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:43:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:44:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:45:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:46:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:47:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:48:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:49:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:50:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:51:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:52:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:53:00Z"
+              },
+              {
+                "average": 7.5,
+                "timeStamp": "2026-09-26T12:54:00Z"
+              },
+              {
+                "average": 22.5,
+                "timeStamp": "2026-09-26T12:55:00Z"
+              },
+              {
+                "average": 36.666666666666664,
+                "timeStamp": "2026-09-26T12:56:00Z"
+              },
+              {
+                "average": 51.666666666666664,
+                "timeStamp": "2026-09-26T12:57:00Z"
+              },
+              {
+                "average": 66.66666666666667,
+                "timeStamp": "2026-09-26T12:58:00Z"
+              },
+              {
+                "average": 81.66666666666667,
+                "timeStamp": "2026-09-26T12:59:00Z"
+              },
+              {
+                "average": 96.66666666666667,
+                "timeStamp": "2026-09-26T13:00:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:01:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:02:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:03:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:04:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:05:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:06:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:07:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:08:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:09:00Z"
+              }
+            ],
+            "metadatavalues": []
+          }
+        ],
+        "type": "Microsoft.Insights/metrics",
+        "unit": "Count"
+      },
+      {
+        "displayDescription": "Average Load Balancer health probe status per time duration",
+        "errorCode": "Success",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/providers/Microsoft.Insights/metrics/DipAvailability",
+        "name": {
+          "localizedValue": "Health Probe Status",
+          "value": "DipAvailability"
+        },
+        "resourceGroup": "dmi-w07-labs-20260926-rg",
+        "timeseries": [
+          {
+            "data": [
+              {
+                "timeStamp": "2026-09-26T12:10:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:11:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:12:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:13:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:14:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:15:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:16:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:17:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:18:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:19:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:20:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:21:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:22:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:23:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:24:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:25:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:26:00Z"
+              },
+              {
+                "timeStamp": "2026-09-26T12:27:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:28:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:29:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:30:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:31:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:32:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:33:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:34:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:35:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:36:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:37:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:38:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:39:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:40:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:41:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:42:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:43:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:44:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:45:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:46:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:47:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:48:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:49:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:50:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:51:00Z"
+              },
+              {
+                "average": 0.0,
+                "timeStamp": "2026-09-26T12:52:00Z"
+              },
+              {
+                "average": 58.333333333333336,
+                "timeStamp": "2026-09-26T12:53:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T12:54:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T12:55:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T12:56:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T12:57:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T12:58:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T12:59:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:00:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:01:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:02:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:03:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:04:00Z"
+              },
+              {
+                "average": 62.5,
+                "timeStamp": "2026-09-26T13:05:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:06:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:07:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:08:00Z"
+              },
+              {
+                "average": 100.0,
+                "timeStamp": "2026-09-26T13:09:00Z"
+              }
+            ],
+            "metadatavalues": []
+          }
+        ],
+        "type": "Microsoft.Insights/metrics",
+        "unit": "Count"
+      }
+    ]
+  }
+}

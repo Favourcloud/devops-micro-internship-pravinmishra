@@ -1,0 +1,56 @@
+{
+  "captured_at": "2026-09-26T12:56:50.013253+00:00",
+  "command": "az keyvault show -g dmi-w07-labs-20260926-rg -n dmiw07kv20260926 --query {name:name,network:properties.networkAcls,rbac:properties.enableRbacAuthorization,access:properties.accessPolicies[].permissions,vault:properties.vaultUri,softDelete:properties.enableSoftDelete}",
+  "result": {
+    "access": [
+      {
+        "certificates": [],
+        "keys": [],
+        "secrets": [
+          "Get",
+          "Set",
+          "List",
+          "Delete",
+          "Recover"
+        ],
+        "storage": []
+      },
+      {
+        "certificates": [],
+        "keys": [],
+        "secrets": [
+          "Get"
+        ],
+        "storage": []
+      },
+      {
+        "certificates": [],
+        "keys": [],
+        "secrets": [
+          "Get"
+        ],
+        "storage": []
+      }
+    ],
+    "name": "dmiw07kv20260926",
+    "network": {
+      "bypass": "AzureServices",
+      "defaultAction": "Deny",
+      "ipRules": [
+        {
+          "value": "[controller]/32"
+        }
+      ],
+      "virtualNetworkRules": [
+        {
+          "id": "/subscriptions/[identifier redacted]/resourcegroups/dmi-w07-labs-20260926-rg/providers/microsoft.network/virtualnetworks/week07-three-tier-vnet/subnets/app-subnet",
+          "ignoreMissingVnetServiceEndpoint": null,
+          "resourceGroup": "dmi-w07-labs-20260926-rg"
+        }
+      ]
+    },
+    "rbac": false,
+    "softDelete": true,
+    "vault": "https://dmiw07kv20260926.vault.azure.net/"
+  }
+}

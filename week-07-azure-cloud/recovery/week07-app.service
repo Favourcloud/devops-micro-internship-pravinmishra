@@ -1,0 +1,21 @@
+[Unit]
+Description=Week 07 private Book Review API
+Wants=network-online.target
+Requires=week07-app-secrets.service
+After=network-online.target week07-app-secrets.service
+
+[Service]
+User=week07
+Group=week07
+WorkingDirectory=/opt/week07/book/backend
+EnvironmentFile=/etc/week07-book.env
+ExecStart=/usr/local/bin/node src/server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

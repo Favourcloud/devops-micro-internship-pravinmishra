@@ -1,0 +1,27 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+Sat Sep 26 13:21:27 UTC 2026
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+
+    root /home/azureuser/my-react-app/build;
+    index index.html;
+
+    # SPA routing: any unknown path falls back to the React entry point,
+    # so deep links like /dashboard still work after a hard refresh.
+    location / {
+        try_files $uri /index.html;
+    }
+
+    # Long-cache the hashed CRA assets
+    location /static/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+git version 2.25.1

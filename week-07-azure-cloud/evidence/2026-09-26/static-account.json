@@ -1,0 +1,15 @@
+{
+  "captured_at": "2026-09-26T12:56:54.478595+00:00",
+  "command": "az storage account show -g mini-finance-rg -n minifinanceeze20260926 --query {name:name,sku:sku,httpsOnly:enableHttpsTrafficOnly,publicBlobAccess:allowBlobPublicAccess,minimumTls:minimumTlsVersion,webEndpoint:primaryEndpoints.web}",
+  "result": {
+    "httpsOnly": true,
+    "minimumTls": "TLS1_2",
+    "name": "minifinanceeze20260926",
+    "publicBlobAccess": false,
+    "sku": {
+      "name": "Standard_LRS",
+      "tier": "Standard"
+    },
+    "webEndpoint": "https://minifinanceeze20260926.z1.web.core.windows.net/"
+  }
+}

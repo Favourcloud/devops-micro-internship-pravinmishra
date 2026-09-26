@@ -1,0 +1,17 @@
+{
+  "captured_at": "2026-09-26T12:56:55.562277+00:00",
+  "command": "az vm show -d -g vnet-demo-rg -n web-nginx --query {name:name,state:powerState,image:storageProfile.imageReference,size:hardwareProfile.vmSize,publicIp:publicIps}",
+  "result": {
+    "image": {
+      "exactVersion": "22.04.202608060",
+      "offer": "0001-com-ubuntu-server-jammy",
+      "publisher": "Canonical",
+      "sku": "22_04-lts-gen2",
+      "version": "22.04.202608060"
+    },
+    "name": "web-nginx",
+    "publicIp": "9.223.183.5",
+    "size": "Standard_F1als_v7",
+    "state": "VM running"
+  }
+}

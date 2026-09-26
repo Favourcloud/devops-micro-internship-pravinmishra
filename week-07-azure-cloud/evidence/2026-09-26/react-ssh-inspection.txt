@@ -1,0 +1,63 @@
+react-app-vm
+Sat Sep 26 12:24:04 UTC 2026
+origin	https://github.com/pravinmishraaws/my-react-app.git (fetch)
+origin	https://github.com/pravinmishraaws/my-react-app.git (push)
+f1b1aff14fe15c5bde092067c93a307fa3d97982
+v20.20.2
+10.8.2
+active
+total 52
+drwxrwxr-x 3 azureuser azureuser 4096 Aug 26 22:43 .
+drwxrwxr-x 8 azureuser azureuser 4096 Aug 26 22:08 ..
+-rw-rw-r-- 1 azureuser azureuser  315 Aug 26 22:43 asset-manifest.json
+-rw-rw-r-- 1 azureuser azureuser 3870 Aug 26 22:43 favicon.ico
+-rw-rw-r-- 1 azureuser azureuser  644 Aug 26 22:43 index.html
+-rw-rw-r-- 1 azureuser azureuser 5347 Aug 26 22:43 logo192.png
+-rw-rw-r-- 1 azureuser azureuser 9664 Aug 26 22:43 logo512.png
+-rw-rw-r-- 1 azureuser azureuser  492 Aug 26 22:43 manifest.json
+-rw-rw-r-- 1 azureuser azureuser   67 Aug 26 22:43 robots.txt
+drwxrwxr-x 4 azureuser azureuser 4096 Aug 26 22:43 static
+{
+  "name": "my-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test tests",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful

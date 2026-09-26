@@ -1,0 +1,198 @@
+{
+  "origin": "https://minifinanceeze20260926.z1.web.core.windows.net/",
+  "verified_at": "2026-09-26T12:45:44.918497+00:00",
+  "files": [
+    {
+      "path": "profile.html",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 18754
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 31958
+    },
+    {
+      "path": "transation-detail.html",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 16670
+    },
+    {
+      "path": "wallet.html",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 34034
+    },
+    {
+      "path": "help-center.html",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 17523
+    },
+    {
+      "path": "setting.html",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 21711
+    },
+    {
+      "path": "css/bootstrap.min.css",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 194901
+    },
+    {
+      "path": "css/bootstrap-icons.css",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 88587
+    },
+    {
+      "path": "css/apexcharts.css",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 13601
+    },
+    {
+      "path": "css/tooplate-mini-finance.css",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 21725
+    },
+    {
+      "path": "images/medium-shot-happy-man-smiling.jpg",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 31644
+    },
+    {
+      "path": "images/credit-card.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 2692
+    },
+    {
+      "path": "js/bootstrap.bundle.min.js",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 80420
+    },
+    {
+      "path": "js/custom.js",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 700
+    },
+    {
+      "path": "js/jquery.min.js",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 85658
+    },
+    {
+      "path": "js/apexcharts.min.js",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 493567
+    },
+    {
+      "path": "fonts/bootstrap-icons.woff2",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 112440
+    },
+    {
+      "path": "fonts/bootstrap-icons.woff",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 150592
+    },
+    {
+      "path": "images/flag/australia.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 6701
+    },
+    {
+      "path": "images/flag/united-kingdom.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 4357
+    },
+    {
+      "path": "images/flag/singapore.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 3030
+    },
+    {
+      "path": "images/flag/european-union.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 4387
+    },
+    {
+      "path": "images/flag/united-states.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 5738
+    },
+    {
+      "path": "images/social/spotify.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 2754
+    },
+    {
+      "path": "images/social/telegram.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 4868
+    },
+    {
+      "path": "images/social/search.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 4617
+    },
+    {
+      "path": "images/social/tiktok.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 2829
+    },
+    {
+      "path": "images/social/youtube.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 3754
+    },
+    {
+      "path": "images/social/snapchat.png",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 6258
+    },
+    {
+      "path": "images/profile/young-beautiful-woman-pink-warm-sweater.jpg",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 21934
+    },
+    {
+      "path": "images/profile/young-woman-with-round-glasses-yellow-sweater.jpg",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 18115
+    },
+    {
+      "path": "images/profile/senior-man-white-sweater-eyeglasses.jpg",
+      "status": 200,
+      "source_matches": true,
+      "bytes": 16287
+    }
+  ]
+}

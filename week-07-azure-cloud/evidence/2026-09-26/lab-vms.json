@@ -1,0 +1,91 @@
+{
+  "captured_at": "2026-09-26T12:56:54.267209+00:00",
+  "command": "az vm list -d -g dmi-w07-labs-20260926-rg --query [].{name:name,power:powerState,size:hardwareProfile.vmSize,zones:zones,publicIp:publicIps,privateIp:privateIps,image:storageProfile.imageReference}",
+  "result": [
+    {
+      "image": {
+        "exactVersion": "22.04.202608060",
+        "offer": "0001-com-ubuntu-server-jammy",
+        "publisher": "Canonical",
+        "sku": "22_04-lts-gen2",
+        "version": "22.04.202608060"
+      },
+      "name": "week07-app1",
+      "power": "VM running",
+      "privateIp": "10.0.4.11",
+      "publicIp": "",
+      "size": "Standard_F1als_v7",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "image": {
+        "exactVersion": "22.04.202608060",
+        "offer": "0001-com-ubuntu-server-jammy",
+        "publisher": "Canonical",
+        "sku": "22_04-lts-gen2",
+        "version": "22.04.202608060"
+      },
+      "name": "week07-app2",
+      "power": "VM running",
+      "privateIp": "10.0.4.12",
+      "publicIp": "",
+      "size": "Standard_F1als_v7",
+      "zones": [
+        "2"
+      ]
+    },
+    {
+      "image": {
+        "exactVersion": "22.04.202608060",
+        "offer": "0001-com-ubuntu-server-jammy",
+        "publisher": "Canonical",
+        "sku": "22_04-lts-gen2",
+        "version": "22.04.202608060"
+      },
+      "name": "week07-epic",
+      "power": "VM running",
+      "privateIp": "10.0.1.10",
+      "publicIp": "20.240.250.186",
+      "size": "Standard_F1als_v7",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "image": {
+        "exactVersion": "22.04.202608060",
+        "offer": "0001-com-ubuntu-server-jammy",
+        "publisher": "Canonical",
+        "sku": "22_04-lts-gen2",
+        "version": "22.04.202608060"
+      },
+      "name": "week07-web1",
+      "power": "VM running",
+      "privateIp": "10.0.1.11",
+      "publicIp": "",
+      "size": "Standard_F1als_v7",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "image": {
+        "exactVersion": "22.04.202608060",
+        "offer": "0001-com-ubuntu-server-jammy",
+        "publisher": "Canonical",
+        "sku": "22_04-lts-gen2",
+        "version": "22.04.202608060"
+      },
+      "name": "week07-web2",
+      "power": "VM running",
+      "privateIp": "10.0.1.12",
+      "publicIp": "",
+      "size": "Standard_F1als_v7",
+      "zones": [
+        "2"
+      ]
+    }
+  ]
+}

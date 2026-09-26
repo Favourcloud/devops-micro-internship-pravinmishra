@@ -1,0 +1,139 @@
+{
+  "captured_at": "2026-09-26T12:56:47.596486+00:00",
+  "command": "az network nic list -g dmi-w07-labs-20260926-rg --query [].{name:name,ipConfigurations:ipConfigurations}",
+  "result": [
+    {
+      "ipConfigurations": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-app1-nic/ipConfigurations/primary",
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/backendAddressPools/app-pool",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "primary",
+          "primary": true,
+          "privateIPAddress": "10.0.4.11",
+          "privateIPAddressVersion": "IPv4",
+          "privateIPAllocationMethod": "Static",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "subnet": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/app-subnet",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+        }
+      ],
+      "name": "week07-app1-nic"
+    },
+    {
+      "ipConfigurations": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-app2-nic/ipConfigurations/primary",
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-app-lb/backendAddressPools/app-pool",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "primary",
+          "primary": true,
+          "privateIPAddress": "10.0.4.12",
+          "privateIPAddressVersion": "IPv4",
+          "privateIPAllocationMethod": "Static",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "subnet": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/app-subnet",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+        }
+      ],
+      "name": "week07-app2-nic"
+    },
+    {
+      "ipConfigurations": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-epic-nic/ipConfigurations/primary",
+          "name": "primary",
+          "primary": true,
+          "privateIPAddress": "10.0.1.10",
+          "privateIPAddressVersion": "IPv4",
+          "privateIPAllocationMethod": "Static",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/publicIPAddresses/week07-epic-ip",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "subnet": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/web-subnet",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+        }
+      ],
+      "name": "week07-epic-nic"
+    },
+    {
+      "ipConfigurations": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-web1-nic/ipConfigurations/primary",
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/backendAddressPools/web-pool",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "primary",
+          "primary": true,
+          "privateIPAddress": "10.0.1.11",
+          "privateIPAddressVersion": "IPv4",
+          "privateIPAllocationMethod": "Static",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "subnet": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/web-subnet",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+        }
+      ],
+      "name": "week07-web1-nic"
+    },
+    {
+      "ipConfigurations": [
+        {
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkInterfaces/week07-web2-nic/ipConfigurations/primary",
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/loadBalancers/week07-web-lb/backendAddressPools/web-pool",
+              "resourceGroup": "dmi-w07-labs-20260926-rg"
+            }
+          ],
+          "name": "primary",
+          "primary": true,
+          "privateIPAddress": "10.0.1.12",
+          "privateIPAddressVersion": "IPv4",
+          "privateIPAllocationMethod": "Static",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "subnet": {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/web-subnet",
+            "resourceGroup": "dmi-w07-labs-20260926-rg"
+          },
+          "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+        }
+      ],
+      "name": "week07-web2-nic"
+    }
+  ]
+}

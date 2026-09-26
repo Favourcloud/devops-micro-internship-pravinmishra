@@ -1,0 +1,47 @@
+{
+  "verified_at": "2026-09-26T13:04:52.819351+00:00",
+  "private_checks": {
+    "web1": {
+      "database_dns_addresses": [
+        "10.0.2.4"
+      ],
+      "database": "blocked_or_unreachable",
+      "private_api": "reachable"
+    },
+    "app1": {
+      "database_dns_addresses": [
+        "10.0.2.4"
+      ],
+      "database": "reachable",
+      "private_api": "blocked_or_unreachable"
+    }
+  },
+  "public_tcp_checks": [
+    {
+      "target": "public_book_lb",
+      "ip": "4.225.220.198",
+      "port": 5000,
+      "reachable": false
+    },
+    {
+      "target": "public_book_lb",
+      "ip": "4.225.220.198",
+      "port": 3306,
+      "reachable": false
+    },
+    {
+      "target": "epic_public_ip",
+      "ip": "20.240.250.186",
+      "port": 8080,
+      "reachable": false
+    },
+    {
+      "target": "epic_public_ip",
+      "ip": "20.240.250.186",
+      "port": 3306,
+      "reachable": false
+    }
+  ],
+  "passed": true,
+  "limitations": "TCP timeout alone is not a full security audit. Combine with the NIC, NSG and MySQL public-access API evidence."
+}

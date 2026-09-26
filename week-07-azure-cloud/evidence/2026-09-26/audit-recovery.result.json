@@ -1,0 +1,37 @@
+{
+  "started": "2026-09-26T12:52:50.601547+00:00",
+  "finished": "2026-09-26T12:53:57.362583+00:00",
+  "returncode": 0,
+  "subtype": "success",
+  "reported_cost_usd": 0.0960009,
+  "response": "I'll run the audit script now.\n---\n\n## Week 07 Azure Security Audit \u2014 Eze Favour\n**Captured:** 2026-09-26T12:53:34Z | **Overall: PASS**\n**Operator:** Codex, acting under learner delegation from Eze Favour.\n\n---\n\n### Control 1 \u2014 NSG Administrative Ingress (SSH/RDP) \u00b7 PASS\n\nThe report's evidence reads: *\"No internet-wide SSH/RDP allow rule found in the required NSGs.\"*\n\n**What was verified:** The audit script scanned all NSGs in scope for inbound Allow rules on port 22 (SSH) or 3389 (RDP) whose source address was `0.0.0.0/0` or `*` (internet-wide).\n\n**The `DeliberateAuditSSHFixture` situation:** Prior to this run, a test NSG named `DeliberateAuditSSHFixture` carried an SSH rule sourced from `0.0.0.0/0` \u2014 deliberately planted as a lab fixture to demonstrate a FAIL finding. The operator (Codex, under Eze Favour's delegation) narrowed that rule's source from `0.0.0.0/0` to the current controller's specific `/32` CIDR. That single-host restriction is no longer internet-wide, so the check now passes.\n\n**Critical distinction:** `DeliberateAuditSSHFixture` is an **unattached test NSG** \u2014 it is not associated with any network interface or subnet of the lab VMs. It was never providing or denying traffic to a running workload. Its sole purpose was to exercise the audit logic. Narrowing its source CIDR resolves the audit finding, but this NSG does not represent a real VM being exposed to the internet. No production VM's effective network path was at risk.\n\n**Limitation noted in the report:** This is a *configuration check*, not a complete effective-route audit. An NSG can pass this check and still permit traffic via a different partially-public CIDR or an effective-route bypass. A full posture review would require checking all associated NICs and subnets end-to-end.\n\n**No remediation required** at this time. Should the test fixture NSG be needed again, the operator should delete it entirely after the lab cycle rather than leaving it narrowed-but-present.\n\n---\n\n### Control 2 \u2014 Public Blob Access \u00b7 PASS\n\n**Resource:** `minifinanceeze20260926`\n**Evidence:** `\"allowBlobPublicAccess\": false`\n\nThe storage account has public blob access disabled at the account level. This is the strongest available control: even if a container were accidentally set to `Blob` or `Container` visibility, the account-level flag would block anonymous reads. The report's scope note records that the Mini Finance static website remains *intentionally* publicly reachable via the static-website endpoint \u2014 that is expected behavior and does not contradict this finding, because static-website serving is a separate feature from anonymous blob access.\n\n**No remediation required.**\n\n---\n\n### Control 3 \u2014 VM Managed-Disk Encryption at Rest \u00b7 PASS (5 disks)\n\nAll five OS disks are attached and encrypted:\n\n| Disk | Attached |\n|------|----------|\n| `week07-app1_OsDisk_1_32601f\u2026` | true |\n| `week07-app2_OsDisk_1_2c89f6\u2026` | true |\n| `week07-epic_OsDisk_1_9aa813\u2026` | true |\n| `week07-web1_OsDisk_1_c78eeb\u2026` | true |\n| `week07-web2_OsDisk_1_e6f8a0\u2026` | true |\n\n**Encryption type on every disk:** `EncryptionAtRestWithPlatformKey`\n\n**Important distinction \u2014 Platform-managed vs. guest ADE:** `EncryptionAtRestWithPlatformKey` (PMK) means Azure's storage fabric encrypts the disk pages automatically using Microsoft-managed keys. This is *not* the same as **Azure Disk Encryption (ADE)**, which installs dm-crypt/BitLocker inside the guest OS and stores keys in a Key Vault. PMK satisfies data-at-rest compliance requirements for most workloads. If the security policy requires customer-managed keys (CMK) or full guest-level ADE, each disk would need to be migrated to `EncryptionAtRestWithCustomerManagedKey` or have ADE enabled \u2014 but that is a policy decision for the operator, not a current finding.\n\n**No remediation required** given the current lab policy of PMK.\n\n---\n\n### Control 4 \u2014 MySQL Public Network Access \u00b7 PASS\n\n**Resource:** `dmi-w07-20260926-mysql`\n**Evidence:** `\"publicNetworkAccess\": \"Disabled\"`, `\"private_subnet_configured\": true`\n\nThe Flexible Server has its public endpoint fully disabled and is reachable only via the private subnet. This is the recommended architecture: no public IP, VNet integration enforced. No firewall rule exceptions or allowed IP ranges can override a disabled public endpoint.\n\n**No remediation required.**\n\n---\n\n### Summary\n\nAll four controls pass in the fresh post-remediation report. The only action taken between the baseline and this run was Codex narrowing the `DeliberateAuditSSHFixture` NSG source rule from `0.0.0.0/0` to a single `/32` \u2014 an operator step performed under Eze Favour's delegation. That NSG remains unattached to any VM or subnet and does not represent live workload exposure.",
+  "tool_calls": [
+    {
+      "name": "Skill",
+      "input": {
+        "skill": "azure-audit"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "./azure-audit.sh; echo \"EXIT:$?\"",
+        "description": "Run azure-audit.sh and capture exit code"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "./azure-audit.sh",
+        "description": "Run azure-audit.sh once"
+      }
+    },
+    {
+      "name": "Read",
+      "input": {
+        "file_path": "[private evidence workspace]/audit/reports/azure-audit-report.json"
+      }
+    }
+  ],
+  "model": "us.anthropic.claude-sonnet-4-6"
+}

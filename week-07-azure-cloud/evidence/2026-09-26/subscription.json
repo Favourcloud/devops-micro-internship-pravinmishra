@@ -1,0 +1,8 @@
+{
+  "captured_at": "2026-09-26T12:56:39.757464+00:00",
+  "command": "az account show --query {name:name,state:state}",
+  "result": {
+    "name": "Azure subscription 1",
+    "state": "Enabled"
+  }
+}

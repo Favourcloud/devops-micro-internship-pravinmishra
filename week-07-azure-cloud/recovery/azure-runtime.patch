@@ -1,0 +1,301 @@
+--- book/backend/src/server.js
++++ book/backend/src/server.js
+@@ -1,101 +1,20 @@
+-const express = require("express");
+-require("dotenv").config();
+-const cors = require("cors");
+-const initializeDatabase = require("./config/db");
++const express = require('express');
++const initializeDatabase = require('./config/db');
+ 
+-const app = express();
+-app.use(express.json());
+-
+-// Read allowed origins from environment variables
+-const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : ["http://localhost:3000"];
+-
+-app.use(cors({
+-  origin: function (origin, callback) {
+-    if (!origin || allowedOrigins.includes(origin)) {
+-      callback(null, true); // Allow requests from valid origins
+-    } else {
+-      callback(new Error("CORS policy: Not allowed by server"));
+-    }
+-  },
+-  credentials: true,
+-}));
+-
+-// Debugging: Log incoming requests
+-app.use((req, res, next) => {
+-  console.log(`🛠 Incoming request from: ${req.headers.origin}`);
+-  next();
+-});
+-
+-async function startServer() {
+-  try {
+-    // Initialize database
+-    const sequelize = await initializeDatabase();
+-
+-    // Load models
+-    const User = require("./models/User")(sequelize);
+-    const Book = require("./models/Book")(sequelize);
+-    const Review = require("./models/Review")(sequelize);
+-
+-    // Sync database in the correct order (Users -> Books -> Reviews)
+-    await User.sync({ alter: true });
+-    await Book.sync({ alter: true });
+-    await Review.sync({ alter: true });
+-
+-    console.log("✅ Database schema updated successfully!");
+-
+-    // Insert sample users if table is empty
+-    const userCount = await User.count();
+-    if (userCount === 0) {
+-      await User.bulkCreate([
+-        { name: "John Doe", email: "john@example.com", password: "hashedpassword123" },
+-        { name: "Alice Smith", email: "alice@example.com", password: "hashedpassword456" }
+-      ]);
+-      console.log("👤 Sample users added!");
+-    }
+-
+-    // Insert sample books if table is empty
+-    const bookCount = await Book.count();
+-    if (bookCount === 0) {
+-      await Book.bulkCreate([
+-        { title: "The Pragmatic Programmer", author: "Andrew Hunt", rating: 4.8 },
+-        { title: "Clean Code", author: "Robert C. Martin", rating: 4.7 },
+-        { title: "JavaScript: The Good Parts", author: "Douglas Crockford", rating: 4.5 },
+-      ]);
+-      console.log("📚 Sample books added!");
+-    }
+-
+-    // Insert sample reviews if table is empty
+-    const reviewCount = await Review.count();
+-    if (reviewCount === 0) {
+-      await Review.bulkCreate([
+-        { userId: 1, bookId: 1, comment: "Fantastic book!", rating: 5, username: "John Doe" },
+-        { userId: 2, bookId: 2, comment: "Very insightful.", rating: 4, username: "Alice Smith" },
+-      ]);
+-      console.log("✍️ Sample reviews added!");
+-    }
+-
+-    // Load routes
+-    const userRoutes = require("./routes/userRoutes")(sequelize);
+-    const bookRoutes = require("./routes/bookRoutes")(sequelize);
+-    const reviewRoutes = require("./routes/reviewRoutes")(sequelize);
+-
+-    // Register API routes
+-    app.use("/api/users", userRoutes);
+-    app.use("/api/books", bookRoutes);
+-    app.use("/api/reviews", reviewRoutes);
+-
+-    // Health check route
+-    app.get("/", (req, res) => {
+-      res.send("📚 Book Review API is running...");
+-    });
+-
+-    // Start the server
+-    const PORT = process.env.PORT || 5000;
+-    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+-  } catch (error) {
+-    console.error("❌ Server startup failed:", error);
+-  }
++async function start() {
++  const sequelize = await initializeDatabase();
++  const app = express();
++  app.disable('x-powered-by');
++  app.use(express.json({ limit: '32kb' }));
++  app.get('/health', async (_req, res) => {
++    try { await sequelize.query('SELECT 1'); res.json({status:'ok', database:'connected'}); }
++    catch { res.status(503).json({status:'unavailable'}); }
++  });
++  app.use('/api/users', require('./routes/userRoutes')(sequelize));
++  app.use('/api/books', require('./routes/bookRoutes')(sequelize));
++  app.use('/api/reviews', require('./routes/reviewRoutes')(sequelize));
++  app.use((_err, _req, res, _next) => res.status(500).json({message:'Request failed'}));
++  const server=app.listen(5000, '0.0.0.0', () => console.log('Book Review API listening on private port 5000'));
++  process.on('SIGTERM', () => server.close(() => sequelize.close().then(() => process.exit(0))));
+ }
+-
+-// Start the server
+-startServer();
++start().catch(() => { console.error('Backend startup failed'); process.exit(1); });
+--- book/backend/src/config/db.js
++++ book/backend/src/config/db.js
+@@ -9,7 +9,7 @@
+   dialectOptions: {
+     ssl: {
+       require: true,
+-      rejectUnauthorized: false, // Required for Azure MySQL SSL connections
++      rejectUnauthorized: true, // Verify Azure MySQL certificate chain and hostname
+     },
+   },
+ });
+--- book/backend/src/controllers/bookController.js
++++ book/backend/src/controllers/bookController.js
+@@ -9,7 +9,7 @@
+         const books = await Book.findAll();
+         res.json(books);
+       } catch (error) {
+-        res.status(500).json({ message: "Server error while fetching books", error });
++        res.status(500).json({ message: "Server error while fetching books" });
+       }
+     },
+ 
+@@ -24,7 +24,7 @@
+ 
+         res.json(book);
+       } catch (error) {
+-        res.status(500).json({ message: "Server error while fetching book", error });
++        res.status(500).json({ message: "Server error while fetching book" });
+       }
+     },
+ 
+@@ -45,7 +45,7 @@
+ 
+         res.status(201).json({ message: "Book added successfully", book: newBook });
+       } catch (error) {
+-        res.status(500).json({ message: "Server error while adding book", error });
++        res.status(500).json({ message: "Server error while adding book" });
+       }
+     }
+   };
+--- book/backend/src/controllers/reviewController.js
++++ book/backend/src/controllers/reviewController.js
+@@ -36,7 +36,7 @@
+ 
+         res.status(201).json({ message: "Review added successfully", review: newReview });
+       } catch (error) {
+-        res.status(500).json({ message: "Server error", error });
++        res.status(500).json({ message: "Server error" });
+       }
+     },
+ 
+@@ -52,7 +52,7 @@
+ 
+         res.json(reviews);
+       } catch (error) {
+-        res.status(500).json({ message: "Server error", error });
++        res.status(500).json({ message: "Server error" });
+       }
+     },
+   };
+--- book/backend/src/controllers/userController.js
++++ book/backend/src/controllers/userController.js
+@@ -24,7 +24,7 @@
+ 
+         res.status(201).json({ message: "User registered successfully" });
+       } catch (error) {
+-        res.status(500).json({ message: "Server error", error });
++        res.status(500).json({ message: "Server error" });
+       }
+     },
+ 
+@@ -49,7 +49,7 @@
+ 
+         res.json({ token, user: { id: user.id, name: user.name, email: user.email } });
+       } catch (error) {
+-        res.status(500).json({ message: "Server error", error });
++        res.status(500).json({ message: "Server error" });
+       }
+     }
+   };
+--- book/frontend/next.config.mjs
++++ book/frontend/next.config.mjs
+@@ -1,4 +1,2 @@
+-/** @type {import('next').NextConfig} */
+-const nextConfig = {};
+-
++const nextConfig = { experimental: { cpus: 1 } };
+ export default nextConfig;
+--- epic/server.js
++++ epic/server.js
+@@ -27,8 +27,8 @@
+ app.use("/cart", require("./routes/html-routes"));
+ app.use("/gallery", require("./routes/html-routes"));
+ 
+-db.sequelize.sync().then(function () {
+-  app.listen(PORT, function () {
++db.sequelize.authenticate().then(function () {
++  app.listen(PORT, "127.0.0.1", function () {
+     console.log("App listening on PORT " + PORT);
+   });
+ });
+--- epic/views/layouts/main.handlebars
++++ epic/views/layouts/main.handlebars
+@@ -20,7 +20,7 @@
+ 	</head>
+ 
+ 	<body class="blue-grey">
+-        <div style="background:#123044;color:white;padding:10px;text-align:center">Eze Favour · DMI Week 09 · Deployed 25 September 2026 · Demo orders only; no payment or shipment</div>
++        <div style="background:#123044;color:white;padding:10px;text-align:center">Eze Favour · DMI Week 07 · Verified 26 September 2026 · Demo orders only; no payment or shipment</div>
+ 		<header>
+ 			<!-- Navigation for every page -->
+ 			<nav id="nav" class="blue-grey" role="navigation">
+--- book/frontend/src/app/page.js
++++ book/frontend/src/app/page.js
+@@ -1,20 +1,21 @@
+ "use client";
+ import { useState, useEffect } from "react";
+-import axios from "axios";
++import { fetchBooks } from "../services/api";
+ import Link from "next/link"; // Import Next.js Link
+ 
+ export default function Home() {
+   const [books, setBooks] = useState([]);
+   const [loading, setLoading] = useState(true);
++  const [error, setError] = useState(null);
+ 
+   useEffect(() => {
+-    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/books`) // Ensure correct API call
+-      .then(response => {
+-        setBooks(response.data);
++    fetchBooks()
++      .then(data => {
++        setBooks(data);
+         setLoading(false);
+       })
+       .catch(error => {
+-        console.error("Error fetching books:", error);
++        setError(error.message);
+         setLoading(false);
+       });
+   }, []);
+@@ -25,6 +26,8 @@
+ 
+       {loading ? (
+         <p className="text-center text-gray-600">Loading books...</p>
++      ) : error ? (
++        <p role="alert" className="text-center text-red-600">{error}</p>
+       ) : books.length === 0 ? (
+         <p className="text-center text-gray-600">No books available.</p>
+       ) : (
+--- book/frontend/src/services/api.js
++++ book/frontend/src/services/api.js
+@@ -1,7 +1,7 @@
+ import axios from "axios";
+ 
+-// Ensure API_URL does NOT contain `/api`
+-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
++// Same-origin API prefix, shared by the homepage, login and review pages.
++const API_URL = (process.env.NEXT_PUBLIC_API_URL || "/api").replace(/\/$/, "");
+ 
+ // General function to handle errors
+ const handleApiError = (error, defaultMessage) => {
+--- book/frontend/src/app/globals.css
++++ book/frontend/src/app/globals.css
+@@ -12,12 +12,8 @@
+   --font-mono: var(--font-geist-mono);
+ }
+ 
+-@media (prefers-color-scheme: dark) {
+-  :root {
+-    --background: #0a0a0a;
+-    --foreground: #ededed;
+-  }
+-}
++/* The app uses light cards and forms; keep foreground contrast consistent. */
++:root { color-scheme: light; }
+ 
+ body {
+   background: var(--background);

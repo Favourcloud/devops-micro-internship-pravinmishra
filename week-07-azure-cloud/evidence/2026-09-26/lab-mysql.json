@@ -1,0 +1,40 @@
+{
+  "captured_at": "2026-09-26T12:56:46.857834+00:00",
+  "command": "az mysql flexible-server show -g dmi-w07-labs-20260926-rg -n dmi-w07-20260926-mysql --query {name:name,state:state,host:fullyQualifiedDomainName,network:network,backup:backup,ha:highAvailability,sku:sku,storage:storage,version:version}",
+  "result": {
+    "backup": {
+      "backupIntervalHours": 24,
+      "backupRetentionDays": 7,
+      "earliestRestoreDate": "2026-09-26T12:38:53.571489+00:00",
+      "geoRedundantBackup": "Disabled"
+    },
+    "ha": {
+      "mode": "Disabled",
+      "replicationMode": "BinaryLog",
+      "standbyAvailabilityZone": "",
+      "state": "NotEnabled"
+    },
+    "host": "dmi-w07-20260926-mysql.mysql.database.azure.com",
+    "name": "dmi-w07-20260926-mysql",
+    "network": {
+      "delegatedSubnetResourceId": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/database-subnet",
+      "privateDnsZoneResourceId": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/privateDnsZones/dmi-w07-20260926.mysql.database.azure.com",
+      "publicNetworkAccess": "Disabled"
+    },
+    "sku": {
+      "name": "Standard_B1ms",
+      "tier": "Burstable"
+    },
+    "state": "Ready",
+    "storage": {
+      "autoGrow": "Disabled",
+      "autoIoScaling": "Disabled",
+      "iops": 360,
+      "logOnDisk": "Disabled",
+      "storageRedundancy": "LocalRedundancy",
+      "storageSizeGb": 20,
+      "storageSku": "Premium_LRS"
+    },
+    "version": "8.0.21"
+  }
+}
