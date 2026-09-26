@@ -649,7 +649,7 @@ The original cart/checkout behavior shared state and could duplicate or lose ord
 
 Paste your LinkedIn post URL here:
 
-https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
+https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/
 
 ---
 
@@ -753,7 +753,7 @@ Confirm that the following files are included in your GitHub repository or assig
 - Add Terraform output proof.
 - Add Ansible role tree proof.
 - Add all required notes and assignment question answers.
-- LinkedIn post: https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
+- LinkedIn post: https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/
 - Do not expose SSH private keys, passwords, cloud credentials, database credentials, Terraform state files, subscription IDs, or account IDs.
 
 ---
@@ -818,4 +818,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/). The public posts describe the verified outcomes and assisted work.

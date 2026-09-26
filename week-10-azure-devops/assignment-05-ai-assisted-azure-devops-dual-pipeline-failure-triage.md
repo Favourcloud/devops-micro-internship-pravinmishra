@@ -16,7 +16,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 **GitHub Repository or Fork URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra
 
-**Public LinkedIn Post URL:** https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
+**Public LinkedIn Post URL:** https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/
 
 ---
 
@@ -357,7 +357,7 @@ A mistaken diagnosis could become a live source, infrastructure or credential ch
 
 ## LinkedIn Post URL
 
-https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
+https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/
 
 ## Evidence
 
@@ -436,7 +436,7 @@ Confirm that the following files are available in your repository:
 
 **GitHub Repository or Fork URL:** https://github.com/Favourcloud/devops-micro-internship-pravinmishra
 
-**LinkedIn Post URL:** https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
+**LinkedIn Post URL:** https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/
 
 ---
 
@@ -464,4 +464,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/). The public posts describe the verified outcomes and assisted work.

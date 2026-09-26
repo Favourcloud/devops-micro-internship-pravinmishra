@@ -10,6 +10,8 @@ Learner: Eze Favour. Execution and writing: Codex-assisted under explicit delega
 
 ## Corrections verified on 26 September
 
+- The [submission rubric audit](RUBRIC-AUDIT-20260926.md) corrected Week 09/10 LinkedIn URLs to their canonical `/posts/` form and replaced anonymous-HTTP-403 Medium links in the progress table with verified public GitHub Pages copies. All 17 assignment files and all three publication rows pass the published checks reproduced locally. Supported checklist items and DMI completion labels were updated; unverified personal/native-capture requirements remain explicit.
+
 - AWS EpicBook now applies a disclosed patch to the pinned instructor source for signed carts and transactional, replay-safe checkout. Browser order 2, cart 3 and subtotal 32.50 match an independent RDS query. Persistence survived a Node restart. All 15 deployed implementation files match the submitted source.
 - EC2 bootstrap is gzip-compressed to stay within its payload limit. RDS master-password validation now enforces the API's 24–41-character range, and its TLS parameter uses AWS's normalized value to avoid recurring drift.
 - Claude Code used Amazon Bedrock and the registered `/pipeline-triage` skill. It diagnosed controlled failed run 20 before the operator removed exactly the injected step, then verified recovered run 21. Deployment remained skipped on the isolated drill branch.
@@ -37,6 +39,6 @@ Retained cloud resources and the build agent continue to incur charges under the
 - The instructor-supplied Week 10 triage kit could not be found in the reviewed instructor repositories or local files. The original replacement remains disclosed; it is not labeled as the supplied kit.
 - Learner-personally-manual actions, original PAT scope/expiry certification, and missing exact native-editor/terminal/address-bar captures are not manufactured. The numbered evidence maps distinguish genuine page captures, historical material and labeled recorded-output viewers.
 - Week 09 location and machine-size substitutions remain documented in its evidence. Credit for substitutions and delegated execution belongs to the assessor.
-- [Dashboard observed on 26 September](dmi-assessment-20260926.json): Week 08 **190/190**, Week 09 **110/190**, Week 10 **50/170**; 9/14 weeks marked complete. Its last assessment remains dated **25 September**. The publication URLs and template fixes it reports missing are present on verified remote main. A newer external review is required; successful tests and publication do not establish a perfect grade.
+- [Dashboard observed on 26 September](dmi-assessment-20260926.json): Week 08 **190/190**, Week 09 **110/190**, Week 10 **50/170**; 9/14 weeks marked complete. Its last assessment remains dated **25 September**. The later [rubric audit](RUBRIC-AUDIT-20260926.md) caught and corrected the Week 09/10 LinkedIn URL format: the active README now uses the real canonical `/posts/` URLs. All 17 expected assignment paths, substantial original prose and removed template phrases were checked against the current upstream template. A newer external review is required; successful tests and publication do not establish a perfect grade.
 
 [Previous status, retained as history](COMPLETION-STATUS-20260925.md).

@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-09-26T10:27:54.450127+00:00",
+  "method": "Unauthenticated public HTTPS GET, no browser cookies or account credentials",
+  "blogs": [
+    {
+      "week": 8,
+      "url": "https://medium.com/@rosenaefavour/from-terraform-plans-to-a-working-aws-book-review-app-27a81b45dedb",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "week": 9,
+      "url": "https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "week": 10,
+      "url": "https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

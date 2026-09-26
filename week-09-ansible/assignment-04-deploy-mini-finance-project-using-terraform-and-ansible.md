@@ -605,7 +605,7 @@ See the [numbered evidence map](evidence/2026-09-25/screenshot-map.md). Recorded
 
 Paste your LinkedIn post URL here:
 
-https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
+https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/
 
 ---
 
@@ -710,7 +710,7 @@ Confirm that the following files are included in your assignment folder:
 - Add the final Mini Finance website URL.
 - Paste `inventory.ini`, `site.yml`, and `README.md` as editable text.
 - Answer all assignment questions clearly in your own words.
-- LinkedIn post: https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
+- LinkedIn post: https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/
 - Do not expose SSH private keys, passwords, Azure credentials, subscription IDs, Terraform state contents, or other sensitive information.
 
 ---
@@ -773,4 +773,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 *This submission is part of DevOps Micro Internship (DMI) — Agentic AI Track.*
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/). The public posts describe the verified outcomes and assisted work.

@@ -81,17 +81,17 @@ Week 03 → Linux for DevOps
 Week 04 → Git & GitHub
 [![Week 04 – Git](./badges/week-04.svg)](./week-04-git-and-github/)
 
-<!-- Week 05 → DevOps Lifecycle -->
-<!-- [![Week 05 – Lifecycle](./badges/week-05.svg)](./week-05-devops-lifecycle/) -->
+Week 05 → DevOps Lifecycle
+[![Week 05 – Lifecycle](./badges/week-05.svg)](./week-05-devops-lifecycle/)
 
-<!-- Week 06 → AWS Cloud -->
-<!-- [![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/) -->
+Week 06 → AWS Cloud
+[![Week 06 – AWS](./badges/week-06.svg)](./week-06-aws-cloud/)
 
-<!-- Week 07 → Azure Cloud -->
-<!-- [![Week 07 – Azure](./badges/week-07.svg)](./week-07-azure-cloud/) -->
+Week 07 → Azure Cloud
+[![Week 07 – Azure](./badges/week-07.svg)](./week-07-azure-cloud/)
 
-<!-- Week 08 → Terraform -->
-<!-- [![Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/) -->
+Week 08 → Terraform
+[![Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/)
 
 <!-- Week 09 → Ansible -->
 <!-- [![Week 09 – Ansible](./badges/week-09.svg)](./week-09-ansible/) -->
@@ -134,15 +134,17 @@ Week 04 → Git & GitHub
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-agenticai-claudecode-activity-7481376006981840896-8BIQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/reflection-week-2-the-week-i-stopped-seeing-ai-as-a-tool-and-started-seeing-it-as-a-teammate-by-811d04bc60b0) |
 | 03 | Linux for DevOps | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-activity-7483907367227666433-PqVA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/reflection-week-03-the-week-i-learned-that-keeping-systems-running-is-just-as-important-as-c5e5cb38661f) |
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/this-one-git-habit-could-save-you-hours-of-frustration-213eb4d360ec) |
-| 05 | DevOps Lifecycle & Agile | 🔄 In Progress | [Mini-sprint submission and demo; DMI credit recorded](./week-05-devops-lifecycle/assignment-03-run-a-5-day-mini-sprint-in-jira-and-ship-an-increment.md) | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-activity-7491178060780613632-hgwF) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/i-thought-i-was-learning-jira-i-didnt-know-i-was-learning-how-to-ship-f9a371a9543a) |
-| 06 | AWS Cloud | 🔄 In Progress | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-terraform-activity-7505450522540408832-q-je) | — |
-| 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
-| 08 | Terraform | 🔄 Submitted with disclosed rubric limits | [Verified work and remaining learner requirements](#week-08-deliverable-locations) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/) | [Blog Post](https://medium.com/@rosenaefavour/from-terraform-plans-to-a-working-aws-book-review-app-27a81b45dedb) |
-| 09 | Ansible | 🔄 Submitted with disclosed rubric limits | [Verified deployments, tests and evidence](./week-09-ansible/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/) | [Blog Post](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) |
-| 10 | Azure DevOps (CI/CD) | 🔄 Submitted with disclosed rubric limits | [Verified deployments, tests and evidence](./week-10-azure-devops/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/) | [Blog Post](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) |
+| 05 | DevOps Lifecycle & Agile | ✅ Completed (DMI) | [Mini-sprint submission and demo; DMI credit recorded](./week-05-devops-lifecycle/assignment-03-run-a-5-day-mini-sprint-in-jira-and-ship-an-increment.md) | 🔗 [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-activity-7491178060780613632-hgwF) | 🔗 [Blog Post](https://medium.com/@rosenaefavour/i-thought-i-was-learning-jira-i-didnt-know-i-was-learning-how-to-ship-f9a371a9543a) |
+| 06 | AWS Cloud | ✅ Completed (DMI) | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-terraform-activity-7505450522540408832-q-je) | — |
+| 07 | Azure Cloud | ✅ Completed (DMI) | [Assignment files; DMI completion recorded](./week-07-azure-cloud/) | — | — |
+| 08 | Terraform | ✅ Completed (DMI) | [Verified work and remaining learner requirements](#week-08-deliverable-locations) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-08.html) |
+| 09 | Ansible | ✅ Submission checks complete; DMI review pending | [Verified deployments, tests and evidence](./week-09-ansible/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) |
+| 10 | Azure DevOps (CI/CD) | ✅ Submission checks complete; DMI review pending | [Verified deployments, tests and evidence](./week-10-azure-devops/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html) |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
+
+**Status scope:** DMI completion is copied from the dashboard. “Submission checks complete” means the published path, writing and publication rules pass the local audit; it does not claim a new grade or waive the disclosed manual-evidence limits. [Current rubric audit](RUBRIC-AUDIT-20260926.md).
 
 **Status:** ⬜ Not Started &nbsp;|&nbsp; 🔄 In Progress &nbsp;|&nbsp; ✅ Completed<br>
 **Assignment:** ⏳ Pending &nbsp;|&nbsp; ✅ Solved

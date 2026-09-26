@@ -1,0 +1,38 @@
+[
+  {
+    "week": 8,
+    "url": "https://medium.com/@rosenaefavour/from-terraform-plans-to-a-working-aws-book-review-app-27a81b45dedb",
+    "badge_links": [
+      {
+        "text": "Follow my graded DMI progress",
+        "url": "https://dmi.pravinmishra.com/s/Favourcloud.html"
+      }
+    ],
+    "paragraph_words": 926,
+    "title": "From Terraform Plans to a Working AWS Book Review App"
+  },
+  {
+    "week": 9,
+    "url": "https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f",
+    "badge_links": [
+      {
+        "text": "Favour Eze",
+        "url": "https://dmi.pravinmishra.com/s/Favourcloud.html"
+      }
+    ],
+    "paragraph_words": 627,
+    "title": "From Four Linux VMs to a Repeatable EpicBook Deployment: DMI Week 09"
+  },
+  {
+    "week": 10,
+    "url": "https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a",
+    "badge_links": [
+      {
+        "text": "Favour Eze",
+        "url": "https://dmi.pravinmishra.com/s/Favourcloud.html"
+      }
+    ],
+    "paragraph_words": 729,
+    "title": "Two Pipelines, One Verified App: DMI Week 10 with Azure DevOps"
+  }
+]

@@ -204,7 +204,7 @@ See the supporting evidence above and its scope in the numbered map.
 
 ## LinkedIn Post URL
 
-https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
+https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/
 
 > Do not expose AWS credentials, SSH private keys, passwords, PATs, or other sensitive information.
 
@@ -274,4 +274,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/). The public posts describe the verified outcomes and assisted work.

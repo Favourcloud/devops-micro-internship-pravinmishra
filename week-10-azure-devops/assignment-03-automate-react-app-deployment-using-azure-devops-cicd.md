@@ -210,7 +210,7 @@ See the supporting evidence above and its scope in the numbered map.
 
 ## LinkedIn Post URL
 
-https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
+https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/
 
 > Do not expose VM passwords, tokens, private keys, cloud credentials, or other sensitive information.
 
@@ -246,7 +246,7 @@ https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/
 * [x] `node_modules/` was not deployed to the Nginx web root
 * [x] Nginx is active
 * [x] The application opens through the VM public IP address
-* [ ] Your Full Name and date are visible in the browser screenshot
+* [x] Your Full Name and date are visible in the browser screenshot — Eze Favour and 2026-09-25 are visible in Screenshot 5, rechecked on 26 September
 * [ ] Screenshots 1–6 are included and readable
 * [ ] No password, token, private key, account ID, or other secret is visible
 * [x] The final application URL is included
@@ -279,4 +279,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509319294388944897/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/). The public posts describe the verified outcomes and assisted work.
