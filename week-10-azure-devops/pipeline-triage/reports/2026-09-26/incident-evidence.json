@@ -1,7 +1,7 @@
 {
   "learner": "Eze Favour",
   "operator": "Codex-assisted",
-  "generated_at": "2026-09-26T09:35:29.969294+00:00",
+  "generated_at": "2026-09-26T09:32:26.977735+00:00",
   "read_only": true,
   "pipelines": [
     {
@@ -19,14 +19,18 @@
     {
       "kind": "application",
       "pipeline_id": 5,
-      "run_id": 21,
+      "run_id": 20,
       "branch": "refs/heads/triage-safe-drill",
       "status": "completed",
-      "result": "succeeded",
-      "finish_time": "2026-09-26T09:34:28.6537538Z",
-      "signals": [],
-      "failed_steps": [],
-      "url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=21"
+      "result": "failed",
+      "finish_time": "2026-09-26T09:30:32.0703891Z",
+      "signals": [
+        "APPLICATION"
+      ],
+      "failed_steps": [
+        "Controlled failure before any deployment"
+      ],
+      "url": "https://dev.azure.com/aneneeze2021/DMI-Week10/_build/results?buildId=20"
     }
   ]
 }

@@ -1,0 +1,14 @@
+✔ signed cart IDs round-trip with HttpOnly and SameSite (5.166579ms)
+✔ separate browsers retain separate cart membership (1.335902ms)
+✔ tampering and malformed cookies cannot select another cart (0.405617ms)
+✔ expired, oversized and invalid signed IDs are rejected (0.602683ms)
+✔ cross-origin writes are refused (1.190784ms)
+✔ pending query is restricted to signed IDs and hides completed orders (0.560116ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.437895

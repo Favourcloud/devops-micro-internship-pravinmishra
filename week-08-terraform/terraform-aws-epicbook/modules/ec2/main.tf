@@ -46,10 +46,11 @@ resource "aws_instance" "this" {
   key_name                    = var.key_name
   iam_instance_profile        = aws_iam_instance_profile.runtime.name
   user_data_replace_on_change = true
-  user_data = templatefile("${path.module}/user_data.sh", {
+  user_data_base64 = base64gzip(templatefile("${path.module}/user_data.sh", {
     runtime_config = jsonencode({ region = var.aws_region, host = var.db_host, secret_arn = var.runtime_secret_arn, credential_version = var.credential_version })
     runtime_py     = file("${path.module}/runtime.py")
-  })
+    checkout_patch = filebase64("${path.module}/demo-checkout.patch")
+  }))
   metadata_options {
     http_endpoint               = "enabled"
     http_tokens                 = "required"

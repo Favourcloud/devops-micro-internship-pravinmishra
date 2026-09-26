@@ -5,7 +5,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 **Learner:** Eze Favour
 
 **Repository:** [Favourcloud/devops-micro-internship-pravinmishra](https://github.com/Favourcloud/devops-micro-internship-pravinmishra)
-**Current status —25 September2026:** Deployment, real browser/cart-to-RDS verification, teardown and mandatory LinkedIn publication are verified. **35/35 screenshot slots have captures**. The pinned instructor app has no order-creation endpoint, so checkout/order completion remains unsupported. Published reflections are explicitly assisted; historical visual limitations remain disclosed. See the [live run summary](terraform-aws-epicbook/evidence/live-run-summary.md) and [new capture provenance](terraform-aws-epicbook/evidence/live-provenance.json). Private RDS output and specific historical screenshot limitations remain disclosed. The former EC2 URL is retired. Codex performed the run under user delegation.
+**Current status —26 September 2026:** a fresh AWS deployment now proves browser checkout and persisted RDS orders. All 22 live HTTP/SQL checks passed; browser order2 matches RDS cart3 and subtotal32.50. The temporary stack’s 28 resources were then removed. [New proof and scope](terraform-aws-epicbook/evidence/2026-09-26/README.md). Earlier screenshots and source-only limitations below describe the historical unpatched deployment. Delegated work and exact capture limitations remain disclosed.
 
 ## Historical preparation record — superseded by the live update
 
@@ -534,6 +534,8 @@ Add a screenshot of the browser showing a successful cart or checkout action.
 
 ---
 
+**26 September continuation:** [Actual saved browser order2](terraform-aws-epicbook/evidence/2026-09-26/aws-order2.png) and [matching RDS order](terraform-aws-epicbook/evidence/2026-09-26/browser-order-rds.json) establish the repaired checkout path.
+
 ### Screenshot 33 — Corresponding RDS Record
 
 Add a screenshot of the terminal showing the corresponding RDS database record created by the application action.
@@ -666,7 +668,7 @@ Actual published post gallery showing EZE FAVOUR, post text and the original Epi
 - [x] Loaded EpicBook through the EC2 public IP
 - [x] Verified product viewing
 - [x] Verified Add to Cart
-- [ ] Verified the checkout or order workflow
+- [x] Verified the checkout or order workflow (26 September AWS browser/API/RDS proof)
 - [x] Confirmed application actions in Amazon RDS
 - [x] Completed `terraform destroy`
 - [x] Published the required LinkedIn post

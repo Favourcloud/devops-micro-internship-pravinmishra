@@ -39,7 +39,7 @@ def fetch_credentials(config):
         raise ValueError('Unsupported database username')
     if credentials['username'].lower() == APP_DB_USERNAME:
         raise ValueError('Database username is reserved for the application')
-    if not re.fullmatch(r'[A-Za-z0-9!#%^*+=_-]{24,64}', credentials['password']):
+    if not re.fullmatch(r'[A-Za-z0-9!#%^*+=_-]{24,41}', credentials['password']):
         raise ValueError('Unsupported password format')
     if not re.fullmatch(r'[A-Za-z0-9.-]+', config['host']):
         raise ValueError('Unsupported database host')

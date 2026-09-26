@@ -1,0 +1,123 @@
+Terraform v1.13.5
+on darwin_amd64
++ provider registry.terraform.io/hashicorp/aws v6.64.0
+Initializing modules...
+- ec2 in modules/ec2
+- network in modules/network
+- rds in modules/rds
+- test.tests.offline.network_topology in modules/network
+- test.tests.offline.private_rds in modules/rds
+- test.tests.offline.ec2_bootstrap in modules/ec2
+- test.tests.offline.rds_reject_application_master_username in modules/rds
+Initializing provider plugins...
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Installing hashicorp/aws v6.64.0...
+- Installed hashicorp/aws v6.64.0 (unauthenticated)
+
+Terraform has been successfully initialized!
+Success! The configuration is valid.
+
+Installed AWS schema: both credential fields sensitive and write-only; numeric version fields present.
+tests/offline.tftest.hcl... in progress
+  run "network_topology"... pass
+  run "private_rds"... pass
+  run "ec2_bootstrap"... pass
+  run "root_wiring"... pass
+  run "reject_open_ssh"... pass
+  run "reject_private_ssh"... pass
+  run "reject_ipv6_ssh"... pass
+  run "reject_duplicate_az"... pass
+  run "reject_wrong_region_az"... pass
+  run "reject_old_mysql"... pass
+  run "reject_expensive_instance"... pass
+  run "reject_expensive_db"... pass
+  run "reject_weak_password"... pass
+  run "reject_reserved_username"... pass
+  run "reject_application_master_username"... pass
+  run "reject_application_master_username_case_insensitive"... pass
+  run "rds_reject_application_master_username"... pass
+  run "accept_distinct_master_and_hash_password"... pass
+  run "reject_fractional_rotation"... pass
+  run "reject_implicit_disposal"... pass
+  run "reject_key_path"... pass
+  run "reject_bad_name"... pass
+  run "reject_mysql_master_password_over_41"... pass
+  run "accept_mysql_master_password_41"... pass
+tests/offline.tftest.hcl... tearing down
+tests/offline.tftest.hcl... pass
+
+Success! 24 passed, 0 failed.
+test_brief_images_match_slots_and_qualified_captions (test_evidence.EvidenceTests.test_brief_images_match_slots_and_qualified_captions) ... ok
+test_checkmarks_follow_live_evidence_without_claiming_unfinished_work (test_evidence.EvidenceTests.test_checkmarks_follow_live_evidence_without_claiming_unfinished_work) ... ok
+test_copilot_capture_and_review_scope_are_explicit (test_evidence.EvidenceTests.test_copilot_capture_and_review_scope_are_explicit) ... ok
+test_historical_source_hashes_and_exact_node_update (test_evidence.EvidenceTests.test_historical_source_hashes_and_exact_node_update) ... ok
+test_live_capture_integrity_and_reported_limits (test_evidence.EvidenceTests.test_live_capture_integrity_and_reported_limits) ... ok
+test_local_init_is_normal_default_local_backend_without_state (test_evidence.EvidenceTests.test_local_init_is_normal_default_local_backend_without_state) ... ok
+test_local_markdown_links_exist (test_evidence.EvidenceTests.test_local_markdown_links_exist) ... ok
+test_manifest_exact_original_titles (test_evidence.EvidenceTests.test_manifest_exact_original_titles) ... ok
+test_missing_or_duplicate_accepted_image_is_rejected (test_evidence.EvidenceTests.test_missing_or_duplicate_accepted_image_is_rejected) ... ok
+test_no_private_paths_or_identifiers_in_public_text_and_png_metadata (test_evidence.EvidenceTests.test_no_private_paths_or_identifiers_in_public_text_and_png_metadata) ... ok
+test_only_allowlisted_public_artifacts_and_provenance_fields (test_evidence.EvidenceTests.test_only_allowlisted_public_artifacts_and_provenance_fields) ... ok
+test_original_capture_hashes_and_byte_counts (test_evidence.EvidenceTests.test_original_capture_hashes_and_byte_counts) ... ok
+test_original_local_captures_and_fifteen_new_live_slots (test_evidence.EvidenceTests.test_original_local_captures_and_fifteen_new_live_slots) ... ok
+test_original_requirements_preserved_with_evidenced_prompt_replacements (test_evidence.EvidenceTests.test_original_requirements_preserved_with_evidenced_prompt_replacements) ... ok
+test_partial_notices_cannot_be_removed (test_evidence.EvidenceTests.test_partial_notices_cannot_be_removed) ... ok
+test_partial_views_and_pending_human_live_requirements (test_evidence.EvidenceTests.test_partial_views_and_pending_human_live_requirements) ... ok
+test_png_checks_reject_corruption_and_extra_bytes (test_evidence.EvidenceTests.test_png_checks_reject_corruption_and_extra_bytes) ... ok
+test_png_signatures_crcs_dimensions_and_scanlines (test_evidence.EvidenceTests.test_png_signatures_crcs_dimensions_and_scanlines) ... ok
+test_proposed_source_resource_counts (test_evidence.EvidenceTests.test_proposed_source_resource_counts) ... ok
+test_record_separates_historical_mocks_from_current_evidence (test_evidence.EvidenceTests.test_record_separates_historical_mocks_from_current_evidence) ... ok
+test_runbook_explicit_gates_and_upstream_limitation (test_evidence.EvidenceTests.test_runbook_explicit_gates_and_upstream_limitation) ... ok
+test_source_notes_are_attributed_and_do_not_complete_live_work (test_evidence.EvidenceTests.test_source_notes_are_attributed_and_do_not_complete_live_work) ... ok
+test_unmet_prompt_and_requirement_removal_is_rejected (test_evidence.EvidenceTests.test_unmet_prompt_and_requirement_removal_is_rejected) ... ok
+test_access_denied_is_not_absence (test_offline.CleanupTests.test_access_denied_is_not_absence) ... ok
+test_consistent_mock_ledger (test_offline.CleanupTests.test_consistent_mock_ledger) ... ok
+test_duplicate_id_rejected (test_offline.CleanupTests.test_duplicate_id_rejected) ... ok
+test_missing_id_rejected (test_offline.CleanupTests.test_missing_id_rejected) ... ok
+test_nonempty_state_rejected (test_offline.CleanupTests.test_nonempty_state_rejected) ... ok
+test_retained_ebs_rejected (test_offline.CleanupTests.test_retained_ebs_rejected) ... ok
+test_wrong_identity_rejected (test_offline.CleanupTests.test_wrong_identity_rejected) ... ok
+test_wrong_terminal_state_rejected (test_offline.CleanupTests.test_wrong_terminal_state_rejected) ... ok
+test_no_javascript_or_secret_outputs (test_offline.PrivacyTests.test_no_javascript_or_secret_outputs) ... ok
+test_preflight_accepts_clean_project (test_offline.PrivacyTests.test_preflight_accepts_clean_project) ... ok
+test_preflight_rejects_implicit_inputs (test_offline.PrivacyTests.test_preflight_rejects_implicit_inputs) ... ok
+test_preflight_rejects_symlinks (test_offline.PrivacyTests.test_preflight_rejects_symlinks) ... ok
+test_required_files (test_offline.PrivacyTests.test_required_files) ... ok
+test_root_cross_module_inputs (test_offline.PrivacyTests.test_root_cross_module_inputs) ... ok
+test_runner_only_offline_commands (test_offline.PrivacyTests.test_runner_only_offline_commands) ... ok
+test_schema_contract_rejects_non_write_only (test_offline.PrivacyTests.test_schema_contract_rejects_non_write_only) ... ok
+test_sensitive_ephemeral_root_and_module (test_offline.PrivacyTests.test_sensitive_ephemeral_root_and_module) ... ok
+test_app_config_requires_tls_and_limited_user (test_offline.RuntimeTests.test_app_config_requires_tls_and_limited_user) ... ok
+test_existing_database_does_not_reseed (test_offline.RuntimeTests.test_existing_database_does_not_reseed) ... ok
+test_import_failure_stops_before_later_seeds (test_offline.RuntimeTests.test_import_failure_stops_before_later_seeds) ... ok
+test_invalid_schema_inventory_rejected (test_offline.RuntimeTests.test_invalid_schema_inventory_rejected) ... ok
+test_master_password_length_limit (test_offline.RuntimeTests.test_master_password_length_limit) ... ok
+test_mysql_option_parser_reference_cases (test_offline.RuntimeTests.test_mysql_option_parser_reference_cases) ... ok
+test_mysql_option_quote_escape_round_trip (test_offline.RuntimeTests.test_mysql_option_quote_escape_round_trip) ... ok
+test_mysql_password_hash_round_trip (test_offline.RuntimeTests.test_mysql_password_hash_round_trip) ... ok
+test_mysql_tls_options (test_offline.RuntimeTests.test_mysql_tls_options) ... ok
+test_new_database_import_order (test_offline.RuntimeTests.test_new_database_import_order) ... ok
+test_noncolliding_username_and_hash_password_accepted (test_offline.RuntimeTests.test_noncolliding_username_and_hash_password_accepted) ... ok
+test_partial_seed_rejected (test_offline.RuntimeTests.test_partial_seed_rejected) ... ok
+test_prepare_failure_removes_temporary_credentials (test_offline.RuntimeTests.test_prepare_failure_removes_temporary_credentials) ... ok
+test_prepare_private_files_and_scoped_grant (test_offline.RuntimeTests.test_prepare_private_files_and_scoped_grant) ... ok
+test_retry_exhaustion_redacts_exception (test_offline.RuntimeTests.test_retry_exhaustion_redacts_exception) ... ok
+test_retry_succeeds_after_transient_failure (test_offline.RuntimeTests.test_retry_succeeds_after_transient_failure) ... ok
+test_runtime_username_collision_rejected_before_sql (test_offline.RuntimeTests.test_runtime_username_collision_rejected_before_sql) ... ok
+test_secret_fetch_and_input_validation (test_offline.RuntimeTests.test_secret_fetch_and_input_validation) ... ok
+test_sql_failure_redacts_stderr (test_offline.RuntimeTests.test_sql_failure_redacts_stderr) ... ok
+test_sql_password_not_on_command_line (test_offline.RuntimeTests.test_sql_password_not_on_command_line) ... ok
+test_verify_preserves_hash_password_in_private_options (test_offline.RuntimeTests.test_verify_preserves_hash_password_in_private_options) ... ok
+test_bootstrap_contract (test_offline.ShellTests.test_bootstrap_contract) ... ok
+test_catalogue_readiness_not_default_nginx (test_offline.ShellTests.test_catalogue_readiness_not_default_nginx) ... ok
+test_catalogue_rejects_failed_service (test_offline.ShellTests.test_catalogue_rejects_failed_service) ... ok
+test_catalogue_rejects_http_failure (test_offline.ShellTests.test_catalogue_rejects_http_failure) ... ok
+test_retry_exhaustion_branch (test_offline.ShellTests.test_retry_exhaustion_branch) ... ok
+test_retry_success_branch (test_offline.ShellTests.test_retry_success_branch) ... ok
+
+----------------------------------------------------------------------
+Ran 67 tests in 1.114s
+
+OK
+
+OFFLINE ONLY: validation passed; no real cloud plan/apply, runtime or screenshot proof.

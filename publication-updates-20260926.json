@@ -1,0 +1,16 @@
+{
+  "verified_at": "2026-09-26T10:00:31.277Z",
+  "method": "Published-page accessibility text after Save and publish; no subscriber-email action",
+  "updates": [
+    {
+      "week": 8,
+      "url": "https://medium.com/@rosenaefavour/from-terraform-plans-to-a-working-aws-book-review-app-27a81b45dedb",
+      "published_text": "Update, 26 September 2026: a disclosed patch now adds signed carts and transactional, replay-safe checkout. Codex deployed the repaired source to a fresh AWS EC2/private RDS stack and passed 22 actual HTTP/SQL checks, including order persistence after restarting the application. A separate browser checkout saved order 2 for cart 3, and an independent TLS-verified RDS query confirmed its subtotal of 32.50. All 28 resources in that temporary verification stack and its root disk were then removed; the existing shared SSH key and separate Book Review capstone were preserved."
+    },
+    {
+      "week": 10,
+      "url": "https://medium.com/@rosenaefavour/two-pipelines-one-verified-app-dmi-week-10-with-azure-devops-d6b95cfff40a",
+      "published_text": "Update, 26 September 2026: AWS access was restored and the actual Claude Code/Bedrock triage workflow completed. Claude read fresh evidence for the healthy baseline, diagnosed controlled failure run 20 as APPLICATION/INCIDENT, and verified recovery run 21 after Codex removed only the injected step. Deployment stayed skipped on the drill branch. A stale-report issue found in the first attempt was corrected with a session timestamp guard; seven classifier/guard tests now pass. The accepted Claude responses and before/after reports are saved in the repository. The replacement kit remains identified as original, and learner-personal/manual evidence requirements remain for assessor review."
+    }
+  ]
+}

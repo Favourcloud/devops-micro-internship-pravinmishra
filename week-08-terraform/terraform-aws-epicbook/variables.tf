@@ -90,8 +90,8 @@ variable "db_password" {
   ephemeral   = true
   description = "Supply interactively via TF_VAR_db_password; used only by write-only RDS and runtime-secret fields."
   validation {
-    condition     = can(regex("^[A-Za-z0-9!#%^*+=_-]{24,64}$", var.db_password))
-    error_message = "Use a unique 24-64 character password from letters, numbers and !#%^*+=_- (no whitespace or quotes)."
+    condition     = can(regex("^[A-Za-z0-9!#%^*+=_-]{24,41}$", var.db_password))
+    error_message = "Use a unique 24-41 character password from letters, numbers and !#%^*+=_- (no whitespace or quotes)."
   }
 }
 

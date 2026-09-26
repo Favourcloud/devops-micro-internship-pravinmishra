@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-09-26T10:01:15.635520+00:00",
+  "scope": "Checks executed during the 26 September continuation; local tests and real cloud checks are distinguished. Historical 25 September totals are not added again.",
+  "local_suites": [
+    {
+      "suite": "Week08 AWS EpicBook Terraform mock tests",
+      "passed": 24,
+      "evidence": "week-08-terraform/terraform-aws-epicbook/evidence/2026-09-26/offline-tests.txt"
+    },
+    {
+      "suite": "Week08 AWS EpicBook Python/offline/evidence tests",
+      "passed": 67,
+      "evidence": "week-08-terraform/terraform-aws-epicbook/evidence/2026-09-26/offline-tests.txt"
+    },
+    {
+      "suite": "Signed cart behavior against the pinned original source plus AWS patch",
+      "passed": 6,
+      "evidence": "week-08-terraform/terraform-aws-epicbook/evidence/2026-09-26/signed-cart-tests.txt"
+    },
+    {
+      "suite": "Week10 triage classifier, wrapper guard and report freshness",
+      "passed": 7,
+      "evidence": "week-10-azure-devops/pipeline-triage/test_triage.py"
+    }
+  ],
+  "local_test_total": 104,
+  "live_checks": {
+    "aws_http_sql_passed": 22,
+    "browser_order": 2,
+    "browser_cart": 3,
+    "rds_matched_subtotal": "32.50",
+    "cleanup_resources_removed": 28,
+    "root_disk_absent": true,
+    "existing_shared_key_retained": true,
+    "claude_fresh_phases": [
+      "baseline",
+      "incident_run20",
+      "recovery_run21"
+    ],
+    "retained_homepage_http_200": 6
+  },
+  "limitations": "Delegated execution, exact native capture and instructor kit provenance limits remain disclosed in COMPLETION-STATUS-20260926.md.",
+  "delivery_review": {
+    "staged_files_scanned": 60,
+    "credential_findings": [],
+    "syntax_errors": [],
+    "missing_local_links": [],
+    "original_manifest_mismatches": [],
+    "whitespace_note": "Source diff check passes. Original evidence, archived briefs, report bytes and patch context retain their captured whitespace.",
+    "new_manifest_and_deployed_source_mismatches": 0
+  }
+}

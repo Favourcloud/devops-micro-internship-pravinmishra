@@ -197,6 +197,19 @@ class RuntimeTests(unittest.TestCase):
         self.assertTrue(config['dialectOptions']['ssl']['rejectUnauthorized'])
         self.assertNotIn('use_env_variable', config)
 
+    def test_master_password_length_limit(self):
+        client = unittest.mock.Mock()
+        boto = types.SimpleNamespace(client=unittest.mock.Mock(return_value=client))
+        conf = types.SimpleNamespace(Config=lambda **kwargs: kwargs)
+        with patch.dict('sys.modules', {'boto3': boto, 'botocore.config': conf}):
+            for size in (24, 41, 42):
+                client.get_secret_value.return_value = {'SecretString': json.dumps({'username': 'mockadmin', 'password': 'A' * size})}
+                if size <= 41:
+                    self.assertEqual(runtime.fetch_credentials({'region': 'us-east-1', 'secret_arn': 'mock', 'host': 'mock.invalid'})['password'], 'A' * size)
+                else:
+                    with self.assertRaisesRegex(ValueError, 'password format'):
+                        runtime.fetch_credentials({'region': 'us-east-1', 'secret_arn': 'mock', 'host': 'mock.invalid'})
+
     def test_secret_fetch_and_input_validation(self):
         for credentials, valid in [({'username': 'mockadmin', 'password': 'mock-only-not-real-secret-123'}, True),
                                    ({'username': 'bad\nuser', 'password': 'mock-only-not-real-secret-123'}, False),

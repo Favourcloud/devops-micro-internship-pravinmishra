@@ -1,0 +1,8 @@
+{
+  "at": "2026-09-26T09:45:16.761177+00:00",
+  "ec2_running": true,
+  "rds_available_private_encrypted": true,
+  "user_data_gzip_bytes": 11784,
+  "master_password_absent_from_user_data": true,
+  "host_key_verified_against_authenticated_ec2_console": true
+}

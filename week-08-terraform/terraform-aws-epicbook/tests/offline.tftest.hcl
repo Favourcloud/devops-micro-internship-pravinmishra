@@ -81,7 +81,7 @@ run "private_rds" {
     error_message = "Write-only password must not be readable in state; endpoint must be wired."
   }
   assert {
-    condition     = aws_db_instance.this.parameter_group_name == aws_db_parameter_group.this.name && one(aws_db_parameter_group.this.parameter).value == "ON" && aws_db_instance.this.allocated_storage == 20 && aws_db_instance.this.skip_final_snapshot
+    condition     = aws_db_instance.this.parameter_group_name == aws_db_parameter_group.this.name && one(aws_db_parameter_group.this.parameter).value == "1" && aws_db_instance.this.allocated_storage == 20 && aws_db_instance.this.skip_final_snapshot
     error_message = "TLS, bounded storage and explicit lab disposal settings are required."
   }
 }
@@ -107,8 +107,8 @@ run "ec2_bootstrap" {
     error_message = "IMDSv2, encrypted disposable disk and standard burst credits are required."
   }
   assert {
-    condition     = length(aws_instance.this.user_data) < 16384 && strcontains(aws_instance.this.user_data, "mock.example.invalid") && !strcontains(aws_instance.this.user_data, var.db_password) && strcontains(aws_instance.this.user_data, "763becebb8d3f5663a76bb30facddc25be63cfd5") && strcontains(aws_instance.this.user_data, "Add to Cart")
-    error_message = "User data must fit EC2, contain references not credentials, and use pinned catalogue readiness."
+    condition     = length(aws_instance.this.user_data_base64) <= 21848 && aws_instance.this.user_data == null
+    error_message = "Compressed user data must fit the encoded 16 KiB EC2 limit."
   }
   assert {
     condition     = jsondecode(aws_iam_role_policy.secret.policy).Statement[0].Resource == var.runtime_secret_arn && jsondecode(aws_iam_role_policy.secret.policy).Statement[0].Action == ["secretsmanager:GetSecretValue"] && aws_instance.this.iam_instance_profile == aws_iam_instance_profile.runtime.name
@@ -236,4 +236,14 @@ run "reject_bad_name" {
   command = plan
   variables { project_name = "Name With Spaces" }
   expect_failures = [var.project_name]
+}
+
+run "reject_mysql_master_password_over_41" {
+  command = plan
+  variables { db_password = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" }
+  expect_failures = [var.db_password]
+}
+run "accept_mysql_master_password_41" {
+  command = plan
+  variables { db_password = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" }
 }

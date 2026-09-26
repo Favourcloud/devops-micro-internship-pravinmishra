@@ -1,0 +1,15 @@
+{
+  "capture_scope": "Original browser page captures and labeled recorded-output viewers; no browser chrome or native terminal is claimed.",
+  "sha256": {
+    "claude-baseline-view.png": "558c2e873bfa1e06ffebfd65e8f3c5608b91fbdaa6c0bd7f440a864e98bb785c",
+    "recovery-run21.png": "5f74ab2202905939c4e6fc879368d1caf3e01b25deed6fff882f5b1ba9b73036",
+    "claude-incident.json": "e65dd77f26e6cd09244695ece485a4d21e3b828870f29e65560fe8c1ff3956d5",
+    "failure-run20.png": "4275fd68de1e0e414071edb7cbd70595c0f852657e8e0e449159c7cb52ddb53b",
+    "README.md": "42b27505908e06b3e0b42953604faf4e02531caa0cca6b187bd7e10874a520b8",
+    "screenshot-map.md": "e8ad3194b35394ed8a5b7b64a0551667167f3f69b93a2056dc0ace563aab6e52",
+    "claude-recovery.json": "078f2c488e65acd80feca1a678260b3510d816d0a6be5ead3bbb1ed1d1bbf702",
+    "claude-recovery-view.png": "b47e4e8b07451026eaaded0544f411f1532d9820dc781f298e9c5f525b03b58d",
+    "claude-baseline.json": "f69c4de13e11815870d3f481cb3913fdddcaf46c4b2d3a598bbc0872d96d7f08",
+    "claude-incident-view.png": "9f6943cc56b83b549a8d6e74f22dbeceee3405e1b24fbc9073f939d4db50a191"
+  }
+}

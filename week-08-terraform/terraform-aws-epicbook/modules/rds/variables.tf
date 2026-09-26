@@ -21,6 +21,10 @@ variable "db_password" {
   type      = string
   sensitive = true
   ephemeral = true
+  validation {
+    condition     = can(regex("^[A-Za-z0-9!#%^*+=_-]{24,41}$", var.db_password))
+    error_message = "Use a unique 24-41 character password supported by the RDS MySQL master-password API."
+  }
 }
 variable "credential_version" { type = number }
 variable "accept_lab_data_loss" {

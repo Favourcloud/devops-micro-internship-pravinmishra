@@ -1,8 +1,10 @@
-> **25September continuation:** the Week08 publication is live: [Medium](https://medium.com/@rosenaefavour/from-terraform-plans-to-a-working-aws-book-review-app-27a81b45dedb) and [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/). The later [disclosed checkout patch](../../week-09-ansible/epicbook-prod/app-patches/) passed real managed-database tests in Azure. The original AWS A4 stack remains destroyed; no AWS checkout persistence is claimed. AWS reauthentication is needed before another AWS verification.
-
 # Week 08 Assignment 4 — EpicBook on modular AWS infrastructure
 
-**Current live result —24 September2026:** the approved AWS deployment, real browser/cart-to-RDS test and complete teardown succeeded. **34/35 numbered screenshot slots have captures**, including 15 new images. The required checkout/order behavior, learner reflection and LinkedIn publication remain incomplete; screenshot 22's RDS hostname is deliberately redacted and historical partial views remain. See [live run summary](evidence/live-run-summary.md), [new provenance](evidence/live-provenance.json) and [current manifest](evidence/screenshot-manifest.json). All 29 resources (28 application plus1 separate AWS public key) were destroyed and checked independently. The instructor source and original 19 images remain unchanged.
+**26 September 2026: AWS checkout verification complete.** The disclosed source patch saved an order through the real browser and matched it to RDS; 22 live HTTP/SQL checks passed, including persistence after an app restart. The temporary 28-resource stack was cleaned up. [Current evidence, fixes and remaining manual-capture limits](evidence/2026-09-26/README.md). The independent AWS Book Review capstone remains online.
+
+The older results and offline runbook below are retained as history and do not describe the corrected September26 execution.
+
+**Historical result —24 September2026:** the approved AWS deployment, real browser/cart-to-RDS test and complete teardown succeeded. **34/35 numbered screenshot slots have captures**, including 15 new images. The required checkout/order behavior, learner reflection and LinkedIn publication remain incomplete; screenshot 22's RDS hostname is deliberately redacted and historical partial views remain. See [live run summary](evidence/live-run-summary.md), [new provenance](evidence/live-provenance.json) and [current manifest](evidence/screenshot-manifest.json). All 29 resources (28 application plus1 separate AWS public key) were destroyed and checked independently. The instructor source and original 19 images remain unchanged.
 
 ## Historical offline preparation and runbook
 

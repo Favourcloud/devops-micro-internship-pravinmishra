@@ -1,0 +1,12 @@
+Eze Favour — AWS EpicBook, 26 September 2026
+v22.23.3
+10.9.9
+active
+active
+active
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+600 root:root
+640 root:epicbook
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+LISTEN 0      511                *:8080            *:*    users:(("node",pid=1914,fd=22))
