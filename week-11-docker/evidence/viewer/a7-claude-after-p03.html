@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-claude-after</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-claude-after.txt · Page 3/4</b></p><pre> 34  | ports | PASS | PASS | Unchanged |
+ 35  
+ 36  All three previously failing/warning items have been remediated in the rebuilt image.
+ 37  
+ 38  ---
+ 39  
+ 40  ### Remaining limit: versioned tag vs. immutable digest
+ 41  
+ 42  The image check passes but carries this note: **`(mutable; digest preferred)`**. A tag like `:1.0.0` 
+     is a human-readable pointer in the registry — it can be repointed to a different image layer without 
+     warning. An immutable digest (`sha256:…`) is a cryptographic hash of the exact image manifest; it 
+     cannot change. For production or supply-chain-sensitive deployments the Dockerfile `FROM` line should 
+     pin to a digest:
+ 43  
+ 44  ```dockerfile
+ 45  # Mutable tag — passes this audit but still rebindable
+ 46  FROM node:20-alpine3.19
+ 47  
+ 48  # Immutable digest — strongest guarantee
+ 49  FROM node:20-alpine3.19@sha256:&lt;full-digest-here&gt;
+ 50  ```
+ 51  
+ 52  For the application image itself the Compose `image:` field or a private registry tag should similarly
+      be frozen by digest if reproducibility is required.
+ 53  </pre><small>Original SHA-256: 1d22a45f7bdddb85581b7a73b64e92dd849d6b99835e2d833022baf6dcd3c12f</small></html>

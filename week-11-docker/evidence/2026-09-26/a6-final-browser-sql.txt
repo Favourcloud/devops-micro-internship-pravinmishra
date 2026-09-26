@@ -1,0 +1,12 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T22:16:39.776600+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone
+$ docker compose exec -T --interactive=false database sh -c 'MYSQL_PWD=$(cat /run/secrets/db_password) mysql -u epicapp bookstore --batch -e "SELECT id,CartId,subTotal FROM Checkout WHERE id=4; SELECT COUNT(*) AS books FROM Book;"'
+
+id	CartId	subTotal
+4	6	32.50
+books
+54

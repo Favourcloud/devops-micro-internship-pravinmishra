@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a3-multiple-networks</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a3-multiple-networks.txt · Page 3/9</b></p><pre> 41  networking/multi/backend/package-lock.json
+ 42  networking/multi/backend/.dockerignore
+ 43  networking/multi/backend/package.json
+ 44  networking/multi/backend/server.js
+ 45  FROM mongo:7.0
+ 46  EXPOSE 27017
+ 47  FROM node:22-bookworm-slim
+ 48  RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends curl &amp;&amp; rm -rf /var/lib/apt/lists/*
+ 49  WORKDIR /app
+ 50  COPY package*.json ./
+ 51  RUN npm ci --omit=dev --no-audit --no-fund
+ 52  COPY server.js ./
+ 53  USER node
+ 54  EXPOSE 8080
+ 55  CMD [&quot;node&quot;,&quot;server.js&quot;]
+ 56  FROM node:22-bookworm-slim
+ 57  RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends curl &amp;&amp; rm -rf /var/lib/apt/lists/*
+ 58  WORKDIR /app
+ 59  COPY package*.json ./
+ 60  RUN npm ci --omit=dev --no-audit --no-fund
+ 61  COPY server.js ./
+ 62  USER node
+ 63  EXPOSE 8080
+ 64  CMD [&quot;node&quot;,&quot;server.js&quot;]
+ 65  58c7f0811d8c585f29278daeb6ede490f81b5b66d4214f930477fdae1706501a</pre><small>Original SHA-256: cb69fb5ce2ddd8233dd65c3b4ba858ebe22d89211879b25ae3682014e9ff9dfe</small></html>

@@ -1,0 +1,89 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:39:20.042765+00:00
+Host: labs
+
+$ #!/usr/bin/env bash
+$ set -euo pipefail
+$ docker stop react-multistage
+$ docker network ls
+$ docker images
+$ docker search nginx --limit 3
+$ docker pull nginx
+$ docker run -d --name myweb -p 80:80 nginx
+$ docker exec myweb sh -c 'sed -i "s|<body>|<body><p>Eze Favour · DMI Week 11 · Default bridge</p>|" /usr/share/nginx/html/index.html'
+$ docker ps
+$ curl -fsS http://127.0.0.1/
+
+react-multistage
+NETWORK ID     NAME      DRIVER    SCOPE
+d304a06550f6   bridge    bridge    local
+b53f2ff1c53a   host      host      local
+067ba6253791   none      null      local
+IMAGE                     ID             DISK USAGE   CONTENT SIZE   EXTRA
+react-multistage:latest   cbd9bb9a9815       94.2MB         26.4MB   U    
+react-single:latest       9ee769cf59bb        855MB          172MB   U    
+static-site:latest        328237fcecf3       93.6MB         26.3MB   U    
+NAME                              DESCRIPTION                                     STARS     OFFICIAL
+nginx                             Official build of Nginx.                        21391     [OK]
+nginx/nginx-ingress               NGINX and  NGINX Plus Ingress Controllers fo…   122       
+nginx/nginx-prometheus-exporter   NGINX Prometheus Exporter for NGINX and NGIN…   52        
+Using default tag: latest
+latest: Pulling from library/nginx
+46243d3234ed: Pulling fs layer
+6b37362b3da7: Pulling fs layer
+f802f27d954b: Pulling fs layer
+3326c3817340: Pulling fs layer
+afa8dec48454: Pulling fs layer
+f1169c633cbc: Pulling fs layer
+2056b40bae09: Pulling fs layer
+46243d3234ed: Download complete
+f802f27d954b: Download complete
+3326c3817340: Download complete
+afa8dec48454: Download complete
+2056b40bae09: Download complete
+37d8c7707e42: Download complete
+e40088050cb6: Download complete
+6b37362b3da7: Download complete
+f1169c633cbc: Download complete
+6b37362b3da7: Pull complete
+f802f27d954b: Pull complete
+3326c3817340: Pull complete
+2056b40bae09: Pull complete
+f1169c633cbc: Pull complete
+46243d3234ed: Pull complete
+afa8dec48454: Pull complete
+Digest: sha256:abe47724e466aeab9a345d8e46a221c2fa8953c7848bb4a3bd9976a7199f8cf2
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+f81d0f9aea5bca10c025d22b55f11b2093ed673c042620321f627592261874bd
+CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS                  PORTS                                         NAMES
+f81d0f9aea5b   nginx          "/docker-entrypoint.…"   1 second ago         Up Less than a second   0.0.0.0:80->80/tcp, [::]:80->80/tcp           myweb
+d53a78fd9eb6   react-single   "docker-entrypoint.s…"   About a minute ago   Up About a minute       0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   react-single
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body><p>Eze Favour · DMI Week 11 · Default bridge</p>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>

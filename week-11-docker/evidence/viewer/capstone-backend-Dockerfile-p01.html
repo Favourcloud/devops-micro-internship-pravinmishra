@@ -1,0 +1,16 @@
+<!doctype html><html><meta charset="utf-8"><title>capstone-backend-Dockerfile</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>capstone/backend/Dockerfile · Page 1/1</b></p><pre>  1  FROM node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c AS 
+     dependencies
+  2  WORKDIR /app
+  3  COPY package*.json ./
+  4  RUN npm ci --omit=dev --no-audit --no-fund &amp;&amp; npm cache clean --force
+  5  FROM node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c AS 
+     runtime
+  6  ENV NODE_ENV=production
+  7  WORKDIR /app
+  8  COPY --from=dependencies /app/node_modules ./node_modules
+  9  COPY --chown=node:node . .
+ 10  USER node
+ 11  EXPOSE 8080
+ 12  HEALTHCHECK --interval=10s --timeout=4s --start-period=30s --retries=3 CMD node -e 
+     &quot;fetch(&#x27;http://127.0.0.1:8080/health&#x27;).then(r=&gt;process.exit(r.ok?0:1)).catch(()=&gt;process.exit(1))&quot;
+ 13  CMD [&quot;node&quot;,&quot;server.js&quot;]</pre><small>Original SHA-256: 39c3edcdb0161d5c056d5a346a82f5b820e0508d6844d73461e14235f6b8902d</small></html>

@@ -1,0 +1,24 @@
+<!doctype html><html><meta charset="utf-8"><title>hardening-audit-docker-audit_sh</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>hardening-audit/docker-audit.sh · Page 2/2</b></p><pre>     result FAIL image &quot;Unversioned image: $ref&quot;;fi; }
+ 17  check_privileged() { if jq -e &#x27;.[0].HostConfig.Privileged == false&#x27; &quot;$tmp/container.json&quot; 
+     &gt;/dev/null;then result PASS privileged &#x27;Privileged mode is disabled&#x27;;else result FAIL privileged 
+     &#x27;Privileged mode is enabled&#x27;;fi; }
+ 18  check_ports() { local exposed published;exposed=$(jq &#x27;.[0].Config.ExposedPorts // {} | length&#x27; 
+     &quot;$tmp/image.json&quot;);published=$(jq &#x27;.[0].HostConfig.PortBindings // {} | length&#x27; 
+     &quot;$tmp/container.json&quot;);if ((exposed&lt;=1 &amp;&amp; published&lt;=1));then result PASS ports &quot;$exposed image 
+     port(s), $published published binding(s)&quot;;else result WARN ports &quot;$exposed image port(s), $published 
+     binding(s); review necessity&quot;;fi; }
+ 19  {
+ 20   printf &#x27;Eze Favour | DMI Week 11 | Read-only Docker hardening audit\nUTC: %s\nContainer: %s\n&#x27; 
+     &quot;$(date -u +%FT%TZ)&quot; &quot;$container&quot;
+ 21   if check_exists;then
+ 22    image_id=$(jq -r &#x27;.[0].Image&#x27; &quot;$tmp/container.json&quot;)
+ 23    docker image inspect &quot;$image_id&quot; &gt; &quot;$tmp/image.json&quot;
+ 24    check_user;check_healthcheck;check_image_pin;check_privileged;check_ports
+ 25   else
+ 26    for check in user healthcheck image privileged ports;do result WARN &quot;$check&quot; &#x27;Not evaluated: target 
+     missing&#x27;;done
+ 27   fi
+ 28   printf &#x27;SUMMARY: PASS=%s WARN=%s FAIL=%s\n&#x27; &quot;$pass&quot; &quot;$warn&quot; &quot;$fail&quot;
+ 29  } &gt; &quot;$report&quot;
+ 30  cat &quot;$report&quot;
+ 31  # A completed audit can legitimately contain failures; missing target is visible in its report.</pre><small>Original SHA-256: 91bbce9889fc4276a4f94dab898a6cf8c99132d89b5446ac8eecd040a079c875</small></html>

@@ -2,6 +2,12 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Eze Favour · Verified 26 September 2026 · DMI assessment pending**
+
+The public repository is [favourcloud/my-react-app](https://hub.docker.com/r/favourcloud/my-react-app). Tag: `week11-20260926`. It was pushed from the operator system after exporting the cloud-built image, then pulled by digest on the separate EpicBook VM and tested through a private SSH tunnel. Digest: `sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40`.
+
+**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+
 ---
 
 ## Purpose
@@ -20,49 +26,49 @@ Create a Docker Hub repository (`my-react-app`), log in from the CLI, tag and pu
 
 #### Screenshot 1 — Docker Hub repository (`my-react-app`)
 
-Add your screenshot here.
+![Eze Favour — a5-dockerhub-published](screenshots/a5-dockerhub-published.png)
 
 ---
 
 #### Screenshot 2 — Successful `docker login`
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a5-registry-publication.txt) · [Screenshot page 1](screenshots/a5-registry-publication-p01.png) · [Screenshot page 2](screenshots/a5-registry-publication-p02.png) · [Screenshot page 3](screenshots/a5-registry-publication-p03.png) · [Screenshot page 4](screenshots/a5-registry-publication-p04.png) · [Screenshot page 5](screenshots/a5-registry-publication-p05.png) · [Screenshot page 6](screenshots/a5-registry-publication-p06.png) · [Screenshot page 7](screenshots/a5-registry-publication-p07.png) · [Screenshot page 8](screenshots/a5-registry-publication-p08.png) · [Screenshot page 9](screenshots/a5-registry-publication-p09.png) · [Screenshot page 10](screenshots/a5-registry-publication-p10.png) · [Screenshot page 11](screenshots/a5-registry-publication-p11.png) · [Screenshot page 12](screenshots/a5-registry-publication-p12.png) · [Screenshot page 13](screenshots/a5-registry-publication-p13.png) · [Screenshot page 14](screenshots/a5-registry-publication-p14.png) · [Screenshot page 15](screenshots/a5-registry-publication-p15.png) · [Screenshot page 16](screenshots/a5-registry-publication-p16.png) · [Screenshot page 17](screenshots/a5-registry-publication-p17.png) · [Screenshot page 18](screenshots/a5-registry-publication-p18.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 #### Screenshot 3 — Successful `docker tag`
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a5-registry-publication.txt) · [Screenshot page 1](screenshots/a5-registry-publication-p01.png) · [Screenshot page 2](screenshots/a5-registry-publication-p02.png) · [Screenshot page 3](screenshots/a5-registry-publication-p03.png) · [Screenshot page 4](screenshots/a5-registry-publication-p04.png) · [Screenshot page 5](screenshots/a5-registry-publication-p05.png) · [Screenshot page 6](screenshots/a5-registry-publication-p06.png) · [Screenshot page 7](screenshots/a5-registry-publication-p07.png) · [Screenshot page 8](screenshots/a5-registry-publication-p08.png) · [Screenshot page 9](screenshots/a5-registry-publication-p09.png) · [Screenshot page 10](screenshots/a5-registry-publication-p10.png) · [Screenshot page 11](screenshots/a5-registry-publication-p11.png) · [Screenshot page 12](screenshots/a5-registry-publication-p12.png) · [Screenshot page 13](screenshots/a5-registry-publication-p13.png) · [Screenshot page 14](screenshots/a5-registry-publication-p14.png) · [Screenshot page 15](screenshots/a5-registry-publication-p15.png) · [Screenshot page 16](screenshots/a5-registry-publication-p16.png) · [Screenshot page 17](screenshots/a5-registry-publication-p17.png) · [Screenshot page 18](screenshots/a5-registry-publication-p18.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 #### Screenshot 4 — Successful `docker push`
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a5-registry-publication.txt) · [Screenshot page 1](screenshots/a5-registry-publication-p01.png) · [Screenshot page 2](screenshots/a5-registry-publication-p02.png) · [Screenshot page 3](screenshots/a5-registry-publication-p03.png) · [Screenshot page 4](screenshots/a5-registry-publication-p04.png) · [Screenshot page 5](screenshots/a5-registry-publication-p05.png) · [Screenshot page 6](screenshots/a5-registry-publication-p06.png) · [Screenshot page 7](screenshots/a5-registry-publication-p07.png) · [Screenshot page 8](screenshots/a5-registry-publication-p08.png) · [Screenshot page 9](screenshots/a5-registry-publication-p09.png) · [Screenshot page 10](screenshots/a5-registry-publication-p10.png) · [Screenshot page 11](screenshots/a5-registry-publication-p11.png) · [Screenshot page 12](screenshots/a5-registry-publication-p12.png) · [Screenshot page 13](screenshots/a5-registry-publication-p13.png) · [Screenshot page 14](screenshots/a5-registry-publication-p14.png) · [Screenshot page 15](screenshots/a5-registry-publication-p15.png) · [Screenshot page 16](screenshots/a5-registry-publication-p16.png) · [Screenshot page 17](screenshots/a5-registry-publication-p17.png) · [Screenshot page 18](screenshots/a5-registry-publication-p18.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 #### Screenshot 5 — Docker Hub repository showing the uploaded image
 
-Add your screenshot here.
+![Eze Favour — a5-dockerhub-published](screenshots/a5-dockerhub-published.png)
 
 ---
 
 #### Screenshot 6 — Successful `docker pull`
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a5-pull-other-vm.txt) · [Screenshot page 1](screenshots/a5-pull-other-vm-p01.png) · [Screenshot page 2](screenshots/a5-pull-other-vm-p02.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 #### Screenshot 7 — Output of `docker ps`
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a5-pull-other-vm.txt) · [Screenshot page 1](screenshots/a5-pull-other-vm-p01.png) · [Screenshot page 2](screenshots/a5-pull-other-vm-p02.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 #### Screenshot 8 — Browser displaying the running React application
 
-Add your screenshot here.
+![Eze Favour — a5-pulled-image-browser](screenshots/a5-pulled-image-browser.png)
 
 ---
 
@@ -76,15 +82,15 @@ Create a LinkedIn post covering the assignment title, the Docker Hub repository 
 
 #### LinkedIn Post URL
 
-Paste your LinkedIn post URL here:
+The weekly post covers this assignment and the EpicBook capstone.
 
-`Add your URL here`
+[Published Week 11 LinkedIn post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-docker-devops-share-7509737427876454400-cxc1/) · [receipt](publication/README.md).
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+See [the weekly publication receipt](publication/README.md) and its published-post capture.
 
 ---
 
@@ -99,11 +105,11 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Docker Hub account and repository created
-- [ ] Docker image tagged and pushed successfully (Screenshots 1–5)
-- [ ] Docker image pulled and container run successfully (Screenshots 6–7)
-- [ ] React application accessible in the browser (Screenshot 8)
-- [ ] No sensitive information exposed
+- [x] Docker Hub account and repository created
+- [x] Docker image tagged and pushed successfully (Screenshots 1–5)
+- [x] Docker image pulled and container run successfully (Screenshots 6–7)
+- [x] React application accessible in the browser (Screenshot 8)
+- [x] No sensitive information exposed
 
 ---
 
@@ -128,3 +134,55 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+## Recorded evidence gallery
+
+Each figure is captured once and may support multiple related screenshot slots. Page links above identify the same original evidence, not separate repeated executions.
+
+### a5-registry-publication
+
+[Original](evidence/2026-09-26/a5-registry-publication.txt)
+
+![Eze Favour — a5-registry-publication-p01](screenshots/a5-registry-publication-p01.png)
+
+![Eze Favour — a5-registry-publication-p02](screenshots/a5-registry-publication-p02.png)
+
+![Eze Favour — a5-registry-publication-p03](screenshots/a5-registry-publication-p03.png)
+
+![Eze Favour — a5-registry-publication-p04](screenshots/a5-registry-publication-p04.png)
+
+![Eze Favour — a5-registry-publication-p05](screenshots/a5-registry-publication-p05.png)
+
+![Eze Favour — a5-registry-publication-p06](screenshots/a5-registry-publication-p06.png)
+
+![Eze Favour — a5-registry-publication-p07](screenshots/a5-registry-publication-p07.png)
+
+![Eze Favour — a5-registry-publication-p08](screenshots/a5-registry-publication-p08.png)
+
+![Eze Favour — a5-registry-publication-p09](screenshots/a5-registry-publication-p09.png)
+
+![Eze Favour — a5-registry-publication-p10](screenshots/a5-registry-publication-p10.png)
+
+![Eze Favour — a5-registry-publication-p11](screenshots/a5-registry-publication-p11.png)
+
+![Eze Favour — a5-registry-publication-p12](screenshots/a5-registry-publication-p12.png)
+
+![Eze Favour — a5-registry-publication-p13](screenshots/a5-registry-publication-p13.png)
+
+![Eze Favour — a5-registry-publication-p14](screenshots/a5-registry-publication-p14.png)
+
+![Eze Favour — a5-registry-publication-p15](screenshots/a5-registry-publication-p15.png)
+
+![Eze Favour — a5-registry-publication-p16](screenshots/a5-registry-publication-p16.png)
+
+![Eze Favour — a5-registry-publication-p17](screenshots/a5-registry-publication-p17.png)
+
+![Eze Favour — a5-registry-publication-p18](screenshots/a5-registry-publication-p18.png)
+
+### a5-pull-other-vm
+
+[Original](evidence/2026-09-26/a5-pull-other-vm.txt)
+
+![Eze Favour — a5-pull-other-vm-p01](screenshots/a5-pull-other-vm-p01.png)
+
+![Eze Favour — a5-pull-other-vm-p02](screenshots/a5-pull-other-vm-p02.png)

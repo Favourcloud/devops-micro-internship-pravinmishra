@@ -1,0 +1,121 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:40:13.550356+00:00
+Host: labs
+
+$ #!/usr/bin/env bash
+$ set -euo pipefail
+$ cd /opt/week11
+$ docker stop myweb
+$ docker rm myweb
+$ docker network create mynetwork
+$ cat networking/custom/frontend/Dockerfile
+$ docker build --progress=plain -t custom-frontend:1.0 networking/custom/frontend
+$ docker run -d --name frontend --network mynetwork -p 80:8080 custom-frontend:1.0
+$ docker run -d --name backend --network mynetwork nginx
+$ docker ps
+$ docker network inspect mynetwork
+$ for i in $(seq 1 20); do curl -fsS http://127.0.0.1/ && break || sleep 1; done
+$ docker exec frontend curl -fsS http://backend
+
+myweb
+myweb
+cd76e2d609824681f13f945e3c12456cb07d16e5fead1d451edceae85dc70f3f
+FROM node:22-bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev --no-audit --no-fund
+COPY server.js ./
+USER node
+EXPOSE 8080
+CMD ["node","server.js"]
+381162c2c815b132a47fe1ef98626a1d6d5b8fc14d6d94fe576e2afdd1b2b651
+3b70cff1829b0511672b97e19c5352151c9ced74b795352f95f9394713767c3f
+CONTAINER ID   IMAGE                 COMMAND                  CREATED                  STATUS                  PORTS                                         NAMES
+3b70cff1829b   nginx                 "/docker-entrypoint.…"   Less than a second ago   Up Less than a second   80/tcp                                        backend
+381162c2c815   custom-frontend:1.0   "docker-entrypoint.s…"   Less than a second ago   Up Less than a second   0.0.0.0:80->8080/tcp, [::]:80->8080/tcp       frontend
+d53a78fd9eb6   react-single          "docker-entrypoint.s…"   2 minutes ago            Up 2 minutes            0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   react-single
+[
+    {
+        "Name": "mynetwork",
+        "Id": "cd76e2d609824681f13f945e3c12456cb07d16e5fead1d451edceae85dc70f3f",
+        "Created": "2026-09-26T16:40:33.157082134Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {},
+        "Containers": {
+            "381162c2c815b132a47fe1ef98626a1d6d5b8fc14d6d94fe576e2afdd1b2b651": {
+                "Name": "frontend",
+                "EndpointID": "6ba4d8a18eb817254f60cc5dac028d5b4e1f09748b2d402e4de29aa29c0ca873",
+                "MacAddress": "62:74:e5:35:44:40",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            },
+            "3b70cff1829b0511672b97e19c5352151c9ced74b795352f95f9394713767c3f": {
+                "Name": "backend",
+                "EndpointID": "22353b846f82cb28079ec2678d451e88b1f0bb0a3b85a000ee0274fc1d2c0067",
+                "MacAddress": "02:1e:53:4f:08:12",
+                "IPv4Address": "172.18.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.18.0.0/16": {
+                        "IPsInUse": 5,
+                        "DynamicIPsAvailable": 65531
+                    }
+                }
+            }
+        }
+    }
+]
+<h1>Hello from Frontend</h1><p>Eze Favour · DMI Week 11 · custom bridge</p><!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>

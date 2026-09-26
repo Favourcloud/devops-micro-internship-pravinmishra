@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a3-multiple-networks</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a3-multiple-networks.txt · Page 2/9</b></p><pre> 23  $ docker run -d --name frontend --network frontend-network -p 80:8080 multi-frontend:1.0
+ 24  $ docker ps
+ 25  $ docker network inspect backend-network frontend-network
+ 26  $ for i in $(seq 1 40); do docker exec database mongosh --quiet --eval &#x27;db.getSiblingDB(&quot;admin&quot;).auth(
+     &quot;labuser&quot;,require(&quot;fs&quot;).readFileSync(&quot;/run/secrets/mongo_password&quot;,&quot;utf8&quot;).trim());db.getSiblingDB(&quot;la
+     b&quot;).messages.findOne()&#x27; &gt;/dev/null 2&gt;&amp;1 &amp;&amp; break || sleep 2; done
+ 27  $ docker exec database mongosh --quiet --eval &#x27;db.getSiblingDB(&quot;admin&quot;).auth(&quot;labuser&quot;,require(&quot;fs&quot;).r
+     eadFileSync(&quot;/run/secrets/mongo_password&quot;,&quot;utf8&quot;).trim());db.getSiblingDB(&quot;lab&quot;).messages.insertOne({o
+     wner:&quot;Eze Favour&quot;,message:&quot;Docker networks verified&quot;,exercise:&quot;Week 
+     11&quot;});printjson(db.getSiblingDB(&quot;lab&quot;).messages.find().toArray())&#x27;
+ 28  $ docker exec frontend curl -fsS http://api:8080/
+ 29  $ curl -fsS http://127.0.0.1/
+ 30  $ if docker exec frontend node -e &#x27;require(&quot;dns&quot;).lookup(&quot;database&quot;,(e)=&gt;process.exit(e?1:0))&#x27;; then 
+     echo &#x27;FAIL: frontend resolves database&#x27;; exit 1; else echo &#x27;PASS: frontend cannot resolve the database
+      on its network&#x27;; fi
+ 31  
+ 32  ed143f50235b3290df588246c82c5cccabedb44dae823eeba37e2c758179a8e9
+ 33  0f3868f76be902fe89513a908547881334754ae622135e7c2b9c9831874a2316
+ 34  networking/multi/database/Dockerfile
+ 35  networking/multi/frontend/Dockerfile
+ 36  networking/multi/frontend/package-lock.json
+ 37  networking/multi/frontend/.dockerignore
+ 38  networking/multi/frontend/package.json
+ 39  networking/multi/frontend/server.js
+ 40  networking/multi/backend/Dockerfile</pre><small>Original SHA-256: cb69fb5ce2ddd8233dd65c3b4ba858ebe22d89211879b25ae3682014e9ff9dfe</small></html>

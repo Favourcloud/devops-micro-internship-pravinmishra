@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a3-multiple-networks</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a3-multiple-networks.txt · Page 4/9</b></p><pre> 66  304dbb56c39c2e9a7fd94cc90fa3fdc50207d1d96564a0509306e30f55773cbe
+ 67  4e3e1b39425c3b20732bc625a6f204d2be3dad3e9ea116974ff6a8764e34fa99
+ 68  CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS                  
+     PORTS                                         NAMES
+ 69  4e3e1b39425c   multi-frontend:1.0   &quot;docker-entrypoint.s…&quot;   1 second ago    Up Less than a second   
+     0.0.0.0:80-&gt;8080/tcp, [::]:80-&gt;8080/tcp       frontend
+ 70  304dbb56c39c   multi-backend:1.0    &quot;docker-entrypoint.s…&quot;   1 second ago    Up Less than a second   
+     8080/tcp                                      api
+ 71  58c7f0811d8c   lab-mongo:1.0        &quot;docker-entrypoint.s…&quot;   2 seconds ago   Up Less than a second   
+     27017/tcp                                     database
+ 72  d53a78fd9eb6   react-single         &quot;docker-entrypoint.s…&quot;   9 minutes ago   Up 9 minutes            
+     0.0.0.0:3000-&gt;3000/tcp, [::]:3000-&gt;3000/tcp   react-single
+ 73  [
+ 74      {
+ 75          &quot;Name&quot;: &quot;backend-network&quot;,
+ 76          &quot;Id&quot;: &quot;ed143f50235b3290df588246c82c5cccabedb44dae823eeba37e2c758179a8e9&quot;,
+ 77          &quot;Created&quot;: &quot;2026-09-26T16:47:13.113238676Z&quot;,
+ 78          &quot;Scope&quot;: &quot;local&quot;,
+ 79          &quot;Driver&quot;: &quot;bridge&quot;,
+ 80          &quot;EnableIPv4&quot;: true,
+ 81          &quot;EnableIPv6&quot;: false,
+ 82          &quot;IPAM&quot;: {
+ 83              &quot;Driver&quot;: &quot;default&quot;,
+ 84              &quot;Options&quot;: {},
+ 85              &quot;Config&quot;: [</pre><small>Original SHA-256: cb69fb5ce2ddd8233dd65c3b4ba858ebe22d89211879b25ae3682014e9ff9dfe</small></html>

@@ -1,0 +1,25 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:49:32.192372+00:00
+Host: labs
+
+$ #!/usr/bin/env bash
+$ set -euo pipefail
+$ sha256sum "$HOME/nginx-logs/access.log" "$HOME/nginx-logs/error.log"
+$ docker stop myweb
+$ docker rm myweb
+$ ls -l "$HOME/nginx-logs"
+$ sha256sum "$HOME/nginx-logs/access.log" "$HOME/nginx-logs/error.log"
+$ cat "$HOME/nginx-logs/access.log"
+
+6f1e3a9284be767683601ad82d84166ddca73f679ee9aec5a3eb2ac1749ae849  /home/ubuntu/nginx-logs/access.log
+c4223ad3e39abaf9d0c81b367284591c323e8824f5fb3b23bec8e471c395f449  /home/ubuntu/nginx-logs/error.log
+myweb
+myweb
+total 8
+-rw-r--r-- 1 root root 291 Sep 26 16:49 access.log
+-rw-r--r-- 1 root root 977 Sep 26 16:49 error.log
+6f1e3a9284be767683601ad82d84166ddca73f679ee9aec5a3eb2ac1749ae849  /home/ubuntu/nginx-logs/access.log
+0af1493e16071103ddbd68d4c1a40251940597ccf2e320b98667d58824928885  /home/ubuntu/nginx-logs/error.log
+172.17.0.1 - - [26/Sep/2026:16:48:37 +0000] "GET / HTTP/1.1" 200 949 "-" "curl/8.5.0" "-"
+102.90.103.180 - - [26/Sep/2026:16:49:17 +0000] "GET / HTTP/1.1" 200 949 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36" "-"

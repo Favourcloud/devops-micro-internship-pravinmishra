@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:46:21.726110+00:00",
+  "finished": "2026-09-26T16:46:25.954673+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone; docker compose stop backend; curl -s -o /tmp/failure-body -w 'HTTP=%{http_code} time=%{time_total}\\n' http://127.0.0.1/; cat /tmp/failure-body",
+  "exit_code": 0,
+  "stdout_sha256": "a76943ea0cce04b78c4c62f701c5d3094b63299eeeadabae9f51dac33250278e"
+}

@@ -1,0 +1,14 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:43:15.934550+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone
+$ chmod +x /opt/week11/audit/docker-audit.sh
+$ docker build --progress=plain -f backend/Dockerfile.audit-baseline -t epicbook-audit:latest backend
+$ docker run -d --name epicbook-audit --network week11-epicbook_back-tier --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -v /opt/week11/capstone/secrets/db_password:/run/secrets/db_password:ro -v /opt/week11/capstone/secrets/session:/run/secrets/session:ro epicbook-audit:latest
+$ docker ps --filter name=epicbook-audit
+
+f34d84e7248b4fb9328625b0866ad6d40737f1ce8586e1fe70bb6c24cddfe618
+CONTAINER ID   IMAGE                   COMMAND                  CREATED                  STATUS                  PORTS      NAMES
+f34d84e7248b   epicbook-audit:latest   "docker-entrypoint.s…"   Less than a second ago   Up Less than a second   8080/tcp   epicbook-audit

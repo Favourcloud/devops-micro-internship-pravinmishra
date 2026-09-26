@@ -1,0 +1,137 @@
+Eze Favour | DMI Week 11 | Saved stderr from a3-multiple-networks
+Executed by Codex under delegation
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 65B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/mongo:7.0
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/1] FROM docker.io/library/mongo:7.0@sha256:9854f7139445d766a9523571d6f047530c45547460ffcf8259eb2bf4264632ca
+#4 resolve docker.io/library/mongo:7.0@sha256:9854f7139445d766a9523571d6f047530c45547460ffcf8259eb2bf4264632ca 0.0s done
+#4 DONE 0.2s
+
+#5 exporting to image
+#5 exporting layers done
+#5 exporting manifest sha256:4ec547db0fa075158da533ca4f8177e324cc352f1b4e25dc534ab7d92c13872d 0.0s done
+#5 exporting config sha256:c0dc4fc2241c92119aaabacb0ff022c64aae93e35dc2c5cf73993b54f07ea229 0.0s done
+#5 exporting attestation manifest sha256:d1460b6f38711057a1cd85b9690ed0fdfe32c8ab10766b6173d88873cd81f93c 0.0s done
+#5 exporting manifest list sha256:adf8d39dc5e8164a94b1fe92855cbee364712a13557daab9bb26652ac64ddc28 0.0s done
+#5 naming to docker.io/library/lab-mongo:1.0
+#5 naming to docker.io/library/lab-mongo:1.0 done
+#5 unpacking to docker.io/library/lab-mongo:1.0
+#5 ...
+
+#4 [1/1] FROM docker.io/library/mongo:7.0@sha256:9854f7139445d766a9523571d6f047530c45547460ffcf8259eb2bf4264632ca
+#4 sha256:3e6047151eb8135650fa293bf2c62b603bfe3f6f2162290ac82df62530ac556b 1.78kB / 1.78kB 0.0s done
+#4 sha256:f699b2f6ea97a93044407574a07590c684a01bd7da51e5fd2c8361eeee65138b 1.47MB / 1.47MB 0.1s done
+#4 sha256:caab767ae7599435016f4a206dc9bc7281197167e3c583f8f46370a56fd9b728 898.73kB / 898.73kB 0.1s done
+#4 sha256:d475674f6ccf4e965a512d64a08cbb771469746d7bc22fc51c96d2e5710fa20a 263.78MB / 263.78MB 3.7s done
+#4 sha256:39262f72a6eb9662804c89b7f80e1c313ddbd45b80c3917904eb1d0afb5f6ab7 5.00kB / 5.00kB 0.0s done
+#4 sha256:1cf15972ac40f5cf7548f69a15cc9cde461afb34fd947c2a8ef794dd666be289 116B / 116B 0.0s done
+#4 sha256:6a1559542a9437266bf6773d7817aed9ca4849b31d5a8a0c4ab59b905db2bac9 264B / 264B 0.0s done
+#4 sha256:20c3783cc497b5b0df1fc5f92bd64c3d2fbb24057c88692c8fda205b6ea8a2f2 29.75MB / 29.75MB 0.5s done
+#4 DONE 3.9s
+
+#5 exporting to image
+#5 unpacking to docker.io/library/lab-mongo:1.0 11.5s done
+#5 DONE 11.6s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 310B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 63B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 101B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#5 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#5 DONE 0.0s
+
+#6 [4/6] COPY package*.json ./
+#6 CACHED
+
+#7 [2/6] RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [5/6] RUN npm ci --omit=dev --no-audit --no-fund
+#8 CACHED
+
+#9 [3/6] WORKDIR /app
+#9 CACHED
+
+#10 [6/6] COPY server.js ./
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:f6c68eb06c9ab58a6542e00a8ee627af01b8bbc072677ef79d13234df9238c5c done
+#11 exporting config sha256:a99ae63db612ed94015ee29e4145ba0f6035d362519a869e5d95830dd24a86ad done
+#11 exporting attestation manifest sha256:ad4d1396e3278996f1aab15c27b695a5163c45dccb9ea880de8a975ba09c82cc 0.0s done
+#11 exporting manifest list sha256:c41f0317ad926706e24bd1ad3520ca687ac048c0bff5f7cb4c320cf86066f397
+#11 exporting manifest list sha256:c41f0317ad926706e24bd1ad3520ca687ac048c0bff5f7cb4c320cf86066f397 0.0s done
+#11 naming to docker.io/library/multi-backend:1.0 done
+#11 unpacking to docker.io/library/multi-backend:1.0 0.0s done
+#11 DONE 0.1s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 310B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 63B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 101B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#5 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#5 DONE 0.0s
+
+#6 [2/6] RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/6] WORKDIR /app
+#7 CACHED
+
+#8 [4/6] COPY package*.json ./
+#8 CACHED
+
+#9 [5/6] RUN npm ci --omit=dev --no-audit --no-fund
+#9 CACHED
+
+#10 [6/6] COPY server.js ./
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:bb827e73df547c11ec7835810ae21722a969d593f8f9720ec964d186cbdeb92e done
+#11 exporting config sha256:797f43fd9528713b448ad10e962f3e1e4a130fbdf671d1d87e74023d9bdfd22c done
+#11 exporting attestation manifest sha256:524832701a72aad52ff41e20fa4742e7ef0c171b80594877a879a8131217b6cd 0.0s done
+#11 exporting manifest list sha256:0f8e190f85f04f855351426f70f7235612cea808af34880ca19fe8954862c11d
+#11 exporting manifest list sha256:0f8e190f85f04f855351426f70f7235612cea808af34880ca19fe8954862c11d 0.0s done
+#11 naming to docker.io/library/multi-frontend:1.0 done
+#11 unpacking to docker.io/library/multi-frontend:1.0 0.0s done
+#11 DONE 0.1s

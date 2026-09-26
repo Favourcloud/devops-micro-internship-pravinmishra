@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-claude-after</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-claude-after.txt · Page 2/4</b></p><pre>     check was a FAIL. |
+ 20  | 4 | **image** | PASS | `Versioned image tag: epicbook-audit:1.0.0 (mutable; digest preferred)` — the
+      image is tagged `1.0.0`, not `latest`, so the exact intended version is explicit and a future `docker
+      pull` will not silently pull a different layer set. The audit correctly notes the tag is still 
+     **mutable**: a registry owner can push a different image to the same `1.0.0` tag. Prior baseline used 
+     `:latest`, which is both mutable and ambiguous. |
+ 21  | 5 | **privileged** | PASS | `Privileged mode is disabled` — `docker inspect` confirms 
+     `HostConfig.Privileged` is `false`. Privileged mode gives the container near-complete access to the 
+     host kernel (all capabilities, all devices); disabling it is the expected default, and Compose files 
+     must not set `privileged: true`. |
+ 22  | 6 | **ports** | PASS | `1 image port(s), 0 published binding(s)` — the image declares one `EXPOSE` 
+     port, but no host-binding (`-p` / `ports:`) is active. No port is reachable from outside the Docker 
+     network, which is the correct posture for an isolated training container that is accessed only through
+      an internal bridge. |
+ 23  
+ 24  ---
+ 25  
+ 26  ### Comparison with prior root/no-healthcheck/latest baseline
+ 27  
+ 28  | Check | Prior baseline | This run | Change |
+ 29  |-------|---------------|----------|--------|
+ 30  | user | FAIL — process ran as root | PASS — `node` user | Operator added `USER node` to Dockerfile |
+ 31  | healthcheck | FAIL — no HEALTHCHECK | PASS — defined | Operator added `HEALTHCHECK` instruction |
+ 32  | image tag | WARN/FAIL — `:latest` | PASS — `1.0.0` | Operator pinned a semantic version tag |
+ 33  | privileged | PASS | PASS | Unchanged |</pre><small>Original SHA-256: 1d22a45f7bdddb85581b7a73b64e92dd849d6b99835e2d833022baf6dcd3c12f</small></html>

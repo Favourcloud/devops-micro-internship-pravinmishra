@@ -1,0 +1,120 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:59:47.189400+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone
+$ rm -f backend/routes/html-routes.js
+$ docker compose build --progress=plain
+$ docker compose up -d --wait --wait-timeout 180
+$ docker compose ps
+
+#1 [internal] load local bake definitions
+#1 reading from stdin 973B done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 720B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 720B done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#4 DONE 0.0s
+
+#5 [backend internal] load .dockerignore
+#5 transferring context: 108B done
+#5 DONE 0.0s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 108B done
+#6 DONE 0.0s
+
+#7 [backend dependencies 1/4] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#7 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#7 DONE 0.0s
+
+#8 [frontend internal] load build context
+#8 transferring context: 39.62kB 0.0s done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 43.77kB 0.0s done
+#9 DONE 0.0s
+
+#10 [frontend dependencies 2/4] WORKDIR /app
+#10 CACHED
+
+#11 [frontend dependencies 3/4] COPY package*.json ./
+#11 CACHED
+
+#12 [frontend dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#12 CACHED
+
+#13 [frontend runtime 3/4] COPY --from=dependencies /app/node_modules ./node_modules
+#13 CACHED
+
+#14 [backend dependencies 3/4] COPY package*.json ./
+#14 DONE 0.1s
+
+#15 [frontend runtime 4/4] COPY --chown=node:node . .
+#15 DONE 0.1s
+
+#16 [frontend] exporting to image
+#16 exporting layers
+#16 exporting layers 2.8s done
+#16 exporting manifest sha256:9287e843f8ed8f008b9057e1e24f69eb6b9b0922180e7312d2bb72ba5b533046 0.0s done
+#16 exporting config sha256:07f65d4ac6f641401950c590b68f72f8cdb5697021f7839cfaad84c66a8a1dea 0.0s done
+#16 exporting attestation manifest sha256:fcd390b1cc7fda91eaad7b9bd1ce6d71cf0bd87f65be25be14e3fc239b2d3475
+#16 exporting attestation manifest sha256:fcd390b1cc7fda91eaad7b9bd1ce6d71cf0bd87f65be25be14e3fc239b2d3475 0.0s done
+#16 exporting manifest list sha256:3a3bac340fc1d5a165289b83b2b3d72d9d187d37f568251f104cf63aa643de9f 0.0s done
+#16 naming to docker.io/library/epicbook-frontend:1.0.0 done
+#16 unpacking to docker.io/library/epicbook-frontend:1.0.0
+#16 unpacking to docker.io/library/epicbook-frontend:1.0.0 0.5s done
+#16 DONE 3.5s
+
+#17 [backend dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#17 2.980 npm warn deprecated dottie@2.0.7: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+#17 ...
+
+#18 [frontend] resolving provenance for metadata file
+#18 DONE 0.0s
+
+#17 [backend dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#17 4.507 
+#17 4.507 added 98 packages in 4s
+#17 4.509 npm notice
+#17 4.509 npm notice New major version of npm available! 10.9.9 -> 12.1.0
+#17 4.509 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+#17 4.509 npm notice To update run: npm install -g npm@12.1.0
+#17 4.509 npm notice
+#17 4.668 npm warn using --force Recommended protections disabled.
+#17 DONE 5.1s
+
+#19 [backend runtime 3/4] COPY --from=dependencies /app/node_modules ./node_modules
+#19 DONE 0.5s
+
+#20 [backend runtime 4/4] COPY --chown=node:node . .
+#20 DONE 0.1s
+
+#21 [backend] exporting to image
+#21 exporting layers 1.0s done
+#21 exporting manifest sha256:866b2fe68cd485006592b27cb189c0a6c611b5641b3f230a2fce0de29147a034 0.0s done
+#21 exporting config sha256:7f01bc1bc0cdaa8a45556f1199d8e22ea3dc298413866027700d49f975b56779 0.0s done
+#21 exporting attestation manifest sha256:9e1ef1f49e27b549018e25dbad7d4bc32a44a395fc0e3a1abfbce395b4133501 0.0s done
+#21 exporting manifest list sha256:b165cc7175627786d89c580c4d95653c4cd166154006ef0a5afdc199e5cdd77f 0.0s done
+#21 naming to docker.io/library/epicbook-backend:1.0.0
+#21 naming to docker.io/library/epicbook-backend:1.0.0 done
+#21 unpacking to docker.io/library/epicbook-backend:1.0.0
+#21 unpacking to docker.io/library/epicbook-backend:1.0.0 0.7s done
+#21 DONE 1.9s
+
+#22 [backend] resolving provenance for metadata file
+#22 DONE 0.0s
+NAME                              IMAGE                                                                           COMMAND                  SERVICE         CREATED          STATUS                    PORTS
+week11-epicbook-backend-1         epicbook-backend:1.0.0                                                          "docker-entrypoint.s…"   backend         30 seconds ago   Up 22 seconds (healthy)   8080/tcp
+week11-epicbook-database-1        mysql@sha256:0744ee5ef89ce6ccfa13de3e579fe6b9e27f93dd70da9c06d2c908b1b193fb8d   "docker-entrypoint.s…"   database        33 seconds ago   Up 27 seconds (healthy)   3306/tcp, 33060/tcp
+week11-epicbook-frontend-1        epicbook-frontend:1.0.0                                                         "docker-entrypoint.s…"   frontend        29 seconds ago   Up 16 seconds (healthy)   8080/tcp
+week11-epicbook-reverse-proxy-1   nginx@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b   "/docker-entrypoint.…"   reverse-proxy   28 seconds ago   Up 10 seconds (healthy)   80/tcp, 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp

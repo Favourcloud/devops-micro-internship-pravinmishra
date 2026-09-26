@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:36:36.731283+00:00",
+  "finished": "2026-09-26T16:36:42.019878+00:00",
+  "host": "labs",
+  "command": "printf 'Eze Favour | Cloud-init Docker installation\\n'; sudo cloud-init status; sudo cat /var/log/cloud-init-output.log | sed '/Authorized keys/,$d' | tail -70; docker --version; docker compose version; docker ps",
+  "exit_code": 0,
+  "stdout_sha256": "cf842fb5e2eb9f5f0bdc4dae8dc1cea2f5cc38a0acd4bc34b9dce9bc3df2c174"
+}

@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a4-bind-mount</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a4-bind-mount.txt · Page 1/4</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:48:20.418380+00:00
+  4  Host: labs
+  5  
+  6  $ #!/usr/bin/env bash
+  7  $ set -euo pipefail
+  8  $ docker stop frontend api database
+  9  $ docker rm frontend api database
+ 10  $ docker network rm frontend-network backend-network
+ 11  $ docker images
+ 12  $ docker search nginx --limit 3
+ 13  $ docker pull nginx
+ 14  $ mkdir -p &quot;$HOME/nginx-logs&quot;
+ 15  $ docker run -d --name myweb -p 80:80 -v &quot;$HOME/nginx-logs:/var/log/nginx&quot; nginx
+ 16  $ docker exec myweb sh -c &#x27;sed -i &quot;s|&lt;body&gt;|&lt;body&gt;&lt;p&gt;Eze Favour · DMI Week 11 · Bind-mounted 
+     logs&lt;/p&gt;|&quot; /usr/share/nginx/html/index.html&#x27;
+ 17  $ docker ps
+ 18  $ curl -fsS http://127.0.0.1/
+ 19  $ ls -l &quot;$HOME/nginx-logs&quot;
+ 20  $ # Capture the running website before executing 04-bind-mount-remove.sh.
+ 21  
+ 22  frontend
+ 23  api
+ 24  database</pre><small>Original SHA-256: 4413fb13f2b7f6adf6027b6b68760c6f483c36c9817a112591282846ebe6dcde</small></html>

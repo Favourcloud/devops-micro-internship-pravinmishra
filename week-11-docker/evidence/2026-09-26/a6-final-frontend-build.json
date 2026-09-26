@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:43:06.222296+00:00",
+  "finished": "2026-09-26T16:43:21.050523+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone; docker compose build frontend; docker compose up -d --wait --wait-timeout 120 frontend",
+  "exit_code": 0,
+  "stdout_sha256": "9ea639cdad3661648fcc1de5db008fff85945a5c1083aed6998060de376cbf86"
+}

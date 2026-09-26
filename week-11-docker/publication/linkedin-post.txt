@@ -1,0 +1,10 @@
+Week 11 of my DevOps Micro Internship: Docker from builds to a recoverable EpicBook stack.
+Separating UI, API and MySQL—and testing dependency failures—made recovery behavior clearer.
+React image size fell from 854,614,809 to 94,232,874 bytes: 88.97% smaller with a multi-stage build.
+The database snapshot was restored into an isolated clone and its stored records matched.
+Hardening includes non-root apps, healthchecks, private database networking and read-only app filesystems.
+Claude Code on AWS Bedrock audited a training backend: three failures became six passes after operator fixes.
+Codex implemented and verified this work under my authorization; this is a single-host demo with an HTTP origin hop.
+Demo: https://d209ibroel8p0b.cloudfront.net/
+Article: https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-11.html
+P.S. This post is part of the DevOps Micro Internship (DMI) with Agentic AI — Cohort 3 by Pravin Mishra / The CloudAdvisory. #DMIbyPravinMishra #Docker #DevOps #AWS

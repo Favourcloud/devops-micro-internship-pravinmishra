@@ -2,6 +2,12 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Eze Favour · Verified 26 September 2026 · DMI assessment pending**
+
+The working capstone is [EpicBook over HTTPS](https://d209ibroel8p0b.cloudfront.net/), also verified at [the cloud origin IP](http://98.86.65.226/). UI and API are separate services; only the proxy publishes a host port. Snapshot restoration, dependency failures, signed cart isolation and transactional demo checkout were exercised. HTTPS terminates at CloudFront and its origin connection is HTTP. This single-host teaching deployment does not claim high availability or real-payment readiness.
+
+**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+
 ---
 
 ## Purpose
@@ -20,13 +26,13 @@ Explore the `theepicbook` repository, identify its components (UI, API, DB, work
 
 #### Deliverable — `docs/01-architecture-diagram.png`
 
-Add your diagram or link here.
+![EpicBook architecture — Eze Favour](capstone/docs/01-architecture-diagram.png)
 
 ---
 
 #### Deliverable — `docs/02-env-and-ports.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/02-env-and-ports.md)
 
 ---
 
@@ -40,7 +46,7 @@ Create minimal multi-stage Dockerfiles for the frontend and backend services, wi
 
 #### Deliverable — `frontend/Dockerfile`, `backend/Dockerfile`, and `.dockerignore` files, with a note on layer optimizations and security benefits
 
-Add your content or link here.
+[Frontend Dockerfile](capstone/frontend/Dockerfile) · [backend Dockerfile](capstone/backend/Dockerfile) · [frontend ignore file](capstone/frontend/.dockerignore) · [backend ignore file](capstone/backend/.dockerignore). Manifests are copied before source for cache reuse; production dependencies are copied into non-root runtime stages without the build cache.
 
 ---
 
@@ -54,7 +60,7 @@ Author `docker-compose.yml` defining the reverse-proxy, frontend, backend, and d
 
 #### Deliverable — `docker-compose.yml`
 
-Add your content or link here.
+[Compose stack](capstone/docker-compose.yml)
 
 ---
 
@@ -68,7 +74,7 @@ Add a database healthcheck, a `/health` endpoint check on the backend, and `depe
 
 #### Deliverable — `docs/03-healthchecks-and-depends-on.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/03-healthchecks-and-depends-on.md)
 
 ---
 
@@ -82,7 +88,7 @@ Configure Nginx or Traefik to route `/api` to the backend and `/` to the fronten
 
 #### Deliverable — `docs/04-proxy-routing-and-cors.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/04-proxy-routing-and-cors.md)
 
 ---
 
@@ -96,13 +102,13 @@ Mount the database data directory to a named volume, document a snapshot/backup 
 
 #### Deliverable — `docs/05-persistence-and-backup.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/05-persistence-and-backup.md)
 
 ---
 
 #### Screenshot — System state before and after a manual snapshot restore cycle
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a6-snapshot-restore.txt) · [Screenshot page 1](screenshots/a6-snapshot-restore-p01.png) · [Screenshot page 2](screenshots/a6-snapshot-restore-p02.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
@@ -116,13 +122,13 @@ Bind-mount the reverse proxy log directory to the host, redirect application log
 
 #### Deliverable — `docs/06-logging-layout.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/06-logging-layout.md)
 
 ---
 
 #### Screenshot — Live running JSON container log entries
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a6-json-logs.txt) · [Screenshot page 1](screenshots/a6-json-logs-p01.png) · [Screenshot page 2](screenshots/a6-json-logs-p02.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
@@ -136,19 +142,19 @@ Provision a VM per the security requirements (SSH restricted to your IP; HTTP/HT
 
 #### Deliverable — `docs/07-cloud-deployment-notes.md` (ports, firewall rules, deployment link)
 
-Add your content or link here.
+[Open deliverable](capstone/docs/07-cloud-deployment-notes.md)
 
 ---
 
 #### Screenshot — Browser showing successful web UI retrieval via the cloud public IP
 
-Add your screenshot here.
+![Eze Favour — a6-homepage](screenshots/a6-homepage.png)
 
 ---
 
 #### Screenshot — Active page interaction confirming backend API data fetches succeed
 
-Add your screenshot here.
+![Eze Favour — a6-final-https-checkout](screenshots/a6-final-https-checkout.png)
 
 ---
 
@@ -162,13 +168,13 @@ Build a pipeline (Azure Pipelines or GitHub Actions) that builds and tags multi-
 
 #### Deliverable — `docs/08-ci-cd-pipeline.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/08-ci-cd-pipeline.md)
 
 ---
 
 #### Screenshot (optional) — Completed automated pipeline run
 
-Add your screenshot here.
+Optional CI/CD was not selected; see the explicit scope in the pipeline document.
 
 ---
 
@@ -182,13 +188,13 @@ Inject faults (drop backend/database dependencies) and evaluate frontend error h
 
 #### Deliverable — `docs/09-runbook.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/09-runbook.md)
 
 ---
 
 #### Deliverable — `docs/10-reliability-tests.md`
 
-Add your content or link here.
+[Open deliverable](capstone/docs/10-reliability-tests.md)
 
 ---
 
@@ -202,15 +208,15 @@ Publish a 6–10 line LinkedIn post covering the architectural decision that mos
 
 #### LinkedIn Post URL
 
-Paste your LinkedIn post URL here:
+The weekly post covers this assignment and the EpicBook capstone.
 
-`Add your URL here`
+[Published Week 11 LinkedIn post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-docker-devops-share-7509737427876454400-cxc1/) · [receipt](publication/README.md).
 
 ---
 
 #### Screenshot — Published LinkedIn post showing the text body and a deployment verification image
 
-Add your screenshot here.
+See [the weekly publication receipt](publication/README.md) and its published-post capture.
 
 ---
 
@@ -224,19 +230,19 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 0: Architecture diagram and env/ports doc completed
-- [ ] Task 1: Multi-stage Dockerfiles and `.dockerignore` files created
-- [ ] Task 2: `docker-compose.yml` with isolated networks and volumes authored
-- [ ] Task 3: Healthchecks and `depends_on` conditions configured
-- [ ] Task 4: Reverse proxy routing and CORS configured
-- [ ] Task 5: Persistence and backup plan tested (Screenshot)
-- [ ] Task 6: Logging and observability configured (Screenshot)
-- [ ] Task 7: Cloud deployment live and verified (Screenshots)
-- [ ] Task 8: CI/CD pipeline built (optional)
-- [ ] Task 9: Reliability tests and runbook completed
-- [ ] LinkedIn post published and URL submitted
-- [ ] No sensitive information exposed
-- [ ] VM torn down after grading to avoid unexpected charges
+- [x] Task 0: Architecture diagram and env/ports doc completed
+- [x] Task 1: Multi-stage Dockerfiles and `.dockerignore` files created
+- [x] Task 2: `docker-compose.yml` with isolated networks and volumes authored
+- [x] Task 3: Healthchecks and `depends_on` conditions configured
+- [x] Task 4: Reverse proxy routing and CORS configured
+- [x] Task 5: Persistence and backup plan tested (Screenshot)
+- [x] Task 6: Logging and observability configured (Screenshot)
+- [x] Task 7: Cloud deployment live and verified (Screenshots)
+- Optional CI/CD: not selected, documented in Task 8.
+- [x] Task 9: Reliability tests and runbook completed
+- [x] LinkedIn post published and URL submitted
+- [x] No sensitive information exposed
+- Teardown deferred: the learner explicitly requested that the demo stay online until cleanup is requested.
 
 ---
 
@@ -261,3 +267,23 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+## Recorded evidence gallery
+
+Each figure is captured once and may support multiple related screenshot slots. Page links above identify the same original evidence, not separate repeated executions.
+
+### a6-snapshot-restore
+
+[Original](evidence/2026-09-26/a6-snapshot-restore.txt)
+
+![Eze Favour — a6-snapshot-restore-p01](screenshots/a6-snapshot-restore-p01.png)
+
+![Eze Favour — a6-snapshot-restore-p02](screenshots/a6-snapshot-restore-p02.png)
+
+### a6-json-logs
+
+[Original](evidence/2026-09-26/a6-json-logs.txt)
+
+![Eze Favour — a6-json-logs-p01](screenshots/a6-json-logs-p01.png)
+
+![Eze Favour — a6-json-logs-p02](screenshots/a6-json-logs-p02.png)

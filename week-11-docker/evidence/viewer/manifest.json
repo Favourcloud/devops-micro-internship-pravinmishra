@@ -1,0 +1,643 @@
+[
+  {
+    "key": "a6-json-logs",
+    "source": "evidence/2026-09-26/a6-json-logs.txt",
+    "sha256": "4e7a757b5683f314fc1cb745a1fba51bb70ffc5911847b59d033137c53da2f38",
+    "pages": [
+      "a6-json-logs-p01",
+      "a6-json-logs-p02"
+    ]
+  },
+  {
+    "key": "a7-tests",
+    "source": "evidence/2026-09-26/a7-tests.txt",
+    "sha256": "841e79520fb03ee10dcd72edc2a2a4b06cff984401b882f409904f5a74f74df9",
+    "pages": [
+      "a7-tests-p01"
+    ]
+  },
+  {
+    "key": "a7-operator-remediation",
+    "source": "evidence/2026-09-26/a7-operator-remediation.txt",
+    "sha256": "c466d2a6a6adc24466744c0a0ab6e5fd137e5c22ee0f02dccf46eb943475f7e3",
+    "pages": [
+      "a7-operator-remediation-p01",
+      "a7-operator-remediation-p02"
+    ]
+  },
+  {
+    "key": "a4-volume-persistence",
+    "source": "evidence/2026-09-26/a4-volume-persistence.txt",
+    "sha256": "44af7a7d341c9729912913036c4e35b4c3784e47e1c1cc9c45099c72b7935a4d",
+    "pages": [
+      "a4-volume-persistence-p01",
+      "a4-volume-persistence-p02"
+    ]
+  },
+  {
+    "key": "a7-operator-remediation-build-stderr",
+    "source": "evidence/2026-09-26/a7-operator-remediation-build-stderr.txt",
+    "sha256": "20756a0f321eff5adc4cba0842fa3907ca712b790444dfedfda9d8473856495b",
+    "pages": [
+      "a7-operator-remediation-build-stderr-p01",
+      "a7-operator-remediation-build-stderr-p02",
+      "a7-operator-remediation-build-stderr-p03"
+    ]
+  },
+  {
+    "key": "a3-custom-bridge-build-stderr",
+    "source": "evidence/2026-09-26/a3-custom-bridge-build-stderr.txt",
+    "sha256": "89d002407b14bacaa853451eedf9bcfb68a3b3c39d00f70246719f10353040f9",
+    "pages": [
+      "a3-custom-bridge-build-stderr-p01",
+      "a3-custom-bridge-build-stderr-p02",
+      "a3-custom-bridge-build-stderr-p03",
+      "a3-custom-bridge-build-stderr-p04",
+      "a3-custom-bridge-build-stderr-p05",
+      "a3-custom-bridge-build-stderr-p06",
+      "a3-custom-bridge-build-stderr-p07",
+      "a3-custom-bridge-build-stderr-p08",
+      "a3-custom-bridge-build-stderr-p09"
+    ]
+  },
+  {
+    "key": "a3-default-bridge",
+    "source": "evidence/2026-09-26/a3-default-bridge.txt",
+    "sha256": "1d5e33077fb93c8b9b52881ffb87c544dc4f01406b22e52b164442713205d175",
+    "pages": [
+      "a3-default-bridge-p01",
+      "a3-default-bridge-p02",
+      "a3-default-bridge-p03",
+      "a3-default-bridge-p04"
+    ]
+  },
+  {
+    "key": "a5-registry-publication",
+    "source": "evidence/2026-09-26/a5-registry-publication.txt",
+    "sha256": "65991b970bfd4cf9f854572a2e304b97d6369f3baed77e68e2b8daab7fc6a623",
+    "pages": [
+      "a5-registry-publication-p01",
+      "a5-registry-publication-p02",
+      "a5-registry-publication-p03",
+      "a5-registry-publication-p04",
+      "a5-registry-publication-p05",
+      "a5-registry-publication-p06",
+      "a5-registry-publication-p07",
+      "a5-registry-publication-p08",
+      "a5-registry-publication-p09",
+      "a5-registry-publication-p10",
+      "a5-registry-publication-p11",
+      "a5-registry-publication-p12",
+      "a5-registry-publication-p13",
+      "a5-registry-publication-p14",
+      "a5-registry-publication-p15",
+      "a5-registry-publication-p16",
+      "a5-registry-publication-p17",
+      "a5-registry-publication-p18"
+    ]
+  },
+  {
+    "key": "a7-baseline-deploy",
+    "source": "evidence/2026-09-26/a7-baseline-deploy.txt",
+    "sha256": "5792f8ec82b1b8322df2e63162d9cc63f09f00a6d3c88dbe73ab00346c06f33d",
+    "pages": [
+      "a7-baseline-deploy-p01"
+    ]
+  },
+  {
+    "key": "a7-claude-after",
+    "source": "evidence/2026-09-26/a7-claude-after.txt",
+    "sha256": "1d22a45f7bdddb85581b7a73b64e92dd849d6b99835e2d833022baf6dcd3c12f",
+    "pages": [
+      "a7-claude-after-p01",
+      "a7-claude-after-p02",
+      "a7-claude-after-p03",
+      "a7-claude-after-p04"
+    ]
+  },
+  {
+    "key": "a6-database-fault",
+    "source": "evidence/2026-09-26/a6-database-fault.txt",
+    "sha256": "fb044ca2a0f23b13060227b8fe4fc37d5779d2d1b60e89385d4c8bf16f85cdd9",
+    "pages": [
+      "a6-database-fault-p01"
+    ]
+  },
+  {
+    "key": "a3-custom-bridge",
+    "source": "evidence/2026-09-26/a3-custom-bridge.txt",
+    "sha256": "68968bce594103ccbbf6933fa7402ffb5f975f87e44877fd62fec5343a711cb1",
+    "pages": [
+      "a3-custom-bridge-p01",
+      "a3-custom-bridge-p02",
+      "a3-custom-bridge-p03",
+      "a3-custom-bridge-p04",
+      "a3-custom-bridge-p05"
+    ]
+  },
+  {
+    "key": "a6-recovery",
+    "source": "evidence/2026-09-26/a6-recovery.txt",
+    "sha256": "e2afb48047d63dab5436b745da7afcd246e119f2bf862424ea8e97f17786d3ff",
+    "pages": [
+      "a6-recovery-p01"
+    ]
+  },
+  {
+    "key": "a1-a2-upstream-checkouts",
+    "source": "evidence/2026-09-26/a1-a2-upstream-checkouts.txt",
+    "sha256": "b6970db9fef57369d8961201ddd820b5a475fe66b6cfb5e616ae2592fac584ea",
+    "pages": [
+      "a1-a2-upstream-checkouts-p01"
+    ]
+  },
+  {
+    "key": "a6-base-image-digests",
+    "source": "evidence/2026-09-26/a6-base-image-digests.txt",
+    "sha256": "a7f78ecf8f4dbc446ef627f0210c25eb72f66b5f02ca35f9452d1350f5ab8de5",
+    "pages": [
+      "a6-base-image-digests-p01"
+    ]
+  },
+  {
+    "key": "a3-host-network",
+    "source": "evidence/2026-09-26/a3-host-network.txt",
+    "sha256": "47555b44b03f503a9fb1e542809098b956f4bc518652b9a597a277b5a30c7f75",
+    "pages": [
+      "a3-host-network-p01",
+      "a3-host-network-p02",
+      "a3-host-network-p03"
+    ]
+  },
+  {
+    "key": "a6-final-frontend-build",
+    "source": "evidence/2026-09-26/a6-final-frontend-build.txt",
+    "sha256": "76806adc25bf9dc60b0e8c177de796071da71e6e03ce6e2f4ee9b7c66ffb2d17",
+    "pages": [
+      "a6-final-frontend-build-p01",
+      "a6-final-frontend-build-p02",
+      "a6-final-frontend-build-p03"
+    ]
+  },
+  {
+    "key": "a6-final-browser-sql",
+    "source": "evidence/2026-09-26/a6-final-browser-sql.txt",
+    "sha256": "6513b3e1af96663d761981b13377d2a3ba2befbb8e99906840e2f656be23a3d1",
+    "pages": [
+      "a6-final-browser-sql-p01"
+    ]
+  },
+  {
+    "key": "a2-react-build",
+    "source": "evidence/2026-09-26/a2-react-build.txt",
+    "sha256": "ef51d3f0707c60a848fda7c5a4168912c882612d9c62320e2b60db7cc8616709",
+    "pages": [
+      "a2-react-build-p01",
+      "a2-react-build-p02",
+      "a2-react-build-p03"
+    ]
+  },
+  {
+    "key": "a6-independent-sql-https",
+    "source": "evidence/2026-09-26/a6-independent-sql-https.txt",
+    "sha256": "fda5ccd0c41445dceb404c5d5b76dccc22bff5beb1a7c1ca4699ac1013a8d0ae",
+    "pages": [
+      "a6-independent-sql-https-p01"
+    ]
+  },
+  {
+    "key": "a3-incompatible-mongo-cleanup",
+    "source": "evidence/2026-09-26/a3-incompatible-mongo-cleanup.txt",
+    "sha256": "607ddfdca5be15fc007ff3795c77b0f005eca97edd3ff9013d1c96d777c36fb5",
+    "pages": [
+      "a3-incompatible-mongo-cleanup-p01"
+    ]
+  },
+  {
+    "key": "a4-bind-mount",
+    "source": "evidence/2026-09-26/a4-bind-mount.txt",
+    "sha256": "4413fb13f2b7f6adf6027b6b68760c6f483c36c9817a112591282846ebe6dcde",
+    "pages": [
+      "a4-bind-mount-p01",
+      "a4-bind-mount-p02",
+      "a4-bind-mount-p03",
+      "a4-bind-mount-p04"
+    ]
+  },
+  {
+    "key": "a6-final-build",
+    "source": "evidence/2026-09-26/a6-final-build.txt",
+    "sha256": "128dd8897c3c037e0ec9b637c7928139274ac5d3882d2c7871b2b2c0684e4ca4",
+    "pages": [
+      "a6-final-build-p01",
+      "a6-final-build-p02",
+      "a6-final-build-p03",
+      "a6-final-build-p04",
+      "a6-final-build-p05",
+      "a6-final-build-p06"
+    ]
+  },
+  {
+    "key": "a7-claude-plan",
+    "source": "evidence/2026-09-26/a7-claude-plan.txt",
+    "sha256": "496ddf40f497d361ab3553266aab8f0ac266d6bc4e8ae581018fb3f7e50cf64d",
+    "pages": [
+      "a7-claude-plan-p01",
+      "a7-claude-plan-p02",
+      "a7-claude-plan-p03",
+      "a7-claude-plan-p04",
+      "a7-claude-plan-p05"
+    ]
+  },
+  {
+    "key": "a6-https-config",
+    "source": "evidence/2026-09-26/a6-https-config.txt",
+    "sha256": "156c8ff7eb84a73b8e861a36bec1ed3c9bad503be935074a566f75316959d42e",
+    "pages": [
+      "a6-https-config-p01",
+      "a6-https-config-p02",
+      "a6-https-config-p03",
+      "a6-https-config-p04"
+    ]
+  },
+  {
+    "key": "a6-browser-sql",
+    "source": "evidence/2026-09-26/a6-browser-sql.txt",
+    "sha256": "87f43e2d65276b471c7eb31cd28059df6591bd19d9f6a52e826159c52e9b5318",
+    "pages": [
+      "a6-browser-sql-p01"
+    ]
+  },
+  {
+    "key": "a4-shared-volume-build-stderr",
+    "source": "evidence/2026-09-26/a4-shared-volume-build-stderr.txt",
+    "sha256": "ecae38bad0505714cd777b6c32338cab69c035c40be89851165e5ead9e5403fb",
+    "pages": [
+      "a4-shared-volume-build-stderr-p01",
+      "a4-shared-volume-build-stderr-p02",
+      "a4-shared-volume-build-stderr-p03",
+      "a4-shared-volume-build-stderr-p04",
+      "a4-shared-volume-build-stderr-p05",
+      "a4-shared-volume-build-stderr-p06"
+    ]
+  },
+  {
+    "key": "a4-volume-update1",
+    "source": "evidence/2026-09-26/a4-volume-update1.txt",
+    "sha256": "24e0f6adadeadea3a54a1c7cb7997774a9a0a05d36b7daf48ed739498b9c2738",
+    "pages": [
+      "a4-volume-update1-p01"
+    ]
+  },
+  {
+    "key": "a7-baseline-report",
+    "source": "evidence/2026-09-26/a7-baseline-report.txt",
+    "sha256": "2189b6beee3d87a0c421c998ae60ec2f7f66d483d4341444058ea584ceadeacd",
+    "pages": [
+      "a7-baseline-report-p01"
+    ]
+  },
+  {
+    "key": "a1-static",
+    "source": "evidence/2026-09-26/a1-static.txt",
+    "sha256": "e6e5396a5e7c86ae742b47ee115e96461e16b6ace54a678a776ef5df97f12823",
+    "pages": [
+      "a1-static-p01",
+      "a1-static-p02"
+    ]
+  },
+  {
+    "key": "a4-volume-update2",
+    "source": "evidence/2026-09-26/a4-volume-update2.txt",
+    "sha256": "2a324b870593b5503ef905b08524a48fa3d3832bc3a074b0701c5307bbc54a41",
+    "pages": [
+      "a4-volume-update2-p01"
+    ]
+  },
+  {
+    "key": "a7-final-report",
+    "source": "evidence/2026-09-26/a7-final-report.txt",
+    "sha256": "17cda7f9a1acc470396bc28e51a1ac6a2588c1fd6bd54b6420f5a17dc1ba2fdc",
+    "pages": [
+      "a7-final-report-p01"
+    ]
+  },
+  {
+    "key": "a4-bind-removal",
+    "source": "evidence/2026-09-26/a4-bind-removal.txt",
+    "sha256": "0b0d73cd2b813e5ba8f938d3bb285087fde349e925bbb2fb05beb74503ce52e2",
+    "pages": [
+      "a4-bind-removal-p01",
+      "a4-bind-removal-p02"
+    ]
+  },
+  {
+    "key": "a7-public-stack-audit",
+    "source": "evidence/2026-09-26/a7-public-stack-audit.txt",
+    "sha256": "7a0e113536ce6b77205c6bb49a01e23b68732ccce2fc0ccf18ce73e7137dcd78",
+    "pages": [
+      "a7-public-stack-audit-p01"
+    ]
+  },
+  {
+    "key": "a2-react-build-build-stderr",
+    "source": "evidence/2026-09-26/a2-react-build-build-stderr.txt",
+    "sha256": "7cfe2af618131c0999dcfed49e6e5cb37fc2d8ed5e7a800041358bec060aae5f",
+    "pages": [
+      "a2-react-build-build-stderr-p01",
+      "a2-react-build-build-stderr-p02",
+      "a2-react-build-build-stderr-p03",
+      "a2-react-build-build-stderr-p04",
+      "a2-react-build-build-stderr-p05",
+      "a2-react-build-build-stderr-p06",
+      "a2-react-build-build-stderr-p07",
+      "a2-react-build-build-stderr-p08",
+      "a2-react-build-build-stderr-p09",
+      "a2-react-build-build-stderr-p10",
+      "a2-react-build-build-stderr-p11"
+    ]
+  },
+  {
+    "key": "a6-independent-sql",
+    "source": "evidence/2026-09-26/a6-independent-sql.txt",
+    "sha256": "c190dbbef22429db4bf2d742e0593850965959bbdbaf65f910804a927f37c48d",
+    "pages": [
+      "a6-independent-sql-p01"
+    ]
+  },
+  {
+    "key": "a7-final-live-inspection",
+    "source": "evidence/2026-09-26/a7-final-live-inspection.txt",
+    "sha256": "c0b0c4089dcba383a14bc9a3c15dd4ef1eebd222f7a52ce707f77afdb6e4821a",
+    "pages": [
+      "a7-final-live-inspection-p01"
+    ]
+  },
+  {
+    "key": "a7-claude-baseline",
+    "source": "evidence/2026-09-26/a7-claude-baseline.txt",
+    "sha256": "43dc54104f04e5dedd4411a6c6d5221156b83ed85a346d786724e149c2f231fb",
+    "pages": [
+      "a7-claude-baseline-p01",
+      "a7-claude-baseline-p02",
+      "a7-claude-baseline-p03",
+      "a7-claude-baseline-p04",
+      "a7-claude-baseline-p05",
+      "a7-claude-baseline-p06"
+    ]
+  },
+  {
+    "key": "a6-deploy",
+    "source": "evidence/2026-09-26/a6-deploy.txt",
+    "sha256": "4f756ecc531e5c14f30589ebf42016f8b482e8cfe7784e2bb6e379e809b11c3e",
+    "pages": [
+      "a6-deploy-p01"
+    ]
+  },
+  {
+    "key": "a6-final-source-hashes",
+    "source": "evidence/2026-09-26/a6-final-source-hashes.txt",
+    "sha256": "f62595c3b0cfe952c86d5af184082786cc48b44f1390f1f6d4e3b3a695ff3338",
+    "pages": [
+      "a6-final-source-hashes-p01"
+    ]
+  },
+  {
+    "key": "a6-snapshot-restore",
+    "source": "evidence/2026-09-26/a6-snapshot-restore.txt",
+    "sha256": "447646e44870f7bd7b8aebd690515f6a9a56042c1ad628b381eeb681d4b60a02",
+    "pages": [
+      "a6-snapshot-restore-p01",
+      "a6-snapshot-restore-p02"
+    ]
+  },
+  {
+    "key": "a3-multiple-networks-build-stderr",
+    "source": "evidence/2026-09-26/a3-multiple-networks-build-stderr.txt",
+    "sha256": "39dcc2eda529cd50ea559bfd450dc628e4823c229e83c0d7574376e35de088a5",
+    "pages": [
+      "a3-multiple-networks-build-stderr-p01",
+      "a3-multiple-networks-build-stderr-p02",
+      "a3-multiple-networks-build-stderr-p03",
+      "a3-multiple-networks-build-stderr-p04",
+      "a3-multiple-networks-build-stderr-p05",
+      "a3-multiple-networks-build-stderr-p06",
+      "a3-multiple-networks-build-stderr-p07"
+    ]
+  },
+  {
+    "key": "a5-pull-other-vm",
+    "source": "evidence/2026-09-26/a5-pull-other-vm.txt",
+    "sha256": "b81498d4475b241a88c45ec0883a9db91c2e5fbdb96c865cf3d635061ff493a6",
+    "pages": [
+      "a5-pull-other-vm-p01",
+      "a5-pull-other-vm-p02"
+    ]
+  },
+  {
+    "key": "a1-bootstrap",
+    "source": "evidence/2026-09-26/a1-bootstrap.txt",
+    "sha256": "43145210378ab2110dea1d2874b17e8d3880fbaf4e27a1b4f391fb50d312a6ed",
+    "pages": [
+      "a1-bootstrap-p01",
+      "a1-bootstrap-p02",
+      "a1-bootstrap-p03",
+      "a1-bootstrap-p04"
+    ]
+  },
+  {
+    "key": "a6-final-state",
+    "source": "evidence/2026-09-26/a6-final-state.txt",
+    "sha256": "684c7a16f1fc872a127d72736963d589365f3ec84407f2ffdf5f10c0eda564c6",
+    "pages": [
+      "a6-final-state-p01",
+      "a6-final-state-p02"
+    ]
+  },
+  {
+    "key": "a4-shared-volume",
+    "source": "evidence/2026-09-26/a4-shared-volume.txt",
+    "sha256": "38a01582518ef35cc75de3a1b704b3f2be2c69bb14a209712b537beb80b350d3",
+    "pages": [
+      "a4-shared-volume-p01",
+      "a4-shared-volume-p02",
+      "a4-shared-volume-p03"
+    ]
+  },
+  {
+    "key": "a3-multiple-networks",
+    "source": "evidence/2026-09-26/a3-multiple-networks.txt",
+    "sha256": "cb69fb5ce2ddd8233dd65c3b4ba858ebe22d89211879b25ae3682014e9ff9dfe",
+    "pages": [
+      "a3-multiple-networks-p01",
+      "a3-multiple-networks-p02",
+      "a3-multiple-networks-p03",
+      "a3-multiple-networks-p04",
+      "a3-multiple-networks-p05",
+      "a3-multiple-networks-p06",
+      "a3-multiple-networks-p07",
+      "a3-multiple-networks-p08",
+      "a3-multiple-networks-p09"
+    ]
+  },
+  {
+    "key": "a6-backend-fault",
+    "source": "evidence/2026-09-26/a6-backend-fault.txt",
+    "sha256": "a574751ec0152ac8ca91e7d25f9d600b6829212f4c93265eb1bf10245d0977c4",
+    "pages": [
+      "a6-backend-fault-p01"
+    ]
+  },
+  {
+    "key": "a6-checkout-migration",
+    "source": "evidence/2026-09-26/a6-checkout-migration.txt",
+    "sha256": "33800bc8df87ade42342db8107797042f4a862bafa566ddab5ddf644cea1c2dc",
+    "pages": [
+      "a6-checkout-migration-p01"
+    ]
+  },
+  {
+    "key": "a6-snapshot-create",
+    "source": "evidence/2026-09-26/a6-snapshot-create.txt",
+    "sha256": "c2a71cd0f35c18cb6bb9492c540437be314f0837ce86b3ec38ab71dbd7d658ca",
+    "pages": [
+      "a6-snapshot-create-p01",
+      "a6-snapshot-create-p02",
+      "a6-snapshot-create-p03"
+    ]
+  },
+  {
+    "key": "a1-security-rules",
+    "source": "evidence/2026-09-26/a1-security-rules.txt",
+    "sha256": "88cab38efecaedb159c200c4fd032b02406bcc26c1cd4978ffd8a5b7b1b8a6bb",
+    "pages": [
+      "a1-security-rules-p01",
+      "a1-security-rules-p02",
+      "a1-security-rules-p03",
+      "a1-security-rules-p04"
+    ]
+  },
+  {
+    "key": "a6-final-https-tests",
+    "source": "evidence/2026-09-26/a6-final-https-tests.json",
+    "sha256": "b6db8d8d63ef96d782cb895ad26b30add212070d0ef5c416e502e97eed826d08",
+    "pages": [
+      "a6-final-https-tests-p01",
+      "a6-final-https-tests-p02",
+      "a6-final-https-tests-p03",
+      "a6-final-https-tests-p04",
+      "a6-final-https-tests-p05"
+    ]
+  },
+  {
+    "key": "react-ANALYSIS_md",
+    "source": "react/ANALYSIS.md",
+    "sha256": "f29bbe160d805ac7d838bb68884353d964ee0a3341919cbbc47f05c055aa25e1",
+    "pages": [
+      "react-ANALYSIS_md-p01"
+    ]
+  },
+  {
+    "key": "react-Dockerfile",
+    "source": "react/Dockerfile",
+    "sha256": "04d83c943d16442175b14bdff243295a5dcd54d6ae9fc5cc5530b854df73dbfd",
+    "pages": [
+      "react-Dockerfile-p01"
+    ]
+  },
+  {
+    "key": "react-Dockerfile_single",
+    "source": "react/Dockerfile.single",
+    "sha256": "d0eefff7a74d1031bfb00fc6e6d2843bc62288ecb2892263daaec8912e003aca",
+    "pages": [
+      "react-Dockerfile_single-p01"
+    ]
+  },
+  {
+    "key": "react-_dockerignore",
+    "source": "react/.dockerignore",
+    "sha256": "ad905817cce2cadf6e61265f6371878433e5e1f9aa25f3882d8962c4ec930d66",
+    "pages": [
+      "react-_dockerignore-p01"
+    ]
+  },
+  {
+    "key": "hardening-audit-CLAUDE_md",
+    "source": "hardening-audit/CLAUDE.md",
+    "sha256": "8dfdfdeb4f74073611e865112b134432b6f06366efaf05a7ecbafda7d38444de",
+    "pages": [
+      "hardening-audit-CLAUDE_md-p01"
+    ]
+  },
+  {
+    "key": "hardening-audit-docker-audit_sh",
+    "source": "hardening-audit/docker-audit.sh",
+    "sha256": "91bbce9889fc4276a4f94dab898a6cf8c99132d89b5446ac8eecd040a079c875",
+    "pages": [
+      "hardening-audit-docker-audit_sh-p01",
+      "hardening-audit-docker-audit_sh-p02"
+    ]
+  },
+  {
+    "key": "hardening-audit-_claude-skills-docker-audit-SKILL_md",
+    "source": "hardening-audit/.claude/skills/docker-audit/SKILL.md",
+    "sha256": "38a4a91393fe28465cc509716ecad0d10f66e40c4b43d888e8bbb3aced4a89ca",
+    "pages": [
+      "hardening-audit-_claude-skills-docker-audit-SKILL_md-p01"
+    ]
+  },
+  {
+    "key": "hardening-audit-Dockerfile_hardened",
+    "source": "hardening-audit/Dockerfile.hardened",
+    "sha256": "39c3edcdb0161d5c056d5a346a82f5b820e0508d6844d73461e14235f6b8902d",
+    "pages": [
+      "hardening-audit-Dockerfile_hardened-p01"
+    ]
+  },
+  {
+    "key": "hardening-audit-OPERATOR-REVIEW_md",
+    "source": "hardening-audit/OPERATOR-REVIEW.md",
+    "sha256": "f19b0f9c8063fe1e1a51687f682c7f1ee299d9dd14268905a689653c72eaf595",
+    "pages": [
+      "hardening-audit-OPERATOR-REVIEW_md-p01",
+      "hardening-audit-OPERATOR-REVIEW_md-p02"
+    ]
+  },
+  {
+    "key": "capstone-docker-compose_yml",
+    "source": "capstone/docker-compose.yml",
+    "sha256": "944553e4545e92335d525ae9f1b1741dde3c2ca58705883369307cc3b25e0b58",
+    "pages": [
+      "capstone-docker-compose_yml-p01",
+      "capstone-docker-compose_yml-p02",
+      "capstone-docker-compose_yml-p03",
+      "capstone-docker-compose_yml-p04"
+    ]
+  },
+  {
+    "key": "capstone-frontend-Dockerfile",
+    "source": "capstone/frontend/Dockerfile",
+    "sha256": "39c3edcdb0161d5c056d5a346a82f5b820e0508d6844d73461e14235f6b8902d",
+    "pages": [
+      "capstone-frontend-Dockerfile-p01"
+    ]
+  },
+  {
+    "key": "capstone-backend-Dockerfile",
+    "source": "capstone/backend/Dockerfile",
+    "sha256": "39c3edcdb0161d5c056d5a346a82f5b820e0508d6844d73461e14235f6b8902d",
+    "pages": [
+      "capstone-backend-Dockerfile-p01"
+    ]
+  },
+  {
+    "key": "a1-cloud-inventory",
+    "source": "evidence/2026-09-26/a1-cloud-inventory.json",
+    "sha256": "ed2ae5a45dbb886e45111571eb36cce84dd56dd7e689e06fb0162f63abd77306",
+    "pages": [
+      "a1-cloud-inventory-p01",
+      "a1-cloud-inventory-p02",
+      "a1-cloud-inventory-p03"
+    ]
+  }
+]

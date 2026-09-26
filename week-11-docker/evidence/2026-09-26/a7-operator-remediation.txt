@@ -1,0 +1,31 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:49:42.501570+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone
+$ docker build --progress=plain -f backend/Dockerfile.hardened -t epicbook-audit:1.0.0 backend
+$ docker stop epicbook-audit
+$ docker rm epicbook-audit
+$ docker run -d --name epicbook-audit --network week11-epicbook_back-tier --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -v /opt/week11/capstone/secrets/db_password:/run/secrets/db_password:ro -v /opt/week11/capstone/secrets/session:/run/secrets/session:ro epicbook-audit:1.0.0
+$ cat backend/Dockerfile.hardened
+$ docker ps --filter name=epicbook-audit
+
+epicbook-audit
+epicbook-audit
+d0b6d84a6a0f81134e34708191c8306946654e0984385edd1492ed60ea2b6e95
+FROM node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c AS dependencies
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+FROM node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c AS runtime
+ENV NODE_ENV=production
+WORKDIR /app
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY --chown=node:node . .
+USER node
+EXPOSE 8080
+HEALTHCHECK --interval=10s --timeout=4s --start-period=30s --retries=3 CMD node -e "fetch('http://127.0.0.1:8080/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+CMD ["node","server.js"]
+CONTAINER ID   IMAGE                  COMMAND                  CREATED                  STATUS                                     PORTS      NAMES
+d0b6d84a6a0f   epicbook-audit:1.0.0   "docker-entrypoint.s…"   Less than a second ago   Up Less than a second (health: starting)   8080/tcp   epicbook-audit

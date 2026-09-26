@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a4-bind-removal</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a4-bind-removal.txt · Page 1/2</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:49:32.192372+00:00
+  4  Host: labs
+  5  
+  6  $ #!/usr/bin/env bash
+  7  $ set -euo pipefail
+  8  $ sha256sum &quot;$HOME/nginx-logs/access.log&quot; &quot;$HOME/nginx-logs/error.log&quot;
+  9  $ docker stop myweb
+ 10  $ docker rm myweb
+ 11  $ ls -l &quot;$HOME/nginx-logs&quot;
+ 12  $ sha256sum &quot;$HOME/nginx-logs/access.log&quot; &quot;$HOME/nginx-logs/error.log&quot;
+ 13  $ cat &quot;$HOME/nginx-logs/access.log&quot;
+ 14  
+ 15  6f1e3a9284be767683601ad82d84166ddca73f679ee9aec5a3eb2ac1749ae849  /home/ubuntu/nginx-logs/access.log
+ 16  c4223ad3e39abaf9d0c81b367284591c323e8824f5fb3b23bec8e471c395f449  /home/ubuntu/nginx-logs/error.log
+ 17  myweb
+ 18  myweb
+ 19  total 8
+ 20  -rw-r--r-- 1 root root 291 Sep 26 16:49 access.log
+ 21  -rw-r--r-- 1 root root 977 Sep 26 16:49 error.log
+ 22  6f1e3a9284be767683601ad82d84166ddca73f679ee9aec5a3eb2ac1749ae849  /home/ubuntu/nginx-logs/access.log
+ 23  0af1493e16071103ddbd68d4c1a40251940597ccf2e320b98667d58824928885  /home/ubuntu/nginx-logs/error.log
+ 24  172.17.0.1 - - [26/Sep/2026:16:48:37 +0000] &quot;GET / HTTP/1.1&quot; 200 949 &quot;-&quot; &quot;curl/8.5.0&quot; &quot;-&quot;
+ 25  102.90.103.180 - - [26/Sep/2026:16:49:17 +0000] &quot;GET / HTTP/1.1&quot; 200 949 &quot;-&quot; &quot;Mozilla/5.0 (Macintosh; </pre><small>Original SHA-256: 0b0d73cd2b813e5ba8f938d3bb285087fde349e925bbb2fb05beb74503ce52e2</small></html>

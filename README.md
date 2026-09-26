@@ -3,7 +3,7 @@
 ![Cohort](https://img.shields.io/badge/Cohort-3-blue?style=for-the-badge)
 ![Program](https://img.shields.io/badge/DevOps_Micro_Internship-Pravin_Mishra-orange?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In_Progress-yellow?style=for-the-badge)
-![Weeks](https://img.shields.io/badge/DMI_Reported_Complete-9%2F14-green?style=for-the-badge)
+![Weeks](https://img.shields.io/badge/DMI_Reported_Complete-11%2F14-green?style=for-the-badge)
 
 > 👋 **New here?** Read the [submission instructions](./INSTRUCTIONS.md) first — how to fork, fill in, and submit your assignments.
 
@@ -93,11 +93,11 @@ Week 07 → Azure Cloud
 Week 08 → Terraform
 [![Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/)
 
-<!-- Week 09 → Ansible -->
-<!-- [![Week 09 – Ansible](./badges/week-09.svg)](./week-09-ansible/) -->
+Week 09 → Ansible
+[![Week 09 – Ansible](./badges/week-09.svg)](./week-09-ansible/)
 
-<!-- Week 10 → Azure DevOps CI/CD -->
-<!-- [![Week 10 – CI/CD](./badges/week-10.svg)](./week-10-azure-devops/) -->
+Week 10 → Azure DevOps CI/CD
+[![Week 10 – CI/CD](./badges/week-10.svg)](./week-10-azure-devops/)
 
 <!-- Week 11 → Docker -->
 <!-- [![Week 11 – Docker](./badges/week-11.svg)](./week-11-docker/) -->
@@ -138,11 +138,13 @@ Week 08 → Terraform
 | 06 | AWS Cloud | ✅ Completed (DMI) | [Assignment 6 — verified preflight; deployment gaps remain](./week-06-aws-cloud/assignment-06-capstone-deploy-book-review-app-three-tier-architecture-on-aws.md#current-verification--15-september-2026) | [Assignment 5 post](https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-terraform-activity-7505450522540408832-q-je) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-06.html) |
 | 07 | Azure Cloud | ✅ Completed (DMI) | [Assignment files; DMI completion recorded](./week-07-azure-cloud/) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-agenticai-share-7509568835549700096-c4Lf/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-07.html) |
 | 08 | Terraform | ✅ Completed (DMI) | [Verified work and remaining learner requirements](#week-08-deliverable-locations) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-08.html) |
-| 09 | Ansible | ✅ Submission checks complete; DMI review pending | [Verified deployments, tests and evidence](./week-09-ansible/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) |
-| 10 | Azure DevOps (CI/CD) | ✅ Submission checks complete; DMI review pending | [Verified deployments, tests and evidence](./week-10-azure-devops/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html) |
-| 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
+| 09 | Ansible | ✅ Completed (DMI) | [Verified deployments, tests and evidence](./week-09-ansible/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) |
+| 10 | Azure DevOps (CI/CD) | ✅ Completed (DMI) | [Verified deployments, tests and evidence](./week-10-azure-devops/evidence/2026-09-25/README.md) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html) |
+| 11 | Docker | ✅ Submission verified; DMI review pending | [Seven assignments and evidence](./week-11-docker/) | [LinkedIn Post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-docker-devops-share-7509737427876454400-cxc1/) | [Blog Post](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-11.html) |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
+
+**Week 11:** Docker labs, Docker Hub distribution and the EpicBook Compose deployment have verified evidence. [Submission review](WEEK11-SUBMISSION-REVIEW.md) lists scope and assessor boundaries. Weeks 00–10 are recorded as complete by DMI (1830/1870 at the 26 September review); Week 11 has not yet been awarded a grade.
 
 **Status scope:** DMI completion is copied from the dashboard. “Submission checks complete” means the published path, writing and publication rules pass the local audit; it does not claim a new grade or waive the disclosed manual-evidence limits. [Current rubric audit](RUBRIC-AUDIT-20260926.md).
 

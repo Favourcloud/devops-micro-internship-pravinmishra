@@ -2,6 +2,12 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Eze Favour · Verified 26 September 2026 · DMI assessment pending**
+
+Both builds came from the same instructor React revision. Docker reported 854,614,809 bytes for single-stage and 94,232,874 bytes for multi-stage: 88.97% less. Single-stage ran on port 3000 for verification; the retained multi-stage demo is on port 80.
+
+**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+
 ---
 
 ## Purpose
@@ -20,7 +26,7 @@ Clone `https://github.com/pravinmishraaws/my-react-app.git` and create a `.docke
 
 #### Screenshot 1 — Contents of the `.dockerignore` file
 
-Add your screenshot here.
+[Original record/source](react/.dockerignore) · [Screenshot page 1](screenshots/react-_dockerignore-p01.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
@@ -34,13 +40,13 @@ Create `Dockerfile.single`, build `react-single`, and run it on port 3000.
 
 #### Screenshot 2 — Contents of `Dockerfile.single`
 
-Add your screenshot here.
+[Original record/source](react/Dockerfile.single) · [Screenshot page 1](screenshots/react-Dockerfile_single-p01.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 #### Screenshot 3 — Browser displaying the application running from the single-stage container
 
-Add your screenshot here.
+![Eze Favour — a2-single-browser](screenshots/a2-single-browser.png)
 
 ---
 
@@ -54,13 +60,13 @@ Create a multi-stage Dockerfile with separate build and Nginx runtime stages, bu
 
 #### Screenshot 4 — Contents of the multi-stage Dockerfile
 
-Add your screenshot here.
+[Original record/source](react/Dockerfile) · [Screenshot page 1](screenshots/react-Dockerfile-p01.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 #### Screenshot 5 — Browser displaying the application running from the multi-stage container
 
-Add your screenshot here.
+![Eze Favour — a2-multistage-browser](screenshots/a2-multistage-browser.png)
 
 ---
 
@@ -74,7 +80,7 @@ Compare the single-stage and multi-stage image sizes and calculate the percentag
 
 #### Screenshot 6 — Docker image list showing both image sizes
 
-Add your screenshot here.
+[Original record/source](evidence/2026-09-26/a2-react-build.txt) · [Screenshot page 1](screenshots/a2-react-build-p01.png) · [Screenshot page 2](screenshots/a2-react-build-p02.png) · [Screenshot page 3](screenshots/a2-react-build-p03.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
@@ -88,15 +94,23 @@ Write a 5–8 line analysis covering the percentage reduction, security benefits
 
 #### Screenshot 7 — Analysis included in your submission document
 
-Add your screenshot here.
+[Original record/source](react/ANALYSIS.md) · [Screenshot page 1](screenshots/react-ANALYSIS_md-p01.png). Captured from the labelled saved-output/source viewer.
 
 ---
 
 ### Notes
 
-Write your analysis here.
+1. The single-stage image is 854,614,809 bytes; the multi-stage image is 94,232,874 bytes, measured using Docker image inspection on the same host.
+2. `(854614809 - 94232874) / 854614809 × 100` gives an **88.97% reduction** (89.0% rounded).
+3. The runtime contains the compiled React assets and Nginx rather than the Node build toolchain and development dependencies.
+4. Fewer shipped components reduce the attack surface; smaller size alone does not prove that every package is secure.
+5. The smaller image reduces bytes to distribute, although this exercise did not benchmark pull time or bandwidth.
+6. Copying package manifests before application source lets Docker reuse the dependency-install layer when only source changes.
+7. The final runtime uses UID 101, a healthcheck, a read-only filesystem and temporary writable paths; it serves the build on host port 80.
+8. Builds, measurements and browser checks were performed by Codex under my delegation; raw records and source are linked in Assignment 2.
 
-Write your answer here.
+
+[Analysis screenshots and source](react/ANALYSIS.md) accompany the actual image-size record.
 
 ---
 
@@ -120,15 +134,15 @@ Create a LinkedIn post describing what you built, what a multi-stage Docker buil
 
 #### LinkedIn Post URL
 
-Paste your LinkedIn post URL here:
+The weekly post covers this assignment and the EpicBook capstone.
 
-`Add your URL here`
+[Published Week 11 LinkedIn post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-docker-devops-share-7509737427876454400-cxc1/) · [receipt](publication/README.md).
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+See [the weekly publication receipt](publication/README.md) and its published-post capture.
 
 ---
 
@@ -142,13 +156,13 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: `.dockerignore` created (Screenshot 1)
-- [ ] Task 2: Single-stage image built and verified (Screenshots 2–3)
-- [ ] Task 3: Multi-stage image built and verified (Screenshots 4–5)
-- [ ] Task 4: Image sizes compared (Screenshot 6)
-- [ ] Task 5: Analysis written (Screenshot 7 & Notes)
-- [ ] Task 6: Optional production optimizations explored
-- [ ] No sensitive information exposed
+- [x] Task 1: `.dockerignore` created (Screenshot 1)
+- [x] Task 2: Single-stage image built and verified (Screenshots 2–3)
+- [x] Task 3: Multi-stage image built and verified (Screenshots 4–5)
+- [x] Task 4: Image sizes compared (Screenshot 6)
+- [x] Task 5: Analysis written (Screenshot 7 & Notes)
+- [x] Task 6: Optional production optimizations explored
+- [x] No sensitive information exposed
 
 ---
 
@@ -173,3 +187,41 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
+
+## Recorded evidence gallery
+
+Each figure is captured once and may support multiple related screenshot slots. Page links above identify the same original evidence, not separate repeated executions.
+
+### react-_dockerignore
+
+[Original](react/.dockerignore)
+
+![Eze Favour — react-_dockerignore-p01](screenshots/react-_dockerignore-p01.png)
+
+### react-Dockerfile_single
+
+[Original](react/Dockerfile.single)
+
+![Eze Favour — react-Dockerfile_single-p01](screenshots/react-Dockerfile_single-p01.png)
+
+### react-Dockerfile
+
+[Original](react/Dockerfile)
+
+![Eze Favour — react-Dockerfile-p01](screenshots/react-Dockerfile-p01.png)
+
+### a2-react-build
+
+[Original](evidence/2026-09-26/a2-react-build.txt)
+
+![Eze Favour — a2-react-build-p01](screenshots/a2-react-build-p01.png)
+
+![Eze Favour — a2-react-build-p02](screenshots/a2-react-build-p02.png)
+
+![Eze Favour — a2-react-build-p03](screenshots/a2-react-build-p03.png)
+
+### react-ANALYSIS_md
+
+[Original](react/ANALYSIS.md)
+
+![Eze Favour — react-ANALYSIS_md-p01](screenshots/react-ANALYSIS_md-p01.png)

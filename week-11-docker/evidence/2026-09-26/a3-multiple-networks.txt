@@ -1,0 +1,191 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:47:08.743196+00:00
+Host: labs
+
+$ #!/usr/bin/env bash
+$ set -euo pipefail
+$ cd /opt/week11
+$ mkdir -p private
+$ chmod 700 private
+$ test -s private/mongo_password || openssl rand -hex 32 > private/mongo_password
+$ chmod 444 private/mongo_password
+$ docker network create --internal backend-network
+$ docker network create frontend-network
+$ find networking/multi -maxdepth 2 -type f
+$ cat networking/multi/{database,backend,frontend}/Dockerfile
+$ docker build --progress=plain -t lab-mongo:1.0 networking/multi/database
+$ docker build --progress=plain -t multi-backend:1.0 networking/multi/backend
+$ docker build --progress=plain -t multi-frontend:1.0 networking/multi/frontend
+$ docker run -d --name database --network backend-network -e MONGO_INITDB_ROOT_USERNAME=labuser -e MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_password -v /opt/week11/private/mongo_password:/run/secrets/mongo_password:ro lab-mongo:1.0
+$ docker run -d --name api --network backend-network -v /opt/week11/private/mongo_password:/run/secrets/mongo_password:ro multi-backend:1.0
+$ docker network connect frontend-network api
+$ docker run -d --name frontend --network frontend-network -p 80:8080 multi-frontend:1.0
+$ docker ps
+$ docker network inspect backend-network frontend-network
+$ for i in $(seq 1 40); do docker exec database mongosh --quiet --eval 'db.getSiblingDB("admin").auth("labuser",require("fs").readFileSync("/run/secrets/mongo_password","utf8").trim());db.getSiblingDB("lab").messages.findOne()' >/dev/null 2>&1 && break || sleep 2; done
+$ docker exec database mongosh --quiet --eval 'db.getSiblingDB("admin").auth("labuser",require("fs").readFileSync("/run/secrets/mongo_password","utf8").trim());db.getSiblingDB("lab").messages.insertOne({owner:"Eze Favour",message:"Docker networks verified",exercise:"Week 11"});printjson(db.getSiblingDB("lab").messages.find().toArray())'
+$ docker exec frontend curl -fsS http://api:8080/
+$ curl -fsS http://127.0.0.1/
+$ if docker exec frontend node -e 'require("dns").lookup("database",(e)=>process.exit(e?1:0))'; then echo 'FAIL: frontend resolves database'; exit 1; else echo 'PASS: frontend cannot resolve the database on its network'; fi
+
+ed143f50235b3290df588246c82c5cccabedb44dae823eeba37e2c758179a8e9
+0f3868f76be902fe89513a908547881334754ae622135e7c2b9c9831874a2316
+networking/multi/database/Dockerfile
+networking/multi/frontend/Dockerfile
+networking/multi/frontend/package-lock.json
+networking/multi/frontend/.dockerignore
+networking/multi/frontend/package.json
+networking/multi/frontend/server.js
+networking/multi/backend/Dockerfile
+networking/multi/backend/package-lock.json
+networking/multi/backend/.dockerignore
+networking/multi/backend/package.json
+networking/multi/backend/server.js
+FROM mongo:7.0
+EXPOSE 27017
+FROM node:22-bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev --no-audit --no-fund
+COPY server.js ./
+USER node
+EXPOSE 8080
+CMD ["node","server.js"]
+FROM node:22-bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev --no-audit --no-fund
+COPY server.js ./
+USER node
+EXPOSE 8080
+CMD ["node","server.js"]
+58c7f0811d8c585f29278daeb6ede490f81b5b66d4214f930477fdae1706501a
+304dbb56c39c2e9a7fd94cc90fa3fdc50207d1d96564a0509306e30f55773cbe
+4e3e1b39425c3b20732bc625a6f204d2be3dad3e9ea116974ff6a8764e34fa99
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS                  PORTS                                         NAMES
+4e3e1b39425c   multi-frontend:1.0   "docker-entrypoint.s…"   1 second ago    Up Less than a second   0.0.0.0:80->8080/tcp, [::]:80->8080/tcp       frontend
+304dbb56c39c   multi-backend:1.0    "docker-entrypoint.s…"   1 second ago    Up Less than a second   8080/tcp                                      api
+58c7f0811d8c   lab-mongo:1.0        "docker-entrypoint.s…"   2 seconds ago   Up Less than a second   27017/tcp                                     database
+d53a78fd9eb6   react-single         "docker-entrypoint.s…"   9 minutes ago   Up 9 minutes            0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   react-single
+[
+    {
+        "Name": "backend-network",
+        "Id": "ed143f50235b3290df588246c82c5cccabedb44dae823eeba37e2c758179a8e9",
+        "Created": "2026-09-26T16:47:13.113238676Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {},
+        "Containers": {
+            "304dbb56c39c2e9a7fd94cc90fa3fdc50207d1d96564a0509306e30f55773cbe": {
+                "Name": "api",
+                "EndpointID": "cbc23aef86250ce0db94827092a66db8ce03165806dcb80b2e1f31a66b2243c2",
+                "MacAddress": "0a:83:d5:79:f7:91",
+                "IPv4Address": "172.18.0.3/16",
+                "IPv6Address": ""
+            },
+            "58c7f0811d8c585f29278daeb6ede490f81b5b66d4214f930477fdae1706501a": {
+                "Name": "database",
+                "EndpointID": "b829a07089cd480803e6718e43767d634330198b18d6e00e5fc64ebb5d335ffb",
+                "MacAddress": "de:67:7e:97:aa:ca",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.18.0.0/16": {
+                        "IPsInUse": 5,
+                        "DynamicIPsAvailable": 65531
+                    }
+                }
+            }
+        }
+    },
+    {
+        "Name": "frontend-network",
+        "Id": "0f3868f76be902fe89513a908547881334754ae622135e7c2b9c9831874a2316",
+        "Created": "2026-09-26T16:47:13.189435249Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {},
+        "Containers": {
+            "304dbb56c39c2e9a7fd94cc90fa3fdc50207d1d96564a0509306e30f55773cbe": {
+                "Name": "api",
+                "EndpointID": "1d740858f7e45eaa9b1d3c727ec282b64e82f3a1beeb42f406f9f4beb41326fa",
+                "MacAddress": "d2:9f:46:96:48:78",
+                "IPv4Address": "172.19.0.2/16",
+                "IPv6Address": ""
+            },
+            "4e3e1b39425c3b20732bc625a6f204d2be3dad3e9ea116974ff6a8764e34fa99": {
+                "Name": "frontend",
+                "EndpointID": "6ea00460a2f1ddfc02f6b68e2912fdbb77c3db078c803bb59a64226b237982cf",
+                "MacAddress": "62:cc:6d:6d:93:1e",
+                "IPv4Address": "172.19.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.19.0.0/16": {
+                        "IPsInUse": 5,
+                        "DynamicIPsAvailable": 65531
+                    }
+                }
+            }
+        }
+    }
+]
+[
+  {
+    _id: ObjectId('6ab7f728faf77778c6c5077d'),
+    owner: 'Eze Favour',
+    message: 'Docker networks verified',
+    exercise: 'Week 11'
+  }
+]
+{"owner":"Eze Favour","items":[{"_id":"6ab7f728faf77778c6c5077d","owner":"Eze Favour","message":"Docker networks verified","exercise":"Week 11"}]}<h1>Eze Favour · Three-tier Docker networks</h1><pre>{"owner":"Eze Favour","items":[{"_id":"6ab7f728faf77778c6c5077d","owner":"Eze Favour","message":"Docker networks verified","exercise":"Week 11"}]}</pre>PASS: frontend cannot resolve the database on its network

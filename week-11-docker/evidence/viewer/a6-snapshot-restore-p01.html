@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a6-snapshot-restore</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a6-snapshot-restore.txt · Page 1/2</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:51:35.061978+00:00
+  4  Host: epicbook
+  5  
+  6  $ cd /opt/week11/capstone
+  7  $ printf &#x27;Eze Favour | Independent snapshot restore verification\n&#x27;
+  8  $ diff -u backups/20260926T164837Z-original.tsv backups/20260926T164837Z-restored.tsv
+  9  $ printf &#x27;Original database:\n&#x27;; cat backups/20260926T164837Z-original.tsv
+ 10  $ printf &#x27;Restored database:\n&#x27;; cat backups/20260926T164837Z-restored.tsv
+ 11  $ sha256sum backups/database-20260926T164837Z.tar.gz
+ 12  $ docker stop week11-restore-20260926T164837Z
+ 13  $ docker compose ps
+ 14  $ echo &#x27;PASS: catalogue/cart/order counts and order rows match; original stack healthy; isolated 
+     restore stopped.&#x27;
+ 15  
+ 16  Eze Favour | Independent snapshot restore verification
+ 17  Original database:
+ 18  books   54
+ 19  carts   2
+ 20  orders  2
+ 21  1       3       32.50
+ 22  2       4       32.50
+ 23  Restored database:
+ 24  books   54</pre><small>Original SHA-256: 447646e44870f7bd7b8aebd690515f6a9a56042c1ad628b381eeb681d4b60a02</small></html>

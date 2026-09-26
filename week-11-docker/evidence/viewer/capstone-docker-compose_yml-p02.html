@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>capstone-docker-compose_yml</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>capstone/docker-compose.yml · Page 2/4</b></p><pre> 26        retries: 3
+ 27      depends_on:
+ 28        frontend: {condition: service_healthy}
+ 29        backend: {condition: service_healthy}
+ 30      mem_limit: 128m
+ 31    frontend:
+ 32      &lt;&lt;: *hardening
+ 33      image: epicbook-frontend:1.0.0
+ 34      build: ./frontend
+ 35      networks: [front-tier]
+ 36      depends_on:
+ 37        backend: {condition: service_healthy}
+ 38      mem_limit: 256m
+ 39    backend:
+ 40      &lt;&lt;: *hardening
+ 41      image: epicbook-backend:1.0.0
+ 42      build: ./backend
+ 43      networks: [front-tier, back-tier]
+ 44      environment:
+ 45        ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:?Set the public HTTP/HTTPS origins}
+ 46      secrets: [db_password, session]
+ 47      depends_on:
+ 48        database: {condition: service_healthy}
+ 49      mem_limit: 512m
+ 50    database:</pre><small>Original SHA-256: 944553e4545e92335d525ae9f1b1741dde3c2ca58705883369307cc3b25e0b58</small></html>

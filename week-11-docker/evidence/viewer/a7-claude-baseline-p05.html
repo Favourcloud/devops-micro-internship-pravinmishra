@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-claude-baseline</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-claude-baseline.txt · Page 5/6</b></p><pre> 90  ```
+ 91  
+ 92  The operator should substitute the real digest from that command before rebuilding.
+ 93  
+ 94  ---
+ 95  
+ 96  ### Check 5 — `privileged` · PASS
+ 97  
+ 98  &gt; `Privileged mode is disabled`
+ 99  
+100  The container was not started with `--privileged` or `privileged: true` in Compose. This means the 
+     container does not have access to all host Linux capabilities and cannot directly manipulate host 
+     kernel interfaces. This is the expected secure default.
+101  
+102  ---
+103  
+104  ### Check 6 — `ports` · PASS
+105  
+106  &gt; `1 image port(s), 0 published binding(s)`
+107  
+108  The image declares one exposed port (via `EXPOSE` in the Dockerfile), but **no host port bindings** 
+     are published. The service is reachable only within the Docker network, not from the host or external 
+     network. This is the correct configuration for an internal service; it avoids accidental public 
+     exposure.
+109  </pre><small>Original SHA-256: 43dc54104f04e5dedd4411a6c6d5221156b83ed85a346d786724e149c2f231fb</small></html>

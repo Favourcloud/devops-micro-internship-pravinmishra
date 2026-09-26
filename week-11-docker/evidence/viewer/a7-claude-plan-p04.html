@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-claude-plan</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-claude-plan.txt · Page 4/5</b></p><pre> 62  ### Check 5 — Privileged mode
+ 63  
+ 64  | Field | Observed value |
+ 65  |---|---|
+ 66  | `Privileged` | `false` |
+ 67  
+ 68  **Plan:** `Privileged: false` means the container does **not** have all host capabilities and full 
+     `/dev` access. This check **passes** on the training baseline — privileged mode is off, which is the 
+     correct posture. No remediation needed for this check.
+ 69  
+ 70  **Finding:** Privileged mode is correctly disabled. ✓
+ 71  
+ 72  ---
+ 73  
+ 74  ### Check 6 — Exposed / published ports
+ 75  
+ 76  | Field | Observed value |
+ 77  |---|---|
+ 78  | `Ports` | `{}` (empty object) |
+ 79  
+ 80  **Plan:** An empty `Ports` map means no host ports are published (`-p` / `ports:` in Compose). Two 
+     sub-questions arise: (a) does the image `EXPOSE` a port in the Dockerfile — that is metadata only and 
+     not a security boundary; (b) are there unintended open listeners inside the container reachable on the
+      Docker bridge network without a published port? The audit step will clarify whether the empty publish
+      map is intentional isolation or a misconfiguration that prevents the app from being reached.</pre><small>Original SHA-256: 496ddf40f497d361ab3553266aab8f0ac266d6bc4e8ae581018fb3f7e50cf64d</small></html>

@@ -1,0 +1,65 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:55:36.866893+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone; printf 'ALLOWED_ORIGINS=http://98.86.65.226,https://d209ibroel8p0b.cloudfront.net\n' > .env; docker compose build frontend; docker compose up -d --wait --wait-timeout 120; docker compose exec -T --interactive=false reverse-proxy nginx -t; docker compose exec -T --interactive=false reverse-proxy nginx -s reload; docker compose ps
+
+#1 [internal] load local bake definitions
+#1 reading from stdin 954B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 576B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 108B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 7.60kB 0.0s done
+#5 DONE 0.0s
+
+#6 [dependencies 1/4] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#6 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#6 DONE 0.0s
+
+#7 [dependencies 2/4] WORKDIR /app
+#7 CACHED
+
+#8 [dependencies 3/4] COPY package*.json ./
+#8 CACHED
+
+#9 [dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#9 CACHED
+
+#10 [runtime 3/4] COPY --from=dependencies /app/node_modules ./node_modules
+#10 CACHED
+
+#11 [runtime 4/4] COPY --chown=node:node . .
+#11 DONE 0.1s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 1.5s done
+#12 exporting manifest sha256:05534f5b3dff87d919855645cc8d065eac54eb255338b024b6f018816e3dd4dc
+#12 exporting manifest sha256:05534f5b3dff87d919855645cc8d065eac54eb255338b024b6f018816e3dd4dc 0.0s done
+#12 exporting config sha256:38617ddabdf783ec9fe875e6083326ff6c3bd8861b7665b622ae6d862543874e 0.0s done
+#12 exporting attestation manifest sha256:dd8aabdffc39be1c4f82cc84345b3fa1d20285e01dbe5e248085c78b7498ba3b 0.0s done
+#12 exporting manifest list sha256:28c6c197b71261ce0adff12696f28e1170ed28925819ea3b8d492b2d121d3dc9 0.0s done
+#12 naming to docker.io/library/epicbook-frontend:1.0.0 done
+#12 unpacking to docker.io/library/epicbook-frontend:1.0.0
+#12 unpacking to docker.io/library/epicbook-frontend:1.0.0 0.3s done
+#12 DONE 1.9s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+NAME                              IMAGE                     COMMAND                  SERVICE         CREATED          STATUS                    PORTS
+week11-epicbook-backend-1         epicbook-backend:1.0.0    "docker-entrypoint.s…"   backend         13 seconds ago   Up 12 seconds (healthy)   8080/tcp
+week11-epicbook-database-1        mysql:8.4                 "docker-entrypoint.s…"   database        19 minutes ago   Up 7 minutes (healthy)    3306/tcp, 33060/tcp
+week11-epicbook-frontend-1        epicbook-frontend:1.0.0   "docker-entrypoint.s…"   frontend        13 seconds ago   Up 6 seconds (healthy)    8080/tcp
+week11-epicbook-reverse-proxy-1   nginx:stable-alpine       "/docker-entrypoint.…"   reverse-proxy   18 minutes ago   Up 6 minutes (healthy)    80/tcp, 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp

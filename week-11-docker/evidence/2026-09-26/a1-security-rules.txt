@@ -1,0 +1,92 @@
+Eze Favour | DMI Week 11 | 26 September 2026
+Source: actual AWS Console inbound-rule table after successful operator-IP update
+Operator IP redacted; scope remains /32.
+
+	
+Name
+	
+Security group rule ID
+	
+IP version
+	
+Type
+	
+Protocol
+	
+Port range
+	
+Source
+	
+Description
+
+
+	
+–
+	
+sgr-039b60e7b04b259da
+	
+IPv4
+	
+Custom TCP
+	
+TCP
+	
+3000
+	
+operator /32 [redacted]
+	
+Operator-only single-stage React comparison
+
+
+	
+–
+	
+sgr-032f0ccb3ca6a3fc0
+	
+IPv4
+	
+HTTP
+	
+TCP
+	
+80
+	
+0.0.0.0/0
+	
+Public web
+
+
+	
+–
+	
+sgr-0533a98e6a7b41e06
+	
+IPv4
+	
+HTTPS
+	
+TCP
+	
+443
+	
+0.0.0.0/0
+	
+Public web
+
+
+	
+–
+	
+sgr-06ca6c9ccd4236945
+	
+IPv4
+	
+SSH
+	
+TCP
+	
+22
+	
+operator /32 [redacted]
+	
+Operator SSH only

@@ -1,0 +1,25 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T22:15:01.779691+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone
+$ docker compose config --quiet
+$ docker compose ps
+$ docker compose exec -T --interactive=false backend id
+$ docker compose exec -T --interactive=false frontend node -e 'require("dns").lookup("database",(e,a)=>{if(!e){console.log("FAIL",a);process.exit(1)}console.log("PASS: frontend cannot resolve database")})'
+$ docker network inspect week11-epicbook_back-tier --format 'Internal={{.Internal}} Containers={{range .Containers}}{{.Name}} {{end}}'
+$ docker inspect week11-epicbook-database-1 --format 'Database host bindings={{json .HostConfig.PortBindings}}'
+$ df -h /
+
+NAME                              IMAGE                                                                           COMMAND                  SERVICE         CREATED       STATUS                 PORTS
+week11-epicbook-backend-1         epicbook-backend:1.0.0                                                          "docker-entrypoint.s…"   backend         5 hours ago   Up 5 hours (healthy)   8080/tcp
+week11-epicbook-database-1        mysql@sha256:0744ee5ef89ce6ccfa13de3e579fe6b9e27f93dd70da9c06d2c908b1b193fb8d   "docker-entrypoint.s…"   database        5 hours ago   Up 5 hours (healthy)   3306/tcp, 33060/tcp
+week11-epicbook-frontend-1        epicbook-frontend:1.0.0                                                         "docker-entrypoint.s…"   frontend        5 hours ago   Up 5 hours (healthy)   8080/tcp
+week11-epicbook-reverse-proxy-1   nginx@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b   "/docker-entrypoint.…"   reverse-proxy   5 hours ago   Up 5 hours (healthy)   80/tcp, 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp
+uid=1000(node) gid=1000(node) groups=1000(node)
+PASS: frontend cannot resolve database
+Internal=true Containers=week11-epicbook-database-1 epicbook-audit week11-epicbook-backend-1 
+Database host bindings={}
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        38G  5.2G   33G  14% /

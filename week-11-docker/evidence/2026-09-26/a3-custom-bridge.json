@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:40:13.550356+00:00",
+  "finished": "2026-09-26T16:40:43.019149+00:00",
+  "host": "labs",
+  "command": "#!/usr/bin/env bash\nset -euo pipefail\ncd /opt/week11\ndocker stop myweb\ndocker rm myweb\ndocker network create mynetwork\ncat networking/custom/frontend/Dockerfile\ndocker build --progress=plain -t custom-frontend:1.0 networking/custom/frontend\ndocker run -d --name frontend --network mynetwork -p 80:8080 custom-frontend:1.0\ndocker run -d --name backend --network mynetwork nginx\ndocker ps\ndocker network inspect mynetwork\nfor i in $(seq 1 20); do curl -fsS http://127.0.0.1/ && break || sleep 1; done\ndocker exec frontend curl -fsS http://backend\n",
+  "exit_code": 0,
+  "stdout_sha256": "599a85228046f88e476fad1adbc18b1f8ce16b966bf8f4a12af12fe24c58e082"
+}

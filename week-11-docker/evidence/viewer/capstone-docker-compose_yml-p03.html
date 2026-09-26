@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>capstone-docker-compose_yml</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>capstone/docker-compose.yml · Page 3/4</b></p><pre> 51      image: mysql@sha256:0744ee5ef89ce6ccfa13de3e579fe6b9e27f93dd70da9c06d2c908b1b193fb8d
+ 52      restart: unless-stopped
+ 53      security_opt: [no-new-privileges:true]
+ 54      networks: [back-tier]
+ 55      environment:
+ 56        MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root
+ 57        MYSQL_DATABASE: bookstore
+ 58        MYSQL_USER: epicapp
+ 59        MYSQL_PASSWORD_FILE: /run/secrets/db_password
+ 60      secrets: [db_root, db_password]
+ 61      volumes:
+ 62        - database-data:/var/lib/mysql
+ 63        - ./database/init:/docker-entrypoint-initdb.d:ro
+ 64      healthcheck:
+ 65        test: [CMD-SHELL, &#x27;MYSQL_PWD=$$(cat /run/secrets/db_password) mysql -h 127.0.0.1 -u epicapp 
+     bookstore -e &quot;SELECT 1&quot; &gt;/dev/null 2&gt;&amp;1&#x27;]
+ 66        interval: 10s
+ 67        timeout: 5s
+ 68        retries: 12
+ 69        start_period: 60s
+ 70      mem_limit: 1200m
+ 71      pids_limit: 200
+ 72      logging:
+ 73        driver: json-file
+ 74        options: {max-size: 10m, max-file: &#x27;3&#x27;}</pre><small>Original SHA-256: 944553e4545e92335d525ae9f1b1741dde3c2ca58705883369307cc3b25e0b58</small></html>

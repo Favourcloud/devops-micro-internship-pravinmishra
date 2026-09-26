@@ -1,0 +1,19 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-baseline-deploy</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-baseline-deploy.txt · Page 1/1</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:43:15.934550+00:00
+  4  Host: epicbook
+  5  
+  6  $ cd /opt/week11/capstone
+  7  $ chmod +x /opt/week11/audit/docker-audit.sh
+  8  $ docker build --progress=plain -f backend/Dockerfile.audit-baseline -t epicbook-audit:latest backend
+  9  $ docker run -d --name epicbook-audit --network week11-epicbook_back-tier --read-only --tmpfs /tmp 
+     --cap-drop ALL --security-opt no-new-privileges -v 
+     /opt/week11/capstone/secrets/db_password:/run/secrets/db_password:ro -v 
+     /opt/week11/capstone/secrets/session:/run/secrets/session:ro epicbook-audit:latest
+ 10  $ docker ps --filter name=epicbook-audit
+ 11  
+ 12  f34d84e7248b4fb9328625b0866ad6d40737f1ce8586e1fe70bb6c24cddfe618
+ 13  CONTAINER ID   IMAGE                   COMMAND                  CREATED                  STATUS
+                       PORTS      NAMES
+ 14  f34d84e7248b   epicbook-audit:latest   &quot;docker-entrypoint.s…&quot;   Less than a second ago   Up Less than 
+     a second   8080/tcp   epicbook-audit</pre><small>Original SHA-256: 5792f8ec82b1b8322df2e63162d9cc63f09f00a6d3c88dbe73ab00346c06f33d</small></html>

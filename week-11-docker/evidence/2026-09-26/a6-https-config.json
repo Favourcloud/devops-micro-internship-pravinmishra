@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:55:36.866893+00:00",
+  "finished": "2026-09-26T16:55:57.227847+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone; printf 'ALLOWED_ORIGINS=http://98.86.65.226,https://d209ibroel8p0b.cloudfront.net\\n' > .env; docker compose build frontend; docker compose up -d --wait --wait-timeout 120; docker compose exec -T --interactive=false reverse-proxy nginx -t; docker compose exec -T --interactive=false reverse-proxy nginx -s reload; docker compose ps",
+  "exit_code": 0,
+  "stdout_sha256": "e98d612f654a2299d8ad9418c71b98bb6e8d70a0b6e434d874f6e2adecf9a534"
+}

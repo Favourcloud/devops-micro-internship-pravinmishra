@@ -1,0 +1,14 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-operator-remediation</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-operator-remediation.txt · Page 2/2</b></p><pre>     runtime
+ 22  ENV NODE_ENV=production
+ 23  WORKDIR /app
+ 24  COPY --from=dependencies /app/node_modules ./node_modules
+ 25  COPY --chown=node:node . .
+ 26  USER node
+ 27  EXPOSE 8080
+ 28  HEALTHCHECK --interval=10s --timeout=4s --start-period=30s --retries=3 CMD node -e 
+     &quot;fetch(&#x27;http://127.0.0.1:8080/health&#x27;).then(r=&gt;process.exit(r.ok?0:1)).catch(()=&gt;process.exit(1))&quot;
+ 29  CMD [&quot;node&quot;,&quot;server.js&quot;]
+ 30  CONTAINER ID   IMAGE                  COMMAND                  CREATED                  STATUS
+                                          PORTS      NAMES
+ 31  d0b6d84a6a0f   epicbook-audit:1.0.0   &quot;docker-entrypoint.s…&quot;   Less than a second ago   Up Less than a
+      second (health: starting)   8080/tcp   epicbook-audit</pre><small>Original SHA-256: c466d2a6a6adc24466744c0a0ab6e5fd137e5c22ee0f02dccf46eb943475f7e3</small></html>

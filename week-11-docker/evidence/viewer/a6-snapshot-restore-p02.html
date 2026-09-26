@@ -1,0 +1,19 @@
+<!doctype html><html><meta charset="utf-8"><title>a6-snapshot-restore</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a6-snapshot-restore.txt · Page 2/2</b></p><pre> 25  carts   2
+ 26  orders  2
+ 27  1       3       32.50
+ 28  2       4       32.50
+ 29  3890eb9f2b9b3e0a8b09dc8a051fe1b08eb2717af6aed70b7c0561ca8a101cee  
+     backups/database-20260926T164837Z.tar.gz
+ 30  week11-restore-20260926T164837Z
+ 31  NAME                              IMAGE                     COMMAND                  SERVICE         
+     CREATED          STATUS                   PORTS
+ 32  week11-epicbook-backend-1         epicbook-backend:1.0.0    &quot;docker-entrypoint.s…&quot;   backend         
+     13 minutes ago   Up 2 minutes (healthy)   8080/tcp
+ 33  week11-epicbook-database-1        mysql:8.4                 &quot;docker-entrypoint.s…&quot;   database        
+     14 minutes ago   Up 2 minutes (healthy)   3306/tcp, 33060/tcp
+ 34  week11-epicbook-frontend-1        epicbook-frontend:1.0.0   &quot;docker-entrypoint.s…&quot;   frontend        8
+      minutes ago    Up 2 minutes (healthy)   8080/tcp
+ 35  week11-epicbook-reverse-proxy-1   nginx:stable-alpine       &quot;/docker-entrypoint.…&quot;   reverse-proxy   
+     13 minutes ago   Up 2 minutes (healthy)   80/tcp, 0.0.0.0:80-&gt;8080/tcp, [::]:80-&gt;8080/tcp
+ 36  PASS: catalogue/cart/order counts and order rows match; original stack healthy; isolated restore 
+     stopped.</pre><small>Original SHA-256: 447646e44870f7bd7b8aebd690515f6a9a56042c1ad628b381eeb681d4b60a02</small></html>

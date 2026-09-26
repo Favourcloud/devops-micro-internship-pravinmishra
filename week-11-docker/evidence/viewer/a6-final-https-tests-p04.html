@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a6-final-https-tests</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a6-final-https-tests.json · Page 4/5</b></p><pre> 76        &quot;detail&quot;: 403
+ 77      },
+ 78      {
+ 79        &quot;check&quot;: &quot;sensitive path /secrets/session&quot;,
+ 80        &quot;pass&quot;: true,
+ 81        &quot;detail&quot;: 404
+ 82      },
+ 83      {
+ 84        &quot;check&quot;: &quot;sensitive path /backend/server.js&quot;,
+ 85        &quot;pass&quot;: true,
+ 86        &quot;detail&quot;: 404
+ 87      },
+ 88      {
+ 89        &quot;check&quot;: &quot;security headers&quot;,
+ 90        &quot;pass&quot;: true,
+ 91        &quot;detail&quot;: {
+ 92          &quot;nosniff&quot;: &quot;nosniff&quot;,
+ 93          &quot;frame&quot;: &quot;DENY&quot;
+ 94        }
+ 95      },
+ 96      {
+ 97        &quot;check&quot;: &quot;SQL matches HTTP order&quot;,
+ 98        &quot;pass&quot;: true,
+ 99        &quot;detail&quot;: &quot;id\tCartId\tsubTotal\n3\t5\t32.50\nCOUNT(*)\n1\nCOUNT(*)\n54&quot;
+100      }</pre><small>Original SHA-256: b6db8d8d63ef96d782cb895ad26b30add212070d0ef5c416e502e97eed826d08</small></html>

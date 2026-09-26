@@ -1,0 +1,16 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:44:08.561330+00:00
+Host: labs
+
+$ cd /opt/week11
+$ mkdir -p upstream
+$ git clone --quiet https://github.com/pravinmishraaws/Azure-Static-Website.git upstream/static
+$ git -C upstream/static checkout --quiet --detach 258b8a380d45b030f29a1ace237b3f4d120820fd
+$ git clone --quiet https://github.com/pravinmishraaws/my-react-app.git upstream/react
+$ git -C upstream/react checkout --quiet --detach f1b1aff14fe15c5bde092067c93a307fa3d97982
+$ git -C upstream/static rev-parse HEAD
+$ git -C upstream/react rev-parse HEAD
+
+258b8a380d45b030f29a1ace237b3f4d120820fd
+f1b1aff14fe15c5bde092067c93a307fa3d97982

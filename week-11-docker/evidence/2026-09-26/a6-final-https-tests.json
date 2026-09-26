@@ -1,0 +1,102 @@
+{
+  "at": "2026-09-26T17:02:32.713943+00:00",
+  "base": "https://d209ibroel8p0b.cloudfront.net",
+  "checks": [
+    {
+      "check": "homepage",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "check": "database-backed catalog",
+      "pass": true,
+      "detail": 9
+    },
+    {
+      "check": "cart write",
+      "pass": true,
+      "detail": {
+        "status": 201,
+        "cart_id": 5
+      }
+    },
+    {
+      "check": "Secure HttpOnly cookie",
+      "pass": true,
+      "detail": "Cookie flags checked without exposing the cookie"
+    },
+    {
+      "check": "SSR cart fetch",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "check": "session isolation",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "check": "checkout",
+      "pass": true,
+      "detail": {
+        "demo": true,
+        "paymentTaken": false,
+        "orders": [
+          {
+            "id": 3,
+            "cartId": 5,
+            "subTotal": "32.50"
+          }
+        ]
+      }
+    },
+    {
+      "check": "empty replay refused",
+      "pass": true,
+      "detail": 400
+    },
+    {
+      "check": "CORS allowlist",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "check": "missing book",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "check": "invalid identifier",
+      "pass": true,
+      "detail": 400
+    },
+    {
+      "check": "sensitive path /.env",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "check": "sensitive path /secrets/session",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "check": "sensitive path /backend/server.js",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "check": "security headers",
+      "pass": true,
+      "detail": {
+        "nosniff": "nosniff",
+        "frame": "DENY"
+      }
+    },
+    {
+      "check": "SQL matches HTTP order",
+      "pass": true,
+      "detail": "id\tCartId\tsubTotal\n3\t5\t32.50\nCOUNT(*)\n1\nCOUNT(*)\n54"
+    }
+  ]
+}

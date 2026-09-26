@@ -1,0 +1,12 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:37:41.757387+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone; docker compose config --quiet; docker compose up -d --wait --wait-timeout 240; docker compose ps
+
+NAME                              IMAGE                     COMMAND                  SERVICE         CREATED              STATUS                    PORTS
+week11-epicbook-backend-1         epicbook-backend:1.0.0    "docker-entrypoint.s…"   backend         38 seconds ago       Up 22 seconds (healthy)   8080/tcp
+week11-epicbook-database-1        mysql:8.4                 "docker-entrypoint.s…"   database        About a minute ago   Up 37 seconds (healthy)   3306/tcp, 33060/tcp
+week11-epicbook-frontend-1        epicbook-frontend:1.0.0   "docker-entrypoint.s…"   frontend        38 seconds ago       Up 16 seconds (healthy)   8080/tcp
+week11-epicbook-reverse-proxy-1   nginx:stable-alpine       "/docker-entrypoint.…"   reverse-proxy   38 seconds ago       Up 10 seconds (healthy)   80/tcp, 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp

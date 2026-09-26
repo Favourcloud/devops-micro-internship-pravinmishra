@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:51:35.061978+00:00",
+  "finished": "2026-09-26T16:51:40.657507+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone\nprintf 'Eze Favour | Independent snapshot restore verification\\n'\ndiff -u backups/20260926T164837Z-original.tsv backups/20260926T164837Z-restored.tsv\nprintf 'Original database:\\n'; cat backups/20260926T164837Z-original.tsv\nprintf 'Restored database:\\n'; cat backups/20260926T164837Z-restored.tsv\nsha256sum backups/database-20260926T164837Z.tar.gz\ndocker stop week11-restore-20260926T164837Z\ndocker compose ps\necho 'PASS: catalogue/cart/order counts and order rows match; original stack healthy; isolated restore stopped.'\n",
+  "exit_code": 0,
+  "stdout_sha256": "88f943d16a17cbabee9fa50fddcabc09e719c99a17a810f83140bb2ed4d9c5fe"
+}

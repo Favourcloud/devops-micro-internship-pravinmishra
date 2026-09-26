@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a3-host-network</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a3-host-network.txt · Page 1/3</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:42:30.732383+00:00
+  4  Host: labs
+  5  
+  6  $ #!/usr/bin/env bash
+  7  $ set -euo pipefail
+  8  $ docker stop frontend backend
+  9  $ docker rm frontend backend
+ 10  $ docker network rm mynetwork
+ 11  $ docker run -d --network host --name fastapp nginx
+ 12  $ docker ps
+ 13  $ curl -fsS http://127.0.0.1/
+ 14  $ docker inspect fastapp --format &#x27;{{.HostConfig.NetworkMode}}&#x27;
+ 15  $ docker stop fastapp
+ 16  $ docker rm fastapp
+ 17  
+ 18  frontend
+ 19  backend
+ 20  frontend
+ 21  backend
+ 22  mynetwork
+ 23  c714a0a8c0ad6a602baf82080a6036c21bf5e2f4931e4738641bfb69703f923b
+ 24  CONTAINER ID   IMAGE          COMMAND                  CREATED                  STATUS
+                       PORTS                                         NAMES</pre><small>Original SHA-256: 47555b44b03f503a9fb1e542809098b956f4bc518652b9a597a277b5a30c7f75</small></html>

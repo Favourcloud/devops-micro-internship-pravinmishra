@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:46:15.035328+00:00",
+  "finished": "2026-09-26T16:46:21.725573+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone; docker compose exec -T database sh -c 'MYSQL_PWD=$(cat /run/secrets/db_password) mysql -u epicapp bookstore --batch -e \"SELECT id,CartId,subTotal FROM Checkout WHERE id=2;\"'",
+  "exit_code": 0,
+  "stdout_sha256": "2a0343bd531d72600c3daa9b2322954055aa0b6076c8abbed3006ebe32e00ede"
+}

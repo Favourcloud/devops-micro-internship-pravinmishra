@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:44:08.561330+00:00",
+  "finished": "2026-09-26T16:44:13.940566+00:00",
+  "host": "labs",
+  "command": "cd /opt/week11\nmkdir -p upstream\ngit clone --quiet https://github.com/pravinmishraaws/Azure-Static-Website.git upstream/static\ngit -C upstream/static checkout --quiet --detach 258b8a380d45b030f29a1ace237b3f4d120820fd\ngit clone --quiet https://github.com/pravinmishraaws/my-react-app.git upstream/react\ngit -C upstream/react checkout --quiet --detach f1b1aff14fe15c5bde092067c93a307fa3d97982\ngit -C upstream/static rev-parse HEAD\ngit -C upstream/react rev-parse HEAD\n",
+  "exit_code": 0,
+  "stdout_sha256": "ecd8783572a00e6891b241012ef8d2771ab5f6c3f23850088db0c02a21bdc3a8"
+}
