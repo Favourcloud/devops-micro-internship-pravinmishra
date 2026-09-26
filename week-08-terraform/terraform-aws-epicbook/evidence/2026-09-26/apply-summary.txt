@@ -1,0 +1,5 @@
+Eze Favour — AWS A4 verification, 26 September 2026
+Initial apply created 22 resources before RDS rejected an overlength master password.
+The reviewed retry added the remaining 6; no replacements or unrelated resources were changed.
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+Total stack: 28 managed resources. Existing AWS key reused, not created or deleted by this stack.

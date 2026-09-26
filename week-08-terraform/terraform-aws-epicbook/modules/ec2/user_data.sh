@@ -35,6 +35,21 @@ git remote add origin https://github.com/pravinmishraaws/theepicbook.git
 timeout 180 git fetch -q --depth=1 origin 763becebb8d3f5663a76bb30facddc25be63cfd5
 git checkout -q --detach FETCH_HEAD
 test "$(git rev-parse HEAD)" = 763becebb8d3f5663a76bb30facddc25be63cfd5
+# Disclosed source patch adds isolated, transactional, replay-safe demo checkout.
+base64 --decode > "$work/demo-checkout.patch" <<'EPICBOOK_PATCH'
+${checkout_patch}
+EPICBOOK_PATCH
+git apply --check "$work/demo-checkout.patch"
+git apply "$work/demo-checkout.patch"
+install -d -m 0700 /var/lib/epicbook-secrets
+python3 - <<'EPICBOOK_SESSION'
+from pathlib import Path
+import secrets
+p = Path('/var/lib/epicbook-secrets/session.env')
+if not p.exists():
+    p.write_text('EPICBOOK_SESSION_SECRET=' + secrets.token_hex(32) + '\n')
+p.chmod(0o600)
+EPICBOOK_SESSION
 chown -R epicbook:epicbook /opt/epicbook
 timeout 600 runuser -u epicbook -- env HOME=/var/lib/epicbook /usr/local/bin/npm ci --omit=dev --ignore-scripts --no-audit --no-fund
 chown -R root:root /opt/epicbook
@@ -77,6 +92,7 @@ User=epicbook
 Group=epicbook
 WorkingDirectory=/opt/epicbook
 Environment=NODE_ENV=production PORT=8080
+EnvironmentFile=/var/lib/epicbook-secrets/session.env
 ExecStart=/usr/local/bin/node server.js
 Restart=on-failure
 RestartSec=10

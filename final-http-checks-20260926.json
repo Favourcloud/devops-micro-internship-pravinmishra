@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-09-26T09:57:57.468879+00:00",
+  "scope": "Public GET checks after removing the temporary Week08 A4 stack. This confirms homepage availability, not a repeat of all functional tests.",
+  "checks": [
+    {
+      "demo": "Week08 Book Review",
+      "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/",
+      "status": 200,
+      "response_bytes": 6210,
+      "body_sha256": "9c770e36277538d2c1ba65891e99902120f17f9a3ceace010bdc1da111b44c6d"
+    },
+    {
+      "demo": "Week09 MiniFinance",
+      "url": "http://135.116.197.163/",
+      "status": 200,
+      "response_bytes": 32108,
+      "body_sha256": "5238efc7eab2fa89ee6fad92a4d6999262260deb1d45038a7ce3fc3a24fc4338"
+    },
+    {
+      "demo": "Week09 EpicBook",
+      "url": "http://20.77.180.238/",
+      "status": 200,
+      "response_bytes": 25047,
+      "body_sha256": "aeac136dff3dc65f4cfa1f0c7ae3055768043aa2a1d8d17b32e486d0af69ae51"
+    },
+    {
+      "demo": "Week10 AWS static",
+      "url": "http://100.54.219.171/",
+      "status": 200,
+      "response_bytes": 15973,
+      "body_sha256": "f3eb857ae4f6a3778f3e7f135d10baaf64f752076655f92c17354403c2a6682f"
+    },
+    {
+      "demo": "Week10 React",
+      "url": "http://20.108.9.183/",
+      "status": 200,
+      "response_bytes": 644,
+      "body_sha256": "c30397890cd5ebfa50232ed3d4971721c6eda822927262b8556be456a3996e2f"
+    },
+    {
+      "demo": "Week10 EpicBook",
+      "url": "http://51.107.188.80/",
+      "status": 200,
+      "response_bytes": 25047,
+      "body_sha256": "f5a08fe1150b0d93339815b760c52519556210642eea8cef4003109b59ee2e7f"
+    }
+  ]
+}

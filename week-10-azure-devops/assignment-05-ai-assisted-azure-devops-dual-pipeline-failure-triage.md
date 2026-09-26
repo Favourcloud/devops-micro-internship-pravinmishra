@@ -1,5 +1,7 @@
 # Assignment 5 — AI-Assisted Azure DevOps Dual-Pipeline Failure Triage
 
+**26 September 2026 update:** the AWS session was restored and the fresh `/pipeline-triage` Claude/Bedrock workflow completed: baseline HEALTHY → application run20 INCIDENT → operator correction → run21 HEALTHY. [Fresh responses, reports and captures](evidence/2026-09-26/README.md). September 25 images below remain historical supporting evidence. Learner-personal actions and supplied-kit provenance remain open.
+
 **Current continuation, 25 September2026 — Eze Favour.** [Verified results, live URLs and limitations](evidence/2026-09-25/README.md) supersede historical pending-runtime statements below. Original requirements and earlier evidence remain preserved. Execution and notes are AI-assisted under delegation, not claims of learner-personal manual work. [Numbered evidence map](evidence/2026-09-25/screenshot-map.md).
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
@@ -217,7 +219,7 @@ Broad Bash access would allow writes or secret exposure beyond evidence gatherin
 
 ### 3. What work is performed by Bash, and what work is performed by Claude?
 
-Bash/Python gather and classify actual pipeline evidence. Claude is intended to explain the evidence through the skill. The Week10 Claude call did not run because AWS authentication expired, so no deterministic output is presented as Claude output.
+Bash/Python gather and classify actual pipeline evidence. The 26 September `/pipeline-triage` Claude/Bedrock sessions analyzed fresh baseline, failure and recovery reports. Each response is saved separately from the deterministic report; its evidence timestamp is newer than the session start.
 
 ### 4. Why are permission rules required in addition to written safety instructions?
 
@@ -291,11 +293,11 @@ Application run18 completed/failed. Its timeline identifies Controlled failure b
 
 ### 3. Did Claude apply the fix or rerun the pipeline? Why is that important?
 
-No. Claude was not invoked for Week10 after AWS session expiry. The read-only tool also never edited or reran anything; Codex performed the separately authorized correction.
+No. In the 26 September drill, Claude diagnosed application run20 and recommended removing the injected failing step. Codex saved that report, reviewed and removed exactly the step, then queued run21. Claude verified the fresh recovery without making changes.
 
 ### 4. Which part represents Gather, and which part represents Analyze?
 
-Gather retrieves selected run/timeline/log evidence. Analyze classifies and explains that evidence. This run used deterministic classification and Codex explanation, not a completed Claude invocation.
+Gather retrieves selected run/timeline/log evidence. The deterministic classifier produces the report, and the actual 26 September Claude/Bedrock calls explain that fresh evidence and recommend operator actions. The earlier September 25 drill used deterministic classification and Codex explanation only.
 
 ---
 
@@ -413,7 +415,7 @@ Confirm that the following files are available in your repository:
 * [x] The failure occurred before deployment changes were applied.
 * [x] The deliberate failure was not merged into `main`.
 * [x] The failed-state report was saved before applying the fix.
-* [ ] Claude diagnosed the failure but did not apply the fix.
+* [x] Claude diagnosed the failure but did not apply the fix. (Verified in the 26 September run20/run21 drill.)
 * [ ] The fix was reviewed and applied manually.
 * [x] The corrected Application Pipeline completed successfully.
 * [x] The recovery triage reported `HEALTHY` with exit code `0`.

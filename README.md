@@ -219,4 +219,4 @@ If you found this repo useful or want to follow my DevOps journey:
 
 ### Weeks08–10 continuation
 
-[25September delivery status and unresolved requirements](COMPLETION-STATUS-20260925.md) · [final public HTTP checks](final-http-checks-20260925.json). All six retained demonstration URLs returned HTTP200. The learner’s explicit keep-online instruction remains in force for the Week08 capstone.
+[26 September verified delivery and remaining assessment requirements](COMPLETION-STATUS-20260926.md) · [current public HTTP checks](final-http-checks-20260926.json). Real AWS checkout persistence and fresh Claude/Bedrock triage are now verified. The temporary 28-resource AWS lab was removed; all six retained demonstration URLs returned HTTP 200. The learner’s explicit keep-online instruction remains in force for the Week08 capstone.

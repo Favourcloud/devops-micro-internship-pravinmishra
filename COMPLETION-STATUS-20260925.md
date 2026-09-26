@@ -1,5 +1,7 @@
 # Weeks08–10 delivery status — 25 September 2026
 
+**Historical record.** The AWS checkout and fresh Claude/Bedrock blockers below were resolved on 26 September. Read the [current verified delivery status](COMPLETION-STATUS-20260926.md).
+
 Learner: Eze Favour. Execution and writing: Codex-assisted under the learner’s explicit delegation. This record reports verified work, not a perfect-grade claim.
 
 | Week | Verified delivery | Current evidence |

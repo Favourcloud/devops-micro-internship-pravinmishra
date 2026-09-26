@@ -1,3 +1,5 @@
+> **26 September update:** the AWS authentication blocker is resolved. A fresh Claude/Bedrock baseline → incident20 → recovery21 sequence is documented [here](../evidence/2026-09-26/README.md). The account below preserves the earlier deterministic drill as history.
+
 # Controlled pipeline failure and recovery
 
 Full Name: Eze Favour. Operator: Codex. Date: 25 September 2026.

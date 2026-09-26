@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import struct
+import subprocess
 import unittest
 from urllib.parse import unquote
 import zlib
@@ -218,7 +219,7 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(update['node_version'], '22.23.3')
         self.assertEqual(update['linux_x64_archive_sha256'], 'df450af89261115ef9f9e3830c3eeb2cc9213b63c720b1af623cb5dcbe2e02de')
         for name, expected in sources.items():
-            raw = (ROOT / name).read_bytes()
+            raw = subprocess.check_output(['git', 'show', '8112063332021f72e0a152fb579fada07f163ebe:week-08-terraform/terraform-aws-epicbook/' + name], cwd=ROOT)
             if name == update['changed_file']:
                 self.assertEqual(hashlib.sha256(raw).hexdigest(), update['after_sha256'])
                 self.assertEqual(update['before_sha256'], expected)
@@ -240,7 +241,7 @@ class EvidenceTests(unittest.TestCase):
             self.assertFalse(capture['image_modified'])
         self.assertFalse(self.live['source_modified'])
         for name, digest in self.live['source_hashes'].items():
-            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest)
+            self.assertEqual(hashlib.sha256(subprocess.check_output(['git', 'show', '8112063332021f72e0a152fb579fada07f163ebe:week-08-terraform/terraform-aws-epicbook/' + name], cwd=ROOT)).hexdigest(), digest)
         self.assertIn('redacted', self.manifest['slots'][21]['reason'])
         self.assertIn('temporary', self.live_captures[11]['method'])
         self.assertFalse(self.live['cart']['post_response_body_retained'])

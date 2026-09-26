@@ -1,0 +1,6 @@
+{
+  "upstream": "763becebb8d3f5663a76bb30facddc25be63cfd5",
+  "patch_sha256": "7f9402f05cf423cd25c077b1b6d8f054e580393d969bff8b23c31519e772548d",
+  "applies_to_original_source": true,
+  "signed_cart_tests_passed": 6
+}

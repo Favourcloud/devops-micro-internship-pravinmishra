@@ -1,4 +1,4 @@
-import json,subprocess,sys,unittest,tempfile,shutil
+import json,subprocess,sys,unittest,tempfile,shutil,os
 from pathlib import Path
 from classify import classify
 ROOT=Path(__file__).resolve().parent
@@ -17,11 +17,29 @@ class Guard(unittest.TestCase):
   return json.loads(r.stdout)['hookSpecificOutput']['permissionDecision']
  def test_exact_wrapper_only(self):
   self.assertEqual(self.decision('Bash',{'command':'./run-triage.sh'}),'allow')
-  for cmd in ['./run-triage.sh; env','cat ~/.aws/config','az pipelines run --id 5','./run-triage.sh && git push']:
+  for cmd in ['./run-triage.sh 2>&1','./run-triage.sh; env','cat ~/.aws/config','az pipelines run --id 5','./run-triage.sh && git push']:
    self.assertEqual(self.decision('Bash',{'command':cmd}),'deny')
  def test_private_and_edit_denied(self):
   self.assertEqual(self.decision('Read',{'file_path':str(ROOT/'.private/config.json')}),'deny')
   self.assertEqual(self.decision('Write',{'file_path':str(ROOT/'README.md')}),'deny')
+class FreshnessGuard(unittest.TestCase):
+ def test_stale_missing_and_pending_reports_are_denied(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp);shutil.copy2(ROOT/'guard.py',root/'guard.py');(root/'reports').mkdir()
+   report=root/'reports/pipeline-health-report.txt'
+   for generated,started,status,want in [
+    ('2026-09-25T10:00:00+00:00','2026-09-26T10:00:00+00:00','HEALTHY','deny'),
+    ('2026-09-26T10:00:01+00:00',None,'HEALTHY','deny'),
+    ('2026-09-26T10:00:01+00:00','2026-09-26T10:00:00+00:00','RUNNING','deny'),
+    ('2026-09-26T10:00:01+00:00','2026-09-26T10:00:00+00:00','INCIDENT','allow')]:
+    with self.subTest(generated=generated,started=started,status=status):
+     report.write_text('Overall Status: '+status)
+     (root/'reports/evidence.json').write_text(json.dumps({'generated_at':generated}))
+     env=dict(os.environ);env.pop('DMI_TRIAGE_NOT_BEFORE',None)
+     if started:env['DMI_TRIAGE_NOT_BEFORE']=started
+     event={'tool_name':'Read','tool_input':{'file_path':str(report)},'cwd':str(root)}
+     p=subprocess.run([sys.executable,str(root/'guard.py')],input=json.dumps(event),text=True,capture_output=True,env=env,check=True)
+     self.assertEqual(json.loads(p.stdout)['hookSpecificOutput']['permissionDecision'],want)
 class ShellIntegration(unittest.TestCase):
  def test_healthy_empty_categories_and_unknown_failure(self):
   for result,expected in [('succeeded',0),('failed',1)]:

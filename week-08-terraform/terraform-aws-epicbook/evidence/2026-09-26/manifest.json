@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-09-26T09:56:18.050571+00:00",
+  "scope": "Genuine browser page captures and labeled recorded-output views; source/log/JSON bytes retained.",
+  "sha256": {
+    "services.txt": "2bc4ecae14b10b0e90e759b9938a40b7574b0e19641c2858aae459b03b9bdc2b",
+    "aws-home.png": "f23e8a669145392686e2f6b65671f154d1dda5fcce06c6a512b671205a3fc75d",
+    "runtime.json": "116e37768e6315e50ed7f3f252b0d854bca2379a3d3247b8f78fbcefd58a3b54",
+    "aws-rds-proof-view.png": "eef05a9e8363063ada7a1215ab35df9d882ab2db851604c0bc26c3e908c739f5",
+    "deployed-source.json": "de68fd5bd2af956889d99630aae3f6f7ef0483fdc5a3d2742f501a778c4ba2da",
+    "control-plane.json": "54ca4a549b8042ce743348951009ce841a0440f182299586b946906a1cb8ef64",
+    "patch-validation.json": "c5acb15e3df20df0d17b3794d2c4bc3d03f40d664fc89cbf510ee14634f3064d",
+    "browser-order-rds.json": "c784d2adc9dd2fa0726e3fe8f16191b76e599930355c8df90dee1b0a3a297c57",
+    "README.md": "c3b31b6c00c6d5bbce8205f1fbd8d2980f160ac7e26935121b78aab03b10c4dd",
+    "cleanup.json": "1abe11fd651999cba1229c5eb1a85a9cb9e1359560ccf8c29d1787b4928ec416",
+    "aws-order2.png": "62e4af0b5019a2e68076fbb50ca7965089d4301deb8ceaab51057442a104f56d",
+    "offline-tests.txt": "c91dcbd764e741ec6e6026916889ddd504716200e2dc79a279d9dabb34c82be8",
+    "checkout-e2e.json": "b79f20dc7035c3b18520f6c86c7efe22f18cfb374f63c192dbe47db3146e454f",
+    "apply-summary.txt": "7e37eb7a7d4211069f33624eae52e0d787ebd124aca1293c78d599ebe07c46aa",
+    "signed-cart-tests.txt": "30d515f46aa0de7ee7707bac7c734a3612decee51d88de1aa120f6f4d23a06e3"
+  }
+}
