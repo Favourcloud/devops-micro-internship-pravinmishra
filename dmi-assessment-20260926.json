@@ -1,0 +1,28 @@
+{
+  "observed_at": "2026-09-26T10:04:50.353Z",
+  "source": "https://dmi.pravinmishra.com/s/Favourcloud.html",
+  "dashboard_last_checked": "2026-09-25",
+  "total_weeks_complete": 9,
+  "total_weeks": 14,
+  "scores": {
+    "week08": {
+      "points": 190,
+      "maximum": 190,
+      "status": "COMPLETE"
+    },
+    "week09": {
+      "points": 110,
+      "maximum": 190,
+      "status": "IN PROGRESS"
+    },
+    "week10": {
+      "points": 50,
+      "maximum": 170,
+      "status": "IN PROGRESS"
+    }
+  },
+  "dashboard_findings": "Week09 and Week10 still report missing publication URLs and assignment template phrases.",
+  "remote_main_verified": "c6e4835d4de700f2b13b4064d9d1e0fe74a8b0ce",
+  "remote_verification": "The reviewed delivery tree matches fetched origin/main. README rows08\u201310 contain actual LinkedIn and Medium links; reported placeholder phrases are absent from the active Week09/10 assignment files.",
+  "scope": "The old dashboard findings do not certify current delivery quality. A newer external review is still needed; learner-personal and supplied-kit limits remain disclosed."
+}
