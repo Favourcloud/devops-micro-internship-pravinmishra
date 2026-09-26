@@ -37,6 +37,6 @@ Retained cloud resources and the build agent continue to incur charges under the
 - The instructor-supplied Week 10 triage kit could not be found in the reviewed instructor repositories or local files. The original replacement remains disclosed; it is not labeled as the supplied kit.
 - Learner-personally-manual actions, original PAT scope/expiry certification, and missing exact native-editor/terminal/address-bar captures are not manufactured. The numbered evidence maps distinguish genuine page captures, historical material and labeled recorded-output viewers.
 - Week 09 location and machine-size substitutions remain documented in its evidence. Credit for substitutions and delegated execution belongs to the assessor.
-- The DMI score is an external assessment. The latest recorded dashboard values must be read separately from repository delivery; successful tests and publication do not establish a perfect grade.
+- [Dashboard observed on 26 September](dmi-assessment-20260926.json): Week 08 **190/190**, Week 09 **110/190**, Week 10 **50/170**; 9/14 weeks marked complete. Its last assessment remains dated **25 September**. The publication URLs and template fixes it reports missing are present on verified remote main. A newer external review is required; successful tests and publication do not establish a perfect grade.
 
 [Previous status, retained as history](COMPLETION-STATUS-20260925.md).
