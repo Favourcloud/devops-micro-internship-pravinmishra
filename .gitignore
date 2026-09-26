@@ -20,3 +20,6 @@ Pravin-Mishra-Portfolio-Template/.git.bak
 **/__pycache__/
 week-06-aws-cloud/assignment-05-ha/evidence/raw/
 week-06-aws-cloud/assignment-05-ha/evidence/*.log
+
+# Public, reviewed Week 11 ordered-rerun project context
+!week-11-docker/hardening-audit/ordered-rerun/CLAUDE.md

@@ -6,7 +6,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 The Ubuntu 24.04 labs VM was provisioned with Terraform and Docker installed by cloud-init. Static Nginx ran on port 80 before the networking exercises. Port 80 now serves the final React image; the static deployment is preserved in its dated evidence. Instructor checkouts were explicitly verified after initial copy/build, as shown by the timestamps.
 
-**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+**Evidence method:** Codex executed these exercises under delegation. App screenshots are direct browser captures; source screenshots use the actual Code OSS editor except the explicitly labelled original multistage-Dockerfile source capture in A2. Terminal-review screenshots show the original dated saved command output or source in its integrated terminal, explicitly labelled as a review rather than a new execution. Originals and hashes remain linked. Newly executed A4 updates and A6 live logs are identified separately. No learner-personal execution is claimed.
 
 ---
 
@@ -42,7 +42,7 @@ Configure User Data (AWS) or Custom Data (Azure) to automatically install Docker
 
 #### Screenshot 2 — Output of `cat /var/log/cloud-init-output.log` showing Docker installation activity
 
-[Original record/source](evidence/2026-09-26/a1-bootstrap.txt) · [Screenshot page 1](screenshots/a1-bootstrap-p01.png) · [Screenshot page 2](screenshots/a1-bootstrap-p02.png) · [Screenshot page 3](screenshots/a1-bootstrap-p03.png) · [Screenshot page 4](screenshots/a1-bootstrap-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a1-bootstrap.txt) · [Terminal page 1](screenshots/terminal-review/a1-bootstrap-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a1-bootstrap-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a1-bootstrap-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a1-bootstrap-terminal-04.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -56,7 +56,7 @@ Connect via SSH and confirm Docker is installed and running.
 
 #### Screenshot 3 — Terminal showing `docker --version` and `docker ps`
 
-[Original record/source](evidence/2026-09-26/a1-bootstrap.txt) · [Screenshot page 1](screenshots/a1-bootstrap-p01.png) · [Screenshot page 2](screenshots/a1-bootstrap-p02.png) · [Screenshot page 3](screenshots/a1-bootstrap-p03.png) · [Screenshot page 4](screenshots/a1-bootstrap-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a1-bootstrap.txt) · [Terminal page 1](screenshots/terminal-review/a1-bootstrap-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a1-bootstrap-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a1-bootstrap-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a1-bootstrap-terminal-04.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -70,7 +70,7 @@ Clone `https://github.com/pravinmishraaws/Azure-Static-Website.git` and verify t
 
 #### Screenshot 4 — Terminal showing the project directory contents
 
-[Original record/source](evidence/2026-09-26/a1-a2-upstream-checkouts.txt) · [Screenshot page 1](screenshots/a1-a2-upstream-checkouts-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a1-a2-upstream-checkouts.txt) · [Terminal page 1](screenshots/terminal-review/a1-a2-upstream-checkouts-terminal-01.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -84,7 +84,7 @@ Create a Dockerfile that serves the static site with `nginx:alpine`.
 
 #### Screenshot 5 — Dockerfile contents
 
-[Original record/source](evidence/2026-09-26/a1-static.txt) · [Screenshot page 1](screenshots/a1-static-p01.png) · [Screenshot page 2](screenshots/a1-static-p02.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a1-static.txt) · [Terminal page 1](screenshots/terminal-review/a1-static-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a1-static-terminal-02.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -98,7 +98,7 @@ Build the image tagged `static-site:latest`.
 
 #### Screenshot 6 — Terminal showing `docker images` with the `static-site:latest` image
 
-[Original record/source](evidence/2026-09-26/a1-static.txt) · [Screenshot page 1](screenshots/a1-static-p01.png) · [Screenshot page 2](screenshots/a1-static-p02.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a1-static.txt) · [Terminal page 1](screenshots/terminal-review/a1-static-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a1-static-terminal-02.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -112,7 +112,7 @@ Run the container mapping port 80, named `static-site`.
 
 #### Screenshot 7 — Terminal showing `docker ps` displaying the running container
 
-[Original record/source](evidence/2026-09-26/a1-static.txt) · [Screenshot page 1](screenshots/a1-static-p01.png) · [Screenshot page 2](screenshots/a1-static-p02.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a1-static.txt) · [Terminal page 1](screenshots/terminal-review/a1-static-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a1-static-terminal-02.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -126,7 +126,7 @@ Confirm the site is accessible through the VM's public IP in a browser.
 
 #### Screenshot 8 — Terminal showing the Public IP
 
-[Original record/source](evidence/2026-09-26/a1-cloud-inventory.json) · [Screenshot page 1](screenshots/a1-cloud-inventory-p01.png) · [Screenshot page 2](screenshots/a1-cloud-inventory-p02.png) · [Screenshot page 3](screenshots/a1-cloud-inventory-p03.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a1-cloud-inventory.json) · [Terminal page 1](screenshots/terminal-review/a1-cloud-inventory-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a1-cloud-inventory-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a1-cloud-inventory-terminal-03.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 

@@ -1,15 +1,15 @@
 {
-  "checked_at_utc": "2026-09-26T22:37:44.448558+00:00",
+  "checked_at_utc": "2026-09-26T23:33:51.203494+00:00",
   "scope": "Week 11 publication and submission readiness; not DMI grading",
   "documentation": {
     "assignments": 7,
     "capstone_docs": 10,
-    "local_links_checked": 972
+    "local_links_checked": 943
   },
   "screenshots": {
     "viewer_sources": 65,
     "viewer_pages": 186,
-    "png_images": 209,
+    "png_images": 315,
     "manifest": "screenshot-manifest.json",
     "all_decoded": true
   },
@@ -23,7 +23,7 @@
   "publication": {
     "blog_url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-11.html",
     "blog_http_status": 200,
-    "visible_word_count": 757,
+    "visible_word_count": 816,
     "own_dmi_link": true,
     "published_matches_source": true,
     "linkedin_url": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-docker-devops-share-7509737427876454400-cxc1/",
@@ -31,7 +31,7 @@
     "linkedin_verification": "Canonical post author/content and image verified in browser; publication screenshots included."
   },
   "sensitive_data_scan": {
-    "files_checked": 696,
+    "files_checked": 837,
     "known_value_categories": [
       "Docker registry credentials",
       "live database and session secrets",
@@ -43,27 +43,33 @@
   },
   "dmi_status": {
     "profile": "https://dmi.pravinmishra.com/s/Favourcloud.html",
-    "last_review_date": "2026-09-26",
+    "last_review_date": "2026-09-27",
     "complete_weeks": "00-10",
     "completed_count": 11,
     "total_weeks": 14,
     "points": 1830,
     "available_points": 1870,
     "week11": "Not yet graded",
-    "source": "2026-09-26/dmi-final-review.txt"
+    "source": "2026-09-27-ordered-rerun/dmi-status.txt"
   },
   "disclosed_limits": [
     "Delegated execution; no claim of learner-personal manual execution",
-    "Command/editor screenshot slots use labelled saved-output/source browser captures",
-    "Initial audit script draft predated Claude planning",
+    "A1\u2013A6 terminal-review captures display original dated logs, not new executions; direct source editor and fresh app captures are identified",
+    "Original A7 sequence error corrected by documented fresh ordered rerun; original attempt retained",
     "Single-host teaching deployment; viewer HTTPS and HTTP origin hop",
     "Optional CI/CD omitted; demos kept online as authorized"
   ],
+  "ordered_rerun": {
+    "date_local": "2026-09-27",
+    "claude_sessions_successful": 3,
+    "bedrock_cost_usd": 0.17982599999999999,
+    "plan_before_script": true,
+    "baseline": "3 PASS / 3 FAIL",
+    "after": "6 PASS / 0 FAIL",
+    "behavior_tests": 15,
+    "terminal_review_pages": 80,
+    "note": "Delegated execution remains disclosed; DMI grading is independent."
+  },
   "failures": [],
-  "passed": true,
-  "whitespace_review": {
-    "new_authored_files_passed": true,
-    "preserved_paths_count": 169,
-    "note": "Existing upstream asset/template formatting and exact recorded output/viewer whitespace retained to preserve deployed-source and evidence hashes. Whitespace warnings were reviewed; no warning remains outside those categories."
-  }
+  "passed": true
 }

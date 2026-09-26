@@ -6,7 +6,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 Both builds came from the same instructor React revision. Docker reported 854,614,809 bytes for single-stage and 94,232,874 bytes for multi-stage: 88.97% less. Single-stage ran on port 3000 for verification; the retained multi-stage demo is on port 80.
 
-**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+**Evidence method:** Codex executed these exercises under delegation. App screenshots are direct browser captures; source screenshots use the actual Code OSS editor except the explicitly labelled original multistage-Dockerfile source capture in A2. Terminal-review screenshots show the original dated saved command output or source in its integrated terminal, explicitly labelled as a review rather than a new execution. Originals and hashes remain linked. Newly executed A4 updates and A6 live logs are identified separately. No learner-personal execution is claimed.
 
 ---
 
@@ -26,7 +26,7 @@ Clone `https://github.com/pravinmishraaws/my-react-app.git` and create a `.docke
 
 #### Screenshot 1 — Contents of the `.dockerignore` file
 
-[Original record/source](react/.dockerignore) · [Screenshot page 1](screenshots/react-_dockerignore-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](react/.dockerignore) · [Editor screenshot](screenshots/ordered-rerun/a2-_dockerignore.png). Direct capture of the actual Code OSS editor; displayed source is byte-identical to the linked file.
 
 ---
 
@@ -40,7 +40,7 @@ Create `Dockerfile.single`, build `react-single`, and run it on port 3000.
 
 #### Screenshot 2 — Contents of `Dockerfile.single`
 
-[Original record/source](react/Dockerfile.single) · [Screenshot page 1](screenshots/react-Dockerfile_single-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](react/Dockerfile.single) · [Editor screenshot](screenshots/ordered-rerun/a2-Dockerfile_single.png). Direct capture of the actual Code OSS editor; displayed source is byte-identical to the linked file.
 
 ---
 
@@ -60,7 +60,7 @@ Create a multi-stage Dockerfile with separate build and Nginx runtime stages, bu
 
 #### Screenshot 4 — Contents of the multi-stage Dockerfile
 
-[Original record/source](react/Dockerfile) · [Screenshot page 1](screenshots/react-Dockerfile-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](react/Dockerfile) · [Verified source screenshot](screenshots/react-Dockerfile-p01.png). This original labelled source-viewer capture shows the complete multistage Dockerfile. The attempted replacement selected Dockerfile.single and was rejected during validation; browser capture then became unavailable, so this already verified source capture is retained.
 
 ---
 
@@ -80,7 +80,7 @@ Compare the single-stage and multi-stage image sizes and calculate the percentag
 
 #### Screenshot 6 — Docker image list showing both image sizes
 
-[Original record/source](evidence/2026-09-26/a2-react-build.txt) · [Screenshot page 1](screenshots/a2-react-build-p01.png) · [Screenshot page 2](screenshots/a2-react-build-p02.png) · [Screenshot page 3](screenshots/a2-react-build-p03.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a2-react-build.txt) · [Terminal page 1](screenshots/terminal-review/a2-react-build-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a2-react-build-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a2-react-build-terminal-03.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -94,7 +94,7 @@ Write a 5–8 line analysis covering the percentage reduction, security benefits
 
 #### Screenshot 7 — Analysis included in your submission document
 
-[Original record/source](react/ANALYSIS.md) · [Screenshot page 1](screenshots/react-ANALYSIS_md-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](react/ANALYSIS.md) · [Editor screenshot](screenshots/ordered-rerun/a2-ANALYSIS_md.png). Direct capture of the actual Code OSS editor; displayed source is byte-identical to the linked file.
 
 ---
 

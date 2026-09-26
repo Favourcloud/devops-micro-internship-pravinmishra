@@ -1,0 +1,10 @@
+Eze Favour | Week 11 | Shared volume rerun | 2026-09-26T23:17:09Z
+6fecc9b47250a138316e553f90187978c3acee14361b9650275f576422c2b544
+week11-volume-rerun
+f5d442ff9d732930337a6dfe5aef8c5bdaf4eaa0d82e71c5afb7d46256d8e2e1
+1d16a06b40203fdebbc14a6aef17e735ad33eabca2ea44493545bb0d58ee89fa
+NAMES                    STATUS                  PORTS
+week11-volume-frontend   Up Less than a second   127.0.0.1:18814->8080/tcp
+week11-volume-backend    Up Less than a second   80/tcp
+react-multistage         Up 6 hours (healthy)    80/tcp, 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp
+{"owner":"Eze Favour","written":"Hello from Backend!"}<h1>Eze Favour · Docker shared volume</h1><p>Hello from Backend!</p>
