@@ -1,0 +1,160 @@
+{
+  "image_count": 22,
+  "non_evidence_placeholder_images": 22,
+  "images": [
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-11.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-10.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-18.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-19.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-9.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-8.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-22.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-21.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-20.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-3.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-2.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-12.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-1.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-13.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-17.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-5.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-4.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-16.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-14.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-6.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-7.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    },
+    {
+      "path": "week-07-azure-cloud/screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-15.png",
+      "width": 1,
+      "height": 1,
+      "bytes": 68,
+      "sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b"
+    }
+  ]
+}

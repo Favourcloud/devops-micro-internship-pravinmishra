@@ -1,0 +1,51 @@
+{
+  "verified_at": "2026-09-26T11:04:59.748304+00:00",
+  "method": "Unauthenticated HTTPS GET, HTML paragraph/link parsing and byte comparison with submitted static source",
+  "articles": [
+    {
+      "week": 6,
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-06.html",
+      "http_status": 200,
+      "paragraph_words": 653,
+      "personal_badge_link": true,
+      "published_bytes_match_source": true,
+      "sha256": "747bd6bcbbe8ccfa38db9c422ec5f9de2252a3b73199449d710f7b764877f6bb"
+    },
+    {
+      "week": 7,
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-07.html",
+      "http_status": 200,
+      "paragraph_words": 746,
+      "personal_badge_link": true,
+      "published_bytes_match_source": true,
+      "sha256": "5770826029f29601a997300408d854dddec65f4e73e5088043063c9d970c39e3"
+    },
+    {
+      "week": 8,
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-08.html",
+      "http_status": 200,
+      "paragraph_words": 964,
+      "personal_badge_link": true,
+      "published_bytes_match_source": true,
+      "sha256": "59ac564fb485137f9edea653a9b66f2dd950e45892b480ca2540cedf9820e9f6"
+    },
+    {
+      "week": 9,
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html",
+      "http_status": 200,
+      "paragraph_words": 665,
+      "personal_badge_link": true,
+      "published_bytes_match_source": true,
+      "sha256": "aa233d79b6b22da3a379fc558fc43a5dc8707796af28fb96a9c9c73c3f170cd0"
+    },
+    {
+      "week": 10,
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html",
+      "http_status": 200,
+      "paragraph_words": 769,
+      "personal_badge_link": true,
+      "published_bytes_match_source": true,
+      "sha256": "590250d5c4d210c56a988f166c0e03a47b0741afe02816b9757d68d0cc5d7ba7"
+    }
+  ]
+}
