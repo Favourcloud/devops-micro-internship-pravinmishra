@@ -20,7 +20,7 @@ This workstation will be used as the Ansible controller in upcoming assignments.
 
 **Learner:** Eze Favour
 
-**Status:** Workstation and local evidence complete — all twelve numbered screenshots and two supporting interpreter images are included. The existing controller, environment, SSH identity and historical evidence were preserved. **Grading remains pending:** these new changes must reach the fork’s graded `main` through a separately authorized merge, followed by an instructor review.
+**Status:** Workstation and local evidence complete — all twelve numbered screenshots and two supporting interpreter images are included. The existing controller, environment, SSH identity and historical evidence were preserved. **Submission delivered:** the verified changes are merged into the fork’s graded `main`. The dashboard’s latest review still predates that delivery.
 
 Aligned on 15 September 2026 with the [official brief at revision `9b394ef`](https://github.com/pravinmishraaws/devops-micro-internship-pravinmishra/blob/9b394ef8efecd7db1f582995a03665f6f8afc2a4/week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md). The current brief has eight tasks, twelve screenshots, four questions, and explicit required files; it supersedes the older six-task, ten-screenshot version. The previous implementation, validation results and reflection notes were retained rather than treated as a new completed lab.
 
@@ -377,4 +377,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/). The public posts describe the verified outcomes and assisted work.

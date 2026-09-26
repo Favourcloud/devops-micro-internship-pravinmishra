@@ -1,0 +1,231 @@
+{
+  "checked_at": "2026-09-26T10:41:46.652493+00:00",
+  "published_rules": "https://dmi.pravinmishra.com/how-it-works.html",
+  "upstream_revision": "e979906210d76e22c1711afabc0fb941ae5c1184",
+  "method": "Conservative local audit of published rules. Remove code fences, comments, headings, tables and exact template lines before counting original prose. This is not the private DMI grading engine.",
+  "expected_assignment_count": 17,
+  "assignment_checks_passed": 17,
+  "assignments": [
+    {
+      "path": "week-08-terraform/assignment-01-create-an-azure-virtual-machine-using-terraform.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 1076,
+      "flagged_template_phrases": [],
+      "sha256": "e3402f43add89c5457049ec0765651a159fa35146cfccaba0f0606033cc2daea",
+      "unchecked_evidence_or_personal_execution_items": []
+    },
+    {
+      "path": "week-08-terraform/assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 935,
+      "flagged_template_phrases": [],
+      "sha256": "a44394bcabb038446c2b47e1906a6e96bfefbc92f5d25689e09cfc99f536f939",
+      "unchecked_evidence_or_personal_execution_items": []
+    },
+    {
+      "path": "week-08-terraform/assignment-03-deploy-a-react-application-on-azure-virtual-machine-using-terraform.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 1092,
+      "flagged_template_phrases": [],
+      "sha256": "5f37d870931d93f89cc2e3d36bb5d4569c9af54156d5c8babcb8f9ce5d0afaca",
+      "unchecked_evidence_or_personal_execution_items": []
+    },
+    {
+      "path": "week-08-terraform/assignment-04-deploy-epicbook-application-on-aws-using-terraform.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 1992,
+      "flagged_template_phrases": [],
+      "sha256": "7db84475e581cc33e3c350b49d67c6b23944fb316882194a1ac87f28f0ef838a",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Confirmed that my full name is visible in the required screenshots"
+      ]
+    },
+    {
+      "path": "week-08-terraform/assignment-05-deploy-book-review-app-in-your-favorite-cloud-agentic-terraform-project.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 2352,
+      "flagged_template_phrases": [],
+      "sha256": "092b817aef45d5a6bc7797c6b1b3bdd656ae502887547c41830568d126786cff",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Confirmed that my full name is visible in the required screenshots"
+      ]
+    },
+    {
+      "path": "week-08-terraform/assignment-06-ai-assisted-terraform-drift-and-policy-review.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 6350,
+      "flagged_template_phrases": [],
+      "sha256": "ccce7da6b04f4daa98cc1f13c0f05e7e0279e68b59dd09d8955a605bbba5e5db",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Performed any infrastructure-changing action manually"
+      ]
+    },
+    {
+      "path": "week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 1641,
+      "flagged_template_phrases": [],
+      "sha256": "2b6363290ac4fb669f4c8821754a0aa108c772793144a63a63eb74fb867c21ef",
+      "unchecked_evidence_or_personal_execution_items": []
+    },
+    {
+      "path": "week-09-ansible/assignment-02-provision-linux-vms-and-run-ansible-ad-hoc-commands.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 2087,
+      "flagged_template_phrases": [],
+      "sha256": "50c4b9274347de94097f644585be99f86e828dac0dbdc8afcc5cee4f370897c6",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Screenshots 1\u201317 are included",
+        "No sensitive information is exposed"
+      ]
+    },
+    {
+      "path": "week-09-ansible/assignment-03-deploy-static-website-to-multiple-servers-using-multi-play-ansible-playbook.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 1510,
+      "flagged_template_phrases": [],
+      "sha256": "31912099b5bf464f442c8f2a5c00c554e4f96fb60c36897e562e84113ec27f33",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Task 9: Both `curl -I` commands return HTTP `200 OK` (saved proof is URI GET, not an exact HEAD capture)",
+        "Screenshots 1\u201311 are included",
+        "No sensitive information is exposed"
+      ]
+    },
+    {
+      "path": "week-09-ansible/assignment-04-deploy-mini-finance-project-using-terraform-and-ansible.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 2137,
+      "flagged_template_phrases": [],
+      "sha256": "b244bdeb95b2918bb28cdbdb926ebbee8ed788a2bf88d5d102db0c29958ed517",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Task 8: Azure VM public IP is visible in the browser screenshot",
+        "Screenshots 1\u201315 are included",
+        "No sensitive information is exposed"
+      ]
+    },
+    {
+      "path": "week-09-ansible/assignment-05-production-grade-epicbook-terraform-and-ansible-roles.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 2018,
+      "flagged_template_phrases": [],
+      "sha256": "a6f0014fb95afb58e01ac8a350ec02a5eb87a33061f7d0d631fe91bdff2dc14a",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Screenshots 1\u201327 are included",
+        "No sensitive information is exposed"
+      ]
+    },
+    {
+      "path": "week-09-ansible/assignment-06-ai-assisted-ansible-change-risk-review.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 1418,
+      "flagged_template_phrases": [],
+      "sha256": "a3b066abd0bb31b446886c8f765056136b56084408d27114f3624d52e9603eaf",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Task 8: Human applied the change and verified the result",
+        "All screenshots added",
+        "No sensitive information exposed"
+      ]
+    },
+    {
+      "path": "week-10-azure-devops/assignment-01-set-up-a-self-hosted-linux-agent-for-azure-devops.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 2154,
+      "flagged_template_phrases": [],
+      "sha256": "2804ab02e4233618924eb4a63e626282c390687608ce74d9f8dfff7911d4b79e",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Task 1: PAT created with required scopes and stored securely",
+        "No secrets exposed"
+      ]
+    },
+    {
+      "path": "week-10-azure-devops/assignment-02-deploy-a-static-website-to-aws-ec2-using-an-azure-devops-cicd-pipeline.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 688,
+      "flagged_template_phrases": [],
+      "sha256": "6770068ca21f6203388a6b5540be5ffe293d4ceaf1db79a67a9fc7943688fec0",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Screenshots 1\u20135 are included and readable",
+        "No sensitive information is exposed"
+      ]
+    },
+    {
+      "path": "week-10-azure-devops/assignment-03-automate-react-app-deployment-using-azure-devops-cicd.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 713,
+      "flagged_template_phrases": [],
+      "sha256": "81c2c18b5580cb1874cd8fdff974ed74edd296a7e4c924234e894e5adc9803d2",
+      "unchecked_evidence_or_personal_execution_items": [
+        "All tasks were completed in sequence",
+        "Screenshots 1\u20136 are included and readable",
+        "No password, token, private key, account ID, or other secret is visible"
+      ]
+    },
+    {
+      "path": "week-10-azure-devops/assignment-04-automate-epicbook-deployment-with-dual-pipelines.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 787,
+      "flagged_template_phrases": [],
+      "sha256": "7ba528d590441397529fe0e94e482f4cb747daedf28e1684df88088c76cd38a1",
+      "unchecked_evidence_or_personal_execution_items": [
+        "Screenshots 1\u20136 are included and readable",
+        "No secret or sensitive identifier is exposed"
+      ]
+    },
+    {
+      "path": "week-10-azure-devops/assignment-05-ai-assisted-azure-devops-dual-pipeline-failure-triage.md",
+      "expected_path_present": true,
+      "differs_from_upstream_template": true,
+      "original_prose_words": 1445,
+      "flagged_template_phrases": [],
+      "sha256": "170c7b4a01a91fa50529f6949edb3f12c290504972093faa2c0dbc3521313fa2",
+      "unchecked_evidence_or_personal_execution_items": [
+        "The supplied files were copied to the correct repository locations.",
+        "Only the required student-specific placeholders were updated.",
+        "`/pipeline-triage` was invoked manually.",
+        "The fix was reviewed and applied manually.",
+        "All 12 screenshots have been added.",
+        "No sensitive information is exposed."
+      ]
+    }
+  ],
+  "progress_table": [
+    {
+      "week": 8,
+      "linkedin_url": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/",
+      "blog_url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-08.html",
+      "accepted_linkedin_prefix": true,
+      "verified_public_blog": true
+    },
+    {
+      "week": 9,
+      "linkedin_url": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/",
+      "blog_url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html",
+      "accepted_linkedin_prefix": true,
+      "verified_public_blog": true
+    },
+    {
+      "week": 10,
+      "linkedin_url": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/",
+      "blog_url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html",
+      "accepted_linkedin_prefix": true,
+      "verified_public_blog": true
+    }
+  ],
+  "remaining_scope": "Unchecked personal/manual/native-capture requirements remain disclosed rather than falsely marked complete. Scores change only in an external DMI review."
+}

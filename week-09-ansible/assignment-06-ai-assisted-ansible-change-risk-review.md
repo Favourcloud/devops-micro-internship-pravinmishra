@@ -502,7 +502,7 @@ An autonomous apply could remove important files, restart services or widen acce
 
 Paste your LinkedIn post URL here:
 
-https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
+https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/
 
 ---
 
@@ -582,4 +582,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 *This submission is part of DevOps Micro Internship (DMI) — Agentic AI Track.*
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/). The public posts describe the verified outcomes and assisted work.

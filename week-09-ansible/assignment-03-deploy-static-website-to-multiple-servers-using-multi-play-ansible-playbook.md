@@ -445,7 +445,7 @@ Open each actual URL in the controller's browser; verify the footer, CSS and con
 
 The [numbered evidence map](../evidence/2026-09-25/screenshot-map.md) distinguishes original native captures, current browser captures and labeled recorded-output views. Exact address-bar and `curl -I` screenshot slots remain unverified.
 
-Historical URLs from the completed 25 September run: `http://20.68.148.122/` and `http://51.132.24.18/`. These are retired evidence references, not current demo links. [Published LinkedIn post](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/).
+Historical URLs from the completed 25 September run: `http://20.68.148.122/` and `http://51.132.24.18/`. These are retired evidence references, not current demo links. [Published LinkedIn post](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/).
 
 ## Troubleshooting, learning and cleanup
 
@@ -537,7 +537,7 @@ Confirm that the following files are included in your assignment folder:
 - Include both deployed website URLs.
 - Paste `inventory.ini`, `site.yml`, and `README.md` as editable text.
 - Answer all assignment questions clearly in your own words.
-- LinkedIn post: https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/
+- LinkedIn post: https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/
 - Do not expose SSH private keys, passwords, cloud account IDs, or other sensitive information.
 
 ---
@@ -600,4 +600,4 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 ### 25 September publication
 
-[Medium](https://medium.com/@rosenaefavour/from-four-linux-vms-to-a-repeatable-epicbook-deployment-dmi-week-09-f1f1ea25646f) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7509317694291283968/). The public posts describe the verified outcomes and assisted work.
+[Blog article](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html) · [LinkedIn](https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/). The public posts describe the verified outcomes and assisted work.

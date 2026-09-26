@@ -609,11 +609,11 @@ Actual published post gallery showing EZE FAVOUR, post text and the original Epi
 
 # Completion Checklist
 
-- [ ] Installed and verified Terraform
-- [ ] Installed and verified AWS CLI
+- [x] Installed and verified Terraform — v1.13.5 rechecked on 26 September
+- [x] Installed and verified AWS CLI — v2.37.2 rechecked on 26 September
 - [x] Configured AWS CLI
 - [x] Confirmed the AWS Region
-- [ ] Installed the HashiCorp Terraform extension
+- [x] Installed the HashiCorp Terraform extension — installed-extension capture rechecked on 26 September
 - [x] Created the modular Terraform project
 - [x] Created the root `main.tf`, `variables.tf`, and `outputs.tf`
 - [x] Created the Network module

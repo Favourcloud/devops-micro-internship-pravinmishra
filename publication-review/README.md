@@ -1,5 +1,13 @@
 # Publication review — Eze Favour
 
+## Current publication status — 26 September 2026
+
+Weeks 08–10 have published articles and LinkedIn posts. The [current rubric audit](../RUBRIC-AUDIT-20260926.md) supersedes the historical missing-publication and browser-blocker statements below for those weeks. It verifies all 17 assignment files, corrects Week 09/10 canonical LinkedIn URLs, and supplies publicly accessible blog copies after anonymous Medium requests returned HTTP 403. The current links are in the root [Weekly Progress table](../README.md#weekly-progress); [verification receipts](evidence/2026-09-26/submission-checks.json) record the checks and remaining evidence limits.
+
+## Historical audit — 16 September, drafts revised 24 September
+
+The following is retained as the dated audit and draft history. Its unpublished, missing and blocked statements describe that earlier inspection, not the current Week 08–10 delivery.
+
 **Original audit: 16 September 2026. Week 08 drafts updated on 24 September 2026 with the merged A1–A3 evidence and current completion limits. All five drafts remain unpublished; no social posts were published or edited.** DMI displays the learner as **Favour Eze**, GitHub username **Favourcloud**. The [manifest](manifest.json) records sources, draft hashes and limitations.
 
 ## Verified sources and rubric
