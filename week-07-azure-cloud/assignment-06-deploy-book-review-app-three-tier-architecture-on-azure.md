@@ -2,6 +2,8 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
+**Evidence correction — 26 September 2026:** the existing image files linked below are 1-pixel placeholders, and the other referenced files are absent. They do not prove deployment or satisfy the screenshot requirements. See the [current evidence status](README.md). Technical and personal-execution completion remains unverified.
+
 ---
 
 ## Purpose
@@ -262,4 +264,3 @@ It helps learners build strong DevOps foundations with hands-on experience.
 ---
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
-

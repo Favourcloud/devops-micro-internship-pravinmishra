@@ -1,0 +1,62 @@
+{
+  "checked_at": "2026-09-26T11:09:18.189341+00:00",
+  "progress_rows_with_both_links": 11,
+  "progress_rows": [
+    {
+      "week": 0,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_devopsjourney-internshipreload-newweeknewgoals-activity-7396137630893146112-25uv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk",
+      "blog": "https://medium.com/@rosenaefavour/reflection-week-00-every-journey-begins-with-understanding-the-basics-da503059977c"
+    },
+    {
+      "week": 1,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_what-my-version-20-looks-like-five-years-share-7478466873852997632-WQ79/",
+      "blog": "https://medium.com/@rosenaefavour/what-my-version-2-0-looks-like-1726f2ab0d22?sharedUserId=rosenaefavour"
+    },
+    {
+      "week": 2,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-agenticai-claudecode-activity-7481376006981840896-8BIQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk",
+      "blog": "https://medium.com/@rosenaefavour/reflection-week-2-the-week-i-stopped-seeing-ai-as-a-tool-and-started-seeing-it-as-a-teammate-by-811d04bc60b0"
+    },
+    {
+      "week": 3,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_devops-linux-ubuntu-activity-7483907367227666433-PqVA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk",
+      "blog": "https://medium.com/@rosenaefavour/reflection-week-03-the-week-i-learned-that-keeping-systems-running-is-just-as-important-as-c5e5cb38661f"
+    },
+    {
+      "week": 4,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-ec2-activity-7485997899110342656-UpFf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAsVGC8BeMs7INDCBrG_mYeb0V1cNjGv7mk",
+      "blog": "https://medium.com/@rosenaefavour/this-one-git-habit-could-save-you-hours-of-frustration-213eb4d360ec"
+    },
+    {
+      "week": 5,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_devops-aws-jira-activity-7491178060780613632-hgwF",
+      "blog": "https://medium.com/@rosenaefavour/i-thought-i-was-learning-jira-i-didnt-know-i-was-learning-how-to-ship-f9a371a9543a"
+    },
+    {
+      "week": 6,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_aws-devops-terraform-activity-7505450522540408832-q-je",
+      "blog": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-06.html"
+    },
+    {
+      "week": 7,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-agenticai-share-7509568835549700096-c4Lf/",
+      "blog": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-07.html"
+    },
+    {
+      "week": 8,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-terraform-ugcPost-7509164778045595649-LVlQ/",
+      "blog": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-08.html"
+    },
+    {
+      "week": 9,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-devops-ansible-ugcPost-7509317693183979520-yk0J/",
+      "blog": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html"
+    },
+    {
+      "week": 10,
+      "linkedin": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-azuredevops-devops-ugcPost-7509319293323476992-Yf31/",
+      "blog": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html"
+    }
+  ],
+  "scope": "URL presence and LinkedIn prefix for Weeks00-10; anonymous content verification for five Pages articles; earlier blog credit confirmed in DMI, not independently re-earned."
+}
