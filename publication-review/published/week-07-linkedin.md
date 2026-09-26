@@ -7,7 +7,7 @@ My reflection covers three connected questions:
 
 The workflow I am documenting is: collect read-only facts → explain the finding → review a scoped change → verify it with a fresh report. Missing access or missing report data must remain unknown, not become a PASS.
 
-This review also caught an evidence gap: Week 07's 22 existing image files were 1-pixel placeholders, and 38 referenced images were absent. The repository now states that clearly. The article is an architecture and verification reflection; it does not claim a completed live Azure capstone or personal manual remediation.
+Update — 26 September 2026: Codex completed a delegated technical recovery. All 60 original image references now have readable evidence, plus two current account views. React, Storage, EpicBook and the three-tier Book Review app were verified. Browser reviews and demo orders were confirmed in SQL; 12/12 requests passed after one web node was stopped and probes converged, then it was restored. The read-only Claude audit now passes all four checks. The article records the fixes and limits: HTTP apps, single-instance MySQL, and unverified historical signup/personal execution. DMI determines scores.
 
 Codex assisted with the source review and writing. The practical takeaway is to keep a source for each claim: configuration for architecture, probes for reachability, database checks for persistence, and before/after records for remediation.
 

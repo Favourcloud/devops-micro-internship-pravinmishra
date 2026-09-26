@@ -49,3 +49,7 @@ The deliberately broad SSH fixture was **unattached**, with no NIC/subnet associ
 Current active access cannot prove historical Free Trial identity/phone/payment verification or terms acceptance. Those A1 boxes remain open; A7's personal-execution box also remains open. Equivalent available VM sizes and labelled saved-output evidence are disclosed. Public apps use HTTP; MySQL is a single instance with seven-day backups. These are not silently relabelled as production readiness or guaranteed credit.
 
 DMI had credited all seven assignment files at the earlier audit, but only DMI can accept replacements or change scores. Attendance was not modified. The six earlier Week 08–10 demos were preserved.
+
+## Publication verified
+
+[PR #64](https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/64) is merged. The [publication receipt](publication-verification.json) confirms the deployed Week 07 article matches source, all five weekly articles have the correct badge hyperlink, and the other site files are unchanged. The [existing LinkedIn post update](linkedin-update.json) was saved and reloaded; all four mentor profile links remain intact.
