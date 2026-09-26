@@ -1,0 +1,15 @@
+Public endpoint: http://4.225.220.198/ (HTTP lab)
+Region: Sweden Central. Dedicated resource group; VNet 10.0.0.0/16.
+Web: 10.0.1.0/24; web1/2 in zones 1/2; private NICs.
+App: 10.0.4.0/24; app1/2 in zones 1/2; private NICs.
+Internal API LB: 10.0.4.100:5000; Nginx forwards /api.
+Database: delegated subnet 10.0.2.0/24; private MySQL and DNS.
+BookReview and EpicBook share the DB server but use separate databases/users.
+Key Vault: app managed identities get secrets; no secret values in Git.
+NAT provides outbound connections for package installation.
+Azure Monitor: web LB health alert enabled; service logs retained in journald.
+Synthetic users/reviews/orders only. No payments or shipping.
+Test after 25-second probe convergence: 12/12 requests served by web2
+while web1 Nginx was stopped; web1 restored and both nodes observed.
+Limits: public HTTP; single MySQL instance; no claim of zero transition downtime.
+Recovery performed by Codex under learner delegation on 26 September 2026.

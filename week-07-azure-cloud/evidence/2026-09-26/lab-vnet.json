@@ -1,0 +1,147 @@
+{
+  "captured_at": "2026-09-26T12:56:44.435820+00:00",
+  "command": "az network vnet show -g dmi-w07-labs-20260926-rg -n week07-three-tier-vnet --query {name:name,addressSpace:addressSpace,subnets:subnets}",
+  "result": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "name": "week07-three-tier-vnet",
+    "subnets": [
+      {
+        "addressPrefix": "10.0.1.0/24",
+        "defaultOutboundAccess": true,
+        "delegations": [],
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/web-subnet",
+        "ipConfigurations": [
+          {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/networkInterfaces/WEEK07-EPIC-NIC/ipConfigurations/PRIMARY",
+            "resourceGroup": "DMI-W07-LABS-20260926-RG"
+          },
+          {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/networkInterfaces/WEEK07-WEB1-NIC/ipConfigurations/PRIMARY",
+            "resourceGroup": "DMI-W07-LABS-20260926-RG"
+          },
+          {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/networkInterfaces/WEEK07-WEB2-NIC/ipConfigurations/PRIMARY",
+            "resourceGroup": "DMI-W07-LABS-20260926-RG"
+          }
+        ],
+        "name": "web-subnet",
+        "natGateway": {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/natGateways/week07-outbound",
+          "resourceGroup": "dmi-w07-labs-20260926-rg"
+        },
+        "networkSecurityGroup": {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-web-nsg",
+          "resourceGroup": "dmi-w07-labs-20260926-rg"
+        },
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "dmi-w07-labs-20260926-rg",
+        "serviceEndpoints": [],
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      },
+      {
+        "addressPrefix": "10.0.2.0/24",
+        "defaultOutboundAccess": true,
+        "delegations": [
+          {
+            "actions": [
+              "Microsoft.Network/virtualNetworks/subnets/join/action"
+            ],
+            "etag": "W/\"[identifier redacted]\"",
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/database-subnet/delegations/mysql",
+            "name": "mysql",
+            "provisioningState": "Succeeded",
+            "resourceGroup": "dmi-w07-labs-20260926-rg",
+            "serviceName": "Microsoft.DBforMySQL/flexibleServers",
+            "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+          }
+        ],
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/database-subnet",
+        "name": "database-subnet",
+        "networkSecurityGroup": {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-database-nsg",
+          "resourceGroup": "dmi-w07-labs-20260926-rg"
+        },
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "dmi-w07-labs-20260926-rg",
+        "serviceAssociationLinks": [
+          {
+            "allowDelete": false,
+            "etag": "W/\"[identifier redacted]\"",
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/database-subnet/serviceAssociationLinks/[identifier redacted]-sal",
+            "linkedResourceType": "Microsoft.DBforMySQL/flexibleServers",
+            "locations": [],
+            "name": "[identifier redacted]-sal",
+            "provisioningState": "Succeeded",
+            "resourceGroup": "dmi-w07-labs-20260926-rg",
+            "type": "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks"
+          }
+        ],
+        "serviceEndpoints": [
+          {
+            "locations": [
+              "swedencentral",
+              "swedensouth"
+            ],
+            "provisioningState": "Succeeded",
+            "service": "Microsoft.Storage"
+          }
+        ],
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      },
+      {
+        "addressPrefix": "10.0.4.0/24",
+        "defaultOutboundAccess": true,
+        "delegations": [],
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/virtualNetworks/week07-three-tier-vnet/subnets/app-subnet",
+        "ipConfigurations": [
+          {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/loadBalancers/WEEK07-APP-LB/frontendIPConfigurations/FRONTEND",
+            "resourceGroup": "DMI-W07-LABS-20260926-RG"
+          },
+          {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/networkInterfaces/WEEK07-APP1-NIC/ipConfigurations/PRIMARY",
+            "resourceGroup": "DMI-W07-LABS-20260926-RG"
+          },
+          {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/networkInterfaces/WEEK07-APP2-NIC/ipConfigurations/PRIMARY",
+            "resourceGroup": "DMI-W07-LABS-20260926-RG"
+          }
+        ],
+        "name": "app-subnet",
+        "natGateway": {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/natGateways/week07-outbound",
+          "resourceGroup": "dmi-w07-labs-20260926-rg"
+        },
+        "networkSecurityGroup": {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-app-nsg",
+          "resourceGroup": "dmi-w07-labs-20260926-rg"
+        },
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "dmi-w07-labs-20260926-rg",
+        "serviceEndpoints": [
+          {
+            "locations": [
+              "*"
+            ],
+            "provisioningState": "Succeeded",
+            "service": "Microsoft.KeyVault"
+          }
+        ],
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ]
+  }
+}

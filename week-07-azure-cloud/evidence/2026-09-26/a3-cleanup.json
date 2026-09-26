@@ -1,0 +1,9 @@
+{
+  "time": "2026-09-26T13:05:08.667293+00:00",
+  "resource_group": "vnet-demo-rg",
+  "planned_resource_deletions": 18,
+  "terraform_apply_exit": 0,
+  "azure_group_exists": false,
+  "evidence_captured_before_cleanup": true,
+  "other_demos_changed": false
+}

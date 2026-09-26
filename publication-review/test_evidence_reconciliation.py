@@ -1,5 +1,6 @@
 """Read-only checks for the bounded 19 September submission reconciliation."""
 import hashlib
+import json
 from pathlib import Path
 import re
 import unittest
@@ -64,16 +65,15 @@ class ChronologicalEvidenceTests(unittest.TestCase):
             if '://' not in target:
                 self.assertTrue((ROOT / unquote(target.split('#')[0])).is_file(), target)
 
-    def test_week07_image_inventory_is_not_a_completion_claim(self):
-        present = missing = 0
-        for brief in (ROOT / 'week-07-azure-cloud').glob('assignment-*.md'):
-            for target in re.findall(r'!\[[^\]]*\]\(([^)]+)\)', brief.read_text()):
-                path = brief.parent / unquote(target.strip('<>').split('#')[0])
-                if path.is_file():
-                    present += 1
-                else:
-                    missing += 1
-        self.assertEqual((present, missing), (22, 38))
+    def test_week07_historical_inventory_is_preserved(self):
+        # This suite concerns the earlier reconciliation; later recoveries may
+        # replace live files without altering the archived evidence audit.
+        audit = json.loads((ROOT / 'publication-review/evidence/2026-09-26-earlier-weeks/week07-image-audit.json').read_text())
+        self.assertEqual(audit['image_count'], 22)
+        self.assertEqual(audit['non_evidence_placeholder_images'], 22)
+        self.assertTrue(all((row['width'], row['height'], row['bytes']) == (1, 1, 68)
+                            for row in audit['images']))
+
 
 
 if __name__ == '__main__':

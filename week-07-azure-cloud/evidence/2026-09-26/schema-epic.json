@@ -1,0 +1,29 @@
+{
+  "captured_at": "2026-09-26T13:10:54.941273+00:00",
+  "source": "Independent SQL over authenticated SSH; environment values not displayed",
+  "result": {
+    "tables": [
+      {
+        "Tables_in_bookstore": "author"
+      },
+      {
+        "Tables_in_bookstore": "book"
+      },
+      {
+        "Tables_in_bookstore": "cart"
+      },
+      {
+        "Tables_in_bookstore": "cartbook"
+      },
+      {
+        "Tables_in_bookstore": "checkout"
+      }
+    ],
+    "tls": [
+      {
+        "Variable_name": "Ssl_cipher",
+        "Value": "TLS_AES_256_GCM_SHA384"
+      }
+    ]
+  }
+}

@@ -2,7 +2,7 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
-**Evidence correction — 26 September 2026:** all 11 image files linked below are 1-pixel placeholders. They do not prove script execution, Claude findings or remediation. See the [current evidence status](README.md). The checklist remains open until authentic results support it.
+**Verified recovery — 26 September 2026:** this submission now links authentic Azure/app captures and labelled recordings of actual command and Claude results. Codex performed the recovery under Eze Favour’s delegation. [Evidence, limitations and source index](evidence/2026-09-26/README.md).
 
 ---
 
@@ -24,6 +24,8 @@ Confirm your Azure CLI is authenticated and can see the VM, network, storage acc
 
 ![Screenshot 1](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-1.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [subscription.json](evidence/2026-09-26/subscription.json), [lab-vms.json](evidence/2026-09-26/lab-vms.json).*
+
 ---
 
 # Task 2 — Create Project Context and Safety Rules in CLAUDE.md
@@ -37,6 +39,8 @@ Create a `CLAUDE.md` for this workspace that tells Claude what the audit covers 
 #### Screenshot 2 — `CLAUDE.md` open in your editor showing the project overview, audit workflow, and safety rules
 
 ![Screenshot 2](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-2.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [CLAUDE.md](security-audit/CLAUDE.md).*
 
 ---
 
@@ -52,6 +56,8 @@ Ask Claude Code to read `CLAUDE.md` and propose a read-only, four-check audit pl
 
 ![Screenshot 3](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-3.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [audit-plan.result.json](evidence/2026-09-26/audit-plan.result.json).*
+
 ---
 
 # Task 4 — Build the Azure Audit Bash Script
@@ -66,11 +72,15 @@ Write a Bash script that runs the four checks from Task 3 using read-only `az` c
 
 ![Screenshot 4](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-4.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [azure-audit.sh](security-audit/azure-audit.sh).*
+
 ---
 
 #### Screenshot 5 — Output of `bash -n` (no syntax errors) and `ls -l` showing the script is executable
 
 ![Screenshot 5](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-5.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [audit-source-validation.txt](evidence/2026-09-26/audit-source-validation.txt).*
 
 ---
 
@@ -86,6 +96,8 @@ Run the script against your live resources and read the report honestly, even if
 
 ![Screenshot 6](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-6.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [baseline-azure-audit-report.txt](evidence/2026-09-26/baseline-azure-audit-report.txt).*
+
 ---
 
 # Task 6 — Create and Run the /azure-audit Skill
@@ -100,11 +112,15 @@ Create a Claude Code skill restricted to read-only tools (no `Write`) that runs 
 
 ![Screenshot 7](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-7.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [SKILL.md](security-audit/.claude/skills/azure-audit/SKILL.md).*
+
 ---
 
 #### Screenshot 8 — `/azure-audit` output showing the baseline findings and Claude's explanation
 
 ![Screenshot 8](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-8.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [audit-baseline.result.json](evidence/2026-09-26/audit-baseline.result.json).*
 
 ---
 
@@ -120,11 +136,15 @@ Pick one WARN or FAIL finding (or deliberately open an NSG rule to port 22 from 
 
 ![Screenshot 9](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-9.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [baseline-azure-audit-report.txt](evidence/2026-09-26/baseline-azure-audit-report.txt).*
+
 ---
 
 #### Screenshot 10 — Terminal output of the remediation command you ran yourself
 
 ![Screenshot 10](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-10.png)
+
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [audit-remediation.json](evidence/2026-09-26/audit-remediation.json).*
 
 ---
 
@@ -132,9 +152,13 @@ Pick one WARN or FAIL finding (or deliberately open an NSG rule to port 22 from 
 
 ![Screenshot 11](screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-11.png)
 
+*Evidence method: labelled saved-output/source viewer, captured in the browser; not a native terminal/editor/portal view. Source: [recovery-azure-audit-report.txt](evidence/2026-09-26/recovery-azure-audit-report.txt).*
+
 ---
 
 ### Notes
+
+The deliberate SSH finding was on an unattached lab NSG, with zero NIC/subnet associations. It never exposed a VM. Codex performed the change separately from the read-only Claude session. Full model responses are retained, including denied extra shell syntax and the corrected interpretation errors documented in the evidence index.
 
 Compare this assignment to the AWS audit you built in Week 6: which finding categories map to each other across the two clouds, and what stayed exactly the same about the workflow even though the `az`/`aws` commands are completely different?
 
@@ -154,15 +178,16 @@ Your submission must include:
 
 # Completion Checklist
 
-- [ ] Task 1: Azure resources confirmed and workspace created (Screenshot 1)
-- [ ] Task 2: `CLAUDE.md` created with project context and safety rules (Screenshot 2)
-- [ ] Task 3: Claude produced a read-only four-check plan before any script existed (Screenshot 3)
-- [ ] Task 4: Audit script built, syntax-checked, and executable (Screenshots 4–5)
-- [ ] Task 5: Baseline audit run and reviewed honestly (Screenshot 6)
-- [ ] Task 6: `/azure-audit` skill created with no `Write` permission and run successfully (Screenshots 7–8)
-- [ ] Task 7: A real finding fixed by you (not Claude) and re-verified as resolved (Screenshots 9–11)
-- [ ] Notes comparing this to the Week 6 AWS audit completed
-- [ ] No subscription IDs, tenant IDs, or credentials exposed
+- [x] Task 1: Azure resources confirmed and workspace created (Screenshot 1)
+- [x] Task 2: `CLAUDE.md` created with project context and safety rules (Screenshot 2)
+- [x] Task 3: Claude produced a read-only four-check plan before any script existed (Screenshot 3)
+- [x] Task 4: Audit script built, syntax-checked, and executable (Screenshots 4–5)
+- [x] Task 5: Baseline audit run and reviewed honestly (Screenshot 6)
+- [x] Task 6: `/azure-audit` skill created with no `Write` permission and run successfully (Screenshots 7–8)
+- [x] Technical remediation: the separate Codex operator narrowed the fixture rule and the read-only Claude audit re-verified it (Screenshots 9–11)
+- [ ] Personal-execution requirement: the learner personally runs the remediation; not claimed by this delegated recovery
+- [x] Notes comparing this to the Week 6 AWS audit completed
+- [x] No subscription IDs, tenant IDs, or credentials exposed
 
 ---
 

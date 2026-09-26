@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-09-26T13:30:53.425137+00:00",
+  "operator": "Codex",
+  "method": "Browser UI actions followed by independent SQL through authenticated SSH",
+  "book_review": [
+    {
+      "id": 2,
+      "bookId": 1,
+      "userId": 1,
+      "comment": "Week 07 browser verification: login, review submission and reload tested with synthetic data on 26 September 2026.",
+      "rating": 5
+    }
+  ],
+  "epic_order": [
+    {
+      "id": 2,
+      "CartId": 2,
+      "subTotal": "28.00",
+      "addressLine1": "DMI demonstration - no shipment"
+    }
+  ],
+  "payment_taken": false,
+  "synthetic_data": true
+}

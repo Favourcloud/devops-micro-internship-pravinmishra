@@ -1,0 +1,50 @@
+{
+  "captured_at": "2026-09-26T12:56:41.824647+00:00",
+  "command": "az network nsg show -g react-app-rg -n react-app-vmNSG --query {name:name,rules:securityRules}",
+  "result": {
+    "name": "react-app-vmNSG",
+    "rules": [
+      {
+        "access": "Allow",
+        "description": "SSH allowed from my IP only",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "22",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/react-app-rg/providers/Microsoft.Network/networkSecurityGroups/react-app-vmNSG/securityRules/default-allow-ssh",
+        "name": "default-allow-ssh",
+        "priority": 1000,
+        "protocol": "Tcp",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "react-app-rg",
+        "sourceAddressPrefix": "[controller]/32",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+      },
+      {
+        "access": "Allow",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "80",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/react-app-rg/providers/Microsoft.Network/networkSecurityGroups/react-app-vmNSG/securityRules/open-port-80",
+        "name": "open-port-80",
+        "priority": 1010,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "react-app-rg",
+        "sourceAddressPrefix": "*",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+      }
+    ]
+  }
+}

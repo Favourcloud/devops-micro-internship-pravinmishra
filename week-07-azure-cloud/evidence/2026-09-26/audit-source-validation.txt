@@ -1,0 +1,19 @@
+Command: bash -n azure-audit.sh
+Exit: 0
+Mode: 0o755 (executable)
+
+Command: python3 -m unittest -v test_analyze.py
+test_clean (test_analyze.AuditTests.test_clean) ... ok
+test_failed_query (test_analyze.AuditTests.test_failed_query) ... ok
+test_ipv6 (test_analyze.AuditTests.test_ipv6) ... ok
+test_missing_encryption (test_analyze.AuditTests.test_missing_encryption) ... ok
+test_missing_not_pass (test_analyze.AuditTests.test_missing_not_pass) ... ok
+test_port_range (test_analyze.AuditTests.test_port_range) ... ok
+test_prior_deny (test_analyze.AuditTests.test_prior_deny) ... ok
+test_public_mysql (test_analyze.AuditTests.test_public_mysql) ... ok
+test_service_tag_not_internet (test_analyze.AuditTests.test_service_tag_not_internet) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+OK

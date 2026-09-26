@@ -1,0 +1,37 @@
+{
+  "started": "2026-09-26T12:36:53.937931+00:00",
+  "finished": "2026-09-26T12:38:07.364036+00:00",
+  "returncode": 0,
+  "subtype": "success",
+  "reported_cost_usd": 0.09764339999999999,
+  "response": "I'll run the audit script now, then read the report.\nHere is the full evidence-grounded explanation of all four controls. The learner (Eze Favour) delegated this recovery run to Codex as the authorized operator.\n\n---\n\n## Week 07 Azure Security Audit \u2014 2026-09-26T12:37:44Z\n\n**Overall: FAIL** (one control failed; three passed)\n\n---\n\n### 1. NSG \u2014 Administrative Ingress (port 22 / 3389) \u2014 FAIL\n\n**Evidence from report:**\n\n| Field | Value |\n|---|---|\n| NSG name | `week07-unattached-audit-fixture` |\n| Rule name | `DeliberateAuditSSHFixture` |\n| Port | 22 (TCP) |\n| Attached NICs | **0** |\n| Attached subnets | **0** |\n\n**Correct interpretation of Azure NSG defaults:**\nAzure NSGs have a built-in `DenyAllInBound` default rule (priority 65500). There is **no** `AllowInternetInBound` default \u2014 the earlier planning note that assumed one was wrong. An NSG that allows port 22 from the internet is a deliberate misconfiguration on top of that deny-by-default baseline.\n\n**Why this is NOT VM internet exposure:**\nThe NSG `week07-unattached-audit-fixture` is attached to **zero NICs and zero subnets** (`attached_nics: 0`, `attached_subnets: 0`). No VM in the lab has this NSG applied. The rule exists in the control plane but is not enforced on any traffic path. This is a deliberately staged test fixture to exercise the audit detection logic, not a live firewall gap exposing a running workload.\n\n**Risk (as configured):** Low in practice because the NSG is unattached. However, if this NSG were ever associated with a NIC or subnet \u2014 accidentally or intentionally \u2014 SSH would be reachable from the entire IPv4 internet with no authentication layer in front of it. The standing misconfiguration is a latent risk.\n\n**Proposed remediation (for the operator to execute):** Delete rule `DeliberateAuditSSHFixture` from NSG `week07-unattached-audit-fixture`, or delete the NSG entirely if it serves no further purpose. If an inbound management rule is legitimately required, replace the source with a specific corporate IP prefix (e.g., `10.x.x.x/24` or a named Azure IP Group) and restrict the destination to the exact NIC rather than `Any`.\n\n---\n\n### 2. Storage \u2014 Public Blob Access \u2014 PASS\n\n**Evidence from report:**\n\n| Field | Value |\n|---|---|\n| Storage account | `minifinanceeze20260926` |\n| `allowBlobPublicAccess` | **false** |\n\nAnonymous blob reads are disabled at the account level. Even if a container were later misconfigured with `PublicAccess: Blob`, the account-level flag would override and block it. No remediation needed.\n\n**Limitation noted in report:** The Mini Finance static website endpoint remains intentionally public (it serves the web app); that is distinct from blob public access and is expected behavior.\n\n---\n\n### 3. Managed-Disk Encryption at Rest \u2014 PASS\n\n**Evidence from report \u2014 all four OS disks, all attached:**\n\n| Disk | Encryption type | Attached |\n|---|---|---|\n| `week07-app1_OsDisk_1_32601f...` | `EncryptionAtRestWithPlatformKey` | true |\n| `week07-app2_OsDisk_1_2c89f6...` | `EncryptionAtRestWithPlatformKey` | true |\n| `week07-web1_OsDisk_1_c78eeb...` | `EncryptionAtRestWithPlatformKey` | true |\n| `week07-web2_OsDisk_1_e6f8a0...` | `EncryptionAtRestWithPlatformKey` | true |\n\nAll four VM OS disks use **Azure platform-managed key encryption** (`EncryptionAtRestWithPlatformKey`). This is Azure Storage Service Encryption (SSE) managed transparently by the platform \u2014 AES-256, keys held by Microsoft in Azure Key Vault. This is **distinct from guest Azure Disk Encryption (ADE)**, which would encrypt at the OS layer using BitLocker (Windows) or dm-crypt (Linux) with keys surfaced inside the VM. The report limitation explicitly calls this out: \"Disk check verifies Azure managed-disk encryption, not guest ADE.\" Platform-key SSE satisfies the Week 07 baseline requirement. No remediation needed.\n\n---\n\n### 4. MySQL \u2014 Public Network Access \u2014 PASS\n\n**Evidence from report:**\n\n| Field | Value |\n|---|---|\n| Server name | `dmi-w07-20260926-mysql` |\n| `publicNetworkAccess` | **Disabled** |\n| Private subnet configured | **true** |\n\nThe MySQL Flexible Server has its public endpoint disabled and is reachable only via private VNet integration. No internet-facing connection string is exposed. No remediation needed.\n\n---\n\n### Summary\n\n| Control | Status | Key evidence |\n|---|---|---|\n| NSG inbound admin (22/3389) | **FAIL** | Permissive rule on `week07-unattached-audit-fixture`; 0 NICs / 0 subnets attached |\n| Storage public blob access | PASS | `allowBlobPublicAccess: false` on `minifinanceeze20260926` |\n| Managed-disk encryption | PASS | `EncryptionAtRestWithPlatformKey` on all 4 OS disks |\n| MySQL public access | PASS | `publicNetworkAccess: Disabled`, private subnet configured |\n\n**Single action needed:** Remove or scope the `DeliberateAuditSSHFixture` rule from `week07-unattached-audit-fixture`. All other controls are compliant.",
+  "tool_calls": [
+    {
+      "name": "Skill",
+      "input": {
+        "skill": "azure-audit"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "./azure-audit.sh; echo \"EXIT:$?\"",
+        "description": "Run the azure-audit script"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "./azure-audit.sh",
+        "description": "Run the azure-audit script"
+      }
+    },
+    {
+      "name": "Read",
+      "input": {
+        "file_path": "[private evidence workspace]/audit/reports/azure-audit-report.json"
+      }
+    }
+  ],
+  "model": "us.anthropic.claude-sonnet-4-6"
+}

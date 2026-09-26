@@ -1,5 +1,7 @@
 # Earlier-week publication fixes — 26 September 2026
 
+**Subsequent update:** the [Week 07 recovery](week-07-azure-cloud/README.md) has replaced the missing/1-pixel evidence and updated the blog. The counts and verification details below describe the earlier publication, before that recovery.
+
 The three missing publication cells for Weeks 06–07 now contain verified public URLs. These address **70 potential publication points** in the last recorded DMI result; only an external DMI review can award them.
 
 | Submission | Published result | Verification |

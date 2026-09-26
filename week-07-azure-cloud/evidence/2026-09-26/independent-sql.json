@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-09-26T13:02:49.988928+00:00",
+  "http_results_match_independent_sql": true,
+  "operator": "Codex",
+  "results": {
+    "book": {
+      "rows": [
+        {
+          "id": 1,
+          "userId": 1,
+          "bookId": 1,
+          "comment": "Week 07 recovery verified 2026-09-26T13:00:08.584195+00:00",
+          "rating": 5
+        }
+      ],
+      "tls": [
+        {
+          "Variable_name": "Ssl_cipher",
+          "Value": "TLS_AES_256_GCM_SHA384"
+        }
+      ],
+      "grants": [
+        {
+          "Grants for bookapp@10.0.4.%": "GRANT USAGE ON *.* TO `bookapp`@`10.0.4.%`"
+        },
+        {
+          "Grants for bookapp@10.0.4.%": "GRANT SELECT, INSERT, UPDATE, DELETE ON `bookreview`.* TO `bookapp`@`10.0.4.%`"
+        }
+      ]
+    },
+    "epic": {
+      "rows": [
+        {
+          "id": 1,
+          "CartId": 1,
+          "subTotal": "28.00",
+          "addressLine1": "DMI demonstration - no shipment"
+        }
+      ],
+      "tls": [
+        {
+          "Variable_name": "Ssl_cipher",
+          "Value": "TLS_AES_256_GCM_SHA384"
+        }
+      ],
+      "grants": [
+        {
+          "Grants for epicapp@10.0.1.10": "GRANT USAGE ON *.* TO `epicapp`@`10.0.1.10`"
+        },
+        {
+          "Grants for epicapp@10.0.1.10": "GRANT SELECT, INSERT, UPDATE, DELETE ON `bookstore`.* TO `epicapp`@`10.0.1.10`"
+        }
+      ]
+    }
+  }
+}

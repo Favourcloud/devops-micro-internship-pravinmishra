@@ -1,0 +1,59 @@
+Eze Favour — Week 07 Azure audit
+2026-09-26T12:37:44.530409+00:00
+Overall: FAIL
+
+[FAIL] nsg
+[
+  {
+    "nsg": "week07-unattached-audit-fixture",
+    "rule": "DeliberateAuditSSHFixture",
+    "port": 22,
+    "protocol": "Tcp",
+    "ip_families": [
+      4
+    ],
+    "attached_nics": 0,
+    "attached_subnets": 0
+  }
+]
+
+[PASS] storage
+[
+  {
+    "name": "minifinanceeze20260926",
+    "allowBlobPublicAccess": false
+  }
+]
+
+[PASS] disks
+[
+  {
+    "name": "week07-app1_OsDisk_1_32601f708b254d09ab1325509c494d2f",
+    "encryption": "EncryptionAtRestWithPlatformKey",
+    "attached": true
+  },
+  {
+    "name": "week07-app2_OsDisk_1_2c89f652c59644bd87a526f48b94651c",
+    "encryption": "EncryptionAtRestWithPlatformKey",
+    "attached": true
+  },
+  {
+    "name": "week07-web1_OsDisk_1_c78eeb4a58164171bbe679a72296b707",
+    "encryption": "EncryptionAtRestWithPlatformKey",
+    "attached": true
+  },
+  {
+    "name": "week07-web2_OsDisk_1_e6f8a0a8026c4bdcb5bd4388f76c1db3",
+    "encryption": "EncryptionAtRestWithPlatformKey",
+    "attached": true
+  }
+]
+
+[PASS] mysql
+[
+  {
+    "name": "dmi-w07-20260926-mysql",
+    "publicNetworkAccess": "Disabled",
+    "private_subnet_configured": true
+  }
+]

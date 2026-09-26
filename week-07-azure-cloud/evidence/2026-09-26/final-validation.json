@@ -1,0 +1,71 @@
+{
+  "verified_at": "2026-09-26T13:35:16.843152+00:00",
+  "manifest_slots": 62,
+  "local_links_checked": 197,
+  "missing_local_links": [],
+  "private_value_scan": "PASS; actual credentials and identifiers not found",
+  "source_hashes": "All published BookReview files match verified deployed manifest",
+  "http_checks": [
+    {
+      "name": "w08_book",
+      "url": "https://xdr0flp20e.execute-api.us-east-1.amazonaws.com/",
+      "status": 200,
+      "bytes": 6210
+    },
+    {
+      "name": "w09_finance",
+      "url": "http://135.116.197.163/",
+      "status": 200,
+      "bytes": 32108
+    },
+    {
+      "name": "w09_epic",
+      "url": "http://20.77.180.238/",
+      "status": 200,
+      "bytes": 25047
+    },
+    {
+      "name": "w10_static",
+      "url": "http://100.54.219.171/",
+      "status": 200,
+      "bytes": 15973
+    },
+    {
+      "name": "w10_react",
+      "url": "http://20.108.9.183/",
+      "status": 200,
+      "bytes": 644
+    },
+    {
+      "name": "w10_epic",
+      "url": "http://51.107.188.80/",
+      "status": 200,
+      "bytes": 25047
+    },
+    {
+      "name": "w07_react",
+      "url": "http://4.223.123.39/",
+      "status": 200,
+      "bytes": 644
+    },
+    {
+      "name": "w07_finance",
+      "url": "https://minifinanceeze20260926.z1.web.core.windows.net/",
+      "status": 200,
+      "bytes": 31958
+    },
+    {
+      "name": "w07_epic",
+      "url": "http://20.240.250.186/",
+      "status": 200,
+      "bytes": 25047
+    },
+    {
+      "name": "w07_book",
+      "url": "http://4.225.220.198/",
+      "status": 200,
+      "bytes": 6210
+    }
+  ],
+  "operator": "Codex"
+}

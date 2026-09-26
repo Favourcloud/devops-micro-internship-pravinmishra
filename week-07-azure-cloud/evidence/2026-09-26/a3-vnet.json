@@ -1,0 +1,66 @@
+{
+  "captured_at": "2026-09-26T12:56:53.306142+00:00",
+  "command": "az network vnet show -g vnet-demo-rg -n eb-demo-vnet --query {name:name,addressSpace:addressSpace,subnets:subnets}",
+  "result": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "name": "eb-demo-vnet",
+    "subnets": [
+      {
+        "addressPrefix": "10.0.2.0/25",
+        "defaultOutboundAccess": true,
+        "delegations": [],
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/vnet-demo-rg/providers/Microsoft.Network/virtualNetworks/eb-demo-vnet/subnets/app-subnet",
+        "name": "app-subnet",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "vnet-demo-rg",
+        "serviceEndpoints": [],
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      },
+      {
+        "addressPrefix": "10.0.3.0/26",
+        "defaultOutboundAccess": true,
+        "delegations": [],
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/vnet-demo-rg/providers/Microsoft.Network/virtualNetworks/eb-demo-vnet/subnets/db-subnet",
+        "name": "db-subnet",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "vnet-demo-rg",
+        "serviceEndpoints": [],
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      },
+      {
+        "addressPrefix": "10.0.1.0/24",
+        "defaultOutboundAccess": true,
+        "delegations": [],
+        "etag": "W/\"[identifier redacted]\"",
+        "id": "/subscriptions/[identifier redacted]/resourceGroups/vnet-demo-rg/providers/Microsoft.Network/virtualNetworks/eb-demo-vnet/subnets/web-subnet",
+        "ipConfigurations": [
+          {
+            "id": "/subscriptions/[identifier redacted]/resourceGroups/VNET-DEMO-RG/providers/Microsoft.Network/networkInterfaces/WEB-NGINX-NIC/ipConfigurations/PRIMARY",
+            "resourceGroup": "VNET-DEMO-RG"
+          }
+        ],
+        "name": "web-subnet",
+        "networkSecurityGroup": {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/vnet-demo-rg/providers/Microsoft.Network/networkSecurityGroups/web-nginx-nsg",
+          "resourceGroup": "vnet-demo-rg"
+        },
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "vnet-demo-rg",
+        "serviceEndpoints": [],
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "captured_at": "2026-09-26T12:56:44.685726+00:00",
+  "command": "az network nsg list -g dmi-w07-labs-20260926-rg --query [].{name:name,rules:securityRules,attachedNics:networkInterfaces,attachedSubnets:subnets}",
+  "result": [
+    {
+      "attachedNics": null,
+      "attachedSubnets": [
+        {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/virtualNetworks/WEEK07-THREE-TIER-VNET/subnets/APP-SUBNET",
+          "resourceGroup": "DMI-W07-LABS-20260926-RG"
+        }
+      ],
+      "name": "week07-app-nsg",
+      "rules": [
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "5000",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-app-nsg/securityRules/APIFromWeb",
+          "name": "APIFromWeb",
+          "priority": 100,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "10.0.1.0/24",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        },
+        {
+          "access": "Deny",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "*",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-app-nsg/securityRules/DenyOtherInbound",
+          "name": "DenyOtherInbound",
+          "priority": 4000,
+          "protocol": "*",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "*",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        },
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "22",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-app-nsg/securityRules/SSHFromJump",
+          "name": "SSHFromJump",
+          "priority": 110,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "10.0.1.10",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        },
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "*",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-app-nsg/securityRules/AzureHealthProbe",
+          "name": "AzureHealthProbe",
+          "priority": 120,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "AzureLoadBalancer",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        }
+      ]
+    },
+    {
+      "attachedNics": null,
+      "attachedSubnets": [
+        {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/virtualNetworks/WEEK07-THREE-TIER-VNET/subnets/DATABASE-SUBNET",
+          "resourceGroup": "DMI-W07-LABS-20260926-RG"
+        }
+      ],
+      "name": "week07-database-nsg",
+      "rules": [
+        {
+          "access": "Deny",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "*",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-database-nsg/securityRules/DenyOtherInbound",
+          "name": "DenyOtherInbound",
+          "priority": 4000,
+          "protocol": "*",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "*",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        },
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "3306",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-database-nsg/securityRules/MySQLFromAppAndEpic",
+          "name": "MySQLFromAppAndEpic",
+          "priority": 100,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "",
+          "sourceAddressPrefixes": [
+            "10.0.4.0/24",
+            "10.0.2.0/24",
+            "10.0.1.10"
+          ],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        }
+      ]
+    },
+    {
+      "attachedNics": null,
+      "attachedSubnets": null,
+      "name": "week07-unattached-audit-fixture",
+      "rules": [
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "22",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-unattached-audit-fixture/securityRules/DeliberateAuditSSHFixture",
+          "name": "DeliberateAuditSSHFixture",
+          "priority": 100,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "[controller]/32",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        }
+      ]
+    },
+    {
+      "attachedNics": null,
+      "attachedSubnets": [
+        {
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/DMI-W07-LABS-20260926-RG/providers/Microsoft.Network/virtualNetworks/WEEK07-THREE-TIER-VNET/subnets/WEB-SUBNET",
+          "resourceGroup": "DMI-W07-LABS-20260926-RG"
+        }
+      ],
+      "name": "week07-web-nsg",
+      "rules": [
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "80",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-web-nsg/securityRules/WebHTTP",
+          "name": "WebHTTP",
+          "priority": 100,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "Internet",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        },
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "22",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-web-nsg/securityRules/OperatorSSH",
+          "name": "OperatorSSH",
+          "priority": 110,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "",
+          "sourceAddressPrefixes": [
+            "10.0.1.10",
+            "[controller]/32"
+          ],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        },
+        {
+          "access": "Allow",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "*",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-web-nsg/securityRules/AzureHealthProbe",
+          "name": "AzureHealthProbe",
+          "priority": 120,
+          "protocol": "Tcp",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "AzureLoadBalancer",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        },
+        {
+          "access": "Deny",
+          "destinationAddressPrefix": "*",
+          "destinationAddressPrefixes": [],
+          "destinationPortRange": "*",
+          "destinationPortRanges": [],
+          "direction": "Inbound",
+          "etag": "W/\"[identifier redacted]\"",
+          "id": "/subscriptions/[identifier redacted]/resourceGroups/dmi-w07-labs-20260926-rg/providers/Microsoft.Network/networkSecurityGroups/week07-web-nsg/securityRules/DenyOtherInbound",
+          "name": "DenyOtherInbound",
+          "priority": 4000,
+          "protocol": "*",
+          "provisioningState": "Succeeded",
+          "resourceGroup": "dmi-w07-labs-20260926-rg",
+          "sourceAddressPrefix": "*",
+          "sourceAddressPrefixes": [],
+          "sourcePortRange": "*",
+          "sourcePortRanges": [],
+          "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "learner": "Eze Favour",
+  "operator": "Codex under learner delegation",
+  "captured_at": "2026-09-26T12:37:44.530409+00:00",
+  "overall": "FAIL",
+  "checks": [
+    {
+      "check": "nsg",
+      "status": "FAIL",
+      "evidence": [
+        {
+          "nsg": "week07-unattached-audit-fixture",
+          "rule": "DeliberateAuditSSHFixture",
+          "port": 22,
+          "protocol": "Tcp",
+          "ip_families": [
+            4
+          ],
+          "attached_nics": 0,
+          "attached_subnets": 0
+        }
+      ]
+    },
+    {
+      "check": "storage",
+      "status": "PASS",
+      "evidence": [
+        {
+          "name": "minifinanceeze20260926",
+          "allowBlobPublicAccess": false
+        }
+      ]
+    },
+    {
+      "check": "disks",
+      "status": "PASS",
+      "evidence": [
+        {
+          "name": "week07-app1_OsDisk_1_32601f708b254d09ab1325509c494d2f",
+          "encryption": "EncryptionAtRestWithPlatformKey",
+          "attached": true
+        },
+        {
+          "name": "week07-app2_OsDisk_1_2c89f652c59644bd87a526f48b94651c",
+          "encryption": "EncryptionAtRestWithPlatformKey",
+          "attached": true
+        },
+        {
+          "name": "week07-web1_OsDisk_1_c78eeb4a58164171bbe679a72296b707",
+          "encryption": "EncryptionAtRestWithPlatformKey",
+          "attached": true
+        },
+        {
+          "name": "week07-web2_OsDisk_1_e6f8a0a8026c4bdcb5bd4388f76c1db3",
+          "encryption": "EncryptionAtRestWithPlatformKey",
+          "attached": true
+        }
+      ]
+    },
+    {
+      "check": "mysql",
+      "status": "PASS",
+      "evidence": [
+        {
+          "name": "dmi-w07-20260926-mysql",
+          "publicNetworkAccess": "Disabled",
+          "private_subnet_configured": true
+        }
+      ]
+    }
+  ],
+  "scope": "Week07 lab resource group + Mini Finance storage only",
+  "limitations": [
+    "No live remediation is executed by the audit.",
+    "Disk check verifies Azure managed-disk encryption, not guest ADE.",
+    "Storage static website remains intentionally public even when blob public access is disabled.",
+    "NSG check covers internet-wide administrative rules, not every partial public CIDR or effective flow."
+  ]
+}
