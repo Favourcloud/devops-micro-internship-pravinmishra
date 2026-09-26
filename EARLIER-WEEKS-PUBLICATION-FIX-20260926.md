@@ -29,7 +29,7 @@ The public DMI review remains dated **25 September 2026**:
 | 06 | 170/210 | Blog: 30 | 20/30 |
 | 07 | 160/210 | Blog: 30; LinkedIn: 10 | 20/30 |
 
-The remaining **40 attendance points** come from four uncredited 10-point slots. The public page does not identify the specific slots or establish whether they were missed or recorded incorrectly. A factual verification request has been prepared for the cohort team; no attendance correction, message delivery or new score is claimed in this commit. Only the team can reconcile its attendance source.
+The remaining **40 attendance points** come from four uncredited 10-point slots. The public page does not identify the specific slots. The learner confirmed that the team uses Zoom meeting records before scoring and explicitly declined contacting the team about attendance. No request was sent and attendance is left unchanged. No new score is claimed in this commit.
 
 ## Publication source and receipts
 
