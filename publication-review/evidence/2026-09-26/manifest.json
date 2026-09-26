@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T10:43:53.572416+00:00",
+  "generated_at": "2026-09-26T10:44:28.511753+00:00",
   "scope": "New public rubric-verification receipts only; historical evidence unchanged",
   "sha256": {
     "blog-browser-checks.json": "10477c4f961bbd1b49357a4872715fe2b5861878be5d4941ab54ee7647991af8",
@@ -7,6 +7,6 @@
     "canonical-linkedin.json": "f4477e143b00ca91d36cb96a04b10e4298ff86fcbb2a5adc23820bab00119c33",
     "linkedin-update-check.json": "dab668be97613c9107b568771bceeaa5225a28eb13cdbe2e26b959259a84469c",
     "pages-public-checks.json": "d23668a210ecff6c9821f6095f139c1306bae12fd76fb88c2a5dd24846022b94",
-    "submission-checks.json": "12506d3d1b0f4d89bcdeeb1925b7a317b081d99b2c9b4adf184b2118c6a7a14b"
+    "submission-checks.json": "9f27ab4b3093ba89bb16fe7dd39103ecd6f2dac5dd856082dd49f07cfddca84e"
   }
 }

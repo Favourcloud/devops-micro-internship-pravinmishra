@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-26T10:41:46.652493+00:00",
+  "checked_at": "2026-09-26T10:44:28.416349+00:00",
   "published_rules": "https://dmi.pravinmishra.com/how-it-works.html",
   "upstream_revision": "e979906210d76e22c1711afabc0fb941ae5c1184",
   "method": "Conservative local audit of published rules. Remove code fences, comments, headings, tables and exact template lines before counting original prose. This is not the private DMI grading engine.",
@@ -70,9 +70,9 @@
       "path": "week-09-ansible/assignment-01-set-up-a-team-ready-ansible-development-workstation.md",
       "expected_path_present": true,
       "differs_from_upstream_template": true,
-      "original_prose_words": 1641,
+      "original_prose_words": 1643,
       "flagged_template_phrases": [],
-      "sha256": "2b6363290ac4fb669f4c8821754a0aa108c772793144a63a63eb74fb867c21ef",
+      "sha256": "de5cb6193c8b8d871419cf7c224b91a99c1715774a156a0c6781922b88cf452f",
       "unchecked_evidence_or_personal_execution_items": []
     },
     {
