@@ -1,0 +1,11 @@
+# Persistence and tested recovery
+
+MySQL data lives in the `week11-epicbook_database-data` named volume on encrypted EBS. Recreating an application container does not remove this volume. The explicit `04-checkout.sql` migration is idempotent and adds the original schema's missing Cartbook and Checkout tables, including a unique CartId for duplicate-order protection.
+
+A consistent cold snapshot was taken at 2026-09-26T16:48:37Z. The proxy, frontend, backend and database were stopped before the database volume was archived. The snapshot was extracted into a new volume, then started using the exact original MySQL image in a container with `--network none` and no published port. Independent queries matched **54 books, 2 carts and 2 orders**, including order IDs, cart IDs and amounts. The original stack was restored to healthy status and the restore container stopped. The snapshot was copied off the VM into private operator storage and its SHA256 matched `3890eb9f2b9b3e0a8b09dc8a051fe1b08eb2717af6aed70b7c0561ca8a101cee`.
+
+The first remote command stream ended before the final comparison/cleanup lines because a Compose command consumed stdin. The data queries had completed; a separate recorded verification performed the comparison and stopped the clone. The remote runner now executes a script file with stdin closed, and the published drill explicitly disables interactive input. This is documented rather than treating an exit code alone as proof.
+
+[Snapshot creation](../../evidence/2026-09-26/a6-snapshot-create.txt) · [independent restore verification](../../evidence/2026-09-26/a6-snapshot-restore.txt) · [reusable drill](../ops/snapshot-drill.sh).
+
+Operational plan: take a backup before every schema change; use daily encrypted off-host backups with seven daily and four weekly versions, test a restore monthly, and verify both row contents and application behavior. That recurring schedule is a runbook recommendation, **not an automation installed by this submission**. A cold snapshot entails downtime. This single-host deployment has no HA or automatic disaster recovery. Never run `docker compose down -v` on retained data. Preserve secrets separately because the volume snapshot does not contain the session signing key.

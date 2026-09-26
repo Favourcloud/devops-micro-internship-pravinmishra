@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:49:42.501570+00:00",
+  "finished": "2026-09-26T16:49:49.801058+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone\ndocker build --progress=plain -f backend/Dockerfile.hardened -t epicbook-audit:1.0.0 backend\ndocker stop epicbook-audit\ndocker rm epicbook-audit\ndocker run -d --name epicbook-audit --network week11-epicbook_back-tier --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -v /opt/week11/capstone/secrets/db_password:/run/secrets/db_password:ro -v /opt/week11/capstone/secrets/session:/run/secrets/session:ro epicbook-audit:1.0.0\ncat backend/Dockerfile.hardened\ndocker ps --filter name=epicbook-audit\n",
+  "exit_code": 0,
+  "stdout_sha256": "0171dee9b5f24ea05ea5af37542013f975700301d451010cd44f161f93d34020"
+}

@@ -1,0 +1,56 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:42:30.732383+00:00
+Host: labs
+
+$ #!/usr/bin/env bash
+$ set -euo pipefail
+$ docker stop frontend backend
+$ docker rm frontend backend
+$ docker network rm mynetwork
+$ docker run -d --network host --name fastapp nginx
+$ docker ps
+$ curl -fsS http://127.0.0.1/
+$ docker inspect fastapp --format '{{.HostConfig.NetworkMode}}'
+$ docker stop fastapp
+$ docker rm fastapp
+
+frontend
+backend
+frontend
+backend
+mynetwork
+c714a0a8c0ad6a602baf82080a6036c21bf5e2f4931e4738641bfb69703f923b
+CONTAINER ID   IMAGE          COMMAND                  CREATED                  STATUS                  PORTS                                         NAMES
+c714a0a8c0ad   nginx          "/docker-entrypoint.…"   Less than a second ago   Up Less than a second                                                 fastapp
+d53a78fd9eb6   react-single   "docker-entrypoint.s…"   4 minutes ago            Up 4 minutes            0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   react-single
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+host
+fastapp
+fastapp

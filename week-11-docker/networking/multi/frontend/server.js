@@ -1,0 +1,1 @@
+const express=require('express');const app=express();app.get('/',async(_q,r)=>{try{const x=await fetch('http://api:8080/');const d=await x.json();r.type('html').send('<h1>Eze Favour · Three-tier Docker networks</h1><pre>'+JSON.stringify(d).replaceAll('<','&lt;')+'</pre>');}catch{r.status(503).send('Backend unavailable');}});app.listen(8080,'0.0.0.0');

@@ -1,0 +1,21 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-claude-baseline</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-claude-baseline.txt · Page 6/6</b></p><pre>110  ---
+111  
+112  ## Recommended Dockerfile Diff (operator applies outside this session)
+113  
+114  ```dockerfile
+115  # 1. Pin the base image to a versioned tag (or digest for full immutability)
+116  FROM node:22-alpine          # was: latest or unversioned
+117  
+118  # ... existing COPY / RUN steps ...
+119  
+120  # 2. Drop to a non-root user before CMD
+121  RUN addgroup --system app &amp;&amp; adduser --system --ingroup app app
+122  USER app                     # was: implicit root
+123  
+124  # 3. Add a health check
+125  HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+126    CMD wget -qO- http://localhost:3000/health || exit 1
+127  ```
+128  
+129  All three FAIL checks are addressed by these three additions. The operator rebuilds and re-runs 
+     `./run-audit.sh` to verify the new result.</pre><small>Original SHA-256: 43dc54104f04e5dedd4411a6c6d5221156b83ed85a346d786724e149c2f231fb</small></html>

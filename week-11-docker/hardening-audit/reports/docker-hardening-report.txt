@@ -1,0 +1,10 @@
+Eze Favour | DMI Week 11 | Read-only Docker hardening audit
+UTC: 2026-09-26T16:51:12Z
+Container: epicbook-audit
+PASS | exists | epicbook-audit exists
+PASS | user | Configured user: node
+PASS | healthcheck | HEALTHCHECK is defined
+PASS | image | Versioned image tag: epicbook-audit:1.0.0 (mutable; digest preferred)
+PASS | privileged | Privileged mode is disabled
+PASS | ports | 1 image port(s), 0 published binding(s)
+SUMMARY: PASS=6 WARN=0 FAIL=0

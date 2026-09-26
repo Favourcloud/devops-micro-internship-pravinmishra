@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a2-react-build</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a2-react-build.txt · Page 1/3</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:36:46.702328+00:00
+  4  Host: labs
+  5  
+  6  $ #!/usr/bin/env bash
+  7  $ set -euo pipefail
+  8  $ cd /opt/week11
+  9  $ printf &#x27;Eze Favour | React single-stage and multi-stage comparison\n&#x27;
+ 10  $ cat react/.dockerignore react/Dockerfile.single react/Dockerfile
+ 11  $ docker build --progress=plain -t react-single -f react/Dockerfile.single react
+ 12  $ docker run -d --name react-single -p 3000:3000 react-single
+ 13  $ docker build --progress=plain -t react-multistage -f react/Dockerfile react
+ 14  $ docker stop static-site
+ 15  $ docker run -d --name react-multistage --restart unless-stopped --read-only --tmpfs /tmp --cap-drop 
+     ALL --security-opt no-new-privileges -p 80:8080 react-multistage
+ 16  $ docker image inspect react-single react-multistage --format &#x27;{{.RepoTags}} {{.Size}}&#x27;
+ 17  $ docker ps
+ 18  
+ 19  Eze Favour | React single-stage and multi-stage comparison
+ 20  **/node_modules
+ 21  **/build
+ 22  **/.env
+ 23  **/.env.*
+ 24  **/.git</pre><small>Original SHA-256: ef51d3f0707c60a848fda7c5a4168912c882612d9c62320e2b60db7cc8616709</small></html>

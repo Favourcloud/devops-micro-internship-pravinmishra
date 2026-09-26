@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a2-react-build</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a2-react-build.txt · Page 2/3</b></p><pre> 25  **/*.log
+ 26  FROM node:22-bookworm-slim
+ 27  WORKDIR /app
+ 28  COPY app/package*.json ./
+ 29  RUN npm ci --no-audit --no-fund
+ 30  COPY app/ ./
+ 31  RUN npm run build
+ 32  EXPOSE 3000
+ 33  CMD [&quot;node&quot;, &quot;serve.cjs&quot;]
+ 34  FROM node:22-bookworm-slim AS build
+ 35  WORKDIR /app
+ 36  COPY app/package*.json ./
+ 37  RUN npm ci --no-audit --no-fund
+ 38  COPY app/ ./
+ 39  RUN npm run build
+ 40  FROM nginx:stable-alpine AS runtime
+ 41  COPY nginx.conf /etc/nginx/nginx.conf
+ 42  COPY --from=build /app/build /usr/share/nginx/html
+ 43  USER 101:101
+ 44  EXPOSE 8080
+ 45  HEALTHCHECK --interval=15s --timeout=3s CMD wget -q -O /dev/null http://127.0.0.1:8080/health || exit 
+     1
+ 46  CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
+ 47  d53a78fd9eb6edd8b1542a7ac5f49ba7166914f0ba6e3f86972bf3ef17708642
+ 48  static-site</pre><small>Original SHA-256: ef51d3f0707c60a848fda7c5a4168912c882612d9c62320e2b60db7cc8616709</small></html>

@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:42:30.732383+00:00",
+  "finished": "2026-09-26T16:42:46.166756+00:00",
+  "host": "labs",
+  "command": "#!/usr/bin/env bash\nset -euo pipefail\ndocker stop frontend backend\ndocker rm frontend backend\ndocker network rm mynetwork\ndocker run -d --network host --name fastapp nginx\ndocker ps\ncurl -fsS http://127.0.0.1/\ndocker inspect fastapp --format '{{.HostConfig.NetworkMode}}'\ndocker stop fastapp\ndocker rm fastapp\n",
+  "exit_code": 0,
+  "stdout_sha256": "539bebcf7f8bcf5a4e039b1fa736b9ae1b313a85ab93b65b1e78983033c719b8"
+}

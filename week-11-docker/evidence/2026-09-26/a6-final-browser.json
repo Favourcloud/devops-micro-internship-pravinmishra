@@ -1,0 +1,8 @@
+{
+  "owner": "Eze Favour",
+  "date": "2026-09-26",
+  "url": "https://d209ibroel8p0b.cloudfront.net/",
+  "performed_by": "Codex via browser under delegation",
+  "result": "Final release: add book 3, cart $32.50, demo order 4 saved; no payment",
+  "sql_scope": "a6-final-browser-sql.txt independently confirms order 4, cart 6, total 32.50 and 54 catalogue books."
+}

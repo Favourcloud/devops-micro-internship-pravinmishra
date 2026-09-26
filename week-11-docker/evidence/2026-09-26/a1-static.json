@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:36:42.020514+00:00",
+  "finished": "2026-09-26T16:36:46.701158+00:00",
+  "host": "labs",
+  "command": "cd /opt/week11; find static/app -maxdepth 2 -type f | head -20; cat static/Dockerfile; docker images; docker ps; curl -fsS http://127.0.0.1/ | head -15",
+  "exit_code": 0,
+  "stdout_sha256": "d1f3929b37687f2cc42037d89759e6d0c215bd0f83e49353d06c158b4ecf3ef1"
+}

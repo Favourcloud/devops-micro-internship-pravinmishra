@@ -1,0 +1,55 @@
+{
+  "owner": "Eze Favour",
+  "source": "Applied Terraform state from 26 September 2026, selected fields; NOT a fresh API query",
+  "instances": [
+    {
+      "name": "eze-week11-epicbook",
+      "instance_id": "i-02a2e754080509029",
+      "public_ip": "98.86.65.226",
+      "type": "t3.medium",
+      "state_at_apply": "running",
+      "imds_v2": "required",
+      "encrypted_root": true
+    },
+    {
+      "name": "eze-week11-labs",
+      "instance_id": "i-0cd2c2932de6d2c9b",
+      "public_ip": "3.225.177.203",
+      "type": "t3.medium",
+      "state_at_apply": "running",
+      "imds_v2": "required",
+      "encrypted_root": true
+    }
+  ],
+  "inbound_rules": [
+    {
+      "from_port": 443,
+      "to_port": 443,
+      "sources": [
+        "0.0.0.0/0"
+      ]
+    },
+    {
+      "from_port": 80,
+      "to_port": 80,
+      "sources": [
+        "0.0.0.0/0"
+      ]
+    },
+    {
+      "from_port": 22,
+      "to_port": 22,
+      "sources": [
+        "operator /32 (redacted)"
+      ]
+    },
+    {
+      "from_port": 3000,
+      "to_port": 3000,
+      "sources": [
+        "operator /32 (redacted)"
+      ]
+    }
+  ],
+  "latest_access_note": "At 22:14 UTC the authenticated AWS console replaced only SSH/3000 sources with the current operator /32. Public HTTP/HTTPS stayed unchanged. SSH, final service health, logs and the public backend audit succeeded afterward. Private Terraform input was reconciled; state refresh remains a routine next authenticated Terraform step."
+}

@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a1-static</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a1-static.txt · Page 1/2</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:36:42.020514+00:00
+  4  Host: labs
+  5  
+  6  $ cd /opt/week11; find static/app -maxdepth 2 -type f | head -20; cat static/Dockerfile; docker 
+     images; docker ps; curl -fsS http://127.0.0.1/ | head -15
+  7  
+  8  static/app/index.html
+  9  static/app/README.md
+ 10  FROM nginx:alpine
+ 11  COPY app/ /usr/share/nginx/html/
+ 12  EXPOSE 80
+ 13  HEALTHCHECK --interval=15s --timeout=3s CMD wget -q -O /dev/null http://127.0.0.1/ || exit 1
+ 14  IMAGE                ID             DISK USAGE   CONTENT SIZE   EXTRA
+ 15  static-site:latest   328237fcecf3       93.6MB         26.3MB   U    
+ 16  CONTAINER ID   IMAGE                COMMAND                  CREATED              STATUS
+                             PORTS                                 NAMES
+ 17  d613d583f28f   static-site:latest   &quot;/docker-entrypoint.…&quot;   About a minute ago   Up About a minute 
+     (healthy)   0.0.0.0:80-&gt;80/tcp, [::]:80-&gt;80/tcp   static-site
+ 18  &lt;!doctype html&gt;
+ 19  &lt;html lang=&quot;en&quot;&gt;
+ 20  
+ 21  &lt;head&gt;
+ 22      &lt;meta charset=&quot;utf-8&quot; /&gt;</pre><small>Original SHA-256: e6e5396a5e7c86ae742b47ee115e96461e16b6ace54a678a776ef5df97f12823</small></html>

@@ -1,0 +1,18 @@
+<!doctype html><html><meta charset="utf-8"><title>a6-deploy</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a6-deploy.txt · Page 1/1</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:37:41.757387+00:00
+  4  Host: epicbook
+  5  
+  6  $ cd /opt/week11/capstone; docker compose config --quiet; docker compose up -d --wait --wait-timeout 
+     240; docker compose ps
+  7  
+  8  NAME                              IMAGE                     COMMAND                  SERVICE         
+     CREATED              STATUS                    PORTS
+  9  week11-epicbook-backend-1         epicbook-backend:1.0.0    &quot;docker-entrypoint.s…&quot;   backend         
+     38 seconds ago       Up 22 seconds (healthy)   8080/tcp
+ 10  week11-epicbook-database-1        mysql:8.4                 &quot;docker-entrypoint.s…&quot;   database        
+     About a minute ago   Up 37 seconds (healthy)   3306/tcp, 33060/tcp
+ 11  week11-epicbook-frontend-1        epicbook-frontend:1.0.0   &quot;docker-entrypoint.s…&quot;   frontend        
+     38 seconds ago       Up 16 seconds (healthy)   8080/tcp
+ 12  week11-epicbook-reverse-proxy-1   nginx:stable-alpine       &quot;/docker-entrypoint.…&quot;   reverse-proxy   
+     38 seconds ago       Up 10 seconds (healthy)   80/tcp, 0.0.0.0:80-&gt;8080/tcp, [::]:80-&gt;8080/tcp</pre><small>Original SHA-256: 4f756ecc531e5c14f30589ebf42016f8b482e8cfe7784e2bb6e379e809b11c3e</small></html>

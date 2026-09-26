@@ -1,0 +1,1 @@
+const express=require('express'),fs=require('fs');const app=express();app.get('/',(_q,r)=>{let data;try{data=fs.readFileSync('/shared/data.txt','utf8');}catch{data='Waiting for backend';}r.type('html').send('<h1>Eze Favour · Docker shared volume</h1><p>'+data.replaceAll('&','&amp;').replaceAll('<','&lt;')+'</p>');});app.listen(8080,'0.0.0.0');

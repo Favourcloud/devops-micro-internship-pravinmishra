@@ -1,0 +1,59 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:43:06.222296+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone; docker compose build frontend; docker compose up -d --wait --wait-timeout 120 frontend
+
+#1 [internal] load local bake definitions
+#1 reading from stdin 954B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 576B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#3 DONE 0.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 108B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 7.84kB done
+#5 DONE 0.0s
+
+#6 [dependencies 1/4] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#6 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#6 DONE 0.0s
+
+#7 [dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#7 CACHED
+
+#8 [dependencies 2/4] WORKDIR /app
+#8 CACHED
+
+#9 [dependencies 3/4] COPY package*.json ./
+#9 CACHED
+
+#10 [runtime 3/4] COPY --from=dependencies /app/node_modules ./node_modules
+#10 CACHED
+
+#11 [runtime 4/4] COPY --chown=node:node . .
+#11 DONE 0.2s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 1.7s done
+#12 exporting manifest sha256:c58a8d3e4c3fd9ae933e789186c4edf5df3b34f822591d42ddf80d45d458edc6 0.0s done
+#12 exporting config sha256:3834288a98e47139e1f989f56ddeff7fe85c194be7189c38304a1e9aee0293f1 done
+#12 exporting attestation manifest sha256:559a197c64348d76b01b5effbc8c949d16e567fdb3e264ba7c19adbf32ee4c33 0.0s done
+#12 exporting manifest list sha256:fdfad1d15ee2c1569859a2a4d8eef8985bae864124945af7a2467035e09b2d82 done
+#12 naming to docker.io/library/epicbook-frontend:1.0.0 done
+#12 unpacking to docker.io/library/epicbook-frontend:1.0.0
+#12 unpacking to docker.io/library/epicbook-frontend:1.0.0 0.3s done
+#12 DONE 2.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s

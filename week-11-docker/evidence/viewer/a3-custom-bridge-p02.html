@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a3-custom-bridge</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a3-custom-bridge.txt · Page 2/5</b></p><pre> 26  WORKDIR /app
+ 27  COPY package*.json ./
+ 28  RUN npm ci --omit=dev --no-audit --no-fund
+ 29  COPY server.js ./
+ 30  USER node
+ 31  EXPOSE 8080
+ 32  CMD [&quot;node&quot;,&quot;server.js&quot;]
+ 33  381162c2c815b132a47fe1ef98626a1d6d5b8fc14d6d94fe576e2afdd1b2b651
+ 34  3b70cff1829b0511672b97e19c5352151c9ced74b795352f95f9394713767c3f
+ 35  CONTAINER ID   IMAGE                 COMMAND                  CREATED                  STATUS
+                       PORTS                                         NAMES
+ 36  3b70cff1829b   nginx                 &quot;/docker-entrypoint.…&quot;   Less than a second ago   Up Less than a 
+     second   80/tcp                                        backend
+ 37  381162c2c815   custom-frontend:1.0   &quot;docker-entrypoint.s…&quot;   Less than a second ago   Up Less than a 
+     second   0.0.0.0:80-&gt;8080/tcp, [::]:80-&gt;8080/tcp       frontend
+ 38  d53a78fd9eb6   react-single          &quot;docker-entrypoint.s…&quot;   2 minutes ago            Up 2 minutes
+                 0.0.0.0:3000-&gt;3000/tcp, [::]:3000-&gt;3000/tcp   react-single
+ 39  [
+ 40      {
+ 41          &quot;Name&quot;: &quot;mynetwork&quot;,
+ 42          &quot;Id&quot;: &quot;cd76e2d609824681f13f945e3c12456cb07d16e5fead1d451edceae85dc70f3f&quot;,
+ 43          &quot;Created&quot;: &quot;2026-09-26T16:40:33.157082134Z&quot;,
+ 44          &quot;Scope&quot;: &quot;local&quot;,
+ 45          &quot;Driver&quot;: &quot;bridge&quot;,
+ 46          &quot;EnableIPv4&quot;: true,</pre><small>Original SHA-256: 68968bce594103ccbbf6933fa7402ffb5f975f87e44877fd62fec5343a711cb1</small></html>

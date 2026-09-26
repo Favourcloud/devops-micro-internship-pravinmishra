@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a4-shared-volume</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a4-shared-volume.txt · Page 2/3</b></p><pre> 24  volumes/frontend/.dockerignore
+ 25  volumes/frontend/package.json
+ 26  volumes/frontend/server.js
+ 27  volumes/backend/Dockerfile
+ 28  volumes/backend/package-lock.json
+ 29  volumes/backend/.dockerignore
+ 30  volumes/backend/package.json
+ 31  volumes/backend/server.js
+ 32  c91e3a11ab26361dc811bb5892f182126039e64a1d12ab100f712de3b393181c
+ 33  shared-data
+ 34  FROM node:22-bookworm-slim
+ 35  RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends curl &amp;&amp; rm -rf /var/lib/apt/lists/*
+ 36  WORKDIR /app
+ 37  COPY package*.json ./
+ 38  RUN npm ci --omit=dev --no-audit --no-fund
+ 39  COPY server.js ./
+ 40  USER node
+ 41  EXPOSE 80
+ 42  CMD [&quot;node&quot;,&quot;server.js&quot;]
+ 43  FROM node:22-bookworm-slim
+ 44  RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends curl &amp;&amp; rm -rf /var/lib/apt/lists/*
+ 45  WORKDIR /app
+ 46  COPY package*.json ./
+ 47  RUN npm ci --omit=dev --no-audit --no-fund
+ 48  COPY server.js ./</pre><small>Original SHA-256: 38a01582518ef35cc75de3a1b704b3f2be2c69bb14a209712b537beb80b350d3</small></html>

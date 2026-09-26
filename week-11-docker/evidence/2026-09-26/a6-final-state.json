@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T22:15:01.779691+00:00",
+  "finished": "2026-09-26T22:15:07.369463+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone\ndocker compose config --quiet\ndocker compose ps\ndocker compose exec -T --interactive=false backend id\ndocker compose exec -T --interactive=false frontend node -e 'require(\"dns\").lookup(\"database\",(e,a)=>{if(!e){console.log(\"FAIL\",a);process.exit(1)}console.log(\"PASS: frontend cannot resolve database\")})'\ndocker network inspect week11-epicbook_back-tier --format 'Internal={{.Internal}} Containers={{range .Containers}}{{.Name}} {{end}}'\ndocker inspect week11-epicbook-database-1 --format 'Database host bindings={{json .HostConfig.PortBindings}}'\ndf -h /\n",
+  "exit_code": 0,
+  "stdout_sha256": "1b49f5c9a675a99d309a2df705f6641bdc2325626e2dd496268b1a6734f1acba"
+}

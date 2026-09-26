@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a3-multiple-networks</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a3-multiple-networks.txt · Page 1/9</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:47:08.743196+00:00
+  4  Host: labs
+  5  
+  6  $ #!/usr/bin/env bash
+  7  $ set -euo pipefail
+  8  $ cd /opt/week11
+  9  $ mkdir -p private
+ 10  $ chmod 700 private
+ 11  $ test -s private/mongo_password || openssl rand -hex 32 &gt; private/mongo_password
+ 12  $ chmod 444 private/mongo_password
+ 13  $ docker network create --internal backend-network
+ 14  $ docker network create frontend-network
+ 15  $ find networking/multi -maxdepth 2 -type f
+ 16  $ cat networking/multi/{database,backend,frontend}/Dockerfile
+ 17  $ docker build --progress=plain -t lab-mongo:1.0 networking/multi/database
+ 18  $ docker build --progress=plain -t multi-backend:1.0 networking/multi/backend
+ 19  $ docker build --progress=plain -t multi-frontend:1.0 networking/multi/frontend
+ 20  $ docker run -d --name database --network backend-network -e MONGO_INITDB_ROOT_USERNAME=labuser -e 
+     MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_password -v 
+     /opt/week11/private/mongo_password:/run/secrets/mongo_password:ro lab-mongo:1.0
+ 21  $ docker run -d --name api --network backend-network -v 
+     /opt/week11/private/mongo_password:/run/secrets/mongo_password:ro multi-backend:1.0
+ 22  $ docker network connect frontend-network api</pre><small>Original SHA-256: cb69fb5ce2ddd8233dd65c3b4ba858ebe22d89211879b25ae3682014e9ff9dfe</small></html>

@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:48:19.263885+00:00",
+  "finished": "2026-09-26T16:48:32.573439+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone; docker compose up -d --wait --wait-timeout 180; curl -fsS http://127.0.0.1/api/catalog | head -c 300; docker compose ps",
+  "exit_code": 0,
+  "stdout_sha256": "55c299333971b9e15ffe043c3490df005b664d6565e225e682c711dcf32e62b6"
+}

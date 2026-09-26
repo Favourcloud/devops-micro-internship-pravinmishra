@@ -1,0 +1,69 @@
+{
+  "checked_at_utc": "2026-09-26T22:37:44.448558+00:00",
+  "scope": "Week 11 publication and submission readiness; not DMI grading",
+  "documentation": {
+    "assignments": 7,
+    "capstone_docs": 10,
+    "local_links_checked": 972
+  },
+  "screenshots": {
+    "viewer_sources": 65,
+    "viewer_pages": 186,
+    "png_images": 209,
+    "manifest": "screenshot-manifest.json",
+    "all_decoded": true
+  },
+  "deployed_source_matches": 10,
+  "recorded_technical_checks": {
+    "https_checks_passed": 16,
+    "audit_behavior_tests_passed": 8,
+    "public_backend_hardening_passed": 6,
+    "note": "These refer to the dated actual runs, not a claim of re-execution by this packaging check."
+  },
+  "publication": {
+    "blog_url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-11.html",
+    "blog_http_status": 200,
+    "visible_word_count": 757,
+    "own_dmi_link": true,
+    "published_matches_source": true,
+    "linkedin_url": "https://www.linkedin.com/posts/eze-favour-52732752_dmibypravinmishra-docker-devops-share-7509737427876454400-cxc1/",
+    "linkedin_content_lines": 10,
+    "linkedin_verification": "Canonical post author/content and image verified in browser; publication screenshots included."
+  },
+  "sensitive_data_scan": {
+    "files_checked": 696,
+    "known_value_categories": [
+      "Docker registry credentials",
+      "live database and session secrets",
+      "current operator IP",
+      "account IDs available in private console records"
+    ],
+    "matches": 0,
+    "note": "Values were compared in memory and are not written to this report. AWS image was visually checked and cropped."
+  },
+  "dmi_status": {
+    "profile": "https://dmi.pravinmishra.com/s/Favourcloud.html",
+    "last_review_date": "2026-09-26",
+    "complete_weeks": "00-10",
+    "completed_count": 11,
+    "total_weeks": 14,
+    "points": 1830,
+    "available_points": 1870,
+    "week11": "Not yet graded",
+    "source": "2026-09-26/dmi-final-review.txt"
+  },
+  "disclosed_limits": [
+    "Delegated execution; no claim of learner-personal manual execution",
+    "Command/editor screenshot slots use labelled saved-output/source browser captures",
+    "Initial audit script draft predated Claude planning",
+    "Single-host teaching deployment; viewer HTTPS and HTTP origin hop",
+    "Optional CI/CD omitted; demos kept online as authorized"
+  ],
+  "failures": [],
+  "passed": true,
+  "whitespace_review": {
+    "new_authored_files_passed": true,
+    "preserved_paths_count": 169,
+    "note": "Existing upstream asset/template formatting and exact recorded output/viewer whitespace retained to preserve deployed-source and evidence hashes. Whitespace warnings were reviewed; no warning remains outside those categories."
+  }
+}

@@ -1,0 +1,1 @@
+const express=require('express'),fs=require('fs');const app=express();app.get('/write',(q,r)=>{const data=typeof q.query.data==='string'?q.query.data.slice(0,200):'Hello from Backend!';fs.writeFileSync('/shared/data.txt.tmp',data);fs.renameSync('/shared/data.txt.tmp','/shared/data.txt');r.json({owner:'Eze Favour',written:data});});app.listen(80,'0.0.0.0');

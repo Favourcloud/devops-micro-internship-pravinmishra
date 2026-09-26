@@ -1,0 +1,10 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:53:00.350032+00:00
+Host: epicbook
+
+$ docker inspect epicbook-audit --format 'User={{.Config.User}} Running={{.State.Running}} Health={{.State.Health.Status}} Privileged={{.HostConfig.Privileged}} Image={{.Config.Image}}'; docker exec epicbook-audit id; bash -n /opt/week11/audit/docker-audit.sh; ls -l /opt/week11/audit/docker-audit.sh
+
+User=node Running=true Health=healthy Privileged=false Image=epicbook-audit:1.0.0
+uid=1000(node) gid=1000(node) groups=1000(node)
+-rwxr-xr-x 1 ubuntu ubuntu 2945 Sep 26 16:43 /opt/week11/audit/docker-audit.sh

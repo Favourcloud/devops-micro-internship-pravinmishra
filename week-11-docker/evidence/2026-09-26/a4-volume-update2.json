@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:52:46.666335+00:00",
+  "finished": "2026-09-26T16:52:53.444574+00:00",
+  "host": "labs",
+  "command": "docker exec backend curl -fsS 'http://localhost/write?data=Test%20Data%202%20-%20New%20Update'; curl -fsS http://127.0.0.1/; docker exec frontend cat /shared/data.txt; if docker exec frontend sh -c 'echo forbidden > /shared/deny-test'; then echo 'Unexpected writable reader mount'; exit 1; else echo 'PASS: frontend shared volume is read-only'; fi",
+  "exit_code": 0,
+  "stdout_sha256": "b99ee8a38f2c7c3ed5315cdbf18719753af4801fb9b7440a48431978496afc45"
+}

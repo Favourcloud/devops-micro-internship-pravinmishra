@@ -1,0 +1,17 @@
+<!doctype html><html><meta charset="utf-8"><title>react-ANALYSIS_md</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>react/ANALYSIS.md · Page 1/1</b></p><pre>  1  # Multi-stage result — Eze Favour
+  2  
+  3  1. The single-stage image is 854,614,809 bytes; the multi-stage image is 94,232,874 bytes, measured 
+     using Docker image inspection on the same host.
+  4  2. `(854614809 - 94232874) / 854614809 × 100` gives an **88.97% reduction** (89.0% rounded).
+  5  3. The runtime contains the compiled React assets and Nginx rather than the Node build toolchain and 
+     development dependencies.
+  6  4. Fewer shipped components reduce the attack surface; smaller size alone does not prove that every 
+     package is secure.
+  7  5. The smaller image reduces bytes to distribute, although this exercise did not benchmark pull time 
+     or bandwidth.
+  8  6. Copying package manifests before application source lets Docker reuse the dependency-install layer 
+     when only source changes.
+  9  7. The final runtime uses UID 101, a healthcheck, a read-only filesystem and temporary writable paths;
+      it serves the build on host port 80.
+ 10  8. Builds, measurements and browser checks were performed by Codex under my delegation; raw records 
+     and source are linked in Assignment 2.</pre><small>Original SHA-256: f29bbe160d805ac7d838bb68884353d964ee0a3341919cbbc47f05c055aa25e1</small></html>

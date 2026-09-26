@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a6-json-logs</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a6-json-logs.txt · Page 1/2</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T22:15:07.370173+00:00
+  4  Host: epicbook
+  5  
+  6  $ cd /opt/week11/capstone
+  7  $ printf &#x27;Backend recent stdout JSON entries:\n&#x27;
+  8  $ docker compose logs --no-color --tail 6 backend
+  9  $ printf &#x27;Proxy JSON entries (client address redacted):\n&#x27;
+ 10  $ sudo tail -5 logs/nginx/access.log | python3 -c &#x27;import sys,json;[(lambda d: print(json.dumps({k:v 
+     for k,v in d.items() if k not in [&quot;remote_addr&quot;,&quot;client&quot;,&quot;ip&quot;]})))(json.loads(s)) for s in sys.stdin]&#x27;
+ 11  
+ 12  Backend recent stdout JSON entries:
+ 13  backend-1  | {&quot;at&quot;:&quot;2026-09-
+     26T22:14:17.474Z&quot;,&quot;service&quot;:&quot;backend&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;path&quot;:&quot;/health&quot;,&quot;status&quot;:200,&quot;duration_ms&quot;:5}
+ 14  backend-1  | {&quot;at&quot;:&quot;2026-09-
+     26T22:14:27.693Z&quot;,&quot;service&quot;:&quot;backend&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;path&quot;:&quot;/health&quot;,&quot;status&quot;:200,&quot;duration_ms&quot;:5}
+ 15  backend-1  | {&quot;at&quot;:&quot;2026-09-
+     26T22:14:37.903Z&quot;,&quot;service&quot;:&quot;backend&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;path&quot;:&quot;/health&quot;,&quot;status&quot;:200,&quot;duration_ms&quot;:6}
+ 16  backend-1  | {&quot;at&quot;:&quot;2026-09-
+     26T22:14:48.126Z&quot;,&quot;service&quot;:&quot;backend&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;path&quot;:&quot;/health&quot;,&quot;status&quot;:200,&quot;duration_ms&quot;:5}
+ 17  backend-1  | {&quot;at&quot;:&quot;2026-09-
+     26T22:14:58.339Z&quot;,&quot;service&quot;:&quot;backend&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;path&quot;:&quot;/health&quot;,&quot;status&quot;:200,&quot;duration_ms&quot;:7}
+ 18  backend-1  | {&quot;at&quot;:&quot;2026-09-
+     26T22:15:08.548Z&quot;,&quot;service&quot;:&quot;backend&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;path&quot;:&quot;/health&quot;,&quot;status&quot;:200,&quot;duration_ms&quot;:7}</pre><small>Original SHA-256: 4e7a757b5683f314fc1cb745a1fba51bb70ffc5911847b59d033137c53da2f38</small></html>

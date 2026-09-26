@@ -1,0 +1,226 @@
+Eze Favour | DMI Week 11 | Saved stderr from a2-react-build
+Executed by Codex under delegation
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.single
+#1 transferring dockerfile: 213B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 100B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#4 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 665.11kB 0.0s done
+#5 DONE 0.1s
+
+#4 [1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#4 sha256:dc40c63c08b5453854c13da6d72b3182737b2e223156b786c67779e0d6f4e8e0 446B / 446B 0.0s done
+#4 sha256:8d9d84ee31888adba85837fbf8f0e6eca99263904b2ba04d79e7d4fc1da40056 1.71MB / 1.71MB 0.1s done
+#4 sha256:8ab8fd6c944526e5da2ca93b1663b2ab6f4bb8d4ea7b50a90d53c9fdcc5b0b9e 3.31kB / 3.31kB 0.1s done
+#4 sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5 7.34MB / 49.84MB 0.2s
+#4 sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5 17.83MB / 49.84MB 0.3s
+#4 sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 6.29MB / 28.24MB 0.2s
+#4 sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5 28.31MB / 49.84MB 0.5s
+#4 sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 16.78MB / 28.24MB 0.3s
+#4 sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5 39.85MB / 49.84MB 0.6s
+#4 sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 28.24MB / 28.24MB 0.5s done
+#4 extracting sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150
+#4 sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5 49.84MB / 49.84MB 0.8s
+#4 sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5 49.84MB / 49.84MB 0.8s done
+#4 extracting sha256:774043ccc8ccd0d0833a9ee0792142ab7ad93df971e59dd248fbf82db16d0150 1.2s done
+#4 DONE 1.9s
+
+#4 [1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#4 extracting sha256:8ab8fd6c944526e5da2ca93b1663b2ab6f4bb8d4ea7b50a90d53c9fdcc5b0b9e 0.0s done
+#4 extracting sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5
+#4 extracting sha256:61592f5b60306b96e5208206668cdf0fa62d3cda3a3baeed26efdcd1a21aaba5 1.5s done
+#4 DONE 3.4s
+
+#4 [1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#4 extracting sha256:8d9d84ee31888adba85837fbf8f0e6eca99263904b2ba04d79e7d4fc1da40056 0.1s done
+#4 extracting sha256:dc40c63c08b5453854c13da6d72b3182737b2e223156b786c67779e0d6f4e8e0 0.0s done
+#4 DONE 3.5s
+
+#6 [2/6] WORKDIR /app
+#6 DONE 1.0s
+
+#7 [3/6] COPY app/package*.json ./
+#7 DONE 0.0s
+
+#8 [4/6] RUN npm ci --no-audit --no-fund
+#8 4.683 npm warn deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+#8 4.913 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+#8 5.142 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#8 5.228 npm warn deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+#8 5.327 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+#8 5.742 npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+#8 5.742 npm warn deprecated
+#8 5.742 npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+#8 6.561 npm warn deprecated workbox-cacheable-response@6.6.0: workbox-background-sync@6.6.0
+#8 7.069 npm warn deprecated workbox-google-analytics@6.6.0: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+#8 7.131 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#8 7.445 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+#8 8.369 npm warn deprecated domexception@2.0.1: Use your platform's native DOMException instead
+#8 8.833 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#8 9.633 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+#8 9.795 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+#8 10.09 npm warn deprecated @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+#8 10.13 npm warn deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+#8 10.13 npm warn deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+#8 10.13 npm warn deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+#8 10.13 npm warn deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+#8 11.11 npm warn deprecated @babel/plugin-proposal-private-property-in-object@7.21.11: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
+#8 12.00 npm warn deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+#8 14.76 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#8 17.32 
+#8 17.32 added 1342 packages in 17s
+#8 17.33 npm notice
+#8 17.33 npm notice New major version of npm available! 10.9.9 -> 12.1.0
+#8 17.33 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+#8 17.33 npm notice To update run: npm install -g npm@12.1.0
+#8 17.33 npm notice
+#8 DONE 18.6s
+
+#9 [5/6] COPY app/ ./
+#9 DONE 0.4s
+
+#10 [6/6] RUN npm run build
+#10 0.331 
+#10 0.331 > my-react-app@0.1.0 build
+#10 0.331 > react-scripts build
+#10 0.331 
+#10 1.564 Creating an optimized production build...
+#10 1.699 Browserslist: browsers data (caniuse-lite) is 19 months old. Please run:
+#10 1.699   npx update-browserslist-db@latest
+#10 1.699   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+#10 10.49 Browserslist: browsers data (caniuse-lite) is 19 months old. Please run:
+#10 10.49   npx update-browserslist-db@latest
+#10 10.49   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+#10 11.07 Compiled successfully.
+#10 11.07 
+#10 11.07 File sizes after gzip:
+#10 11.07 
+#10 11.08   59.24 kB  build/static/js/main.f80a23ad.js
+#10 11.08   1.77 kB   build/static/js/453.ad6eb26e.chunk.js
+#10 11.08   263 B     build/static/css/main.e6c13ad2.css
+#10 11.08 
+#10 11.08 The project was built assuming it is hosted at /.
+#10 11.08 You can control this with the homepage field in your package.json.
+#10 11.08 
+#10 11.08 The build folder is ready to be deployed.
+#10 11.08 You may serve it with a static server:
+#10 11.08 
+#10 11.08   npm install -g serve
+#10 11.08   serve -s build
+#10 11.08 
+#10 11.08 Find out more about deployment here:
+#10 11.08 
+#10 11.08   https://cra.link/deployment
+#10 11.08 
+#10 DONE 11.2s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 13.2s done
+#11 exporting manifest sha256:6142070db9aa954fbf2018388f4e831905cc58c2789445fa573c5b47fa4f44e1 0.0s done
+#11 exporting config sha256:cad24c802777f1c8fa5d3159096cd42eadd19e1b388195c10dc503b086dc20bf 0.0s done
+#11 exporting attestation manifest sha256:ff50a8b626cfa12fd29e511042e36e3d51b33ac6cafe6b62d60b10a9056b32fd 0.0s done
+#11 exporting manifest list sha256:9ee769cf59bb4a230e877699daf8b071d86348ddd24f4ed8f5105224ae3d5410 0.0s done
+#11 naming to docker.io/library/react-single:latest done
+#11 unpacking to docker.io/library/react-single:latest
+#11 unpacking to docker.io/library/react-single:latest 7.6s done
+#11 DONE 21.0s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 466B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/nginx:stable-alpine
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 100B done
+#4 DONE 0.0s
+
+#5 [build 1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#5 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 1.71kB done
+#6 DONE 0.0s
+
+#7 [build 3/6] COPY app/package*.json ./
+#7 CACHED
+
+#8 [build 4/6] RUN npm ci --no-audit --no-fund
+#8 CACHED
+
+#9 [build 5/6] COPY app/ ./
+#9 CACHED
+
+#10 [build 2/6] WORKDIR /app
+#10 CACHED
+
+#11 [build 6/6] RUN npm run build
+#11 CACHED
+
+#12 [runtime 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b
+#12 resolve docker.io/library/nginx:stable-alpine@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b 0.0s done
+#12 sha256:b335b7ac3a400afa780d0d89e0b778ee19dc3e3df95bed4b274a763af2264fd7 1.40kB / 1.40kB 0.1s done
+#12 sha256:703c5424632fab32aa3327bebe6e5202ac53a93740062efb830f8188e580b9db 1.21kB / 1.21kB 0.1s done
+#12 sha256:6b4dfb2e8f8a72d7ae1380b667f50faccdc19147869b2afa09aeddfdea59ce64 403B / 403B 0.1s done
+#12 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 8.39MB / 20.34MB 0.2s
+#12 sha256:22e5a8a110ec69c6af30325ccfe8bb0bfb94e5783117808061bae5115e1e3dcb 963B / 963B 0.1s done
+#12 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 15.73MB / 20.34MB 0.3s
+#12 sha256:3d85d110b167fae23d8eb3a7060cd079682b682b04d295fc7bbdf454c9e722c8 626B / 626B 0.1s done
+#12 sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 20.34MB / 20.34MB 0.4s done
+#12 sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751 1.88MB / 1.88MB 0.1s done
+#12 extracting sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751
+#12 extracting sha256:e3320d02d5786716dcc40d9f6267baec5d3d2c46945082958050c3ac5ea23751 0.2s done
+#12 DONE 0.8s
+
+#12 [runtime 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b
+#12 extracting sha256:3d85d110b167fae23d8eb3a7060cd079682b682b04d295fc7bbdf454c9e722c8 0.0s done
+#12 extracting sha256:22e5a8a110ec69c6af30325ccfe8bb0bfb94e5783117808061bae5115e1e3dcb 0.0s done
+#12 extracting sha256:6b4dfb2e8f8a72d7ae1380b667f50faccdc19147869b2afa09aeddfdea59ce64 0.0s done
+#12 extracting sha256:703c5424632fab32aa3327bebe6e5202ac53a93740062efb830f8188e580b9db 0.0s done
+#12 DONE 0.9s
+
+#12 [runtime 1/3] FROM docker.io/library/nginx:stable-alpine@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b
+#12 extracting sha256:b335b7ac3a400afa780d0d89e0b778ee19dc3e3df95bed4b274a763af2264fd7 0.0s done
+#12 extracting sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49
+#12 extracting sha256:b27cf3f7c39dd0da0aa52a285f0c0cce938ac61472babfea353b1daa83586c49 0.7s done
+#12 DONE 1.6s
+
+#13 [runtime 2/3] COPY nginx.conf /etc/nginx/nginx.conf
+#13 DONE 0.1s
+
+#14 [runtime 3/3] COPY --from=build /app/build /usr/share/nginx/html
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 0.2s done
+#15 exporting manifest sha256:77f903b32e66dcadcb2e30188ae93e117bc244ee4f49d42fc94ab1822c592763
+#15 exporting manifest sha256:77f903b32e66dcadcb2e30188ae93e117bc244ee4f49d42fc94ab1822c592763 0.0s done
+#15 exporting config sha256:cda7c851ced89d7abc850a29ea3230c9ff0a2cbe8f70be3849c4e1c3bfb181a2 0.0s done
+#15 exporting attestation manifest sha256:36044267b550a09bdd706a2cf218f14ebdd6d9e41bd12a89c9288ee812088b43 0.0s done
+#15 exporting manifest list sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40 0.0s done
+#15 naming to docker.io/library/react-multistage:latest
+#15 naming to docker.io/library/react-multistage:latest done
+#15 unpacking to docker.io/library/react-multistage:latest 0.1s done
+#15 DONE 0.4s

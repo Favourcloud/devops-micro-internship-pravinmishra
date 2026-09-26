@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:49:47.517409+00:00",
+  "finished": "2026-09-26T16:50:00.663052+00:00",
+  "host": "labs",
+  "command": "#!/usr/bin/env bash\nset -euo pipefail\ncd /opt/week11\nfind volumes -maxdepth 2 -type f\ndocker network create mynetwork\ndocker volume create shared-data\ndocker run --rm -v shared-data:/shared node:22-bookworm-slim chown 1000:1000 /shared\ncat volumes/backend/Dockerfile volumes/frontend/Dockerfile\ndocker build --progress=plain -t volume-backend:1.0 volumes/backend\ndocker build --progress=plain -t volume-frontend:1.0 volumes/frontend\ndocker run -d --name backend --network mynetwork -v shared-data:/shared volume-backend:1.0\ndocker run -d --name frontend --network mynetwork -v shared-data:/shared:ro -p 80:8080 volume-frontend:1.0\ndocker ps\nfor i in $(seq 1 20); do docker exec backend curl -fsS http://localhost/write && break || sleep 1; done\ncurl -fsS http://127.0.0.1/\n",
+  "exit_code": 0,
+  "stdout_sha256": "ee0dc94f80d55dc5f011910abd86d00c681d12e7d334dc1105648bd00c37cfe1"
+}

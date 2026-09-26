@@ -1,0 +1,12 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:48:19.263885+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone; docker compose up -d --wait --wait-timeout 180; curl -fsS http://127.0.0.1/api/catalog | head -c 300; docker compose ps
+
+{"books":[{"id":1,"title":"28 Summers","genre":"NYT","pubYear":2020,"price":"28.00","inventory":4,"bookDescription":"A relationship that started in 1993 between Mallory Blessing and Jake McCloud comes to light while she is on her deathbed and his wife runs for president.","createdAt":"2026-09-26T16:NAME                              IMAGE                     COMMAND                  SERVICE         CREATED          STATUS                    PORTS
+week11-epicbook-backend-1         epicbook-backend:1.0.0    "docker-entrypoint.s…"   backend         10 minutes ago   Up 57 seconds (healthy)   8080/tcp
+week11-epicbook-database-1        mysql:8.4                 "docker-entrypoint.s…"   database        11 minutes ago   Up 7 seconds (healthy)    3306/tcp, 33060/tcp
+week11-epicbook-frontend-1        epicbook-frontend:1.0.0   "docker-entrypoint.s…"   frontend        5 minutes ago    Up 5 minutes (healthy)    8080/tcp
+week11-epicbook-reverse-proxy-1   nginx:stable-alpine       "/docker-entrypoint.…"   reverse-proxy   10 minutes ago   Up 10 minutes (healthy)   80/tcp, 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp

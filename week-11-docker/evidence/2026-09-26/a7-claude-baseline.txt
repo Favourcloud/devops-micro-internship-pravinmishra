@@ -1,0 +1,129 @@
+Eze Favour | Actual Claude Code / AWS Bedrock session
+2026-09-26T16:48:05.030026+00:00
+
+I'll run the audit script now and read the resulting report.
+---
+
+## Docker Hardening Audit — EpicBook | 2026-09-26T16:48:28Z
+
+**Summary: 3 PASS · 0 WARN · 3 FAIL**
+
+---
+
+### Check 1 — `exists` · PASS
+
+> `epicbook-audit exists`
+
+The container object was found by `docker inspect`. This confirms only that the container record exists in the Docker engine; it does **not** confirm the container is running, healthy, or that its image is current. Compose does not automatically restart an unhealthy or stopped container, so existence alone carries no uptime guarantee.
+
+---
+
+### Check 2 — `user` · FAIL
+
+> `Container configured as root`
+
+The process inside the container runs as **UID 0 (root)**. If an attacker exploits the application, they inherit root privileges inside the container. Combined with any volume mount or capability leak, this can escalate to the host.
+
+**Recommended Dockerfile fix:**
+
+```dockerfile
+# add after the npm install / build steps, before CMD
+RUN addgroup --system app && adduser --system --ingroup app app
+USER app
+```
+
+Or, if the base image already ships a non-root user (e.g., `node:22-alpine` ships `node`):
+
+```dockerfile
+USER node
+```
+
+---
+
+### Check 3 — `healthcheck` · FAIL
+
+> `No effective HEALTHCHECK`
+
+No `HEALTHCHECK` instruction is present in the image, and none was injected via Compose's `healthcheck:` key. Without it, Docker marks the container as `healthy` by default the moment it starts — a crashed or deadlocked app goes undetected and Compose will not restart it on its own.
+
+**Recommended Dockerfile fix:**
+
+```dockerfile
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget -qO- http://localhost:3000/health || exit 1
+```
+
+Adjust the port and path to match the actual application endpoint. `wget` is available on Alpine-based images; substitute `curl -f` if the base image carries curl instead.
+
+---
+
+### Check 4 — `image` · FAIL
+
+> `Unversioned image: epicbook-audit:latest`
+
+The image is tagged `latest`. The `latest` tag is **mutable** — it can be silently overwritten by any `docker push` from any branch or workflow. Two rebuilds on different days may use entirely different base layer sets while the tag name stays the same, making rollbacks and reproducibility impossible.
+
+A **versioned tag** such as `node:22-alpine` pins to a named release but is still mutable in theory (a registry maintainer can re-push to that tag). An **immutable digest** such as:
+
+```
+node:22-alpine@sha256:abc123...
+```
+
+is cryptographically bound to a specific manifest and cannot be silently replaced.
+
+**Recommended Dockerfile fix** — use a versioned tag at minimum:
+
+```dockerfile
+FROM node:22-alpine
+```
+
+For maximum reproducibility in a production or audit context, use the digest:
+
+```dockerfile
+FROM node:22-alpine@sha256:<digest-from-docker-hub>
+```
+
+Obtain the current digest with:
+
+```bash
+docker inspect --format='{{index .RepoDigests 0}}' node:22-alpine
+```
+
+The operator should substitute the real digest from that command before rebuilding.
+
+---
+
+### Check 5 — `privileged` · PASS
+
+> `Privileged mode is disabled`
+
+The container was not started with `--privileged` or `privileged: true` in Compose. This means the container does not have access to all host Linux capabilities and cannot directly manipulate host kernel interfaces. This is the expected secure default.
+
+---
+
+### Check 6 — `ports` · PASS
+
+> `1 image port(s), 0 published binding(s)`
+
+The image declares one exposed port (via `EXPOSE` in the Dockerfile), but **no host port bindings** are published. The service is reachable only within the Docker network, not from the host or external network. This is the correct configuration for an internal service; it avoids accidental public exposure.
+
+---
+
+## Recommended Dockerfile Diff (operator applies outside this session)
+
+```dockerfile
+# 1. Pin the base image to a versioned tag (or digest for full immutability)
+FROM node:22-alpine          # was: latest or unversioned
+
+# ... existing COPY / RUN steps ...
+
+# 2. Drop to a non-root user before CMD
+RUN addgroup --system app && adduser --system --ingroup app app
+USER app                     # was: implicit root
+
+# 3. Add a health check
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget -qO- http://localhost:3000/health || exit 1
+```
+
+All three FAIL checks are addressed by these three additions. The operator rebuilds and re-runs `./run-audit.sh` to verify the new result.

@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a6-https-config</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a6-https-config.txt · Page 1/4</b></p><pre>  1  Eze Favour | DMI Week 11
+  2  Execution: Codex, under learner delegation
+  3  UTC: 2026-09-26T16:55:36.866893+00:00
+  4  Host: epicbook
+  5  
+  6  $ cd /opt/week11/capstone; printf 
+     &#x27;ALLOWED_ORIGINS=http://98.86.65.226,https://d209ibroel8p0b.cloudfront.net\n&#x27; &gt; .env; docker compose 
+     build frontend; docker compose up -d --wait --wait-timeout 120; docker compose exec -T 
+     --interactive=false reverse-proxy nginx -t; docker compose exec -T --interactive=false reverse-proxy 
+     nginx -s reload; docker compose ps
+  7  
+  8  #1 [internal] load local bake definitions
+  9  #1 reading from stdin 954B done
+ 10  #1 DONE 0.0s
+ 11  
+ 12  #2 [internal] load build definition from Dockerfile
+ 13  #2 transferring dockerfile: 576B done
+ 14  #2 DONE 0.0s
+ 15  
+ 16  #3 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+ 17  #3 DONE 0.0s
+ 18  
+ 19  #4 [internal] load .dockerignore
+ 20  #4 transferring context: 108B done
+ 21  #4 DONE 0.0s</pre><small>Original SHA-256: 156c8ff7eb84a73b8e861a36bec1ed3c9bad503be935074a566f75316959d42e</small></html>

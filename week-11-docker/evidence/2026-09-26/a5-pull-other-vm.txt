@@ -1,0 +1,24 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:42:56.600248+00:00
+Host: epicbook
+
+$ docker pull favourcloud/my-react-app@sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40
+$ docker run -d --name react-hub-verify --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -p 127.0.0.1:18081:8080 favourcloud/my-react-app@sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40
+$ docker ps --filter name=react-hub-verify
+
+docker.io/favourcloud/my-react-app@sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40: Pulling from favourcloud/my-react-app
+44136fa355b3: Already exists
+a2e8289f6abf: Pulling fs layer
+b94f365f67a4: Pulling fs layer
+567f81a7d673: Download complete
+a2e8289f6abf: Download complete
+b94f365f67a4: Download complete
+b94f365f67a4: Pull complete
+a2e8289f6abf: Pull complete
+Digest: sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40
+Status: Downloaded newer image for favourcloud/my-react-app@sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40
+docker.io/favourcloud/my-react-app@sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40
+abe5d35e0d50080f35335b2110bae855d12431254f1cd8cbec497eed202c0af6
+CONTAINER ID   IMAGE          COMMAND                  CREATED                  STATUS                                     PORTS                               NAMES
+abe5d35e0d50   cbd9bb9a9815   "/docker-entrypoint.…"   Less than a second ago   Up Less than a second (health: starting)   80/tcp, 127.0.0.1:18081->8080/tcp   react-hub-verify

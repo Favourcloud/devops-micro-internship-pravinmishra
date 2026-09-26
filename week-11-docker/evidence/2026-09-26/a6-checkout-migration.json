@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:41:47.673362+00:00",
+  "finished": "2026-09-26T16:42:05.849290+00:00",
+  "host": "epicbook",
+  "command": "cd /opt/week11/capstone; docker compose exec -T database sh -c 'MYSQL_PWD=$(cat /run/secrets/db_password) mysql -u epicapp bookstore < /docker-entrypoint-initdb.d/04-checkout.sql'; docker compose exec -T database sh -c 'MYSQL_PWD=$(cat /run/secrets/db_password) mysql -u epicapp bookstore -e \"SHOW TABLES\"'",
+  "exit_code": 0,
+  "stdout_sha256": "15bc100e306c5aa3395fd9f62f761d3a91868c61bc8667bf3bd5904f3cf5fc8b"
+}

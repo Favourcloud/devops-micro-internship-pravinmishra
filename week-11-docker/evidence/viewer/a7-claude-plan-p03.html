@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-claude-plan</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-claude-plan.txt · Page 3/5</b></p><pre> 43  
+ 44  **Plan:** A `null` healthcheck means Docker has no built-in liveness probe. The orchestrator cannot 
+     detect a silently broken application and will keep routing traffic to a dead container. The fix is a 
+     `HEALTHCHECK` instruction in the Dockerfile (e.g. `HEALTHCHECK CMD curl -f http://localhost/ || exit 
+     1`).
+ 45  
+ 46  **Finding (training baseline):** No HEALTHCHECK defined.
+ 47  
+ 48  ---
+ 49  
+ 50  ### Check 4 — Versioned (pinned) image tag
+ 51  
+ 52  | Field | Observed value |
+ 53  |---|---|
+ 54  | `Image` | `epicbook-audit:latest` |
+ 55  
+ 56  **Plan:** The `:latest` tag is a floating reference — a `docker pull` on any future date may silently 
+     swap in a different layer set, breaking reproducibility and potentially introducing upstream 
+     vulnerabilities. A pinned tag (e.g. `epicbook-audit:1.0.0`) or a digest reference (`@sha256:…`) is the
+      hardened equivalent.
+ 57  
+ 58  **Finding (training baseline):** Image uses `:latest`, not a pinned version.
+ 59  
+ 60  ---
+ 61  </pre><small>Original SHA-256: 496ddf40f497d361ab3553266aab8f0ac266d6bc4e8ae581018fb3f7e50cf64d</small></html>

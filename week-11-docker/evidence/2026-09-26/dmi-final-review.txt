@@ -1,0 +1,123 @@
+Source: https://dmi.pravinmishra.com/s/Favourcloud.html
+Browser page reloaded for final verification; last checked date shown: 2026-09-26.
+Browser tab: 3, Title: "Favour Eze — DMI Cohort 3 · Live", URL: "https://dmi.pravinmishra.com/s/Favourcloud.html".
+1 AXWebArea Favour Eze — DMI Cohort 3 · Live, URL: dmi.pravinmishra.com/s/Favourcloud.html
+	2 container
+		3 link Description: DMI DevOps Micro Internship with Agentic AI, Value: dmi.pravinmishra.com/index.html
+		4 link Description: Apply →, Value: dmi.pravinmishra.com/apply.html
+		5 container Description: Toggle menu, ID: navToggle
+	6 link Description: Join Cohort 4: starts 9 Jan 2027 →, Value: forms.gle/t8AnbtieRmGAiFHw5?utm_medium=cta-live-waitlist&utm_source=dmi
+	7 container
+		8 text FE DMI COHORT 3 · LIVE · GROUP 1
+		9 heading Favour Eze, Value: 1
+			10 text Favour Eze
+		11 text Progress in the DevOps Micro Internship. 🚀 11 / 14 Weeks Complete 11 weeks fully complete, 11 blogs credited, 11 LinkedIn posts verified — including a 11-week streak. Consistent, strong work. Keep it going! Share your progress
+		12 link Description: Share on LinkedIn, Value: linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-hero-linkedin
+		13 link Description: Share on X, Value: twitter.com/intent/tweet?text=I%20just%20completed%2011%2F14%20weeks%20of%20the%20DevOps%20Micro%20Internship%20%E2%80%94%20Cohort%203%20%C2%B7%20Live%21%20%F0%9F%9A%80&url=https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-hero-x
+		14 link Description: Share on Facebook, Value: facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-hero-facebook
+		15 link Description: Share on WhatsApp, Value: wa.me/?text=I%20just%20completed%2011%2F14%20weeks%20of%20the%20DevOps%20Micro%20Internship%20%E2%80%94%20Cohort%203%20%C2%B7%20Live%21%20%F0%9F%9A%80%20https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-hero-whatsapp
+	16 image Week 00 badge
+	17 image Week 01 badge
+	18 image Week 02 badge
+	19 image Week 03 badge
+	20 image Week 04 badge
+	21 image Week 05 badge
+	22 image Week 06 badge
+	23 image Week 07 badge
+	24 image Week 08 badge
+	25 image Week 09 badge
+	26 image Week 10 badge
+	27 image Week 11 badge
+	28 image Week 12 badge
+	29 image Week 13 badge
+	30 container weekly-review
+		31 text WEEKLY REVIEW
+		32 heading Week by week, Value: 2
+			33 text Week by week
+		34 text Every check, every week — fix an item and the next run turns it green.
+		35 button W00, Help: Internet And Networking — Complete
+		36 button W01, Help: Success Mindset — Complete
+		37 button W02, Help: Agentic Ai — Complete
+		38 button W03, Help: Linux And Bash For Devops — Complete
+		39 button W04, Help: Git And Github — Complete
+		40 button W05, Help: Devops Lifecycle — Complete
+		41 button W06, Help: Aws Cloud — Complete
+		42 button W07, Help: Azure Cloud — Complete
+		43 button W08, Help: Terraform — Complete
+		44 button W09, Help: Ansible — Complete
+		45 button W10, Help: Azure Devops — Complete
+		46 text W11
+		47 text W12
+		48 text W13
+		49 button (collapsed) Week 00 — Internet And Networking 60 / 60 COMPLETE, Secondary Actions: Expand
+			50 text Week 00 — Internet And Networking
+			51 text 60 / 60
+			52 text COMPLETE
+		53 button (collapsed) Week 01 — Success Mindset 60 / 60 COMPLETE, Secondary Actions: Expand
+			54 text Week 01 — Success Mindset
+			55 text 60 / 60
+			56 text COMPLETE
+		57 button (collapsed) Week 02 — Agentic Ai 230 / 230 COMPLETE, Secondary Actions: Expand
+			58 text Week 02 — Agentic Ai
+			59 text 230 / 230
+			60 text COMPLETE
+		61 button (collapsed) Week 03 — Linux And Bash For Devops 190 / 190 COMPLETE, Secondary Actions: Expand
+			62 text Week 03 — Linux And Bash For Devops
+			63 text 190 / 190
+			64 text COMPLETE
+		65 button (collapsed) Week 04 — Git And Github 180 / 190 COMPLETE, Secondary Actions: Expand
+			66 text Week 04 — Git And Github
+			67 text 180 / 190
+			68 text COMPLETE
+		69 button (collapsed) Week 05 — Devops Lifecycle 160 / 170 COMPLETE, Secondary Actions: Expand
+			70 text Week 05 — Devops Lifecycle
+			71 text 160 / 170
+			72 text COMPLETE
+		73 button (collapsed) Week 06 — Aws Cloud 200 / 210 COMPLETE, Secondary Actions: Expand
+			74 text Week 06 — Aws Cloud
+			75 text 200 / 210
+			76 text COMPLETE
+		77 button (collapsed) Week 07 — Azure Cloud 200 / 210 COMPLETE, Secondary Actions: Expand
+			78 text Week 07 — Azure Cloud
+			79 text 200 / 210
+			80 text COMPLETE
+		81 button (collapsed) Week 08 — Terraform 190 / 190 COMPLETE, Secondary Actions: Expand
+			82 text Week 08 — Terraform
+			83 text 190 / 190
+			84 text COMPLETE
+		85 button (collapsed) Week 09 — Ansible 190 / 190 COMPLETE, Secondary Actions: Expand
+			86 text Week 09 — Ansible
+			87 text 190 / 190
+			88 text COMPLETE
+		89 button (collapsed) Week 10 — Azure Devops 170 / 170 COMPLETE, Secondary Actions: Expand
+			90 text Week 10 — Azure Devops
+			91 text 170 / 170
+			92 text COMPLETE
+		93 text Last checked: 2026-09-26 · updated after every review run
+	94 link Description: Start your own DMI journey →, Value: university.pravinmishra.com/?utm_source=dmi&utm_medium=cert-page&utm_campaign=cohort-share
+	95 container
+		96 text Hiring, or upskilling your own team? 
+		97 link Description: DMI for Enterprise →, Value: dmi.pravinmishra.com/enterprise.html?utm_source=dmi&utm_medium=cert-page&utm_campaign=enterprise
+		98 text   ·  
+		99 link Description: DMI Campuses →, Value: dmi.pravinmishra.com/campus.html?utm_source=dmi&utm_medium=cert-page&utm_campaign=campus
+	100 text Share your progress:
+	101 link Description: Share on LinkedIn, Value: linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-linkedin
+	102 link Description: Share on X, Value: twitter.com/intent/tweet?text=I%20just%20completed%2011%2F14%20weeks%20of%20the%20DevOps%20Micro%20Internship%20%E2%80%94%20Cohort%203%20%C2%B7%20Live%21%20%F0%9F%9A%80&url=https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-x
+	103 link Description: Share on Facebook, Value: facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-facebook
+	104 link Description: Share on WhatsApp, Value: wa.me/?text=I%20just%20completed%2011%2F14%20weeks%20of%20the%20DevOps%20Micro%20Internship%20%E2%80%94%20Cohort%203%20%C2%B7%20Live%21%20%F0%9F%9A%80%20https%3A%2F%2Fdmi.pravinmishra.com%2Fs%2FFavourcloud.html%3Futm_source%3Ddmi%26utm_medium%3Dshare%26utm_campaign%3Dbadge-share-whatsapp
+	105 container
+		106 link Description: DMI DevOps Micro Internship, Value: dmi.pravinmishra.com/index.html
+		107 text by 
+		108 link Description: Pravin Mishra, Value: pravinmishra.com/?utm_source=dmi&utm_medium=badge-page
+		109 text  & 
+		110 link Description: The CloudAdvisory, Value: thecloudadvisory.com/?utm_source=dmi&utm_medium=badge-page
+		111 text hello@pravinmishra.com · Helsinki, Finland
+		112 link Description: 🎓 Enroll at the University →, Value: university.pravinmishra.com/?utm_source=dmi&utm_medium=badge-page
+		113 link Description: 💬 Join the DMI Community on Discord →, Value: discord.pravinmishra.com/?utm_source=dmi&utm_medium=badge-page
+		114 link Description: 📣 Follow DMI on WhatsApp for updates →, Value: whatsapp.com/channel/0029Va4wVzWFHWq7gSFYKd3j?utm_source=dmi&utm_medium=badge-page
+		115 link Description: 🏢 Hiring or training a team? DMI for Enterprise →, Value: dmi.pravinmishra.com/enterprise.html
+		116 link Description: 🏫 Run a college placement cell? DMI for Campuses →, Value: dmi.pravinmishra.com/campus.html
+		117 link Description: 🎓 Graduated from DMI? Get placement support →, Value: dmi.pravinmishra.com/placement.html
+		118 text © 2026 DevOps Micro Internship. All rights reserved.
+
+The focused UI element is 1 AXWebArea Favour Eze — DMI Cohort 3 · Live, URL: dmi.pravinmishra.com/s/Favourcloud.html

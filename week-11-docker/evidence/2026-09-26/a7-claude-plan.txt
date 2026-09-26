@@ -1,0 +1,99 @@
+Eze Favour | Actual Claude Code / AWS Bedrock session
+2026-09-26T16:46:13.983779+00:00
+
+I'll run the inspect script to gather live container state before proposing the audit plan.
+Good, live container data is in hand. Here is the six-check audit plan based on what the inspect output reveals.
+
+---
+
+## EpicBook Training Container — Six-Check Audit Plan
+
+> **Baseline context.** This is the deliberately weak training image (`epicbook-audit:latest`) used to practise hardening identification. It is separate from any hardened public deployment. The findings below reflect intentional training-baseline weaknesses, not production state.
+
+---
+
+### Check 1 — Container exists and is running
+
+| Field | Observed value |
+|---|---|
+| Name | `/epicbook-audit` |
+| Image | `epicbook-audit:latest` |
+
+**Plan:** Confirm the container responded to `inspect-container.sh` and that `Name` and `Image` are non-null. Both are present, so the container is live and inspectable. A missing or stopped container would block all further checks.
+
+---
+
+### Check 2 — Root user
+
+| Field | Observed value |
+|---|---|
+| `User` | `""` (empty string) |
+
+**Plan:** An empty `User` field means Docker fell back to the image default, which is `root` (UID 0) unless the Dockerfile sets `USER`. Running as root inside the container is a significant hardening gap — a container escape grants the attacker root on the host. The fix is a `USER` instruction in the Dockerfile.
+
+**Finding (training baseline):** Root user in use — `User` is unset.
+
+---
+
+### Check 3 — HEALTHCHECK
+
+| Field | Observed value |
+|---|---|
+| `Healthcheck` | `null` |
+
+**Plan:** A `null` healthcheck means Docker has no built-in liveness probe. The orchestrator cannot detect a silently broken application and will keep routing traffic to a dead container. The fix is a `HEALTHCHECK` instruction in the Dockerfile (e.g. `HEALTHCHECK CMD curl -f http://localhost/ || exit 1`).
+
+**Finding (training baseline):** No HEALTHCHECK defined.
+
+---
+
+### Check 4 — Versioned (pinned) image tag
+
+| Field | Observed value |
+|---|---|
+| `Image` | `epicbook-audit:latest` |
+
+**Plan:** The `:latest` tag is a floating reference — a `docker pull` on any future date may silently swap in a different layer set, breaking reproducibility and potentially introducing upstream vulnerabilities. A pinned tag (e.g. `epicbook-audit:1.0.0`) or a digest reference (`@sha256:…`) is the hardened equivalent.
+
+**Finding (training baseline):** Image uses `:latest`, not a pinned version.
+
+---
+
+### Check 5 — Privileged mode
+
+| Field | Observed value |
+|---|---|
+| `Privileged` | `false` |
+
+**Plan:** `Privileged: false` means the container does **not** have all host capabilities and full `/dev` access. This check **passes** on the training baseline — privileged mode is off, which is the correct posture. No remediation needed for this check.
+
+**Finding:** Privileged mode is correctly disabled. ✓
+
+---
+
+### Check 6 — Exposed / published ports
+
+| Field | Observed value |
+|---|---|
+| `Ports` | `{}` (empty object) |
+
+**Plan:** An empty `Ports` map means no host ports are published (`-p` / `ports:` in Compose). Two sub-questions arise: (a) does the image `EXPOSE` a port in the Dockerfile — that is metadata only and not a security boundary; (b) are there unintended open listeners inside the container reachable on the Docker bridge network without a published port? The audit step will clarify whether the empty publish map is intentional isolation or a misconfiguration that prevents the app from being reached.
+
+**Finding (training baseline):** No ports published to the host — needs contextual confirmation against intended service behaviour.
+
+---
+
+## Summary table
+
+| # | Check | Raw value | Preliminary verdict |
+|---|---|---|---|
+| 1 | Container exists | Name + Image present | Pass |
+| 2 | Root user | `User: ""` | **Fail** — running as root |
+| 3 | HEALTHCHECK | `null` | **Fail** — no probe |
+| 4 | Versioned image | `:latest` | **Fail** — unpinned tag |
+| 5 | Privileged mode | `false` | Pass |
+| 6 | Ports published | `{}` | Needs context |
+
+---
+
+**Next step:** run `./run-audit.sh` to produce the full structured report. That report will confirm these preliminary findings, resolve the ports context question, and provide the basis for a specific Dockerfile recommendation.

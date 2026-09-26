@@ -1,0 +1,16 @@
+{
+  "static": {
+    "repository": "https://github.com/pravinmishraaws/Azure-Static-Website",
+    "commit": "258b8a380d45b030f29a1ace237b3f4d120820fd"
+  },
+  "react": {
+    "repository": "https://github.com/pravinmishraaws/my-react-app",
+    "commit": "f1b1aff14fe15c5bde092067c93a307fa3d97982"
+  },
+  "epicbook": {
+    "repository": "https://github.com/pravinmishraaws/theepicbook",
+    "commit": "763becebb8d3f5663a76bb30facddc25be63cfd5",
+    "checkout_patch": "../week-10-azure-devops/epicbook/application/app-patches/demo-checkout.patch",
+    "changes": "Separate SSR frontend/API; environment-free file secrets; readiness; JSON logs; error handling; modern dependencies; name/week attribution."
+  }
+}

@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-claude-baseline</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-claude-baseline.txt · Page 1/6</b></p><pre>  1  Eze Favour | Actual Claude Code / AWS Bedrock session
+  2  2026-09-26T16:48:05.030026+00:00
+  3  
+  4  I&#x27;ll run the audit script now and read the resulting report.
+  5  ---
+  6  
+  7  ## Docker Hardening Audit — EpicBook | 2026-09-26T16:48:28Z
+  8  
+  9  **Summary: 3 PASS · 0 WARN · 3 FAIL**
+ 10  
+ 11  ---
+ 12  
+ 13  ### Check 1 — `exists` · PASS
+ 14  
+ 15  &gt; `epicbook-audit exists`
+ 16  
+ 17  The container object was found by `docker inspect`. This confirms only that the container record 
+     exists in the Docker engine; it does **not** confirm the container is running, healthy, or that its 
+     image is current. Compose does not automatically restart an unhealthy or stopped container, so 
+     existence alone carries no uptime guarantee.
+ 18  
+ 19  ---
+ 20  
+ 21  ### Check 2 — `user` · FAIL
+ 22  </pre><small>Original SHA-256: 43dc54104f04e5dedd4411a6c6d5221156b83ed85a346d786724e149c2f231fb</small></html>

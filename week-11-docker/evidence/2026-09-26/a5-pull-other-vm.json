@@ -1,0 +1,8 @@
+{
+  "started": "2026-09-26T16:42:56.600248+00:00",
+  "finished": "2026-09-26T16:43:02.572368+00:00",
+  "host": "epicbook",
+  "command": "docker pull favourcloud/my-react-app@sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40\ndocker run -d --name react-hub-verify --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -p 127.0.0.1:18081:8080 favourcloud/my-react-app@sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40\ndocker ps --filter name=react-hub-verify\n",
+  "exit_code": 0,
+  "stdout_sha256": "338243a36a32f41640c095af5dfaf439398ba4c876098ccc0c98e38bf59664d0"
+}

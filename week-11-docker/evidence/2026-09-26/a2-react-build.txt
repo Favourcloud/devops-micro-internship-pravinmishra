@@ -1,0 +1,54 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:36:46.702328+00:00
+Host: labs
+
+$ #!/usr/bin/env bash
+$ set -euo pipefail
+$ cd /opt/week11
+$ printf 'Eze Favour | React single-stage and multi-stage comparison\n'
+$ cat react/.dockerignore react/Dockerfile.single react/Dockerfile
+$ docker build --progress=plain -t react-single -f react/Dockerfile.single react
+$ docker run -d --name react-single -p 3000:3000 react-single
+$ docker build --progress=plain -t react-multistage -f react/Dockerfile react
+$ docker stop static-site
+$ docker run -d --name react-multistage --restart unless-stopped --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -p 80:8080 react-multistage
+$ docker image inspect react-single react-multistage --format '{{.RepoTags}} {{.Size}}'
+$ docker ps
+
+Eze Favour | React single-stage and multi-stage comparison
+**/node_modules
+**/build
+**/.env
+**/.env.*
+**/.git
+**/*.log
+FROM node:22-bookworm-slim
+WORKDIR /app
+COPY app/package*.json ./
+RUN npm ci --no-audit --no-fund
+COPY app/ ./
+RUN npm run build
+EXPOSE 3000
+CMD ["node", "serve.cjs"]
+FROM node:22-bookworm-slim AS build
+WORKDIR /app
+COPY app/package*.json ./
+RUN npm ci --no-audit --no-fund
+COPY app/ ./
+RUN npm run build
+FROM nginx:stable-alpine AS runtime
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/build /usr/share/nginx/html
+USER 101:101
+EXPOSE 8080
+HEALTHCHECK --interval=15s --timeout=3s CMD wget -q -O /dev/null http://127.0.0.1:8080/health || exit 1
+CMD ["nginx", "-g", "daemon off;"]
+d53a78fd9eb6edd8b1542a7ac5f49ba7166914f0ba6e3f86972bf3ef17708642
+static-site
+c57cffdb4cb1023e2e6acbe366d3fcdbe815d351e458193468a93811b5801f9d
+[react-single:latest] 854614809
+[react-multistage:latest] 94232874
+CONTAINER ID   IMAGE              COMMAND                  CREATED                  STATUS                                     PORTS                                             NAMES
+c57cffdb4cb1   react-multistage   "/docker-entrypoint.…"   Less than a second ago   Up Less than a second (health: starting)   80/tcp, 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp   react-multistage
+d53a78fd9eb6   react-single       "docker-entrypoint.s…"   5 seconds ago            Up 3 seconds                               0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp       react-single

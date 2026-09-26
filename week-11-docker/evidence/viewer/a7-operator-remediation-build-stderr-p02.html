@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a7-operator-remediation-build-stderr</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a7-operator-remediation-build-stderr.txt · Page 2/3</b></p><pre> 23  #5 DONE 0.0s
+ 24  
+ 25  #6 [dependencies 2/4] WORKDIR /app
+ 26  #6 CACHED
+ 27  
+ 28  #7 [dependencies 3/4] COPY package*.json ./
+ 29  #7 CACHED
+ 30  
+ 31  #8 [dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund &amp;&amp; npm cache clean --force
+ 32  #8 CACHED
+ 33  
+ 34  #9 [runtime 3/4] COPY --from=dependencies /app/node_modules ./node_modules
+ 35  #9 CACHED
+ 36  
+ 37  #10 [runtime 4/4] COPY --chown=node:node . .
+ 38  #10 DONE 0.1s
+ 39  
+ 40  #11 exporting to image
+ 41  #11 exporting layers 0.1s done
+ 42  #11 exporting manifest sha256:92de99af9bf075fbe40cef1d45b3a982777187d6831c3576b8f9222327fb00c8
+ 43  #11 exporting manifest sha256:92de99af9bf075fbe40cef1d45b3a982777187d6831c3576b8f9222327fb00c8 0.0s 
+     done
+ 44  #11 exporting config sha256:fb64c8d5103fc4a1bd2336309b0a99274acd3b3b1f533960c6f016322f9f9b40 0.0s done
+ 45  #11 exporting attestation manifest 
+     sha256:f115ba382da1b1d3a9ce9fe503adbaf760d5c1e1a0bc9dbba64c58048a8e2c94 0.0s done</pre><small>Original SHA-256: 20756a0f321eff5adc4cba0842fa3907ca712b790444dfedfda9d8473856495b</small></html>

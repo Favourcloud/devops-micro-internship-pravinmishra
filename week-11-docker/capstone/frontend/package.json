@@ -1,0 +1,13 @@
+{
+  "name": "eze-week11-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "accounting": "0.4.1"
+  }
+}

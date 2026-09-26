@@ -1,0 +1,18 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T22:26:08.355119+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone
+$ sha256sum docker-compose.yml backend/server.js backend/package-lock.json backend/Dockerfile frontend/server.js frontend/package-lock.json frontend/Dockerfile frontend/views/layouts/main.handlebars frontend/views/index.handlebars proxy/nginx.conf
+
+944553e4545e92335d525ae9f1b1741dde3c2ca58705883369307cc3b25e0b58  docker-compose.yml
+05143ae1590ed86ba331ed2be1ecc7a5ab4b8e86bd08f28ee3322ed3f4e2e577  backend/server.js
+5be016831a8fa1d29266ad40c0c4dce4d3a790cf387f2683adfa87e19e7a64d5  backend/package-lock.json
+39c3edcdb0161d5c056d5a346a82f5b820e0508d6844d73461e14235f6b8902d  backend/Dockerfile
+2c6ec651285409a0780b017c3af69f71461fb4ef0d1668ce275c1fc9a94c5a0a  frontend/server.js
+616bdf02dce91186a0ed3354c1918473ba2c8f94e4d6a97a90fb044557a6de6c  frontend/package-lock.json
+39c3edcdb0161d5c056d5a346a82f5b820e0508d6844d73461e14235f6b8902d  frontend/Dockerfile
+da1d0b7a295d1d084693f87eebd93366e003bbbaecb06f858785408a460da4e8  frontend/views/layouts/main.handlebars
+0ca0afee2a68e1dd189b22f8e59a8f0ebbffd00a6241139e83443d6e1dd7faf0  frontend/views/index.handlebars
+083c1eef3e0f350b541fb84e8cc22fb69f2f1061d7858f8bbcbf586b8ac1a80f  proxy/nginx.conf

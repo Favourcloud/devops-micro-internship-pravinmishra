@@ -1,0 +1,24 @@
+<!doctype html><html><meta charset="utf-8"><title>hardening-audit-OPERATOR-REVIEW_md</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>hardening-audit/OPERATOR-REVIEW.md · Page 2/2</b></p><pre> 14  - Counting exposed/published ports is a coarse review signal, not a firewall proof. The database&#x27;s 
+     lack of host bindings and the internal back-tier network were checked separately.
+ 15  
+ 16  ## Sequence and scope disclosure
+ 17  
+ 18  A Codex audit-script draft existed before the successful Claude planning run. Claude then inspected 
+     the live training container and produced its six-check plan; the final script was validated, the real 
+     skill ran, Codex changed the Dockerfile outside Claude, and the skill ran again. This is not evidence 
+     of a learner-personal “plan before any first draft” sequence. The assignment&#x27;s request for the learner
+      to edit manually remains an assessor interpretation; delegated work is not relabelled as personal 
+     execution.
+ 19  
+ 20  The intentional baseline used the real EpicBook backend in a separate `epicbook-audit` container with 
+     no host port. It omitted USER and HEALTHCHECK and used `latest`, producing 3 PASS / 3 FAIL. The 
+     rebuilt training container produced 6 PASS. The public service was not weakened to manufacture a 
+     baseline; it was separately audited after its final release. The failed first Claude command was 
+     blocked by the guard and is excluded from successful completion evidence. Read-only reporting 
+     preserves diagnosis while an independently controlled operator reviews and performs changes.
+ 21  
+ 22  See [the evidence directory](../evidence/2026-09-26/), [six-check script](docker-audit.sh), 
+     [skill](.claude/skills/docker-audit/SKILL.md), and [behavioral tests](test_audit.py).
+ 23  
+ 24  The final public `week11-epicbook-backend-1` was separately audited at 22:15 UTC: 6 PASS, running and 
+     healthy. [Live report](../evidence/2026-09-26/a7-public-stack-audit.txt).</pre><small>Original SHA-256: f19b0f9c8063fe1e1a51687f682c7f1ee299d9dd14268905a689653c72eaf595</small></html>

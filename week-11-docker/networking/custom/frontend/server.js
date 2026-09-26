@@ -1,0 +1,1 @@
+const express=require('express');const app=express();app.get('/',(_q,r)=>r.type('html').send('<h1>Hello from Frontend</h1><p>Eze Favour · DMI Week 11 · custom bridge</p>'));app.listen(8080,'0.0.0.0');

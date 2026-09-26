@@ -1,0 +1,25 @@
+<!doctype html><html><meta charset="utf-8"><title>a6-snapshot-create</title><style>body{margin:0;padding:26px;background:#f3f6f9;color:#122b40;font:15px system-ui}h1{font-size:22px;margin:0 0 6px}p{margin:8px 0}pre{background:white;border:1px solid #b9c7d2;padding:14px;font:12px/1.5 monospace;white-space:pre-wrap;word-break:break-all}small{color:#456}</style><h1>Eze Favour · DMI Week 11</h1><p>Saved evidence / source viewer · Captured 26 September 2026</p><small>This is a browser rendering of recorded output or source, not a live terminal or VS Code screenshot.<br>Execution and preparation: Codex under learner delegation.</small><p><b>evidence/2026-09-26/a6-snapshot-create.txt · Page 2/3</b></p><pre> 24  $ sha256sum &quot;backups/$archive&quot;
+ 25  $ docker volume create &quot;$restore_volume&quot;
+ 26  $ docker run --rm --network none -v &quot;$restore_volume:/restore&quot; -v &quot;$PWD/backups:/backup:ro&quot; 
+     node:22-bookworm-slim tar -xzf &quot;/backup/$archive&quot; -C /restore
+ 27  $ # Same image digest/version, no published port, and no networking.
+ 28  $ mysql_image=$(docker inspect week11-epicbook-database-1 --format &#x27;{{.Image}}&#x27;)
+ 29  $ docker run -d --name &quot;$restore_container&quot; --network none -v &quot;$restore_volume:/var/lib/mysql&quot; -v 
+     &quot;$PWD/secrets/db_password:/run/secrets/db_password:ro&quot; &quot;$mysql_image&quot;
+ 30  $ for i in $(seq 1 60); do
+ 31  $  if docker exec &quot;$restore_container&quot; sh -c &#x27;MYSQL_PWD=$(cat /run/secrets/db_password) mysql -u 
+     epicapp bookstore -e &quot;SELECT 1&quot;&#x27; &gt;/dev/null 2&gt;&amp;1;then break;fi
+ 32  $  sleep 2
+ 33  $ done
+ 34  $ docker exec &quot;$restore_container&quot; sh -c &#x27;MYSQL_PWD=$(cat /run/secrets/db_password) mysql -u epicapp 
+     bookstore --batch --skip-column-names -e &quot;$1&quot;&#x27; sh &quot;$query&quot; &gt; &quot;backups/$stamp-restored.tsv&quot;
+ 35  $ recover
+ 36  $ docker compose exec -T database sh -c &#x27;MYSQL_PWD=$(cat /run/secrets/db_password) mysql -u epicapp 
+     bookstore --batch --skip-column-names -e &quot;$1&quot;&#x27; sh &quot;$query&quot; &gt; &quot;backups/$stamp-original.tsv&quot;
+ 37  $ diff -u &quot;backups/$stamp-original.tsv&quot; &quot;backups/$stamp-restored.tsv&quot;
+ 38  $ cat &quot;backups/$stamp-original.tsv&quot;
+ 39  $ echo &#x27;PASS: isolated restored database matches original catalogue/cart/order counts and order rows&#x27;
+ 40  $ docker stop &quot;$restore_container&quot;
+ 41  $ # Preserve the restore volume and snapshot for operator inspection; no published port remains.
+ 42  $ printf &#x27;Archive: %s\nRestore volume: %s\nStopped restore container: %s\n&#x27; &quot;$archive&quot; 
+     &quot;$restore_volume&quot; &quot;$restore_container&quot;</pre><small>Original SHA-256: c2a71cd0f35c18cb6bb9492c540437be314f0837ce86b3ec38ab71dbd7d658ca</small></html>

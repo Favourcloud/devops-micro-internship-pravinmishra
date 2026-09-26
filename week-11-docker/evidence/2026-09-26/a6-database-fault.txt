@@ -1,0 +1,9 @@
+Eze Favour | DMI Week 11
+Execution: Codex, under learner delegation
+UTC: 2026-09-26T16:47:29.412640+00:00
+Host: epicbook
+
+$ cd /opt/week11/capstone; docker compose up -d --wait --wait-timeout 120 backend; docker compose stop database; curl -s -o /tmp/db-failure -w 'HTTP=%{http_code} time=%{time_total}\n' http://127.0.0.1/; cat /tmp/db-failure; docker compose exec -T backend node -e "fetch('http://localhost:8080/health').then(async r=>console.log(r.status,await r.text()))"
+
+HTTP=503 time=0.022556
+<!doctype html><html lang="en"><meta charset="utf-8"><title>EpicBook temporarily unavailable</title><body style="font:20px system-ui;max-width:48rem;margin:8vh auto;padding:2rem"><h1>We could not load the bookstore</h1><p>Your cart has not been cleared. Please try again shortly.</p><a href="/">Try again</a><hr><p>Eze Favour · DMI Week 11 · EpicBook</p></body></html>503 {"status":"unavailable","database":"unreachable"}

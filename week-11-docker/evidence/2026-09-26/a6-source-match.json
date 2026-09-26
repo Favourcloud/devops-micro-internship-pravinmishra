@@ -1,0 +1,16 @@
+{
+  "match": true,
+  "files": [
+    "docker-compose.yml",
+    "backend/server.js",
+    "backend/package-lock.json",
+    "backend/Dockerfile",
+    "frontend/server.js",
+    "frontend/package-lock.json",
+    "frontend/Dockerfile",
+    "frontend/views/layouts/main.handlebars",
+    "frontend/views/index.handlebars",
+    "proxy/nginx.conf"
+  ],
+  "method": "sha256sum on deployed VM compared to publication source"
+}
