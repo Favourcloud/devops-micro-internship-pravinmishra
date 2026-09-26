@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "kind": "a2-workload-saved-plan",
+  "armed": false,
+  "cloud": null,
+  "source_commit": null,
+  "terraform_sha256": null,
+  "approval": {
+    "approved_at": null,
+    "execute_before": null,
+    "receipt_sha256": null
+  },
+  "original_expires_at": null,
+  "prefix": null,
+  "identity": {
+    "azure_subscription_id": null,
+    "azure_tenant_id": null,
+    "azure_client_id": null,
+    "azure_principal_id": null,
+    "aws_account_id": null,
+    "aws_role_arn": null
+  },
+  "backend": {
+    "resource_group_name": null,
+    "storage_account_name": null,
+    "container_name": null,
+    "key": null,
+    "lineage": null,
+    "serial": null,
+    "state_sha256": null,
+    "restore_receipt_sha256": null
+  },
+  "resources": {},
+  "auxiliary": {},
+  "artifacts": {"inputs_sha256": null},
+  "gates": {
+    "independent_host_verified": false,
+    "external_state_restore_verified": false,
+    "exclusive_writer_verified": false,
+    "scoped_delete_permissions_verified": false,
+    "bootstrap_recovery_verified": false,
+    "notifications_verified": false
+  }
+}
