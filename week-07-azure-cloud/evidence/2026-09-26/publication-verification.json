@@ -1,0 +1,78 @@
+{
+  "verified_at": "2026-09-26T13:48:46.980571+00:00",
+  "main_pr": "https://github.com/Favourcloud/devops-micro-internship-pravinmishra/pull/64",
+  "main_merge": "344b45104ea5fbbeb34e1082939ece0cdc802ac4",
+  "pages_commit": "0ddc305337606d7ebd427d49b1192015b81b43e3",
+  "pages_deployment": "https://github.com/Favourcloud/devops-micro-internship-pravinmishra/actions/runs/36246154242",
+  "pages_result": "success",
+  "articles": [
+    {
+      "week": "06",
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-06.html",
+      "http_status": 200,
+      "sha256": "747bd6bcbbe8ccfa38db9c422ec5f9de2252a3b73199449d710f7b764877f6bb",
+      "paragraph_words": 668,
+      "matches_repository_source": true,
+      "own_badge_href_present": true
+    },
+    {
+      "week": "07",
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-07.html",
+      "http_status": 200,
+      "sha256": "3bb88998fba84eea641c5ef7f5fcc177bf387509a92b316832ff3ae15b463760",
+      "paragraph_words": 889,
+      "matches_repository_source": true,
+      "own_badge_href_present": true
+    },
+    {
+      "week": "08",
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-08.html",
+      "http_status": 200,
+      "sha256": "59ac564fb485137f9edea653a9b66f2dd950e45892b480ca2540cedf9820e9f6",
+      "paragraph_words": 979,
+      "matches_repository_source": true,
+      "own_badge_href_present": true
+    },
+    {
+      "week": "09",
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-09.html",
+      "http_status": 200,
+      "sha256": "aa233d79b6b22da3a379fc558fc43a5dc8707796af28fb96a9c9c73c3f170cd0",
+      "paragraph_words": 680,
+      "matches_repository_source": true,
+      "own_badge_href_present": true
+    },
+    {
+      "week": "10",
+      "url": "https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-10.html",
+      "http_status": 200,
+      "sha256": "590250d5c4d210c56a988f166c0e03a47b0741afe02816b9757d68d0cc5d7ba7",
+      "paragraph_words": 784,
+      "matches_repository_source": true,
+      "own_badge_href_present": true
+    }
+  ],
+  "other_site_files_unchanged": [
+    "index.html",
+    "styles.css",
+    ".nojekyll",
+    "blog/week-08.html",
+    "blog/week-09.html",
+    "blog/week-06.html",
+    "blog/week-10.html"
+  ],
+  "public_image_samples": [
+    {
+      "file": "screenshots/assignment-01-create-and-set-up-your-azure-free-account-screencap-2.png",
+      "public_bytes_match_manifest": true
+    },
+    {
+      "file": "screenshots/assignment-06-deploy-book-review-app-three-tier-architecture-on-azure-screencap-19.png",
+      "public_bytes_match_manifest": true
+    },
+    {
+      "file": "screenshots/assignment-07-ai-assisted-azure-security-posture-audit-screencap-11.png",
+      "public_bytes_match_manifest": true
+    }
+  ]
+}
