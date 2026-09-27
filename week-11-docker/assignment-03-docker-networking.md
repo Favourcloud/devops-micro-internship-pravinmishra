@@ -6,7 +6,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 All four network exercises ran on the dedicated labs VM. The custom bridge used container-name DNS. The three-tier app inserted and retrieved a MongoDB document; frontend-to-database name resolution was blocked. MongoDB 8.0 initially failed on the host kernel; the working exercise used MongoDB 7.0. Temporary networking containers were removed before restoring React on port 80.
 
-**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+**Evidence method:** Codex executed these exercises under delegation. App screenshots are direct browser captures; source screenshots use the actual Code OSS editor except the explicitly labelled original multistage-Dockerfile source capture in A2. Terminal-review screenshots show the original dated saved command output or source in its integrated terminal, explicitly labelled as a review rather than a new execution. Originals and hashes remain linked. Newly executed A4 updates and A6 live logs are identified separately. No learner-personal execution is claimed.
 
 ---
 
@@ -26,31 +26,31 @@ List Docker networks, verify/pull the Nginx image, run an Nginx container (`mywe
 
 #### Screenshot 1 — Output of `docker network ls`
 
-[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Screenshot page 1](screenshots/a3-default-bridge-p01.png) · [Screenshot page 2](screenshots/a3-default-bridge-p02.png) · [Screenshot page 3](screenshots/a3-default-bridge-p03.png) · [Screenshot page 4](screenshots/a3-default-bridge-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-default-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-default-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-default-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-default-bridge-terminal-04.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 2 — Output of `docker images`
 
-[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Screenshot page 1](screenshots/a3-default-bridge-p01.png) · [Screenshot page 2](screenshots/a3-default-bridge-p02.png) · [Screenshot page 3](screenshots/a3-default-bridge-p03.png) · [Screenshot page 4](screenshots/a3-default-bridge-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-default-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-default-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-default-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-default-bridge-terminal-04.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 3 — Output of `docker search nginx`
 
-[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Screenshot page 1](screenshots/a3-default-bridge-p01.png) · [Screenshot page 2](screenshots/a3-default-bridge-p02.png) · [Screenshot page 3](screenshots/a3-default-bridge-p03.png) · [Screenshot page 4](screenshots/a3-default-bridge-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-default-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-default-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-default-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-default-bridge-terminal-04.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 4 — Successful `docker pull nginx` (if applicable)
 
-[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Screenshot page 1](screenshots/a3-default-bridge-p01.png) · [Screenshot page 2](screenshots/a3-default-bridge-p02.png) · [Screenshot page 3](screenshots/a3-default-bridge-p03.png) · [Screenshot page 4](screenshots/a3-default-bridge-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-default-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-default-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-default-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-default-bridge-terminal-04.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 5 — Output of `docker ps` showing the running `myweb` container
 
-[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Screenshot page 1](screenshots/a3-default-bridge-p01.png) · [Screenshot page 2](screenshots/a3-default-bridge-p02.png) · [Screenshot page 3](screenshots/a3-default-bridge-p03.png) · [Screenshot page 4](screenshots/a3-default-bridge-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-default-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-default-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-default-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-default-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-default-bridge-terminal-04.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -70,55 +70,55 @@ Create a custom bridge network `mynetwork`, build and run a Node/Express `fronte
 
 #### Screenshot 1 — Output of `docker network create mynetwork`
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 2 — Output of `docker network ls`
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 3 — Frontend Dockerfile
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 4 — Successful `docker build` for the frontend
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge-build-stderr.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-build-stderr-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-build-stderr-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-build-stderr-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-build-stderr-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-build-stderr-p05.png) · [Screenshot page 6](screenshots/a3-custom-bridge-build-stderr-p06.png) · [Screenshot page 7](screenshots/a3-custom-bridge-build-stderr-p07.png) · [Screenshot page 8](screenshots/a3-custom-bridge-build-stderr-p08.png) · [Screenshot page 9](screenshots/a3-custom-bridge-build-stderr-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge-build-stderr.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-07.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 5 — Output of `docker ps` showing the frontend container
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 6 — Output of `docker ps` showing both frontend and backend containers
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 7 — Output of `docker network inspect mynetwork`
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 8 — Successful `curl http://<Public-IP>` showing "Hello from Frontend"
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 9 — Successful `curl backend` output from the frontend container showing the Nginx Welcome Page
 
-[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Screenshot page 1](screenshots/a3-custom-bridge-p01.png) · [Screenshot page 2](screenshots/a3-custom-bridge-p02.png) · [Screenshot page 3](screenshots/a3-custom-bridge-p03.png) · [Screenshot page 4](screenshots/a3-custom-bridge-p04.png) · [Screenshot page 5](screenshots/a3-custom-bridge-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-custom-bridge.txt) · [Terminal page 1](screenshots/terminal-review/a3-custom-bridge-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-custom-bridge-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-custom-bridge-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-custom-bridge-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-custom-bridge-terminal-05.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -132,61 +132,61 @@ Build a three-tier app (frontend, backend, MongoDB) across `backend-network` (ba
 
 #### Screenshot 1 — Creation of `backend-network`
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 2 — Creation of `frontend-network`
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 3 — Project folder structure
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 4 — Database Dockerfile
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 5 — Backend Dockerfile
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 6 — Frontend Dockerfile
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 7 — Successful Docker image builds (database, backend, frontend)
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks-build-stderr.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-build-stderr-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-build-stderr-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-build-stderr-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-build-stderr-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-build-stderr-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-build-stderr-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-build-stderr-p07.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks-build-stderr.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-06.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 8 — Running containers (`docker ps`)
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 9 — Output of `docker network inspect backend-network`
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 10 — Output of `docker network inspect frontend-network`
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -198,25 +198,25 @@ Build a three-tier app (frontend, backend, MongoDB) across `backend-network` (ba
 
 #### Screenshot 12 — Successful `curl api` from the frontend container
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 13 — MongoDB connection using `mongosh`
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 14 — Successful document insertion
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 15 — Successful retrieval of the inserted document
 
-[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Screenshot page 1](screenshots/a3-multiple-networks-p01.png) · [Screenshot page 2](screenshots/a3-multiple-networks-p02.png) · [Screenshot page 3](screenshots/a3-multiple-networks-p03.png) · [Screenshot page 4](screenshots/a3-multiple-networks-p04.png) · [Screenshot page 5](screenshots/a3-multiple-networks-p05.png) · [Screenshot page 6](screenshots/a3-multiple-networks-p06.png) · [Screenshot page 7](screenshots/a3-multiple-networks-p07.png) · [Screenshot page 8](screenshots/a3-multiple-networks-p08.png) · [Screenshot page 9](screenshots/a3-multiple-networks-p09.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-multiple-networks.txt) · [Terminal page 1](screenshots/terminal-review/a3-multiple-networks-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-multiple-networks-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-multiple-networks-terminal-03.png) · [Terminal page 4](screenshots/terminal-review/a3-multiple-networks-terminal-04.png) · [Terminal page 5](screenshots/terminal-review/a3-multiple-networks-terminal-05.png) · [Terminal page 6](screenshots/terminal-review/a3-multiple-networks-terminal-06.png) · [Terminal page 7](screenshots/terminal-review/a3-multiple-networks-terminal-07.png) · [Terminal page 8](screenshots/terminal-review/a3-multiple-networks-terminal-08.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -230,31 +230,31 @@ Deploy an Nginx container (`fastapp`) using Host Network Mode and verify it's re
 
 #### Screenshot 1 — Output of `docker run --network host`
 
-[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Screenshot page 1](screenshots/a3-host-network-p01.png) · [Screenshot page 2](screenshots/a3-host-network-p02.png) · [Screenshot page 3](screenshots/a3-host-network-p03.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Terminal page 1](screenshots/terminal-review/a3-host-network-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-host-network-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-host-network-terminal-03.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 2 — Output of `docker ps` showing the running `fastapp` container
 
-[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Screenshot page 1](screenshots/a3-host-network-p01.png) · [Screenshot page 2](screenshots/a3-host-network-p02.png) · [Screenshot page 3](screenshots/a3-host-network-p03.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Terminal page 1](screenshots/terminal-review/a3-host-network-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-host-network-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-host-network-terminal-03.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 3 — Browser or terminal displaying the Nginx Welcome Page
 
-[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Screenshot page 1](screenshots/a3-host-network-p01.png) · [Screenshot page 2](screenshots/a3-host-network-p02.png) · [Screenshot page 3](screenshots/a3-host-network-p03.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Terminal page 1](screenshots/terminal-review/a3-host-network-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-host-network-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-host-network-terminal-03.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 4 — Output of `docker inspect fastapp | grep "NetworkMode"`
 
-[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Screenshot page 1](screenshots/a3-host-network-p01.png) · [Screenshot page 2](screenshots/a3-host-network-p02.png) · [Screenshot page 3](screenshots/a3-host-network-p03.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Terminal page 1](screenshots/terminal-review/a3-host-network-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-host-network-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-host-network-terminal-03.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
 #### Screenshot 5 — Successful cleanup showing `docker stop fastapp` and `docker rm fastapp`
 
-[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Screenshot page 1](screenshots/a3-host-network-p01.png) · [Screenshot page 2](screenshots/a3-host-network-p02.png) · [Screenshot page 3](screenshots/a3-host-network-p03.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a3-host-network.txt) · [Terminal page 1](screenshots/terminal-review/a3-host-network-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a3-host-network-terminal-02.png) · [Terminal page 3](screenshots/terminal-review/a3-host-network-terminal-03.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 

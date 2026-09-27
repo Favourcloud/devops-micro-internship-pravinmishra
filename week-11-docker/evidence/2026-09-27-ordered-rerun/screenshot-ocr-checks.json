@@ -1,0 +1,482 @@
+[
+  {
+    "page": 0,
+    "file": "a1-bootstrap-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 1,
+    "file": "a1-bootstrap-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 2,
+    "file": "a1-bootstrap-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 3,
+    "file": "a1-bootstrap-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 4,
+    "file": "a1-a2-upstream-checkouts-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 5,
+    "file": "a1-static-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 6,
+    "file": "a1-static-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 7,
+    "file": "a1-cloud-inventory-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 8,
+    "file": "a1-cloud-inventory-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 9,
+    "file": "a1-cloud-inventory-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 10,
+    "file": "a2-react-build-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 11,
+    "file": "a2-react-build-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 12,
+    "file": "a2-react-build-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 13,
+    "file": "a3-default-bridge-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 14,
+    "file": "a3-default-bridge-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 15,
+    "file": "a3-default-bridge-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 16,
+    "file": "a3-default-bridge-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 17,
+    "file": "a3-custom-bridge-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 18,
+    "file": "a3-custom-bridge-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 19,
+    "file": "a3-custom-bridge-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 20,
+    "file": "a3-custom-bridge-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 21,
+    "file": "a3-custom-bridge-terminal-05.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 22,
+    "file": "a3-custom-bridge-build-stderr-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 23,
+    "file": "a3-custom-bridge-build-stderr-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 24,
+    "file": "a3-custom-bridge-build-stderr-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 25,
+    "file": "a3-custom-bridge-build-stderr-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 26,
+    "file": "a3-custom-bridge-build-stderr-terminal-05.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 27,
+    "file": "a3-custom-bridge-build-stderr-terminal-06.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 28,
+    "file": "a3-custom-bridge-build-stderr-terminal-07.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 29,
+    "file": "a3-multiple-networks-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 30,
+    "file": "a3-multiple-networks-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 31,
+    "file": "a3-multiple-networks-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 32,
+    "file": "a3-multiple-networks-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 33,
+    "file": "a3-multiple-networks-terminal-05.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 34,
+    "file": "a3-multiple-networks-terminal-06.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 35,
+    "file": "a3-multiple-networks-terminal-07.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 36,
+    "file": "a3-multiple-networks-terminal-08.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 37,
+    "file": "a3-multiple-networks-build-stderr-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 38,
+    "file": "a3-multiple-networks-build-stderr-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 39,
+    "file": "a3-multiple-networks-build-stderr-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 40,
+    "file": "a3-multiple-networks-build-stderr-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 41,
+    "file": "a3-multiple-networks-build-stderr-terminal-05.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 42,
+    "file": "a3-multiple-networks-build-stderr-terminal-06.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 43,
+    "file": "a3-host-network-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 44,
+    "file": "a3-host-network-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 45,
+    "file": "a3-host-network-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 46,
+    "file": "a4-bind-mount-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 47,
+    "file": "a4-bind-mount-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 48,
+    "file": "a4-bind-mount-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 49,
+    "file": "a4-bind-mount-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 50,
+    "file": "a4-bind-removal-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 51,
+    "file": "a4-shared-volume-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 52,
+    "file": "a4-shared-volume-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 53,
+    "file": "a4-shared-volume-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 54,
+    "file": "a4-shared-volume-build-stderr-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 55,
+    "file": "a4-shared-volume-build-stderr-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 56,
+    "file": "a4-shared-volume-build-stderr-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 57,
+    "file": "a4-shared-volume-build-stderr-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 58,
+    "file": "a4-shared-volume-build-stderr-terminal-05.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 59,
+    "file": "a5-registry-publication-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 60,
+    "file": "a5-registry-publication-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 61,
+    "file": "a5-registry-publication-terminal-03.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 62,
+    "file": "a5-registry-publication-terminal-04.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 63,
+    "file": "a5-registry-publication-terminal-05.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 64,
+    "file": "a5-registry-publication-terminal-06.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 65,
+    "file": "a5-registry-publication-terminal-07.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 66,
+    "file": "a5-registry-publication-terminal-08.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 67,
+    "file": "a5-registry-publication-terminal-09.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 68,
+    "file": "a5-registry-publication-terminal-10.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 69,
+    "file": "a5-registry-publication-terminal-11.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 70,
+    "file": "a5-registry-publication-terminal-12.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 71,
+    "file": "a5-registry-publication-terminal-13.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 72,
+    "file": "a5-registry-publication-terminal-14.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 73,
+    "file": "a5-registry-publication-terminal-15.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 74,
+    "file": "a5-registry-publication-terminal-16.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 75,
+    "file": "a5-pull-other-vm-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 76,
+    "file": "a5-pull-other-vm-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 77,
+    "file": "a6-snapshot-restore-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 78,
+    "file": "a6-snapshot-restore-terminal-02.png",
+    "name_visible": true,
+    "page_marker": true
+  },
+  {
+    "page": 79,
+    "file": "a6-json-logs-terminal-01.png",
+    "name_visible": true,
+    "page_marker": true
+  }
+]

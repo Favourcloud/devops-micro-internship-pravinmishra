@@ -6,7 +6,7 @@ Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
 The working capstone is [EpicBook over HTTPS](https://d209ibroel8p0b.cloudfront.net/), also verified at [the cloud origin IP](http://98.86.65.226/). UI and API are separate services; only the proxy publishes a host port. Snapshot restoration, dependency failures, signed cart isolation and transactional demo checkout were exercised. HTTPS terminates at CloudFront and its origin connection is HTTP. This single-host teaching deployment does not claim high availability or real-payment readiness.
 
-**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+**Evidence method:** Codex executed these exercises under delegation. App screenshots are direct browser captures; source screenshots use the actual Code OSS editor except the explicitly labelled original multistage-Dockerfile source capture in A2. Terminal-review screenshots show the original dated saved command output or source in its integrated terminal, explicitly labelled as a review rather than a new execution. Originals and hashes remain linked. Newly executed A4 updates and A6 live logs are identified separately. No learner-personal execution is claimed.
 
 ---
 
@@ -108,7 +108,7 @@ Mount the database data directory to a named volume, document a snapshot/backup 
 
 #### Screenshot — System state before and after a manual snapshot restore cycle
 
-[Original record/source](evidence/2026-09-26/a6-snapshot-restore.txt) · [Screenshot page 1](screenshots/a6-snapshot-restore-p01.png) · [Screenshot page 2](screenshots/a6-snapshot-restore-p02.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-26/a6-snapshot-restore.txt) · [Terminal page 1](screenshots/terminal-review/a6-snapshot-restore-terminal-01.png) · [Terminal page 2](screenshots/terminal-review/a6-snapshot-restore-terminal-02.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 
@@ -128,7 +128,11 @@ Bind-mount the reverse proxy log directory to the host, redirect application log
 
 #### Screenshot — Live running JSON container log entries
 
-[Original record/source](evidence/2026-09-26/a6-json-logs.txt) · [Screenshot page 1](screenshots/a6-json-logs-p01.png) · [Screenshot page 2](screenshots/a6-json-logs-p02.png). Captured from the labelled saved-output/source viewer.
+[Fresh live verification record](evidence/2026-09-27-ordered-rerun/live-final.txt)
+
+![Eze Favour — fresh JSON logs and public backend audit](screenshots/ordered-rerun/a6-live-final.png)
+
+[Original record/source](evidence/2026-09-26/a6-json-logs.txt) · [Terminal page 1](screenshots/terminal-review/a6-json-logs-terminal-01.png). Direct Code OSS terminal capture while reviewing this dated original log; not a new execution.
 
 ---
 

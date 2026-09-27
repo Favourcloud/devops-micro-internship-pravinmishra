@@ -1,5 +1,5 @@
 {
-  "method": "Actual browser captures; saved-output/source renderings are labelled. AWS account sections cropped.",
+  "method": "Direct Code OSS editor/live terminal/browser captures and labelled terminal reviews of dated logs; original labelled HTML viewers retained as historical evidence. AWS account sections cropped.",
   "images": [
     {
       "file": "screenshots/a1-a2-upstream-checkouts-p01.png",
@@ -1220,6 +1220,162 @@
       "sha256": "4bfce18e804f59ca2fb99cae26a46c9c178cea66bd7e208f5fa765648bf74c78"
     },
     {
+      "file": "screenshots/ordered-rerun/01-live-docker-ps.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "8338227dde780709184172b69ecbcf2d840e447c3c9c47bf56decc9c22a67894"
+    },
+    {
+      "file": "screenshots/ordered-rerun/02-claude-context.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "9ae4998267c43aaf49e6dcf012eb5509ea0aa6737b515b3693aca16b89e2f589"
+    },
+    {
+      "file": "screenshots/ordered-rerun/03-plan-end.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "8f0cd9b5e99320d60008ae173d2bd3f4e7468b606cdbe5a4bda772f52675e412"
+    },
+    {
+      "file": "screenshots/ordered-rerun/03-plan-start.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "2d7916074328a87fd5bcb082a1dcc5a91fb3541423849517f6cdb6c7eda76ef7"
+    },
+    {
+      "file": "screenshots/ordered-rerun/04-audit-script-1.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "e708955b25f007fccf784028eb18f502c87cd611a8c04d58eea68344d96a4851"
+    },
+    {
+      "file": "screenshots/ordered-rerun/04-audit-script-2.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "d01de25ea46d170a5421cf9be289daf5204ee450dce7d8f99e5d5b5a44493a9f"
+    },
+    {
+      "file": "screenshots/ordered-rerun/04-audit-script-3.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "edf66809dec389d30ffbdfe759e60d656f266fa327eb697a1d2beee1358b304c"
+    },
+    {
+      "file": "screenshots/ordered-rerun/04-audit-script-4.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "4faaed4866de63fcfc0be83251ca6572f3dbdd184b8913b4d11c016139688a8d"
+    },
+    {
+      "file": "screenshots/ordered-rerun/04-audit-script-5.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "6195990a9fd719be2dc8f39f2c39964535b7f94abdf50607f4342f3ae7d07618"
+    },
+    {
+      "file": "screenshots/ordered-rerun/05-syntax-and-permissions.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "d329b4d45ef1a95cc10384bdeb8282d57f6db93b3bbde30c995bb04e8bda03d0"
+    },
+    {
+      "file": "screenshots/ordered-rerun/06-baseline-audit.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "371061852dd38cdcc0195bc3dab1f42408839f7b44f76df844738d9d91ca9ec2"
+    },
+    {
+      "file": "screenshots/ordered-rerun/07-restricted-skill.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "b8d170e0dcf47b56c68873628e8315d558538dda77319846baf00b3505a1e9b9"
+    },
+    {
+      "file": "screenshots/ordered-rerun/08-skill-findings.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "b8b8963b0cbfa1e432499dc7fe09fbf7c34c549b6197943c6f3628e48ec15b92"
+    },
+    {
+      "file": "screenshots/ordered-rerun/08-skill-recommendations.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "0296e862d63fca82ae1dcaca4170ed4d8a87f47ef2aeb6725da20b12ae26bb76"
+    },
+    {
+      "file": "screenshots/ordered-rerun/09-dockerfile-fix.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "7d1c669a197b93c5f23df2f175afbc56b7161b12f9cee8152ebe0aac7471d41f"
+    },
+    {
+      "file": "screenshots/ordered-rerun/10-build-and-run.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "0eff02709a212eaed11a92f17b1e6777b9c5ba475cd2cda66bfc168149bb15ee"
+    },
+    {
+      "file": "screenshots/ordered-rerun/11-skill-comparison.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "74f786154550a7cbc8349fae47d7c3c9c52f862c32b9565ed1d5d9de06ad4526"
+    },
+    {
+      "file": "screenshots/ordered-rerun/11-skill-six-passes.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "c48735c32191e834d4940284491832d86d4607f7c9debfc6871cca56c3160812"
+    },
+    {
+      "file": "screenshots/ordered-rerun/12-behavior-tests.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "88ad1039076a6a94531ad658cc671328f2a62447cbb18e876c28c232710b21be"
+    },
+    {
+      "file": "screenshots/ordered-rerun/a2-ANALYSIS_md.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "ddabdcd47ca7210eeb5fe42418fb6063b67d7cd270a5de938406f1bfe4f90336"
+    },
+    {
+      "file": "screenshots/ordered-rerun/a2-Dockerfile_single.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "2d4a4cb6c9d1e6887b59d9c479b5a116a331c6ea38d48316a76abad9ceb8bed3"
+    },
+    {
+      "file": "screenshots/ordered-rerun/a2-_dockerignore.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "ba4b98a5e03ff407b424eab773018dcb9e53ae56b6590a84c3a324eb5d65ae45"
+    },
+    {
+      "file": "screenshots/ordered-rerun/a4-initial-browser.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "773aeeaa0843f7c42bd453c0dc7975625c396866d16277733c6667e93029e8a1"
+    },
+    {
+      "file": "screenshots/ordered-rerun/a4-update1-browser.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "ca88c03bdc83b92780539a2b7474ba6a37562f35a0a89796e4f41b1f9311fcd6"
+    },
+    {
+      "file": "screenshots/ordered-rerun/a4-update2-browser.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "7cd01a2ef39d8df5c0896670846e0cf4fe2eee1a2eb99d09319a98adadc86052"
+    },
+    {
+      "file": "screenshots/ordered-rerun/a6-live-final.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "e552887e409f39c9beaabd6c608b6ee8c106b898e2f92ec5cea89c7bac896473"
+    },
+    {
       "file": "screenshots/react-ANALYSIS_md-p01.png",
       "width": 1280,
       "height": 720,
@@ -1242,6 +1398,486 @@
       "width": 1280,
       "height": 720,
       "sha256": "1a9fb6f53f02e4b92bf06cabf1762a5ffd5484caa2314361639e37dfea26eaf9"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-a2-upstream-checkouts-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "dd9c1ab9cd6bb50bea5d315ecb01b3b1692e69254c3a4a2cf89eeb6d2bcfb1c5"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-bootstrap-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "623f2e6243e35692b40cdd2a00e44aca9599c741eafc24a8e70dc234449d0e3a"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-bootstrap-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "14e2ad090e2cb878d3f88c47c834b0c84dcbefb4b9155b4256acd0372e4d5adf"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-bootstrap-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "a2d339be6eecaa4e0a5e186da5f4692c7086b706724c48232f854fb39323c6fc"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-bootstrap-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "b8da1e3675af0c0aff8d589099a7468f1e729bae5bebe7df688427eeceec4ffa"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-cloud-inventory-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "eca8ab97ce724c1e5f0d1964e34d67182704d6a4fc9ec1e6f285d80fbb86cb18"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-cloud-inventory-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "c07db919645bc8a6125478f81fc70d9ee99e746688719097e49ee6d33653b241"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-cloud-inventory-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "d5adda10419c2d24bac7444e564a21d1ef2c25d4fd391c1e95c8f49d5ddfa6f0"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-static-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "105597d41104e3bf35dff5c82704cc8715c2c84e4fcc32b9cfaa500b4d6ff201"
+    },
+    {
+      "file": "screenshots/terminal-review/a1-static-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "93ec786f26828d453caf09275f82c629b9514a5a8b2dd1db3af51a4a466c8633"
+    },
+    {
+      "file": "screenshots/terminal-review/a2-react-build-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "a97114121345697c7e6f21a882046d377f870a0e3796906348d380a5286e1c7d"
+    },
+    {
+      "file": "screenshots/terminal-review/a2-react-build-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "3a5e02bf9d1b0b205a9ef7fa2fb87c4d81ac24631bcb50fb9f2d71a9f302ae5f"
+    },
+    {
+      "file": "screenshots/terminal-review/a2-react-build-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "93cbe6514e4185ef1f23e9468c9b9914370e0d81315eb6fe8b3a3065378f86ed"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "f2f6c26e05370562ee31c4e3a01e81a0ea8d4c875a031ee0b3c310f34dac1a92"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "beb02667fd6ee707def348bc6edbac359e09f67fca495c84f41d86c8e2d2bd6c"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "b0c05cc9ff34a73b364bd9362e760daa1a8df01a81bb95349cf2e2ae04620764"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "8bf768c6df93e3ca57e99087b5d34b3bbe54dc986aa87844a3845e19e721b11a"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-05.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "b1ecd127bee54ae3807f3a5cccc46b9d6eacf601fbc03e5ee74999dec4b81929"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-06.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "1741bfbebd0e9d1ff76f5e70dcf4af83ef34f523aada4fb2f38e75c8fc2000a9"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-build-stderr-terminal-07.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "4978048e5cf6162bff11302915e939ead1a66608188222b491d55a53d025d005"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "a4ed806a1a9546966fd37f328b8a67f52e8b088c0bbc2f370e215f251be126d3"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "63a483c58854005b4e4bd673d64756c60df1bf6a6500f3832ef5d4b16fecbc24"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "93fba5845f378e40aff12e2d82fdfa68973b057f439e0b610bf3a7c3e259c50d"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "c6f717498c82202c0fa6449f18f1b8c1e7fea66945106e7b3a6c4e610e682aa7"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-custom-bridge-terminal-05.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "a4395e40b836858d49dd526b4f48c578cb577a5e70c98e35538de05e3fd7bf75"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-default-bridge-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "0d131ce663473f111f5ae283bef437667010ca5f42de6e632036e55a1288dba0"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-default-bridge-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "9b4207ba72ad12af3cafe4c89f440d0c3e800062785eaf76843134d9e035d6ef"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-default-bridge-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "dc34e4df0519076de90065896fef06f31f2b26edc44d2b7623d4534b286c8a2a"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-default-bridge-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "3253ae90161f0fe3ab6f2e5e7ef4ad9d44f7e111b714f7a7ac5c374687899683"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-host-network-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "fc99b12a6067626dd2a8cb12491b29243560f790a90754159616e11081cc9f40"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-host-network-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "d9a26b1eb5d9f7df443d4dd7cbc21a796dc3dd8b3bd76e86d1ed2d64fdefaef5"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-host-network-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "d85c415b2e2484029ce929aac95a41d0725a82ca67cc9b3eb69b35631072b352"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "322c698c526baf35ba728a574cd6d4a89b3b13a0b8c4b79bf009a8e69271a852"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "5d69cf801a1c14dfb666ef1ae870c9237dc98443a4abac9fef5e453477f86a66"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "cccfffda77b657c85b0635dc85a2a06cbcda71269dc36993c4398e1a4da5506c"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "d69b6e01fe6548b1f0b4fae0dd94565dd26046f8a5ec3e31ebb18533c490ed43"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-05.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "2cf9bee0723c4fc5c5f909e5731f4b5f757ce00abd62e48372f49e956dee24f4"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-build-stderr-terminal-06.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "9117a2fa89c8639dc3a41975d9827d9105a47f59104769975b860ae8757bc919"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "6f2dfc44eae43e8217fa695733a7bad3b306cfa05d3405fed918aa690e8a4290"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "7741bf3b58a73e6b824d4838dd955882312cf56e87f551737b2f5b766682e50d"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "199bf99c2f772e12afd2d1d656a8c2859e17c77652b557c3c2c0a802d0a23385"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "9be2f715657e101d84204f82bfd8abd4cdd7c587a559f05e31f6475c8b14c2e8"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-05.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "e5830540f9d0d0e1da65a648476d5cd1b5f5f9a1a308342e3f9299a8155531ef"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-06.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "3dfa8fa71bb55a556444851b516a38f32112a092a36fcf8ed8ec1e1be326a7dc"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-07.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "0d02650db094aa8e8e35db08b873f6aea4deef2ceeeb41f59f62c12dffe19be6"
+    },
+    {
+      "file": "screenshots/terminal-review/a3-multiple-networks-terminal-08.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "6e19f99f733ee8b26dafd032aa1a8320edce2c1ef41c4992767528a4c558541f"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-bind-mount-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "7bfd5d5552703698dddc0e5e0d68f60b555233768072165fe6148eaa715e426f"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-bind-mount-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "c4a5cf47aa074b4b7d51fa36a2e451a6798cca2cdbd774be2ed21405e1c93c9a"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-bind-mount-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "28a0fafff5bc4800ee873554bcda0e11ed6bd2fd244ad363bee3ba7c231a3f4e"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-bind-mount-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "7c1c5c0e973d4c4a7247501f06c8cf5c39237f3d53f4a67ca357cfa1b12c792a"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-bind-removal-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "6380788f7a827f810f048096119102a15b3575480947ad502d8fe5cc88bf34e2"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-build-stderr-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "15cca828d7550c0b48973800edb5d787d03cc05c270f408c0bebe9dbf2a20965"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-build-stderr-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "925bdd8d1897d34be7ea3c9db3e6e4f88eec3a1e123352da975399a9888830b6"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-build-stderr-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "62bff49eaf1909ea707c9596255430b70e46ae352c496e01dfffb5a7fe7e412e"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-build-stderr-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "53abdc1686af91932d2e8fb36f970a58b23568cf3cb0ceb6539475534e10ac4e"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-build-stderr-terminal-05.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "7d4792ca95f1948e6d7939b4da3391c5c99eb8c6baccd414da4dff8efd2b2774"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "9fcaeef45ea8ef7e2c92b90333e1e4a13906e16eedd41968f8e25100ca6b8f92"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "6656e2046c23a2b498f74ddcfa08030c0f5c447f8e1fa15e1487bc86afdadb36"
+    },
+    {
+      "file": "screenshots/terminal-review/a4-shared-volume-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "a84996be904d8e7b3837c4b77d2d2cdcb6df92bcd03f8749f07e595fafe39fe9"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-pull-other-vm-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "9e75805679272d120106db9fb30d3bde6e4bed69e0faecf487b66cfbd8f4eb6d"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-pull-other-vm-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "99dcfd07a0229d73a82cada60f9a6799ebd0f57319aca98a39ac069e9b94f858"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "8b08006e05da5171c73f15e24bf517465b80c29912867032d9b0d71c3f238416"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "c82422e59c6ca2a83fb705d235a4e461a0720ec26a9bccb60c1e25a50f1f4025"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-03.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "23f20579a694a279aa6099a43c69433048aebf23e00c2a0a146ff6abffaf35c7"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-04.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "21e1fed537050b61358e606ba72d5f7bf3a65b1b3d6008458c305415bf35097b"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-05.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "49c2452b3bdfdda4f0a6d3e0fbbc308d9a5c81eabadf22a4f7677693ed84d9fa"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-06.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "0da38310ac9632ea6df3768c2ff5f12856c5090012338aa46390a176f163cdd6"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-07.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "a0c8114ee386731b0431d3dd9e4164d629d00c8811632aac69b36f084064aa4c"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-08.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "e9610b48a83f5f50b81ab4348e78c91517160917bc58d934b1808e311ccb4113"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-09.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "bc196459cf24301502ba86c9d990f1289ce51c2c9a60f73682685d2d01c3ae19"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-10.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "d346eb713435a92a3cc3810ba5768018e85b11645ea81e44774efb5a92e71c85"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-11.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "bf0db5190458d5b68c4220f1e4e87421ed64ea77382acd368b3a82809379435a"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-12.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "1bf60c01a7e689f6cdb71ee8f2a6956bfe0b295d8c9a47e7e802da77ac410d81"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-13.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "364dfd56ffb00a3dd65a94cb01bc5f71decd2b96708ab0e649fdc503b3f38471"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-14.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "655dfcb85b5b936267cd67e811aeadf974f911a46528adef2d848e215262c95a"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-15.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "918cfc0b539544991f19768fde331787c545f4226adb0150add31bf0686518f1"
+    },
+    {
+      "file": "screenshots/terminal-review/a5-registry-publication-terminal-16.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "3f366642990586566ab500a9f32c8b959bd77b49e71945ec3ec5bd72e86bd584"
+    },
+    {
+      "file": "screenshots/terminal-review/a6-json-logs-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "a4df30d9837c4788ea9680a57d4ea5fcc570a6bbba9a8dbe8774f594b41fc38b"
+    },
+    {
+      "file": "screenshots/terminal-review/a6-snapshot-restore-terminal-01.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "ab5aa86b9e054950e7d0279ce0cf4028bc3be59b4810ade386ed7ccbc9bb7938"
+    },
+    {
+      "file": "screenshots/terminal-review/a6-snapshot-restore-terminal-02.png",
+      "width": 2560,
+      "height": 1440,
+      "sha256": "fbd54f59c7b6f821d58c015e1495c42a5921d649c858a7cd6fffc1d2a56e7eac"
     },
     {
       "file": "screenshots/week11-linkedin-image.png",

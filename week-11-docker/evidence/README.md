@@ -263,3 +263,7 @@ The blocked Claude attempt is retained for transparency and excluded from succes
 ## a1-cloud-inventory
 
 [Original](../evidence/2026-09-26/a1-cloud-inventory.json) · [Page 1](../screenshots/a1-cloud-inventory-p01.png) · [Page 2](../screenshots/a1-cloud-inventory-p02.png) · [Page 3](../screenshots/a1-cloud-inventory-p03.png)
+
+## Final revision — 27 September 2026
+
+[Ordered A7 records and source chronology](2026-09-27-ordered-rerun/) include three successful Claude/Bedrock sessions, first/final reports, rebuild and 15 tests. Direct screenshots cover all A7 slots. A4 has fresh initial/update browser captures. The terminal-review manifest maps 80 direct terminal captures to the unmodified original logs; these reviews are not misrepresented as new executions.

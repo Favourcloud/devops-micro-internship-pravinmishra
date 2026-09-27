@@ -1,6 +1,6 @@
 # Week 11 — Docker
 
-**Eze Favour · Submission prepared 26 September 2026 · DMI grading pending**
+**Eze Favour · Submission updated 27 September 2026 · DMI grading pending**
 
 [Live EpicBook HTTPS demo](https://d209ibroel8p0b.cloudfront.net/) · [React demo](http://3.225.177.203/) · [Docker Hub](https://hub.docker.com/r/favourcloud/my-react-app) · [Blog](https://favourcloud.github.io/devops-micro-internship-pravinmishra/blog/week-11.html) · [LinkedIn receipt](publication/README.md)
 
@@ -14,12 +14,14 @@ The seven assignment files link to actual source, dated execution output and scr
 | [4 — docker volumes](assignment-04-docker-volumes.md) | Logs survive removal; shared-volume initial content and two updates |
 | [5 — sharing the docker container on docker hub](assignment-05-sharing-the-docker-container-on-docker-hub.md) | Public image pushed; digest pulled and run on a different VM |
 | [6 — capstone deploy a production grade stack for the epicbook](assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md) | Split Compose app, HTTPS edge, real checkout, fault recovery and snapshot restore |
-| [7 — ai assisted docker container hardening audit](assignment-07-ai-assisted-docker-container-hardening-audit.md) | Actual Bedrock plan/skill; training baseline 3 FAIL to 6 PASS; eight behavior tests |
+| [7 — ai assisted docker container hardening audit](assignment-07-ai-assisted-docker-container-hardening-audit.md) | Actual Bedrock plan/skill; training baseline 3 FAIL to 6 PASS; 15 behavior tests; fresh ordered rerun |
 
-[Evidence index](evidence/README.md) · [Architecture and runbook](capstone/docs/09-runbook.md) · [AI review and sequence limits](hardening-audit/OPERATOR-REVIEW.md)
+[Evidence index](evidence/README.md) · [Architecture and runbook](capstone/docs/09-runbook.md) · [Ordered rerun and operator review](hardening-audit/ordered-rerun/README.md)
 
 ## Scope and remaining assessor decisions
 
-The app is a teaching deployment with synthetic orders, one VM, and HTTP from CloudFront to its origin. The optional CI/CD exercise was not selected. The learner requested continued hosting, so teardown is intentionally deferred. The audit used a separate training backend to avoid weakening the public service. Saved-output/source captures and delegated execution are disclosed for assessor review; submission readiness does not mean DMI has awarded completion or a perfect score.
+The app is a teaching deployment with synthetic orders, one VM, and HTTP from CloudFront to its origin. The optional CI/CD exercise was not selected. The learner requested continued hosting, so teardown is intentionally deferred. The audit used a separate training backend to avoid weakening the public service. Direct editor/terminal captures, dated-log reviews and delegated execution are disclosed for assessor review; submission readiness does not mean DMI has awarded completion or a perfect score.
 
 ![Verified EpicBook over HTTPS](screenshots/a6-final-https-home.png)
+
+The final revision adds a correctly ordered A7 rerun, direct screenshots for all 11 A7 slots, actual A4 browser updates, and direct Code OSS editor/terminal captures supporting the other assignments. A2 retains its verified original multistage-Dockerfile source capture. [Final revision evidence](evidence/2026-09-27-ordered-rerun/).

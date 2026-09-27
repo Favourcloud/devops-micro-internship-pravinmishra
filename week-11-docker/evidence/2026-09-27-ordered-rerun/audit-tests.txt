@@ -1,0 +1,20 @@
+test_digest (__main__.AuditTests.test_digest) ... ok
+test_extra_ports (__main__.AuditTests.test_extra_ports) ... ok
+test_extra_published_ports (__main__.AuditTests.test_extra_published_ports) ... ok
+test_guard (__main__.AuditTests.test_guard) ... ok
+test_hardened (__main__.AuditTests.test_hardened) ... ok
+test_healthcheck_none (__main__.AuditTests.test_healthcheck_none) ... ok
+test_image_inspection_failure (__main__.AuditTests.test_image_inspection_failure) ... ok
+test_invalid_name (__main__.AuditTests.test_invalid_name) ... ok
+test_missing (__main__.AuditTests.test_missing) ... ok
+test_null_bindings_not_published (__main__.AuditTests.test_null_bindings_not_published) ... ok
+test_privileged (__main__.AuditTests.test_privileged) ... ok
+test_registry_port_is_not_tag (__main__.AuditTests.test_registry_port_is_not_tag) ... ok
+test_root_without_probe_latest (__main__.AuditTests.test_root_without_probe_latest) ... ok
+test_stopped (__main__.AuditTests.test_stopped) ... ok
+test_uid_zero_group (__main__.AuditTests.test_uid_zero_group) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 13.325s
+
+OK

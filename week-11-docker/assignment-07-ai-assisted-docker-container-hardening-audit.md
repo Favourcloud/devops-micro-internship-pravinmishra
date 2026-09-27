@@ -2,11 +2,11 @@
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
-**Eze Favour · Verified 26 September 2026 · DMI assessment pending**
+**Eze Favour · Ordered rerun verified 27 September 2026 (Africa/Lagos) · DMI assessment pending**
 
-Actual Claude Code/Bedrock planning and skill runs are recorded. The deliberately weak training copy of the EpicBook backend had 3 PASS / 3 FAIL; after Codex changed its Dockerfile outside Claude and rebuilt it, the audit reported 6 PASS. The hardened public backend was not weakened to create failures. See [operator review and sequence disclosure](hardening-audit/OPERATOR-REVIEW.md): the first script draft predated Claude planning, and learner-personal manual execution is not claimed.
+The fresh ordered rerun completed all seven tasks: live inspection → Claude planning while no audit script existed → script creation and validation → first audit → restricted skill → reviewed operator Dockerfile change and rebuild → second skill. The baseline returned **3 PASS / 3 FAIL** and the rebuilt training container returned **6 PASS / 0 WARN / 0 FAIL**. It was independently observed healthy with UID 1000. Fifteen behavior tests passed. [Chronology and operator review](hardening-audit/ordered-rerun/README.md).
 
-**Evidence method:** Codex executed and documented these exercises under delegation. App screenshots are actual browser captures. Numbered command/editor slots link to labelled browser renderings of saved command output or source, with originals alongside them; they are not represented as live Terminal or VS Code captures. Full-name captions identify the submission without claiming personal learner execution.
+**Evidence method:** The 11 required screenshot slots below now use direct captures of the actual Code OSS editor and its integrated terminal, including live Claude Code/Bedrock tool runs. They are not HTML evidence viewers. Codex performed the work and Dockerfile changes under delegation; no personal learner execution or awarded grade is claimed. The earlier attempt and its disclosed sequence error remain preserved as historical evidence.
 
 ---
 
@@ -26,7 +26,7 @@ Confirm your production-grade EpicBook containers from this week's capstone are 
 
 #### Screenshot 1 — `docker ps` showing your running EpicBook application container
 
-[Original record/source](evidence/2026-09-26/a6-final-build.txt) · [Screenshot page 1](screenshots/a6-final-build-p01.png) · [Screenshot page 2](screenshots/a6-final-build-p02.png) · [Screenshot page 3](screenshots/a6-final-build-p03.png) · [Screenshot page 4](screenshots/a6-final-build-p04.png) · [Screenshot page 5](screenshots/a6-final-build-p05.png) · [Screenshot page 6](screenshots/a6-final-build-p06.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-27-ordered-rerun/baseline-setup.txt) · [Direct capture 1](screenshots/ordered-rerun/01-live-docker-ps.png)
 
 ---
 
@@ -40,7 +40,7 @@ Create a `CLAUDE.md` in your workspace that tells Claude this project only ever 
 
 #### Screenshot 2 — `CLAUDE.md` open in VS Code showing the project overview, hardening workflow, and safety rules
 
-[Original record/source](hardening-audit/CLAUDE.md) · [Screenshot page 1](screenshots/hardening-audit-CLAUDE_md-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](hardening-audit/ordered-rerun/CLAUDE.md) · [Direct capture 1](screenshots/ordered-rerun/02-claude-context.png)
 
 ---
 
@@ -54,7 +54,7 @@ Ask Claude Code to inspect your running container using only read-only Docker co
 
 #### Screenshot 3 — Claude's proposed audit plan and read-only inspection
 
-[Original record/source](evidence/2026-09-26/a7-claude-plan.txt) · [Screenshot page 1](screenshots/a7-claude-plan-p01.png) · [Screenshot page 2](screenshots/a7-claude-plan-p02.png) · [Screenshot page 3](screenshots/a7-claude-plan-p03.png) · [Screenshot page 4](screenshots/a7-claude-plan-p04.png) · [Screenshot page 5](screenshots/a7-claude-plan-p05.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-27-ordered-rerun/plan-result.json) · [Direct capture 1](screenshots/ordered-rerun/03-plan-start.png) · [Direct capture 2](screenshots/ordered-rerun/03-plan-end.png)
 
 ---
 
@@ -68,13 +68,13 @@ Write a Bash script that runs `docker inspect` and `docker image inspect` agains
 
 #### Screenshot 4 — Your audit script open in an editor, showing the six check functions
 
-[Original record/source](hardening-audit/docker-audit.sh) · [Screenshot page 1](screenshots/hardening-audit-docker-audit_sh-p01.png) · [Screenshot page 2](screenshots/hardening-audit-docker-audit_sh-p02.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](hardening-audit/ordered-rerun/docker-audit.sh) · [Direct capture 1](screenshots/ordered-rerun/04-audit-script-1.png) · [Direct capture 2](screenshots/ordered-rerun/04-audit-script-2.png) · [Direct capture 3](screenshots/ordered-rerun/04-audit-script-3.png) · [Direct capture 4](screenshots/ordered-rerun/04-audit-script-4.png) · [Direct capture 5](screenshots/ordered-rerun/04-audit-script-5.png)
 
 ---
 
 #### Screenshot 5 — Terminal output of `bash -n` confirming the script has no syntax errors, and `ls -l` showing it is executable
 
-[Original record/source](evidence/2026-09-26/a7-tests.txt) · [Screenshot page 1](screenshots/a7-tests-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-27-ordered-rerun/audit-tests.txt) · [Direct capture 1](screenshots/ordered-rerun/05-syntax-and-permissions.png) · [Direct capture 2](screenshots/ordered-rerun/12-behavior-tests.png)
 
 ---
 
@@ -88,7 +88,7 @@ Run the script against your running EpicBook container and record the results ho
 
 #### Screenshot 6 — Script output showing your Full Name and all six check results
 
-[Original record/source](evidence/2026-09-26/a7-baseline-report.txt) · [Screenshot page 1](screenshots/a7-baseline-report-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-27-ordered-rerun/baseline-first-report.txt) · [Direct capture 1](screenshots/ordered-rerun/06-baseline-audit.png)
 
 ---
 
@@ -102,13 +102,13 @@ Turn the script into a Claude Code skill restricted to read-only tools, and run 
 
 #### Screenshot 7 — `SKILL.md` frontmatter showing the tool restrictions and safety rules
 
-[Original record/source](hardening-audit/.claude/skills/docker-audit/SKILL.md) · [Screenshot page 1](screenshots/hardening-audit-_claude-skills-docker-audit-SKILL_md-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](hardening-audit/ordered-rerun/.claude/skills/docker-audit/SKILL.md) · [Direct capture 1](screenshots/ordered-rerun/07-restricted-skill.png)
 
 ---
 
 #### Screenshot 8 — `/docker-audit` output showing the findings and Claude's recommended fix
 
-[Original record/source](evidence/2026-09-26/a7-claude-baseline.txt) · [Screenshot page 1](screenshots/a7-claude-baseline-p01.png) · [Screenshot page 2](screenshots/a7-claude-baseline-p02.png) · [Screenshot page 3](screenshots/a7-claude-baseline-p03.png) · [Screenshot page 4](screenshots/a7-claude-baseline-p04.png) · [Screenshot page 5](screenshots/a7-claude-baseline-p05.png) · [Screenshot page 6](screenshots/a7-claude-baseline-p06.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-27-ordered-rerun/baseline-result.json) · [Direct capture 1](screenshots/ordered-rerun/08-skill-findings.png) · [Direct capture 2](screenshots/ordered-rerun/08-skill-recommendations.png)
 
 ---
 
@@ -122,19 +122,19 @@ Edit your Dockerfile to apply Claude's recommendation, rebuild the image, recrea
 
 #### Screenshot 9 — Your edited Dockerfile line(s) showing the fix
 
-[Original record/source](hardening-audit/Dockerfile.hardened) · [Screenshot page 1](screenshots/hardening-audit-Dockerfile_hardened-p01.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](hardening-audit/ordered-rerun/Dockerfile.hardened) · [Direct capture 1](screenshots/ordered-rerun/09-dockerfile-fix.png)
 
 ---
 
 #### Screenshot 10 — `docker build` and `docker run` succeeding with the rebuilt image
 
-[Original record/source](evidence/2026-09-26/a7-operator-remediation.txt) · [Screenshot page 1](screenshots/a7-operator-remediation-p01.png) · [Screenshot page 2](screenshots/a7-operator-remediation-p02.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-27-ordered-rerun/operator-rebuild.txt) · [Direct capture 1](screenshots/ordered-rerun/10-build-and-run.png)
 
 ---
 
 #### Screenshot 11 — Second `/docker-audit` run showing the previously failed check now passing
 
-[Original record/source](evidence/2026-09-26/a7-claude-after.txt) · [Screenshot page 1](screenshots/a7-claude-after-p01.png) · [Screenshot page 2](screenshots/a7-claude-after-p02.png) · [Screenshot page 3](screenshots/a7-claude-after-p03.png) · [Screenshot page 4](screenshots/a7-claude-after-p04.png). Captured from the labelled saved-output/source viewer.
+[Original record/source](evidence/2026-09-27-ordered-rerun/after-result.json) · [Direct capture 1](screenshots/ordered-rerun/11-skill-six-passes.png) · [Direct capture 2](screenshots/ordered-rerun/11-skill-comparison.png)
 
 ---
 
@@ -193,115 +193,88 @@ It helps learners build strong DevOps foundations with hands-on experience.
 
 *This submission is part of DevOps Micro Internship (DMI) Cohort 3 — Agentic AI Track.*
 
-**Assessor review boundary:** functional workflow verified; first-draft sequence and personally manual execution are disclosed exceptions, not checked-off claims. Configuration audit passes do not establish complete production security.
+**Assessor review boundary:** the fresh ordered sequence is verified; delegated execution still requires the assessor’s judgment where the rubric expects personal manual work. Configuration audit passes do not establish complete production security.
 
-## Recorded evidence gallery
+## Direct evidence gallery
 
-Each figure is captured once and may support multiple related screenshot slots. Page links above identify the same original evidence, not separate repeated executions.
+### Screenshot slot 1
 
-### a6-final-build
+[Record or source](evidence/2026-09-27-ordered-rerun/baseline-setup.txt)
 
-[Original](evidence/2026-09-26/a6-final-build.txt)
+![Eze Favour — 01-live-docker-ps](screenshots/ordered-rerun/01-live-docker-ps.png)
 
-![Eze Favour — a6-final-build-p01](screenshots/a6-final-build-p01.png)
+### Screenshot slot 2
 
-![Eze Favour — a6-final-build-p02](screenshots/a6-final-build-p02.png)
+[Record or source](hardening-audit/ordered-rerun/CLAUDE.md)
 
-![Eze Favour — a6-final-build-p03](screenshots/a6-final-build-p03.png)
+![Eze Favour — 02-claude-context](screenshots/ordered-rerun/02-claude-context.png)
 
-![Eze Favour — a6-final-build-p04](screenshots/a6-final-build-p04.png)
+### Screenshot slot 3
 
-![Eze Favour — a6-final-build-p05](screenshots/a6-final-build-p05.png)
+[Record or source](evidence/2026-09-27-ordered-rerun/plan-result.json)
 
-![Eze Favour — a6-final-build-p06](screenshots/a6-final-build-p06.png)
+![Eze Favour — 03-plan-start](screenshots/ordered-rerun/03-plan-start.png)
 
-### hardening-audit-CLAUDE_md
+![Eze Favour — 03-plan-end](screenshots/ordered-rerun/03-plan-end.png)
 
-[Original](hardening-audit/CLAUDE.md)
+### Screenshot slot 4
 
-![Eze Favour — hardening-audit-CLAUDE_md-p01](screenshots/hardening-audit-CLAUDE_md-p01.png)
+[Record or source](hardening-audit/ordered-rerun/docker-audit.sh)
 
-### a7-claude-plan
+![Eze Favour — 04-audit-script-1](screenshots/ordered-rerun/04-audit-script-1.png)
 
-[Original](evidence/2026-09-26/a7-claude-plan.txt)
+![Eze Favour — 04-audit-script-2](screenshots/ordered-rerun/04-audit-script-2.png)
 
-![Eze Favour — a7-claude-plan-p01](screenshots/a7-claude-plan-p01.png)
+![Eze Favour — 04-audit-script-3](screenshots/ordered-rerun/04-audit-script-3.png)
 
-![Eze Favour — a7-claude-plan-p02](screenshots/a7-claude-plan-p02.png)
+![Eze Favour — 04-audit-script-4](screenshots/ordered-rerun/04-audit-script-4.png)
 
-![Eze Favour — a7-claude-plan-p03](screenshots/a7-claude-plan-p03.png)
+![Eze Favour — 04-audit-script-5](screenshots/ordered-rerun/04-audit-script-5.png)
 
-![Eze Favour — a7-claude-plan-p04](screenshots/a7-claude-plan-p04.png)
+### Screenshot slot 5
 
-![Eze Favour — a7-claude-plan-p05](screenshots/a7-claude-plan-p05.png)
+[Record or source](evidence/2026-09-27-ordered-rerun/audit-tests.txt)
 
-### hardening-audit-docker-audit_sh
+![Eze Favour — 05-syntax-and-permissions](screenshots/ordered-rerun/05-syntax-and-permissions.png)
 
-[Original](hardening-audit/docker-audit.sh)
+![Eze Favour — 12-behavior-tests](screenshots/ordered-rerun/12-behavior-tests.png)
 
-![Eze Favour — hardening-audit-docker-audit_sh-p01](screenshots/hardening-audit-docker-audit_sh-p01.png)
+### Screenshot slot 6
 
-![Eze Favour — hardening-audit-docker-audit_sh-p02](screenshots/hardening-audit-docker-audit_sh-p02.png)
+[Record or source](evidence/2026-09-27-ordered-rerun/baseline-first-report.txt)
 
-### a7-tests
+![Eze Favour — 06-baseline-audit](screenshots/ordered-rerun/06-baseline-audit.png)
 
-[Original](evidence/2026-09-26/a7-tests.txt)
+### Screenshot slot 7
 
-![Eze Favour — a7-tests-p01](screenshots/a7-tests-p01.png)
+[Record or source](hardening-audit/ordered-rerun/.claude/skills/docker-audit/SKILL.md)
 
-### a7-baseline-report
+![Eze Favour — 07-restricted-skill](screenshots/ordered-rerun/07-restricted-skill.png)
 
-[Original](evidence/2026-09-26/a7-baseline-report.txt)
+### Screenshot slot 8
 
-![Eze Favour — a7-baseline-report-p01](screenshots/a7-baseline-report-p01.png)
+[Record or source](evidence/2026-09-27-ordered-rerun/baseline-result.json)
 
-### hardening-audit-_claude-skills-docker-audit-SKILL_md
+![Eze Favour — 08-skill-findings](screenshots/ordered-rerun/08-skill-findings.png)
 
-[Original](hardening-audit/.claude/skills/docker-audit/SKILL.md)
+![Eze Favour — 08-skill-recommendations](screenshots/ordered-rerun/08-skill-recommendations.png)
 
-![Eze Favour — hardening-audit-_claude-skills-docker-audit-SKILL_md-p01](screenshots/hardening-audit-_claude-skills-docker-audit-SKILL_md-p01.png)
+### Screenshot slot 9
 
-### a7-claude-baseline
+[Record or source](hardening-audit/ordered-rerun/Dockerfile.hardened)
 
-[Original](evidence/2026-09-26/a7-claude-baseline.txt)
+![Eze Favour — 09-dockerfile-fix](screenshots/ordered-rerun/09-dockerfile-fix.png)
 
-![Eze Favour — a7-claude-baseline-p01](screenshots/a7-claude-baseline-p01.png)
+### Screenshot slot 10
 
-![Eze Favour — a7-claude-baseline-p02](screenshots/a7-claude-baseline-p02.png)
+[Record or source](evidence/2026-09-27-ordered-rerun/operator-rebuild.txt)
 
-![Eze Favour — a7-claude-baseline-p03](screenshots/a7-claude-baseline-p03.png)
+![Eze Favour — 10-build-and-run](screenshots/ordered-rerun/10-build-and-run.png)
 
-![Eze Favour — a7-claude-baseline-p04](screenshots/a7-claude-baseline-p04.png)
+### Screenshot slot 11
 
-![Eze Favour — a7-claude-baseline-p05](screenshots/a7-claude-baseline-p05.png)
+[Record or source](evidence/2026-09-27-ordered-rerun/after-result.json)
 
-![Eze Favour — a7-claude-baseline-p06](screenshots/a7-claude-baseline-p06.png)
+![Eze Favour — 11-skill-six-passes](screenshots/ordered-rerun/11-skill-six-passes.png)
 
-### hardening-audit-Dockerfile_hardened
-
-[Original](hardening-audit/Dockerfile.hardened)
-
-![Eze Favour — hardening-audit-Dockerfile_hardened-p01](screenshots/hardening-audit-Dockerfile_hardened-p01.png)
-
-### a7-operator-remediation
-
-[Original](evidence/2026-09-26/a7-operator-remediation.txt)
-
-![Eze Favour — a7-operator-remediation-p01](screenshots/a7-operator-remediation-p01.png)
-
-![Eze Favour — a7-operator-remediation-p02](screenshots/a7-operator-remediation-p02.png)
-
-### a7-claude-after
-
-[Original](evidence/2026-09-26/a7-claude-after.txt)
-
-![Eze Favour — a7-claude-after-p01](screenshots/a7-claude-after-p01.png)
-
-![Eze Favour — a7-claude-after-p02](screenshots/a7-claude-after-p02.png)
-
-![Eze Favour — a7-claude-after-p03](screenshots/a7-claude-after-p03.png)
-
-![Eze Favour — a7-claude-after-p04](screenshots/a7-claude-after-p04.png)
-
-
-The final public backend also passed all six checks and was running and healthy: [separate live audit](evidence/2026-09-26/a7-public-stack-audit.txt).
+![Eze Favour — 11-skill-comparison](screenshots/ordered-rerun/11-skill-comparison.png)

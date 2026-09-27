@@ -1,0 +1,63 @@
+Eze Favour | Operator rebuild | 2026-09-26T23:13:28Z
+$ docker build --progress=plain -f /opt/week11/audit-rerun/Dockerfile.hardened -t epicbook-audit-rerun:1.0.0 backend
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.hardened
+#1 transferring dockerfile: 793B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 108B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 681B done
+#4 DONE 0.0s
+
+#5 [dependencies 1/4] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#5 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#5 DONE 0.0s
+
+#6 [dependencies 3/4] COPY package*.json ./
+#6 CACHED
+
+#7 [dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
+#7 CACHED
+
+#8 [runtime 3/4] COPY --from=dependencies /app/node_modules ./node_modules
+#8 CACHED
+
+#9 [dependencies 2/4] WORKDIR /app
+#9 CACHED
+
+#10 [runtime 4/4] COPY --chown=node:node . .
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:f72311fe1b20273ffa478c36415d9ca03a53887295f6ce985588948442b2bf89 0.0s done
+#11 exporting config sha256:b42a6c8d101e3592861cd5c96648737d0302548ce790f868a2a68e0cd3d02870 0.0s done
+#11 exporting attestation manifest sha256:5f62b6ae6d35529fdc307d77fb0fbcc11e8b1b41e216226d86d42ab27e8a033f 0.0s done
+#11 exporting manifest list sha256:e057c3e039a37d5057936f62cc519d16f65e1ce7867904db91db46bb6ab05bc0 0.0s done
+#11 naming to docker.io/library/epicbook-audit-rerun:1.0.0
+Replacing only the isolated training container epicbook-audit-rerun
+epicbook-audit-rerun
+epicbook-audit-rerun
+#11 naming to docker.io/library/epicbook-audit-rerun:1.0.0 done
+#11 unpacking to docker.io/library/epicbook-audit-rerun:1.0.0 0.0s done
+#11 DONE 0.2s
+$ docker run -d --name epicbook-audit-rerun [same private network, no host ports, read-only secret mounts, dropped capabilities] epicbook-audit-rerun:1.0.0
+4b002dfe6bdb363a92e22ba189a29042edc3ee001227d628730c55a596244b93
+$ docker inspect: selected nonsecret state
+Name=/epicbook-audit-rerun Running=true Health=healthy User=node Image=epicbook-audit-rerun:1.0.0
+$ docker exec epicbook-audit-rerun id
+uid=1000(node) gid=1000(node) groups=1000(node)
+$ docker ps (public stack still healthy)
+NAMES                             STATUS
+week11-epicbook-reverse-proxy-1   Up 6 hours (healthy)
+week11-epicbook-frontend-1        Up 6 hours (healthy)
+week11-epicbook-backend-1         Up 6 hours (healthy)
+week11-epicbook-database-1        Up 6 hours (healthy)
