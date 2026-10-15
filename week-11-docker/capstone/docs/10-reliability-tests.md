@@ -18,3 +18,7 @@
 [HTTP/SQL tests](../../evidence/2026-09-26/a6-http-tests.json), [backend fault](../../evidence/2026-09-26/a6-backend-fault.txt), [database fault](../../evidence/2026-09-26/a6-database-fault.txt), [restore](../../evidence/2026-09-26/a6-snapshot-restore.txt) and [audit runtime](../../evidence/2026-09-26/a7-final-live-inspection.txt) retain actual results. The public screenshots show the live UI and its error page, not simulated renderings.
 
 These tests deliberately introduce downtime and prove controlled recovery, not zero-downtime availability or HA. The audited weak container was an isolated training baseline with no published port. It was not substituted for the public hardened backend. Codex performed the operator actions under the learner's authorization; the evidence does not claim personal learner execution.
+
+## 15 October 2026 candidate
+
+The [October local recovery drill](../../evidence/2026-10-15-rubric/capstone-recovery-tests.log) returned an unavailable status while backend was stopped and 503 during the database outage, then recovered to successful health and catalogue responses. Proxy logs remained on the host after proxy restart. These are local candidate tests, not additional cloud executions.

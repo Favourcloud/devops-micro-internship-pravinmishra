@@ -11,6 +11,7 @@
     "repository": "https://github.com/pravinmishraaws/theepicbook",
     "commit": "763becebb8d3f5663a76bb30facddc25be63cfd5",
     "checkout_patch": "../week-10-azure-devops/epicbook/application/app-patches/demo-checkout.patch",
-    "changes": "Separate SSR frontend/API; environment-free file secrets; readiness; JSON logs; error handling; modern dependencies; name/week attribution."
+    "changes": "Separate SSR frontend/API; environment-free file secrets; readiness; JSON logs; error handling; modern dependencies; name/week attribution.",
+    "october_candidate": "Frontend Nginx serves static files and proxies pages to backend Handlebars renderer; database-aware proxy readiness; external db_data preserves existing volume identity. Locally tested; cloud rollout pending."
   }
 }

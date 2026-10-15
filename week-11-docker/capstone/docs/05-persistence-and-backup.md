@@ -9,3 +9,7 @@ The first remote command stream ended before the final comparison/cleanup lines 
 [Snapshot creation](../../evidence/2026-09-26/a6-snapshot-create.txt) · [independent restore verification](../../evidence/2026-09-26/a6-snapshot-restore.txt) · [reusable drill](../ops/snapshot-drill.sh).
 
 Operational plan: take a backup before every schema change; use daily encrypted off-host backups with seven daily and four weekly versions, test a restore monthly, and verify both row contents and application behavior. That recurring schedule is a runbook recommendation, **not an automation installed by this submission**. A cold snapshot entails downtime. This single-host deployment has no HA or automatic disaster recovery. Never run `docker compose down -v` on retained data. Preserve secrets separately because the volume snapshot does not contain the session signing key.
+
+## 15 October 2026 candidate
+
+The October candidate adds [a reproducible synthetic-row drill](../ops/verify-recovery.sh). It creates a dedicated dmi_restore_probe table, dumps only that table, removes its test row, restores it, and verifies it after a non-destructive down/up. The [actual local log](../../evidence/2026-10-15-rubric/capstone-recovery-tests.log) shows the row restored and preserved. The cloud volume remains explicitly mapped by name; rollout is pending.

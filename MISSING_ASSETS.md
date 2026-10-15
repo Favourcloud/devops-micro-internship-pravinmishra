@@ -1,6 +1,6 @@
 ﻿# Missing screenshots and placeholder URLs\n\nGenerated on: 2026-08-28T13:55:20.6904255+01:00\n\n
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-03-docker-networking.md: 37 placeholders
-- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md: 24 placeholders
+- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md: 24 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-07-azure-cloud\assignment-06-deploy-book-review-app-three-tier-architecture-on-azure.md: 23 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-05-devops-lifecycle\assignment-03-run-a-5-day-mini-sprint-in-jira-and-ship-an-increment.md: 20 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-12-kubernetes\assignment-10-deploy-the-book-review-app-to-kubernetes.md: 19 placeholders
@@ -16,13 +16,13 @@
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-05-devops-lifecycle\assignment-02-stand-up-scrum-in-jira-for-dmi-website.md: 12 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-07-azure-cloud\assignment-07-ai-assisted-azure-security-posture-audit.md: 11 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-08-terraform\assignment-01-create-an-azure-virtual-machine-using-terraform.md: 11 placeholders
-- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md: 11 placeholders
+- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md: 11 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-01-deploy-a-static-website-on-a-cloud-vm-using-docker.md: 11 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-09-ansible\assignment-04-deploy-mini-finance-project-using-terraform-and-ansible.md: 10 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-10-azure-devops\assignment-05-ai-assisted-cicd-pipeline-failure-triage.md: 10 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-09-ansible\assignment-01-onboarding-workstation-setup-standards-and-ai.md: 10 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-10-azure-devops\assignment-03-deploy-react-application-with-azure-devops-pipeline.md: 10 placeholders
-- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md: 10 placeholders
+- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md: 10 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-07-azure-cloud\assignment-02-deploy-a-react-app-on-an-azure-vm.md: 10 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-08-terraform\assignment-03-deploy-a-react-application-on-azure-virtual-machine-using-terraform.md: 10 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-10-azure-devops\assignment-04-capstone-automate-the-epicbook-application-with-dual-pipelines.md: 9 placeholders
@@ -31,7 +31,7 @@
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-02-multi-stage-docker-build-for-a-react-application.md: 9 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-08-terraform\assignment-02-deploy-a-virtual-machine-on-aws-with-public-network-using-terraform.md: 8 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-05-devops-lifecycle\assignment-05-ai-assisted-sprint-health-report-via-jira-mcp.md: 8 placeholders
-- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md: 7 placeholders
+- C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md: 7 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-06-aws-cloud\assignment-05-deploy-a-highly-available-two-tier-application-on-aws.md: 7 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-09-ansible\assignment-03-multi-play-web-deploy-on-azure.md: 7 placeholders
 - C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-10-azure-devops\assignment-02-deploy-mini-finance-project-via-azure-devops-pipeline.md: 7 placeholders
@@ -454,58 +454,58 @@ C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-0
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-03-docker-networking.md:251: Add your screenshot here.
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-03-docker-networking.md:267: `Add your URL here`
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-03-docker-networking.md:273: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:23: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:29: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:35: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:41: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:47: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:53: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:59: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:65: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:71: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:77: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:91: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:97: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:103: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:109: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:115: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:121: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:127: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:133: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:139: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:145: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:151: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:157: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:173: `Add your URL here`
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes.md:179: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:23: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:29: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:35: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:41: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:47: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:53: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:59: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:65: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:81: `Add your URL here`
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-sharing-the-docker-container-on-docker-hub.md:87: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:105: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:125: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:145: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:151: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:171: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:207: `Add your URL here`
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-06-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:213: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:23: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:37: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:51: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:65: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:71: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:85: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:99: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:105: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:119: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:125: Add your screenshot here.
-C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-ai-assisted-docker-container-hardening-audit.md:131: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:23: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:29: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:35: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:41: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:47: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:53: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:59: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:65: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:71: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:77: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:91: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:97: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:103: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:109: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:115: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:121: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:127: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:133: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:139: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:145: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:151: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:157: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:173: `Add your URL here`
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-04-docker-volumes-and-bind-mounts.md:179: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:23: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:29: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:35: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:41: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:47: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:53: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:59: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:65: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:81: `Add your URL here`
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-05-publish-a-docker-container-on-docker-hub.md:87: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:105: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:125: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:145: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:151: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:171: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:207: `Add your URL here`
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-07-capstone-deploy-a-production-grade-stack-for-the-epicbook.md:213: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:23: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:37: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:51: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:65: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:71: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:85: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:99: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:105: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:119: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:125: Add your screenshot here.
+C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-11-docker\assignment-08-ai-assisted-docker-container-hardening-audit.md:131: Add your screenshot here.
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-12-kubernetes\assignment-01-creating-your-first-pod-in-kubernetes.md:23: Add your screenshot here.
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-12-kubernetes\assignment-01-creating-your-first-pod-in-kubernetes.md:37: Add your screenshot here.
 C:\Users\FAVOUR\devops-micro-internship-pravinmishra\week-12-kubernetes\assignment-01-creating-your-first-pod-in-kubernetes.md:51: Add your screenshot here.

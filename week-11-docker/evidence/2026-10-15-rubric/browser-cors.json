@@ -1,0 +1,27 @@
+{
+  "scope": "Local browser after Compose restart",
+  "apiResponses": [
+    {
+      "url": "http://127.0.0.1:3101/api/books/1",
+      "status": 204,
+      "allowOrigin": "http://127.0.0.1:3100"
+    },
+    {
+      "url": "http://127.0.0.1:3101/api/reviews/1",
+      "status": 204,
+      "allowOrigin": "http://127.0.0.1:3100"
+    },
+    {
+      "url": "http://127.0.0.1:3101/api/books/1",
+      "status": 200,
+      "allowOrigin": "http://127.0.0.1:3100"
+    },
+    {
+      "url": "http://127.0.0.1:3101/api/reviews/1",
+      "status": 200,
+      "allowOrigin": "http://127.0.0.1:3100"
+    }
+  ],
+  "consoleErrors": [],
+  "at": "2026-10-15T13:01:20.047Z"
+}

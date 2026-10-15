@@ -1,4 +1,6 @@
-# Assignment 4 — Docker Volumes
+# Assignment 4 — Docker Volumes and Bind Mounts
+
+**15 October rubric reconciliation:** this document preserves the verified September work under the current expected filename. See [the current rubric audit](rubric-audit-2026-10-15.md) for additional requirements in the updated template; historical completion checkboxes do not claim those new items are finished.
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 

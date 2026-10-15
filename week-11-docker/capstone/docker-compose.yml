@@ -14,7 +14,7 @@ services:
     <<: *hardening
     image: nginx@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b
     user: '101:101'
-    ports: ['80:8080']
+    ports: ['${HTTP_BIND:-0.0.0.0}:${HTTP_PORT:-80}:8080']
     networks: [front-tier]
     volumes:
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
@@ -30,7 +30,7 @@ services:
     mem_limit: 128m
   frontend:
     <<: *hardening
-    image: epicbook-frontend:1.0.0
+    image: epicbook-frontend:2026-10-15
     build: ./frontend
     networks: [front-tier]
     depends_on:
@@ -38,7 +38,7 @@ services:
     mem_limit: 256m
   backend:
     <<: *hardening
-    image: epicbook-backend:1.0.0
+    image: epicbook-backend:2026-10-15
     build: ./backend
     networks: [front-tier, back-tier]
     environment:
@@ -59,7 +59,7 @@ services:
       MYSQL_PASSWORD_FILE: /run/secrets/db_password
     secrets: [db_root, db_password]
     volumes:
-      - database-data:/var/lib/mysql
+      - db_data:/var/lib/mysql
       - ./database/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: [CMD-SHELL, 'MYSQL_PWD=$$(cat /run/secrets/db_password) mysql -h 127.0.0.1 -u epicapp bookstore -e "SELECT 1" >/dev/null 2>&1']
@@ -76,7 +76,9 @@ networks:
   front-tier: {}
   back-tier: {internal: true}
 volumes:
-  database-data: {}
+  db_data:
+    external: true
+    name: ${DATABASE_VOLUME_NAME:-week11-epicbook_database-data}
 secrets:
   db_root: {file: ./secrets/db_root}
   db_password: {file: ./secrets/db_password}

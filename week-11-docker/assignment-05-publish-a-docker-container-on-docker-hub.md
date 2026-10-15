@@ -1,4 +1,6 @@
-# Assignment 5 — Sharing the Docker Container on Docker Hub
+# Assignment 5 — Publish a Docker Container on Docker Hub
+
+**15 October rubric reconciliation:** this document preserves the verified September work under the current expected filename. See [the current rubric audit](rubric-audit-2026-10-15.md) for additional requirements in the updated template; historical completion checkboxes do not claim those new items are finished.
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
@@ -186,3 +188,11 @@ Each figure is captured once and may support multiple related screenshot slots. 
 ![Eze Favour — a5-pull-other-vm-p01](screenshots/a5-pull-other-vm-p01.png)
 
 ![Eze Favour — a5-pull-other-vm-p02](screenshots/a5-pull-other-vm-p02.png)
+
+## 15 October 2026 — current registry requirements
+
+The public `favourcloud/my-react-app:latest` tag was pushed successfully. The targeted local `latest` tag was then removed, pulled again from Docker Hub and run in an isolated local container. The existing versioned image tag and deployed React demo were not removed.
+
+[Actual push output](evidence/2026-10-15-rubric/dockerhub-latest-push.log) · [remove/pull/run verification](evidence/2026-10-15-rubric/dockerhub-latest-verify.log).
+
+This additional run is **local Docker Desktop**. September's separately linked second-VM pull/run remains historical cloud evidence; a new cloud deployment is not claimed. Exact current VM captures and the updated assignment-specific LinkedIn text remain pending.

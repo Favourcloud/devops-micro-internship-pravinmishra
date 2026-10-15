@@ -1,0 +1,18 @@
+{
+  "scope": "Local Docker build",
+  "images": {
+    "epicbook-backend-baseline:2026-10-15": {
+      "size_bytes": 1708635557,
+      "id": "sha256:784106e52ebb2677bf9790bf1cc65c47131d7dbf54f3818cd26df4c5c867ed46"
+    },
+    "epicbook-backend:2026-10-15": {
+      "size_bytes": 380178260,
+      "id": "sha256:95624a394cac0342806bb68b86942f3605394ac70b3e9d7a3e62b2c752b69ded"
+    },
+    "epicbook-frontend:2026-10-15": {
+      "size_bytes": 157915346,
+      "id": "sha256:4a3261db1a68e2546eca193792ce28aac4ecdba880b0a92dea15b8a4a308eaf1"
+    }
+  },
+  "backend_reduction_percent": 77.75
+}

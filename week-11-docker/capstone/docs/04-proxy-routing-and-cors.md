@@ -1,7 +1,11 @@
-# Reverse proxy, HTTPS and CORS
+# Proxy routing and CORS
 
-Nginx routes `/api/` to the backend and `/` to the frontend through Docker DNS. Variable upstreams with the Docker resolver let it discover replacement containers. Only the proxy publishes an application port. The proxy restricts request bodies, applies an API rate limit, suppresses its version, rejects dotfiles, and sends nosniff, frame-denial and referrer-policy headers. JSON logs omit cookies and request bodies.
+Eze Favour · 15 October candidate, local verification; cloud rollout pending.
 
-CloudFront provides the AWS HTTPS hostname with HTTP-to-HTTPS redirection. Its dynamic cache TTL is zero and cookies/query strings/headers are forwarded. The distribution adds a viewer-scheme header so the origin can set Secure cookies for HTTPS requests. The backend permits exactly the direct origin and CloudFront origins. Foreign Origin headers are rejected with 403; signed HttpOnly SameSite=Strict cart cookies separate independent clients. Tests cover rejected origins and missing/invalid book IDs.
+The reverse proxy is the only published capstone service. `/api/` goes to backend:8080; `/health` goes to its database-aware health endpoint; other requests go to frontend:8080. Frontend Nginx serves `/assets/` from `/usr/share/nginx/html` and sends application pages to the backend's Handlebars routes. Docker DNS resolution has a five-second cache so replaced service IPs are rediscovered.
 
-The direct origin remains public to satisfy the public-IP exercise. The origin hop is HTTP. Before handling real accounts, payments or personal data, use a certificate-backed HTTPS origin, restrict origin access, and review the complete threat model. This deployment accepts synthetic orders only and never takes payment.
+The browser sees a single origin for pages and APIs, so browser CORS permissions are not necessary for this capstone. The explicit backend origin allowlist is retained as a defence on write requests; it is not a substitute for authentication. The separate Assignment 6 app intentionally uses two public ports and therefore has an actual cross-origin CORS requirement.
+
+The proxy keeps bounded timeouts, small request bodies, no dotfile access, security headers, and API request limits. JSON logs include timestamp, method, path, status and duration; they exclude cookies, authorization headers, query strings and database connection strings.
+
+[Local route and checkout checks](../../evidence/2026-10-15-rubric/capstone-http-tests.json) · [proxy configuration](../proxy/nginx.conf) · [frontend routing](../frontend/nginx.conf).
