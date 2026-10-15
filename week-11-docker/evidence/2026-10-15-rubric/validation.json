@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-15T13:14:00.002135+00:00",
+  "scope": "Local implementation and submission packaging; not DMI grading",
+  "expected_assignment_files": 8,
+  "actual_assignment_files": 8,
+  "local_links_checked": 985,
+  "linked_images_decoded": 325,
+  "changed_files_scanned_for_current_test_secrets": 154,
+  "sensitive_value_matches": 0,
+  "book_review_checks_passed": 13,
+  "capstone_http_checks_passed": 14,
+  "capstone_local_recovery_passed": true,
+  "dockerhub_latest_round_trip_passed": true,
+  "errors": [],
+  "packaging_passed": true,
+  "cloud_rollout_complete": false,
+  "rubric_complete": false,
+  "remaining": [
+    "Public cloud rollout and refreshed VM evidence",
+    "A6 exact developer-tools screenshot and assignment-specific publication",
+    "Remaining updated A4/A5/A7/A8 template evidence and workflow reconciliation"
+  ]
+}

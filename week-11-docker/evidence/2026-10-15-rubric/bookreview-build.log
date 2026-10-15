@@ -1,0 +1,150 @@
+ Image week11-book-review-backend:2026-10-15 Building 
+ Image week11-book-review-frontend:2026-10-15 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.27kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 806B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 560B done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/node:22-bookworm-slim
+#4 DONE 0.0s
+
+#5 [frontend internal] load .dockerignore
+#5 transferring context: 76B done
+#5 DONE 0.0s
+
+#6 [backend internal] load .dockerignore
+#6 transferring context: 76B done
+#6 DONE 0.0s
+
+#7 [frontend internal] load build context
+#7 DONE 0.0s
+
+#8 [backend internal] load build context
+#8 transferring context: 786B done
+#8 DONE 0.0s
+
+#9 [frontend build 1/6] FROM docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c
+#9 resolve docker.io/library/node:22-bookworm-slim@sha256:43ac6c60b8f89723f746e8a92ce91abd5017e627ce1ddfe4238355d3a30b772c 0.0s done
+#9 DONE 0.0s
+
+#10 [frontend build 2/6] WORKDIR /app
+#10 CACHED
+
+#11 [backend dependencies 3/4] COPY package*.json ./
+#11 CACHED
+
+#12 [backend dependencies 4/4] RUN npm ci --omit=dev --no-audit --no-fund
+#12 CACHED
+
+#13 [backend runtime 3/4] COPY --from=dependencies /app/node_modules ./node_modules
+#13 CACHED
+
+#7 [frontend internal] load build context
+#7 transferring context: 195.22kB 0.0s done
+#7 DONE 0.0s
+
+#14 [backend runtime 4/4] COPY --chown=node:node src ./src
+#14 CACHED
+
+#15 [backend] exporting to image
+#15 exporting layers 0.0s done
+#15 exporting manifest sha256:eae4b59c2249e1dd00de6fd97e9fd07280885d6305a7405bc5dca74dfd34028d done
+#15 exporting config sha256:eb497eca81797e90aa6c2f434b736d87bee15df8e73b1d2ff2ab3204bc00ed4e done
+#15 exporting attestation manifest sha256:dbb8fbd91b0e3f7427b26345a7de153ed659d8066efd2ebf630ac4add48d3e1a 0.0s done
+#15 exporting manifest list sha256:480974d81a46d84f1d97714726921e3588af352649e4856e08e9bcb8b639fe2d 0.0s done
+#15 naming to docker.io/library/week11-book-review-backend:2026-10-15 done
+#15 unpacking to docker.io/library/week11-book-review-backend:2026-10-15 0.0s done
+#15 DONE 0.2s
+
+#16 [frontend build 3/6] COPY package*.json ./
+#16 DONE 0.0s
+
+#17 [frontend build 4/6] RUN npm ci --no-audit --no-fund
+#17 ...
+
+#18 [backend] resolving provenance for metadata file
+#18 DONE 0.0s
+
+#17 [frontend build 4/6] RUN npm ci --no-audit --no-fund
+#17 166.2 
+#17 166.2 added 323 packages in 3m
+#17 166.2 npm notice
+#17 166.2 npm notice New major version of npm available! 10.9.9 -> 12.2.0
+#17 166.2 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+#17 166.2 npm notice To update run: npm install -g npm@12.2.0
+#17 166.2 npm notice
+#17 DONE 166.4s
+
+#19 [frontend build 5/6] COPY . .
+#19 DONE 0.2s
+
+#20 [frontend build 6/6] RUN npm run build
+#20 0.351 
+#20 0.351 > frontend@0.1.0 build
+#20 0.351 > next build
+#20 0.351 
+#20 1.313    ▲ Next.js 15.5.28
+#20 1.314    - Experiments (use with caution):
+#20 1.314      · cpus: 2
+#20 1.315 
+#20 1.373    Creating an optimized production build ...
+#20 14.37  ✓ Compiled successfully in 10.2s
+#20 14.37    Linting and checking validity of types ...
+#20 16.49    Collecting page data ...
+#20 18.54    Generating static pages (0/7) ...
+#20 19.33    Generating static pages (1/7) 
+#20 19.33    Generating static pages (3/7) 
+#20 19.33    Generating static pages (5/7) 
+#20 19.33  ✓ Generating static pages (7/7)
+#20 20.95    Finalizing page optimization ...
+#20 20.95    Collecting build traces ...
+#20 59.01 
+#20 59.02 Route (app)                                 Size  First Load JS
+#20 59.02 ┌ ○ /                                      744 B         125 kB
+#20 59.02 ├ ○ /_not-found                            991 B         104 kB
+#20 59.02 ├ ƒ /book/[id]                           1.63 kB         123 kB
+#20 59.02 ├ ○ /login                               1.35 kB         122 kB
+#20 59.02 └ ○ /register                            1.19 kB         122 kB
+#20 59.02 + First Load JS shared by all             103 kB
+#20 59.02   ├ chunks/255-b1e2483a7e02feee.js       46.6 kB
+#20 59.02   ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+#20 59.02   └ other shared chunks (total)          1.92 kB
+#20 59.02 
+#20 59.02 
+#20 59.02 ○  (Static)   prerendered as static content
+#20 59.02 ƒ  (Dynamic)  server-rendered on demand
+#20 59.02 
+#20 DONE 59.3s
+
+#21 [frontend runtime 3/5] COPY --from=build --chown=node:node /app/.next/standalone ./
+#21 DONE 0.4s
+
+#22 [frontend runtime 4/5] COPY --from=build --chown=node:node /app/.next/static ./.next/static
+#22 DONE 0.1s
+
+#23 [frontend runtime 5/5] COPY --from=build --chown=node:node /app/public ./public
+#23 DONE 0.1s
+
+#24 [frontend] exporting to image
+#24 exporting layers
+#24 exporting layers 5.7s done
+#24 exporting manifest sha256:1459cf2fe059a5d668e3edd7872ba68d0c2560797fdce0bcfc9dff4d3ad7fc49 0.0s done
+#24 exporting config sha256:b37ce2652daa709423035fa168aecda3b01cccb5c6fefe32d9d7c9812a750d74 0.0s done
+#24 exporting attestation manifest sha256:5f19ff2387be7448b1d1edda85bd0bbb9e9350c238596666010df698e30634b2 0.0s done
+#24 exporting manifest list sha256:d4941bb4e0fcf9f7162c6001b6e30fc7236a3b17cea046420e388ae443d7147c 0.0s done
+#24 naming to docker.io/library/week11-book-review-frontend:2026-10-15 done
+#24 unpacking to docker.io/library/week11-book-review-frontend:2026-10-15
+#24 unpacking to docker.io/library/week11-book-review-frontend:2026-10-15 2.3s done
+#24 DONE 8.2s
+
+#25 [frontend] resolving provenance for metadata file
+#25 DONE 0.1s
+ Image week11-book-review-frontend:2026-10-15 Built 
+ Image week11-book-review-backend:2026-10-15 Built 

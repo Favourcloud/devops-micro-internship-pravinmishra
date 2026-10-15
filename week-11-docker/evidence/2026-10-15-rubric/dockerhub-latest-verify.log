@@ -1,0 +1,19 @@
+Eze Favour | Week 11 A5 | Local registry round trip | 2026-10-15T13:01:36Z
+$ docker image ls favourcloud/my-react-app
+IMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+favourcloud/my-react-app:latest            cbd9bb9a9815       94.2MB         26.4MB        
+favourcloud/my-react-app:week11-20260926   cbd9bb9a9815       94.2MB         26.4MB        
+$ docker image rm favourcloud/my-react-app:latest
+Untagged: favourcloud/my-react-app:latest
+$ docker pull favourcloud/my-react-app:latest
+latest: Pulling from favourcloud/my-react-app
+Digest: sha256:cbd9bb9a98155de22d42f892835a3052dbba0f212bc2ea86b9fbd84bbb854c40
+Status: Downloaded newer image for favourcloud/my-react-app:latest
+docker.io/favourcloud/my-react-app:latest
+IMAGE                                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+favourcloud/my-react-app:latest            cbd9bb9a9815       94.2MB         26.4MB        
+favourcloud/my-react-app:week11-20260926   cbd9bb9a9815       94.2MB         26.4MB        
+8cdec5e6b5759a26ecd3695e3533e737f1c502c45c151dca3d2233a9061866d5
+CONTAINER ID   IMAGE                             COMMAND                  CREATED                  STATUS                                     PORTS                      NAMES
+8cdec5e6b575   favourcloud/my-react-app:latest   "/docker-entrypoint.…"   Less than a second ago   Up Less than a second (health: starting)   127.0.0.1:3185->8080/tcp   week11-rubric-react-registry
+PASS: pulled latest tag serves React locally

@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-15T12:48:37.050318+00:00",
+  "scope": "Local Docker Desktop; cloud deployment pending",
+  "api_base": "http://127.0.0.1:3101",
+  "frontend_origin": "http://127.0.0.1:3100",
+  "review_id": 1,
+  "checks": [
+    {
+      "check": "database-aware health",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "check": "allowed browser origin",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "check": "catalogue has three books",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "check": "untrusted origin refused",
+      "passed": true,
+      "detail": 403
+    },
+    {
+      "check": "CORS preflight",
+      "passed": true,
+      "detail": 204
+    },
+    {
+      "check": "review requires authentication",
+      "passed": true,
+      "detail": 401
+    },
+    {
+      "check": "registered user can log in",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "check": "authenticated review created",
+      "passed": true,
+      "detail": 201
+    },
+    {
+      "check": "review visible before restart",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "check": "same review survives down/up",
+      "passed": true,
+      "detail": 1
+    },
+    {
+      "check": "same login survives down/up",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "check": "MySQL has no published ports",
+      "passed": true,
+      "detail": "No host port bindings"
+    },
+    {
+      "check": "MySQL uses named volume",
+      "passed": true,
+      "detail": "mysql_data"
+    }
+  ]
+}

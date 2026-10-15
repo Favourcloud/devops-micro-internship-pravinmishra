@@ -1,0 +1,92 @@
+{
+  "at": "2026-10-15T12:42:52.066919+00:00",
+  "base": "http://127.0.0.1:3180",
+  "checks": [
+    {
+      "check": "homepage",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "check": "database-backed catalog",
+      "pass": true,
+      "detail": 9
+    },
+    {
+      "check": "cart write",
+      "pass": true,
+      "detail": {
+        "status": 201,
+        "cart_id": 1
+      }
+    },
+    {
+      "check": "SSR cart fetch",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "check": "session isolation",
+      "pass": true,
+      "detail": 200
+    },
+    {
+      "check": "checkout",
+      "pass": true,
+      "detail": {
+        "demo": true,
+        "paymentTaken": false,
+        "orders": [
+          {
+            "id": 1,
+            "cartId": 1,
+            "subTotal": "32.50"
+          }
+        ]
+      }
+    },
+    {
+      "check": "empty replay refused",
+      "pass": true,
+      "detail": 400
+    },
+    {
+      "check": "CORS allowlist",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "check": "missing book",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "check": "invalid identifier",
+      "pass": true,
+      "detail": 400
+    },
+    {
+      "check": "sensitive path /.env",
+      "pass": true,
+      "detail": 403
+    },
+    {
+      "check": "sensitive path /secrets/session",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "check": "sensitive path /backend/server.js",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "check": "security headers",
+      "pass": true,
+      "detail": {
+        "nosniff": "nosniff",
+        "frame": "DENY"
+      }
+    }
+  ]
+}

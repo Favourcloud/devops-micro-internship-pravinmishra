@@ -1,0 +1,67 @@
+Eze Favour | Week 11 A6 | LOCAL Compose integration and persistence verification
+2026-10-15T12:47:58.977275+00:00
+PASS | database-aware health | 200
+PASS | allowed browser origin | 200
+PASS | catalogue has three books | 3
+PASS | untrusted origin refused | 403
+PASS | CORS preflight | 204
+PASS | review requires authentication | 401
+PASS | registered user can log in | 200
+PASS | authenticated review created | 201
+PASS | review visible before restart | 1
+$ docker compose down (preserve mysql_data)
+ Container week11-book-review-frontend-1 Stopping 
+ Container week11-book-review-frontend-1 Stopped 
+ Container week11-book-review-frontend-1 Removing 
+ Container week11-book-review-frontend-1 Removed 
+ Container week11-book-review-backend-1 Stopping 
+ Container week11-book-review-backend-1 Stopped 
+ Container week11-book-review-backend-1 Removing 
+ Container week11-book-review-backend-1 Removed 
+ Container week11-book-review-mysql-1 Stopping 
+ Container week11-book-review-mysql-1 Stopped 
+ Container week11-book-review-mysql-1 Removing 
+ Container week11-book-review-mysql-1 Removed 
+ Network week11-book-review_database Removing 
+ Network week11-book-review_web Removing 
+ Network week11-book-review_database Removed 
+ Network week11-book-review_web Removed 
+$ docker compose up -d --wait
+ Network week11-book-review_database Creating 
+ Network week11-book-review_web Creating 
+ Network week11-book-review_web Creating 
+ Network week11-book-review_database Creating 
+ Network week11-book-review_database Created 
+ Network week11-book-review_database Created 
+ Container week11-book-review-mysql-1 Creating 
+ Network week11-book-review_web Created 
+ Network week11-book-review_web Created 
+ Container week11-book-review-mysql-1 Created 
+ Container week11-book-review-backend-1 Creating 
+ Container week11-book-review-backend-1 Created 
+ Container week11-book-review-frontend-1 Creating 
+ Container week11-book-review-frontend-1 Created 
+ Container week11-book-review-mysql-1 Starting 
+ Container week11-book-review-mysql-1 Started 
+ Container week11-book-review-mysql-1 Waiting 
+ Container week11-book-review-mysql-1 Healthy 
+ Container week11-book-review-backend-1 Starting 
+ Container week11-book-review-backend-1 Started 
+ Container week11-book-review-backend-1 Waiting 
+ Container week11-book-review-backend-1 Healthy 
+ Container week11-book-review-frontend-1 Starting 
+ Container week11-book-review-frontend-1 Started 
+ Container week11-book-review-backend-1 Waiting 
+ Container week11-book-review-frontend-1 Waiting 
+ Container week11-book-review-mysql-1 Waiting 
+ Container week11-book-review-mysql-1 Healthy 
+ Container week11-book-review-backend-1 Healthy 
+ Container week11-book-review-frontend-1 Healthy 
+NAME                            IMAGE                                    COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+week11-book-review-backend-1    week11-book-review-backend:2026-10-15    "docker-entrypoint.s…"   backend    22 seconds ago   Up 14 seconds (healthy)   127.0.0.1:3101->3001/tcp
+week11-book-review-frontend-1   week11-book-review-frontend:2026-10-15   "docker-entrypoint.s…"   frontend   22 seconds ago   Up 8 seconds (healthy)    127.0.0.1:3100->3000/tcp
+week11-book-review-mysql-1      mysql:8.0                                "docker-entrypoint.s…"   mysql      23 seconds ago   Up 21 seconds (healthy)   3306/tcp, 33060/tcp
+PASS | same review survives down/up | 1
+PASS | same login survives down/up | 200
+PASS | MySQL has no published ports | No host port bindings
+PASS | MySQL uses named volume | mysql_data

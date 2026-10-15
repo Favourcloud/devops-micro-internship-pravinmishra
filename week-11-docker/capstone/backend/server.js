@@ -20,6 +20,7 @@ app.get('/api/catalog',async(req,res)=>{try{
  res.json({books,categories,cartCount:cart.length});
 }catch{res.status(503).json({error:'Catalogue temporarily unavailable'});}});
 require('./routes/cart-api-routes')(app);
+require('./pages')(app);
 app.use((_req,res)=>res.status(404).json({error:'Not found'}));app.use((_err,_req,res,_next)=>res.status(500).json({error:'Request could not be completed'}));
 const server=app.listen(8080,'0.0.0.0',()=>console.log(JSON.stringify({service:'backend',event:'listening',port:8080})));
 process.on('SIGTERM',()=>server.close(()=>db.sequelize.close().finally(()=>process.exit(0))));

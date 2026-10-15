@@ -1,0 +1,171 @@
+Eze Favour | Week 11 A7 | Actual persistence, backup and failure drill | 20261015T131241Z
+NAME                                     IMAGE                                                                           COMMAND                  SERVICE         CREATED          STATUS                    PORTS
+week11-capstone-rubric-backend-1         epicbook-backend:2026-10-15                                                     "docker-entrypoint.s…"   backend         23 minutes ago   Up 22 minutes (healthy)   8080/tcp
+week11-capstone-rubric-database-1        mysql@sha256:0744ee5ef89ce6ccfa13de3e579fe6b9e27f93dd70da9c06d2c908b1b193fb8d   "docker-entrypoint.s…"   database        23 minutes ago   Up 22 minutes (healthy)   3306/tcp, 33060/tcp
+week11-capstone-rubric-frontend-1        epicbook-frontend:2026-10-15                                                    "/docker-entrypoint.…"   frontend        23 minutes ago   Up 23 minutes (healthy)   80/tcp, 8080/tcp
+week11-capstone-rubric-reverse-proxy-1   nginx@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b   "/docker-entrypoint.…"   reverse-proxy   23 minutes ago   Up 22 minutes (healthy)   127.0.0.1:3180->8080/tcp
+id	owner
+1	Eze Favour - isolated restore probe
+Backup created:
+-rw-------  1 ctu  staff   2.0K Oct 15 14:12 backups/rubric-probe-20261015T131241Z.sql
+Controlled deletion: only the synthetic dmi_restore_probe row
+probe_rows_after_delete
+0
+id	owner
+1	Eze Favour - isolated restore probe
+PASS: synthetic probe restored
+$ docker compose down (no volume removal)
+ Container week11-capstone-rubric-reverse-proxy-1 Stopping 
+ Container week11-capstone-rubric-reverse-proxy-1 Stopped 
+ Container week11-capstone-rubric-reverse-proxy-1 Removing 
+ Container week11-capstone-rubric-reverse-proxy-1 Removed 
+ Container week11-capstone-rubric-frontend-1 Stopping 
+ Container week11-capstone-rubric-frontend-1 Stopped 
+ Container week11-capstone-rubric-frontend-1 Removing 
+ Container week11-capstone-rubric-frontend-1 Removed 
+ Container week11-capstone-rubric-backend-1 Stopping 
+ Container week11-capstone-rubric-backend-1 Stopped 
+ Container week11-capstone-rubric-backend-1 Removing 
+ Container week11-capstone-rubric-backend-1 Removed 
+ Container week11-capstone-rubric-database-1 Stopping 
+ Container week11-capstone-rubric-database-1 Stopped 
+ Container week11-capstone-rubric-database-1 Removing 
+ Container week11-capstone-rubric-database-1 Removed 
+ Network week11-capstone-rubric_back-tier Removing 
+ Network week11-capstone-rubric_front-tier Removing 
+ Network week11-capstone-rubric_front-tier Removed 
+ Network week11-capstone-rubric_back-tier Removed 
+$ docker compose up -d --wait
+ Network week11-capstone-rubric_back-tier Creating 
+ Network week11-capstone-rubric_front-tier Creating 
+ Network week11-capstone-rubric_back-tier Creating 
+ Network week11-capstone-rubric_front-tier Creating 
+ Network week11-capstone-rubric_back-tier Created 
+ Network week11-capstone-rubric_back-tier Created 
+ Container week11-capstone-rubric-database-1 Creating 
+ Network week11-capstone-rubric_front-tier Created 
+ Network week11-capstone-rubric_front-tier Created 
+ Container week11-capstone-rubric-database-1 Created 
+ Container week11-capstone-rubric-backend-1 Creating 
+ Container week11-capstone-rubric-backend-1 Created 
+ Container week11-capstone-rubric-frontend-1 Creating 
+ Container week11-capstone-rubric-frontend-1 Created 
+ Container week11-capstone-rubric-reverse-proxy-1 Creating 
+ Container week11-capstone-rubric-reverse-proxy-1 Created 
+ Container week11-capstone-rubric-database-1 Starting 
+ Container week11-capstone-rubric-database-1 Started 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Starting 
+ Container week11-capstone-rubric-backend-1 Started 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Starting 
+ Container week11-capstone-rubric-frontend-1 Started 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-reverse-proxy-1 Starting 
+ Container week11-capstone-rubric-reverse-proxy-1 Started 
+ Container week11-capstone-rubric-reverse-proxy-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-reverse-proxy-1 Healthy 
+id	owner
+1	Eze Favour - isolated restore probe
+PASS: same row persists after down/up
+/ -> 200
+/api/catalog -> 200
+/assets/img/1.png -> 200
+/health -> 200
+Backend failure test
+ Container week11-capstone-rubric-backend-1 Stopping 
+ Container week11-capstone-rubric-backend-1 Stopped 
+Expected unavailable response: 504
+ Container week11-capstone-rubric-reverse-proxy-1 Running 
+ Container week11-capstone-rubric-frontend-1 Running 
+ Container week11-capstone-rubric-database-1 Running 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Starting 
+ Container week11-capstone-rubric-backend-1 Started 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-reverse-proxy-1 Waiting 
+ Container week11-capstone-rubric-reverse-proxy-1 Healthy 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Healthy 
+{"status":"ready","database":"reachable"}Database failure test
+ Container week11-capstone-rubric-database-1 Stopping 
+ Container week11-capstone-rubric-database-1 Stopped 
+Expected database-dependent failure: 503
+ Container week11-capstone-rubric-frontend-1 Running 
+ Container week11-capstone-rubric-backend-1 Running 
+ Container week11-capstone-rubric-reverse-proxy-1 Running 
+ Container week11-capstone-rubric-database-1 Starting 
+ Container week11-capstone-rubric-database-1 Started 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-reverse-proxy-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-reverse-proxy-1 Healthy 
+{"status":"ready","database":"reachable"}PASS: both dependency failures recovered
+ Container week11-capstone-rubric-reverse-proxy-1 Restarting 
+ Container week11-capstone-rubric-reverse-proxy-1 Started 
+ Container week11-capstone-rubric-backend-1 Running 
+ Container week11-capstone-rubric-database-1 Running 
+ Container week11-capstone-rubric-reverse-proxy-1 Running 
+ Container week11-capstone-rubric-frontend-1 Running 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-frontend-1 Waiting 
+ Container week11-capstone-rubric-backend-1 Waiting 
+ Container week11-capstone-rubric-database-1 Waiting 
+ Container week11-capstone-rubric-reverse-proxy-1 Waiting 
+ Container week11-capstone-rubric-frontend-1 Healthy 
+ Container week11-capstone-rubric-database-1 Healthy 
+ Container week11-capstone-rubric-backend-1 Healthy 
+ Container week11-capstone-rubric-reverse-proxy-1 Healthy 
+Persistent proxy log entries after proxy restart:
+{"at":"2026-10-15T13:13:18+00:00","service":"proxy","method":"GET","uri":"/api/catalog","status":504,"duration":2.001}
+{"at":"2026-10-15T13:13:30+00:00","service":"proxy","method":"GET","uri":"/api/catalog","status":503,"duration":0.356}
+{"at":"2026-10-15T13:13:37+00:00","service":"proxy","method":"GET","uri":"/api/catalog","status":200,"duration":0.024}
+Backend recent structured logs:
+backend-1  | {"at":"2026-10-15T13:13:37.775Z","service":"backend","method":"GET","path":"/health","status":200,"duration_ms":2}
+backend-1  | {"at":"2026-10-15T13:13:45.463Z","service":"backend","method":"GET","path":"/health","status":200,"duration_ms":2}
+backend-1  | {"at":"2026-10-15T13:13:48.495Z","service":"backend","method":"GET","path":"/health","status":200,"duration_ms":2}
+NAME                                     IMAGE                                                                           COMMAND                  SERVICE         CREATED              STATUS                    PORTS
+week11-capstone-rubric-backend-1         epicbook-backend:2026-10-15                                                     "docker-entrypoint.s…"   backend         About a minute ago   Up 29 seconds (healthy)   8080/tcp
+week11-capstone-rubric-database-1        mysql@sha256:0744ee5ef89ce6ccfa13de3e579fe6b9e27f93dd70da9c06d2c908b1b193fb8d   "docker-entrypoint.s…"   database        About a minute ago   Up 18 seconds (healthy)   3306/tcp, 33060/tcp
+week11-capstone-rubric-frontend-1        epicbook-frontend:2026-10-15                                                    "/docker-entrypoint.…"   frontend        About a minute ago   Up 50 seconds (healthy)   80/tcp, 8080/tcp
+week11-capstone-rubric-reverse-proxy-1   nginx@sha256:985220252f3863977e468f611ef118ebd01421289dd86ee1ae99cb068c3bce2b   "/docker-entrypoint.…"   reverse-proxy   About a minute ago   Up 11 seconds (healthy)   127.0.0.1:3180->8080/tcp

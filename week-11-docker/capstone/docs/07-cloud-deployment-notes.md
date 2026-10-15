@@ -12,3 +12,7 @@ Cloud-init installs Docker from Docker's signed Ubuntu repository, enables its s
 These are paid cloud resources. They remain online under the learner's explicit keep-online instruction. Teardown is deferred until requested. This is a single-host application architecture; the second VM is the lab machine, not a standby or load-balanced replica. Origin HTTP, local Compose file secrets and absence of automatic backups/alerting are explicit production limitations.
 
 At 22:14 UTC the operator network had changed. Through the authenticated AWS console, only the SSH and comparison-port sources were replaced with the new operator /32; HTTP/HTTPS rules stayed unchanged. Private Terraform inputs were updated to match, and the next authenticated Terraform refresh should reconcile state. SSH then succeeded and all four Compose services were healthy in [the final state record](../../evidence/2026-09-26/a6-final-state.txt).
+
+## 15 October 2026 candidate
+
+The new source in this revision is a locally tested candidate. It has not replaced the September cloud deployment. The additional Book Review security group and labs-VM attachment are prepared in Terraform but have not been applied. The attempted plan was blocked before a successful plan/apply; no new cloud infrastructure is claimed.

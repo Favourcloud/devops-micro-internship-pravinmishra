@@ -15,7 +15,7 @@ The new workspace began with only `CLAUDE.md` and the inspection wrapper. The ea
 | Operator rebuilt the isolated training container | 2026-09-26T23:13:35.581498+00:00 |
 | Final skill finished | 2026-09-26T23:14:39.105721+00:00; 6 PASS |
 
-[All dated records](../../evidence/2026-09-27-ordered-rerun/) · [assignment and direct screenshots](../../assignment-07-ai-assisted-docker-container-hardening-audit.md).
+[All dated records](../../evidence/2026-09-27-ordered-rerun/) · [assignment and direct screenshots](../../assignment-08-ai-assisted-docker-container-hardening-audit.md).
 
 ## Reviewed corrections to Claude’s advice
 

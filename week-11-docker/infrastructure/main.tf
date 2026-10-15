@@ -81,7 +81,7 @@ resource "aws_instance" "docker" {
   ami                         = var.ami_id
   instance_type               = "t3.medium"
   subnet_id                   = aws_subnet.lab.id
-  vpc_security_group_ids      = [aws_security_group.lab.id]
+  vpc_security_group_ids      = each.key == "labs" ? [aws_security_group.lab.id, aws_security_group.book_review.id] : [aws_security_group.lab.id]
   key_name                    = var.key_name
   user_data                   = file("${path.module}/cloud-init.sh")
   user_data_replace_on_change = true
@@ -107,3 +107,21 @@ resource "aws_eip" "docker" {
 }
 output "public_ips" { value = { for name, ip in aws_eip.docker : name => ip.public_ip } }
 output "instance_ids" { value = { for name, vm in aws_instance.docker : name => vm.id } }
+
+# Assignment 6 uses separate browser UI/API ports, scoped only to the labs VM.
+resource "aws_security_group" "book_review" {
+  name_prefix = "eze-week11-bookreview-"
+  description = "Public Book Review UI and API on the Docker labs VM"
+  vpc_id      = aws_vpc.lab.id
+  dynamic "ingress" {
+    for_each = [3000, 3001]
+    content {
+      description = "Book Review browser UI/API"
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  tags = { Name = "eze-week11-bookreview" }
+}

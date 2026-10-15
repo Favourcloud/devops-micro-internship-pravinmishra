@@ -1,0 +1,54 @@
+Eze Favour | A6 | Local browser review persistence drill
+2026-10-15T12:58:20.904135+00:00
+$ docker compose down
+ Container week11-book-review-frontend-1 Stopping 
+ Container week11-book-review-frontend-1 Stopped 
+ Container week11-book-review-frontend-1 Removing 
+ Container week11-book-review-frontend-1 Removed 
+ Container week11-book-review-backend-1 Stopping 
+ Container week11-book-review-backend-1 Stopped 
+ Container week11-book-review-backend-1 Removing 
+ Container week11-book-review-backend-1 Removed 
+ Container week11-book-review-mysql-1 Stopping 
+ Container week11-book-review-mysql-1 Stopped 
+ Container week11-book-review-mysql-1 Removing 
+ Container week11-book-review-mysql-1 Removed 
+ Network week11-book-review_web Removing 
+ Network week11-book-review_database Removing 
+ Network week11-book-review_database Removed 
+ Network week11-book-review_web Removed 
+$ docker compose up -d --wait
+ Network week11-book-review_database Creating 
+ Network week11-book-review_web Creating 
+ Network week11-book-review_database Creating 
+ Network week11-book-review_web Creating 
+ Network week11-book-review_database Created 
+ Network week11-book-review_database Created 
+ Container week11-book-review-mysql-1 Creating 
+ Network week11-book-review_web Created 
+ Network week11-book-review_web Created 
+ Container week11-book-review-mysql-1 Created 
+ Container week11-book-review-backend-1 Creating 
+ Container week11-book-review-backend-1 Created 
+ Container week11-book-review-frontend-1 Creating 
+ Container week11-book-review-frontend-1 Created 
+ Container week11-book-review-mysql-1 Starting 
+ Container week11-book-review-mysql-1 Started 
+ Container week11-book-review-mysql-1 Waiting 
+ Container week11-book-review-mysql-1 Healthy 
+ Container week11-book-review-backend-1 Starting 
+ Container week11-book-review-backend-1 Started 
+ Container week11-book-review-backend-1 Waiting 
+ Container week11-book-review-backend-1 Healthy 
+ Container week11-book-review-frontend-1 Starting 
+ Container week11-book-review-frontend-1 Started 
+ Container week11-book-review-backend-1 Waiting 
+ Container week11-book-review-frontend-1 Waiting 
+ Container week11-book-review-mysql-1 Waiting 
+ Container week11-book-review-mysql-1 Healthy 
+ Container week11-book-review-backend-1 Healthy 
+ Container week11-book-review-frontend-1 Healthy 
+NAME                            IMAGE                                    COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+week11-book-review-backend-1    week11-book-review-backend:2026-10-15    "docker-entrypoint.s…"   backend    24 seconds ago   Up 13 seconds (healthy)   127.0.0.1:3101->3001/tcp
+week11-book-review-frontend-1   week11-book-review-frontend:2026-10-15   "docker-entrypoint.s…"   frontend   24 seconds ago   Up 6 seconds (healthy)    127.0.0.1:3100->3000/tcp
+week11-book-review-mysql-1      mysql:8.0                                "docker-entrypoint.s…"   mysql      24 seconds ago   Up 24 seconds (healthy)   3306/tcp, 33060/tcp
